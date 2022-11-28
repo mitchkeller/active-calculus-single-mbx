@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC The chain rule</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-2-4-other-trig.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-2-6-inverse.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-2-4-other-trig.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-2-6-inverse.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="active">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="omc"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">The chain rule</span>
+</h2>
+<article class="objectives goal-like" id="CpH"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="LJt"><p id="kmd">What is a composite function and how do we recognize its structure algebraically?</p></li>
+<li id="rQC"><p id="Qtm">Given a composite function <span class="process-math">\(C(x) = f(g(x))\)</span> that is built from differentiable functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> how do we compute <span class="process-math">\(C'(x)\)</span> in terms of <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(g\text{,}\)</span> <span class="process-math">\(f'\text{,}\)</span> and <span class="process-math">\(g'\text{?}\)</span> What is the statement of the Chain Rule?</p></li>
+</ul></article><section class="introduction" id="ODZ"><p id="AeV">In addition to learning how to differentiate a variety of basic functions, we have also been developing our ability to use rules to differentiate certain algebraic combinations of them.</p>
+<article class="example example-like" id="iwQ"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span>
+</h3>
+<p id="CZB">State the rule(s) to find the derivative of each of the following combinations of <span class="process-math">\(f(x) = \sin(x)\)</span> and <span class="process-math">\(g(x) = x^2\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+s(x) = 3x^2 - 5\sin(x)\text{,}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+p(x) = x^2 \sin(x), \text{and}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+q(x) = \frac{\sin(x)}{x^2}\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-uLi" id="uLi"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-uLi"><div class="solution solution-like"><p id="ION">Finding <span class="process-math">\(s'\)</span> uses the sum and constant multiple rules, because <span class="process-math">\(s(x) = 3g(x) - 5f(x)\text{.}\)</span> Determining <span class="process-math">\(p'\)</span> requires the product rule, because <span class="process-math">\(p(x) = g(x) \cdot f(x)\text{.}\)</span> To calculate <span class="process-math">\(q'\)</span> we use the quotient rule, because <span class="process-math">\(q(x) =\frac{f(x)}{g(x)}\text{.}\)</span></p></div></div>
+</div></article><p id="gme">There is one more natural way to combine basic functions algebraically, and that is by <em class="emphasis">composing</em> them. For instance, let's consider the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C(x) = \sin(x^2)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and observe that any input <span class="process-math">\(x\)</span> passes through a <em class="emphasis">chain</em> of functions. In the process that defines the function <span class="process-math">\(C(x)\text{,}\)</span> <span class="process-math">\(x\)</span> is first squared, and then the sine of the result is taken. Using an arrow diagram,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+x \longrightarrow x^2 \longrightarrow \sin(x^2)\text{.}
+\end{equation*}
+</div>
+<p id="Mtn">In terms of the elementary functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> we observe that <span class="process-math">\(x\)</span> is the input for the function <span class="process-math">\(g\text{,}\)</span> and the result is used as the input for <span class="process-math">\(f\text{.}\)</span> We write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C(x) = f(g(x)) = \sin(x^2)
+\end{equation*}
+</div>
+<p class="continuation">and say that <span class="process-math">\(C\)</span> is the <em class="emphasis">composition</em>  of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{.}\)</span> We will refer to <span class="process-math">\(g\text{,}\)</span> the function that is first applied to <span class="process-math">\(x\text{,}\)</span> as the <em class="emphasis">inner</em> function, while <span class="process-math">\(f\text{,}\)</span> the function that is applied to the result, is the <em class="emphasis">outer</em> function.</p>
+<p id="sAw">Given a composite function <span class="process-math">\(C(x) = f(g(x))\)</span> that is built from differentiable functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> how do we compute <span class="process-math">\(C'(x)\)</span> in terms of <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(g\text{,}\)</span> <span class="process-math">\(f'\text{,}\)</span> and <span class="process-math">\(g'\text{?}\)</span> In the same way that the rate of change of a product of two functions, <span class="process-math">\(p(x) = f(x) \cdot g(x)\text{,}\)</span> depends on the behavior of both <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> it makes sense intuitively that the rate of change of a composite function <span class="process-math">\(C(x) = f(g(x))\)</span> will also depend on some combination of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> and their derivatives. The rule that describes how to compute <span class="process-math">\(C'\)</span> in terms of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> and their derivatives is called the <em class="emphasis">chain rule</em>.</p>
+<p id="YHF">But before we can learn what the chain rule says and why it works, we first need to be comfortable decomposing composite functions so that we can correctly identify the inner and outer functions, as we did in the example above with <span class="process-math">\(C(x) = \sin(x^2)\text{.}\)</span></p>
+<article class="exploration project-like" id="vLx"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span>
+</h3>
+<p id="PEo">For each function given below, identify its fundamental algebraic structure. In particular, is the given function a sum, product, quotient, or composition of basic functions? If the function is a composition of basic functions, state a formula for the inner function <span class="process-math">\(g\)</span> and the outer function <span class="process-math">\(f\)</span> so that the overall composite function can be written in the form <span class="process-math">\(f(g(x))\text{.}\)</span> If the function is a sum, product, or quotient of basic functions, use the appropriate rule to determine its derivative.</p>
+<ol class="lower-alpha cols2">
+<li id="tWk"><p id="eNm"><span class="process-math">\(\displaystyle h(x) = \tan(2^x)\)</span></p></li>
+<li id="adt"><p id="KUv"><span class="process-math">\(\displaystyle p(x) = 2^x \tan(x)\)</span></p></li>
+<li id="GkC"><p id="rbE"><span class="process-math">\(\displaystyle r(x) = (\tan(x))^2\)</span></p></li>
+<li id="mrL"><p id="XiN"><span class="process-math">\(\displaystyle m(x) = e^{\tan(x)}\)</span></p></li>
+<li id="SyU"><p id="DpW"><span class="process-math">\(\displaystyle w(x) = \sqrt{x} + \tan(x)\)</span></p></li>
+<li id="yGd"><p id="jxf"><span class="process-math">\(\displaystyle z(x) = \sqrt{\tan(x)}\)</span></p></li>
+</ol></article></section><section class="subsection" id="Utl"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.5.1</span> <span class="title">The chain rule</span>
+</h3>
+<p id="EOO">Often a composite function cannot be written in an alternate algebraic form. For instance, the function <span class="process-math">\(C(x) = \sin(x^2)\)</span> cannot be expanded or otherwise rewritten, so it presents no alternate approaches to taking the derivative. But some composite functions can be expanded or simplified, and these provide a way to explore how the chain rule works.</p>
+<article class="example example-like" id="Zde"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span>
+</h4>
+<p id="jgK">Let <span class="process-math">\(f(x) = -4x + 7\)</span> and <span class="process-math">\(g(x) = 3x - 5\text{.}\)</span> Determine a formula for <span class="process-math">\(C(x) = f(g(x))\)</span> and compute <span class="process-math">\(C'(x)\text{.}\)</span> How is <span class="process-math">\(C'\)</span> related to <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> and their derivatives?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-aSr" id="aSr"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-aSr"><div class="solution solution-like">
+<p id="oVW">By the rules given for <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="DJv">
+\begin{align*}
+C(x) =\mathstrut \amp  f(g(x))\\
+=\mathstrut \amp  f(3x-5)\\
+=\mathstrut \amp  -4(3x-5) + 7\\
+=\mathstrut \amp  -12x + 20 + 7\\
+=\mathstrut \amp  -12x + 27\text{.}
+\end{align*}
+</div>
+<p id="Vdf">Thus, <span class="process-math">\(C'(x) = -12\text{.}\)</span> Noting that <span class="process-math">\(f'(x) = -4\)</span> and <span class="process-math">\(g'(x) = 3\text{,}\)</span> we observe that <span class="process-math">\(C'\)</span> appears to be the product of <span class="process-math">\(f'\)</span> and <span class="process-math">\(g'\text{.}\)</span></p>
+</div></div>
+</div></article><p id="kVX">It may seem that <a href="" class="xref" data-knowl="./knowl/ex-2-5-linear.html" title="Example 2.5.2">Example 2.5.2</a> is too elementary to illustrate how to differentiate a composite fuction. Linear functions are the simplest of all functions, and composing linear functions yields another linear function. While this example does not illustrate the full complexity of a composition of nonlinear functions, at the same time we remember that any differentiable function is <em class="emphasis">locally</em> linear, and thus any function with a derivative behaves like a line when viewed up close. The fact that the derivatives of the linear functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are multiplied to find the derivative of their composition turns out to be a key insight.</p>
+<p id="Rdg">We now consider a composition involving a nonlinear function.</p>
+<article class="example example-like" id="Fkn"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
+</h4>
+<p id="PnT">Let <span class="process-math">\(C(x) = \sin(2x)\text{.}\)</span> Use the double angle identity to rewrite <span class="process-math">\(C\)</span> as a product of basic functions, and use the product rule to find <span class="process-math">\(C'\text{.}\)</span> Rewrite <span class="process-math">\(C'\)</span> in the simplest form possible.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-GZA" id="GZA"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-GZA"><div class="solution solution-like">
+<p id="Bko">Using the double angle identity for the sine function, we write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C(x) = \sin(2x) = 2\sin(x)\cos(x)\text{.}
+\end{equation*}
+</div>
+<p id="hrx">Applying the product rule and simplifying, we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C'(x) = 2\sin(x)(-\sin(x)) + \cos(x)(2\cos(x)) = 2(\cos^2(x) - \sin^2(x))\text{.}
+\end{equation*}
+</div>
+<p id="NyG">Next, we recall that the double angle identity for the cosine,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\cos(2x) = \cos^2(x) - \sin^2(x)\text{.}
+\end{equation*}
+</div>
+<p id="tFP">Substituting this result into our expression for <span class="process-math">\(C'(x)\text{,}\)</span> we now have that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C'(x) = 2 \cos(2x)\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><p id="xkp">In <a href="" class="xref" data-knowl="./knowl/ex-2-5-double-angle.html" title="Example 2.5.3">Example 2.5.3</a>, if we let <span class="process-math">\(g(x) = 2x\)</span> and <span class="process-math">\(f(x) = \sin(x)\text{,}\)</span> we observe that <span class="process-math">\(C(x) = f(g(x))\text{.}\)</span> Now, <span class="process-math">\(g'(x) = 2\)</span> and <span class="process-math">\(f'(x) = \cos(x)\text{,}\)</span> so we can view the structure of <span class="process-math">\(C'(x)\)</span> as</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ex-2-5-double-angle.html">
+\begin{equation*}
+C'(x) = 2\cos(2x) = g'(x) f'(g(x))\text{.}
+\end{equation*}
+</div>
+<p id="dry">In this example, as in the example involving linear functions, we see that the derivative of the composite function <span class="process-math">\(C(x) = f(g(x))\)</span> is found by multiplying the derivatives of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> but with <span class="process-math">\(f'\)</span> evaluated at <span class="process-math">\(g(x)\text{.}\)</span></p>
+<p id="JyH">It makes sense intuitively that these two quantities are involved in the rate of change of a composite function: if we ask how fast <span class="process-math">\(C\)</span> is changing at a given <span class="process-math">\(x\)</span> value, it clearly matters how fast <span class="process-math">\(g\)</span> is changing at <span class="process-math">\(x\text{,}\)</span> as well as how fast <span class="process-math">\(f\)</span> is changing at the value of <span class="process-math">\(g(x)\text{.}\)</span> It turns out that this structure holds for all differentiable functions<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-48" id="fn-48"><sup> 1 </sup></a> as is stated in the Chain Rule.</p>
+<article class="assemblage assemblage-like" id="sVV"><h4 class="heading"><span class="title">Chain Rule.</span></h4>
+<p id="pFQ"> If <span class="process-math">\(g\)</span> is differentiable at <span class="process-math">\(x\)</span> and <span class="process-math">\(f\)</span> is differentiable at <span class="process-math">\(g(x)\text{,}\)</span> then the composite function <span class="process-math">\(C\)</span> defined by <span class="process-math">\(C(x) = f(g(x))\)</span> is differentiable at <span class="process-math">\(x\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C'(x) = f'(g(x)) g'(x)\text{.}
+\end{equation*}
+</div></article><p id="VMZ">As with the product and quotient rules, it is often helpful to think verbally about what the chain rule says: “If <span class="process-math">\(C\)</span> is a composite function defined by an outer function <span class="process-math">\(f\)</span> and an inner function <span class="process-math">\(g\text{,}\)</span> then <span class="process-math">\(C'\)</span> is given by the derivative of the outer function evaluated at the inner function, times the derivative of the inner function.”</p>
+<p id="BUi">It is helpful to identify clearly the inner function <span class="process-math">\(g\)</span> and outer function <span class="process-math">\(f\text{,}\)</span> compute their derivatives individually, and then put all of the pieces together by the chain rule.</p>
+<article class="example example-like" id="lrw"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
+</h4>
+<p id="vvc">Determine the derivative of the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+r(x) = (\tan(x))^2\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-ngJ" id="ngJ"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-ngJ"><div class="solution solution-like">
+<p id="ZMY">The function <span class="process-math">\(r\)</span> is composite, with inner function <span class="process-math">\(g(x) = \tan(x)\)</span> and outer function <span class="process-math">\(f(x) = x^2\text{.}\)</span> Organizing the key information involving <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(g\text{,}\)</span> and their derivatives, we have</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="qpK">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = x^2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(g(x) = \tan(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(x) = 2x\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(g'(x) = \sec^2(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(g(x)) = 2\tan(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+</table></div></div></div>
+<p id="FUh">Applying the chain rule, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+r'(x) = f'(g(x))g'(x) = 2\tan(x) \sec^2(x)\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><p id="ibr">As a side note, we remark that <span class="process-math">\(r(x)\)</span> is usually written as <span class="process-math">\(\tan^2(x)\text{.}\)</span> This is common notation for powers of trigonometric functions: <span class="process-math">\(\cos^4(x)\text{,}\)</span> <span class="process-math">\(\sin^5(x)\text{,}\)</span> and <span class="process-math">\(\sec^2(x)\)</span> are all composite functions, with the outer function a power function and the inner function a trigonometric one.</p>
+<article class="activity project-like" id="GFk"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span>
+</h4>
+<p id="Rep">For each function given below, identify an inner function <span class="process-math">\(g\)</span> and outer function <span class="process-math">\(f\)</span> to write the function in the form <span class="process-math">\(f(g(x))\text{.}\)</span> Determine <span class="process-math">\(f'(x)\text{,}\)</span> <span class="process-math">\(g'(x)\text{,}\)</span> and <span class="process-math">\(f'(g(x))\text{,}\)</span> and then apply the chain rule to determine the derivative of the given function.</p>
+<ol class="lower-alpha cols2">
+<li id="nhS"><p id="FVq"><span class="process-math">\(\displaystyle h(x) = \cos(x^4)\)</span></p></li>
+<li id="Tpb"><p id="mcz"><span class="process-math">\(\displaystyle p(x) = \sqrt{ \tan(x) }\)</span></p></li>
+<li id="zwk"><p id="SjI"><span class="process-math">\(\displaystyle s(x) = 2^{\sin(x)}\)</span></p></li>
+<li id="fDt"><p id="yqR"><span class="process-math">\(\displaystyle z(x) = \cot^5(x)\)</span></p></li>
+<li id="LKC"><p id="eya"><span class="process-math">\(\displaystyle m(x) = (\sec(x) + e^x)^9\)</span></p></li>
+</ol></article></section><section class="subsection" id="AAu"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.5.2</span> <span class="title">Using multiple rules simultaneously</span>
+</h3>
+<p id="OiA">The chain rule now joins the sum, constant multiple, product, and quotient rules in our collection of techniques for finding the derivative of a function through understanding its algebraic structure and the basic functions that constitute it. It takes practice to get comfortable applying multiple rules to differentiate a single function, but using proper notation and taking a few extra steps will help.</p>
+<article class="example example-like" id="xFO"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span>
+</h4>
+<p id="bCl">Find a formula for the derivative of <span class="process-math">\(h(t) = 3^{t^2 + 2t}\sec^4(t)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-tabular" data-refid="hk-TnS" id="TnS"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-TnS"><div class="solution solution-like">
+<p id="mbq">We first observe that <span class="process-math">\(h\)</span> is the product of two functions: <span class="process-math">\(h(t) = a(t) \cdot b(t)\text{,}\)</span> where <span class="process-math">\(a(t) = 3^{t^2 + 2t}\)</span> and <span class="process-math">\(b(t) = \sec^4(t)\text{.}\)</span> We will need to use the product rule to differentiate <span class="process-math">\(h\text{.}\)</span> And because <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are composite functions, we will need the chain rule. We therefore begin by computing <span class="process-math">\(a'(t)\)</span> and <span class="process-math">\(b'(t)\text{.}\)</span></p>
+<p id="Siz">Writing <span class="process-math">\(a(t) = f(g(t)) = 3^{t^2 + 2t}\text{,}\)</span> and finding the derivatives of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> we have</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="WwT">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f(t) = 3^t\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(g(t) = t^2 + 2t\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(t) = 3^t \ln(3)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(g'(t) = 2t+2\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(g(t)) = 3^{t^2 + 2t}\ln(3)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+</table></div></div></div>
+<p id="ypI">Thus, by the chain rule, it follows that <span class="process-math">\(a'(t) = f'(g(t))g'(t) = 3^{t^2 + 2t}\ln(3) (2t+2)\text{.}\)</span></p>
+<p id="ewR">Turning next to <span class="process-math">\(b\text{,}\)</span> we write <span class="process-math">\(b(t) = r(s(t)) = \sec^4(t)\)</span> and find the derivatives of <span class="process-math">\(r\)</span> and <span class="process-math">\(s\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="CEc">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(r(t) = t^4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(s(t) = \sec(t)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(r'(t) = 4t^3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(s'(t) = \sec(t)\tan(t)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(r'(s(t)) = 4\sec^3(t)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+</table></div></div></div>
+<p id="KEa">By the chain rule,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+b'(t) = r'(s(t))s'(t) = 4\sec^3(t)\sec(t)\tan(t) = 4 \sec^4(t) \tan(t)\text{.}
+\end{equation*}
+</div>
+<p id="qLj">Now we are finally ready to compute the derivative of the function <span class="process-math">\(h\text{.}\)</span> Recalling that <span class="process-math">\(h(t) = 3^{t^2 + 2t}\sec^4(t)\text{,}\)</span> by the product rule we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h'(t) = 3^{t^2 + 2t} \frac{d}{dt}[\sec^4(t)] + \sec^4(t) \frac{d}{dt}[3^{t^2 + 2t}]\text{.}
+\end{equation*}
+</div>
+<p id="WSs">From our work above with <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> we know the derivatives of <span class="process-math">\(3^{t^2 + 2t}\)</span> and <span class="process-math">\(\sec^4(t)\text{,}\)</span> and therefore</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h'(t) = 3^{t^2 + 2t} 4\sec^4(t) \tan(t) + \sec^4(t) 3^{t^2 + 2t}\ln(3) (2t+2)\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><article class="activity project-like" id="eMv"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
+</h4>
+<p id="hHb">For each of the following functions, find the function's derivative. State the rule(s) you use, label relevant derivatives appropriately, and be sure to clearly identify your overall answer.</p>
+<ol class="lower-alpha cols2">
+<li id="DKE"><p id="Wyc"><span class="process-math">\(\displaystyle p(r) = 4\sqrt{r^6 + 2e^r}\)</span></p></li>
+<li id="jRN"><p id="CFl"><span class="process-math">\(\displaystyle m(v) = \sin(v^2) \cos(v^3)\)</span></p></li>
+<li id="PYW"><p id="iMu"><span class="process-math">\(\displaystyle h(y) = \frac{\cos(10y)}{e^{4y}+1}\)</span></p></li>
+<li id="wgf"><p id="OTD"><span class="process-math">\(\displaystyle s(z) = 2^{z^2 \sec (z)}\)</span></p></li>
+<li id="cno"><p id="vaM"><span class="process-math">\(\displaystyle c(x) = \sin(e^{x^2})\)</span></p></li>
+</ol></article><p id="upJ">The chain rule now adds substantially to our ability to compute derivatives. Whether we are finding the equation of the tangent line to a curve, the instantaneous velocity of a moving particle, or the instantaneous rate of change of a certain quantity, if the function under consideration is a composition, the chain rule is indispensable.</p>
+<article class="activity project-like" id="NsL"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
+</h4>
+<p id="cBJ">Use known derivative rules, including the chain rule, as needed to answer each of the following questions.</p>
+<ol class="lower-alpha">
+<li id="bRP"><p id="pVu">Find an equation for the tangent line to the curve <span class="process-math">\(y= \sqrt{e^x + 3}\)</span> at the point where <span class="process-math">\(x=0\text{.}\)</span></p></li>
+<li id="HYY"><p id="WcD">If <span class="process-math">\(\displaystyle s(t) = \frac{1}{(t^2+1)^3}\)</span> represents the position function of a particle moving horizontally along an axis at time <span class="process-math">\(t\)</span> (where <span class="process-math">\(s\)</span> is measured in inches and <span class="process-math">\(t\)</span> in seconds), find the particle's instantaneous velocity at <span class="process-math">\(t=1\text{.}\)</span> Is the particle moving to the left or right at that instant?</p></li>
+<li id="ogh"><p id="CjM">At sea level, air pressure is 30 inches of mercury. At an altitude of <span class="process-math">\(h\)</span> feet above sea level, the air pressure, <span class="process-math">\(P\text{,}\)</span> in inches of mercury, is given by the function <span class="process-math">\(P = 30 e^{-0.0000323 h}\text{.}\)</span> Compute <span class="process-math">\(dP/dh\)</span> and explain what this derivative function tells you about air pressure, including a discussion of the units on <span class="process-math">\(dP/dh\text{.}\)</span> In addition, determine how fast the air pressure is changing for a pilot of a small plane passing through an altitude of <span class="process-math">\(1000\)</span> feet.</p></li>
+<li id="Unq">
+<p id="iqV">Suppose that <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> are differentiable functions and that the following information about them is known:</p>
+<figure class="table table-like" id="Bet"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.5.6<span class="period">.</span></span><span class="space"> </span>Data for functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{.}\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular" id="hlC">
+<tr>
+<td class="c m b1 r0 l0 t1 lines"><span class="process-math">\(x\)</span></td>
+<td class="c m b1 r0 l0 t1 lines"><span class="process-math">\(f(x)\)</span></td>
+<td class="c m b1 r0 l0 t1 lines"><span class="process-math">\(f'(x)\)</span></td>
+<td class="c m b1 r0 l0 t1 lines"><span class="process-math">\(g(x)\)</span></td>
+<td class="c m b1 r0 l0 t1 lines"><span class="process-math">\(g'(x)\)</span></td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(-1\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(-5\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(-3\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(-3\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(-1\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+</table></div></figure><p id="Oye">If <span class="process-math">\(C(x)\)</span> is a function given by the formula <span class="process-math">\(f(g(x))\text{,}\)</span> determine <span class="process-math">\(C'(2)\text{.}\)</span> In addition, if <span class="process-math">\(D(x)\)</span> is the function <span class="process-math">\(f(f(x))\text{,}\)</span> find <span class="process-math">\(D'(-1)\text{.}\)</span></p>
+</li>
+</ol></article></section><section class="subsection" id="gHD"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.5.3</span> <span class="title">The composite version of basic function rules</span>
+</h3>
+<p id="awS">As we gain more experience with differention, we will become more comfortable in simply writing down the derivative without taking multiple steps. This is particularly simple when the inner function is linear, since the derivative of a linear function is a constant.</p>
+<article class="example example-like" id="qbp"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.7</span><span class="period">.</span>
+</h4>
+<p id="HJu">Use the chain rule to differentiate each of the following composite functions whose inside function is linear:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ (5x+7)^{10} \right] = 10(5x+7)^9 \cdot 5\text{,}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ \tan(17x) \right] = 17\sec^2(17x), \ \text{and}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ e^{-3x} \right] = -3e^{-3x}\text{.}
+\end{equation*}
+</div></article><p id="GEb">More generally, following is an excellent exercise for getting comfortable with the derivative rules. Write down a list of all the basic functions whose derivatives we know, and list the derivatives. Then write a composite function with the inner function being an unknown function <span class="process-math">\(u(x)\)</span> and the outer function being a basic function. Finally, write the chain rule for the composite function. The following example illustrates this for two different functions.</p>
+<article class="example example-like" id="Wiy"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.8</span><span class="period">.</span>
+</h4>
+<p id="nQD">To determine</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[\sin(u(x))]\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(u\)</span> is a differentiable function of <span class="process-math">\(x\text{,}\)</span> we use the chain rule with the sine function as the outer function. Applying the chain rule, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[\sin(u(x))] = \cos(u(x)) \cdot u'(x)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This rule is analogous to the basic derivative rule that <span class="process-math">\(\frac{d}{dx}[\sin(x)] = \cos(x)\text{.}\)</span></p>
+<p id="TXM">Similarly, since <span class="process-math">\(\frac{d}{dx}[a^x] = a^x \ln(a)\text{,}\)</span> it follows by the chain rule that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[a^{u(x)}] = a^{u(x)} \ln(a) \cdot u'(x)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This rule is analogous to the basic derivative rule that <span class="process-math">\(\frac{d}{dx}[a^{x}] = a^{x} \ln(a)\text{.}\)</span></p></article></section><section class="subsection" id="MOM"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.5.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="mLk" class="disc">
+<li id="XXL"><p id="wAv">A composite function is one where the input variable <span class="process-math">\(x\)</span> first passes through one function, and then the resulting output passes through another. For example, the function <span class="process-math">\(h(x) = 2^{\sin(x)}\)</span> is composite since <span class="process-math">\(x \longrightarrow \sin(x) \longrightarrow 2^{\sin(x)}\text{.}\)</span></p></li>
+<li id="EeU">
+<p id="cHE">Given a composite function <span class="process-math">\(C(x) = f(g(x))\)</span> where <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable functions, the chain rule tells us that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+C'(x) = f'(g(x)) g'(x)\text{.}
+\end{equation*}
+</div>
+</li>
+</ul></section><section class="exercises" id="dJG"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">2.5.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="Foa"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Mixing rules:  chain, product, sum.</span>
+</h4>
+<div id="webwork-76" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="76" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec4/Q11.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2672">Find the derivative of</p>
+<p id="p-2673"><span class="process-math">\(f(x) = e^{5 x} (x^2 + 7^{x})\)</span></p>
+<p id="p-2674"><span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="55-character blank" style="width: 25em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-76')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="lvj"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Mixing rules:  chain and product.</span>
+</h4>
+<div id="webwork-77" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="77" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec4/Q19.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2676">Find the derivative of</p>
+<p id="p-2677"><span class="process-math">\(v(t) = t^6 e^{-ct}\)</span></p>
+<p id="p-2678">Assume that <span class="process-math">\(c\)</span> is a constant.</p>
+<p id="p-2679"><span class="process-math">\(v'(t) =\)</span> <span class="fillin underline" role="img" aria-label="55-character blank" style="width: 25em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-77')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="RCs"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Using the chain rule repeatedly.</span>
+</h4>
+<div id="webwork-78" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="78" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec4/Q45.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2681">Find the derivative of</p>
+<p id="p-2682"><span class="process-math">\(y = \sqrt{e^{-5 t^2}+9}\)</span></p>
+<p id="p-2683"><span class="process-math">\({dy\over dt} =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-78')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="xJB"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Derivative involving arbitrary constants <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span>.</span>
+</h4>
+<div id="webwork-79" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="79" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec4/Q51.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2685">Find the derivative of</p>
+<p id="p-2686"><span class="process-math">\(f(x) = axe^{-bx + 12}\)</span></p>
+<p id="p-2687">Assume that <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are constants.</p>
+<p id="p-2688"><span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-79')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="dQK"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Chain rule with graphs.</span>
+</h4>
+<div id="webwork-80" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="80" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec4/Q53.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2690">Use the graph below to find exact values of the indicated derivatives, or state that they do not exist.  If a derivative does not exist, enter <em class="alert">dne</em> in the answer blank. The graph of <span class="process-math">\(f(x)\)</span> is black and has a sharp corner at <span class="process-math">\(x = 2\text{.}\)</span>  The graph of <span class="process-math">\(g(x)\)</span> is blue.</p>
+<div class="image-box" style="width: 58.3333333333333%; margin-left: 20.8333333333333%; margin-right: 20.8333333333333%;"><img src="generated/webwork/images/webwork-80-image-1.png" class="contained"></div>
+<p id="p-2691">Let <span class="process-math">\(h(x) = f(g(x))\text{.}\)</span>  Find</p>
+<ol id="p-2692" class="upper-alpha">
+<li id="li-1763"><p id="p-2693"><span class="process-math">\(h'(1) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p></li>
+<li id="li-1764"><p id="p-2694"><span class="process-math">\(h'(2) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p></li>
+<li id="li-1765"><p id="p-2695"><span class="process-math">\(h'(3) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p></li>
+</ol>
+<p id="p-2696"><em class="emphasis">(Enter <em class="alert">dne</em> for any derivative that does not exist.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-80')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="JXT"><h4 class="heading">
+<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Chain rule with function values.</span>
+</h4>
+<div id="webwork-81" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="81" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec4/Q71.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2705">Given <span class="process-math">\(F(4)=1, F'(4)=5, F(5)=4, F'(5)=6\)</span> and <span class="process-math">\(G(1)=3, G'(1)=4, G(4)=5, G'(4)=6\text{,}\)</span> find each of the following. (Enter <em class="alert">dne</em> for any derivative that cannot be computed from this information alone.)</p>
+<ol id="p-2706" class="upper-alpha">
+<li id="li-1766"><p id="p-2707"><span class="process-math">\(H(4)\)</span>  if <span class="process-math">\(H(x)=F(G(x))\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p></li>
+<li id="li-1767"><p id="p-2708"><span class="process-math">\(H'(4)\)</span> if <span class="process-math">\(H(x)=F(G(x))\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p></li>
+<li id="li-1768"><p id="p-2709"><span class="process-math">\(H(4)\)</span>  if <span class="process-math">\(H(x)=G(F(x))\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p></li>
+<li id="li-1769"><p id="p-2710"><span class="process-math">\(H'(4)\)</span> if <span class="process-math">\(H(x)=G(F(x))\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p></li>
+<li id="li-1770"><p id="p-2711"><span class="process-math">\(H'(4)\)</span> if <span class="process-math">\(H(x)=F(x)/G(x)\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-81')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="qfc"><h4 class="heading">
+<span class="codenumber">7<span class="period">.</span></span><span class="space"> </span><span class="title">A product involving a composite function.</span>
+</h4>
+<div id="webwork-82" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="82" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec5/Q21.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2717">Find the derivative of <span class="process-math">\(f(x)=2 x\sin(6 x)\)</span></p>
+<p id="p-2718"><span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-82')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Wml"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="bUt">Consider the basic functions <span class="process-math">\(f(x) = x^3\)</span> and <span class="process-math">\(g(x) = \sin(x)\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="NCt"><p id="wiJ">Let <span class="process-math">\(h(x) = f(g(x))\text{.}\)</span> Find the exact instantaneous rate of change of <span class="process-math">\(h\)</span> at the point where <span class="process-math">\(x = \frac{\pi}{4}\text{.}\)</span></p></li>
+<li id="tJC"><p id="cpS">Which function is changing most rapidly at <span class="process-math">\(x = 0.25\text{:}\)</span> <span class="process-math">\(h(x) = f(g(x))\)</span> or <span class="process-math">\(r(x) = g(f(x))\text{?}\)</span> Why?</p></li>
+<li id="ZQL"><p id="Ixb">Let <span class="process-math">\(h(x) = f(g(x))\)</span> and <span class="process-math">\(r(x) = g(f(x))\text{.}\)</span> Which of these functions has a derivative that is periodic? Why?</p></li>
+</ol></article><article class="exercise exercise-like" id="Ctu"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="IbC">Let <span class="process-math">\(u(x)\)</span> be a differentiable function. For each of the following functions, determine the derivative. Each response will involve <span class="process-math">\(u\)</span> and/or <span class="process-math">\(u'\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="qOW"><p id="Zvm"><span class="process-math">\(\displaystyle p(x) = e^{u(x)}\)</span></p></li>
+<li id="WWf"><p id="FCv"><span class="process-math">\(\displaystyle q(x) = u(e^x)\)</span></p></li>
+<li id="Ddo"><p id="lJE"><span class="process-math">\(\displaystyle r(x) = \cot(u(x))\)</span></p></li>
+<li id="jkx"><p id="RQN"><span class="process-math">\(\displaystyle s(x) = u(\cot(x))\)</span></p></li>
+<li id="PrG"><p id="xXW"><span class="process-math">\(\displaystyle a(x) = u(x^4)\)</span></p></li>
+<li id="vyP"><p id="eff"><span class="process-math">\(\displaystyle b(x) = u^4(x)\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="iAD"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<p id="oiL">Let functions <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> be the piecewise linear functions given by their respective graphs in <a href="" class="xref" data-knowl="./knowl/F-2-5-Ez3.html" title="Figure 2.5.9">Figure 2.5.9</a>. Use the graphs to answer the following questions.</p>
+<figure class="figure figure-like" id="Axd"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/2_1_Ez3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.9<span class="period">.</span></span><span class="space"> </span>The graphs of <span class="process-math">\(p\)</span> (in blue) and <span class="process-math">\(q\)</span> (in green).</figcaption></figure><ol id="UpU" class="lower-alpha">
+<li id="xoc"><p id="fUs">Let <span class="process-math">\(C(x) = p(q(x))\text{.}\)</span> Determine <span class="process-math">\(C'(0)\)</span> and <span class="process-math">\(C'(3)\text{.}\)</span></p></li>
+<li id="dvl"><p id="MbB">Find a value of <span class="process-math">\(x\)</span> for which <span class="process-math">\(C'(x)\)</span> does not exist. Explain your thinking.</p></li>
+<li id="JCu"><p id="siK">Let <span class="process-math">\(Y(x) = q(q(x))\)</span> and <span class="process-math">\(Z(x) = q(p(x))\text{.}\)</span> Determine <span class="process-math">\(Y'(-2)\)</span> and <span class="process-math">\(Z'(0)\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="OHM"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<p id="gEm">If a spherical tank of radius 4 feet has <span class="process-math">\(h\)</span> feet of water present in the tank, then the volume of water in the tank is given by the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+V = \frac{\pi}{3} h^2(12-h)\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="aAF"><p id="JgV">At what instantaneous rate is the volume of water in the tank changing with respect to the <em class="emphasis">height</em> of the water at the instant <span class="process-math">\(h = 1\text{?}\)</span> What are the units on this quantity?</p></li>
+<li id="GHO"><p id="poe">Now suppose that the height of water in the tank is being regulated by an inflow and outflow (e.g., a faucet and a drain) so that the height of the water at time <span class="process-math">\(t\)</span> is given by the rule <span class="process-math">\(h(t) = \sin(\pi t) + 1\text{,}\)</span> where <span class="process-math">\(t\)</span> is measured in hours (and <span class="process-math">\(h\)</span> is still measured in feet). At what rate is the height of the water changing with respect to time at the instant <span class="process-math">\(t = 2\text{?}\)</span></p></li>
+<li id="mOX"><p id="Vvn">Continuing under the assumptions in (b), at what instantaneous rate is the volume of water in the tank changing with respect to <em class="emphasis">time</em> at the instant <span class="process-math">\(t = 2\text{?}\)</span></p></li>
+<li id="SWg"><p id="BCw">What are the main differences between the rates found in (a) and (c)? Include a discussion of the relevant units.</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-48"><div class="fn">Like other differentiation rules, the Chain Rule can be proved formally using the limit definition of the derivative.</div></div>
+</div></main>
+</div>
+</body>
+</html>

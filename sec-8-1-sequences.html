@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Sequences</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="C-8.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-8.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-8-2-geometric.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="C-8.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-8.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-8-2-geometric.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="active">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="kXx"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">8.1</span> <span class="title">Sequences</span>
+</h2>
+<article class="objectives goal-like" id="pHq"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="urj"><p id="fil">What is a sequence?</p></li>
+<li id="ays"><p id="Lpu">What does it mean for a sequence to converge?</p></li>
+<li id="GFB"><p id="rwD">What does it mean for a sequence to diverge?</p></li>
+</ul></article><section class="introduction" id="BVI"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><p id="cnF">We encounter sequences every day. Your monthly utility payments, the annual interest you earn on investments, the amount you spend on groceries each week; all are examples of sequences. Other sequences with which you may be familiar include the Fibonacci sequence  <span class="process-math">\(1, 1, 2, 3, 5, 8, \ldots \text{,}\)</span> where each term is the sum of the two preceding terms, and the triangular numbers  <span class="process-math">\(1, 3, 6, 10, 15, 21, 28, 36, 45, 55, \ldots \text{,}\)</span> the number of vertices in the triangles shown in <a href="" class="xref" data-knowl="./knowl/F-8-1-Triangular-numbers.html" title="Figure 8.1.1">Figure 8.1.1</a>.</p></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="IuO"><img src="external/images/8_1_Triangular_Numbers.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.1.1<span class="period">.</span></span><span class="space"> </span>Triangular numbers</figcaption></figure></div>
+</div></div>
+<p id="oBX">Sequences of integers are of such interest to mathematicians and others that they have a journal<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-121" id="fn-121"><sup> 1 </sup></a> devoted to them and an on-line encyclopedia<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-122" id="fn-122"><sup> 2 </sup></a> that catalogs a huge number of integer sequences and their connections. Sequences are also used in digital recordings and images.</p>
+<p id="UJg">Our studies in calculus have dealt with continuous functions. Sequences model <em class="emphasis">discrete</em> instead of continuous information. We will study ways to represent and work with discrete information in this chapter as we investigate <em class="emphasis">sequences</em> and <em class="emphasis">series</em>, and ultimately see key connections between the discrete and continuous.</p>
+<article class="exploration project-like" id="XLQ"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">8.1.1</span><span class="period">.</span>
+</h3>
+<p id="mUO">Suppose you receive <span class="process-math">\(\dollar5000\)</span> through an inheritance. You decide to invest this money into a fund that pays <span class="process-math">\(8\%\)</span> annually, compounded monthly. That means that each month your investment earns <span class="process-math">\(\frac{0.08}{12} \cdot P\)</span> additional dollars, where <span class="process-math">\(P\)</span> is your principal balance at the start of the month. So in the first month your investment earns</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+5000 \left(\frac{0.08}{12}\right)
+\end{equation*}
+</div>
+<p class="continuation">or <span class="process-math">\(\dollar33.33\text{.}\)</span> If you reinvest this money, you will then have <span class="process-math">\(\dollar5033.33\)</span> in your account at the end of the first month. From this point on, assume that you reinvest all of the interest you earn.</p>
+<ol id="TbX" class="lower-alpha">
+<li id="pPu"><p id="Ose">How much interest will you earn in the second month? How much money will you have in your account at the end of the second month?</p></li>
+<li id="VWD">
+<p id="uzn">Complete <a href="" class="xref" data-knowl="./knowl/T-PA-8-1-Interest.html" title="Table 8.1.2: Interest">Table 8.1.2</a> to determine the interest earned and total amount of money in this investment each month for one year.</p>
+<figure class="table table-like" id="Lxy"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">8.1.2<span class="period">.</span></span><span class="space"> </span>Interest</figcaption><div class="tabular-box natural-width"><table class="tabular" id="rEH">
+<tr>
+<td class="c t b1 r0 l0 t1 lines">Month</td>
+<td class="c t b1 r0 l0 t1 lines">Interest<br>earned</td>
+<td class="c t b1 r0 l0 t1 lines">Total amount<br>of money<br>in the account</td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(\dollar0.00\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(\dollar5000.00\)</span></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(\dollar33.33\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(\dollar5033.33\)</span></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(5\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(6\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(7\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(8\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(9\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(10\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(11\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(12\)</span></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+<td class="r m b1 r0 l0 t0 lines"></td>
+</tr>
+</table></div></figure>
+</li>
+<li id="CdM">
+<p id="aGw">As we will see later, the amount of money <span class="process-math">\(P_n\)</span> in the account after month <span class="process-math">\(n\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/T-PA-8-1-Interest.html">
+\begin{equation*}
+P_n = 5000\left(1+\frac{0.08}{12}\right)^{n}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Use this formula to check your calculations in <a href="" class="xref" data-knowl="./knowl/T-PA-8-1-Interest.html" title="Table 8.1.2: Interest">Table 8.1.2</a>. Then find the amount of money in the account after 5 years.</p>
+</li>
+<li id="ikV"><p id="GNF">How many years will it be before the account has doubled in value to $10000?</p></li>
+</ol></article></section><section class="subsection" id="ReG"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.1.1</span> <span class="title">Sequences</span>
+</h3>
+<p id="AQp">As <a href="" class="xref" data-knowl="./knowl/PA-8-1.html" title="Preview Activity 8.1.1">Preview Activity 8.1.1</a> illustrates, many discrete phenomena can be represented as lists of numbers (like the amount of money in an account over a period of months). We call any such list a <em class="emphasis">sequence</em>. A sequence is nothing more than list of terms in some order. We often list the entries of the sequence with subscripts,</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-8-1.html">
+\begin{equation*}
+s_1, s_2, \ldots, s_n \ldots\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where the subscript denotes the position of the entry in the sequence.</p>
+<article class="definition definition-like" id="dsY"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.3</span><span class="period">.</span>
+</h4>
+<p id="PZn">A sequence is a list of terms <span class="process-math">\(s_1, s_2, s_3, \ldots\)</span> in a specified order.</p></article><p id="gXy">We can think of a sequence as a function <span class="process-math">\(f\)</span> whose domain is the set of positive integers where <span class="process-math">\(f(n) = s_n\)</span> for each positive integer <span class="process-math">\(n\text{.}\)</span> This alternative view will be be useful in many situations.</p>
+<p id="NeH">We often denote the sequence</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+s_1, s_2, s_3, \ldots
+\end{equation*}
+</div>
+<p class="continuation">by <span class="process-math">\(\{s_n\}\text{.}\)</span> The value <span class="process-math">\(s_n\)</span> (alternatively <span class="process-math">\(s(n)\)</span>) is called the <span class="process-math">\(n\)</span>th <em class="emphasis">term</em>  in the sequence. If the terms are all 0 after some fixed value of <span class="process-math">\(n\text{,}\)</span> we say the sequence is finite. Otherwise the sequence is infinite. With infinite sequences, we are often interested in their end behavior and the idea of <em class="emphasis">convergent</em> sequences.</p>
+<article class="activity project-like" id="SIu"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.1.2</span><span class="period">.</span>
+</h4>
+<ol id="BKj" class="lower-alpha">
+<li id="IEO">
+<p id="emS">Let <span class="process-math">\(s_n\)</span> be the <span class="process-math">\(n\)</span>th term in the sequence <span class="process-math">\(1, 2, 3, \ldots\text{.}\)</span> Find a formula for <span class="process-math">\(s_n\)</span> and use appropriate technological tools to draw a graph of entries in this sequence by plotting points of the form <span class="process-math">\((n,s_n)\)</span> for some values of <span class="process-math">\(n\text{.}\)</span> Most graphing calculators can plot sequences; directions follow for the TI-84.</p>
+<ul class="disc">
+<li id="kce"><p id="dhz">In the <code class="code-inline tex2jax_ignore">MODE</code>menu, highlight <code class="code-inline tex2jax_ignore">SEQ</code>in the <code class="code-inline tex2jax_ignore">FUNC</code>line and press <code class="code-inline tex2jax_ignore">ENTER</code>.</p></li>
+<li id="Qjn"><p id="Kub">In the <code class="code-inline tex2jax_ignore">Y=</code>menu, you will now see lines to enter sequences. Enter a value for <code class="code-inline tex2jax_ignore">nMin</code> (where the sequence starts), a function for <code class="code-inline tex2jax_ignore">u(n)</code> (the <span class="process-math">\(n\)</span>th term in the sequence), and the value of <code class="code-inline tex2jax_ignore">u(nMin)</code>.</p></li>
+<li id="wqw"><p id="qBk">Set your window coordinates (this involves choosing limits for <span class="process-math">\(n\)</span> as well as the window coordinates <code class="code-inline tex2jax_ignore">XMin</code>, <code class="code-inline tex2jax_ignore">XMax</code>, <code class="code-inline tex2jax_ignore">YMin</code>, and <code class="code-inline tex2jax_ignore">YMax</code>.</p></li>
+<li id="cxF"><p id="WIt">The <code class="code-inline tex2jax_ignore">GRAPH</code>key will draw a plot of your sequence.</p></li>
+</ul>
+<p class="continuation">Using your knowledge of limits of continuous functions as <span class="process-math">\(x \to \infty\text{,}\)</span> decide if this sequence <span class="process-math">\(\{s_n\}\)</span> has a limit as <span class="process-math">\(n \to \infty\text{.}\)</span> Explain your reasoning.</p>
+</li>
+<li id="oLX"><p id="CPC">Let <span class="process-math">\(s_n\)</span> be the <span class="process-math">\(n\)</span>th term in the sequence <span class="process-math">\(1, \frac{1}{2}, \frac{1}{3}, \ldots\text{.}\)</span> Find a formula for <span class="process-math">\(s_n\text{.}\)</span> Draw a graph of some points in this sequence. Using your knowledge of limits of continuous functions as <span class="process-math">\(x \to \infty\text{,}\)</span> decide if this sequence <span class="process-math">\(\{s_n\}\)</span> has a limit as <span class="process-math">\(n \to \infty\text{.}\)</span> Explain your reasoning.</p></li>
+<li id="UTg"><p id="iWL">Let <span class="process-math">\(s_n\)</span> be the <span class="process-math">\(n\)</span>th term in the sequence <span class="process-math">\(2, \frac{3}{2}, \frac{4}{3}, \frac{5}{4}, \ldots\text{.}\)</span> Find a formula for <span class="process-math">\(s_n\text{.}\)</span> Using your knowledge of limits of continuous functions as <span class="process-math">\(x \to \infty\text{,}\)</span> decide if this sequence <span class="process-math">\(\{s_n\}\)</span> has a limit as <span class="process-math">\(n \to \infty\text{.}\)</span> Explain your reasoning.</p></li>
+</ol></article><p id="tlQ">Next we formalize the ideas from <a href="" class="xref" data-knowl="./knowl/act-8-1-1.html" title="Activity 8.1.2">Activity 8.1.2</a>.</p>
+<article class="activity project-like" id="Cud"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.1.3</span><span class="period">.</span>
+</h4>
+<ol id="WmU" class="lower-alpha">
+<li id="Dzw"><p id="gLZ">Recall our earlier work with limits involving infinity in <a href="sec-2-8-LHR.html" class="internal" title="Section 2.8: Using Derivatives to Evaluate Limits">Section 2.8</a>. State clearly what it means for a continuous function <span class="process-math">\(f\)</span> to have a limit <span class="process-math">\(L\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span></p></li>
+<li id="jGF"><p id="MTi">Given that an infinite sequence of real numbers is a function from the integers to the real numbers, apply the idea from part (a) to explain what you think it means for a sequence <span class="process-math">\(\{s_n\}\)</span> to have a limit as <span class="process-math">\(n \to \infty\text{.}\)</span></p></li>
+<li id="PNO"><p id="tar">Based on your response to the part (b), decide if the sequence <span class="process-math">\(\left\{ \frac{1+n}{2+n}\right\}\)</span> has a limit as <span class="process-math">\(n \to \infty\text{.}\)</span> If so, what is the limit? If not, why not?</p></li>
+</ol></article><p id="ZsZ">In <a href="" class="xref" data-knowl="./knowl/act-8-1-1.html" title="Activity 8.1.2">Activities 8.1.2</a> and <a href="" class="xref" data-knowl="./knowl/act-8-1-2.html" title="Activity 8.1.3">8.1.3</a> we investigated a sequence <span class="process-math">\(\{s_n\}\)</span> that has a limit as <span class="process-math">\(n\)</span> goes to infinity. More formally, we make the following definition.</p>
+<article class="definition definition-like" id="JAh"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.1.4</span><span class="period">.</span>
+</h4>
+<p id="wgw">A sequence <span class="process-math">\(\{ s_n \}\)</span> <dfn class="terminology">converges</dfn>  or is a <dfn class="terminology">convergent sequence</dfn>  provided that there is a number <span class="process-math">\(L\)</span> such that we can make <span class="process-math">\(s_n\)</span> as close to <span class="process-math">\(L\)</span> as we want by taking <span class="process-math">\(n\)</span> sufficiently large. In this situation, we call <span class="process-math">\(L\)</span> the <em class="emphasis">limit</em> of the convergent sequence and write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{n \to \infty} s_n = L\text{.}
+\end{equation*}
+</div>
+<p class="continuation">If the sequence <span class="process-math">\(\{s_n\}\)</span> does not converge, we say that the sequence <span class="process-math">\(\{s_n\}\)</span> <dfn class="terminology">diverges</dfn>. </p></article><p id="FAi">The idea of sequence having a limit as <span class="process-math">\(n \to \infty\)</span> is the same as the idea of a continuous function having a limit as <span class="process-math">\(x \to \infty\text{.}\)</span> The only difference is that sequences are discrete instead of continuous.</p>
+<article class="activity project-like" id="MxJ"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.1.4</span><span class="period">.</span>
+</h4>
+<p id="bGH">Use graphical and/or algebraic methods to determine whether each of the following sequences converges or diverges.</p>
+<ol class="lower-alpha">
+<li id="zzx"><p id="VhB"><span class="process-math">\(\displaystyle \left\{\frac{1+2n}{3n-2}\right\}\)</span></p></li>
+<li id="fGG"><p id="BoK"><span class="process-math">\(\displaystyle \left\{\frac{5+3^n}{10+2^n}\right\}\)</span></p></li>
+<li id="LNP"><p id="hvT"><span class="process-math">\(\left\{\frac{10^n}{n!}\right\}\)</span> (where <span class="process-math">\(!\)</span> is the <em class="emphasis">factorial</em> symbol and <span class="process-math">\(n! = n(n-1)(n-2) \cdots (2)(1)\)</span> for any positive integer <span class="process-math">\(n\)</span> (as convention we define <span class="process-math">\(0!\)</span> to be 1)).</p></li>
+</ol></article></section><section class="subsection" id="xlP"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.1.2</span> <span class="title">Summary</span>
+</h3>
+<ul id="lHr" class="disc">
+<li id="mMK"><p id="XDM">A sequence is a list of objects in a specified order. We will typically work with sequences of real numbers. We can think of a sequence as a function from the positive integers to the set of real numbers.</p></li>
+<li id="STT"><p id="DKV">A sequence <span class="process-math">\(\{s_n\}\)</span> of real numbers converges to a number <span class="process-math">\(L\)</span> if we can make every value of <span class="process-math">\(s_k\)</span> for <span class="process-math">\(k \ge n\)</span> as close as we want to <span class="process-math">\(L\)</span> by choosing <span class="process-math">\(n\)</span> sufficiently large.</p></li>
+<li id="zbc"><p id="jSe">A sequence diverges if it does not converge.</p></li>
+</ul></section><section class="exercises" id="dMt"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">8.1.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="dTx"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Limits of five sequences.</span>
+</h4>
+<div id="webwork-211" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="211" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap9Sec1/Q19.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8684">Match the formulas with the descriptions of the behavior of the sequence as <span class="process-math">\(n\to\infty\text{.}\)</span></p>
+<ol id="p-8685" class="lower-alpha">
+<li id="li-5048"><p id="p-8686"><span class="process-math">\(\displaystyle s_n = (n+1)/n\)</span></p></li>
+<li id="li-5049"><p id="p-8687"><span class="process-math">\(\displaystyle s_n = n(n+1) - 1\)</span></p></li>
+<li id="li-5050"><p id="p-8688"><span class="process-math">\(\displaystyle s_n = 3 + (-1)^n/(n)\)</span></p></li>
+<li id="li-5051"><p id="p-8689"><span class="process-math">\(\displaystyle s_n = \cos(1/n)\)</span></p></li>
+<li id="li-5052"><p id="p-8690"><span class="process-math">\(\displaystyle s_n = (\sin(n)/n)\)</span></p></li>
+</ol>
+<ol class="upper-alpha">
+<li id="li-5053"><p id="p-8691">diverges to <span class="process-math">\(\infty\)</span></p></li>
+<li id="li-5054"><p id="p-8692">converges to zero through positive and negative numbers</p></li>
+<li id="li-5055"><p id="p-8693">converges to one from above</p></li>
+<li id="li-5056"><p id="p-8694">converges to three from above and below</p></li>
+<li id="li-5057"><p id="p-8695">converges to one from below</p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-211')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="KaG"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Formula for a sequence, given first terms.</span>
+</h4>
+<div id="webwork-212" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="212" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap9Sec1/Q09.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8698">Find a formula for <span class="process-math">\(s_n\text{,}\)</span> <span class="process-math">\(n\ge 1\)</span> for the sequence -1, 2, 7, 14, 23...</p>
+<p id="p-8699"><span class="process-math">\(s_n =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-212')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="qhP"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Divergent or convergent sequences.</span>
+</h4>
+<div id="webwork-213" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="213" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap9Sec1/Q23.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8701">For each of the sequences below, enter either <em class="alert">diverges</em> if the sequence diverges, or the limit of the sequence if the sequence converges as <span class="process-math">\(n\to\infty\text{.}\)</span>  <em class="emphasis">(Note that to avoid this becoming a "multiple guess" problem you will not see partial correct answers.)</em></p>
+<p id="p-8702"><em class="alert">A.</em> <span class="process-math">\({4 n + 8\over n}\)</span> : <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-8703"><em class="alert">B.</em> <span class="process-math">\(4^n\)</span> : <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-8704"><em class="alert">C.</em> <span class="process-math">\({4 n + 8\over n^2}\)</span> : <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-8705"><em class="alert">D.</em> <span class="process-math">\({\sin n\over 4 n}\)</span> : <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-213')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="WoY"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Terms of a sequence from sampling a signal.</span>
+</h4>
+<div id="webwork-214" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="214" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap9Sec1/Q33.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8710">In electrical engineering, a continuous function like <span class="process-math">\(f(t) = \sin t\text{,}\)</span> where <span class="process-math">\(t\)</span> is in seconds, is referred to as an analog signal.  To digitize the signal, we sample <span class="process-math">\(f(t)\)</span> every <span class="process-math">\(\Delta t\)</span> seconds to form the sequence <span class="process-math">\(s_n = f(n\Delta t)\text{.}\)</span>  For example, sampling <span class="process-math">\(f\)</span> every 1/10 second produces the sequence <span class="process-math">\(\sin(1/10)\text{,}\)</span> <span class="process-math">\(\sin(2/10)\text{,}\)</span> <span class="process-math">\(\sin(3/10)\text{,...}\)</span></p>
+<p id="p-8711">Suppose that the analog signal is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(t) = {\sin(1.5 t)\over t}.
+\end{equation*}
+</div>
+<p class="continuation">Give the first 6 terms of a sampling of the signal every <span class="process-math">\(\Delta t = 2\)</span> seconds: <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+<p id="p-8712"><em class="emphasis">(Enter your answer as a comma-separated list.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-214')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Cwh"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="Gpc">Finding limits of convergent sequences can be a challenge. However, there is a useful tool we can adapt from our study of limits of continuous functions at infinity to use to find limits of sequences. We illustrate in this exercise with the example of the sequence</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\ln(n)}{n}\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="tMp"><p id="Luu">Calculate the first 10 terms of this sequence. Based on these calculations, do you think the sequence converges or diverges? Why?</p></li>
+<li id="ZTy">
+<p id="rBD">For this sequence, there is a corresponding continuous function <span class="process-math">\(f\)</span> defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \frac{\ln(x)}{x}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Draw the graph of <span class="process-math">\(f(x)\)</span> on the interval <span class="process-math">\([0,10]\)</span> and then plot the entries of the sequence on the graph. What conclusion do you think we can draw about the sequence <span class="process-math">\(\left\{\frac{\ln(n)}{n}\right\}\)</span> if <span class="process-math">\(\lim_{x \to \infty} f(x) = L\text{?}\)</span> Explain.</p>
+</li>
+<li id="GaH"><p id="XIM">Note that <span class="process-math">\(f(x)\)</span> has the indeterminate form <span class="process-math">\(\frac{\infty}{\infty}\)</span> as <span class="process-math">\(x\)</span> goes to infinity. What idea from differential calculus can we use to calculate <span class="process-math">\(\lim_{x \to \infty} f(x)\text{?}\)</span> Use this method to find <span class="process-math">\(\lim_{x \to \infty} f(x)\text{.}\)</span> What, then, is <span class="process-math">\(\lim_{n \to \infty} \frac{\ln(n)}{n}\text{?}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="iDq"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="mwl">We return to the example begun in <a href="" class="xref" data-knowl="./knowl/PA-8-1.html" title="Preview Activity 8.1.1">Preview Activity 8.1.1</a> to see how to derive the formula for the amount of money in an account at a given time. We do this in a general setting. Suppose you invest <span class="process-math">\(P\)</span> dollars (called the <em class="emphasis">principal</em>) in an account paying <span class="process-math">\(r\%\)</span> interest compounded monthly. In the first month you will receive <span class="process-math">\(\frac{r}{12}\)</span> (here <span class="process-math">\(r\)</span> is in decimal form; e.g., if we have <span class="process-math">\(8\%\)</span> interest, we write <span class="process-math">\(\frac{0.08}{12}\)</span>) of the principal <span class="process-math">\(P\)</span> in interest, so you earn</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-8-1.html">
+\begin{equation*}
+P\left(\frac{r}{12}\right)
+\end{equation*}
+</div>
+<p class="continuation">dollars in interest. Assume that you reinvest all interest. Then at the end of the first month your account will contain the original principal <span class="process-math">\(P\)</span> plus the interest, or a total of</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-8-1.html">
+\begin{equation*}
+P_1 = P + P\left(\frac{r}{12}\right) = P\left( 1 + \frac{r}{12}\right)
+\end{equation*}
+</div>
+<p class="continuation">dollars.</p>
+<ol class="lower-alpha">
+<li id="WYS">
+<p id="oGX">Given that your principal is now <span class="process-math">\(P_1\)</span> dollars, how much interest will you earn in the second month? If <span class="process-math">\(P_2\)</span> is the total amount of money in your account at the end of the second month, explain why</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+P_2 = P_1\left( 1 + \frac{r}{12}\right) = P\left( 1 + \frac{r}{12}\right)^2\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="Dgb"><p id="UOg">Find a formula for <span class="process-math">\(P_3\text{,}\)</span> the total amount of money in the account at the end of the third month in terms of the original investment <span class="process-math">\(P\text{.}\)</span></p></li>
+<li id="jnk"><p id="AVp">There is a pattern to these calculations. Let <span class="process-math">\(P_n\)</span> the total amount of money in the account at the end of the third month in terms of the original investment <span class="process-math">\(P\text{.}\)</span> Find a formula for <span class="process-math">\(P_n\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="OKz"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="SDu">Sequences have many applications in mathematics and the sciences. In a recent paper<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-123" id="fn-123"><sup> 3 </sup></a> the authors write</p>
+<blockquote class="blockquote" id="LPT"><p id="ahT">The incretin hormone glucagon-like peptide-1 (GLP-1) is capable of ameliorating glucose-dependent insulin secretion in subjects with diabetes. However, its very short half-life (1.5-5 min) in plasma represents a major limitation for its use in the clinical setting.</p></blockquote>
+<p id="yKD">The half-life of GLP-1 is the time it takes for half of the hormone to decay in its medium. For this exercise, assume the half-life of GLP-1 is 5 minutes. So if <span class="process-math">\(A\)</span> is the amount of GLP-1 in plasma at some time <span class="process-math">\(t\text{,}\)</span> then only <span class="process-math">\(\frac{A}{2}\)</span> of the hormone will be present after <span class="process-math">\(t+5\)</span> minutes. Suppose <span class="process-math">\(A_0 = 100\)</span> grams of the hormone are initially present in plasma.</p>
+<ol class="lower-alpha">
+<li id="Alv"><p id="RTA">Let <span class="process-math">\(A_1\)</span> be the amount of GLP-1 present after 5 minutes. Find the value of <span class="process-math">\(A_1\text{.}\)</span></p></li>
+<li id="gsE"><p id="yaJ">Let <span class="process-math">\(A_2\)</span> be the amount of GLP-1 present after 10 minutes. Find the value of <span class="process-math">\(A_2\text{.}\)</span></p></li>
+<li id="MzN"><p id="ehS">Let <span class="process-math">\(A_3\)</span> be the amount of GLP-1 present after 15 minutes. Find the value of <span class="process-math">\(A_3\text{.}\)</span></p></li>
+<li id="sGW"><p id="Kpb">Let <span class="process-math">\(A_4\)</span> be the amount of GLP-1 present after 20 minutes. Find the value of <span class="process-math">\(A_4\text{.}\)</span></p></li>
+<li id="YOf"><p id="qwk">Let <span class="process-math">\(A_n\)</span> be the amount of GLP-1 present after <span class="process-math">\(5n\)</span> minutes. Find a formula for <span class="process-math">\(A_n\text{.}\)</span></p></li>
+<li id="EVo"><p id="WDt">Does the sequence <span class="process-math">\(\{A_n\}\)</span> converge or diverge? If the sequence converges, find its limit and explain why this value makes sense in the context of this problem.</p></li>
+<li id="lcx"><p id="CKC">Determine the number of minutes it takes until the amount of GLP-1 in plasma is 1 gram.</p></li>
+</ol></article><article class="exercise exercise-like" id="uRI"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="eRM">Continuous data is the basis for analog information, like music stored on old cassette tapes or vinyl records. A digital signal like on a CD or MP3 file is obtained by sampling an analog signal at some regular time interval and storing that information. For example, the sampling rate of a compact disk is 44,100 samples per second. So a digital recording is only an approximation of the actual analog information. Digital information can be manipulated in many useful ways that allow for, among other things, noisy signals to be cleaned up and large collections of information to be compressed and stored in much smaller space. While we won't investigate these techniques in this chapter, this exercise is intended to give an idea of the importance of discrete (digital) techniques.</p>
+<p id="KYV">Let <span class="process-math">\(f\)</span> be the continuous function defined by <span class="process-math">\(f(x) = \sin(4x)\)</span> on the interval <span class="process-math">\([0,10]\text{.}\)</span> A graph of <span class="process-math">\(f\)</span> is shown in <a href="" class="xref" data-knowl="./knowl/F-8-1-PA1.html" title="Figure 8.1.5">Figure 8.1.5</a>.</p>
+<figure class="figure figure-like" id="Xnn"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/images/8_1_Exercise_1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.1.5<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(f(x) = \sin(4x)\)</span> on the interval <span class="process-math">\([0,10]\)</span></figcaption></figure><p id="rge">We approximate <span class="process-math">\(f\)</span> by <em class="emphasis">sampling</em>, that is by partitioning the interval <span class="process-math">\([0,10]\)</span> into uniform subintervals and recording the values of <span class="process-math">\(f\)</span> at the endpoints.</p>
+<ol class="lower-alpha">
+<li id="ihR"><p id="zPW">Ineffective sampling can lead to several problems in reproducing the original signal. As an example, partition the interval <span class="process-math">\([0,10]\)</span> into 8 equal length subintervals and create a list of points (the <em class="emphasis">sample</em>) using the endpoints of each subinterval. Plot your sample on graph of <span class="process-math">\(f\)</span> in Figure <a href="" class="xref" data-knowl="./knowl/F-8-1-PA1.html" title="Figure 8.1.5">Figure 8.1.5</a>. What can you say about the period of your sample as compared to the period of the original function?</p></li>
+<li id="Opa"><p id="fXf">The sampling rate is the number of samples of a signal taken per second. As the part (a) illustrates, sampling at too small a rate can cause serious problems with reproducing the original signal (this problem of inefficient sampling leading to an inaccurate approximation is called <em class="emphasis">aliasing</em>). There is an elegant theorem called the Nyquist-Shannon Sampling Theorem that says that human perception is limited, which allows that replacement of a continuous signal with a digital one without any perceived loss of information. This theorem also provides the <em class="emphasis">lowest</em> rate at which a signal can be sampled (called the Nyquist rate) without such a loss of information. The theorem states that we should sample at double the maximum desired frequency so that every cycle of the original signal will be sampled at at least two points. Recall that the frequency of a sinusoidal function is the reciprocal of the period. Identify the frequency of the function <span class="process-math">\(f\)</span> and determine the number of partitions of the interval <span class="process-math">\([0,10]\)</span> that give us the Nyquist rate.</p></li>
+<li id="uwj"><p id="Meo">Humans cannot typically pick up signals above 20 kHz. Explain why, then, that information on a compact disk is sampled at 44,100 Hz.</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-121"><div class="fn">
+<span class="booktitle">The Journal of Integer Sequences</span> at <a class="external" href="http://www.cs.uwaterloo.ca/journals/JIS/" target="_blank"><code class="code-inline tex2jax_ignore">http://www.cs.uwaterloo.ca/journals/JIS/</code></a>
+</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-122"><div class="fn">The On-Line Encyclopedia of Integer Sequences at <a class="external" href="http://oeis.org/" target="_blank"><code class="code-inline tex2jax_ignore">http://oeis.org/</code></a>
+</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-123"><div class="fn">Hui H, Farilla L, Merkel P, Perfetti R. The short half-life of glucagon-like peptide-1 in plasma does not reflect its long-lasting beneficial effects, <em class="emphasis">Eur J Endocrinol</em> 2002 Jun;146(6):863-9.</div></div>
+</div></main>
+</div>
+</body>
+</html>

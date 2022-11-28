@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Alternating Series</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-8-3-series.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-8.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-8-5-taylor.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-8-3-series.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-8.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-8-5-taylor.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="active">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="GMS"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">8.4</span> <span class="title">Alternating Series</span>
+</h2>
+<article class="objectives goal-like" id="cuW"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="yda"><p id="Grt">What is an alternating series?</p></li>
+<li id="ekj"><p id="myC">Under what conditions does an alternating series converge? Why?</p></li>
+<li id="Krs"><p id="SFL">How well does the <span class="process-math">\(n\)</span>th partial sum of a convergent alternating series approximate the actual sum of the series? Why?</p></li>
+</ul></article><section class="introduction" id="ICf"><p id="Bmb">So far, we've considered series with exclusively nonnegative terms. Next, we consider series that have some negative terms. For instance, the geometric series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2 - \frac{4}{3} + \frac{8}{9} - \cdots + 2 \left(-\frac{2}{3} \right)^n + \cdots\text{,}
+\end{equation*}
+</div>
+<p class="continuation">has <span class="process-math">\(a = 2\)</span> and <span class="process-math">\(r = -\frac{2}{3}\text{,}\)</span> so that every other term alternates in sign. This series converges to</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S = \frac{a}{1-r} = \frac{2}{1- \left(-\frac{2}{3}\right)} = \frac{6}{5}\text{.}
+\end{equation*}
+</div>
+<p id="htk">In <a href="" class="xref" data-knowl="./knowl/PA-8-4.html" title="Preview Activity 8.4.1">Preview Activity 8.4.1</a> and our following discussion, we investigate the behavior of similar series where consecutive terms have opposite signs.</p>
+<article class="exploration project-like" id="VfF"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">8.4.1</span><span class="period">.</span>
+</h3>
+<p id="zxB"><a href="" class="xref" data-knowl="./knowl/PA-8-3.html" title="Preview Activity 8.3.1">Preview Activity 8.3.1</a> showed how we can approximate the number <span class="process-math">\(e\)</span> with linear, quadratic, and other polynomial approximations. We use a similar approach in this activity to obtain linear and quadratic approximations to <span class="process-math">\(\ln(2)\text{.}\)</span> Along the way, we encounter a type of series that is different than most of the ones we have seen so far. Throughout this activity, let <span class="process-math">\(f(x) = \ln(1+x)\text{.}\)</span></p>
+<ol id="fEK" class="lower-alpha">
+<li id="MRm"><p id="dPx">Find the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\(x=0\)</span> and use this linearization to approximate <span class="process-math">\(\ln(2)\text{.}\)</span> That is, find <span class="process-math">\(L(x)\text{,}\)</span> the tangent line approximation to <span class="process-math">\(f(x)\text{,}\)</span> and use the fact that <span class="process-math">\(L(1) \approx f(1)\)</span> to estimate <span class="process-math">\(\ln(2)\text{.}\)</span></p></li>
+<li id="sYv">
+<p id="JWG">The linearization of <span class="process-math">\(\ln(1+x)\)</span> does not provide a very good approximation to <span class="process-math">\(\ln(2)\)</span> since <span class="process-math">\(1\)</span> is not that close to <span class="process-math">\(0\text{.}\)</span> To obtain a better approximation, we alter our approach; instead of using a straight line to approximate <span class="process-math">\(\ln(2)\text{,}\)</span> we use a quadratic function to account for the concavity of <span class="process-math">\(\ln(1+x)\)</span> for <span class="process-math">\(x\)</span> close to <span class="process-math">\(0\text{.}\)</span> With the linearization, both the function's value and slope agree with the linearization's value and slope at <span class="process-math">\(x=0\text{.}\)</span> We will now make a quadratic approximation <span class="process-math">\(P_2(x)\)</span> to <span class="process-math">\(f(x) = \ln(1+x)\)</span> centered at <span class="process-math">\(x=0\)</span> with the property that <span class="process-math">\(P_2(0) = f(0)\text{,}\)</span> <span class="process-math">\(P'_2(0) = f'(0)\text{,}\)</span> and <span class="process-math">\(P''_2(0) = f''(0)\text{.}\)</span></p>
+<ol id="qdP" class="lower-roman">
+<li id="NBg"><p id="BmO">Let <span class="process-math">\(P_2(x) = x - \frac{x^2}{2}\text{.}\)</span> Show that <span class="process-math">\(P_2(0) = f(0)\text{,}\)</span> <span class="process-math">\(P'_2(0) = f'(0)\text{,}\)</span> and <span class="process-math">\(P''_2(0) = f''(0)\text{.}\)</span> Use <span class="process-math">\(P_2(x)\)</span> to approximate <span class="process-math">\(\ln(2)\)</span> by using the fact that <span class="process-math">\(P_2(1) \approx f(1)\text{.}\)</span></p></li>
+<li id="ZfE"><p id="WkY">We can continue approximating <span class="process-math">\(\ln(2)\)</span> with polynomials of larger degree whose derivatives agree with those of <span class="process-math">\(f\)</span> at <span class="process-math">\(0\text{.}\)</span> This makes the polynomials fit the graph of <span class="process-math">\(f\)</span> better for more values of <span class="process-math">\(x\)</span> around <span class="process-math">\(0\text{.}\)</span> For example, let <span class="process-math">\(P_3(x) = x - \frac{x^2}{2}+\frac{x^3}{3}\text{.}\)</span> Show that <span class="process-math">\(P_3(0) = f(0)\text{,}\)</span> <span class="process-math">\(P'_3(0) = f'(0)\text{,}\)</span> <span class="process-math">\(P''_3(0) = f''(0)\text{,}\)</span> and <span class="process-math">\(P'''_3(0) = f'''(0)\text{.}\)</span> Taking a similar approach to preceding questions, use <span class="process-math">\(P_3(x)\)</span> to approximate <span class="process-math">\(\ln(2)\text{.}\)</span></p></li>
+<li id="FmN"><p id="Csh">If we used a degree <span class="process-math">\(4\)</span> or degree <span class="process-math">\(5\)</span> polynomial to approximate <span class="process-math">\(\ln(1+x)\text{,}\)</span> what approximations of <span class="process-math">\(\ln(2)\)</span> do you think would result? Use the preceding questions to conjecture a pattern that holds, and state the degree <span class="process-math">\(4\)</span> and degree <span class="process-math">\(5\)</span> approximation.</p></li>
+</ol>
+</li>
+</ol></article></section><section class="subsection" id="mUb"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.4.1</span> <span class="title">The Alternating Series Test</span>
+</h3>
+<p id="NAt"><a href="" class="xref" data-knowl="./knowl/PA-8-4.html" title="Preview Activity 8.4.1">Preview Activity 8.4.1</a> gives us several approximations to <span class="process-math">\(\ln(2)\text{.}\)</span> The linear approximation is <span class="process-math">\(1\text{,}\)</span> and the quadratic approximation is <span class="process-math">\(1 - \frac{1}{2} = \frac{1}{2}\text{.}\)</span> If we continue this process, cubic, quartic (degree <span class="process-math">\(4\)</span>), quintic (degree <span class="process-math">\(5\)</span>), and higher degree polynomials give us the approximations to <span class="process-math">\(\ln(2)\)</span> in <a href="" class="xref" data-knowl="./knowl/T-8-4-ln2.html" title="Table 8.4.1: ">Table 8.4.1</a>.</p>
+<figure class="table table-like" id="PZA"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">8.4.1<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular" id="wgJ">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">linear</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">quadratic</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1 - \frac{1}{2}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.5\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">cubic</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1 - \frac{1}{2} + \frac{1}{3}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.8\overline{3}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">quartic</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.58\overline{3}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">quintic</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5}\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.78\overline{3}\)</span></td>
+</tr>
+</table></div></figure><p id="tHC">The pattern here shows that <span class="process-math">\(\ln(2)\)</span> can be approximated by the partial sums of the infinite series</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="xmc">
+\begin{equation}
+\sum_{k=1}^{\infty} (-1)^{k+1} \frac{1}{k}\tag{8.4.1}
+\end{equation}
+</div>
+<p class="continuation">where the alternating signs are indicated by the factor <span class="process-math">\((-1)^{k+1}\text{.}\)</span> We call such a series an <em class="emphasis">alternating series</em>. </p>
+<p id="ZOL">Using computational technology, we find that the sum of the first 100 terms in this series is 0.6881721793. As a comparison, <span class="process-math">\(\ln(2) \approx 0.6931471806\text{.}\)</span> This shows that even though the series <a href="" class="xref" data-knowl="./knowl/eq-ln-2.html" title="Equation 8.4.1">(8.4.1)</a> converges to <span class="process-math">\(\ln(2)\text{,}\)</span> it must do so quite slowly, since the sum of the first 100 terms isn't particularly close to <span class="process-math">\(\ln(2)\text{.}\)</span> We will investigate the issue of how quickly an alternating series converges later in this section.</p>
+<article class="definition definition-like" id="DSm"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.4.2</span><span class="period">.</span>
+</h4>
+<p id="wCi">An alternating series is a series of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=0}^{\infty} (-1)^k a_k\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(a_k \gt 0\)</span> for each <span class="process-math">\(k\text{.}\)</span></p></article><p id="FVU">We have some flexibility in how we write an alternating series; for example, the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} (-1)^{k+1} a_k\text{,}
+\end{equation*}
+</div>
+<p class="continuation">whose index starts at <span class="process-math">\(k = 1\text{,}\)</span> is also alternating. As we will soon see, there are several very nice results that hold for alternating series, while alternating series can also demonstrate some unusual behavior.</p>
+<p id="mdd">It is important to remember that most of the series tests we have seen in previous sections apply only to series with nonnegative terms. Alternating series require a different test.</p>
+<article class="activity project-like" id="Wuy"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4.2</span><span class="period">.</span>
+</h4>
+<p id="Fwn">Remember that, by definition, a series converges if and only if its corresponding sequence of partial sums converges.</p>
+<ol id="lDw" class="lower-alpha">
+<li id="yXh">
+<p id="PVs">Calculate the first few partial sums (to 10 decimal places) of the alternating series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} (-1)^{k+1}\frac{1}{k}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Label each partial sum with the notation <span class="process-math">\(S_n = \sum_{k=1}^{n} (-1)^{k+1}\frac{1}{k}\)</span> for an appropriate choice of <span class="process-math">\(n\text{.}\)</span></p>
+</li>
+<li id="feq"><p id="wcB">Plot the sequence of partial sums from part (a). What do you notice about this sequence?</p></li>
+</ol></article><p id="Skm"><a href="" class="xref" data-knowl="./knowl/act-8-4-1.html" title="Activity 8.4.2">Activity 8.4.2</a> illustrates the general behavior of any convergent alternating series. We see that the partial sums of the alternating harmonic series oscillate around a fixed number that turns out to be the sum of the series.</p>
+<p id="yrv">Recall that if <span class="process-math">\(\lim_{k \to \infty} a_k \neq 0\text{,}\)</span> then the series <span class="process-math">\(\sum a_k\)</span> diverges by the Divergence Test. From this point forward, we will thus only consider alternating series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} (-1)^{k+1} a_k
+\end{equation*}
+</div>
+<p class="continuation">in which the sequence <span class="process-math">\(a_k\)</span> consists of positive numbers that decrease to <span class="process-math">\(0\text{.}\)</span> The <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_n = \sum_{k=1}^n (-1)^{k+1} a_k\text{.}
+\end{equation*}
+</div>
+<p id="eyE">Notice that</p>
+<ul class="disc">
+<li id="qyB"><p id="yMU"><span class="process-math">\(S_2 = a_1 - a_2\text{,}\)</span> and since <span class="process-math">\(a_1 \gt a_2\)</span> we have <span class="process-math">\(0 \lt S_2 \lt S_1 \text{.}\)</span></p></li>
+<li id="WFK"><p id="eUd"><span class="process-math">\(S_3 = S_2+a_3\)</span> and so <span class="process-math">\(S_2 \lt S_3\text{.}\)</span> But <span class="process-math">\(a_3 \lt a_2\text{,}\)</span> so <span class="process-math">\(S_3 \lt S_1\text{.}\)</span> Thus, <span class="process-math">\(0 \lt S_2 \lt S_3 \lt S_1 \text{.}\)</span></p></li>
+<li id="CMT"><p id="Lbm"><span class="process-math">\(S_4 = S_3-a_4\)</span> and so <span class="process-math">\(S_4 \lt S_3\text{.}\)</span> But <span class="process-math">\(a_4 \lt a_3\text{,}\)</span> so <span class="process-math">\(S_2 \lt S_4\text{.}\)</span> Thus, <span class="process-math">\(0 \lt S_2 \lt S_4 \lt S_3 \lt S_1 \text{.}\)</span></p></li>
+<li id="iUc"><p id="riv"><span class="process-math">\(S_5 = S_4+a_5\)</span> and so <span class="process-math">\(S_4 \lt S_5\text{.}\)</span> But <span class="process-math">\(a_5 \lt a_4\text{,}\)</span> so <span class="process-math">\(S_5 \lt S_3\text{.}\)</span> Thus, <span class="process-math">\(0 \lt S_2 \lt S_4 \lt S_5 \lt S_3 \lt S_1 \text{.}\)</span></p></li>
+</ul>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><p id="oXJ">This pattern continues as illustrated in <a href="" class="xref" data-knowl="./knowl/Fig-8-4-Alternating-Series-Test.html" title="Figure 8.4.4">Figure 8.4.4</a> (with <span class="process-math">\(n\)</span> odd) so that each partial sum lies between the previous two partial sums.</p></div>
+<div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="VeS"><img src="external/images/8_4_Alternating_Series_Test.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.4.4<span class="period">.</span></span><span class="space"> </span>Partial sums of an alternating series</figcaption></figure></div>
+</div></div>
+<p id="KFN">Note further that the absolute value of the difference between the <span class="process-math">\((n-1)\)</span>st partial sum <span class="process-math">\(S_{n-1}\)</span> and the <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left\lvert S_n - S_{n-1} \right\rvert = a_n\text{.}
+\end{equation*}
+</div>
+<p id="qMW">Because the sequence <span class="process-math">\(\{a_n\}\)</span> converges to <span class="process-math">\(0\text{,}\)</span> the distance between successive partial sums becomes as close to zero as we'd like, and thus the sequence of partial sums converges (even though we don't know the exact value to which it converges).</p>
+<p id="WUf">The preceding discussion has demonstrated the truth of the Alternating Series Test. </p>
+<article class="assemblage assemblage-like" id="rDU"><h4 class="heading"><span class="title">The Alternating Series Test.</span></h4>
+<p id="Dbo">Given an alternating series <span class="process-math">\(\sum (-1)^k a_k
+\text{,}\)</span> if the sequence <span class="process-math">\(\{a_k\}\)</span> of positive terms decreases to 0 as <span class="process-math">\(k \to \infty\text{,}\)</span> then the alternating series converges.</p></article><p id="jix">Note that if the limit of the sequence <span class="process-math">\(\{a_k\}\)</span> is not 0, then the alternating series diverges.</p>
+<article class="activity project-like" id="qXj"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4.3</span><span class="period">.</span>
+</h4>
+<p id="eIR">Which series converge and which diverge? Justify your answers.</p>
+<ol id="KQa" class="lower-alpha cols3">
+<li id="TzS"><p id="cTE"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{\infty} \frac{(-1)^k}{k^2+2}\)</span></p></li>
+<li id="zHb"><p id="JaN"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{\infty} \frac{(-1)^{k+1}2k}{k+5}\)</span></p></li>
+<li id="fOk"><p id="phW"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=2}^{\infty} \frac{(-1)^{k}}{\ln(k)}\)</span></p></li>
+</ol></article></section><section class="subsection" id="Tbk"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.4.2</span> <span class="title">Estimating Alternating Sums</span>
+</h3>
+<p id="PpG">If the series converges, the argument for the Alternating Series Test also provides us with a method to determine how close the <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> is to the actual sum of the series. To see how this works, let <span class="process-math">\(S\)</span> be the sum of a convergent alternating series, so</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S = \sum_{k=1}^{\infty} (-1)^k a_k\text{.}
+\end{equation*}
+</div>
+<p id="vwP">Recall that the sequence of partial sums oscillates around the sum <span class="process-math">\(S\)</span> so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left|S - S_n \right| \lt  \left| S_{n+1} - S_n \right| = a_{n+1}\text{.}
+\end{equation*}
+</div>
+<p id="bDY">Therefore, the value of the term <span class="process-math">\(a_{n+1}\)</span> provides an error estimate for how well the partial sum <span class="process-math">\(S_n\)</span> approximates the actual sum <span class="process-math">\(S\text{.}\)</span> We summarize this fact in the statement of the Alternating Series Estimation Theorem. </p>
+<article class="assemblage assemblage-like" id="XLd"><h4 class="heading"><span class="title">Alternating Series Estimation Theorem.</span></h4>
+<p id="HLh">If the alternating series <span class="process-math">\(\sum_{k=1}^{\infty} (-1)^{k+1}a_k\)</span> has positive terms <span class="process-math">\(a_k\)</span> that decrease to zero as <span class="process-math">\(k \to \infty\text{,}\)</span> and <span class="process-math">\(S_n = \sum_{k=1}^{n} (-1)^{k+1}a_k\)</span> is the <span class="process-math">\(n\)</span>th partial sum of the alternating series, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left\lvert \sum_{k=1}^{\infty} (-1)^{k+1}a_k - S_n \right\rvert \leq a_{n+1}\text{.}
+\end{equation*}
+</div></article><article class="example example-like" id="QgE"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.4.5</span><span class="period">.</span>
+</h4>
+<p id="IQA">Determine how well the <span class="process-math">\(100\)</span>th partial sum <span class="process-math">\(S_{100}\)</span> of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k}
+\end{equation*}
+</div>
+<p class="continuation">approximates the sum of the series.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-oJo" id="oJo"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-oJo"><div class="solution solution-like">
+<p id="EgH">If we let <span class="process-math">\(S\)</span> be the sum of the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k}\text{,}\)</span> then we know that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left| S_{100} - S \right| \lt  a_{101}\text{.}
+\end{equation*}
+</div>
+<p id="knQ">Now</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_{101} = \frac{1}{101} \approx 0.0099\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so the 100th partial sum is within 0.0099 of the sum of the series. We have discussed the fact (and will later verify) that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S = \sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k} = \ln(2)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and so <span class="process-math">\(S \approx 0.693147\)</span> while</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_{100} = \sum_{k=1}^{100} \frac{(-1)^{k+1}}{k} \approx 0.6881721793\text{.}
+\end{equation*}
+</div>
+<p id="QuZ">We see that the actual difference between <span class="process-math">\(S\)</span> and <span class="process-math">\(S_{100}\)</span> is approximately <span class="process-math">\(0.0049750013\text{,}\)</span> which is indeed less than <span class="process-math">\(0.0099\text{.}\)</span></p>
+</div></div>
+</div></article><article class="activity project-like" id="sMw"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4.4</span><span class="period">.</span>
+</h4>
+<p id="UjM">Determine the number of terms it takes to approximate the sum of the convergent alternating series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k^4}
+\end{equation*}
+</div>
+<p class="continuation">to within 0.0001.</p></article></section><section class="subsection" id="zit"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.4.3</span> <span class="title">Absolute and Conditional Convergence</span>
+</h3>
+<p id="nSq">A series such as</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="fiy">
+\begin{equation}
+1 - \frac{1}{4} - \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \frac{1}{36} - \frac{1}{49}  - \frac{1}{64}  - \frac{1}{81}  - \frac{1}{100}  + \cdots\tag{8.4.2}
+\end{equation}
+</div>
+<p class="continuation">whose terms are neither all nonnegative nor alternating is different from any series that we have considered so far. The behavior of such a series can be rather complicated, but there is an important connection between a series with some negative terms and series with all positive terms.</p>
+<article class="activity project-like" id="qBK"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4.5</span><span class="period">.</span>
+</h4>
+<ol id="BaP" class="lower-alpha">
+<li id="pRQ">
+<p id="zlC">Explain why the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1 - \frac{1}{4} - \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \frac{1}{36} - \frac{1}{49}  - \frac{1}{64}  - \frac{1}{81}  - \frac{1}{100}  + \cdots
+\end{equation*}
+</div>
+<p class="continuation">must have a sum that is less than the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} \frac{1}{k^2}\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="VYZ">
+<p id="fsL">Explain why the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1 - \frac{1}{4} - \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \frac{1}{36} - \frac{1}{49}  - \frac{1}{64}  - \frac{1}{81}  - \frac{1}{100}  + \cdots
+\end{equation*}
+</div>
+<p class="continuation">must have a sum that is greater than the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} -\frac{1}{k^2}\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="Cgi">
+<p id="LzU">Given that the terms in the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1 - \frac{1}{4} - \frac{1}{9} + \frac{1}{16} + \frac{1}{25} + \frac{1}{36} - \frac{1}{49}  - \frac{1}{64}  - \frac{1}{81}  - \frac{1}{100}  + \cdots
+\end{equation*}
+</div>
+<p class="continuation">converge to 0, what do you think the previous two results tell us about the convergence status of this series?</p>
+</li>
+</ol></article><p id="TZz">As the example in <a href="" class="xref" data-knowl="./knowl/act-8-4-4.html" title="Activity 8.4.5">Activity 8.4.5</a> suggests, if a series <span class="process-math">\(\sum a_k\)</span> has some negative terms but <span class="process-math">\(\sum |a_k|\)</span> converges, then the original series, <span class="process-math">\(\sum a_k\text{,}\)</span> must also converge. That is, if <span class="process-math">\(\sum | a_k |\)</span> converges, then so must <span class="process-math">\(\sum a_k\text{.}\)</span></p>
+<p id="AgI">As we just observed, this is the case for the series <a href="" class="xref" data-knowl="./knowl/eq-8-4-abs-convergence.html" title="Equation 8.4.2">(8.4.2)</a>, because the corresponding series of the absolute values of its terms is the convergent <span class="process-math">\(p\)</span>-series <span class="process-math">\(\sum \frac{1}{k^2}\text{.}\)</span> But there are series, such as the alternating harmonic series <span class="process-math">\(\sum (-1)^{k+1} \frac{1}{k}\text{,}\)</span> that converge while the corresponding series of absolute values, <span class="process-math">\(\sum \frac{1}{k}\text{,}\)</span> diverges. We distinguish between these behaviors by introducing the following language.</p>
+<article class="definition definition-like" id="wnN"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.4.6</span><span class="period">.</span>
+</h4>
+<p id="cJr">Consider a series <span class="process-math">\(\sum a_k\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="QQy"><p id="XpE">The series <span class="process-math">\(\sum a_k\)</span> <em class="emphasis">converges absolutely</em> (or is <em class="emphasis">absolutely convergent</em>) provided that <span class="process-math">\(\sum | a_k |\)</span> converges.</p></li>
+<li id="wXH"><p id="DwN">The series <span class="process-math">\(\sum a_k\)</span> <em class="emphasis">converges conditionally</em> (or is <em class="emphasis">conditionally convergent</em>) provided that <span class="process-math">\(\sum | a_k |\)</span> diverges and <span class="process-math">\(\sum a_k\)</span> converges.</p></li>
+</ol></article><p id="gnR">In this terminology, the series <a href="" class="xref" data-knowl="./knowl/eq-8-4-abs-convergence.html" title="Equation 8.4.2">(8.4.2)</a> converges absolutely while the alternating harmonic series is conditionally convergent.</p>
+<article class="activity project-like" id="dRT"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4.6</span><span class="period">.</span>
+</h4>
+<ol id="gMz" class="lower-alpha">
+<li id="gcF">
+<p id="NZb">Consider the series <span class="process-math">\(\sum (-1)^k \frac{\ln(k)}{k}\text{.}\)</span></p>
+<ol class="lower-roman">
+<li id="CuD"><p id="JZc">Does this series converge? Explain.</p></li>
+<li id="MjO"><p id="ugk">Does this series converge absolutely? Explain what test you use to determine your answer.</p></li>
+</ol>
+</li>
+<li id="hRS">
+<p id="ant">Consider the series <span class="process-math">\(\sum (-1)^k \frac{\ln(k)}{k^2}\text{.}\)</span></p>
+<ol class="lower-roman">
+<li id="sqX"><p id="vVx">Does this series converge? Explain.</p></li>
+<li id="Yyg"><p id="GuC">Does this series converge absolutely? Hint: Use the fact that <span class="process-math">\(\ln(k) \lt \sqrt{k}\)</span> for large values of <span class="process-math">\(k\)</span> and then compare to an appropriate <span class="process-math">\(p\)</span>-series.</p></li>
+</ol>
+</li>
+</ol></article><p id="Mva">Conditionally convergent series turn out to be very interesting. If the sequence <span class="process-math">\(\{a_n\}\)</span> decreases to 0, but the series <span class="process-math">\(\sum a_k\)</span> diverges, the conditionally convergent series <span class="process-math">\(\sum (-1)^k a_k\)</span> is right on the borderline of being a divergent series. As a result, any conditionally convergent series converges very slowly. Furthermore, some very strange things can happen with conditionally convergent series, as illustrated in some of the exercises.</p></section><section class="subsection" id="fpC"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.4.4</span> <span class="title">Summary of Tests for Convergence of Series</span>
+</h3>
+<p id="sCj">We have discussed several tests for convergence/divergence of series in our sections and in exercises. We close this section of the text with a summary of all the tests we have encountered, followed by an activity that challenges you to decide which convergence test to apply to several different series.</p>
+<dl id="YJs" class="description-list">
+<dt id="deQ">Geometric Series</dt>
+<dd>
+<p id="jDW">The geometric series <span class="process-math">\(\sum ar^k\)</span> with ratio <span class="process-math">\(r\)</span> converges for <span class="process-math">\(-1 \lt r \lt 1\)</span> and diverges for <span class="process-math">\(|r| \geq 1\text{.}\)</span></p>
+<p id="PLf">The sum of the convergent geometric series <span class="process-math">\(\displaystyle \sum_{k=0}^{\infty} ar^k\)</span> is <span class="process-math">\(\frac{a}{1-r}\text{.}\)</span></p>
+</dd>
+<dt id="JlZ">Divergence Test</dt>
+<dd>
+<p id="vSo">If the sequence <span class="process-math">\(a_n\)</span> does not converge to 0, then the series <span class="process-math">\(\sum a_k\)</span> diverges.</p>
+<p id="bZx">This is the first test to apply because the conclusion is simple. However, if <span class="process-math">\(\lim_{n \to \infty} a_n = 0\text{,}\)</span> no conclusion can be drawn.</p>
+</dd>
+<dt id="pti">Integral Test</dt>
+<dd>
+<p id="IgG">Let <span class="process-math">\(f\)</span> be a positive, decreasing function on an interval <span class="process-math">\([c,\infty)\)</span> and let <span class="process-math">\(a_k = f(k)\)</span> for each positive integer <span class="process-math">\(k \geq c\text{.}\)</span></p>
+<ul class="disc">
+<li id="Pbl"><p id="Hbn">If <span class="process-math">\(\int_c^{\infty} f(t) \ dt\)</span> converges, then <span class="process-math">\(\sum a_k\)</span> converges.</p></li>
+<li id="viu"><p id="onP">If <span class="process-math">\(\int_c^{\infty} f(t) \ dt\)</span> diverges, then <span class="process-math">\(\sum a_k\)</span> diverges.</p></li>
+</ul>
+<p id="fDX">Use this test when <span class="process-math">\(f(x)\)</span> is easy to integrate.</p>
+</dd>
+<dt id="VAr">Direct Comp. Test</dt>
+<dd>
+<p id="UuY">(see <a href="" class="xref" data-knowl="./knowl/ex-8-3-Direct-Comparison-Test.html" title="Exercise 8.3.7.8">Exercise 8.3.7.8</a> in <a href="sec-8-3-series.html" class="internal" title="Section 8.3: Series of Real Numbers">Section 8.3</a>)</p>
+<p id="ACh">Let <span class="process-math">\(0 \leq a_k \leq b_k\)</span> for each positive integer <span class="process-math">\(k\text{.}\)</span></p>
+<ul class="disc">
+<li id="bpD"><p id="niw">If <span class="process-math">\(\sum b_k\)</span> converges, then <span class="process-math">\(\sum a_k\)</span> converges.</p></li>
+<li id="HwM"><p id="gJq">If <span class="process-math">\(\sum a_k\)</span> diverges, then <span class="process-math">\(\sum b_k\)</span> diverges.</p></li>
+</ul>
+<p id="LLg">Use this test when you have a series with known behavior that you can compare to — this test can be difficult to apply.</p>
+</dd>
+<dt id="BHA">Limit Comp. Test</dt>
+<dd>
+<p id="MQz">Let <span class="process-math">\(a_n\)</span> and <span class="process-math">\(b_n\)</span> be sequences of positive terms. If</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\displaystyle \lim_{k \to \infty} \frac{a_k}{b_k} = L
+\end{equation*}
+</div>
+<p class="continuation">for some positive finite number <span class="process-math">\(L\text{,}\)</span> then the two series <span class="process-math">\(\sum a_k\)</span> and <span class="process-math">\(\sum b_k\)</span> either both converge or both diverge.</p>
+<p id="sXI">Easier to apply in general than the comparison test, but you must have a series with known behavior to compare. Useful to apply to series of rational functions.</p>
+</dd>
+<dt id="hOJ">Ratio Test</dt>
+<dd>
+<p id="ZeR">Let <span class="process-math">\(a_k \neq 0\)</span> for each <span class="process-math">\(k\)</span> and suppose</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\displaystyle \lim_{k \to \infty} \frac{|a_{k+1}|}{|a_k|} = r\text{.}
+\end{equation*}
+</div>
+<ul class="disc">
+<li id="nDV"><p id="TpF">If <span class="process-math">\(r \lt 1\text{,}\)</span> then the series <span class="process-math">\(\sum a_k\)</span> converges absolutely.</p></li>
+<li id="TLe"><p id="Fma">If <span class="process-math">\(r \gt 1\text{,}\)</span> then the series <span class="process-math">\(\sum a_k\)</span> diverges.</p></li>
+<li id="zSn"><p id="ltj">If <span class="process-math">\(r=1\text{,}\)</span> then test is inconclusive.</p></li>
+</ul>
+<p id="rSp">This test is useful when a series involves factorials and powers.</p>
+</dd>
+<dt id="NVS">Root Test</dt>
+<dd>
+<p id="RAs">(see <a href="" class="xref" data-knowl="./knowl/ex-8-3-Root-Test.html" title="Exercise 8.3.7.6">Exercise 8.3.7.6</a> in <a href="sec-8-3-series.html" class="internal" title="Section 8.3: Series of Real Numbers">Section 8.3</a>)</p>
+<p id="xHB">Let <span class="process-math">\(a_k \geq 0\)</span> for each <span class="process-math">\(k\)</span> and suppose</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\displaystyle \lim_{k \to \infty} \sqrt[k]{a_k} = r\text{.}
+\end{equation*}
+</div>
+<ul class="disc">
+<li id="fZw"><p id="zwO">If <span class="process-math">\(r \lt 1\text{,}\)</span> then the series <span class="process-math">\(\sum a_k\)</span> converges.</p></li>
+<li id="MgF"><p id="dOK">If <span class="process-math">\(r \gt 1\text{,}\)</span> then the series <span class="process-math">\(\sum a_k\)</span> diverges.</p></li>
+<li id="snO"><p id="JVT">If <span class="process-math">\(r=1\text{,}\)</span> then test is inconclusive.</p></li>
+</ul>
+<p id="XZy">In general, the Ratio Test can usually be used in place of the Root Test. However, the Root Test can be quick to use when <span class="process-math">\(a_k\)</span> involves <span class="process-math">\(k\)</span>th powers.</p>
+</dd>
+<dt id="udb">Alt. Series Test</dt>
+<dd>
+<p id="qdc">If <span class="process-math">\(a_n\)</span> is a positive, decreasing sequence so that <span class="process-math">\(\displaystyle \lim_{n \to \infty} a_n = 0\text{,}\)</span> then the alternating series <span class="process-math">\(\sum (-1)^{k+1} a_k\)</span> converges.</p>
+<p id="Wkl">This test applies only to alternating series — we assume that the terms <span class="process-math">\(a_n\)</span> are all positive and that the sequence <span class="process-math">\(\{a_n\}\)</span> is decreasing.</p>
+</dd>
+<dt id="akk">Alt. Series Est.</dt>
+<dd>
+<p id="Cru">Let <span class="process-math">\(S_n = \displaystyle \sum_{k=1}^n (-1)^{k+1} a_k\)</span> be the <span class="process-math">\(n\)</span>th partial sum of the alternating series <span class="process-math">\(\displaystyle \sum_{k=1}^{\infty} (-1)^{k+1} a_k\text{.}\)</span> Assume <span class="process-math">\(a_n \gt 0\)</span> for each positive integer <span class="process-math">\(n\text{,}\)</span> the sequence <span class="process-math">\(a_n\)</span> decreases to 0 and <span class="process-math">\(\displaystyle \lim_{n \to \infty} S_n = S\text{.}\)</span> Then it follows that <span class="process-math">\(|S - S_n| \lt a_{n+1}\text{.}\)</span></p>
+<p id="iyD">This bound can be used to determine the accuracy of the partial sum <span class="process-math">\(S_n\)</span> as an approximation of the sum of a convergent alternating series.</p>
+</dd>
+</dl>
+<article class="activity project-like" id="McK"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4.7</span><span class="period">.</span>
+</h4>
+<p id="xZf">For (a)-(j), use appropriate tests to determine the convergence or divergence of the following series. Throughout, if a series is a convergent geometric series, find its sum.</p>
+<ol id="ego" class="lower-alpha">
+<li id="EjQ"><p id="ETK"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=3}^{\infty} \ \frac{2}{\sqrt{k-2}}\)</span></p></li>
+<li id="kqZ"><p id="laT"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{\infty} \ \frac{k}{1+2k}\)</span></p></li>
+<li id="Qyi"><p id="Ric"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=0}^{\infty} \ \frac{2k^2+1}{k^3+k+1}\)</span></p></li>
+<li id="wFr"><p id="xpl"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=0}^{\infty} \ \frac{100^k}{k!}\)</span></p></li>
+<li id="cMA"><p id="dwu"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{\infty} \ \frac{2^k}{5^k}\)</span></p></li>
+<li id="ITJ"><p id="JDD"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{\infty} \ \frac{k^3-1}{k^5+1}\)</span></p></li>
+<li id="paS"><p id="pKM"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=2}^{\infty} \ \frac{3^{k-1}}{7^k}\)</span></p></li>
+<li id="Vib"><p id="VRV"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=2}^{\infty} \ \frac{1}{k^k}\)</span></p></li>
+<li id="Bpk"><p id="BZe"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{\infty} \ \frac{(-1)^{k+1}}{\sqrt{k+1}}\)</span></p></li>
+<li id="hwt"><p id="ign"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=2}^{\infty} \ \frac{1}{k \ln(k)}\)</span></p></li>
+<li id="NDC"><p id="Onw">Determine a value of <span class="process-math">\(n\)</span> so that the <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> of the alternating series <span class="process-math">\(\displaystyle\sum_{n=2}^{\infty} \frac{(-1)^n}{\ln(n)}\)</span> approximates the sum to within 0.001.</p></li>
+</ol></article></section><section class="subsection" id="LwL"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.4.5</span> <span class="title">Summary</span>
+</h3>
+<ul id="EQB" class="disc">
+<li id="YuX">
+<p id="OFM">An alternating series is a series whose terms alternate in sign. It has the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum (-1)^ka_k
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(a_k\)</span> is a positive real number for each <span class="process-math">\(k\text{.}\)</span></p>
+</li>
+<li id="ECg"><p id="uMV">The sequence of partial sums of a convergent alternating series oscillates around the sum of the series if the sequence of <span class="process-math">\(n\)</span>th terms converges to 0. That is why the Alternating Series Test shows that the alternating series <span class="process-math">\(\sum_{k=1}^{\infty} (-1)^ka_k\)</span> converges whenever the sequence <span class="process-math">\(\{a_n\}\)</span> of <span class="process-math">\(n\)</span>th terms decreases to 0.</p></li>
+<li id="kJp">
+<p id="aUe">The difference between the <span class="process-math">\(n-1\)</span>st partial sum <span class="process-math">\(S_{n-1}\)</span> and the <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> of a convergent alternating series <span class="process-math">\(\sum_{k=1}^{\infty} (-1)^ka_k\)</span> is <span class="process-math">\(|S_n - S_{n-1}| = a_n\text{.}\)</span> Since the partial sums oscillate around the sum <span class="process-math">\(S\)</span> of the series, it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|S - S_n| \lt  a_n\text{.}
+\end{equation*}
+</div>
+<p class="continuation">So the <span class="process-math">\(n\)</span>th partial sum of a convergent alternating series <span class="process-math">\(\sum_{k=1}^{\infty} (-1)^ka_k\)</span> approximates the actual sum of the series to within <span class="process-math">\(a_n\text{.}\)</span></p>
+</li>
+</ul></section><section class="exercises" id="Rkg"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">8.4.6</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="aKW"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Testing convergence for an alternating series.</span>
+</h4>
+<div id="webwork-223" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="223" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap9Sec4/Q57.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-9560"><em class="alert">(a)</em> Carefully determine the convergence of the series <span class="process-math">\(\sum\limits_{n=1}^{\infty} {(-1)^n\over 4 n}\text{.}\)</span>  The series is <ul style="list-style:circle;">
+<li id="li-5600"><p id="p-9561">absolutely convergent</p></li>
+<li id="li-5601"><p id="p-9562">conditionally convergent</p></li>
+<li id="li-5602"><p id="p-9563">divergent</p></li>
+</ul></p>
+<p id="p-9564"><em class="alert">(b)</em> Carefully determine the convergence of the series <span class="process-math">\(\sum\limits_{n=1}^{\infty} {(-1)^n\left({n+1\over n}\right)}\text{.}\)</span>  The series is <ul style="list-style:circle;">
+<li id="li-5603"><p id="p-9565">absolutely convergent</p></li>
+<li id="li-5604"><p id="p-9566">conditionally convergent</p></li>
+<li id="li-5605"><p id="p-9567">divergent</p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-223')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="GSf"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating the sum of an alternating series.</span>
+</h4>
+<div id="webwork-224" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="224" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries3Convergent/ur_sr_3_8.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-9568">For the following alternating series,</p>
+<p id="p-9569"><span class="process-math">\(\displaystyle \sum_{n=1}^\infty a_n = 0.6 - \frac{(0.6)^3}{3!} + \frac{(0.6)^5}{5!} -
+\frac{(0.6)^7}{7!} + ...\)</span></p>
+<p id="p-9570">how many terms do you have to compute in order for your approximation (your partial sum) to be within 0.0000001 from the convergent value of that series?</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-224')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="mZo"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating the sum of a different alternating series.</span>
+</h4>
+<div id="webwork-225" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="225" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries3Convergent/ur_sr_3_9.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-9572">For the following alternating series,</p>
+<p id="p-9573"><span class="process-math">\(\displaystyle \sum_{n=1}^\infty a_n = 1 - \frac{(0.5)^2}{2!} + \frac{(0.5)^4}{4!} -
+\frac{(0.5)^6}{6!} + \frac{(0.5)^8}{8!} - ...\)</span></p>
+<p id="p-9574">how many terms do you have to go for your approximation (your partial sum) to be within 0.0000001 from the convergent value of that series?</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-225')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Tgx"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating the sum of one more alternating series.</span>
+</h4>
+<div id="webwork-226" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="226" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries3Convergent/ur_sr_3_10.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-9576">For the following alternating series,</p>
+<p id="p-9577"><span class="process-math">\(\displaystyle \sum_{n=1}^\infty a_n = 1 - \frac{1}{10} + \frac{1}{100} - \frac{1}{1000} + ...\)</span></p>
+<p id="p-9578">how many terms do you have to go for your approximation (your partial sum) to be within 0.01 from the convergent value of that series?</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-226')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="znG"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="IVN">Conditionally convergent series converge very slowly. As an example, consider the famous formula<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-126" id="fn-126"><sup> 1 </sup></a></p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="Gbh">
+\begin{equation}
+\frac{\pi}{4} = 1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \cdots = \sum_{k=0}^{\infty} (-1)^{k} \frac{1}{2k+1}\text{.}\tag{8.4.3}
+\end{equation}
+</div>
+<p id="pcW">In theory, the partial sums of this series could be used to approximate <span class="process-math">\(\pi\text{.}\)</span></p>
+<ol id="Vkf" class="lower-alpha">
+<li id="yin"><p id="SKY">Show that the series in <a href="" class="xref" data-knowl="./knowl/Ex-8-4-pi.html" title="Equation 8.4.3">(8.4.3)</a> converges conditionally.</p></li>
+<li id="epw"><p id="ySh">Let <span class="process-math">\(S_n\)</span> be the <span class="process-math">\(n\)</span>th partial sum of the series in <a href="" class="xref" data-knowl="./knowl/Ex-8-4-pi.html" title="Equation 8.4.3">(8.4.3)</a>. Calculate the error in approximating <span class="process-math">\(\frac{\pi}{4}\)</span> with <span class="process-math">\(S_{100}\)</span> and explain why this is not a very good approximation.</p></li>
+<li id="KwF"><p id="eZq">Determine the number of terms it would take in the series <a href="" class="xref" data-knowl="./knowl/Ex-8-4-pi.html" title="Equation 8.4.3">(8.4.3)</a> to approximate <span class="process-math">\(\frac{\pi}{4}\)</span> to 10 decimal places. (The fact that it takes such a large number of terms to obtain even a modest degree of accuracy is why we say that conditionally convergent series converge very slowly.)</p></li>
+</ol></article><article class="exercise exercise-like" id="fuP"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="Bro">We have shown that if <span class="process-math">\(\sum (-1)^{k+1} a_k\)</span> is a convergent alternating series, then the sum <span class="process-math">\(S\)</span> of the series lies between any two consecutive partial sums <span class="process-math">\(S_n\text{.}\)</span> This suggests that the average <span class="process-math">\(\frac{S_n+S_{n+1}}{2}\)</span> is a better approximation to <span class="process-math">\(S\)</span> than is <span class="process-math">\(S_n\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="buQ"><p id="ceK">Show that <span class="process-math">\(\frac{S_n+S_{n+1}}{2} = S_n + \frac{1}{2}(-1)^{n+2} a_{n+1}\text{.}\)</span></p></li>
+<li id="HBZ">
+<p id="IlT">Use this revised approximation in (a) with <span class="process-math">\(n = 20\)</span> to approximate <span class="process-math">\(\ln(2)\)</span> given that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\ln(2) = \sum_{k=1}^{\infty} (-1)^{k+1} \frac{1}{k}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Compare this to the approximation using just <span class="process-math">\(S_{20}\text{.}\)</span> For your convenience, <span class="process-math">\(S_{20} = \frac{155685007}{232792560}\text{.}\)</span></p>
+</li>
+</ol></article><article class="exercise exercise-like" id="LBY"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="hyx">In this exercise, we examine one of the conditions of the Alternating Series Test. Consider the alternating series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1 - 1 + \frac{1}{2} - \frac{1}{4} + \frac{1}{3} - \frac{1}{9} + \frac{1}{4} - \frac{1}{16} + \cdots\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where the terms are selected alternately from the sequences <span class="process-math">\(\left\{\frac{1}{n}\right\}\)</span> and <span class="process-math">\(\left\{-\frac{1}{n^2}\right\}\text{.}\)</span></p>
+<ol id="NFG" class="lower-alpha">
+<li id="MlS"><p id="tcV">Explain why the <span class="process-math">\(n\)</span>th term of the given series converges to 0 as <span class="process-math">\(n\)</span> goes to infinity.</p></li>
+<li id="stb">
+<p id="Zke">Rewrite the given series by grouping terms in the following manner:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+(1 - 1) + \left(\frac{1}{2} - \frac{1}{4}\right) + \left(\frac{1}{3} - \frac{1}{9}\right) + \left(\frac{1}{4} - \frac{1}{16}\right) + \cdots\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Use this regrouping to determine if the series converges or diverges.</p>
+</li>
+<li id="YAk"><p id="Frn">Explain why the condition that the sequence <span class="process-math">\(\{a_n\}\)</span> <em class="emphasis">decreases</em> to a limit of 0 is included in the Alternating Series Test.</p></li>
+</ol></article><article class="exercise exercise-like" id="rJh"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="tMP">Conditionally convergent series exhibit interesting and unexpected behavior. In this exercise we examine the conditionally convergent alternating harmonic series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k}\)</span> and discover that addition is not commutative for conditionally convergent series. We will also encounter Riemann's Theorem concerning rearrangements of conditionally convergent series. Before we begin, we remind ourselves that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k} = \ln(2)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">a fact which will be verified in a later section.</p>
+<ol id="ZTY" class="lower-alpha">
+<li id="pyv">
+<p id="CwH">First we make a quick analysis of the positive and negative terms of the alternating harmonic series.</p>
+<ol id="iDQ" class="lower-roman">
+<li id="dyy"><p id="xrp">Show that the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{2k}\)</span> diverges.</p></li>
+<li id="VFE"><p id="OKZ">Show that the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{2k+1}\)</span> diverges.</p></li>
+<li id="BMN"><p id="uSi">Based on the results of the previous parts of this exercise, what can we say about the sums <span class="process-math">\(\sum_{k=C}^{\infty} \frac{1}{2k}\)</span> and <span class="process-math">\(\sum_{k=C}^{\infty} \frac{1}{2k+1}\)</span> for any positive integer <span class="process-math">\(C\text{?}\)</span> Be specific in your explanation.</p></li>
+</ol>
+</li>
+<li id="mDP">
+<p id="aZr">Recall addition of real numbers is commutative; that is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a + b = b + a
+\end{equation*}
+</div>
+<p class="continuation">for any real numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> This property is valid for any sum of finitely many terms, but does this property extend when we add infinitely many terms together?</p>
+<p id="HgA">The answer is no, and something even more odd happens. Riemann's Theorem (after the nineteenth-century mathematician Georg Friedrich Bernhard Riemann) states that a conditionally convergent series can be rearranged to converge to <em class="emphasis">any</em> prescribed sum. More specifically, this means that if we choose any real number <span class="process-math">\(S\text{,}\)</span> we can rearrange the terms of the alternating harmonic series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k}\)</span> so that the sum is <span class="process-math">\(S\text{.}\)</span> To understand how Riemann's Theorem works, let's assume for the moment that the number <span class="process-math">\(S\)</span> we want our rearrangement to converge to is positive. Our job is to find a way to order the sum of terms of the alternating harmonic series to converge to <span class="process-math">\(S\text{.}\)</span></p>
+<ol id="nnJ" class="lower-roman">
+<li id="hTW">
+<p id="rXC">Explain how we know that, regardless of the value of <span class="process-math">\(S\text{,}\)</span> we can find a partial sum <span class="process-math">\(P_1\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+P_1 = \sum_{k=1}^{n_1} \frac{1}{2k+1} = 1 + \frac{1}{3} + \frac{1}{5} + \cdots + \frac{1}{2n_1+1}
+\end{equation*}
+</div>
+<p class="continuation">of the positive terms of the alternating harmonic series that equals or exceeds <span class="process-math">\(S\text{.}\)</span> Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_1 = P_1\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="Obf">
+<p id="TuS">Explain how we know that, regardless of the value of <span class="process-math">\(S_1\text{,}\)</span> we can find a partial sum <span class="process-math">\(N_1\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+N_1 = -\sum_{k=1}^{m_1} \frac{1}{2k} = -\frac{1}{2} - \frac{1}{4} - \frac{1}{6} - \cdots - \frac{1}{2m_1}
+\end{equation*}
+</div>
+<p class="continuation">so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_2 = S_1 + N_1 \leq S\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="uio">
+<p id="zCb">Explain how we know that, regardless of the value of <span class="process-math">\(S_2\text{,}\)</span> we can find a partial sum <span class="process-math">\(P_2\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+P_2 = \sum_{k=n_1+1}^{n_2} \frac{1}{2k+1} = \frac{1}{2(n_1+1)+1} + \frac{1}{2(n_1+2)+1} + \cdots + \frac{1}{2n_2+1}
+\end{equation*}
+</div>
+<p class="continuation">of the remaining positive terms of the alternating harmonic series so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_3 = S_2 + P_2 \geq S\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="apx">
+<p id="fJk">Explain how we know that, regardless of the value of <span class="process-math">\(S_3\text{,}\)</span> we can find a partial sum</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+N_2 = -\sum_{k=m_1+1}^{m_2} \frac{1}{2k} = -\frac{1}{2(m_1+1)} - \frac{1}{2(m_1+2)} - \cdots - \frac{1}{2m_2}
+\end{equation*}
+</div>
+<p class="continuation">of the remaining negative terms of the alternating harmonic series so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_4 = S_3 + N_2 \leq S\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="GwG"><p id="LQt">Explain why we can continue this process indefinitely and find a sequence <span class="process-math">\(\{S_n\}\)</span> whose terms are partial sums of a rearrangement of the terms in the alternating harmonic series so that <span class="process-math">\(\lim_{n \to \infty} S_n = S\text{.}\)</span></p></li>
+</ol>
+</li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-126"><div class="fn">We will derive this formula in upcoming work.</div></div>
+</div></main>
+</div>
+</body>
+</html>

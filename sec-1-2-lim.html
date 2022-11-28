@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC The notion of limit</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-1-1-vel.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-1-3-derivative-pt.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-1-1-vel.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-1-3-derivative-pt.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="active">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="VMz"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">The notion of limit</span>
+</h2>
+<article class="objectives goal-like" id="yZc"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="PXn"><p id="lFr">What is the mathematical notion of <em class="emphasis">limit</em> and what role do limits play in the study of functions?</p></li>
+<li id="wew"><p id="RMA">What is the meaning of the notation <span class="process-math">\(\lim_{x \to a} f(x) = L\text{?}\)</span></p></li>
+<li id="clF"><p id="xTJ">How do we go about determining the value of the limit of a function at a point?</p></li>
+<li id="IsO"><p id="eaS">How do we manipulate average velocity to compute instantaneous velocity?</p></li>
+</ul></article><section class="introduction" id="fgl"><p id="pjR">In Section 1.1 we used a function, <span class="process-math">\(s(t)\text{,}\)</span> to model the location of a moving object at a given time. Functions can model other interesting phenomena, such as the rate at which an automobile consumes gasoline at a given velocity, or the reaction of a patient to a given dosage of a drug. We can use calculus to study how a function value changes in response to changes in the input variable.</p>
+<p id="Vra">Think about the falling ball whose position function is given by <span class="process-math">\(s(t) = 64 - 16t^2\text{.}\)</span> Its average velocity on the interval <span class="process-math">\([1,x]\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+AV_{[1,x]} = \frac{s(x) - s(1)}{x-1} = \frac{(64-16x^2) - (64-16)}{x-1} = \frac{16 - 16x^2}{x-1}\text{.}
+\end{equation*}
+</div>
+<p id="Byj">Note that the average velocity is a function of <span class="process-math">\(x\text{.}\)</span> That is, the function <span class="process-math">\(g(x) = \frac{16 - 16x^2}{x-1}\)</span> tells us the average velocity of the ball on the interval from <span class="process-math">\(t = 1\)</span> to <span class="process-math">\(t = x\text{.}\)</span> To find the instantaneous velocity of the ball when <span class="process-math">\(t = 1\text{,}\)</span> we need to know what happens to <span class="process-math">\(g(x)\)</span> as <span class="process-math">\(x\)</span> gets closer and closer to <span class="process-math">\(1\text{.}\)</span> But also notice that <span class="process-math">\(g(1)\)</span> is not defined, because it leads to the quotient <span class="process-math">\(0/0\text{.}\)</span></p>
+<p id="hFs">This is where the notion of a <em class="emphasis">limit</em> comes in. By using a limit, we can investigate the behavior of <span class="process-math">\(g(x)\)</span> as <span class="process-math">\(x\)</span> gets arbitrarily close, but not equal, to <span class="process-math">\(1\text{.}\)</span> We first use the graph of a function to explore points where interesting behavior occurs.</p>
+<article class="exploration project-like" id="jEj"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span>
+</h3>
+<p id="riI">Suppose that <span class="process-math">\(g\)</span> is the function given by the graph below. Use the graph in <a href="" class="xref" data-knowl="./knowl/F-1-2-PA1.html" title="Figure 1.2.1">Figure 1.2.1</a> to answer each of the following questions.</p>
+<ol id="XpR" class="lower-alpha">
+<li id="GrG"><p id="yNh">Determine the values <span class="process-math">\(g(-2)\text{,}\)</span> <span class="process-math">\(g(-1)\text{,}\)</span> <span class="process-math">\(g(0)\text{,}\)</span> <span class="process-math">\(g(1)\text{,}\)</span> and <span class="process-math">\(g(2)\text{,}\)</span> if defined. If the function value is not defined, explain what feature of the graph tells you this.</p></li>
+<li id="myP"><p id="eUq">For each of the values <span class="process-math">\(a = -1\text{,}\)</span> <span class="process-math">\(a = 0\text{,}\)</span> and <span class="process-math">\(a = 2\text{,}\)</span> complete the following sentence: “As <span class="process-math">\(x\)</span> gets closer and closer (but not equal) to <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(g(x)\)</span> gets as close as we want to <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.”</p></li>
+<li id="SFY"><p id="Lbz">What happens as <span class="process-math">\(x\)</span> gets closer and closer (but not equal) to <span class="process-math">\(a = 1\text{?}\)</span> Does the function <span class="process-math">\(g(x)\)</span> get as close as we would like to a single value?</p></li>
+</ol>
+<figure class="figure figure-like" id="Dxa"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/1_2_PA1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.1<span class="period">.</span></span><span class="space"> </span>Graph of <span class="process-math">\(y = g(x)\)</span> for <a href="" class="xref" data-knowl="./knowl/PA-1-2.html" title="Preview Activity 1.2.1">Preview Activity 1.2.1</a>.</figcaption></figure></article></section><section class="subsection" id="BTI"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.1</span> <span class="title">The Notion of Limit</span>
+</h3>
+<p id="NMB">Limits give us a way to identify a trend in the values of a function as its input variable approaches a particular value of interest. We need a precise understanding of what it means to say “a function <span class="process-math">\(f\)</span> has limit <span class="process-math">\(L\)</span> as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\text{.}\)</span>” To begin, think about a recent example.</p>
+<p id="tTK">In <a href="" class="xref" data-knowl="./knowl/PA-1-2.html" title="Preview Activity 1.2.1">Preview Activity 1.2.1</a>, we saw that as <span class="process-math">\(x\)</span> gets closer and closer (but not equal) to 0, <span class="process-math">\(g(x)\)</span> gets as close as we want to the value 4. At first, this may feel counterintuitive, because the value of <span class="process-math">\(g(0)\)</span> is <span class="process-math">\(1\text{,}\)</span> not <span class="process-math">\(4\text{.}\)</span> But limits describe the behavior of a function <em class="emphasis">arbitrarily close to</em> a fixed input, and the value of the function <em class="emphasis">at</em> the fixed input does not matter. More formally,<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-28" id="fn-28"><sup> 1 </sup></a> we say the following.</p>
+<article class="definition definition-like" id="upj"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span>
+</h4>
+<p id="kzY">Given a function <span class="process-math">\(f\text{,}\)</span> a fixed input <span class="process-math">\(x = a\text{,}\)</span> and a real number <span class="process-math">\(L\text{,}\)</span> we say that <dfn class="terminology"><span class="process-math">\(f\)</span> has limit <span class="process-math">\(L\)</span> as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\)</span></dfn>,  and write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} f(x) = L
+\end{equation*}
+</div>
+<p class="continuation">provided that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we like by taking <span class="process-math">\(x\)</span> sufficiently close (but not equal) to <span class="process-math">\(a\text{.}\)</span> If we cannot make <span class="process-math">\(f(x)\)</span> as close to a single value as we would like as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\text{,}\)</span> then we say that <dfn class="terminology"><span class="process-math">\(f\)</span> does not have a limit as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\text{.}\)</span></dfn></p></article><article class="example example-like" id="aws"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span>
+</h4>
+<p id="QHh">For the function <span class="process-math">\(g\)</span> pictured in <a href="" class="xref" data-knowl="./knowl/F-1-2-PA1.html" title="Figure 1.2.1">Figure 1.2.1</a>, we make the following observations:</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-1-2-PA1.html">
+\begin{equation*}
+\lim_{x \to -1} g(x) = 3, \  \lim_{x \to 0} g(x) = 4, \ \text{and}  \  \lim_{x \to 2} g(x) = 1\text{.}
+\end{equation*}
+</div>
+<p class="continuation">When working from a graph, it suffices to ask if the function <em class="emphasis">approaches</em> a single value from each side of the fixed input. The function value <em class="emphasis">at</em> the fixed input is irrelevant. This reasoning explains the values of the three limits stated above.</p>
+<p id="wOq">However, <span class="process-math">\(g\)</span> does not have a limit as <span class="process-math">\(x \to 1\text{.}\)</span> There is a jump in the graph at <span class="process-math">\(x = 1\text{.}\)</span> If we approach <span class="process-math">\(x = 1\)</span> from the left, the function values tend to get close to 3, but if we approach <span class="process-math">\(x = 1\)</span> from the right, the function values get close to 2. There is no single number that all of these function values approach. This is why the limit of <span class="process-math">\(g\)</span> does not exist at <span class="process-math">\(x = 1\text{.}\)</span></p></article><p id="aaT">For any function <span class="process-math">\(f\text{,}\)</span> there are typically three ways to answer the question “does <span class="process-math">\(f\)</span> have a limit at <span class="process-math">\(x = a\text{,}\)</span> and if so, what is the limit?” The first is to reason graphically as we have just done with the example from <a href="" class="xref" data-knowl="./knowl/PA-1-2.html" title="Preview Activity 1.2.1">Preview Activity 1.2.1</a>. If we have a formula for <span class="process-math">\(f(x)\text{,}\)</span> there are two additional possibilities:</p>
+<ol class="decimal">
+<li id="NcH"><p id="p-derived-NcH">Evaluate the function at a sequence of inputs that approach <span class="process-math">\(a\)</span> on either side (typically using some sort of computing technology), and ask if the sequence of outputs seems to approach a single value.</p></li>
+<li id="tjQ"><p id="p-derived-tjQ">Use the algebraic form of the function to understand the trend in its output values as the input values approach <span class="process-math">\(a\text{.}\)</span></p></li>
+</ol>
+<p class="continuation">The first approach produces only an approximation of the value of the limit, while the latter can often be used to determine the limit exactly.</p>
+<article class="example example-like" id="GDB"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Limits of Two Functions.</span>
+</h4>
+<p id="cVz">For each of the following functions, we'd like to know whether or not the function has a limit at the stated <span class="process-math">\(a\)</span>-values. Use both numerical and algebraic approaches to investigate and, if possible, estimate or determine the value of the limit. Compare the results with a careful graph of the function on an interval containing the points of interest.</p>
+<ol id="JcI" class="lower-alpha cols2">
+<li id="ZqZ"><p id="p-derived-ZqZ"><span class="process-math">\(f(x) = \frac{4-x^2}{x+2}\text{;}\)</span> <span class="process-math">\(a = -1\text{,}\)</span> <span class="process-math">\(a = -2\)</span></p></li>
+<li id="Fyi"><p id="p-derived-Fyi"><span class="process-math">\(g(x) = \sin\left(\frac{\pi}{x}\right)\text{;}\)</span> <span class="process-math">\(a = 3\text{,}\)</span> <span class="process-math">\(a = 0\)</span></p></li>
+</ol>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-Lnu" id="Lnu"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-Lnu"><div class="solution solution-like">
+<p id="iKL">a. We first construct a graph of <span class="process-math">\(f\)</span> along with tables of values near <span class="process-math">\(a = -1\)</span> and <span class="process-math">\(a = -2\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:2%;margin-right:2%;">
+<div class="sbspanel fixed-width middle" style="width:23.9583333333333%;"><figure class="table table-like" id="AsQ"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.5<span class="period">.</span></span><span class="space"> </span>Table of <span class="process-math">\(f\)</span> values near <span class="process-math">\(x=-1\text{.}\)</span></figcaption><table class="tabular" id="YVA">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.9\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.99\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.99\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.999\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.999\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.9999\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.9999\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1.01\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.01\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1.001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.001\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1.0001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.0001\)</span></td>
+</tr>
+</table></figure></div>
+<div class="sbspanel fixed-width middle" style="width:23.9583333333333%;"><figure class="table table-like" id="gzZ"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.6<span class="period">.</span></span><span class="space"> </span>Table of <span class="process-math">\(f\)</span> values near <span class="process-math">\(x=-2\text{.}\)</span></figcaption><table class="tabular" id="FcJ">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.9\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1.99\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.99\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1.999\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.999\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-1.9999\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.9999\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-2.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4.1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-2.01\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4.01\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-2.001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4.001\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-2.0001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(4.0001\)</span></td>
+</tr>
+</table></figure></div>
+<div class="sbspanel middle" style="width:43.75%;"><figure class="figure figure-like" id="YlG"><img src="external/images/1_2_Ex1f.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.7<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(f(x)\)</span> on <span class="process-math">\([-4,2]\text{.}\)</span></figcaption></figure></div>
+</div></div>
+<p id="ORU">From <a href="" class="xref" data-knowl="./knowl/table-1-F-1-2-Ex1f.html" title="Table 1.2.5: Table of f values near x=-1">Table 1.2.5</a>, it appears that we can make <span class="process-math">\(f\)</span> as close as we want to 3 by taking <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(-1\text{,}\)</span> which suggests that <span class="process-math">\(\lim_{x \to -1} f(x) = 3\text{.}\)</span> This is also consistent with the graph of <span class="process-math">\(f\text{.}\)</span> To see this a bit more rigorously and from an algebraic point of view, consider the formula for <span class="process-math">\(f\text{:}\)</span> <span class="process-math">\(f(x) = \frac{4-x^2}{x+2}\text{.}\)</span> As <span class="process-math">\(x \to -1\text{,}\)</span> <span class="process-math">\((4-x^2) \to (4 - (-1)^2) = 3\text{,}\)</span> and <span class="process-math">\((x+2) \to (-1 + 2) = 1\text{,}\)</span> so as <span class="process-math">\(x \to -1\text{,}\)</span> the numerator of <span class="process-math">\(f\)</span> tends to 3 and the denominator tends to 1, hence <span class="process-math">\(\lim_{x \to -1} f(x) = \frac{3}{1} = 3\text{.}\)</span></p>
+<p id="uZd">The situation is more complicated when <span class="process-math">\(x \to -2\text{,}\)</span> because <span class="process-math">\(f(-2)\)</span> is not defined. If we try to use a similar algebraic argument regarding the numerator and denominator, we observe that as <span class="process-math">\(x \to -2\text{,}\)</span> <span class="process-math">\((4-x^2) \to (4 - (-2)^2) = 0\text{,}\)</span> and <span class="process-math">\((x+2) \to (-2 + 2) = 0\text{,}\)</span> so as <span class="process-math">\(x \to -2\text{,}\)</span> the numerator and denominator of <span class="process-math">\(f\)</span> both tend to 0. We call <span class="process-math">\(0/0\)</span> an <em class="emphasis">indeterminate form</em>.  This tells us that there is somehow more work to do. From <a href="" class="xref" data-knowl="./knowl/table-2-F-1-2-Ex1f.html" title="Table 1.2.6: Table of f values near x=-2">Table 1.2.6</a> and <a href="" class="xref" data-knowl="./knowl/plot-F-1-2-Ex1f.html" title="Figure 1.2.7">Figure 1.2.7</a>, it appears that <span class="process-math">\(f\)</span> should have a limit of <span class="process-math">\(4\)</span> at <span class="process-math">\(x = -2\text{.}\)</span></p>
+<p id="bgm">To see algebraically why this is the case, observe that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="PBO">
+\begin{align*}
+\lim_{x \to -2} f(x) = \amp  \lim_{x \to -2} \frac{4-x^2}{x+2}\\
+= \amp  \lim_{x \to -2} \frac{(2-x)(2+x)}{x+2}\text{.}
+\end{align*}
+</div>
+<p id="Hnv">It is important to observe that, since we are taking the limit as <span class="process-math">\(x \to -2\text{,}\)</span> we are considering <span class="process-math">\(x\)</span> values that are close, but not equal, to <span class="process-math">\(-2\text{.}\)</span> Because we never actually allow <span class="process-math">\(x\)</span> to equal <span class="process-math">\(-2\text{,}\)</span> the quotient <span class="process-math">\(\frac{2+x}{x+2}\)</span> has value 1 for every possible value of <span class="process-math">\(x\text{.}\)</span> Thus, we can simplify the most recent expression above, and find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to -2} f(x) = \lim_{x \to -2} 2-x\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This limit is now easy to determine, and its value clearly is <span class="process-math">\(4\text{.}\)</span> Thus, from several points of view we've seen that <span class="process-math">\(\lim_{x \to -2} f(x) = 4\text{.}\)</span></p>
+<p id="nuE">b. Next we turn to the function <span class="process-math">\(g\text{,}\)</span> and construct two tables and a graph.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:2%;margin-right:2%;">
+<div class="sbspanel fixed-width top" style="width:23.9583333333333%;"><figure class="table table-like" id="MHi"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.8<span class="period">.</span></span><span class="space"> </span>Table of <span class="process-math">\(g\)</span> values near <span class="process-math">\(x=3\text{.}\)</span></figcaption><table class="tabular" id="ljS">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(g(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.88351\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.99\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.86777\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.999\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.86620\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.9999\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.86604\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.84864\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.01\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.86428\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.86585\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(3.0001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.86601\)</span></td>
+</tr>
+</table></figure></div>
+<div class="sbspanel fixed-width top" style="width:23.9583333333333%;"><figure class="table table-like" id="sOr"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.9<span class="period">.</span></span><span class="space"> </span>Table of <span class="process-math">\(g\)</span> values near <span class="process-math">\(x=0\text{.}\)</span></figcaption><table class="tabular" id="Rrb">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(x\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(g(x)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.01\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(-0.0001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.01\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.0001\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+</table></figure></div>
+<div class="sbspanel top" style="width:43.75%;"><figure class="figure figure-like" id="EsP"><img src="external/images/1_2_Ex1g.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.10<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(g(x)\)</span> on <span class="process-math">\([-4,4]\text{.}\)</span></figcaption></figure></div>
+</div></div>
+<p id="TBN">First, as <span class="process-math">\(x \to 3\text{,}\)</span> it appears from the table values that the function is approaching a number between <span class="process-math">\(0.86601\)</span> and <span class="process-math">\(0.86604\text{.}\)</span> From the graph it appears that <span class="process-math">\(g(x) \to g(3)\)</span> as <span class="process-math">\(x \to 3\text{.}\)</span> The exact value of <span class="process-math">\(g(3) = \sin(\frac{\pi}{3})\)</span> is <span class="process-math">\(\frac{\sqrt{3}}{2}\text{,}\)</span> which is approximately 0.8660254038. This is convincing evidence that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to 3} g(x) = \frac{\sqrt{3}}{2}\text{.}
+\end{equation*}
+</div>
+<p id="zIW">As <span class="process-math">\(x \to 0\text{,}\)</span> we observe that <span class="process-math">\(\frac{\pi}{x}\)</span> does not behave in an elementary way. When <span class="process-math">\(x\)</span> is positive and approaching zero, we are dividing by smaller and smaller positive values, and <span class="process-math">\(\frac{\pi}{x}\)</span> increases without bound. When <span class="process-math">\(x\)</span> is negative and approaching zero, <span class="process-math">\(\frac{\pi}{x}\)</span> decreases without bound. In this sense, as we get close to <span class="process-math">\(x = 0\text{,}\)</span> the inputs to the sine function are growing rapidly, and this leads to increasingly rapid oscillations in the graph of <span class="process-math">\(g\)</span> betweem <span class="process-math">\(1\)</span> and <span class="process-math">\(-1\text{.}\)</span> If we plot the function <span class="process-math">\(g(x) = \sin\left(\frac{\pi}{x}\right)\)</span> with a graphing utility and then zoom in on <span class="process-math">\(x = 0\text{,}\)</span> we see that the function never settles down to a single value near the origin, which suggests that <span class="process-math">\(g\)</span> does not have a limit at <span class="process-math">\(x = 0\text{.}\)</span></p>
+<p id="fQf">How do we reconcile the graph with the righthand table above, which seems to suggest that the limit of <span class="process-math">\(g\)</span> as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(0\)</span> may in fact be <span class="process-math">\(0\text{?}\)</span> The data misleads us because of the special nature of the sequence of input values <span class="process-math">\(\{0.1, 0.01, 0.001, \ldots\}\text{.}\)</span> When we evaluate <span class="process-math">\(g(10^{-k})\text{,}\)</span> we get <span class="process-math">\(g(10^{-k}) = \sin\left(\frac{\pi}{10^{-k}}\right) = \sin(10^k \pi) = 0\)</span> for each positive integer value of <span class="process-math">\(k\text{.}\)</span> But if we take a different sequence of values approaching zero, say <span class="process-math">\(\{0.3, 0.03, 0.003, \ldots\}\text{,}\)</span> then we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(3 \cdot 10^{-k}) = \sin\left(\frac{\pi}{3 \cdot 10^{-k}}\right) = \sin\left(\frac{10^k \pi}{3}\right) = \frac{\sqrt{3}}{2} \approx 0.866025\text{.}
+\end{equation*}
+</div>
+<p id="LXo">That sequence of function values suggests that the value of the limit is <span class="process-math">\(\frac{\sqrt{3}}{2}\text{.}\)</span> Clearly the function cannot have two different values for the limit, so <span class="process-math">\(g\)</span> has no limit as <span class="process-math">\(x \to 0\text{.}\)</span></p>
+</div></div>
+</div></article><p id="Gic">An important lesson to take from <a href="" class="xref" data-knowl="./knowl/Ex-1-2-Limits.html" title="Example 1.2.4: Limits of Two Functions">Example 1.2.4</a> is that tables can be misleading when determining the value of a limit. While a table of values is useful for investigating the possible value of a limit, we should also use other tools to confirm the value.</p>
+<article class="activity project-like" id="QOU"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span>
+</h4>
+<p id="Ytt">Estimate the value of each of the following limits by constructing appropriate tables of values. Then determine the exact value of the limit by using algebra to simplify the function. Finally, plot each function on an appropriate interval to check your result visually.</p>
+<ol class="lower-alpha cols3">
+<li id="eiF"><p id="p-derived-eiF"><span class="process-math">\(\displaystyle \lim_{x \to 1} \frac{x^2 - 1}{x-1}\)</span></p></li>
+<li id="KpO"><p id="p-derived-KpO"><span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{(2+x)^3 - 8}{x}\)</span></p></li>
+<li id="qwX"><p id="p-derived-qwX"><span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{\sqrt{x+1} - 1}{x}\)</span></p></li>
+</ol></article><p id="mpl">Recall that our primary motivation for considering limits of functions comes from our interest in studying the rate of change of a function. To that end, we close this section by revisiting our previous work with average and instantaneous velocity and highlighting the role that limits play.</p></section><section class="subsection" id="iaR"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.2</span> <span class="title">Instantaneous Velocity</span>
+</h3>
+<p id="Swu">Suppose that we have a moving object whose position at time <span class="process-math">\(t\)</span> is given by a function <span class="process-math">\(s\text{.}\)</span> We know that the average velocity of the object on the time interval <span class="process-math">\([a,b]\)</span> is <span class="process-math">\(AV_{[a,b]} = \frac{s(b)-s(a)}{b-a}\text{.}\)</span> We define the <em class="emphasis">instantaneous velocity</em>  at <span class="process-math">\(a\)</span> to be the limit of average velocity as <span class="process-math">\(b\)</span> approaches <span class="process-math">\(a\text{.}\)</span> Note particularly that as <span class="process-math">\(b \to a\text{,}\)</span> the length of the time interval gets shorter and shorter (while always including <span class="process-math">\(a\)</span>). We will write <span class="process-math">\(IV_{t=a}\)</span> for the instantaneous velocity at <span class="process-math">\(t = a\text{,}\)</span> and thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+IV_{t=a} = \lim_{b \to a} AV_{[a,b]} = \lim_{b \to a} \frac{s(b)-s(a)}{b-a}\text{.}
+\end{equation*}
+</div>
+<p id="yDD">Equivalently, if we think of the changing value <span class="process-math">\(b\)</span> as being of the form <span class="process-math">\(b = a + h\text{,}\)</span> where <span class="process-math">\(h\)</span> is some small number, then we may instead write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+IV_{t=a} = \lim_{h \to 0} AV_{[a,a+h]} = \lim_{h \to 0} \frac{s(a+h)-s(a)}{h}\text{.}
+\end{equation*}
+</div>
+<p id="eKM">Again, the most important idea here is that to compute instantaneous velocity, we take a limit of average velocities as the time interval shrinks.</p>
+<article class="activity project-like" id="gHM"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span>
+</h4>
+<p id="oml">Consider a moving object whose position function is given by <span class="process-math">\(s(t) = t^2\text{,}\)</span> where <span class="process-math">\(s\)</span> is measured in meters and <span class="process-math">\(t\)</span> is measured in minutes.</p>
+<ol id="Utu" class="lower-alpha">
+<li id="NUo"><p id="jCs">Determine the most simplified expression for the average velocity of the object on the interval <span class="process-math">\([3, 3+h]\text{,}\)</span> where <span class="process-math">\(h \gt 0\text{.}\)</span></p></li>
+<li id="ubx"><p id="PJB">Determine the average velocity of the object on the interval <span class="process-math">\([3,3.2]\text{.}\)</span> Include units on your answer.</p></li>
+<li id="aiG"><p id="p-derived-aiG">Determine the instantaneous velocity of the object when <span class="process-math">\(t = 3\text{.}\)</span> Include units on your answer.</p></li>
+</ol></article><p id="KRV">The closing activity of this section asks you to make some connections among average velocity, instantaneous velocity, and slopes of certain lines.</p>
+<article class="activity project-like" id="kmm"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span>
+</h4>
+<p id="rQL">For the moving object whose position <span class="process-math">\(s\)</span> at time <span class="process-math">\(t\)</span> is given by the graph in <a href="" class="xref" data-knowl="./knowl/F-1-2-act-pos.html" title="Figure 1.2.11">Figure 1.2.11</a>, answer each of the following questions. Assume that <span class="process-math">\(s\)</span> is measured in feet and <span class="process-math">\(t\)</span> is measured in seconds.</p>
+<figure class="figure figure-like" id="Efd"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/1_2_Act3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.11<span class="period">.</span></span><span class="space"> </span>Plot of the position function <span class="process-math">\(y = s(t)\)</span> in <a href="" class="xref" data-knowl="./knowl/act-1-2-3.html" title="Activity 1.2.4">Activity 1.2.4</a>.</figcaption></figure><ol id="XXU" class="lower-alpha">
+<li id="dNg"><p id="p-derived-dNg">Use the graph to estimate the average velocity of the object on each of the following intervals: <span class="process-math">\([0.5,1]\text{,}\)</span> <span class="process-math">\([1.5,2.5]\text{,}\)</span> <span class="process-math">\([0,5]\text{.}\)</span> Draw each line whose slope represents the average velocity you seek.</p></li>
+<li id="JUp"><p id="p-derived-JUp">How could you use average velocities or slopes of lines to estimate the instantaneous velocity of the object at a fixed time?</p></li>
+<li id="qby"><p id="p-derived-qby">Use the graph to estimate the instantaneous velocity of the object when <span class="process-math">\(t = 2\text{.}\)</span> Should this instantaneous velocity at <span class="process-math">\(t = 2\)</span> be greater or less than the average velocity on <span class="process-math">\([1.5,2.5]\)</span> that you computed in (a)? Why?</p></li>
+</ol></article></section><section class="subsection" id="Oia"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.2.3</span> <span class="title">Summary</span>
+</h3>
+<ul id="qZe" class="disc">
+<li id="ozX"><p id="Kib">Limits enable us to examine trends in function behavior near a specific point. In particular, taking a limit at a given point asks if the function values nearby tend to approach a particular fixed value.</p></li>
+<li id="UHg"><p id="qpk">We read <span class="process-math">\(\lim_{x \to a} f(x) = L\text{,}\)</span> as “the limit of <span class="process-math">\(f\)</span> as <span class="process-math">\(x\)</span> approaches <span class="process-math">\(a\)</span> is <span class="process-math">\(L\text{,}\)</span>” which means that we can make the value of <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we want by taking <span class="process-math">\(x\)</span> sufficiently close (but not equal) to <span class="process-math">\(a\text{.}\)</span></p></li>
+<li id="AOp"><p id="Wwt">To find <span class="process-math">\(\lim_{x \to a} f(x)\)</span> for a given value of <span class="process-math">\(a\)</span> and a known function <span class="process-math">\(f\text{,}\)</span> we can estimate this value from the graph of <span class="process-math">\(f\text{,}\)</span> or we can make a table of function values for <span class="process-math">\(x\)</span>-values that are closer and closer to <span class="process-math">\(a\text{.}\)</span> If we want the exact value of the limit, we can work with the function algebraically to understand how different parts of the formula for <span class="process-math">\(f\)</span> change as <span class="process-math">\(x \to a\text{.}\)</span></p></li>
+<li id="gVy"><p id="CDC">We find the instantaneous velocity of a moving object at a fixed time by taking the limit of average velocities of the object over shorter and shorter time intervals containing the time of interest.</p></li>
+</ul></section><section class="exercises" id="GGO"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.2.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="PxK"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Limits on a piecewise graph.</span>
+</h4>
+<div id="webwork-22" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="22" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap1Sec8/Q01.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-353">Use the figure below, which gives a graph of the function <span class="process-math">\(f(x)\text{,}\)</span> to give values for the indicated limits.  If a limit does not exist, enter <em class="emphasis"><em class="alert">none</em></em>.</p>
+<div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-22-image-1.png" class="contained"></div>
+<p id="p-354"><em class="alert">(a)</em> <span class="process-math">\(\lim\limits_{x \rightarrow -1} f(x)\)</span> = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-355"><em class="alert">(b)</em> <span class="process-math">\(\lim\limits_{x \rightarrow 0} f(x)\)</span> = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-356"><em class="alert">(c)</em> <span class="process-math">\(\lim\limits_{x \rightarrow 1} f(x)\)</span> = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-357"><em class="alert">(d)</em> <span class="process-math">\(\lim\limits_{x \rightarrow 4} f(x)\)</span> = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-22')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="vET"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating a limit numerically.</span>
+</h4>
+<div id="webwork-23" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="23" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap1Sec8/Q03.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-362">Use a graph to estimate the limit</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{\theta \rightarrow 0} \frac{\sin(6\theta)}{\theta}.
+\end{equation*}
+</div>
+<p class="continuation">Note: <span class="process-math">\(\theta\)</span> is measured in radians. All angles will be in radians in this class unless otherwise specified.</p>
+<p id="p-363"><span class="process-math">\(\lim\limits_{\theta \rightarrow 0} \frac{\sin(6\theta)}{\theta} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-23')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="bMc"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Limits for a piecewise formula.</span>
+</h4>
+<div id="webwork-24" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="24" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap1Sec8/Q21.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-365">For the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \begin{cases} x^2 - 4, \amp  0\le x \lt  4\\ 4, \amp  x = 4\\ 3 x + 0, \amp  4 \lt  x \end{cases}
+\end{equation*}
+</div>
+<p class="continuation">use algebra to find each of the following limits:</p>
+<p id="p-366"><span class="process-math">\(\lim\limits_{x\to 4^{+}}\, f(x) =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-367"><span class="process-math">\(\lim\limits_{x\to 4^{-}}\, f(x) =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-368"><span class="process-math">\(\lim\limits_{x\to 4}\, f(x) =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-369"><em class="emphasis">(For each, enter <em class="alert">DNE</em> if the limit does not exist.)</em></p>
+<p id="p-370">Sketch a graph of <span class="process-math">\(f(x)\)</span> to confirm your answers.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-24')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="HTl"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluating a limit algebraically.</span>
+</h4>
+<div id="webwork-25" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="25" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ASU-topics/setLimitConcepts/3-2-34.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-374">Evaluate the limit</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{ x \rightarrow -7 } \frac{x^2 - 49}{x + 7}
+\end{equation*}
+</div>
+<p class="continuation">If the limit does not exist enter DNE.</p>
+<p id="p-375">Limit = <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-25')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="oau"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="ZPL">Consider the function whose formula is <span class="process-math">\(f(x) = \frac{16-x^4}{x^2-4}\text{.}\)</span></p>
+<ol id="FWU" class="lower-alpha">
+<li id="IDf"><p id="p-derived-IDf">What is the domain of <span class="process-math">\(f\text{?}\)</span></p></li>
+<li id="oKo"><p id="p-derived-oKo">Use a sequence of values of <span class="process-math">\(x\)</span> near <span class="process-math">\(a = 2\)</span> to estimate the value of <span class="process-math">\(\lim_{x \to 2} f(x)\text{,}\)</span> if you think the limit exists. If you think the limit doesn't exist, explain why.</p></li>
+<li id="URx"><p id="p-derived-URx">Use algebra to simplify the expression <span class="process-math">\(\frac{16-x^4}{x^2-4}\)</span> and hence work to evaluate <span class="process-math">\(\lim_{x \to 2} f(x)\)</span> exactly, if it exists, or to explain how your work shows the limit fails to exist. Discuss how your findings compare to your results in (b).</p></li>
+<li id="AYG"><p id="p-derived-AYG">True or false: <span class="process-math">\(f(2) = -8\text{.}\)</span> Why?</p></li>
+<li id="hfP"><p id="p-derived-hfP">True or false: <span class="process-math">\(\frac{16-x^4}{x^2-4} = -4-x^2\text{.}\)</span> Why? How is this equality connected to your work above with the function <span class="process-math">\(f\text{?}\)</span></p></li>
+<li id="NmY"><p id="p-derived-NmY">Based on all of your work above, construct an accurate, labeled graph of <span class="process-math">\(y = f(x)\)</span> on the interval <span class="process-math">\([1,3]\text{,}\)</span> and write a sentence that explains what you now know about <span class="process-math">\(\lim_{x \to 2} \frac{16-x^4}{x^2-4}\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="UhD"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="med">Let <span class="process-math">\(g(x) = -\frac{|x+3|}{x+3}\text{.}\)</span></p>
+<ol id="Slm" class="lower-alpha">
+<li id="vju"><p id="p-derived-vju">What is the domain of <span class="process-math">\(g\text{?}\)</span></p></li>
+<li id="bqD"><p id="p-derived-bqD">Use a sequence of values near <span class="process-math">\(a = -3\)</span> to estimate the value of <span class="process-math">\(\lim_{x \to -3} g(x)\text{,}\)</span> if you think the limit exists. If you think the limit doesn't exist, explain why.</p></li>
+<li id="HxM"><p id="p-derived-HxM">Use algebra to simplify the expression <span class="process-math">\(\frac{|x+3|}{x+3}\)</span> and hence work to evaluate <span class="process-math">\(\lim_{x \to -3} g(x)\)</span> exactly, if it exists, or to explain how your work shows the limit fails to exist. Discuss how your findings compare to your results in (b). (Hint: <span class="process-math">\(|a| = a\)</span> whenever <span class="process-math">\(a \ge 0\text{,}\)</span> but <span class="process-math">\(|a| = -a\)</span> whenever <span class="process-math">\(a \lt 0\text{.}\)</span>)</p></li>
+<li id="nEV"><p id="p-derived-nEV">True or false: <span class="process-math">\(g(-3) = -1\text{.}\)</span> Why?</p></li>
+<li id="TMe"><p id="p-derived-TMe">True or false: <span class="process-math">\(-\frac{|x+3|}{x+3} = -1\text{.}\)</span> Why? How is this equality connected to your work above with the function <span class="process-math">\(g\text{?}\)</span></p></li>
+<li id="zTn"><p id="p-derived-zTn">Based on all of your work above, construct an accurate, labeled graph of <span class="process-math">\(y = g(x)\)</span> on the interval <span class="process-math">\([-4,-2]\text{,}\)</span> and write a sentence that explains what you now know about <span class="process-math">\(\lim_{x \to -3} g(x)\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="AoM"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="ysv">For each of the following prompts, sketch a graph on the provided axes of a function that has the stated properties.</p>
+<figure class="figure figure-like" id="KGN"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_2_Ez3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.12<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(y = f(x)\)</span> in (a) and <span class="process-math">\(y = g(x)\)</span> in (b).</figcaption></figure><ol id="ezE" class="lower-alpha">
+<li id="BIA">
+<p id="QvZ"><span class="process-math">\(y = f(x)\)</span> such that</p>
+<ul class="disc">
+<li id="rEU"><p id="p-derived-rEU"><span class="process-math">\(f(-2) = 2\)</span> and <span class="process-math">\(\lim_{x \to -2} f(x) = 1\)</span></p></li>
+<li id="XMd"><p id="p-derived-XMd"><span class="process-math">\(f(-1) = 3\)</span> and <span class="process-math">\(\lim_{x \to -1} f(x) = 3\)</span></p></li>
+<li id="DTm"><p id="p-derived-DTm"><span class="process-math">\(f(1)\)</span> is not defined and <span class="process-math">\(\lim_{x \to 1} f(x) = 0\)</span></p></li>
+<li id="kav"><p id="p-derived-kav"><span class="process-math">\(f(2) = 1\)</span> and <span class="process-math">\(\lim_{x \to 2} f(x)\)</span> does not exist.</p></li>
+</ul>
+</li>
+<li id="hPJ">
+<p id="wDi"><span class="process-math">\(y = g(x)\)</span> such that</p>
+<ul class="disc">
+<li id="QhE"><p id="p-derived-QhE"><span class="process-math">\(g(-2) = 3\text{,}\)</span> <span class="process-math">\(g(-1) = -1\text{,}\)</span> <span class="process-math">\(g(1) = -2\text{,}\)</span> and <span class="process-math">\(g(2) = 3\)</span></p></li>
+<li id="woN"><p id="p-derived-woN">At <span class="process-math">\(x = -2, -1, 1\)</span> and <span class="process-math">\(2\text{,}\)</span> <span class="process-math">\(g\)</span> has a limit, and its limit equals the value of the function at that point.</p></li>
+<li id="cvW"><p id="p-derived-cvW"><span class="process-math">\(g(0)\)</span> is not defined and <span class="process-math">\(\lim_{x \to 0} g(x)\)</span> does not exist.</p></li>
+</ul>
+</li>
+</ol></article><article class="exercise exercise-like" id="gvV"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="qNW">A bungee jumper dives from a tower at time <span class="process-math">\(t=0\text{.}\)</span> Her height <span class="process-math">\(s\)</span> in feet at time <span class="process-math">\(t\)</span> in seconds is given by <span class="process-math">\(s(t) = 100\cos(0.75t) \cdot e^{-0.2t}+100\text{.}\)</span></p>
+<ol id="WVf" class="lower-alpha">
+<li id="mzC"><p id="p-derived-mzC">Write an expression for the average velocity of the bungee jumper on the interval <span class="process-math">\([1,1+h]\text{.}\)</span></p></li>
+<li id="SGL"><p id="p-derived-SGL">Use computing technology to estimate the value of the limit as <span class="process-math">\(h \to 0\)</span> of the quantity you found in (a).</p></li>
+<li id="yNU"><p id="p-derived-yNU">What is the meaning of the value of the limit in (b)? What are its units?</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-28"><div class="fn">What follows here is not what mathematicians consider the formal definition of a limit. To be completely precise, it is necessary to quantify both what it means to say “as close to <span class="process-math">\(L\)</span> as we like” and “sufficiently close to <span class="process-math">\(a\text{.}\)</span>” That can be accomplished through what is traditionally called the epsilon-delta definition of limits. The definition presented here is sufficient for the purposes of this text.</div></div>
+</div></main>
+</div>
+</body>
+</html>

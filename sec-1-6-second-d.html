@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC The second derivative</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-1-5-units.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-1-7-lim-cont-diff.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-1-5-units.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-1-7-lim-cont-diff.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="active">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="QeE"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.6</span> <span class="title">The second derivative</span>
+</h2>
+<article class="objectives goal-like" id="NjY"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="lMI"><p id="iSc">How does the derivative of a function tell us whether the function is increasing or decreasing  on an interval?</p></li>
+<li id="RTR"><p id="OZl">What can we learn by taking the derivative of the derivative (the <em class="emphasis">second</em> derivative) of a function <span class="process-math">\(f\text{?}\)</span></p></li>
+<li id="yba"><p id="vgu">What does it mean to say that a function is concave up or concave down? How are these characteristics connected to certain properties of the derivative of the function?</p></li>
+<li id="eij"><p id="bnD">What are the units of the second derivative? How do they help us understand the rate of change of the rate of change?</p></li>
+</ul></article><section class="introduction" id="trh"><p id="YsX">Given a differentiable function <span class="process-math">\(y= f(x)\text{,}\)</span> we know that its derivative, <span class="process-math">\(y = f'(x)\text{,}\)</span> is a related function whose output at <span class="process-math">\(x=a\)</span> tells us the slope of the tangent line to <span class="process-math">\(y = f(x)\)</span> at the point <span class="process-math">\((a,f(a))\text{.}\)</span> That is, heights on the derivative graph tell us the values of slopes on the original function's graph.</p>
+<p id="EAg">At a point where <span class="process-math">\(f'(x)\)</span> is positive, the slope of the tangent line to <span class="process-math">\(f\)</span> is positive. Therefore, on an interval where <span class="process-math">\(f'(x)\)</span> is positive, the function <span class="process-math">\(f\)</span> is increasing (or rising).  Similarly, if <span class="process-math">\(f'(x)\)</span> is negative on an interval, the graph of <span class="process-math">\(f\)</span> is decreasing  (or falling).</p>
+<p id="kHp">The derivative of <span class="process-math">\(f\)</span> tells us not only <em class="emphasis">whether</em> the function <span class="process-math">\(f\)</span> is increasing or decreasing on an interval, but also <em class="emphasis">how</em> the function <span class="process-math">\(f\)</span> is increasing or decreasing. Look at the two tangent lines shown in <a href="" class="xref" data-knowl="./knowl/F-1-6-Intro.html" title="Figure 1.6.1">Figure 1.6.1</a>. We see that near point <span class="process-math">\(A\)</span> the value of <span class="process-math">\(f'(x)\)</span> is positive and relatively close to zero, and near that point the graph is rising slowly. By contrast, near point <span class="process-math">\(B\text{,}\)</span> the derivative is negative and relatively large in absolute value, and <span class="process-math">\(f\)</span> is decreasing rapidly near <span class="process-math">\(B\text{.}\)</span></p>
+<figure class="figure figure-like" id="dcQ"><div class="image-box" style="width: 45%; margin-left: 27.5%; margin-right: 27.5%;"><img src="external/images/1_6_Intro.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.1<span class="period">.</span></span><span class="space"> </span>Two tangent lines on a graph.</figcaption></figure><p id="QOy">Besides asking whether the value of the derivative function is positive or negative and whether it is large or small, we can also ask “how is the derivative changing?”</p>
+<p id="wVH">Because the derivative, <span class="process-math">\(y = f'(x)\text{,}\)</span> is itself a function, we can consider taking its derivative — the derivative of the derivative — and ask “what does the derivative of the derivative tell us about how the original function behaves?” We start with an investigation of a moving object.</p>
+<article class="exploration project-like" id="KGa"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">1.6.1</span><span class="period">.</span>
+</h3>
+<p id="mdq">The position of a car driving along a straight road at time <span class="process-math">\(t\)</span> in minutes is given by the function <span class="process-math">\(y = s(t)\)</span> that is pictured in <a href="" class="xref" data-knowl="./knowl/F-1-6-PA1.html" title="Figure 1.6.2">Figure 1.6.2</a>. The car's position function has units measured in thousands of feet. For instance, the point <span class="process-math">\((2,4)\)</span> on the graph indicates that after 2 minutes, the car has traveled 4000 feet.</p>
+<figure class="figure figure-like" id="yrI"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/images/1_6_PA1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.2<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = s(t)\text{,}\)</span> the position of the car (measured in thousands of feet from its starting location) at time <span class="process-math">\(t\)</span> in minutes.</figcaption></figure><ol id="Skz" class="lower-alpha">
+<li id="cJE"><p id="htx">In everyday language, describe the behavior of the car over the provided time interval. In particular, you should carefully discuss what is happening on each of the time intervals <span class="process-math">\([0,1]\text{,}\)</span> <span class="process-math">\([1,2]\text{,}\)</span> <span class="process-math">\([2,3]\text{,}\)</span> <span class="process-math">\([3,4]\text{,}\)</span> and <span class="process-math">\([4,5]\text{,}\)</span> plus provide commentary overall on what the car is doing on the interval <span class="process-math">\([0,12]\text{.}\)</span></p></li>
+<li id="IQN"><p id="NAG">On the lefthand axes provided in <a href="" class="xref" data-knowl="./knowl/F-1-6-PA1b.html" title="Figure 1.6.3">Figure 1.6.3</a>, sketch a careful, accurate graph of <span class="process-math">\(y = s'(t)\text{.}\)</span></p></li>
+<li id="oXW"><p id="tHP">What is the meaning of the function <span class="process-math">\(y = s'(t)\)</span> in the context of the given problem? What can we say about the car's behavior when <span class="process-math">\(s'(t)\)</span> is positive? when <span class="process-math">\(s'(t)\)</span> is zero? when <span class="process-math">\(s'(t)\)</span> is negative?</p></li>
+<li id="Vff"><p id="ZOY">Rename the function you graphed in (b) to be called <span class="process-math">\(y = v(t)\text{.}\)</span> Describe the behavior of <span class="process-math">\(v\)</span> in words, using phrases like “<span class="process-math">\(v\)</span> is increasing on the interval <span class="process-math">\(\ldots\)</span>” and “<span class="process-math">\(v\)</span> is constant on the interval <span class="process-math">\(\ldots\text{.}\)</span>”</p></li>
+<li id="Bmo"><p id="FWh">Sketch a graph of the function <span class="process-math">\(y = v'(t)\)</span> on the righthand axes provide in <a href="" class="xref" data-knowl="./knowl/F-1-6-PA1b.html" title="Figure 1.6.3">Figure 1.6.3</a>. Write at least one sentence to explain how the behavior of <span class="process-math">\(v'(t)\)</span> is connected to the graph of <span class="process-math">\(y=v(t)\text{.}\)</span></p></li>
+</ol>
+<figure class="figure figure-like" id="eyR"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_6_PA1b.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.3<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(y = v(t) = s'(t)\)</span> and <span class="process-math">\(y = v'(t)\text{.}\)</span></figcaption></figure></article></section><section class="subsection" id="wlN"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.6.1</span> <span class="title">Increasing or decreasing</span>
+</h3>
+<p id="JjZ">So far, we have used the words <em class="emphasis">increasing</em> and <em class="emphasis">decreasing</em> intuitively to describe a function's graph. Here we define these terms more formally.</p>
+<article class="definition definition-like" id="UOx"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.6.4</span><span class="period">.</span>
+</h4>
+<p id="fXw">Given a function <span class="process-math">\(f(x)\)</span> defined on the interval <span class="process-math">\((a,b)\text{,}\)</span> we say that <dfn class="terminology"><span class="process-math">\(f\)</span> is increasing on <span class="process-math">\((a,b)\)</span></dfn> provided that for all <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> in the interval <span class="process-math">\((a,b)\text{,}\)</span> if <span class="process-math">\(x \lt y\text{,}\)</span> then <span class="process-math">\(f(x) \lt f(y)\text{.}\)</span> Similarly, we say that <dfn class="terminology"><span class="process-math">\(f\)</span> is decreasing on <span class="process-math">\((a,b)\)</span></dfn> provided that for all <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> in the interval <span class="process-math">\((a,b)\text{,}\)</span> if <span class="process-math">\(x \lt y\text{,}\)</span> then <span class="process-math">\(f(x) \gt f(y)\text{.}\)</span></p></article><p id="pri">Simply put, an increasing function is one that is rising as we move from left to right along the graph, and a decreasing function is one that falls as the value of the input increases. If the function has a derivative, the sign of the derivative tells us whether the function is increasing or decreasing.</p>
+<p id="auM">Let <span class="process-math">\(f\)</span> be a function that is differentiable on an interval <span class="process-math">\((a,b)\text{.}\)</span> It is possible to show that that if <span class="process-math">\(f'(x) &gt; 0\)</span> for every <span class="process-math">\(x\)</span> such that <span class="process-math">\(a \lt x \lt b\text{,}\)</span> then <span class="process-math">\(f\)</span> is increasing on <span class="process-math">\((a,b)\text{;}\)</span> similarly, if <span class="process-math">\(f'(x) \lt 0\)</span> on <span class="process-math">\((a,b)\text{,}\)</span> then <span class="process-math">\(f\)</span> is decreasing on <span class="process-math">\((a,b)\text{.}\)</span></p>
+<p id="GBV">For example, the function pictured in <a href="" class="xref" data-knowl="./knowl/F-1-6-Intro2.html" title="Figure 1.6.5">Figure 1.6.5</a> is increasing on the entire interval <span class="process-math">\(-2 \lt x \lt 0\text{,}\)</span> and decreasing on the interval <span class="process-math">\(0 \lt x \lt 2\text{.}\)</span> Note that the value <span class="process-math">\(x = 0\)</span> is not included in either interval since at this location, the function is changing from increasing to decreasing.</p>
+<figure class="figure figure-like" id="hMJ"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/1_6_Intro2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.5<span class="period">.</span></span><span class="space"> </span>A function that is decreasing on the intervals <span class="process-math">\(-3 \lt  x \lt  -2\)</span> and <span class="process-math">\(0 \lt  x  \lt  2\)</span> and increasing on <span class="process-math">\(-2 \lt  x \lt  0\)</span> and <span class="process-math">\(2 \lt  x \lt  3\text{.}\)</span></figcaption></figure></section><section class="subsection" id="csW"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.6.2</span> <span class="title">The Second Derivative</span>
+</h3>
+<p id="NTS">We are now accustomed to investigating the behavior of a function by examining its derivative. The derivative of a function <span class="process-math">\(f\)</span> is a new function given by the rule</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{.}
+\end{equation*}
+</div>
+<p id="ubb">Because <span class="process-math">\(f'\)</span> is itself a function, it is perfectly feasible for us to consider the derivative of the derivative, which is the new function <span class="process-math">\(y = [f'(x)]'\text{.}\)</span> We call this resulting function <em class="emphasis">the second derivative</em>  of <span class="process-math">\(y = f(x)\text{,}\)</span> and denote the second derivative by <span class="process-math">\(y = f''(x)\text{.}\)</span> Consequently, we will sometimes call <span class="process-math">\(f'\)</span> “the first derivative” of <span class="process-math">\(f\text{,}\)</span> rather than simply “the derivative” of <span class="process-math">\(f\text{.}\)</span></p>
+<article class="definition definition-like" id="AVG"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.6.6</span><span class="period">.</span>
+</h4>
+<p id="MeF">The <dfn class="terminology">second derivative</dfn> is defined by the limit definition of the derivative of the first derivative. That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f''(x) = \lim_{h \to 0} \frac{f'(x+h)-f'(x)}{h}\text{.}
+\end{equation*}
+</div></article><p id="aik">The meaning of the derivative function still holds, so when we compute <span class="process-math">\(y = f''(x)\text{,}\)</span> this new function measures slopes of tangent lines to the curve <span class="process-math">\(y = f'(x)\text{,}\)</span> as well as the instantaneous rate of change of <span class="process-math">\(y = f'(x)\text{.}\)</span> In other words, just as the first derivative measures the rate at which the original function changes, the second derivative measures the rate at which the first derivative changes. The second derivative will help us understand how the rate of change of the original function is itself changing.</p></section><section class="subsection" id="IAf"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.6.3</span> <span class="title">Concavity</span>
+</h3>
+<p id="Gpt">In addition to asking <em class="emphasis">whether</em> a function is increasing or decreasing, it is also natural to inquire <em class="emphasis">how</em> a function is increasing or decreasing. There are three basic behaviors that an increasing function can demonstrate on an interval, as pictured in <a href="" class="xref" data-knowl="./knowl/F-1-6-3optsi.html" title="Figure 1.6.7">Figure 1.6.7</a>: the function can increase more and more rapidly, it can increase at the same rate, or it can increase in a way that is slowing down. Fundamentally, we are beginning to think about how a particular curve bends, with the natural comparison being made to lines, which don't bend at all. More than this, we want to understand how the bend in a function's graph is tied to behavior characterized by the first derivative of the function.</p>
+<figure class="figure figure-like" id="jBW"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_6_3optsi.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.7<span class="period">.</span></span><span class="space"> </span>Three functions that are all increasing, but doing so at an increasing rate, at a constant rate, and at a decreasing rate, respectively.</figcaption></figure><p id="mwC">On the leftmost curve in <a href="" class="xref" data-knowl="./knowl/F-1-6-3optsi.html" title="Figure 1.6.7">Figure 1.6.7</a>, draw a sequence of tangent lines to the curve. As we move from left to right, the slopes of those tangent lines will increase. Therefore, the rate of change of the pictured function is increasing, and this explains why we say this function is <em class="emphasis">increasing at an increasing rate</em>. For the rightmost graph in <a href="" class="xref" data-knowl="./knowl/F-1-6-3optsi.html" title="Figure 1.6.7">Figure 1.6.7</a>, observe that as <span class="process-math">\(x\)</span> increases, the function increases, but the slopes of the tangent lines decrease. This function is <em class="emphasis">increasing at a decreasing rate</em>.</p>
+<p id="SDL">Similar options hold for how a function can decrease. Here we must be extra careful with our language, because decreasing functions involve negative slopes. Negative numbers present an interesting tension between common language and mathematical language. For example, it can be tempting to say that “<span class="process-math">\(-100\)</span> is bigger than <span class="process-math">\(-2\text{.}\)</span>” But we must remember that “greater than” describes how numbers lie on a number line: <span class="process-math">\(x \gt y\)</span> provided that <span class="process-math">\(x\)</span> lies to the right of <span class="process-math">\(y\text{.}\)</span> So of course, <span class="process-math">\(-100\)</span> is less than <span class="process-math">\(-2\text{.}\)</span> Informally, it might be helpful to say that “<span class="process-math">\(-100\)</span> is more negative than <span class="process-math">\(-2\text{.}\)</span>” When a function's values are negative, and those values get more negative as the input increases, the function must be decreasing.</p>
+<figure class="figure figure-like" id="PJf"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_6_3optsd.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.8<span class="period">.</span></span><span class="space"> </span>From left to right, three functions that are all decreasing, but doing so in different ways.</figcaption></figure><p id="yKU">Now consider the three graphs shown in <a href="" class="xref" data-knowl="./knowl/F-1-6-3optsd.html" title="Figure 1.6.8">Figure 1.6.8</a>. Clearly the middle graph depicts a function decreasing at a constant rate. Now, on the first curve, draw a sequence of tangent lines. We see that the slopes of these lines get less and less negative as we move from left to right. That means that the values of the first derivative, while all negative, are increasing, and thus we say that the leftmost curve is <em class="emphasis">decreasing at an increasing rate</em>.</p>
+<p id="eSd">This leaves only the rightmost curve in <a href="" class="xref" data-knowl="./knowl/F-1-6-3optsd.html" title="Figure 1.6.8">Figure 1.6.8</a> to consider. For that function, the slopes of the tangent lines are negative throughout the pictured interval, but as we move from left to right, the slopes get more and more negative. Hence the slope of the curve is decreasing, and we say that the function is <em class="emphasis">decreasing at a decreasing rate</em>.</p>
+<p id="KZm">We now introduce the notion of <em class="emphasis">concavity</em>  which provides simpler language to describe these behaviors. When a curve opens upward on a given interval, like the parabola <span class="process-math">\(y = x^2\)</span> or the exponential growth function <span class="process-math">\(y = e^x\text{,}\)</span> we say that the curve is <em class="emphasis">concave up</em> on that interval. Likewise, when a curve opens down, like the parabola <span class="process-math">\(y = -x^2\)</span> or the opposite of the exponential function <span class="process-math">\(y = -e^{x}\text{,}\)</span> we say that the function is <em class="emphasis">concave down</em>. Concavity is linked to both the first and second derivatives of the function.</p>
+<p id="rgv">In <a href="" class="xref" data-knowl="./knowl/F-1-6-concavity.html" title="Figure 1.6.9">Figure 1.6.9</a>, we see two functions and a sequence of tangent lines to each. On the lefthand plot, where the function is concave up, observe that the tangent lines always lie below the curve itself, and the slopes of the tangent lines are increasing as we move from left to right. In other words, the function <span class="process-math">\(f\)</span> is concave up on the interval shown because its derivative, <span class="process-math">\(f'\text{,}\)</span> is increasing on that interval. Similarly, on the righthand plot in <a href="" class="xref" data-knowl="./knowl/F-1-6-concavity.html" title="Figure 1.6.9">Figure 1.6.9</a>, where the function shown is concave down, we see that the tangent lines alway lie above the curve, and the slopes of the tangent lines are decreasing as we move from left to right. The fact that its derivative, <span class="process-math">\(f'\text{,}\)</span> is decreasing makes <span class="process-math">\(f\)</span> concave down on the interval.</p>
+<figure class="figure figure-like" id="vQo"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="external/images/1_6_concavity.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.9<span class="period">.</span></span><span class="space"> </span>At left, a function that is concave up; at right, one that is concave down.</figcaption></figure><p id="XnE">We state these most recent observations formally as the definitions of the terms <em class="emphasis">concave up</em> and <em class="emphasis">concave down</em>.</p>
+<article class="definition definition-like" id="hcP"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.6.10</span><span class="period">.</span>
+</h4>
+<p id="slO">Let <span class="process-math">\(f\)</span> be a differentiable function on an interval <span class="process-math">\((a,b)\text{.}\)</span> Then <span class="process-math">\(f\)</span> is <dfn class="terminology">concave up</dfn>  on <span class="process-math">\((a,b)\)</span> if and only if <span class="process-math">\(f'\)</span> is increasing on <span class="process-math">\((a,b)\text{;}\)</span> <span class="process-math">\(f\)</span> is <dfn class="terminology">concave down</dfn>  on <span class="process-math">\((a,b)\)</span> if and only if <span class="process-math">\(f'\)</span> is decreasing on <span class="process-math">\((a,b)\text{.}\)</span></p></article><article class="activity project-like" id="qqg"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.6.2</span><span class="period">.</span>
+</h4>
+<p id="xUF">The position of a car driving along a straight road at time <span class="process-math">\(t\)</span> in minutes is given by the function <span class="process-math">\(y = s(t)\)</span> that is pictured in <a href="" class="xref" data-knowl="./knowl/F-1-6-A1.html" title="Figure 1.6.11">Figure 1.6.11</a>. The car's position function has units measured in thousands of feet. Remember that you worked with this function and sketched graphs of <span class="process-math">\(y = v(t) = s'(t)\)</span> and <span class="process-math">\(y = v'(t)\)</span> in <a href="" class="xref" data-knowl="./knowl/PA-1-6.html" title="Preview Activity 1.6.1">Preview Activity 1.6.1</a>.</p>
+<figure class="figure figure-like" id="KiX"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/images/1_6_PA1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.11<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = s(t)\text{,}\)</span> the position of the car (measured in thousands of feet from its starting location) at time <span class="process-math">\(t\)</span> in minutes.</figcaption></figure><ol id="ebO" class="lower-alpha">
+<li id="Efq"><p id="CZX">On what intervals is the position function <span class="process-math">\(y = s(t)\)</span> increasing? decreasing? Why?</p></li>
+<li id="kmz"><p id="jhg">On which intervals is the velocity function <span class="process-math">\(y = v(t) = s'(t)\)</span> increasing? decreasing? neither? Why?</p></li>
+<li id="QtI"><p id="Pop"><em class="emphasis">Acceleration</em>  is defined to be the instantaneous rate of change of velocity, as the acceleration of an object measures the rate at which the velocity of the object is changing. Say that the car's acceleration function is named <span class="process-math">\(a(t)\text{.}\)</span> How is <span class="process-math">\(a(t)\)</span> computed from <span class="process-math">\(v(t)\text{?}\)</span> How is <span class="process-math">\(a(t)\)</span> computed from <span class="process-math">\(s(t)\text{?}\)</span> Explain.</p></li>
+<li id="wAR"><p id="vvy">What can you say about <span class="process-math">\(s''\)</span> whenever <span class="process-math">\(s'\)</span> is increasing? Why?</p></li>
+<li id="IPj">
+<p id="bCH">Using only the words <em class="emphasis">increasing</em>, <em class="emphasis">decreasing</em>, <em class="emphasis">constant</em>, <em class="emphasis">concave up</em>, <em class="emphasis">concave down</em>, and <em class="emphasis">linear</em>, complete the following sentences. For the position function <span class="process-math">\(s\)</span> with velocity <span class="process-math">\(v\)</span> and acceleration <span class="process-math">\(a\text{,}\)</span></p>
+<ul class="disc">
+<li id="UtH"><p id="NdD">on an interval where <span class="process-math">\(v\)</span> is positive, <span class="process-math">\(s\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+<li id="AAQ"><p id="HJQ">on an interval where <span class="process-math">\(v\)</span> is negative, <span class="process-math">\(s\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+<li id="gHZ"><p id="nQZ">on an interval where <span class="process-math">\(v\)</span> is zero, <span class="process-math">\(s\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+<li id="MPi"><p id="TYi">on an interval where <span class="process-math">\(a\)</span> is positive, <span class="process-math">\(v\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+<li id="sWr"><p id="Afr">on an interval where <span class="process-math">\(a\)</span> is negative, <span class="process-math">\(v\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+<li id="ZdA"><p id="gmA">on an interval where <span class="process-math">\(a\)</span> is zero, <span class="process-math">\(v\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+<li id="FkJ"><p id="MtJ">on an interval where <span class="process-math">\(a\)</span> is positive, <span class="process-math">\(s\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+<li id="lrS"><p id="sAS">on an interval where <span class="process-math">\(a\)</span> is negative, <span class="process-math">\(s\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+<li id="Rzb"><p id="YIb">on an interval where <span class="process-math">\(a\)</span> is zero, <span class="process-math">\(s\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></li>
+</ul>
+</li>
+</ol></article><p id="DuN">Exploring the context of position, velocity, and acceleration is an excellent way to understand how a function, its first derivative, and its second derivative are related to one another. In <a href="" class="xref" data-knowl="./knowl/act-1-6-1.html" title="Activity 1.6.2">Activity 1.6.2</a>, we can replace <span class="process-math">\(s\text{,}\)</span> <span class="process-math">\(v\text{,}\)</span> and <span class="process-math">\(a\)</span> with an arbitrary function <span class="process-math">\(f\)</span> and its derivatives <span class="process-math">\(f'\)</span> and <span class="process-math">\(f''\text{,}\)</span> and essentially all the same observations hold. In particular, note that the following are equivalent: on an interval where the graph of <span class="process-math">\(f\)</span> is concave up, <span class="process-math">\(f'\)</span> is increasing and <span class="process-math">\(f''\)</span> is positive. Likewise, on an interval where the graph of <span class="process-math">\(f\)</span> is concave down, <span class="process-math">\(f'\)</span> is decreasing and <span class="process-math">\(f''\)</span> is negative.</p>
+<article class="activity project-like" id="xzg"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.6.3</span><span class="period">.</span>
+</h4>
+<p id="UmD">A potato is placed in an oven, and the potato's temperature <span class="process-math">\(F\)</span> (in degrees Fahrenheit) at various points in time is taken and recorded in the following table. Time <span class="process-math">\(t\)</span> is measured in minutes. In <a href="" class="xref" data-knowl="./knowl/act-1-5-1.html" title="Activity 1.5.2">Activity 1.5.2</a>, we computed approximations to <span class="process-math">\(F'(30)\)</span> and <span class="process-math">\(F'(60)\)</span> using central differences. Those values are provided in the second table below, along with several others computed in the same way.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel fixed-width top" style="width:47%;"><figure class="table table-like" id="sPn"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.6.12<span class="period">.</span></span><span class="space"> </span>Select values of <span class="process-math">\(F(t)\text{.}\)</span></figcaption><table class="tabular" id="FdF">
+<tr>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(F(t)\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(70\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(15\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(180.5\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(30\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(251\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(45\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(296\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(60\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(324.5\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(75\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(342.8\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(90\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(354.5\)</span></td>
+</tr>
+</table></figure></div>
+<div class="sbspanel fixed-width top" style="width:47%;"><figure class="table table-like" id="YWw"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.6.13<span class="period">.</span></span><span class="space"> </span>Select values of <span class="process-math">\(F'(t)\text{.}\)</span></figcaption><table class="tabular" id="lkO">
+<tr>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(F'(t)\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">NA</td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(15\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(6.03\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(30\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(3.85\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(45\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.45\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(60\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.56\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(75\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.00\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(90\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">NA</td>
+</tr>
+</table></figure></div>
+</div></div>
+<ol id="AtM" class="lower-alpha">
+<li id="nvA"><p id="hGo">What are the units on the values of <span class="process-math">\(F'(t)\text{?}\)</span></p></li>
+<li id="TCJ"><p id="NNx">Use a central difference to estimate the value of <span class="process-math">\(F''(30)\text{.}\)</span></p></li>
+<li id="zJS"><p id="tUG">What is the meaning of the value of <span class="process-math">\(F''(30)\)</span> that you have computed in (b) in terms of the potato's temperature? Write several careful sentences that discuss, with appropriate units, the values of <span class="process-math">\(F(30)\text{,}\)</span> <span class="process-math">\(F'(30)\text{,}\)</span> and <span class="process-math">\(F''(30)\text{,}\)</span> and explain the overall behavior of the potato's temperature at this point in time.</p></li>
+<li id="fRb"><p id="abP">Overall, is the potato's temperature increasing at an increasing rate, increasing at a constant rate, or increasing at a decreasing rate? Why?</p></li>
+</ol></article><article class="activity project-like" id="fvC"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.6.4</span><span class="period">.</span>
+</h4>
+<p id="uEA">This activity builds on our experience and understanding of how to sketch the graph of <span class="process-math">\(f'\)</span> given the graph of <span class="process-math">\(f\text{.}\)</span></p>
+<p id="aLJ">In <a href="" class="xref" data-knowl="./knowl/F-1-6-A2.html" title="Figure 1.6.14">Figure 1.6.14</a>, given the respective graphs of two different functions <span class="process-math">\(f\text{,}\)</span> sketch the corresponding graph of <span class="process-math">\(f'\)</span> on the first axes below, and then sketch <span class="process-math">\(f''\)</span> on the second set of axes. In addition, for each, write several careful sentences in the spirit of those in <a href="" class="xref" data-knowl="./knowl/act-1-6-1.html" title="Activity 1.6.2">Activity 1.6.2</a> that connect the behaviors of <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(f'\text{,}\)</span> and <span class="process-math">\(f''\text{.}\)</span> For instance, write something such as</p>
+<blockquote class="blockquote" id="WbQ"><p id="Oxr"><span class="process-math">\(f'\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> on the interval <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>, which is connected to the fact that <span class="process-math">\(f\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> on the same interval <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>, and <span class="process-math">\(f''\)</span> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> on the interval.</p></blockquote>
+<p id="GSS">but of course with the blanks filled in. Throughout, view the scale of the grid for the graph of <span class="process-math">\(f\)</span> as being <span class="process-math">\(1 \times 1\text{,}\)</span> and assume the horizontal scale of the grid for the graph of <span class="process-math">\(f'\)</span> is identical to that for <span class="process-math">\(f\text{.}\)</span> If you need to adjust the vertical scale on the axes for the graph of <span class="process-math">\(f'\)</span> or <span class="process-math">\(f''\text{,}\)</span> you should label that accordingly.</p>
+<figure class="figure figure-like" id="nab"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_6_Act2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.14<span class="period">.</span></span><span class="space"> </span>Two given functions <span class="process-math">\(f\text{,}\)</span> with axes provided for plotting <span class="process-math">\(f'\)</span> and <span class="process-math">\(f''\)</span> below.</figcaption></figure></article></section><section class="subsection" id="oHo"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.6.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="bXx" class="disc">
+<li id="Kps"><p id="HuM">A differentiable function <span class="process-math">\(f\)</span> is increasing on an interval whenever its first derivative is positive, and decreasing whenever its first derivative is negative.</p></li>
+<li id="qwB"><p id="nBV">By taking the derivative of the derivative of a function <span class="process-math">\(f\text{,}\)</span> we arrive at the second derivative, <span class="process-math">\(f''\text{.}\)</span> The second derivative measures the instantaneous rate of change of the first derivative. The sign of the second derivative tells us whether the slope of the tangent line to <span class="process-math">\(f\)</span> is increasing or decreasing.</p></li>
+<li id="WDK"><p id="TJe">A differentiable function is concave up whenever its first derivative is increasing (or equivalently whenever its second derivative is positive), and concave down whenever its first derivative is decreasing (or equivalently whenever its second derivative is negative). Examples of functions that are everywhere concave up are <span class="process-math">\(y = x^2\)</span> and <span class="process-math">\(y = e^x\text{;}\)</span> examples of functions that are everywhere concave down are <span class="process-math">\(y = -x^2\)</span> and <span class="process-math">\(y = -e^x\text{.}\)</span></p></li>
+<li id="CKT"><p id="zQn">The units on the second derivative are “units of output per unit of input per unit of input.” They tell us how the value of the derivative function is changing in response to changes in the input. In other words, the second derivative tells us the rate of change of the rate of change of the original function.</p></li>
+</ul></section><section class="exercises" id="DjS"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.6.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="vMx"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Comparing <span class="process-math">\(f, f', f''\)</span> values.</span>
+</h4>
+<div id="webwork-40" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="40" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec5/Q01.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1209">Consider the function <span class="process-math">\(f(x)\)</span> graphed below.</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-40-image-1.png" class="contained"></div>
+<p id="p-1210">For this function, are the following nonzero quantities positive or negative?</p>
+<p id="p-1211"><span class="process-math">\(f(3)\)</span> is <ul style="list-style:circle;">
+<li id="li-837"><p id="p-1213">positive</p></li>
+<li id="li-838"><p id="p-1214">negative</p></li>
+</ul></p>
+<p id="p-1215"><span class="process-math">\(f'(3)\)</span> is <ul style="list-style:circle;">
+<li id="li-840"><p id="p-1217">positive</p></li>
+<li id="li-841"><p id="p-1218">negative</p></li>
+</ul></p>
+<p id="p-1219"><span class="process-math">\(f''(3)\)</span> is <ul style="list-style:circle;">
+<li id="li-843"><p id="p-1221">positive</p></li>
+<li id="li-844"><p id="p-1222">negative</p></li>
+</ul></p>
+<p id="p-1223"><em class="emphasis">(Because this is a multiple choice problem, it will not show which parts of the problem are correct or incorrect when you submit it.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-40')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="bTG"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Signs of <span class="process-math">\(f, f', f''\)</span> values.</span>
+</h4>
+<div id="webwork-41" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="41" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec5/Q03.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1227">At exactly two of the labeled points in the figure below, which shows a function <span class="process-math">\(f\text{,}\)</span> the derivative <span class="process-math">\(f'\)</span> is zero; the second derivative <span class="process-math">\(f''\)</span> is not zero at any of the labeled points.  Select the correct signs for each of <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(f'\)</span> and <span class="process-math">\(f''\)</span> at each marked point.</p>
+<div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-41-image-1.png" class="contained"></div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines">Point</td>
+<td class="l m b2 r2 l0 t2 lines">A</td>
+<td class="l m b2 r2 l0 t2 lines">B</td>
+<td class="l m b2 r2 l0 t2 lines">C</td>
+<td class="l m b2 r2 l0 t2 lines">D</td>
+<td class="l m b2 r2 l0 t2 lines">E</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(f\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-846"><p id="p-1229">positive</p></li>
+<li id="li-847"><p id="p-1230">zero</p></li>
+<li id="li-848"><p id="p-1231">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-850"><p id="p-1233">positive</p></li>
+<li id="li-851"><p id="p-1234">zero</p></li>
+<li id="li-852"><p id="p-1235">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-854"><p id="p-1237">positive</p></li>
+<li id="li-855"><p id="p-1238">zero</p></li>
+<li id="li-856"><p id="p-1239">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-858"><p id="p-1241">positive</p></li>
+<li id="li-859"><p id="p-1242">zero</p></li>
+<li id="li-860"><p id="p-1243">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-862"><p id="p-1245">positive</p></li>
+<li id="li-863"><p id="p-1246">zero</p></li>
+<li id="li-864"><p id="p-1247">negative</p></li>
+</ul></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(f'\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-866"><p id="p-1249">positive</p></li>
+<li id="li-867"><p id="p-1250">zero</p></li>
+<li id="li-868"><p id="p-1251">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-870"><p id="p-1253">positive</p></li>
+<li id="li-871"><p id="p-1254">zero</p></li>
+<li id="li-872"><p id="p-1255">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-874"><p id="p-1257">positive</p></li>
+<li id="li-875"><p id="p-1258">zero</p></li>
+<li id="li-876"><p id="p-1259">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-878"><p id="p-1261">positive</p></li>
+<li id="li-879"><p id="p-1262">zero</p></li>
+<li id="li-880"><p id="p-1263">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-882"><p id="p-1265">positive</p></li>
+<li id="li-883"><p id="p-1266">zero</p></li>
+<li id="li-884"><p id="p-1267">negative</p></li>
+</ul></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(f''\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-886"><p id="p-1269">positive</p></li>
+<li id="li-887"><p id="p-1270">zero</p></li>
+<li id="li-888"><p id="p-1271">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-890"><p id="p-1273">positive</p></li>
+<li id="li-891"><p id="p-1274">zero</p></li>
+<li id="li-892"><p id="p-1275">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-894"><p id="p-1277">positive</p></li>
+<li id="li-895"><p id="p-1278">zero</p></li>
+<li id="li-896"><p id="p-1279">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-898"><p id="p-1281">positive</p></li>
+<li id="li-899"><p id="p-1282">zero</p></li>
+<li id="li-900"><p id="p-1283">negative</p></li>
+</ul></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-902"><p id="p-1285">positive</p></li>
+<li id="li-903"><p id="p-1286">zero</p></li>
+<li id="li-904"><p id="p-1287">negative</p></li>
+</ul></td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-41')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="IaP"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Acceleration from velocity.</span>
+</h4>
+<div id="webwork-42" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="42" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec5/Q15.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1303">Suppose that an accelerating car goes from 0 mph to 64.1 mph in five seconds.  Its velocity is given in the following table, converted from miles per hour to feet per second, so that all time measurements are in seconds.  (Note: 1 mph is 22/15 ft/sec.) Find the average acceleration of the car over each of the first two seconds.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines">
+<span class="process-math">\(t\)</span> (s)</td>
+<td class="l m b2 r2 l0 t2 lines">0</td>
+<td class="l m b2 r2 l0 t2 lines">1</td>
+<td class="l m b2 r2 l0 t2 lines">2</td>
+<td class="l m b2 r2 l0 t2 lines">3</td>
+<td class="l m b2 r2 l0 t2 lines">4</td>
+<td class="l m b2 r2 l0 t2 lines">5</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">
+<span class="process-math">\(v(t)\)</span> (ft/s)</td>
+<td class="l m b2 r2 l0 t0 lines">0.00</td>
+<td class="l m b2 r2 l0 t0 lines">32.05</td>
+<td class="l m b2 r2 l0 t0 lines">55.55</td>
+<td class="l m b2 r2 l0 t0 lines">72.64</td>
+<td class="l m b2 r2 l0 t0 lines">85.45</td>
+<td class="l m b2 r2 l0 t0 lines">94.00</td>
+</tr>
+</table></div>
+<p id="p-1304">average acceleration over the first second = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+<p id="p-1305">average acceleration over the second second = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-42')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="ohY"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Rates of change of stock values.</span>
+</h4>
+<div id="webwork-43" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="43" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec5/Q16.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1308">Let <span class="process-math">\(P(t)\)</span> represent the price of a share of stock of a corporation at time <span class="process-math">\(t\text{.}\)</span>  What does each of the following statements tell us about the signs of the first and second derivatives of <span class="process-math">\(P(t)\text{?}\)</span></p>
+<p id="p-1309"><em class="alert">(a)</em> The price of the stock is falling slower and slower.</p>
+<p id="p-1310">The first derivative of <span class="process-math">\(P(t)\)</span> is <ul style="list-style:circle;">
+<li id="li-906"><p id="p-1312">positive</p></li>
+<li id="li-907"><p id="p-1313">zero</p></li>
+<li id="li-908"><p id="p-1314">negative</p></li>
+</ul></p>
+<p id="p-1315">The second derivative of <span class="process-math">\(P(t)\)</span> is <ul style="list-style:circle;">
+<li id="li-910"><p id="p-1317">positive</p></li>
+<li id="li-911"><p id="p-1318">zero</p></li>
+<li id="li-912"><p id="p-1319">negative</p></li>
+</ul></p>
+<p id="p-1320"><em class="alert">(b)</em> The price of the stock is close to bottoming out.</p>
+<p id="p-1321">The first derivative of <span class="process-math">\(P(t)\)</span> is <ul style="list-style:circle;">
+<li id="li-914"><p id="p-1323">positive</p></li>
+<li id="li-915"><p id="p-1324">zero</p></li>
+<li id="li-916"><p id="p-1325">negative</p></li>
+</ul></p>
+<p id="p-1326">The second derivative of <span class="process-math">\(P(t)\)</span> is <ul style="list-style:circle;">
+<li id="li-918"><p id="p-1328">positive</p></li>
+<li id="li-919"><p id="p-1329">zero</p></li>
+<li id="li-920"><p id="p-1330">negative</p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-43')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Uph"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Interpreting a graph of <span class="process-math">\(f'\)</span>.</span>
+</h4>
+<div id="webwork-44" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="44" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec5/Q21.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1335">The graph of <span class="process-math">\(f'\)</span> (<em class="alert">not</em> <span class="process-math">\(f\)</span>) is given below.</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-44-image-1.png" class="contained"></div>
+<p id="p-1336"><em class="emphasis">(Note that this is a graph of <span class="process-math">\(f'\text{,}\)</span> not a graph of <span class="process-math">\(f\text{.}\)</span>)</em></p>
+<p id="p-1337">At which of the marked values of <span class="process-math">\(x\)</span> is</p>
+<p id="p-1338"><em class="alert">A.</em> <span class="process-math">\(f(x)\)</span> greatest?  <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+<p id="p-1339"><em class="alert">B.</em> <span class="process-math">\(f(x)\)</span> least? <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+<p id="p-1340"><em class="alert">C.</em> <span class="process-math">\(f'(x)\)</span> greatest? <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+<p id="p-1341"><em class="alert">D.</em> <span class="process-math">\(f'(x)\)</span> least? <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+<p id="p-1342"><em class="alert">E.</em> <span class="process-math">\(f''(x)\)</span> greatest? <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+<p id="p-1343"><em class="alert">F.</em> <span class="process-math">\(f''(x)\)</span> least? <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-44')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Awq"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="BuF">Suppose that <span class="process-math">\(y = f(x)\)</span> is a twice-differentiable function such that <span class="process-math">\(f''\)</span> is continuous for which the following information is known: <span class="process-math">\(f(2) = -3\text{,}\)</span> <span class="process-math">\(f'(2) = 1.5\text{,}\)</span> <span class="process-math">\(f''(2) = -0.25\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="rMy"><p id="asO">Is <span class="process-math">\(f\)</span> increasing or decreasing near <span class="process-math">\(x = 2\text{?}\)</span> Is <span class="process-math">\(f\)</span> concave up or concave down near <span class="process-math">\(x = 2\text{?}\)</span></p></li>
+<li id="XTH"><p id="GzX">Do you expect <span class="process-math">\(f(2.1)\)</span> to be greater than <span class="process-math">\(-3\text{,}\)</span> equal to <span class="process-math">\(-3\text{,}\)</span> or less than <span class="process-math">\(-3\text{?}\)</span> Why?</p></li>
+<li id="EaQ"><p id="mHg">Do you expect <span class="process-math">\(f'(2.1)\)</span> to be greater than <span class="process-math">\(1.5\text{,}\)</span> equal to <span class="process-math">\(1.5\text{,}\)</span> or less than <span class="process-math">\(1.5\text{?}\)</span> Why?</p></li>
+<li id="khZ"><p id="SOp">Sketch a graph of <span class="process-math">\(y = f(x)\)</span> near <span class="process-math">\((2,f(2))\)</span> and include a graph of the tangent line.</p></li>
+</ol></article><article class="exercise exercise-like" id="gDz"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="hBO">For a certain function <span class="process-math">\(y = g(x)\text{,}\)</span> its derivative is given by the function pictured in <a href="" class="xref" data-knowl="./knowl/F-1-6-Ez2.html" title="Figure 1.6.15">Figure 1.6.15</a>.</p>
+<figure class="figure figure-like" id="tQg"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/1_6_Ez2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.6.15<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = g'(x)\text{.}\)</span></figcaption></figure><ol id="NIX" class="lower-alpha">
+<li id="NuC"><p id="PTJ">What is the approximate slope of the tangent line to <span class="process-math">\(y = g(x)\)</span> at the point <span class="process-math">\((2,g(2))\text{?}\)</span></p></li>
+<li id="tBL"><p id="waS">How many real number solutions can there be to the equation <span class="process-math">\(g(x) = 0\text{?}\)</span> Justify your conclusion fully and carefully by explaining what you know about how the graph of <span class="process-math">\(g\)</span> must behave based on the given graph of <span class="process-math">\(g'\text{.}\)</span></p></li>
+<li id="ZIU"><p id="cib">On the interval <span class="process-math">\(-3 \lt x \lt 3\text{,}\)</span> how many times does the concavity of <span class="process-math">\(g\)</span> change? Why?</p></li>
+<li id="FQd"><p id="Ipk">Use the provided graph to estimate the value of <span class="process-math">\(g''(2)\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="MKI"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="ZXp">A bungee jumper's height <span class="process-math">\(h\)</span> (in feet ) at time <span class="process-math">\(t\)</span> (in seconds) is given in part by the table:</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="qVA">
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(3.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(3.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(4.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(4.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(5.0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h(t)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(200\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(184.2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(159.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(131.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(104.7\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(81.8\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(56.8\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(55.5\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(60.4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.8\)</span></td>
+</tr>
+</table></div></div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="XcJ">
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(5.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(6.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(6.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(7.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(7.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(8.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(8.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(9.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(9.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(10.0\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(h(t)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(81.6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(93.7\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(104.4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(112.6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(117.7\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(119.4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(118.2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(114.8\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(110.0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(104.7\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="Gey"></p>
+<ol id="mlH" class="lower-alpha">
+<li id="jcG"><p id="lBN">Use the given data to estimate <span class="process-math">\(h'(4.5)\text{,}\)</span> <span class="process-math">\(h'(5)\text{,}\)</span> and <span class="process-math">\(h'(5.5)\text{.}\)</span> At which of these times is the bungee jumper rising most rapidly?</p></li>
+<li id="PjP"><p id="RIW">Use the given data and your work in (a) to estimate <span class="process-math">\(h''(5)\text{.}\)</span></p></li>
+<li id="vqY"><p id="xQf">What physical property of the bungee jumper does the value of <span class="process-math">\(h''(5)\)</span> measure? What are its units?</p></li>
+<li id="byh"><p id="dXo">Based on the data, on what approximate time intervals is the function <span class="process-math">\(y = h(t)\)</span> concave down? What is happening to the velocity of the bungee jumper on these time intervals?</p></li>
+</ol></article><article class="exercise exercise-like" id="sRR"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="SsQ">For each prompt that follows, sketch a possible graph of a function on the interval <span class="process-math">\(-3 \lt x \lt 3\)</span> that satisfies the stated properties.</p>
+<ol class="lower-alpha">
+<li id="EKK"><p id="HjR"><span class="process-math">\(y = f(x)\)</span> such that <span class="process-math">\(f\)</span> is increasing on <span class="process-math">\(-3 \lt x \lt 3\text{,}\)</span> concave up on <span class="process-math">\(-3 \lt x \lt 0\text{,}\)</span> and concave down on <span class="process-math">\(0 \lt x \lt 3\text{.}\)</span></p></li>
+<li id="kRT"><p id="nra"><span class="process-math">\(y = g(x)\)</span> such that <span class="process-math">\(g\)</span> is increasing on <span class="process-math">\(-3 \lt x \lt 3\text{,}\)</span> concave down on <span class="process-math">\(-3 \lt x \lt 0\text{,}\)</span> and concave up on <span class="process-math">\(0 \lt x \lt 3\text{.}\)</span></p></li>
+<li id="QZc"><p id="Tyj"><span class="process-math">\(y = h(x)\)</span> such that <span class="process-math">\(h\)</span> is decreasing on <span class="process-math">\(-3 \lt x \lt 3\text{,}\)</span> concave up on <span class="process-math">\(-3 \lt x \lt -1\text{,}\)</span> neither concave up nor concave down on <span class="process-math">\(-1 \lt x \lt 1\text{,}\)</span> and concave down on <span class="process-math">\(1 \lt x \lt 3\text{.}\)</span></p></li>
+<li id="xgl"><p id="zFs"><span class="process-math">\(y = p(x)\)</span> such that <span class="process-math">\(p\)</span> is decreasing and concave down on <span class="process-math">\(-3 \lt x \lt 0\)</span> and is increasing and concave down on <span class="process-math">\(0 \lt x \lt 3\text{.}\)</span></p></li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

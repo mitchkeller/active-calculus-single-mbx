@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC The derivative function</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-1-3-derivative-pt.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-1-5-units.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-1-3-derivative-pt.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-1-5-units.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="active">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="eZh"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.4</span> <span class="title">The derivative function</span>
+</h2>
+<article class="objectives goal-like" id="DBR"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="IlK"><p id="RFw">How does the limit definition of the derivative of a function <span class="process-math">\(f\)</span> lead to an entirely new (but related) function <span class="process-math">\(f'\text{?}\)</span></p></li>
+<li id="osT"><p id="xMF">What is the difference between writing <span class="process-math">\(f'(a)\)</span> and <span class="process-math">\(f'(x)\text{?}\)</span></p></li>
+<li id="UAc"><p id="dTO">How is the graph of the derivative function <span class="process-math">\(f'(x)\)</span> related to the graph of <span class="process-math">\(f(x)\text{?}\)</span></p></li>
+<li id="AHl"><p id="KaX">What are some examples of functions <span class="process-math">\(f\)</span> for which <span class="process-math">\(f'\)</span> is not defined at one or more points?</p></li>
+</ul></article><section class="introduction" id="jJa"><p id="uRZ">We now know that the instantaneous rate of change of a function <span class="process-math">\(f(x)\)</span> at <span class="process-math">\(x = a\text{,}\)</span> or equivalently the slope of the tangent line to the graph of <span class="process-math">\(y = f(x)\)</span> at <span class="process-math">\(x = a\text{,}\)</span> is given by the value <span class="process-math">\(f'(a)\text{.}\)</span> In all of our examples so far, we have identified a particular value of <span class="process-math">\(a\)</span> as our point of interest: <span class="process-math">\(a = 1\text{,}\)</span> <span class="process-math">\(a = 3\text{,}\)</span> etc. But it is not hard to imagine that we will often be interested in the derivative value for more than just one <span class="process-math">\(a\)</span>-value, and possibly for many of them. In this section, we explore how we can move from computing the derivative at a single point to computing a formula for <span class="process-math">\(f'(a)\)</span> at any point <span class="process-math">\(a\text{.}\)</span> Indeed, the process of “taking the derivative” generates a new function, denoted by <span class="process-math">\(f'(x)\text{,}\)</span> derived from the original function <span class="process-math">\(f(x)\text{.}\)</span></p>
+<article class="exploration project-like" id="OFZ"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">1.4.1</span><span class="period">.</span>
+</h3>
+<p id="iyQ">Consider the function <span class="process-math">\(f(x) = 4x - x^2\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="xHO"><p id="qdp">Use the limit definition to compute the derivative values: <span class="process-math">\(f'(0)\text{,}\)</span> <span class="process-math">\(f'(1)\text{,}\)</span> <span class="process-math">\(f'(2)\text{,}\)</span> and <span class="process-math">\(f'(3)\text{.}\)</span></p></li>
+<li id="dOX"><p id="Wky">Observe that the work to find <span class="process-math">\(f'(a)\)</span> is the same, regardless of the value of <span class="process-math">\(a\text{.}\)</span> Based on your work in (a), what do you conjecture is the value of <span class="process-math">\(f'(4)\text{?}\)</span> How about <span class="process-math">\(f'(5)\text{?}\)</span> (Note: you should <em class="emphasis">not</em> use the limit definition of the derivative to find either value.)</p></li>
+<li id="JWg"><p id="CrH">Conjecture a formula for <span class="process-math">\(f'(a)\)</span> that depends only on the value <span class="process-math">\(a\text{.}\)</span> That is, in the same way that we have a formula for <span class="process-math">\(f(x)\)</span> (recall <span class="process-math">\(f(x) = 4x - x^2\)</span>), see if you can use your work above to guess a formula for <span class="process-math">\(f'(a)\)</span> in terms of <span class="process-math">\(a\text{.}\)</span></p></li>
+</ol></article></section><section class="subsection" id="Lgq"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.1</span> <span class="title">How the derivative is itself a function</span>
+</h3>
+<p id="aZi">In your work in <a href="" class="xref" data-knowl="./knowl/PA-1-4.html" title="Preview Activity 1.4.1">Preview Activity 1.4.1</a> with <span class="process-math">\(f(x) = 4x - x^2\text{,}\)</span> you may have found several patterns. One comes from observing that <span class="process-math">\(f'(0) = 4\text{,}\)</span> <span class="process-math">\(f'(1) = 2\text{,}\)</span> <span class="process-math">\(f'(2) = 0\text{,}\)</span> and <span class="process-math">\(f'(3) = -2\text{.}\)</span> That sequence of values leads us naturally to conjecture that <span class="process-math">\(f'(4) = -4\)</span> and <span class="process-math">\(f'(5) = -6\text{.}\)</span> We also observe that the particular value of <span class="process-math">\(a\)</span> has very little effect on the process of computing the value of the derivative through the limit definition. To see this more clearly, we compute <span class="process-math">\(f'(a)\text{,}\)</span> where <span class="process-math">\(a\)</span> represents a number to be named later. Following the now standard process of using the limit definition of the derivative,</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-1-4.html" id="cOv">
+\begin{align*}
+f'(a) =\mathstrut \amp  \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} = \lim_{h \to 0} \frac{4(a + h) - (a + h)^2 - (4a-a^2)}{h}\\
+=\mathstrut \amp  \lim_{h \to 0} \frac{4a + 4h - a^2 - 2ha - h^2 - 4a+a^2}{h} = \lim_{h \to 0} \frac{4h - 2ha - h^2}{h}\\
+=\mathstrut \amp  \lim_{h \to 0} \frac{h(4 - 2a - h)}{h} =  \lim_{h \to 0} (4 - 2a - h)\text{.}
+\end{align*}
+</div>
+<p id="Hgr">Here we observe that neither <span class="process-math">\(4\)</span> nor <span class="process-math">\(2a\)</span> depend on the value of <span class="process-math">\(h\text{,}\)</span> so as <span class="process-math">\(h \to 0\text{,}\)</span> <span class="process-math">\((4 - 2a - h) \to (4 - 2a)\text{.}\)</span> Thus, <span class="process-math">\(f'(a) = 4 - 2a\text{.}\)</span></p>
+<p id="nnA">This result is consistent with the specific values we found above: e.g., <span class="process-math">\(f'(3) = 4 - 2(3) = -2\text{.}\)</span> And indeed, our work confirms that the value of <span class="process-math">\(a\)</span> has almost no bearing on the process of computing the derivative. We note further that the letter being used is immaterial: whether we call it <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(x\text{,}\)</span> or anything else, the derivative at a given value is simply given by “4 minus 2 times the value.” We choose to use <span class="process-math">\(x\)</span> for consistency with the original function given by <span class="process-math">\(y = f(x)\text{,}\)</span> as well as for the purpose of graphing the derivative function. For the function <span class="process-math">\(f(x) = 4x - x^2\text{,}\)</span> it follows that <span class="process-math">\(f'(x) = 4 - 2x\text{.}\)</span></p>
+<p id="TuJ">Because the value of the derivative function is linked to the graph of the original function, it makes sense to look at both of these functions plotted on the same domain.</p>
+<figure class="figure figure-like" id="QAd"><div class="image-box" style="width: 74%; margin-left: 13%; margin-right: 13%;"><img src="external/images/1_4_ffprimeplot.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.1<span class="period">.</span></span><span class="space"> </span>The graphs of <span class="process-math">\(f(x) = 4x - x^2\)</span> (at left) and <span class="process-math">\(f'(x) = 4 - 2x\)</span> (at right).  Slopes on the graph of <span class="process-math">\(f\)</span> correspond to heights on the graph of <span class="process-math">\(f'\text{.}\)</span></figcaption></figure><p id="zBS">In <a href="" class="xref" data-knowl="./knowl/F-1-4-ffprime.html" title="Figure 1.4.1">Figure 1.4.1</a>, on the left we show a plot of <span class="process-math">\(f(x) = 4x - x^2\)</span> together with a selection of tangent lines at the points we've considered above. On the right, we show a plot of <span class="process-math">\(f'(x) = 4 - 2x\)</span> with emphasis on the heights of the derivative graph at the same selection of points. Notice the connection between colors in the left and right graphs: the green tangent line on the original graph is tied to the green point on the right graph in the following way: <em class="emphasis">the slope of the tangent line</em> at a point on the lefthand graph is the same as the <em class="emphasis">height</em> at the corresponding point on the righthand graph. That is, at each respective value of <span class="process-math">\(x\text{,}\)</span> the slope of the tangent line to the original function is the same as the height of the derivative function. Do note, however, that the units on the vertical axes are different: in the left graph, the vertical units are simply the output units of <span class="process-math">\(f\text{.}\)</span> On the righthand graph of <span class="process-math">\(y = f'(x)\text{,}\)</span> the units on the vertical axis are units of <span class="process-math">\(f\)</span> per unit of <span class="process-math">\(x\text{.}\)</span></p>
+<p id="fJb">An excellent way to explore how the graph of <span class="process-math">\(f(x)\)</span> generates the graph of <span class="process-math">\(f'(x)\)</span> is through an applet. See, for instance, the applets at <a class="external" href="https://gvsu.edu/s/5C" target="_blank">gvsu.edu/s/5C</a> or <a class="external" href="https://gvsu.edu/s/5D" target="_blank">gvsu.edu/s/5D</a>, via the sites of <a class="external" href="https://gvsu.edu/s/5r" target="_blank">David Austin</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-35" id="fn-35"><sup> 1 </sup></a> and <a class="external" href="http://gvsu.edu/s/5p" target="_blank">Marc Renault</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-36" id="fn-36"><sup> 2 </sup></a>.</p>
+<p id="LQk">In <a href="sec-1-3-derivative-pt.html" class="internal" title="Section 1.3: The derivative of a function at a point">Section 1.3</a> when we first defined the derivative, we wrote the definition in terms of a value <span class="process-math">\(a\)</span> to find <span class="process-math">\(f'(a)\text{.}\)</span> As we have seen above, the letter <span class="process-math">\(a\)</span> is merely a placeholder, and it often makes more sense to use <span class="process-math">\(x\)</span> instead. For the record, here we restate the definition of the derivative. </p>
+<article class="definition definition-like" id="XuI"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span>
+</h4>
+<p id="OKQ">Let <span class="process-math">\(f\)</span> be a function and <span class="process-math">\(x\)</span> a value in the function's domain. We define the <dfn class="terminology">derivative of <span class="process-math">\(f\)</span></dfn>, a new function called <span class="process-math">\(f'\text{,}\)</span> by the formula <span class="process-math">\(f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}\)</span> provided this limit exists.</p></article><p id="rXt">We now have two different ways of thinking about the derivative function:</p>
+<ol class="decimal">
+<li id="Fre"><p id="p-derived-Fre">given a graph of <span class="process-math">\(y = f(x)\text{,}\)</span> how does this graph lead to the graph of the derivative function <span class="process-math">\(y = f'(x)\text{?}\)</span> and</p></li>
+<li id="lyn"><p id="p-derived-lyn">given a formula for <span class="process-math">\(y = f(x)\text{,}\)</span> how does the limit definition of derivative generate a formula for <span class="process-math">\(y = f'(x)\text{?}\)</span></p></li>
+</ol>
+<p class="continuation">Both of these issues are explored in the following activities.</p>
+<article class="activity project-like" id="ipV"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.4.2</span><span class="period">.</span>
+</h4>
+<p id="Atz">For each given graph of <span class="process-math">\(y = f(x)\text{,}\)</span> sketch an approximate graph of its derivative function, <span class="process-math">\(y = f'(x)\text{,}\)</span> on the axes immediately below. The scale of the grid for the graph of <span class="process-math">\(f\)</span> is <span class="process-math">\(1 \times 1\text{;}\)</span> assume the horizontal scale of the grid for the graph of <span class="process-math">\(f'\)</span> is identical to that for <span class="process-math">\(f\text{.}\)</span> If necessary, adjust and label the vertical scale on the axes for <span class="process-math">\(f'\text{.}\)</span></p>
+<p id="gAI">When you are finished with all 8 graphs, write several sentences that describe your overall process for sketching the graph of the derivative function, given the graph the original function. What are the values of the derivative function that you tend to identify first? What do you do thereafter? How do key traits of the graph of the derivative function exemplify properties of the graph of the original function?</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/1_4_Act1a.svg" role="img" class="contained"></div></div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/1_4_Act1b.svg" role="img" class="contained"></div></div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/1_4_Act1c.svg" role="img" class="contained"></div></div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/1_4_Act1d.svg" role="img" class="contained"></div></div></div></article><p id="YeC">For a dynamic investigation that allows you to experiment with graphing <span class="process-math">\(f'\)</span> when given the graph of <span class="process-math">\(f\text{,}\)</span> see <a class="external" href="https://gvsu.edu/s/8y" target="_blank">this appled by Marc Renault</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-37" id="fn-37"><sup> 3 </sup></a>.</p>
+<p id="ElL">Now, recall the opening example of this section: we began with the function <span class="process-math">\(y = f(x) = 4x - x^2\)</span> and used the limit definition of the derivative to show that <span class="process-math">\(f'(a) = 4 - 2a\text{,}\)</span> or equivalently that <span class="process-math">\(f'(x) = 4 - 2x\text{.}\)</span> We subsequently graphed the functions <span class="process-math">\(f\)</span> and <span class="process-math">\(f'\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-1-4-ffprime.html" title="Figure 1.4.1">Figure 1.4.1</a>. Following <a href="" class="xref" data-knowl="./knowl/act-1-4-1.html" title="Activity 1.4.2">Activity 1.4.2</a>, we now understand that we could have constructed a fairly accurate graph of <span class="process-math">\(f'(x)\)</span> <em class="emphasis">without</em> knowing a formula for either <span class="process-math">\(f\)</span> or <span class="process-math">\(f'\text{.}\)</span> At the same time, it is useful to know a formula for the derivative function whenever it is possible to find one.</p>
+<p id="ksU">In the next activity, we further explore the more algebraic approach to finding <span class="process-math">\(f'(x)\text{:}\)</span> given a formula for <span class="process-math">\(y = f(x)\text{,}\)</span> the limit definition of the derivative will be used to develop a formula for <span class="process-math">\(f'(x)\text{.}\)</span></p>
+<article class="activity project-like" id="mEp"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.4.3</span><span class="period">.</span>
+</h4>
+<p id="hUw">For each of the listed functions, determine a formula for the derivative function. For the first two, determine the formula for the derivative by thinking about the nature of the given function and its slope at various points; do not use the limit definition. For the latter four, use the limit definition. Pay careful attention to the function names and independent variables. It is important to be comfortable with using letters other than <span class="process-math">\(f\)</span> and <span class="process-math">\(x\text{.}\)</span> For example, given a function <span class="process-math">\(p(z)\text{,}\)</span> we call its derivative <span class="process-math">\(p'(z)\text{.}\)</span></p>
+<ol class="lower-alpha cols3">
+<li id="fvp"><p id="WLx"><span class="process-math">\(\displaystyle f(x) = 1\)</span></p></li>
+<li id="LCy"><p id="CSG"><span class="process-math">\(\displaystyle g(t) = t\)</span></p></li>
+<li id="rJH"><p id="iZP"><span class="process-math">\(\displaystyle p(z) = z^2\)</span></p></li>
+<li id="XQQ"><p id="PgY"><span class="process-math">\(\displaystyle q(s) = s^3\)</span></p></li>
+<li id="DXZ"><p id="voh"><span class="process-math">\(\displaystyle F(t) = \frac{1}{t}\)</span></p></li>
+<li id="kfi"><p id="bvq"><span class="process-math">\(\displaystyle G(y) = \sqrt{y}\)</span></p></li>
+</ol></article></section><section class="subsection" id="rnz"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.4.2</span> <span class="title">Summary</span>
+</h3>
+<ul id="wHm" class="disc">
+<li id="gOu"><p id="qig">The limit definition of the derivative, <span class="process-math">\(f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}\)</span> produces a value for each <span class="process-math">\(x\)</span> at which the derivative is defined, and this leads to a new function <span class="process-math">\(y = f'(x)\text{.}\)</span> It is especially important to note that taking the derivative is a process that starts with a given function (<span class="process-math">\(f\)</span>) and produces a new, related function (<span class="process-math">\(f'\)</span>).</p></li>
+<li id="MVD"><p id="Wpp">There is essentially no difference between writing <span class="process-math">\(f'(a)\)</span> (as we did regularly in <a href="sec-1-3-derivative-pt.html" class="internal" title="Section 1.3: The derivative of a function at a point">Section 1.3</a>) and writing <span class="process-math">\(f'(x)\text{.}\)</span> In either case, the variable is just a placeholder that is used to define the rule for the derivative function.</p></li>
+<li id="tcM"><p id="Cwy">Given the graph of a function <span class="process-math">\(y = f(x)\text{,}\)</span> we can sketch an approximate graph of its derivative <span class="process-math">\(y = f'(x)\)</span> by observing that <em class="emphasis">heights</em> on the derivative's graph correspond to <em class="emphasis">slopes</em> on the original function's graph.</p></li>
+<li id="ZjV"><p id="iDH">In <a href="" class="xref" data-knowl="./knowl/act-1-4-1.html" title="Activity 1.4.2">Activity 1.4.2</a>, we encountered some functions that had sharp corners on their graphs, such as the shifted absolute value function. At such points, the derivative fails to exist, and we say that <span class="process-math">\(f\)</span> is not differentiable there. For now, it suffices to understand this as a consequence of the jump that must occur in the derivative function at a sharp corner on the graph of the original function.</p></li>
+</ul></section><section class="exercises" id="rjI"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.4.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="QDq"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">The derivative function graphically.</span>
+</h4>
+<div id="webwork-31" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="31" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec3/Q09.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-643">Consider the function <span class="process-math">\(f(x)\)</span> shown in the graph below.</p>
+<div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-31-image-1.png" class="contained"></div>
+<p id="p-644"><em class="emphasis">(Note that you can click on the graph to get a larger version of it, and that it may be useful to print that larger version to be able to work with it by hand.)</em></p>
+<p id="p-645">Carefully sketch the derivative function of the given function (you will want to estimate values on the derivative function at different <span class="process-math">\(x\)</span> values as you do this).  Use your derivative function graph to estimate the following values on the derivative function.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines">at <span class="process-math">\(x =\)</span>
+</td>
+<td class="l m b2 r2 l0 t2 lines">-3</td>
+<td class="l m b2 r2 l0 t2 lines">-1</td>
+<td class="l m b2 r2 l0 t2 lines">1</td>
+<td class="l m b2 r2 l0 t2 lines">3</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">the derivative is</td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-31')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="wKz"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Applying the limit definition of the derivative.</span>
+</h4>
+<div id="webwork-32" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="32" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec3/Q15.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-650">Find a formula for the derivative of the function <span class="process-math">\(g(x) = 4x^{2}-8\)</span> using difference quotients:</p>
+<p id="p-651"><span class="process-math">\(g'(x) = \lim\limits_{h\to0}\, [(\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> <span class="process-math">\() / h]\)</span></p>
+<p id="p-652"><span class="process-math">\(\qquad =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>.</p>
+<p id="p-653"><em class="emphasis">(In the first answer blank, fill in the numerator of the difference quotient you use to evaluate the derivative.  In the second, fill out the derivative you obtain after completing the limit calculation.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-32')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="cRI"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Sketching the derivative.</span>
+</h4>
+<div id="webwork-33" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="33" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec3/Q31.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-656">For the function <span class="process-math">\(f(x)\)</span> shown in the graph below, sketch a graph of the derivative.  You will then be picking which of the following is the correct derivative graph, but should be sure to first sketch the derivative yourself.</p>
+<div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-33-image-1.png" class="contained"></div>
+<p id="p-657">Which of the following graphs is the derivative of <span class="process-math">\(f(x)\text{?}\)</span> <ul style="list-style:circle;">
+<li id="li-474"><p id="p-659">1</p></li>
+<li id="li-475"><p id="p-660">2</p></li>
+<li id="li-476"><p id="p-661">3</p></li>
+<li id="li-477"><p id="p-662">4</p></li>
+<li id="li-478"><p id="p-663">5</p></li>
+<li id="li-479"><p id="p-664">6</p></li>
+<li id="li-480"><p id="p-665">7</p></li>
+<li id="li-481"><p id="p-666">8</p></li>
+</ul></p>
+<p id="p-667"><em class="emphasis">(Click on a graph to enlarge it.)</em></p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines">
+<em class="alert">1.</em><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-33-image-2.png" class="contained"></div>
+</td>
+<td class="l m b2 r2 l0 t2 lines">
+<em class="alert">2.</em><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-33-image-3.png" class="contained"></div>
+</td>
+<td class="l m b2 r2 l0 t2 lines">
+<em class="alert">3.</em><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-33-image-4.png" class="contained"></div>
+</td>
+<td class="l m b2 r2 l0 t2 lines">
+<em class="alert">4.</em><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-33-image-5.png" class="contained"></div>
+</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">
+<em class="alert">5.</em><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-33-image-6.png" class="contained"></div>
+</td>
+<td class="l m b2 r2 l0 t0 lines">
+<em class="alert">6.</em><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-33-image-7.png" class="contained"></div>
+</td>
+<td class="l m b2 r2 l0 t0 lines">
+<em class="alert">7.</em><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-33-image-8.png" class="contained"></div>
+</td>
+<td class="l m b2 r2 l0 t0 lines">
+<em class="alert">8.</em><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-33-image-9.png" class="contained"></div>
+</td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-33')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="IYR"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Comparing function and derivative values.</span>
+</h4>
+<div id="webwork-34" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="34" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec3/Q33.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-669">The graph of a function <span class="process-math">\(f\)</span> is shown below.</p>
+<div class="image-box" style="width: 66.6666666666667%; margin-left: 16.6666666666667%; margin-right: 16.6666666666667%;"><img src="generated/webwork/images/webwork-34-image-1.png" class="contained"></div>
+<p id="p-670">At which of the labeled  <span class="process-math">\(x\)</span>-values is</p>
+<p id="p-671"><span class="process-math">\(f(x)\)</span> least?  <span class="process-math">\(x =\)</span> <ul style="list-style:circle;">
+<li id="li-483"><p id="p-673">x1</p></li>
+<li id="li-484"><p id="p-674">x2</p></li>
+<li id="li-485"><p id="p-675">x3</p></li>
+<li id="li-486"><p id="p-676">x4</p></li>
+<li id="li-487"><p id="p-677">x5</p></li>
+<li id="li-488"><p id="p-678">x6</p></li>
+</ul></p>
+<p id="p-679"><span class="process-math">\(f(x)\)</span> greatest?  <span class="process-math">\(x =\)</span> <ul style="list-style:circle;">
+<li id="li-490"><p id="p-681">x1</p></li>
+<li id="li-491"><p id="p-682">x2</p></li>
+<li id="li-492"><p id="p-683">x3</p></li>
+<li id="li-493"><p id="p-684">x4</p></li>
+<li id="li-494"><p id="p-685">x5</p></li>
+<li id="li-495"><p id="p-686">x6</p></li>
+</ul></p>
+<p id="p-687"><span class="process-math">\(f'(x)\)</span> least?  <span class="process-math">\(x =\)</span> <ul style="list-style:circle;">
+<li id="li-497"><p id="p-689">x1</p></li>
+<li id="li-498"><p id="p-690">x2</p></li>
+<li id="li-499"><p id="p-691">x3</p></li>
+<li id="li-500"><p id="p-692">x4</p></li>
+<li id="li-501"><p id="p-693">x5</p></li>
+<li id="li-502"><p id="p-694">x6</p></li>
+</ul></p>
+<p id="p-695"><span class="process-math">\(f'(x)\)</span> greatest?  <span class="process-math">\(x =\)</span> <ul style="list-style:circle;">
+<li id="li-504"><p id="p-697">x1</p></li>
+<li id="li-505"><p id="p-698">x2</p></li>
+<li id="li-506"><p id="p-699">x3</p></li>
+<li id="li-507"><p id="p-700">x4</p></li>
+<li id="li-508"><p id="p-701">x5</p></li>
+<li id="li-509"><p id="p-702">x6</p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-34')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="pga"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Limit definition of the derivative for a rational function.</span>
+</h4>
+<div id="webwork-35" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="35" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ASU-topics/setDerivativeFunction/prob7.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-707">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = \frac{1}{x - 4}
+\end{equation*}
+</div>
+<p id="p-708">Find</p>
+<p id="p-709">(i) <span class="process-math">\(f'(3)\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span></p>
+<p id="p-710">(ii) <span class="process-math">\(f'(5)\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span></p>
+<p id="p-711">(iii) <span class="process-math">\(f'(6)\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span></p>
+<p id="p-712">(iv) <span class="process-math">\(f'(8)\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-35')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Vnj"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="VBE">Let <span class="process-math">\(f\)</span> be a function with the following properties: <span class="process-math">\(f\)</span> is differentiable at every value of <span class="process-math">\(x\)</span> (that is, <span class="process-math">\(f\)</span> has a derivative at every point), <span class="process-math">\(f(-2) = 1\text{,}\)</span> and <span class="process-math">\(f'(-2) = -2\text{,}\)</span> <span class="process-math">\(f'(-1) = -1\text{,}\)</span> <span class="process-math">\(f'(0) = 0\text{,}\)</span> <span class="process-math">\(f'(1) = 1\text{,}\)</span> and <span class="process-math">\(f'(2) = 2\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="UhQ"><p id="IDs">On the axes provided at left in <a href="" class="xref" data-knowl="./knowl/F-1-4-Ez1.html" title="Figure 1.4.3">Figure 1.4.3</a>, sketch a possible graph of <span class="process-math">\(y = f(x)\text{.}\)</span> Explain why your graph meets the stated criteria.</p></li>
+<li id="AoZ"><p id="oKB">Conjecture a formula for the function <span class="process-math">\(y = f(x)\text{.}\)</span> Use the limit definition of the derivative to determine the corresponding formula for <span class="process-math">\(y = f'(x)\text{.}\)</span> Discuss both graphical and algebraic evidence for whether or not your conjecture is correct.</p></li>
+</ol>
+<figure class="figure figure-like" id="BIN"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_2_Ez3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.3<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(y = f(x)\)</span> in (a) and <span class="process-math">\(y = f'(x)\)</span> in (b).</figcaption></figure></article><article class="exercise exercise-like" id="Bus"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="hPW">Consider the function <span class="process-math">\(g(x) = x^2 - x + 3\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="Rnk"><p id="FIM">Use the limit definition of the derivative to determine a formula for <span class="process-math">\(g'(x)\text{.}\)</span></p></li>
+<li id="xut"><p id="lPV">Use a graphing utility to plot both <span class="process-math">\(y = g(x)\)</span> and your result for <span class="process-math">\(y = g'(x)\text{;}\)</span> does your formula for <span class="process-math">\(g'(x)\)</span> generate the graph you expected?</p></li>
+<li id="dBC"><p id="RXe">Use the limit definition of the derivative to find a formula for <span class="process-math">\(p'(x)\)</span> where <span class="process-math">\(p(x) = 5x^2 - 4x + 12\text{.}\)</span></p></li>
+<li id="JIL"><p id="yen">Compare and contrast the formulas for <span class="process-math">\(g'(x)\)</span> and <span class="process-math">\(p'(x)\)</span> you have found. How do the constants 5, 4, 12, and 3 affect the results?</p></li>
+</ol></article><article class="exercise exercise-like" id="hBB"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="NXf">Let <span class="process-math">\(g\)</span> be a continuous function (that is, one with no jumps or holes in the graph) and suppose that a graph of <span class="process-math">\(y= g'(x)\)</span> is given by the graph on the right in <a href="" class="xref" data-knowl="./knowl/F-1-4-Ez2.html" title="Figure 1.4.4">Figure 1.4.4</a>.</p>
+<figure class="figure figure-like" id="alx"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_4_Ez2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.4<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(y = g(x)\)</span> and, at right, the graph of <span class="process-math">\(y = g'(x)\text{.}\)</span></figcaption></figure><ol id="ueo" class="lower-alpha">
+<li id="mVo"><p id="vjH">Observe that for every value of <span class="process-math">\(x\)</span> that satisfies <span class="process-math">\(0 \lt x \lt 2\text{,}\)</span> the value of <span class="process-math">\(g'(x)\)</span> is constant. What does this tell you about the behavior of the graph of <span class="process-math">\(y = g(x)\)</span> on this interval?</p></li>
+<li id="Tcx"><p id="bqQ">On what intervals other than <span class="process-math">\(0 \lt x \lt 2\)</span> do you expect <span class="process-math">\(y = g(x)\)</span> to be a linear function? Why?</p></li>
+<li id="zjG"><p id="HxZ">At which values of <span class="process-math">\(x\)</span> is <span class="process-math">\(g'(x)\)</span> not defined? What behavior does this lead you to expect to see in the graph of <span class="process-math">\(y=g(x)\text{?}\)</span></p></li>
+<li id="fqP"><p id="nFi">Suppose that <span class="process-math">\(g(0) = 1\text{.}\)</span> On the axes provided at left in <a href="" class="xref" data-knowl="./knowl/F-1-4-Ez2.html" title="Figure 1.4.4">Figure 1.4.4</a>, sketch an accurate graph of <span class="process-math">\(y = g(x)\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="NIK"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="GsG">For each graph that provides an original function <span class="process-math">\(y = f(x)\)</span> in <a href="" class="xref" data-knowl="./knowl/F-1-4-Ez3a.html" title="Figure 1.4.5">Figure 1.4.5</a>, your task is to sketch an approximate graph of its derivative function, <span class="process-math">\(y = f'(x)\text{,}\)</span> on the axes immediately below. View the scale of the grid for the graph of <span class="process-math">\(f\)</span> as being <span class="process-math">\(1 \times 1\text{,}\)</span> and assume the horizontal scale of the grid for the graph of <span class="process-math">\(f'\)</span> is identical to that for <span class="process-math">\(f\text{.}\)</span> If you need to adjust the vertical scale on the axes for the graph of <span class="process-math">\(f'\text{,}\)</span> you should label that accordingly.</p>
+<figure class="figure figure-like" id="mzP"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel top" style="width:86%;"><img src="external/images/1_4_Ez3a.svg" role="img" class="contained"></div></div></div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel top" style="width:86%;"><img src="external/images/1_4_Ez3b.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.4.5<span class="period">.</span></span><span class="space"> </span>Graphs of <span class="process-math">\(y = f(x)\)</span> and grids for plotting the corresponding graph of <span class="process-math">\(y = f'(x)\text{.}\)</span></figcaption></figure></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-35"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/5r</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-36"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/5p</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-37"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/8y</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Series of Real Numbers</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-8-2-geometric.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-8.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-8-4-alternating.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-8-2-geometric.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-8.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-8-4-alternating.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="active">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="nbf"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">8.3</span> <span class="title">Series of Real Numbers</span>
+</h2>
+<article class="objectives goal-like" id="hlT"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="ern"><p id="kQt">What is an infinite series?</p></li>
+<li id="Kyw"><p id="QXC">What is the <span class="process-math">\(n\)</span>th partial sum of an infinite series?</p></li>
+<li id="qFF"><p id="xeL">How do we add up an infinite number of numbers? In other words, what does it mean for an infinite series of real numbers to converge?</p></li>
+<li id="WMO"><p id="dlU">What does it mean for an infinite series of real numbers to diverge?</p></li>
+</ul></article><section class="introduction" id="Ntc"><p id="jLa">In <a href="sec-8-2-geometric.html" class="internal" title="Section 8.2: Geometric Series">Section 8.2</a>, we encountered infinite geometric series. For example, by writing</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-8-2-geometric.html ./knowl/PA-8-3.html">
+\begin{equation*}
+N = 0.1212121212 \cdots = \frac{12}{100} + \frac{12}{100} \cdot \frac{1}{100} + \frac{12}{100} \cdot \frac{1}{100^2} + \cdots
+\end{equation*}
+</div>
+<p class="continuation">as a geometric series, we found a way to write  <span class="process-math">\(N\)</span> as a single fraction: <span class="process-math">\(N = \frac{4}{33}\text{.}\)</span> In this section, we explore other types of infinite sums. In <a href="" class="xref" data-knowl="./knowl/PA-8-3.html" title="Preview Activity 8.3.1">Preview Activity 8.3.1</a> we see how one such sum is related to the famous number <span class="process-math">\(e\text{.}\)</span></p>
+<article class="exploration project-like" id="DxA"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">8.3.1</span><span class="period">.</span>
+</h3>
+<p id="hPw">Have you ever wondered how your calculator can produce a numeric approximation for complicated numbers like <span class="process-math">\(e\text{,}\)</span> <span class="process-math">\(\pi\)</span> or <span class="process-math">\(\ln(2)\text{?}\)</span> After all, the only operations a calculator can really perform are addition, subtraction, multiplication, and division, the operations that make up polynomials. This activity provides the first steps in understanding how this process works. Throughout the activity, let <span class="process-math">\(f(x) = e^x\text{.}\)</span></p>
+<ol id="NWF" class="lower-alpha">
+<li id="bqq"><p id="Mhs">Find the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\(x=0\)</span> and use this linearization to approximate <span class="process-math">\(e\text{.}\)</span> That is, find a formula <span class="process-math">\(L(x)\)</span> for the tangent line, and compute <span class="process-math">\(L(1)\text{,}\)</span> since <span class="process-math">\(L(1) \approx f(1) = e\text{.}\)</span></p></li>
+<li id="Hxz">
+<p id="YvK">The linearization of <span class="process-math">\(e^x\)</span> does not provide a good approximation to <span class="process-math">\(e\)</span> since 1 is not very close to 0. To obtain a better approximation, we alter our approach a bit. Instead of using a straight line to approximate <span class="process-math">\(e\text{,}\)</span> we put an appropriate bend in our estimating function to make it better fit the graph of <span class="process-math">\(e^x\)</span> for <span class="process-math">\(x\)</span> close to 0. With the linearization, we had both <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(f'(x)\)</span> share the same value as the linearization at <span class="process-math">\(x=0\text{.}\)</span> We will now use a quadratic approximation <span class="process-math">\(P_2(x)\)</span> to <span class="process-math">\(f(x) = e^x\)</span> centered at <span class="process-math">\(x=0\)</span> which has the property that <span class="process-math">\(P_2(0) = f(0)\text{,}\)</span> <span class="process-math">\(P'_2(0) = f'(0)\text{,}\)</span> and <span class="process-math">\(P''_2(0) = f''(0)\text{.}\)</span></p>
+<ol id="ECT" class="lower-roman">
+<li id="vTb"><p id="jEJ">Let <span class="process-math">\(P_2(x) = 1+x+\frac{x^2}{2}\text{.}\)</span> Show that <span class="process-math">\(P_2(0) = f(0)\text{,}\)</span> <span class="process-math">\(P'_2(0) = f'(0)\text{,}\)</span> and <span class="process-math">\(P''_2(0) = f''(0)\text{.}\)</span> Then, use <span class="process-math">\(P_2(x)\)</span> to approximate <span class="process-math">\(e\)</span> by observing that <span class="process-math">\(P_2(1) \approx f(1)\text{.}\)</span></p></li>
+<li id="nEI"><p id="kKc">We can continue approximating <span class="process-math">\(e\)</span> with polynomials of larger degree whose higher derivatives agree with those of <span class="process-math">\(f\)</span> at 0. This turns out to make the polynomials fit the graph of <span class="process-math">\(f\)</span> better for more values of <span class="process-math">\(x\)</span> around 0. For example, let <span class="process-math">\(P_3(x) = 1+x+\frac{x^2}{2}+\frac{x^3}{6}\text{.}\)</span> Show that <span class="process-math">\(P_3(0) = f(0)\text{,}\)</span> <span class="process-math">\(P'_3(0) = f'(0)\text{,}\)</span> <span class="process-math">\(P''_3(0) = f''(0)\text{,}\)</span> and <span class="process-math">\(P'''_3(0) = f'''(0)\text{.}\)</span> Use <span class="process-math">\(P_3(x)\)</span> to approximate <span class="process-math">\(e\)</span> in a way similar to how you did so with <span class="process-math">\(P_2(x)\)</span> above.</p></li>
+</ol>
+</li>
+</ol></article></section><section class="subsection" id="Tio"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.3.1</span> <span class="title">Infinite Series</span>
+</h3>
+<p id="PSj"><a href="" class="xref" data-knowl="./knowl/PA-8-3.html" title="Preview Activity 8.3.1">Preview Activity 8.3.1</a> shows that an approximation to <span class="process-math">\(e\)</span> using a linear polynomial is 2, an approximation to <span class="process-math">\(e\)</span> using a quadratic polynomial is <span class="process-math">\(2.5\text{,}\)</span> and an approximation using a cubic polynomial is 2.6667. If we continue this process we can obtain approximations from quartic (degree 4) and quintic (degree 5) polynomials, giving us the following approximations to <span class="process-math">\(e\text{:}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="iki">
+<tr>
+<td class="l m b1 r0 l0 t1 lines">linear</td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(1 + 1\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">quadratic</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1 +1 + \frac{1}{2}\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.5\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">cubic</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1 + 1 + \frac{1}{2} + \frac{1}{6}\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.\overline{6}\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">quartic</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1 + 1 +  \frac{1}{2} + \frac{1}{6} + \frac{1}{24}\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.708\overline{3}\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">quintic</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1 + 1 + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120}\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.71\overline{6}\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="vZs">We see an interesting pattern here. The number <span class="process-math">\(e\)</span> is being approximated by the sum</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="tOG">
+\begin{equation}
+1+1+\frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} + \cdots + \frac{1}{n!}\tag{8.3.1}
+\end{equation}
+</div>
+<p class="continuation">for increasing values of <span class="process-math">\(n\text{.}\)</span></p>
+<p id="cgB">We can use summation notation as a shorthand<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-124" id="fn-124"><sup> 1 </sup></a> for writing the sum in <a href="" class="xref" data-knowl="./knowl/eq-8-3-e-n.html" title="Equation 8.3.1">Equation (8.3.1)</a> to get</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-8-3-e.html ./knowl/eq-8-3-e-n.html" id="ZVP">
+\begin{equation}
+e \approx 1+1+\frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} + \cdots + \frac{1}{n!} = \sum_{k=0}^n \frac{1}{k!}\text{.}\tag{8.3.2}
+\end{equation}
+</div>
+<p id="InK">We can calculate this sum using as large an <span class="process-math">\(n\)</span> as we want, and the larger <span class="process-math">\(n\)</span> is the more accurate the approximation <a href="" class="xref" data-knowl="./knowl/eq-8-3-e.html" title="Equation 8.3.2">(8.3.2)</a> is. This suggests that we can write the number <span class="process-math">\(e\)</span> as the infinite sum</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-8-3-e.html" id="GcY">
+\begin{equation}
+e = \sum_{k=0}^{\infty} \frac{1}{k!}\text{.}\tag{8.3.3}
+\end{equation}
+</div>
+<p id="ouT">This sum is an example of an <em class="emphasis">infinite series</em>.  Note that the series <a href="" class="xref" data-knowl="./knowl/eq-8-3-e-infinite.html" title="Equation 8.3.3">(8.3.3)</a> is the sum of the terms of the infinite sequence <span class="process-math">\(\left\{\frac{1}{n!}\right\}\text{.}\)</span> In general, we use the following notation and terminology.</p>
+<article class="definition definition-like" id="cCa"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.3.1</span><span class="period">.</span>
+</h4>
+<p id="SMP">An <dfn class="terminology">infinite series</dfn> of real numbers is the sum of the entries in an infinite sequence of real numbers. In other words, an infinite series is sum of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_1+a_2+ \cdots + a_n + \cdots = \sum_{k=1}^{\infty} a_k\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> are real numbers.</p></article><p id="UCc">We use summation notation to identify a series. If the series adds the entries of a sequence <span class="process-math">\(\{a_n\}_{n \geq 1}\text{,}\)</span> we will write the series as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k \geq 1} a_k
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} a_k\text{.}
+\end{equation*}
+</div>
+<p id="AJl">Each of these notations is simply shorthand for the infinite sum <span class="process-math">\(a_1 + a_2 + \cdots + a_n + \cdots\text{.}\)</span></p>
+<p id="gQu">Is it even possible to sum an infinite list of numbers? That doing so is possible in some situations shouldn't come as a surprise. We have already examined the special case of geometric series in the previous section. Moreover, the definite integral is defined as the limit of a sequence of finite sums, which provides insight into how we'll think of infinite sums generally. As we investigate other infinite sums, there are two key questions we seek to answer: (1) is the sum finite? and (2) if yes, what is its value?</p>
+<article class="activity project-like" id="GfU"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.2</span><span class="period">.</span>
+</h4>
+<p id="hDk">Consider the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} \frac{1}{k^2}\text{.}
+\end{equation*}
+</div>
+<p id="NKt">While it is physically impossible to add an infinite collection of numbers, we can, of course, add any finite collection of them. In what follows, we investigate how understanding how to find the <span class="process-math">\(n\)</span>th partial sum (that is, the sum of the first <span class="process-math">\(n\)</span> terms) enables us to make sense of the infinite sum.</p>
+<ol class="lower-alpha">
+<li id="UEY">
+<p id="OPM">Sum the first two numbers in this series. That is, find a numeric value for</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^2 \frac{1}{k^2}
+\end{equation*}
+</div>
+</li>
+<li id="AMh"><p id="uWV">Next, add the first three numbers in the series.</p></li>
+<li id="gTq">
+<p id="bee">Continue adding terms in this series to complete the list below. Carry each sum to at least 8 decimal places.</p>
+<ul id="cTr" class="no-marker cols2">
+<li id="sxO"><p id="p-derived-sxO"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{1} \frac{1}{k^2}=1\)</span></p></li>
+<li id="YEX"><p id="p-derived-YEX"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{2} \frac{1}{k^2}=\)</span></p></li>
+<li id="EMg"><p id="p-derived-EMg"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{3} \frac{1}{k^2}=\)</span></p></li>
+<li id="kTp"><p id="p-derived-kTp"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{4} \frac{1}{k^2}=\)</span></p></li>
+<li id="Ray"><p id="p-derived-Ray"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{5} \frac{1}{k^2}=\phantom{1.46361111}\)</span></p></li>
+<li id="xhH"><p id="p-derived-xhH"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{6} \frac{1}{k^2}=\)</span></p></li>
+<li id="doQ"><p id="p-derived-doQ"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{7} \frac{1}{k^2}=\)</span></p></li>
+<li id="JvZ"><p id="p-derived-JvZ"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{8} \frac{1}{k^2}=\)</span></p></li>
+<li id="pDi"><p id="p-derived-pDi"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{9} \frac{1}{k^2}=\)</span></p></li>
+<li id="VKr"><p id="p-derived-VKr"><span class="process-math">\(\displaystyle \displaystyle\sum_{k=1}^{10} \frac{1}{k^2} = \phantom{1.549767731}\)</span></p></li>
+</ul>
+</li>
+<li id="Naz"><p id="Hln">The sums in the table in <a href="" class="xref" data-knowl="./knowl/part-act-8-3-1-c.html" title="Item c">part c</a> form a sequence whose <span class="process-math">\(n\)</span>th term is <span class="process-math">\(S_n = \sum_{k=1}^{n} \frac{1}{k^2}\text{.}\)</span> Based on your calculations in the table, do you think the sequence <span class="process-math">\(\{S_n\}\)</span> converges or diverges? Explain. How do you think this sequence <span class="process-math">\(\{S_n\}\)</span> is related to the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k^2}\text{?}\)</span></p></li>
+</ol></article><p id="MXD">The example in <a href="" class="xref" data-knowl="./knowl/act-8-3-1.html" title="Activity 8.3.2">Activity 8.3.2</a> illustrates how we define the sum of an infinite series. We construct a new sequence of numbers (called the <em class="emphasis">sequence of partial sums</em>)  where the <span class="process-math">\(n\)</span>th term in the sequence consists of the sum of the first <span class="process-math">\(n\)</span> terms of the series. If this sequence converges, the corresponding infinite series is said to converge, and we say that we can find the sum of the series. More formally, we have the following definition.</p>
+<article class="definition definition-like" id="IJj"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.3.2</span><span class="period">.</span>
+</h4>
+<p id="yTY">The <dfn class="terminology"><span class="process-math">\(n\)</span>th partial sum</dfn> of the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> is the finite sum <span class="process-math">\(S_n = \sum_{k=1}^{n} a_k\text{.}\)</span></p></article><p id="teM">In other words, the <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> of a series is the sum of the first <span class="process-math">\(n\)</span> terms in the series,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_n = a_1 + a_2 + \cdots + a_n\text{.}
+\end{equation*}
+</div>
+<p id="ZlV">We investigate the behavior of the series by examining the sequence</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-3-1.html">
+\begin{equation*}
+S_1, S_2, \ldots, S_n, \ldots
+\end{equation*}
+</div>
+<p class="continuation">of its partial sums. If the sequence of partial sums converges to some finite number, we say that the corresponding series <em class="emphasis">converges</em>.  Otherwise, we say the series <em class="emphasis">diverges</em>.  From our work in <a href="" class="xref" data-knowl="./knowl/act-8-3-1.html" title="Activity 8.3.2">Activity 8.3.2</a>, the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-3-1.html">
+\begin{equation*}
+\sum_{k=1}^{\infty} \frac{1}{k^2}
+\end{equation*}
+</div>
+<p class="continuation">appears to converge to some number near 1.54977. We formalize the concept of convergence and divergence of an infinite series in the following definition.</p>
+<article class="definition definition-like" id="oQs"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.3.3</span><span class="period">.</span>
+</h4>
+<p id="fbh">The infinite series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} a_k
+\end{equation*}
+</div>
+<p id="Liq"><dfn class="terminology">converges</dfn> (or is <dfn class="terminology">convergent</dfn>) if the sequence <span class="process-math">\(\{S_n\}\)</span> of partial sums converges, where</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_n = \sum_{k=1}^n a_k\text{.}
+\end{equation*}
+</div>
+<p id="rpz">If <span class="process-math">\(\lim_{n \to \infty} S_n = S\text{,}\)</span> then we call <span class="process-math">\(S\)</span> the sum of the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\text{.}\)</span> That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} a_k = \lim_{n \to \infty} S_n = S\text{.}
+\end{equation*}
+</div>
+<p id="XwI">If the sequence of partial sums does not converge, then the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} a_k
+\end{equation*}
+</div>
+<p id="DDR"><dfn class="terminology">diverges</dfn> (or is <dfn class="terminology">divergent</dfn>).</p></article><p id="Fte">The early terms in a series do not influence whether or not the series converges or diverges. Rather, the convergence or divergence of a series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} a_k
+\end{equation*}
+</div>
+<p class="continuation">is determined by what happens to the terms <span class="process-math">\(a_k\)</span> for very large values of <span class="process-math">\(k\text{.}\)</span> To see why, suppose that <span class="process-math">\(m\)</span> is some constant larger than 1. Then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} a_k = (a_1+a_2+ \cdots + a_m) + \sum_{k=m+1}^{\infty} a_k\text{.}
+\end{equation*}
+</div>
+<p id="lAn">Since <span class="process-math">\(a_1+a_2+ \cdots + a_m\)</span> is a finite number, the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> will converge if and only if the series <span class="process-math">\(\sum_{k=m+1}^{\infty} a_k\)</span> converges. Because the starting index of the series doesn't affect whether the series converges or diverges, we will often just write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum a_k
+\end{equation*}
+</div>
+<p class="continuation">when we are interested in questions of convergence/divergence as opposed to the exact sum of a series.</p>
+<p id="RHw">In <a href="sec-8-2-geometric.html" class="internal" title="Section 8.2: Geometric Series">Section 8.2</a> we encountered the special family of infinite geometric series. Recall that a geometric series has the form <span class="process-math">\(\sum_{k=0}^{\infty} ar^k\text{,}\)</span> where <span class="process-math">\(a\)</span> and <span class="process-math">\(r\)</span> are real numbers (and <span class="process-math">\(r \ne 1\)</span>). We found that the <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> of a geometric series is given by the convenient formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-8-2-geometric.html">
+\begin{equation*}
+S_n = \frac{1-r^{n}}{1-r}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and thus a geometric series converges if <span class="process-math">\(|r| \lt  1\text{.}\)</span> Geometric series diverge for all other values of <span class="process-math">\(r\text{.}\)</span></p>
+<p id="xOF">It is generally a difficult question to determine if a given nongeometric series converges or diverges. There are several tests we can use that we will consider in the following sections.</p></section><section class="subsection" id="zpx"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.3.2</span> <span class="title">The Divergence Test</span>
+</h3>
+<p id="dVO">The first question we ask about any infinite series is usually “Does the series converge or diverge?” There is a straightforward way to check that certain series diverge, and we explore this test in the next activity.</p>
+<article class="activity project-like" id="yfW"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.3</span><span class="period">.</span>
+</h4>
+<p id="hhL">If the <em class="emphasis">series</em> <span class="process-math">\(\sum a_k\)</span> converges, then an important result necessarily follows regarding the <em class="emphasis">sequence</em> <span class="process-math">\(\{a_n\}\text{.}\)</span> This activity explores this result.</p>
+<p id="NoU">Assume that the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> converges and has sum equal to <span class="process-math">\(L\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="Dlo"><p id="VYM">What is the <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> of the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\text{?}\)</span></p></li>
+<li id="jsx"><p id="CfV">What is the <span class="process-math">\((n-1)\)</span>st partial sum <span class="process-math">\(S_{n-1}\)</span> of the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\text{?}\)</span></p></li>
+<li id="PzG"><p id="ine">What is the difference between the <span class="process-math">\(n\)</span>th partial sum and the <span class="process-math">\((n-1)\)</span>st partial sum of the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\text{?}\)</span></p></li>
+<li id="vGP"><p id="Oun">Since we are assuming that <span class="process-math">\(\sum_{k=1}^{\infty} a_k = L\text{,}\)</span> what does that tell us about <span class="process-math">\(\lim_{n \to \infty} S_n\text{?}\)</span> Why? What does that tell us about <span class="process-math">\(\lim_{n \to \infty} S_{n-1}\text{?}\)</span> Why?</p></li>
+<li id="bNY"><p id="uBw">Combine the results of the previous two parts of this activity to determine <span class="process-math">\(\lim_{n \to \infty} a_n = \lim_{n \to \infty} (S_n - S_{n-1})\text{.}\)</span></p></li>
+</ol></article><p id="KcX">The result of <a href="" class="xref" data-knowl="./knowl/act-8-3-2.html" title="Activity 8.3.3">Activity 8.3.3</a> is the following important conditional statement:</p>
+<blockquote class="blockquote" id="tAl"><p id="mFG">If the series <span class="process-math">\(\sum_{k = 1}^{\infty} a_k\)</span> converges, then the sequence <span class="process-math">\(\{a_k\}\)</span> of <span class="process-math">\(k\)</span>th terms converges to 0.</p></blockquote>
+<p id="qkg">It is logically equivalent to say that if the sequence <span class="process-math">\(\{a_k\}\)</span> does not converge to 0, then the series <span class="process-math">\(\sum_{k = 1}^{\infty} a_k\)</span> cannot converge. This statement is called the Divergence Test. </p>
+<article class="assemblage assemblage-like" id="DZq"><h4 class="heading"><span class="title">The Divergence Test.</span></h4>
+<p id="Wrp">If <span class="process-math">\(\lim_{k \to \infty} a_k \neq 0\text{,}\)</span> then the series <span class="process-math">\(\sum a_k\)</span> diverges.</p></article><article class="activity project-like" id="Lei"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.4</span><span class="period">.</span>
+</h4>
+<p id="eWZ">Determine if the Divergence Test applies to the following series. If the test does not apply, explain why. If the test does apply, what does it tell us about the series?</p>
+<ol class="lower-alpha cols3">
+<li id="vlq"><p id="QTu"><span class="process-math">\(\displaystyle \sum \frac{k}{k+1}\)</span></p></li>
+<li id="bsz"><p id="xaD"><span class="process-math">\(\displaystyle \sum (-1)^k\)</span></p></li>
+<li id="HzI"><p id="dhM"><span class="process-math">\(\displaystyle \sum \frac{1}{k}\)</span></p></li>
+</ol></article><p id="Cyy"><em class="emphasis">Note well:</em> be very careful with the Divergence Test. This test only tells us what happens to a series if the terms of the corresponding sequence do not converge to 0. If the sequence of the terms of the series does converge to 0, the Divergence Test does not apply: indeed, as we will soon see, a series whose terms go to zero may either converge or diverge.</p></section><section class="subsection" id="fwG"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.3.3</span> <span class="title">The Integral Test</span>
+</h3>
+<p id="iFH">The Divergence Test settles the questions of divergence or convergence of series <span class="process-math">\(\sum a_k\)</span> in which <span class="process-math">\(\lim_{k \to \infty} a_k \neq 0\text{.}\)</span> Determining the convergence or divergence of series <span class="process-math">\(\sum a_k\)</span> in which <span class="process-math">\(\lim_{k \to \infty} a_k = 0\)</span> turns out to be more complicated. Often, we have to investigate the sequence of partial sums or apply some other technique.</p>
+<p id="OMQ">Next, we consider the <dfn class="terminology">harmonic series</dfn> <a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-125" id="fn-125"><sup> 2 </sup></a></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} \frac{1}{k}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The first 9 partial sums of this series are shown following.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="AnM">
+\begin{align*}
+\sum_{k=1}^{1} \frac{1}{k} \amp= 1 \amp \sum_{k=1}^{4} \frac{1}{k} \amp= 2.083333333 \amp \sum_{k=1}^{7} \frac{1}{k} \amp= 2.592857143\\
+\sum_{k=1}^{2} \frac{1}{k} \amp= 1.5 \amp \sum_{k=1}^{5} \frac{1}{k} \amp= 2.283333333 \amp \sum_{k=1}^{8} \frac{1}{k} \amp= 2.717857143\\
+\sum_{k=1}^{3} \frac{1}{k} \amp= 1.833333333 \amp \sum_{k=1}^{6} \frac{1}{k} \amp= 2.450000000 \amp \sum_{k=1}^{9} \frac{1}{k} \amp= 2.828968254
+\end{align*}
+</div>
+<p id="uTZ">This information alone doesn't seem to be enough to tell us if the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k}\)</span> converges or diverges. The partial sums could eventually level off to some fixed number or continue to grow without bound. Even if we look at larger partial sums, such as <span class="process-math">\(\sum_{n=1}^{1000} \frac{1}{k} \approx 7.485470861\text{,}\)</span> the result isn't particularly convincing one way or another. The Integral Test is one way to determine whether or not the harmonic series converges, and we explore this test further in the next activity.</p>
+<article class="activity project-like" id="NDp"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.5</span><span class="period">.</span>
+</h4>
+<p id="QxV">Consider the harmonic series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k}\text{.}\)</span> Recall that the harmonic series will converge provided that its sequence of partial sums converges. The <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> of the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k}\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="paF">
+\begin{align*}
+S_n =\mathstrut \amp  \sum_{k=1}^{n} \frac{1}{k}\\
+=\mathstrut \amp  1 + \frac{1}{2} + \frac{1}{3} + \cdots + \frac{1}{n}\\
+=\mathstrut \amp  1(1) + (1)\left(\frac{1}{2}\right) + (1)\left(\frac{1}{3}\right) + \cdots + (1)\left(\frac{1}{n}\right)\text{.}
+\end{align*}
+</div>
+<p id="wFe">Through this last expression for <span class="process-math">\(S_n\text{,}\)</span> we can visualize this partial sum as a sum of areas of rectangles with heights <span class="process-math">\(\frac{1}{m}\)</span> and bases of length 1, as shown in <a href="" class="xref" data-knowl="./knowl/F-8-3-4-Integral-Test.html" title="Figure 8.3.4">Figure 8.3.4</a>, which uses the 9th partial sum.</p>
+<figure class="figure figure-like" id="ITw"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/8_3_Integral_test1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.3.4<span class="period">.</span></span><span class="space"> </span>A picture of the 9th partial sum of the harmonic series as a sum of areas of rectangles.</figcaption></figure><p id="cMn">The graph of the continuous function <span class="process-math">\(f\)</span> defined by <span class="process-math">\(f(x) = \frac{1}{x}\)</span> is overlaid on this plot.</p>
+<ol class="lower-alpha">
+<li id="IjC"><p id="qfY">Explain how this picture represents a particular Riemann sum.</p></li>
+<li id="oqL"><p id="Wnh">What is the definite integral that corresponds to the Riemann sum you considered in (a)?</p></li>
+<li id="UxU"><p id="Cuq">Which is larger, the definite integral in (b), or the corresponding partial sum <span class="process-math">\(S_9\)</span> of the series? Why?</p></li>
+<li id="AFd"><p id="iBz">If instead of considering the 9th partial sum, we consider the <span class="process-math">\(n\)</span>th partial sum, and we let <span class="process-math">\(n\)</span> go to infinity, we can then compare the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k}\)</span> to the improper integral <span class="process-math">\(\int_{1}^{\infty} \frac{1}{x} \ dx\text{.}\)</span> Which of these quantities is larger? Why?</p></li>
+<li id="gMm"><p id="OII">Does the improper integral <span class="process-math">\(\int_{1}^{\infty} \frac{1}{x} \ dx\)</span> converge or diverge? What does that result, together with your work in (d), tell us about the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k}\text{?}\)</span></p></li>
+</ol></article><p id="bbi">The ideas from <a href="" class="xref" data-knowl="./knowl/act-8-3-4.html" title="Activity 8.3.5">Activity 8.3.5</a> hold more generally. Suppose that <span class="process-math">\(f\)</span> is a continuous decreasing function and that <span class="process-math">\(a_k = f(k)\)</span> for each value of <span class="process-math">\(k\text{.}\)</span> Consider the corresponding series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\text{.}\)</span> The partial sum</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-3-4.html ./knowl/F-8-3-Integral-Test.html">
+\begin{equation*}
+S_n = \sum_{k=1}^{n} a_k
+\end{equation*}
+</div>
+<p class="continuation">can always be viewed as a left hand Riemann sum of <span class="process-math">\(f(x)\text{,}\)</span> using rectangles with bases of width 1 and heights given by the values <span class="process-math">\(a_k\text{.}\)</span> A representative picture is shown at left in <a href="" class="xref" data-knowl="./knowl/F-8-3-Integral-Test.html" title="Figure 8.3.5">Figure 8.3.5</a>. Since <span class="process-math">\(f\)</span> is a decreasing function, we have that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-3-4.html ./knowl/F-8-3-Integral-Test.html">
+\begin{equation*}
+S_n \gt \int_1^n f(x) \ dx\text{.}
+\end{equation*}
+</div>
+<p id="Hir">Taking the limit as <span class="process-math">\(n\)</span> goes to infinity shows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} a_k \gt \int_{1}^{\infty} f(x) \ dx\text{.}
+\end{equation*}
+</div>
+<p id="npA">Therefore, if the improper integral <span class="process-math">\(\int_{1}^{\infty} f(x) \ dx\)</span> diverges, so does the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\text{.}\)</span></p>
+<figure class="figure figure-like" id="rZt"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:48%;"><img src="external/images/8_3_Integral_test1.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:48%;"><img src="external/images/8_3_Integral_test2.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.3.5<span class="period">.</span></span><span class="space"> </span>Comparing an improper integral to a series</figcaption></figure><p id="TwJ">What's more, if we look at the right hand Riemann sums of <span class="process-math">\(f\)</span> on <span class="process-math">\([1,n]\)</span> as shown at right in <a href="" class="xref" data-knowl="./knowl/F-8-3-Integral-Test.html" title="Figure 8.3.5">Figure 8.3.5</a>, we see that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-8-3-Integral-Test.html">
+\begin{equation*}
+\int_{1}^{\infty} f(x) \ dx \gt  \sum_{k=2}^{\infty} a_k\text{.}
+\end{equation*}
+</div>
+<p id="zDS">So if <span class="process-math">\(\int_{1}^{\infty} f(x) \ dx\)</span> converges, then so does <span class="process-math">\(\sum_{k=2}^{\infty} a_k\text{,}\)</span> which also means that the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> also converges. Our preceding discussion has demonstrated the truth of the Integral Test. </p>
+<article class="assemblage assemblage-like" id="kgz"><h4 class="heading"><span class="title">The Integral Test.</span></h4>
+<p id="fLb">Let <span class="process-math">\(f\)</span> be a real valued function and assume <span class="process-math">\(f\)</span> is decreasing and positive for all <span class="process-math">\(x\)</span> larger than some number <span class="process-math">\(c\text{.}\)</span> Let <span class="process-math">\(a_k = f(k)\)</span> for each positive integer <span class="process-math">\(k\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="ggA"><p id="Jtd">If the improper integral <span class="process-math">\(\int_{c}^{\infty} f(x) \, dx\)</span> converges, then the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> converges.</p></li>
+<li id="MnJ"><p id="pAm">If the improper integral <span class="process-math">\(\int_{c}^{\infty} f(x) \, dx\)</span> diverges, then the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> diverges.</p></li>
+</ol></article><p id="LSk">The Integral Test compares a given infinite series to a natural, corresponding improper integral and says that the infinite series and corresponding improper integral both have the same convergence status. In the next activity, we apply the Integral Test to determine the convergence or divergence of a class of important series.</p>
+<article class="activity project-like" id="cqO"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.6</span><span class="period">.</span>
+</h4>
+<p id="rzM">The series <span class="process-math">\(\sum \frac{1}{k^p}\)</span> are special series called <span class="process-math">\(p\)</span>-series. We have already seen that the <span class="process-math">\(p\)</span>-series with <span class="process-math">\(p=1\)</span> (the harmonic series) diverges. We investigate the behavior of other <span class="process-math">\(p\)</span>-series in this activity.</p>
+<ol class="lower-alpha">
+<li id="Dek"><p id="ETx">Evaluate the improper integral <span class="process-math">\(\int_1^{\infty} \frac{1}{x^2} \ dx\text{.}\)</span> Does the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k^2}\)</span> converge or diverge? Explain.</p></li>
+<li id="jlt"><p id="laG">Evaluate the improper integral <span class="process-math">\(\int_1^{\infty} \frac{1}{x^p} \ dx\)</span> where <span class="process-math">\(p \gt 1\text{.}\)</span> For which values of <span class="process-math">\(p\)</span> can we conclude that the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k^p}\)</span> converges?</p></li>
+<li id="PsC"><p id="RhP">Evaluate the improper integral <span class="process-math">\(\int_1^{\infty} \frac{1}{x^p} \ dx\)</span> where <span class="process-math">\(p \lt 1\text{.}\)</span> What does this tell us about the corresponding <span class="process-math">\(p\)</span>-series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k^p}\text{?}\)</span></p></li>
+<li id="vzL">
+<p id="xoY">Summarize your work in this activity by completing the following statement.</p>
+<blockquote class="blockquote" id="mfZ"><p id="dwh">The <span class="process-math">\(p\)</span>-series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{k^p}\)</span> converges if and only if <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</p></blockquote>
+</li>
+</ol></article></section><section class="subsection" id="LDP"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.3.4</span> <span class="title">The Limit Comparison Test</span>
+</h3>
+<p id="YgC">The Integral Test allows us to determine the convergence of an entire family of series: the <span class="process-math">\(p\)</span>-series. However, we have seen that it is often difficult to integrate functions, so the Integral Test is not one that we can use all of the time. In fact, even for a relatively simple series such as <span class="process-math">\(\sum \frac{k^2+1}{k^4+2k+2}\text{,}\)</span> the Integral Test is not an option. In what follows we develop a test that applies to series of rational functions by comparing their behavior to the behavior of <span class="process-math">\(p\)</span>-series.</p>
+<article class="activity project-like" id="daI"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.7</span><span class="period">.</span>
+</h4>
+<p id="kFh">Consider the series <span class="process-math">\(\sum \frac{k+1}{k^3+2}\text{.}\)</span> Since the convergence or divergence of a series only depends on the behavior of the series for large values of <span class="process-math">\(k\text{,}\)</span> we might examine the terms of this series more closely as <span class="process-math">\(k\)</span> gets large.</p>
+<ol class="lower-alpha">
+<li id="Zwi"><p id="iPU">By computing the value of <span class="process-math">\(\frac{k+1}{k^3+2}\)</span> for <span class="process-math">\(k = 100\)</span> and <span class="process-math">\(k = 1000\text{,}\)</span> explain why the terms <span class="process-math">\(\frac{k+1}{k^3+2}\)</span> are essentially <span class="process-math">\(\frac{k}{k^3}\)</span> when <span class="process-math">\(k\)</span> is large.</p></li>
+<li id="FDr">
+<p id="OXd">Let's formalize our observations in (a) a bit more. Let <span class="process-math">\(a_k =  \frac{k+1}{k^3+2}\)</span> and <span class="process-math">\(b_k =  \frac{k}{k^3}\text{.}\)</span> Calculate</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{k \to \infty} \frac{a_k}{b_k}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">What does the value of the limit tell you about <span class="process-math">\(a_k\)</span> and <span class="process-math">\(b_k\)</span> for large values of <span class="process-math">\(k\text{?}\)</span> Compare your response from part (a).</p>
+</li>
+<li id="lKA"><p id="vem">Does the series <span class="process-math">\(\sum \frac{k}{k^3}\)</span> converge or diverge? Why? What do you think that tells us about the convergence or divergence of the series <span class="process-math">\(\sum \frac{k+1}{k^3+2}\text{?}\)</span> Explain.</p></li>
+</ol></article><p id="EnL"><a href="" class="xref" data-knowl="./knowl/act-8-3-6.html" title="Activity 8.3.7">Activity 8.3.7</a> illustrates how we can compare one series with positive terms to another whose convergence status we know. Suppose we have two series <span class="process-math">\(\sum a_k\)</span> and <span class="process-math">\(\sum b_k\)</span> with positive terms and we know the convergence status of the series <span class="process-math">\(\sum a_k\text{.}\)</span> Recall that the convergence or divergence of a series depends only on the terms of the series for large values of <span class="process-math">\(k\text{,}\)</span> so if we know that <span class="process-math">\(a_k\)</span> and <span class="process-math">\(b_k\)</span> are proportional for large <span class="process-math">\(k\text{,}\)</span> then the two series <span class="process-math">\(\sum a_k\)</span> and <span class="process-math">\(\sum b_k\)</span> should behave the same way. In other words, if there is a positive finite constant <span class="process-math">\(c\)</span> such that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-3-6.html">
+\begin{equation*}
+\lim_{k \to \infty} \frac{b_k}{a_k} = c\text{,}
+\end{equation*}
+</div>
+<p class="continuation">then <span class="process-math">\(b_k \approx ca_k\)</span> for large values of <span class="process-math">\(k\text{.}\)</span> So</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-3-6.html">
+\begin{equation*}
+\sum b_k \approx \sum ca_k = c  \sum a_k\text{.}
+\end{equation*}
+</div>
+<p id="kuU">Since multiplying by a nonzero constant does not affect the convergence or divergence of a series, it follows that the series <span class="process-math">\(\sum a_k\)</span> and <span class="process-math">\(\sum b_k\)</span> either both converge or both diverge. The formal statement of this fact is called the Limit Comparison Test.</p>
+<article class="assemblage assemblage-like" id="QnI"><h4 class="heading"><span class="title">The Limit Comparison Test.</span></h4>
+<p id="QCd">Let <span class="process-math">\(\sum a_k\)</span> and <span class="process-math">\(\sum b_k\)</span> be series with positive terms. If</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{k \to \infty} \frac{b_k}{a_k} = c
+\end{equation*}
+</div>
+<p class="continuation">for some positive (finite) constant <span class="process-math">\(c\text{,}\)</span> then <span class="process-math">\(\sum a_k\)</span> and <span class="process-math">\(\sum b_k\)</span> either both converge or both diverge.</p></article><p id="wJm">The Limit Comparison Test shows that if we have a series <span class="process-math">\(\sum \frac{p(k)}{q(k)}\)</span> of rational functions where <span class="process-math">\(p(k)\)</span> is a polynomial of degree <span class="process-math">\(m\)</span> and <span class="process-math">\(q(k)\)</span> a polynomial of degree <span class="process-math">\(l\text{,}\)</span> then the series <span class="process-math">\(\sum \frac{p(k)}{q(k)}\)</span> will behave like the series <span class="process-math">\(\sum \frac{k^m}{k^l}\text{.}\)</span> So this test allows us to determine the convergence or divergence of series whose terms are rational functions.</p>
+<article class="activity project-like" id="KXe"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.8</span><span class="period">.</span>
+</h4>
+<p id="SBD">Use the Limit Comparison Test to determine the convergence or divergence of the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum \frac{3k^2+1}{5k^4+2k+2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">by comparing it to the series <span class="process-math">\(\sum \frac{1}{k^2}\text{.}\)</span></p></article></section><section class="subsection" id="rKY"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.3.5</span> <span class="title">The Ratio Test</span>
+</h3>
+<p id="cQv">The Limit Comparison Test works well if we can find a series with known behavior to compare. But such series are not always easy to find. In this section we will examine a test that allows us to examine the behavior of a series by comparing it to a geometric series, without knowing in advance which geometric series we need.</p>
+<article class="activity project-like" id="LGY"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.9</span><span class="period">.</span>
+</h4>
+<p id="iuv">Consider the series defined by</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="uIN">
+\begin{equation}
+\sum_{k=1}^{\infty} \frac{2^k}{3^k-k}\text{.}\tag{8.3.4}
+\end{equation}
+</div>
+<p id="OBE">This series is not a geometric series, but this activity will illustrate how we might compare this series to a geometric one. Recall that a series <span class="process-math">\(\sum a_k\)</span> is geometric if the ratio <span class="process-math">\(\frac{a_{k+1}}{a_k}\)</span> is always the same. For the series in <a href="" class="xref" data-knowl="./knowl/eq-8-3-ratio-example.html" title="Equation 8.3.4">(8.3.4)</a>, note that <span class="process-math">\(a_k = \frac{2^k}{3^k-k}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="vOg">
+<p id="ZaJ">To see if <span class="process-math">\(\sum \frac{2^k}{3^k-k}\)</span> is comparable to a geometric series, we analyze the ratios of successive terms in the series. Complete <a href="" class="xref" data-knowl="./knowl/T-8-3-3-ratio-test.html" title="Table 8.3.6: Ratios of successive terms in the series \sum \frac{2^k}{3^k-k}">Table 8.3.6</a>, listing your calculations to at least 8 decimal places.</p>
+<figure class="table table-like" id="GXf"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">8.3.6<span class="period">.</span></span><span class="space"> </span>Ratios of successive terms in the series <span class="process-math">\(\sum \frac{2^k}{3^k-k}\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular" id="neo">
+<tr>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(k\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(5\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(10\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(20\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(21\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(22\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(23\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(24\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(25\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\dfrac{a_{k+1}}{a_k}\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+</table></div></figure>
+</li>
+<li id="bVp"><p id="FhS">Based on your calculations in <a href="" class="xref" data-knowl="./knowl/T-8-3-3-ratio-test.html" title="Table 8.3.6: Ratios of successive terms in the series \sum \frac{2^k}{3^k-k}">Table 8.3.6</a>, what can we say about the ratio <span class="process-math">\(\frac{a_{k+1}}{a_k}\)</span> if <span class="process-math">\(k\)</span> is large?</p></li>
+<li id="Icy"><p id="lpb">Do you agree or disagree with the statement: “the series <span class="process-math">\(\sum \frac{2^k}{3^k-k}\)</span> is approximately geometric when <span class="process-math">\(k\)</span> is large”? If not, why not? If so, do you think the series <span class="process-math">\(\sum \frac{2^k}{3^k-k}\)</span> converges or diverges? Explain.</p></li>
+</ol></article><p id="IXE">We can generalize the argument in <a href="" class="xref" data-knowl="./knowl/act-8-3-8.html" title="Activity 8.3.9">Activity 8.3.9</a> in the following way. Consider the series <span class="process-math">\(\sum a_k\text{.}\)</span> If</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-3-8.html">
+\begin{equation*}
+\frac{a_{k+1}}{a_k} \approx r
+\end{equation*}
+</div>
+<p class="continuation">for large values of <span class="process-math">\(k\text{,}\)</span> then <span class="process-math">\(a_{k+1} \approx ra_k\)</span> for large <span class="process-math">\(k\)</span> and the series <span class="process-math">\(\sum a_k\)</span> is approximately the geometric series <span class="process-math">\(\sum ar^k\)</span> for large <span class="process-math">\(k\text{.}\)</span> Since the geometric series with ratio <span class="process-math">\(r\)</span> converges only for <span class="process-math">\(-1 \lt   r \lt  1\text{,}\)</span> we see that the series <span class="process-math">\(\sum a_k\)</span> will converge if</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-3-8.html">
+\begin{equation*}
+\lim_{k \to \infty} \frac{a_{k+1}}{a_k} = r
+\end{equation*}
+</div>
+<p class="continuation">for a value of <span class="process-math">\(r\)</span> such that <span class="process-math">\(|r| \lt  1\text{.}\)</span> This result is known as the Ratio Test.</p>
+<article class="assemblage assemblage-like" id="wuR"><h4 class="heading"><span class="title">The Ratio Test.</span></h4>
+<p id="peN">Let <span class="process-math">\(\sum a_k\)</span> be an infinite series. Suppose</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{k \to \infty} \frac{|a_{k+1}|}{|a_k|} = r\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="suS"><p id="VHv">If <span class="process-math">\(0 \leq r \lt 1\text{,}\)</span> then the series <span class="process-math">\(\sum a_k\)</span> converges.</p></li>
+<li id="YCb"><p id="BOE">If <span class="process-math">\(1 \lt r\text{,}\)</span> then the series <span class="process-math">\(\sum a_k\)</span> diverges.</p></li>
+<li id="EJk"><p id="hVN">If <span class="process-math">\(r = 1\text{,}\)</span> then the test is inconclusive.</p></li>
+</ol></article><p id="VlW"><em class="emphasis">Note well:</em> The Ratio Test looks at the limit of the ratio of consecutive terms of a given series; in so doing, the test is asking, “is this series approximately geometric?” If so, the test uses the limit of the ratio of consecutive terms to determine if the given series converges.</p>
+<p id="Btf">We have now encountered several tests for determining convergence or divergence of series.</p>
+<ul class="disc">
+<li id="CTX"><p id="p-derived-CTX">The Divergence Test can be used to show that a series diverges, but never to prove that a series converges.</p></li>
+<li id="jbg"><p id="p-derived-jbg">We used the Integral Test to determine the convergence status of an entire class of series, the <span class="process-math">\(p\)</span>-series.</p></li>
+<li id="Pip"><p id="p-derived-Pip">The Limit Comparison Test works well for series that involve rational functions and which can therefore by compared to <span class="process-math">\(p\)</span>-series.</p></li>
+<li id="vpy"><p id="p-derived-vpy">Finally, the Ratio Test allows us to compare our series to a geometric series; it is particularly useful for series that involve <span class="process-math">\(n\)</span>th powers and factorials.</p></li>
+<li id="bwH"><p id="p-derived-bwH">Two other tests, the Direct Comparison Test and the Root Test, are discussed in the exercises.</p></li>
+</ul>
+<p class="continuation">One of the challenges of determining whether a series converges or diverges is finding which test answers that question.</p>
+<article class="activity project-like" id="BRN"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.3.10</span><span class="period">.</span>
+</h4>
+<p id="kTC">Determine whether each of the following series converges or diverges. Explicitly state which test you use.</p>
+<ol class="lower-alpha cols2">
+<li id="IMs"><p id="KBF"><span class="process-math">\(\displaystyle \sum \frac{k}{2^k}\)</span></p></li>
+<li id="oTB"><p id="qIO"><span class="process-math">\(\displaystyle \sum \frac{k^3+2}{k^2+1}\)</span></p></li>
+<li id="VaK"><p id="WPX"><span class="process-math">\(\displaystyle \sum \frac{10^k}{k!}\)</span></p></li>
+<li id="BhT"><p id="CXg"><span class="process-math">\(\displaystyle \sum \frac{k^3-2k^2+1}{k^6+4}\)</span></p></li>
+</ol></article></section><section class="subsection" id="XSh"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.3.6</span> <span class="title">Summary</span>
+</h3>
+<ul id="hAo" class="disc">
+<li id="HDQ">
+<p id="OcW">An infinite series is a sum of the elements in an infinite sequence. In other words, an infinite series is a sum of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_1 + a_2 + \cdots + a_n + \cdots = \sum_{k=1}^{\infty} a_k
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(a_k\)</span> is a real number for each positive integer <span class="process-math">\(k\text{.}\)</span></p>
+</li>
+<li id="nKZ">
+<p id="ukf">The <span class="process-math">\(n\)</span>th partial sum <span class="process-math">\(S_n\)</span> of the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> is the sum of the first <span class="process-math">\(n\)</span> terms of the series. That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_n = a_1+a_2+ \cdots + a_n = \sum_{k=1}^{n} a_k\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="TSi">
+<p id="aro">The sequence <span class="process-math">\(\{S_n\}\)</span> of partial sums of a series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> tells us about the convergence or divergence of the series. In particular</p>
+<ul class="circle">
+<li id="uyA">
+<p id="Orr">The series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> converges if the sequence <span class="process-math">\(\{S_n\}\)</span> of partial sums converges. In this case we say that the series is the limit of the sequence of partial sums and write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} a_k =\lim_{n \to \infty} S_n\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="zZr"><p id="Gyx">The series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> diverges if the sequence <span class="process-math">\(\{S_n\}\)</span> of partial sums diverges.</p></li>
+</ul>
+</li>
+</ul></section><section class="exercises" id="HXy"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">8.3.7</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="dyl"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Convergence of a sequence and its series.</span>
+</h4>
+<div id="webwork-219" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="219" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/maCalcDB/setSeries3Convergent/ns8_2_9c.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-9232">Given:</p>
+<p id="p-9233"><span class="process-math">\(\displaystyle A_n = \frac{30}{3^{n}}\)</span></p>
+<p id="p-9234">Determine:</p>
+<p id="p-9235">(a) whether <span class="process-math">\(\displaystyle \sum_{n=1}^\infty( A_n )\)</span> is convergent. <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span></p>
+<p id="p-9236">(b) whether <span class="process-math">\(\lbrace A_n \rbrace\)</span>is convergent. <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span></p>
+<p id="p-9237">If convergent, enter the limit of convergence. If not, enter DIV.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-219')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="JFu"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Two partial sums.</span>
+</h4>
+<div id="webwork-220" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="220" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/maCalcDB/setSeries1Definitions/ur_sr_1_4.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-9240">Consider the series <span class="process-math">\(\displaystyle  \sum_{n=1}^{\infty} \frac{5}{n + 7}\text{.}\)</span> Let <span class="process-math">\(s_n\)</span> be the n-th partial sum; that is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-9241">
+\begin{equation*}
+s_n = \sum_{i=1}^n \frac{5}{i + 7} .
+\end{equation*}
+</div>
+<p id="p-9242">Find <span class="process-math">\(s_{4}\)</span> and <span class="process-math">\(s_{8}\)</span></p>
+<p id="p-9243"><span class="process-math">\(s_{4}\)</span> = <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span></p>
+<p id="p-9244"><span class="process-math">\(s_{8}\)</span> = <span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-220')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="pMD"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Convergence of a series and its sequence.</span>
+</h4>
+<div id="webwork-221" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="221" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/maCalcDB/setSeries4Geometric/ns8_2_9.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-9247">Let</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+a_n = \frac{5n}{12n+15}.
+\end{equation*}
+</div>
+<p class="continuation">For the following answer blanks, decide whether the given sequence or series is convergent or divergent.  If convergent, enter the limit (for a sequence) or the sum (for a series).  If divergent, enter 'infinity' if it diverges to <span class="process-math">\(\infty\text{,}\)</span> '-infinity' if it diverges to <span class="process-math">\(- \infty\)</span> or 'DNE' otherwise.</p>
+<p id="p-9248">(a) The series <span class="process-math">\(\displaystyle
+\sum_{n=1}^\infty \frac{5n}{12n+15}\text{.}\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-9249">(b) The sequence <span class="process-math">\(\displaystyle
+\biggl \lbrace \frac{5n}{12n+15} \biggr \rbrace\text{.}\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-221')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="VTM"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Convergence of an integral and a related series.</span>
+</h4>
+<div id="webwork-222" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="222" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries5IntegralTest/ur_sr_5_12.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-9252">Compute the value of the following improper integral.  If it converges, enter its value.  Enter <em class="alert">infinity</em> if it diverges to <span class="process-math">\(\infty\text{,}\)</span> and <em class="alert">-infinity</em> if it diverges to <span class="process-math">\(-\infty\text{.}\)</span>  Otherwise, enter <em class="alert">diverges.</em></p>
+<p id="p-9253"><span class="process-math">\(\displaystyle \int_{1}^{\infty} \frac{6 \, dx}{x^2 + 1}\)</span> = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-9254">Does the series <span class="process-math">\(\displaystyle \sum_{n=1}^{\infty} \frac{6}{n^2 + 1}\)</span> converge or diverge? <ul style="list-style:circle;">
+<li id="li-5407"><p id="p-9256">converges</p></li>
+<li id="li-5408"><p id="p-9257">diverges to +infinity</p></li>
+<li id="li-5409"><p id="p-9258">diverges to -infinity</p></li>
+<li id="li-5410"><p id="p-9259">diverges</p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-222')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="CaV"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="iKU">In this exercise we investigate the sequence <span class="process-math">\(\left\{\frac{b^n}{n!}\right\}\)</span> for any constant <span class="process-math">\(b\text{.}\)</span></p>
+<ol id="OSd" class="lower-alpha">
+<li id="qwx"><p id="zuK">Use the Ratio Test to determine if the series <span class="process-math">\(\sum \frac{10^k}{k!}\)</span> converges or diverges.</p></li>
+<li id="WDG"><p id="fBT">Now apply the Ratio Test to determine if the series <span class="process-math">\(\sum \frac{b^k}{k!}\)</span> converges for any constant <span class="process-math">\(b\text{.}\)</span></p></li>
+<li id="CKP"><p id="LJc">Use your result from (b) to decide whether the sequence <span class="process-math">\(\left\{\frac{b^n}{n!}\right\}\)</span> converges or diverges. If the sequence <span class="process-math">\(\left\{\frac{b^n}{n!}\right\}\)</span> converges, to what does it converge? Explain your reasoning.</p></li>
+</ol></article><article class="exercise exercise-like" id="iie"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="uZm">There is a test for convergence similar to the Ratio Test called the <em class="emphasis">Root Test</em>. Suppose we have a series <span class="process-math">\(\sum a_k\)</span> of positive terms so that <span class="process-math">\(a_n \to 0\)</span> as <span class="process-math">\(n \to \infty\text{.}\)</span></p>
+<ol id="bgv" class="lower-alpha">
+<li id="TJa">
+<p id="oVF">Assume</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sqrt[n]{a_n} \to r
+\end{equation*}
+</div>
+<p class="continuation">as <span class="process-math">\(n\)</span> goes to infinity. Explain why this tells us that <span class="process-math">\(a_n \approx r^n\)</span> for large values of <span class="process-math">\(n\text{.}\)</span></p>
+</li>
+<li id="zQj"><p id="VcO">Using the result of part (a), explain why <span class="process-math">\(\sum a_k\)</span> looks like a geometric series when <span class="process-math">\(n\)</span> is big. What is the ratio of the geometric series to which <span class="process-math">\(\sum a_k\)</span> is comparable?</p></li>
+<li id="fXs"><p id="BjX">Use what we know about geometric series to determine that values of <span class="process-math">\(r\)</span> so that <span class="process-math">\(\sum a_k\)</span> converges if <span class="process-math">\(\sqrt[n]{a_n} \to r\)</span> as <span class="process-math">\(n \to \infty\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="Opn"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="HnE">The associative and distributive laws of addition allow us to add finite sums in any order we want. That is, if <span class="process-math">\(\sum_{k=0}^n a_k\)</span> and <span class="process-math">\(\sum_{k=0}^n b_k\)</span> are finite sums of real numbers, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=0}^{n} a_k + \sum_{k=0}^n b_k = \sum_{k=0}^n (a_k+b_k)\text{.}
+\end{equation*}
+</div>
+<p id="nuN">However, we do need to be careful extending rules like this to infinite series.</p>
+<ol class="lower-alpha">
+<li id="wVD">
+<p id="Sii">Let <span class="process-math">\(a_n =  1 + \frac{1}{2^n}\)</span> and <span class="process-math">\(b_n = -1\)</span> for each nonnegative integer <span class="process-math">\(n\text{.}\)</span></p>
+<ol class="lower-roman">
+<li id="FcS"><p id="UlQ">Explain why the series <span class="process-math">\(\sum_{k=0}^{\infty} a_k\)</span> and <span class="process-math">\(\sum_{k=0}^{\infty} b_k\)</span> both diverge.</p></li>
+<li id="dcM"><p id="ypr">Explain why the series <span class="process-math">\(\sum_{k=0}^{\infty} (a_k+b_k)\)</span> converges.</p></li>
+<li id="JjV">
+<p id="ewA">Explain why</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=0}^{\infty} a_k + \sum_{k=0}^{\infty} b_k \neq \sum_{k=0}^{\infty} (a_k+b_k)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This shows that it is possible to have to two divergent series <span class="process-math">\(\sum_{k=0}^{\infty} a_k\)</span> and <span class="process-math">\(\sum_{k=0}^{\infty} b_k\)</span> but yet have the series <span class="process-math">\(\sum_{k=0}^{\infty} (a_k+b_k)\)</span> converge.</p>
+</li>
+</ol>
+</li>
+<li id="GZj">
+<p id="KDJ">While part (a) shows that we cannot add series term by term in general, we can under reasonable conditions. The problem in part (a) is that we tried to add divergent series. In this exercise we will show that if <span class="process-math">\(\sum a_k\)</span> and <span class="process-math">\(\sum b_k\)</span> are convergent series, then <span class="process-math">\(\sum (a_k+b_k)\)</span> is a convergent series and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum (a_k+b_k) = \sum a_k + \sum b_k\text{.}
+\end{equation*}
+</div>
+<ol class="lower-roman">
+<li id="pre">
+<p id="UHp">Let <span class="process-math">\(A_n\)</span> and <span class="process-math">\(B_n\)</span> be the <span class="process-math">\(n\)</span>th partial sums of the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> and <span class="process-math">\(\sum_{k=1}^{\infty} b_k\text{,}\)</span> respectively. Explain why</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A_n + B_n = \sum_{k=1}^n (a_k+b_k)\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="Vyn">
+<p id="qKS">Use the previous result and properties of limits to show that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{\infty} (a_k+b_k) = \sum_{k=1}^{\infty} a_k + \sum_{k=1}^{\infty} b_k\text{.}
+\end{equation*}
+</div>
+<p class="continuation">(Note that the starting point of the sum is irrelevant in this problem, so it doesn't matter where we begin the sum.)</p>
+</li>
+</ol>
+</li>
+<li id="ngs"><p id="WSb">Use the prior result to find the sum of the series <span class="process-math">\(\sum_{k=0}^{\infty} \frac{2^k+3^k}{5^k}\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="uww"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="TBW">In the Limit Comparison Test we compared the behavior of a series to one whose behavior we know. In that test we use the limit of the ratio of corresponding terms of the series to determine if the comparison is valid. In this exercise we see how we can compare two series directly, term by term, without using a limit of sequence. First we consider an example.</p>
+<ol id="zJf" class="lower-alpha">
+<li id="KZi">
+<p id="YHo">Consider the series</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum \frac{1}{k^2}  \text{ and }   \sum \frac{1}{k^2+k}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We know that the series <span class="process-math">\(\sum \frac{1}{k^2}\)</span> is a <span class="process-math">\(p\)</span>-series with <span class="process-math">\(p = 2 \gt 1\)</span> and so <span class="process-math">\(\sum \frac{1}{k^2}\)</span> converges. In this part of the exercise we will see how to use information about <span class="process-math">\(\sum \frac{1}{k^2}\)</span> to determine information about <span class="process-math">\(\sum \frac{1}{k^2+k}\text{.}\)</span> Let <span class="process-math">\(a_k = \frac{1}{k^2}\)</span> and <span class="process-math">\(b_k = \frac{1}{k^2+k}\text{.}\)</span></p>
+<ol id="EOx" class="lower-roman">
+<li id="xyt"><p id="MHr">Let <span class="process-math">\(S_n\)</span> be the <span class="process-math">\(n\)</span>th partial sum of <span class="process-math">\(\sum \frac{1}{k^2}\)</span> and <span class="process-math">\(T_n\)</span> the <span class="process-math">\(n\)</span>th partial sum of <span class="process-math">\(\sum \frac{1}{k^2+k}\text{.}\)</span> Which is larger, <span class="process-math">\(S_1\)</span> or <span class="process-math">\(T_1\text{?}\)</span> Why?</p></li>
+<li id="rgr">
+<p id="kVG">Recall that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_2 = S_1 + a_2  \text{ and }   T_2 = T_1 + b_2\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Which is larger, <span class="process-math">\(a_2\)</span> or <span class="process-math">\(b_2\text{?}\)</span> Based on that answer, which is larger, <span class="process-math">\(S_2\)</span> or <span class="process-math">\(T_2\text{?}\)</span></p>
+</li>
+<li id="XnA">
+<p id="RcP">Recall that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S_3 = S_2 + a_3  \text{ and }   T_3 = T_2 + b_3\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Which is larger, <span class="process-math">\(a_3\)</span> or <span class="process-math">\(b_3\text{?}\)</span> Based on that answer, which is larger, <span class="process-math">\(S_3\)</span> or <span class="process-math">\(T_3\text{?}\)</span></p>
+</li>
+<li id="DuJ"><p id="xjY">Which is larger, <span class="process-math">\(a_n\)</span> or <span class="process-math">\(b_n\text{?}\)</span> Explain. Based on that answer, which is larger, <span class="process-math">\(S_n\)</span> or <span class="process-math">\(T_n\text{?}\)</span></p></li>
+<li id="jBS"><p id="drh">Based on your response to the previous part of this exercise, what relationship do you expect there to be between <span class="process-math">\(\sum \frac{1}{k^2}\)</span> and <span class="process-math">\(\sum \frac{1}{k^2+k}\text{?}\)</span> Do you expect <span class="process-math">\(\sum \frac{1}{k^2+k}\)</span> to converge or diverge? Why?</p></li>
+</ol>
+</li>
+<li id="TnB">
+<p id="Jyq">The example in the previous part of this exercise illustrates a more general result. Explain why the Direct Comparison Test, stated here, works.</p>
+<article class="assemblage assemblage-like" id="oeH"><h5 class="heading"><span class="title">The Direct Comparison Test.</span></h5>
+<p id="pFz">If</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 \leq b_k \leq a_k
+\end{equation*}
+</div>
+<p class="continuation">for every <span class="process-math">\(k\text{,}\)</span> then we must have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 \leq \sum b_k \leq \sum a_k
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="PJb"><p id="NcQ">If <span class="process-math">\(\sum a_k\)</span> converges, then <span class="process-math">\(\sum b_k\)</span> converges.</p></li>
+<li id="vQk"><p id="VMI">If <span class="process-math">\(\sum b_k\)</span> diverges, then <span class="process-math">\(\sum a_k\)</span> diverges.</p></li>
+</ol></article><article class="note remark-like" id="XIZ"><h5 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">8.3.7</span><span class="period">.</span>
+</h5>
+<p id="CDL">This comparison test applies only to series with nonnegative terms.</p></article><ol id="fQo" class="lower-roman">
+<li id="bXt"><p id="BTR">Use the Direct Comparison Test to determine the convergence or divergence of the series <span class="process-math">\(\sum \frac{1}{k-1}\text{.}\)</span> Hint: Compare to the harmonic series.</p></li>
+<li id="IeC"><p id="iba">Use the Direct Comparison Test to determine the convergence or divergence of the series <span class="process-math">\(\sum \frac{k}{k^3+1}\text{.}\)</span></p></li>
+</ol>
+</li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-124"><div class="fn">Note that <span class="process-math">\(0!\)</span> appears in Equation <a href="" class="xref" data-knowl="./knowl/eq-8-3-e.html" title="Equation 8.3.2">(8.3.2)</a>. By definition, <span class="process-math">\(0! = 1\text{.}\)</span>
+</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-125"><div class="fn">This series is called harmonic because each term in the series after the first is the harmonic mean of the term  before it and the term after it. The harmonic mean of two numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> is <span class="process-math">\(\frac{2ab}{a+b}\text{.}\)</span> See “What's Harmonic about the Harmonic Series”, by David E. Kullman (in the <span class="booktitle">College Mathematics Journal</span>, Vol. 32, No. 3 (May, 2001), 201-203) for an interesting discussion of the harmonic mean.</div></div>
+</div></main>
+</div>
+</body>
+</html>

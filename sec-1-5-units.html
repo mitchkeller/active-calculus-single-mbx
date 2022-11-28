@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Interpreting, estimating, and using the derivative</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-1-4-derivative-fxn.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-1-6-second-d.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-1-4-derivative-fxn.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-1-6-second-d.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="active">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="IVE"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.5</span> <span class="title">Interpreting, estimating, and using the derivative</span>
+</h2>
+<article class="objectives goal-like" id="NFx"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="ywz"><p id="PuK">In contexts other than the position of a moving object, what does the derivative of a function measure?</p></li>
+<li id="eDI"><p id="vBT">What are the units on the derivative function <span class="process-math">\(f'\text{,}\)</span> and how are they related to the units of the original function <span class="process-math">\(f\text{?}\)</span></p></li>
+<li id="KKR"><p id="bJc">What is a central difference, and how can one be used to estimate the value of the derivative at a point from given function data?</p></li>
+<li id="qSa"><p id="HQl">Given the value of the derivative of a function at a point, what can we infer about how the value of the function changes nearby?</p></li>
+</ul></article><section class="introduction" id="tMG"><p id="lcO">It is a powerful feature of mathematics that it can be studied both as abstract discipline and as an applied one. For instance, calculus can be developed almost entirely as an abstract collection of ideas that focus on properties of functions. At the same time, if we consider functions that represent meaningful processes, calculus can describe our experience of physical reality. We have already seen that for the position function <span class="process-math">\(y = s(t)\)</span> of a ball being tossed straight up in the air, the derivative of the position function, <span class="process-math">\(v(t) = s'(t)\text{,}\)</span> gives the ball's velocity at time <span class="process-math">\(t\text{.}\)</span></p>
+<p id="RjX">In this section, we investigate several functions with specific physical meaning, and consider how the units on the independent variable, dependent variable, and the derivative function add to our understanding. To start, we consider the familiar problem of a position function of a moving object.</p>
+<article class="exploration project-like" id="Qvm"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="period">.</span>
+</h3>
+<p id="XZL">One of the longest stretches of straight (and flat) road in North America can be found on the Great Plains in the state of North Dakota on state highway 46, which lies just south of the interstate highway I-94 and runs through the town of Gackle. A car leaves town (at time <span class="process-math">\(t = 0\)</span>) and heads east on highway 46; its position in miles from Gackle at time <span class="process-math">\(t\)</span> in minutes is given by the graph of the function in <a href="" class="xref" data-knowl="./knowl/F-1-5-PA1.html" title="Figure 1.5.1">Figure 1.5.1</a>. Three important points are labeled on the graph; where the curve looks linear, assume that it is indeed a straight line.</p>
+<figure class="figure figure-like" id="kod"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/1_5_PA1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.1<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = s(t)\text{,}\)</span> the position of the car along highway 46, which tells its distance in miles from Gackle, ND, at time <span class="process-math">\(t\)</span> in minutes.</figcaption></figure><ol id="EgU" class="lower-alpha">
+<li id="aUr"><p id="zxb">In everyday language, describe the behavior of the car over the provided time interval. In particular, discuss what is happening on the time intervals <span class="process-math">\([57,68]\)</span> and <span class="process-math">\([68,104]\text{.}\)</span></p></li>
+<li id="HbA"><p id="fEk">Find the slope of the line between the points <span class="process-math">\((57,63.8)\)</span> and <span class="process-math">\((104,106.8)\text{.}\)</span> What are the units on this slope? What does the slope represent?</p></li>
+<li id="niJ"><p id="LLt">Find the average rate of change of the car's position on the interval <span class="process-math">\([68,104]\text{.}\)</span> Include units on your answer.</p></li>
+<li id="TpS"><p id="rSC">Estimate the instantaneous rate of change of the car's position at the moment <span class="process-math">\(t = 80\text{.}\)</span> Write a sentence to explain your reasoning and the meaning of this value.</p></li>
+</ol></article></section><section class="subsection" id="pcN"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.5.1</span> <span class="title">Units of the derivative function</span>
+</h3>
+<p id="xrg">As we now know, the derivative of the function <span class="process-math">\(f\)</span> at a fixed value <span class="process-math">\(x\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and this value has several different interpretations. If we set <span class="process-math">\(x = a\text{,}\)</span> one meaning of <span class="process-math">\(f'(a)\)</span> is the slope of the tangent line at the point <span class="process-math">\((a,f(a))\text{.}\)</span></p>
+<p id="dyp">We also sometimes write <span class="process-math">\(\frac{df}{dx}\)</span> or <span class="process-math">\(\frac{dy}{dx}\)</span> instead of <span class="process-math">\(f'(x)\text{,}\)</span> and these alternate notations help us see the units (and thus the meaning) of the derivative as <em class="emphasis">the instantaneous rate of change of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\)</span></em>.  The units on the slope of the secant line, <span class="process-math">\(\frac{f(x+h)-f(x)}{h}\text{,}\)</span> are “units of <span class="process-math">\(y\)</span> per unit of <span class="process-math">\(x\text{,}\)</span>” and when we take the limit as <span class="process-math">\(h\)</span> goes to zero, the derivative <span class="process-math">\(f'(x)\)</span> has the same units: units of <span class="process-math">\(y\)</span> per unit of <span class="process-math">\(x\text{.}\)</span> It is helpful to remember that the units on the derivative function are “units of output per unit of input,” for the variables of the original function.</p>
+<p id="JFy">For example, suppose that the function <span class="process-math">\(y = P(t)\)</span> measures the population of a city (in thousands) at the start of year <span class="process-math">\(t\)</span> (where <span class="process-math">\(t = 0\)</span> corresponds to 2010 AD). We are told that <span class="process-math">\(P'(2) = 21.37\text{.}\)</span> What is the meaning of this value? Well, since <span class="process-math">\(P\)</span> is measured in thousands and <span class="process-math">\(t\)</span> is measured in years, we can say that the instantaneous rate of change of the city's population with respect to time at the start of 2012 is 21.37 thousand people per year. We therefore expect that in the coming year, about 21,370 people will be added to the city's population.</p></section><section class="subsection" id="VjW"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.5.2</span> <span class="title">Toward more accurate derivative estimates</span>
+</h3>
+<p id="pMH">Recall that to estimate the value of <span class="process-math">\(f'(x)\)</span> at a given <span class="process-math">\(x\text{,}\)</span> we calculate a <em class="emphasis">difference quotient</em>  <span class="process-math">\(\frac{f(x+h)-f(x)}{h}\)</span> with a relatively small value of <span class="process-math">\(h\text{.}\)</span> We should use both positive and negative values of <span class="process-math">\(h\)</span> in order to account for the behavior of the function on both sides of the point of interest. To that end, we introduce the notion of a <em class="emphasis">central difference</em> and its role in estimating derivatives.</p>
+<article class="example example-like" id="hyo"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.2</span><span class="period">.</span>
+</h4>
+<p id="EVF">Suppose that <span class="process-math">\(y = f(x)\)</span> is a function for which three values are known: <span class="process-math">\(f(1) = 2.5\text{,}\)</span> <span class="process-math">\(f(2) = 3.25\text{,}\)</span> and <span class="process-math">\(f(3) = 3.625\text{.}\)</span> Estimate <span class="process-math">\(f'(2)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-ZTP" id="ZTP"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-ZTP"><div class="solution solution-like">
+<p id="gsV">We know that <span class="process-math">\(f'(2) = \lim_{h \to 0} \frac{f(2+h) - f(2)}{h}\text{.}\)</span> But since we don't have a graph or a formula for the function, we can neither sketch a tangent line nor evaluate the limit algebraically. We can't even use smaller and smaller values of <span class="process-math">\(h\)</span> to estimate the limit. Instead, we have just two choices: using <span class="process-math">\(h = -1\)</span> or <span class="process-math">\(h = 1\text{,}\)</span> depending on which point we pair with <span class="process-math">\((2,3.25)\text{.}\)</span></p>
+<p id="MAe">So, one estimate is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(2) \approx \frac{f(1)-f(2)}{1-2} = \frac{2.5-3.25}{-1} = 0.75\text{.}
+\end{equation*}
+</div>
+<p id="sHn">The other is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(2) \approx \frac{f(3)-f(2)}{3-2} = \frac{3.625-3.25}{1} = 0.375\text{.}
+\end{equation*}
+</div>
+<p id="YOw">Because the first approximation looks backward from the point <span class="process-math">\((2,3.25)\)</span> and the second approximation looks forward, it makes sense to average these two estimates in order to account for behavior on both sides of <span class="process-math">\(x=2\text{.}\)</span> Doing so, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(2) \approx \frac{0.75 + 0.375}{2} = 0.5625\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><p id="VTQ">The intuitive approach to average the two estimates found in <a href="" class="xref" data-knowl="./knowl/Ex-1-5-1.html" title="Example 1.5.2">Example 1.5.2</a> is in fact the best possible way estimate to a derivative when we have just two function values for <span class="process-math">\(f\)</span> on opposite sides of the point of interest.</p>
+<figure class="figure figure-like" id="GKS"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_5_Ex1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.3<span class="period">.</span></span><span class="space"> </span>At left, the graph of <span class="process-math">\(y = f(x)\)</span> along with the secant line through <span class="process-math">\((1,2.5)\)</span> and <span class="process-math">\((2,3.25)\text{,}\)</span> the secant line through <span class="process-math">\((2, 3.25)\)</span> and <span class="process-math">\((3,3.625)\text{,}\)</span> as well as the tangent line.  At right, the same graph along with the secant line through <span class="process-math">\((1,2.5)\)</span> and <span class="process-math">\((3,3.625)\text{,}\)</span> plus the tangent line.</figcaption></figure><p id="CaZ">To see why, we think about the diagram in <a href="" class="xref" data-knowl="./knowl/F-1-5-Ex1.html" title="Figure 1.5.3">Figure 1.5.3</a>. On the left, we see the two secant lines with slopes that come from computing the <em class="emphasis">backward difference</em>  <span class="process-math">\(\frac{f(1)-f(2)}{1-2} = 0.75\)</span> and from the <em class="emphasis">forward difference</em>  <span class="process-math">\(\frac{f(3)-f(2)}{3-2} = 0.375\text{.}\)</span> Note how the first slope over-estimates the slope of the tangent line at <span class="process-math">\((2,f(2))\text{,}\)</span> while the second slope underestimates <span class="process-math">\(f'(2)\text{.}\)</span> On the right, we see the secant line whose slope is given by the <em class="emphasis">central difference</em> </p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-1-5-Ex1.html">
+\begin{equation*}
+\frac{f(3)-f(1)}{3-1} = \frac{3.625-2.5}{2} = \frac{1.125}{2} = 0.5625\text{.}
+\end{equation*}
+</div>
+<p id="iii">Note that this central difference has the same value as the average of the forward and backward differences (and it is straightforward to explain why this always holds). The central difference yields a very good approximation to the derivative's value, because it yields a line closer to being parallel to the tangent line.</p>
+<p id="Opr">The <dfn class="terminology">central difference approximation</dfn> to the value of the first derivative is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(a) \approx \frac{f(a+h) - f(a-h)}{2h}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This quantity measures the slope of the secant line to <span class="process-math">\(y = f(x)\)</span> through the points <span class="process-math">\((a-h, f(a-h))\)</span> and <span class="process-math">\((a+h, f(a+h))\text{.}\)</span></p>
+<article class="activity project-like" id="yxi"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.5.2</span><span class="period">.</span>
+</h4>
+<p id="NGg">A potato is placed in an oven, and the potato's temperature <span class="process-math">\(F\)</span> (in degrees Fahrenheit) at various points in time is taken and recorded in the following table. Time <span class="process-math">\(t\)</span> is measured in minutes.</p>
+<figure class="table table-like" id="miQ"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.5.4<span class="period">.</span></span><span class="space"> </span>Temperature data in degrees Fahrenheit.</figcaption><div class="tabular-box natural-width"><table class="tabular" id="SpZ">
+<tr>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(t\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(15\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(30\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(45\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(60\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(75\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(90\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(F(t)\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(70\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(180.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(251\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(296\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(324.5\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(342.8\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(354.5\)</span></td>
+</tr>
+</table></div></figure><ol id="tNp" class="lower-alpha">
+<li id="jJJ"><p id="Cxh">Use a central difference to estimate the instantaneous rate of change of the temperature of the potato at <span class="process-math">\(t= 30\text{.}\)</span> Include units on your answer.</p></li>
+<li id="PQS"><p id="iEq">Use a central difference to estimate the instantaneous rate of change of the temperature of the potato at <span class="process-math">\(t= 60\text{.}\)</span> Include units on your answer.</p></li>
+<li id="vYb"><p id="OLz">Without doing any calculation, which do you expect to be greater: <span class="process-math">\(F'(75)\)</span> or <span class="process-math">\(F'(90)\text{?}\)</span> Why?</p></li>
+<li id="cfk"><p id="uSI">Suppose it is given that <span class="process-math">\(F(64) = 330.28\)</span> and <span class="process-math">\(F'(64) = 1.341\text{.}\)</span> What are the units on these two quantities? What do you expect the temperature of the potato to be when <span class="process-math">\(t = 65\text{?}\)</span> when <span class="process-math">\(t = 66\text{?}\)</span> Why?</p></li>
+<li id="Imt"><p id="aZR">Write a couple of careful sentences that describe the behavior of the temperature of the potato on the time interval <span class="process-math">\([0,90]\text{,}\)</span> as well as the behavior of the instantaneous rate of change of the temperature of the potato on the same time interval.</p></li>
+</ol></article><article class="activity project-like" id="lNr"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.5.3</span><span class="period">.</span>
+</h4>
+<p id="ZyZ">A company manufactures rope, and the total cost of producing <span class="process-math">\(r\)</span> feet of rope is <span class="process-math">\(C(r)\)</span> dollars.</p>
+<ol class="lower-alpha">
+<li id="vCC"><p id="Oqa">What does it mean to say that <span class="process-math">\(C(2000) = 800\text{?}\)</span></p></li>
+<li id="bJL"><p id="uxj">What are the units of <span class="process-math">\(C'(r)\text{?}\)</span></p></li>
+<li id="HQU"><p id="aEs">Suppose that <span class="process-math">\(C(2000) = 800\)</span> and <span class="process-math">\(C'(2000) = 0.35\text{.}\)</span> Estimate <span class="process-math">\(C(2100)\text{,}\)</span> and justify your estimate by writing at least one sentence that explains your thinking.</p></li>
+<li id="nYd"><p id="GLB">Do you think <span class="process-math">\(C'(2000)\)</span> is less than, equal to, or greater than <span class="process-math">\(C'(3000)\text{?}\)</span> Why?</p></li>
+<li id="Ufm"><p id="mSK">Suppose someone claims that <span class="process-math">\(C'(5000) = -0.1\text{.}\)</span> What would the practical meaning of this derivative value tell you about the approximate cost of the next foot of rope? Is this possible? Why or why not?</p></li>
+</ol></article><article class="activity project-like" id="eSM"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.5.4</span><span class="period">.</span>
+</h4>
+<p id="SEu">Researchers at a major car company have found a function that relates gasoline consumption to speed for a particular model of car. In particular, they have determined that the consumption <span class="process-math">\(C\text{,}\)</span> in <em class="emphasis">liters per kilometer</em>, at a given speed <span class="process-math">\(s\text{,}\)</span> is given by a function <span class="process-math">\(C = f(s)\text{,}\)</span> where <span class="process-math">\(s\)</span> is the car's speed in <em class="emphasis">kilometers per hour</em>.</p>
+<ol class="lower-alpha">
+<li id="iSL"><p id="EAP">Data provided by the car company tells us that <span class="process-math">\(f(80) = 0.015\text{,}\)</span> <span class="process-math">\(f(90) = 0.02\text{,}\)</span> and <span class="process-math">\(f(100) = 0.027\text{.}\)</span> Use this information to estimate the instantaneous rate of change of fuel consumption with respect to speed at <span class="process-math">\(s = 90\text{.}\)</span> Be as accurate as possible, use proper notation, and include units on your answer.</p></li>
+<li id="OZU"><p id="kHY">By writing a complete sentence, interpret the meaning (in the context of fuel consumption) of “<span class="process-math">\(f(80) = 0.015\text{.}\)</span>”</p></li>
+<li id="vhd"><p id="QPh">Write at least one complete sentence that interprets the meaning of the value of <span class="process-math">\(f'(90)\)</span> that you estimated in (a).</p></li>
+</ol></article><p id="uwA">In <a href="sec-1-4-derivative-fxn.html" class="internal" title="Section 1.4: The derivative function">Section 1.4</a>, we learned how use to the graph of a given function <span class="process-math">\(f\)</span> to plot the graph of its derivative, <span class="process-math">\(f'\text{.}\)</span> It is important to remember that when we do so, the scale and the units on the vertical axis often have to change to represent <span class="process-math">\(f'\text{.}\)</span> For example, suppose that <span class="process-math">\(P(t) = 400-330e^{-0.03t}\)</span> tells us the temperature in degrees Fahrenheit of a potato in an oven at time <span class="process-math">\(t\)</span> in minutes. In <a href="" class="xref" data-knowl="./knowl/F-1-5-PPprime.html" title="Figure 1.5.5">Figure 1.5.5</a>, we sketch the graph of <span class="process-math">\(P\)</span> on the left and the graph of <span class="process-math">\(P'\)</span> on the right.</p>
+<figure class="figure figure-like" id="mSb"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_5_PPprimeplot.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.5.5<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(P(t) = 400-330e^{-0.03t}\)</span> at left, and its derivative <span class="process-math">\(P'(t)\)</span> at right.</figcaption></figure><p id="aDJ">Notice that the vertical scales are different in size and different in units, as the units of <span class="process-math">\(P\)</span> are °F, while those of <span class="process-math">\(P'\)</span> are °F/min.</p></section><section class="subsection" id="Brf"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.5.3</span> <span class="title">Summary</span>
+</h3>
+<ul id="SZk" class="disc">
+<li id="WZj"><p id="nXu">The derivative of a given function <span class="process-math">\(y=f(x)\)</span> measures the instantaneous rate of change of the output variable with respect to the input variable.</p></li>
+<li id="Dgs"><p id="UeD">The units on the derivative function <span class="process-math">\(y = f'(x)\)</span> are units of <span class="process-math">\(y\)</span> per unit of <span class="process-math">\(x\text{.}\)</span> Again, this measures how fast the output of the function <span class="process-math">\(f\)</span> changes when the input of the function changes.</p></li>
+<li id="jnB">
+<p id="AlM">The central difference approximation to the value of the first derivative is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(a) \approx \frac{f(a+h) - f(a-h)}{2h}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This quantity measures the slope of the secant line to <span class="process-math">\(y = f(x)\)</span> through the points <span class="process-math">\((a-h, f(a-h))\)</span> and <span class="process-math">\((a+h, f(a+h))\text{.}\)</span> The central difference generates a good approximation of the derivative's value.</p>
+</li>
+</ul></section><section class="exercises" id="tXk"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.5.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="XqR"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">A cooling cup of coffee.</span>
+</h4>
+<div id="webwork-36" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="36" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec4/Q01.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-854">The temperature, <span class="process-math">\(H\text{,}\)</span> in degrees Celsius, of a cup of coffee placed on the kitchen counter is given by <span class="process-math">\(H = f(t)\text{,}\)</span> where <span class="process-math">\(t\)</span> is in minutes since the coffee was put on the counter.</p>
+<ol id="p-855" class="lower-alpha">
+<li id="li-605">
+<p id="p-856">Is <span class="process-math">\(f'(t)\)</span> positive or negative?</p>
+<p id="p-857"><ul style="list-style:circle;">
+<li id="li-607"><p id="p-859">positive</p></li>
+<li id="li-608"><p id="p-860">negative</p></li>
+</ul></p>
+<p id="p-861"><em class="emphasis">(Be sure that you are able to give a reason for your answer.)</em></p>
+</li>
+<li id="li-609"><p id="p-862">What are the units of <span class="process-math">\(f'(35)\text{?}\)</span></p></li>
+<li id="li-610">
+<p id="p-863">Suppose that <span class="process-math">\(\lvert f'(35)\rvert = 1.5\)</span> and <span class="process-math">\(f(35) = 68\text{.}\)</span>  Fill in the blanks (including units where needed) and select the appropriate terms to complete the following statement about the temperature of the coffee in this case.</p>
+<p id="p-864">At <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> minutes after the coffee was put on the counter, its <ul style="list-style:circle;">
+<li id="li-612"><p id="p-866">derivative</p></li>
+<li id="li-613"><p id="p-867">temperature</p></li>
+<li id="li-614"><p id="p-868">change in temperature</p></li>
+</ul> is <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and will <ul style="list-style:circle;">
+<li id="li-616"><p id="p-870">increase</p></li>
+<li id="li-617"><p id="p-871">decrease</p></li>
+</ul> by about <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> in the next 30 seconds.</p>
+</li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-36')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Dya"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">A cost function.</span>
+</h4>
+<div id="webwork-37" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="37" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec4/Q03.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-884">The cost, <span class="process-math">\(C\)</span> (in dollars) to produce <span class="process-math">\(g\)</span> gallons of ice cream can be expressed as <span class="process-math">\(C = f(g)\text{.}\)</span></p>
+<p id="p-885"><em class="alert">(a)</em> In the expression <span class="process-math">\(f(100) = 250\text{,}\)</span></p>
+<p id="p-886">what are the units of 100? <ul style="list-style:circle;">
+<li id="li-622"><p id="p-888">dollars</p></li>
+<li id="li-623"><p id="p-889">gallons</p></li>
+<li id="li-624"><p id="p-890">dollars*gallons</p></li>
+<li id="li-625"><p id="p-891">dollars/gallon</p></li>
+<li id="li-626"><p id="p-892">gallons/dollar</p></li>
+</ul></p>
+<p id="p-893">what are the units of 250? <ul style="list-style:circle;">
+<li id="li-628"><p id="p-895">dollars</p></li>
+<li id="li-629"><p id="p-896">gallons</p></li>
+<li id="li-630"><p id="p-897">dollars*gallons</p></li>
+<li id="li-631"><p id="p-898">dollars/gallon</p></li>
+<li id="li-632"><p id="p-899">gallons/dollar</p></li>
+</ul></p>
+<p id="p-900"><em class="alert">(b)</em> In the expression <span class="process-math">\(f'(100) = 1.2\text{,}\)</span></p>
+<p id="p-901">what are the units of 100? <ul style="list-style:circle;">
+<li id="li-634"><p id="p-903">dollars</p></li>
+<li id="li-635"><p id="p-904">gallons</p></li>
+<li id="li-636"><p id="p-905">dollars*gallons</p></li>
+<li id="li-637"><p id="p-906">dollars/gallon</p></li>
+<li id="li-638"><p id="p-907">gallons/dollar</p></li>
+</ul></p>
+<p id="p-908">what are the units of 1.2? <ul style="list-style:circle;">
+<li id="li-640"><p id="p-910">dollars</p></li>
+<li id="li-641"><p id="p-911">gallons</p></li>
+<li id="li-642"><p id="p-912">dollars*gallons</p></li>
+<li id="li-643"><p id="p-913">dollars/gallon</p></li>
+<li id="li-644"><p id="p-914">gallons/dollar</p></li>
+</ul></p>
+<p id="p-915"><em class="emphasis">(Be sure that you can carefully put into words the meanings of each of these statement in terms of ice cream and money.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-37')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="jFj"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Weight as a function of calories.</span>
+</h4>
+<div id="webwork-38" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="38" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec4/Q11.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-920">A laboratory study investigating the relationship between diet and weight in adult humans found that the weight of a subject, <span class="process-math">\(W\text{,}\)</span> in pounds, was a function, <span class="process-math">\(W=f(c)\text{,}\)</span> of the average number of Calories, <span class="process-math">\(c\text{,}\)</span> consumed by the subject in a day.</p>
+<p id="p-921"><em class="alert">(a)</em> In the statement <span class="process-math">\(f(1600) = 165\)</span></p>
+<p id="p-922">what are the units of 1600? <ul style="list-style:circle;">
+<li id="li-646"><p id="p-924">lb</p></li>
+<li id="li-647"><p id="p-925">cal</p></li>
+<li id="li-648"><p id="p-926">day</p></li>
+<li id="li-649"><p id="p-927">lb/cal</p></li>
+<li id="li-650"><p id="p-928">cal/lb</p></li>
+<li id="li-651"><p id="p-929">cal/day</p></li>
+<li id="li-652"><p id="p-930">lb/day</p></li>
+<li id="li-653"><p id="p-931">day/lb</p></li>
+<li id="li-654"><p id="p-932">day/cal</p></li>
+</ul></p>
+<p id="p-933">what are the units of 165? <ul style="list-style:circle;">
+<li id="li-656"><p id="p-935">lb</p></li>
+<li id="li-657"><p id="p-936">cal</p></li>
+<li id="li-658"><p id="p-937">day</p></li>
+<li id="li-659"><p id="p-938">lb/cal</p></li>
+<li id="li-660"><p id="p-939">cal/lb</p></li>
+<li id="li-661"><p id="p-940">cal/day</p></li>
+<li id="li-662"><p id="p-941">lb/day</p></li>
+<li id="li-663"><p id="p-942">day/lb</p></li>
+<li id="li-664"><p id="p-943">day/cal</p></li>
+</ul></p>
+<p id="p-944"><em class="emphasis">(Think about what this statement means in terms of the weight of the subject and the number of calories that the subject consumes.)</em></p>
+<p id="p-945"><em class="alert">(b)</em> In the statement <span class="process-math">\(f'(2000)=0\text{,}\)</span></p>
+<p id="p-946">what are the units of 2000? <ul style="list-style:circle;">
+<li id="li-666"><p id="p-948">lb</p></li>
+<li id="li-667"><p id="p-949">cal</p></li>
+<li id="li-668"><p id="p-950">day</p></li>
+<li id="li-669"><p id="p-951">lb/cal</p></li>
+<li id="li-670"><p id="p-952">cal/lb</p></li>
+<li id="li-671"><p id="p-953">cal/day</p></li>
+<li id="li-672"><p id="p-954">lb/day</p></li>
+<li id="li-673"><p id="p-955">day/lb</p></li>
+<li id="li-674"><p id="p-956">day/cal</p></li>
+</ul></p>
+<p id="p-957">what are the units of 0? <ul style="list-style:circle;">
+<li id="li-676"><p id="p-959">lb</p></li>
+<li id="li-677"><p id="p-960">cal</p></li>
+<li id="li-678"><p id="p-961">day</p></li>
+<li id="li-679"><p id="p-962">lb/cal</p></li>
+<li id="li-680"><p id="p-963">cal/lb</p></li>
+<li id="li-681"><p id="p-964">cal/day</p></li>
+<li id="li-682"><p id="p-965">lb/day</p></li>
+<li id="li-683"><p id="p-966">day/lb</p></li>
+<li id="li-684"><p id="p-967">day/cal</p></li>
+</ul></p>
+<p id="p-968"><em class="emphasis">(Think about what this statement means in terms of the weight of the subject and the number of calories that the subject consumes.)</em></p>
+<p id="p-969"><em class="alert">(c)</em> In the statement <span class="process-math">\(f^{-1}(173) = 2400\text{,}\)</span></p>
+<p id="p-970">what are the units of 173? <ul style="list-style:circle;">
+<li id="li-686"><p id="p-972">lb</p></li>
+<li id="li-687"><p id="p-973">cal</p></li>
+<li id="li-688"><p id="p-974">day</p></li>
+<li id="li-689"><p id="p-975">lb/cal</p></li>
+<li id="li-690"><p id="p-976">cal/lb</p></li>
+<li id="li-691"><p id="p-977">cal/day</p></li>
+<li id="li-692"><p id="p-978">lb/day</p></li>
+<li id="li-693"><p id="p-979">day/lb</p></li>
+<li id="li-694"><p id="p-980">day/cal</p></li>
+</ul></p>
+<p id="p-981">what are the units of 2400? <ul style="list-style:circle;">
+<li id="li-696"><p id="p-983">lb</p></li>
+<li id="li-697"><p id="p-984">cal</p></li>
+<li id="li-698"><p id="p-985">day</p></li>
+<li id="li-699"><p id="p-986">lb/cal</p></li>
+<li id="li-700"><p id="p-987">cal/lb</p></li>
+<li id="li-701"><p id="p-988">cal/day</p></li>
+<li id="li-702"><p id="p-989">lb/day</p></li>
+<li id="li-703"><p id="p-990">day/lb</p></li>
+<li id="li-704"><p id="p-991">day/cal</p></li>
+</ul></p>
+<p id="p-992"><em class="emphasis">(Think about what this statement means in terms of the weight of the subject and the number of calories that the subject consumes.)</em></p>
+<p id="p-993"><em class="alert">(d)</em> What are the units of <span class="process-math">\(f'(c)=dW/dc\text{?}\)</span>  <ul style="list-style:circle;">
+<li id="li-706"><p id="p-995">lb</p></li>
+<li id="li-707"><p id="p-996">cal</p></li>
+<li id="li-708"><p id="p-997">day</p></li>
+<li id="li-709"><p id="p-998">lb/cal</p></li>
+<li id="li-710"><p id="p-999">cal/lb</p></li>
+<li id="li-711"><p id="p-1000">cal/day</p></li>
+<li id="li-712"><p id="p-1001">lb/day</p></li>
+<li id="li-713"><p id="p-1002">day/lb</p></li>
+<li id="li-714"><p id="p-1003">day/cal</p></li>
+</ul></p>
+<p id="p-1004"><em class="alert">(e)</em> Suppose that Sam reads about <span class="process-math">\(f'\)</span> in this study and draws the following conclusion: If Sam increases her average calorie intake from 2800 to 2840 calories per day, then her weight will increase by approximately 0.8 pounds.</p>
+<p id="p-1005">Fill in the blanks below so that the equation supports her conclusion.</p>
+<p id="p-1006"><span class="process-math">\(f'\Big(\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span> <span class="process-math">\(\Big)=\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-38')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="vTB"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Displacement and velocity.</span>
+</h4>
+<div id="webwork-39" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="39" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UVA-Stew5e/setUVA-Stew5e-C02S07-TansVelsRates/2-7-20.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-1016">The displacement (in meters) of a particle moving in a straight line is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+s = t^2 - 5 t + 16,
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(t\)</span> is measured in seconds.</p>
+<p id="p-1017">(A)</p>
+<p id="p-1018">(i) Find the average velocity over the time interval [3,4].</p>
+<p id="p-1019">Average Velocity = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> meters per second.</p>
+<p id="p-1020">(ii) Find the average velocity over the time interval [3.5,4].</p>
+<p id="p-1021">Average Velocity = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> meters per second.</p>
+<p id="p-1022">(iii) Find the average velocity over the time interval [4,5].</p>
+<p id="p-1023">Average Velocity = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> meters per second.</p>
+<p id="p-1024">(iv) Find the average velocity over the time interval [4,4.5].</p>
+<p id="p-1025">Average Velocity = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> meters per second.</p>
+<p id="p-1026">(B) Find the instantaneous velocity when <span class="process-math">\(t=4\text{.}\)</span></p>
+<p id="p-1027">Instantaneous velocity = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> meters per second.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-39')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="caK"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="cYZ">A cup of coffee has its temperature <span class="process-math">\(F\)</span> (in degrees Fahrenheit) at time <span class="process-math">\(t\)</span> given by the function <span class="process-math">\(F(t) = 75 + 110 e^{-0.05t}\text{,}\)</span> where time is measured in minutes.</p>
+<ol class="lower-alpha">
+<li id="TqS"><p id="JBH">Use a central difference with <span class="process-math">\(h = 0.01\)</span> to estimate the value of <span class="process-math">\(F'(10)\text{.}\)</span></p></li>
+<li id="zyb"><p id="pIQ">What are the units on the value of <span class="process-math">\(F'(10)\)</span> that you computed in (a)? What is the practical meaning of the value of <span class="process-math">\(F'(10)\text{?}\)</span></p></li>
+<li id="fFk"><p id="VPZ">Which do you expect to be greater: <span class="process-math">\(F'(10)\)</span> or <span class="process-math">\(F'(20)\text{?}\)</span> Why?</p></li>
+<li id="LMt"><p id="BXi">Write a sentence that describes the behavior of the function <span class="process-math">\(y = F'(t)\)</span> on the time interval <span class="process-math">\(0 \le t \le 30\text{.}\)</span> How do you think its graph will look? Why?</p></li>
+</ol></article><article class="exercise exercise-like" id="IhT"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="Jgi">The temperature change <span class="process-math">\(T\)</span> (in Fahrenheit degrees), in a patient, that is generated by a dose <span class="process-math">\(q\)</span> (in milliliters), of a drug, is given by the function <span class="process-math">\(T = f(q)\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="oYW"><p id="fjL">What does it mean to say <span class="process-math">\(f(50) = 0.75\text{?}\)</span> Write a complete sentence to explain, using correct units.</p></li>
+<li id="Vgf"><p id="LqU">A person's sensitivity, <span class="process-math">\(s\text{,}\)</span> to the drug is defined by the function <span class="process-math">\(s(q) = f'(q)\text{.}\)</span> What are the units of sensitivity?</p></li>
+<li id="Bno"><p id="ryd">Suppose that <span class="process-math">\(f'(50) = -0.02\text{.}\)</span> Write a complete sentence to explain the meaning of this value. Include in your response the information given in (a).</p></li>
+</ol></article><article class="exercise exercise-like" id="opc"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="pnr">The velocity of a ball that has been tossed vertically in the air is given by <span class="process-math">\(v(t) = 16 - 32t\text{,}\)</span> where <span class="process-math">\(v\)</span> is measured in feet per second, and <span class="process-math">\(t\)</span> is measured in seconds. The ball is in the air from <span class="process-math">\(t = 0\)</span> until <span class="process-math">\(t = 2\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="Slz"><p id="Iwo">When is the ball's velocity greatest?</p></li>
+<li id="ysI"><p id="oDx">Determine the value of <span class="process-math">\(v'(1)\text{.}\)</span> Justify your thinking.</p></li>
+<li id="ezR"><p id="UKG">What are the units on the value of <span class="process-math">\(v'(1)\text{?}\)</span> What does this value and the corresponding units tell you about the behavior of the ball at time <span class="process-math">\(t = 1\text{?}\)</span></p></li>
+<li id="KHa"><p id="ARP">What is the physical meaning of the function <span class="process-math">\(v'(t)\text{?}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="Uwl"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="VuA">The value, <span class="process-math">\(V\text{,}\)</span> of a particular automobile (in dollars) depends on the number of miles, <span class="process-math">\(m\text{,}\)</span> the car has been driven, according to the function <span class="process-math">\(V = h(m)\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="nTD"><p id="KlB">Suppose that <span class="process-math">\(h(40000) = 15500\)</span> and <span class="process-math">\(h(55000) = 13200\text{.}\)</span> What is the average rate of change of <span class="process-math">\(h\)</span> on the interval <span class="process-math">\([40000,55000]\text{,}\)</span> and what are the units on this value?</p></li>
+<li id="UaM"><p id="qsK">In addition to the information given in (a), say that <span class="process-math">\(h(70000) = 11100\text{.}\)</span> Determine the best possible estimate of <span class="process-math">\(h'(55000)\)</span> and write one sentence to explain the meaning of your result, including units on your answer.</p></li>
+<li id="AhV"><p id="WzT">Which value do you expect to be greater: <span class="process-math">\(h'(30000)\)</span> or <span class="process-math">\(h'(80000)\text{?}\)</span> Why?</p></li>
+<li id="gpe"><p id="CHc">Write a sentence to describe the long-term behavior of the function <span class="process-math">\(V = h(m)\text{,}\)</span> plus another sentence to describe the long-term behavior of <span class="process-math">\(h'(m)\text{.}\)</span> Provide your discussion in practical terms regarding the value of the car and the rate at which that value is changing.</p></li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

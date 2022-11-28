@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Modeling with differential equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-7-4-separable.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-7.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-7-6-logistic.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-7-4-separable.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-7.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-7-6-logistic.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="active">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="Ugq"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.5</span> <span class="title">Modeling with differential equations</span>
+</h2>
+<article class="objectives goal-like" id="YQj"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="JHl"><p id="aFw">How can we use differential equations to describe phenomena in the world around us?</p></li>
+<li id="pOu"><p id="GMF">How can we use differential equations to better understand these phenomena?</p></li>
+</ul></article><section class="introduction" id="EXs"><p id="WFx">We have seen several ways that differential equations arise in the natural world, from the growth of a population to the temperature of a cup of coffee. In this section, we look more closely at how differential equations give us a natural way to describe various phenoma. As we'll see, the key is to understand the different factors that cause a quantity to change.</p>
+<article class="exploration project-like" id="yzm"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">7.5.1</span><span class="period">.</span>
+</h3>
+<p id="Ssd">Any time that the rate of change of a quantity is related to the amount of a quantity, a differential equation naturally arises. In the following two problems, we see two such scenarios; for each, we want to develop a differential equation whose solution is the quantity of interest.</p>
+<ol class="lower-alpha">
+<li id="kvH">
+<p id="BtS">Suppose you have a bank account in which money grows at an annual rate of 3%.</p>
+<ol class="lower-roman">
+<li id="KNE"><p id="eGv">If you have $10,000 in the account, at what rate is your money growing?</p></li>
+<li id="QCQ"><p id="hBb">Suppose that you are also withdrawing money from the account at $1,000 per year. What is the rate of change in the amount of money in the account? What are the units on this rate of change?</p></li>
+</ol>
+</li>
+<li id="VmJ">
+<p id="NIk">Suppose that a water tank holds 100 gallons and that a salty solution, which contains 20 grams of salt in every gallon, enters the tank at 2 gallons per minute.</p>
+<ol class="lower-roman">
+<li id="wJZ"><p id="mkU">How much salt enters the tank each minute?</p></li>
+<li id="cRi"><p id="tPt">Suppose that initially there are 300 grams of salt in the tank. How much salt is in each gallon at this point in time?</p></li>
+<li id="IYr"><p id="ZWC">Finally, suppose that evenly mixed solution is pumped out of the tank at the rate of 2 gallons per minute. How much salt leaves the tank each minute?</p></li>
+<li id="pfA"><p id="GdL">What is the total rate of change in the amount of salt in the tank?</p></li>
+</ol>
+</li>
+</ol></article></section><section class="subsection" id="Anz"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.5.1</span> <span class="title">Developing a differential equation</span>
+</h3>
+<p id="CMG"><a href="" class="xref" data-knowl="./knowl/PA-7-5.html" title="Preview Activity 7.5.1">Preview Activity 7.5.1</a> demonstrates the kind of thinking we will be doing in this section. In each of the two examples we considered, there is a quantity, such as the amount of money in the bank account or the amount of salt in the tank, that is changing due to several factors. The governing differential equation states that the total rate of change is the difference between the rate of increase and the rate of decrease.</p>
+<article class="example example-like" id="MBR"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.5.1</span><span class="period">.</span>
+</h4>
+<p id="qyo">In the Great Lakes region, rivers flowing into the lakes carry a great deal of pollution in the form of small pieces of plastic averaging 1 millimeter in diameter. In order to understand how the amount of plastic in Lake Michigan is changing, construct a model for how this type pollution has built up in the lake.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-leB" id="leB"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-leB"><div class="solution solution-like">
+<p id="rDH">First, some basic facts about Lake Michigan.</p>
+<ul class="disc">
+<li id="VVD"><p id="mTO">The volume of the lake is <span class="process-math">\(5\cdot10^{12}\)</span> cubic meters.</p></li>
+<li id="CcM"><p id="TaX">Water flows into the lake at a rate of <span class="process-math">\(5\cdot10^{10}\)</span> cubic meters per year. It flows out of the lake at the same rate.</p></li>
+<li id="ijV"><p id="zig">Each cubic meter flowing into the lake contains roughly <span class="process-math">\(3\cdot10^{-8}\)</span> cubic meters of plastic pollution.</p></li>
+</ul>
+<p id="XKQ">Let's denote the amount of pollution in the lake by <span class="process-math">\(P(t)\text{,}\)</span> where <span class="process-math">\(P\)</span> is measured in cubic meters of plastic and <span class="process-math">\(t\)</span> in years. Our goal is to describe the rate of change of this function; so we want to develop a differential equation describing <span class="process-math">\(P(t)\text{.}\)</span></p>
+<p id="DRZ">First, we will measure how <span class="process-math">\(P(t)\)</span> increases due to pollution flowing into the lake. We know that <span class="process-math">\(5\cdot10^{10}\)</span> cubic meters of water enters the lake every year and each cubic meter of water contains <span class="process-math">\(3\cdot10^{-8}\)</span> cubic meters of pollution. Therefore, pollution enters the lake at the rate of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(5\cdot 10^{10} \frac{m^3 \text{ water} }{\text{year} }\right) \left(3\cdot10^{-8} \frac{m^3 \text{ plastic} }{m^3 \text{ water} } \right) = 1.5\cdot 10^3
+\text{cubic m of plastic per year}\text{.}
+\end{equation*}
+</div>
+<p id="jZi">Second, we will measure how <span class="process-math">\(P(t)\)</span> decreases due to pollution flowing out of the lake. If the total amount of pollution is <span class="process-math">\(P\)</span> cubic meters and the volume of Lake Michigan is <span class="process-math">\(5\cdot 10^{12}\)</span> cubic meters, then the concentration of plastic pollution in Lake Michigan is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{P}{5\cdot10^{12}}  \text{cubic m of plastic per cubic m of water}\text{.}
+\end{equation*}
+</div>
+<p id="Qgr">Since <span class="process-math">\(5\cdot10^{10}\)</span> cubic meters of water flow out each year<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-120" id="fn-120"><sup> 1 </sup></a>, then the plastic pollution leaves the lake at the rate of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left(\frac{P}{5\cdot10^{12}} \frac{m^3 \text{ plastic} }{m^3 \text{ water} } \right) \left(5\cdot10^{10} \frac{m^3 \text{ water} }{\text{year} } \right)=\frac{P}{100}
+\text{cubic m of plastic per year}\text{.}
+\end{equation*}
+</div>
+<p id="wnA">The total rate of change of <span class="process-math">\(P\)</span> is thus the difference between the rate at which pollution enters the lake and the rate at which pollution leaves the lake; that is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="snB">
+\begin{align*}
+\frac{dP}{dt} =\mathstrut \amp  1.5\cdot10^{3}-\frac{P}{100}\\
+=\mathstrut \amp  \frac{1}{100}(1.5\cdot10^{5} - P)\text{.}
+\end{align*}
+</div>
+<p id="cuJ">We have now found a differential equation that describes the rate at which the amount of pollution is changing. To understand the behavior of <span class="process-math">\(P(t)\text{,}\)</span> we apply some of the techniques we have recently developed.</p>
+<p id="IBS">Because the differential equation is autonomous, we can sketch <span class="process-math">\(dP/dt\)</span> as a function of <span class="process-math">\(P\)</span> and then construct a slope field, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-5-Ex1-plot.html" title="Figure 7.5.2">Figure 7.5.2</a> and <a href="" class="xref" data-knowl="./knowl/F-7-5-Ex1-slope-field.html" title="Figure 7.5.3">Figure 7.5.3</a>.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="ycN"><img src="external/images/7_5_lake_michigan.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.5.2<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(\frac{dP}{dt}\)</span> vs. <span class="process-math">\(P\)</span> for <span class="process-math">\(\frac{dP}{dt} = \frac{1}{100}(1.5\cdot10^{5} - P)\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="ejW"><img src="external/images/7_5_slope_field.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.5.3<span class="period">.</span></span><span class="space"> </span>Plot of the slope field for <span class="process-math">\(\frac{dP}{dt} = \frac{1}{100}(1.5\cdot10^{5} - P)\text{.}\)</span></figcaption></figure></div>
+</div></div>
+<p id="oJb">These plots both show that <span class="process-math">\(P=1.5\cdot10^5\)</span> is a stable equilibrium. Therefore, we should expect that the amount of pollution in Lake Michigan will stabilize near <span class="process-math">\(1.5\cdot10^5\)</span> cubic meters of pollution.</p>
+<p id="UQk">Next, assuming that there is initially no pollution in the lake, we will solve the initial value problem</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dP}{dt} = \frac{1}{100}(1.5\cdot10^{5} - P), \ P(0) = 0\text{.}
+\end{equation*}
+</div>
+<p id="AXt">Separating variables, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac1{1.5\cdot10^5-P} \frac{dP}{dt} = \frac1{100}\text{.}
+\end{equation*}
+</div>
+<p id="heC">Integrating with respect to <span class="process-math">\(t\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac1{1.5\cdot10^5-P} \frac{dP}{dt}~dt = \int \frac1{100}~dt\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and thus changing variables on the left and antidifferentiating on both sides, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="QQl">
+\begin{align*}
+\int \frac{dP}{1.5\cdot10^5-P} =\mathstrut \amp  \int \frac1{100}~dt\\
+-\ln|1.5\cdot10^5 - P| =\mathstrut \amp  \frac1{100}t + C
+\end{align*}
+</div>
+<p id="NlL">Finally, multiplying both sides by <span class="process-math">\(-1\)</span> and using the definition of the logarithm, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="wXu">
+\begin{equation}
+1.5\cdot10^5 - P = C e^{-t/100}\text{.}\tag{7.5.1}
+\end{equation}
+</div>
+<p id="tsU">This is a good time to determine the constant <span class="process-math">\(C\text{.}\)</span> Since <span class="process-math">\(P =
+0\)</span> when <span class="process-math">\(t=0\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1.5\cdot 10^5 - 0 = Ce^0 = C\text{,}
+\end{equation*}
+</div>
+<p id="ZAd">so <span class="process-math">\(C=1.5\cdot10^5\text{.}\)</span></p>
+<p id="FHm">Using this value of <span class="process-math">\(C\)</span> in Equation <a href="" class="xref" data-knowl="./knowl/E-7-5-Ex1C.html" title="Equation 7.5.1">(7.5.1)</a> and solving for <span class="process-math">\(P\text{,}\)</span> we arrive at the solution</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-7-5-Ex1C.html">
+\begin{equation*}
+P(t) = 1.5\cdot10^5(1-e^{-t/100})\text{.}
+\end{equation*}
+</div>
+<p id="lOv">Superimposing the graph of <span class="process-math">\(P\)</span> on the slope field we saw in <a href="" class="xref" data-knowl="./knowl/F-7-5-Ex1-slope-field.html" title="Figure 7.5.3">Figure 7.5.3</a>, we see, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-5-Ex1a.html" title="Figure 7.5.4">Figure 7.5.4</a></p>
+<p id="RVE">We see that, as expected, the amount of plastic pollution stabilizes around <span class="process-math">\(1.5\cdot10^5\)</span> cubic meters.</p>
+<figure class="figure figure-like" id="Krf"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/images/7_5_solution.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.5.4<span class="period">.</span></span><span class="space"> </span>The solution <span class="process-math">\(P(t)\)</span> and the slope field for the differential equation <span class="process-math">\(\frac{dP}{dt} = \frac{1}{100}(1.5\cdot10^{5} - P)\text{.}\)</span></figcaption></figure>
+</div></div>
+</div></article><p id="iTP">There are many important lessons to learn from <a href="" class="xref" data-knowl="./knowl/Ex-7-5-1.html" title="Example 7.5.1">Example 7.5.1</a>. Foremost is how we can develop a differential equation by thinking about the “total rate = rate in - rate out” model. In addition, we note how we can bring together all of our available understanding (plotting <span class="process-math">\(\frac{dP}{dt}\)</span> vs. <span class="process-math">\(P\text{,}\)</span> creating a slope field, solving the differential equation) to see how the differential equation describes the behavior of a changing quantity.</p>
+<p id="PaY">We can also explore what happens when certain aspects of the problem change. For instance, let's suppose we are at a time when the plastic pollution entering Lake Michigan has stabilized at <span class="process-math">\(1.5\cdot10^5\)</span> cubic meters, and that new legislation is passed to prevent this type of pollution entering the lake. So, there is no longer any inflow of plastic pollution to the lake. How does the amount of plastic pollution in Lake Michigan now change? For example, how long does it take for the amount of plastic pollution in the lake to halve?</p>
+<p id="vih">Resetting <span class="process-math">\(t=0\)</span> at this time, we now have the initial value problem</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dP}{dt} = -\frac{1}{100}P, \ P(0) = 1.5\cdot10^5\text{.}
+\end{equation*}
+</div>
+<p id="bpq">It is a straightforward and familiar exercise to find that the solution to this equation is <span class="process-math">\(P(t) = 1.5\cdot10^5
+e^{-t/100}\text{.}\)</span> The time that it takes for half of the pollution to flow out of the lake is given by <span class="process-math">\(T\)</span> where <span class="process-math">\(P(T) = 0.75\cdot10^5\text{.}\)</span> Thus, we must solve the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0.75\cdot10^5 = 1.5\cdot10^5e^{-T/100}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac12 = e^{-T/100}\text{.}
+\end{equation*}
+</div>
+<p id="Hwz">It follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+T = -100\,\ln\left(\frac12\right) \approx 69.3 \text{years.}
+\end{equation*}
+</div>
+<p id="nDI">In the upcoming activities, we explore some other natural settings in which differential equations model changing quantities.</p>
+<article class="activity project-like" id="yIm"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.5.2</span><span class="period">.</span>
+</h4>
+<p id="Jhr">Suppose you have a bank account that grows by 5% every year. Let <span class="process-math">\(A(t)\)</span> be the amount of money in the account in year <span class="process-math">\(t\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="fkU"><p id="xYs">What is the rate of change of <span class="process-math">\(A\)</span> with respect to <span class="process-math">\(t\text{?}\)</span></p></li>
+<li id="rzm"><p id="efB">Suppose that you are also withdrawing $10,000 per year. Write a differential equation that expresses the total rate of change of <span class="process-math">\(A\text{.}\)</span></p></li>
+<li id="XGv"><p id="KmK">Sketch a slope field for this differential equation, find any equilibrium solutions, and identify them as either stable or unstable. Write a sentence or two that describes the significance of the stability of the equilibrium solution.</p></li>
+<li id="DNE"><p id="qtT">Suppose that you initially deposit $100,000 into the account. How long does it take for you to deplete the account?</p></li>
+<li id="jUN"><p id="WBc">What is the smallest amount of money you would need to have in the account to guarantee that you never deplete the money in the account?</p></li>
+<li id="QbW"><p id="CIl">If your initial deposit is $300,000, how much could you withdraw every year without depleting the account?</p></li>
+</ol></article><article class="activity project-like" id="ymN"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.5.3</span><span class="period">.</span>
+</h4>
+<p id="NvL">A dose of morphine is absorbed from the bloodstream of a patient at a rate proportional to the amount in the bloodstream.</p>
+<ol class="lower-alpha">
+<li id="vNG"><p id="itV">Write a differential equation for <span class="process-math">\(M(t)\text{,}\)</span> the amount of morphine in the patient's bloodstream, using <span class="process-math">\(k\)</span> as the constant proportionality.</p></li>
+<li id="bUP"><p id="OBe">Assuming that the initial dose of morphine is <span class="process-math">\(M_0\text{,}\)</span> solve the initial value problem to find <span class="process-math">\(M(t)\text{.}\)</span> Use the fact that the half-life for the absorption of morphine is two hours to find the constant <span class="process-math">\(k\text{.}\)</span></p></li>
+<li id="IbY"><p id="uIn">Suppose that a patient is given morphine intravenously at the rate of 3 milligrams per hour. Write a differential equation that combines the intravenous administration of morphine with the body's natural absorption.</p></li>
+<li id="ojh"><p id="aPw">Find any equilibrium solutions and determine their stability.</p></li>
+<li id="Uqq"><p id="GWF">Assuming that there is initially no morphine in the patient's bloodstream, solve the initial value problem to determine <span class="process-math">\(M(t)\text{.}\)</span> What happens to <span class="process-math">\(M(t)\)</span> after a very long time?</p></li>
+<li id="Axz"><p id="ndO">To what rate should a doctor reduce the intravenous rate so that there is eventually 7 milligrams of morphine in the patient's bloodstream?</p></li>
+</ol></article></section><section class="subsection" id="guI"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.5.2</span> <span class="title">Summary</span>
+</h3>
+<ul id="TKR" class="disc">
+<li id="Ore"><p id="fpp">Differential equations arise in a situation when we understand how various factors cause a quantity to change.</p></li>
+<li id="uyn"><p id="Lwy">We may use the tools we have developed so far—slope fields, Euler's methods, and our method for solving separable equations—to understand a quantity described by a differential equation.</p></li>
+</ul></section><section class="exercises" id="ORD"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">7.5.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="mhD"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Mixing problem.</span>
+</h4>
+<div id="webwork-202" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="202" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ5ModelingWith1stOrder/ns7_4_31a.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8246">A tank contains <span class="process-math">\(1740\)</span> L of  pure water.  A solution that contains <span class="process-math">\(0.08\)</span> kg of sugar per liter enters the tank at the rate <span class="process-math">\(9\)</span> L/min. The solution is mixed and drains from the tank at the same rate.</p>
+<p id="p-8247">(a) How much sugar is in the tank at the beginning?</p>
+<p id="p-8248"><span class="process-math">\(y(0) =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> (include units)</p>
+<p id="p-8249">(b) With <span class="process-math">\(S\)</span> representing the amount of sugar (in kg) at time t (in minutes) write a differential equation which models this situation.</p>
+<p id="p-8250"><span class="process-math">\(S' = f(t,S) =\)</span>  .</p>
+<p id="p-8251"><em class="alert">Note:</em> Make sure you use a capital S, (and don't use S(t), it confuses the computer). Don't enter units for this function.</p>
+<p id="p-8252">(c) Find the amount of sugar (in kg) after t  minutes.</p>
+<p id="p-8253"><span class="process-math">\(S(t) =\)</span> <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span>  (function of t)</p>
+<p id="p-8254">(d) Find the amount of the sugar after 42 minutes.</p>
+<p id="p-8255"><span class="process-math">\(S(42)=\)</span> <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span> (include <a class="external" href="units" target="_blank"><code class="code-inline tex2jax_ignore">units</code></a>)</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-202')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="SoM"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Mixing problem.</span>
+</h4>
+<div id="webwork-203" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="203" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ5ModelingWith1stOrder/ns7_4_31c.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8260">A tank contains <span class="process-math">\(70\)</span> kg of salt and <span class="process-math">\(2000\)</span> L of water. A solution of a concentration <span class="process-math">\(0.0175\)</span> kg of salt per liter enters a tank at the rate <span class="process-math">\(7\)</span> L/min. The solution is mixed and drains from the tank at the same rate.</p>
+<p id="p-8261">(a) What is the concentration of our solution in the tank initially?</p>
+<p id="p-8262">concentration = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> (kg/L)</p>
+<p id="p-8263">(b) Find the amount of salt in the tank after 5 hours.</p>
+<p id="p-8264">amount =  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> (kg)</p>
+<p id="p-8265">(c) Find the concentration of salt in the solution in the tank as time approaches infinity.</p>
+<p id="p-8266">concentration =  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> (kg/L)</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-203')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="yvV"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Population growth problem.</span>
+</h4>
+<div id="webwork-204" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="204" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ5ModelingWith1stOrder/ns7_5_3.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8270">A bacteria culture starts with <span class="process-math">\(640\)</span> bacteria and grows at a rate proportional to its size.  After <span class="process-math">\(2\)</span> hours there will be <span class="process-math">\(1280\)</span> bacteria.</p>
+<p id="p-8271">(a) Express the population after <span class="process-math">\(t\)</span> hours as a function of <span class="process-math">\(t\text{.}\)</span></p>
+<p id="p-8272">population: <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span> (function of t)</p>
+<p id="p-8273">(b) What will be the population after <span class="process-math">\(8\)</span> hours?</p>
+<p id="p-8274">(c) How long will it take for the population to reach <span class="process-math">\(2310\)</span> ?</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-204')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="eDe"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Radioactive decay problem.</span>
+</h4>
+<div id="webwork-205" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="205" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ5ModelingWith1stOrder/ns7_5_10.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8278">An unknown radioactive element decays into non-radioactive substances. In <span class="process-math">\(740\)</span> days the radioactivity of a sample decreases by <span class="process-math">\(32\)</span> percent.</p>
+<p id="p-8279">(a) What is the half-life of the element?</p>
+<p id="p-8280">half-life:  <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>  (days)</p>
+<p id="p-8281">(b) How long will it take for a sample of <span class="process-math">\(100\)</span> mg to decay to <span class="process-math">\(54\)</span> mg?</p>
+<p id="p-8282">time needed: <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span> (days)</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-205')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="KKn"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Investment problem.</span>
+</h4>
+<div id="webwork-206" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="206" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ5ModelingWith1stOrder/ur_de_5_1.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8285">A young person with no initial capital invests <span class="process-math">\(k\)</span> dollars per year in a retirement account at an annual rate of return <span class="process-math">\(0.09\text{.}\)</span>  Assume that investments are made continuously and that the return is compounded continuously.</p>
+<p id="p-8286">Determine a formula for the sum <span class="process-math">\(S(t)\)</span> -- (this will involve the parameter <span class="process-math">\(k\)</span>):</p>
+<p id="p-8287"><span class="process-math">\(S(t) =\)</span> <span class="fillin underline" role="img" aria-label="60-character blank" style="width: 27.2727272727273em;"></span></p>
+<p id="p-8288">What value of <span class="process-math">\(k\)</span> will  provide <span class="process-math">\(3541000\)</span> dollars in <span class="process-math">\(41\)</span> years?</p>
+<p id="p-8289"><span class="process-math">\(k =\)</span>  <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-206')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="qRw"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="YGO">Congratulations, you just won the lottery! In one option presented to you, you will be paid one million dollars a year for the next 25 years. You can deposit this money in an account that will earn 5% each year.</p>
+<ol class="lower-alpha">
+<li id="ihE"><p id="eRz">Set up a differential equation that describes the rate of change in the amount of money in the account. Two factors cause the amount to grow—first, you are depositing one millon dollars per year and second, you are earning 5% interest.</p></li>
+<li id="OoN"><p id="KYI">If there is no amount of money in the account when you open it, how much money will you have in the account after 25 years?</p></li>
+<li id="uvW"><p id="rfR">The second option presented to you is to take a lump sum of 10 million dollars, which you will deposit into a similar account. How much money will you have in that account after 25 years?</p></li>
+<li id="aDf"><p id="Xna">Do you prefer the first or second option? Explain your thinking.</p></li>
+<li id="GKo"><p id="Duj">At what time does the amount of money in the account under the first option overtake the amount of money in the account under the second option?</p></li>
+</ol></article><article class="exercise exercise-like" id="WYF"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="ENX">When a skydiver jumps from a plane, gravity causes her downward velocity to increase at the rate of <span class="process-math">\(g\approx 9.8\)</span> meters per second squared. At the same time, wind resistance causes her velocity to decrease at a rate proportional to the velocity.</p>
+<ol class="lower-alpha">
+<li id="wlj"><p id="sVe">Using <span class="process-math">\(k\)</span> to represent the constant of proportionality, write a differential equation that describes the rate of change of the skydiver's velocity.</p></li>
+<li id="css"><p id="Zcn">Find any equilibrium solutions and decide whether they are stable or unstable. Your result should depend on <span class="process-math">\(k\text{.}\)</span></p></li>
+<li id="IzB"><p id="Fjw">Suppose that the initial velocity is zero. Find the velocity <span class="process-math">\(v(t)\text{.}\)</span></p></li>
+<li id="oGK"><p id="lqF">A typical terminal velocity for a skydiver falling face down is 54 meters per second. What is the value of <span class="process-math">\(k\)</span> for this skydiver?</p></li>
+<li id="UNT"><p id="RxO">How long does it take to reach 50% of the terminal velocity?</p></li>
+</ol></article><article class="exercise exercise-like" id="DfO"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="kVg">During the first few years of life, the rate at which a baby gains weight is proportional to the reciprocal of its weight.</p>
+<ol class="lower-alpha">
+<li id="KoO"><p id="GYJ">Express this fact as a differential equation.</p></li>
+<li id="qvX"><p id="nfS">Suppose that a baby weighs 8 pounds at birth and 9 pounds one month later. How much will he weigh at one year?</p></li>
+<li id="WDg"><p id="Tnb">Do you think this is a realistic model for a long time?</p></li>
+</ol></article><article class="exercise exercise-like" id="jmX"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="Rcp">Suppose that you have a water tank that holds 100 gallons of water. A briny solution, which contains 20 grams of salt per gallon, enters the tank at the rate of 3 gallons per minute.</p>
+<p id="xjy">At the same time, the solution is well mixed, and water is pumped out of the tank at the rate of 3 gallons per minute.</p>
+<ol class="lower-alpha">
+<li id="nBr"><p id="klm">Since 3 gallons enters the tank every minute and 3 gallons leaves every minute, what can you conclude about the volume of water in the tank.</p></li>
+<li id="TIA"><p id="Qsv">How many grams of salt enters the tank every minute?</p></li>
+<li id="zPJ"><p id="wzE">Suppose that <span class="process-math">\(S(t)\)</span> denotes the number of grams of salt in the tank in minute <span class="process-math">\(t\text{.}\)</span> How many grams are there in each gallon in minute <span class="process-math">\(t\text{?}\)</span></p></li>
+<li id="fWS"><p id="cGN">Since water leaves the tank at 3 gallons per minute, how many grams of salt leave the tank each minute?</p></li>
+<li id="Meb"><p id="INW">Write a differential equation that expresses the total rate of change of <span class="process-math">\(S\text{.}\)</span></p></li>
+<li id="slk"><p id="oVf">Identify any equilibrium solutions and determine whether they are stable or unstable.</p></li>
+<li id="Yst"><p id="Vco">Suppose that there is initially no salt in the tank. Find the amount of salt <span class="process-math">\(S(t)\)</span> in minute <span class="process-math">\(t\text{.}\)</span></p></li>
+<li id="EzC"><p id="Bjx">What happens to <span class="process-math">\(S(t)\)</span> after a very long time? Explain how you could have predicted this only knowing how much salt there is in each gallon of the briny solution that enters the tank.</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-120"><div class="fn">and we assume that each cubic meter of water that flows out carries with it the plastic pollution it contains</div></div>
+</div></main>
+</div>
+</body>
+</html>

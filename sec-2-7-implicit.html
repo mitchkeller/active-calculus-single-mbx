@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Derivatives of Functions Given Implicitly</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-2-6-inverse.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-2-8-LHR.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-2-6-inverse.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-2-8-LHR.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="active">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="kOT"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.7</span> <span class="title">Derivatives of Functions Given Implicitly</span>
+</h2>
+<article class="objectives goal-like" id="pyM"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="uiF"><p id="eZH">What does it mean to say that a curve is an implicit function of <span class="process-math">\(x\text{,}\)</span> rather than an explicit function of <span class="process-math">\(x\text{?}\)</span></p></li>
+<li id="apO"><p id="LgQ">How does implicit differentiation enable us to find a formula for <span class="process-math">\(\frac{dy}{dx}\)</span> when <span class="process-math">\(y\)</span> is an implicit function of <span class="process-math">\(x\text{?}\)</span></p></li>
+<li id="GwX"><p id="rnZ">In the context of an implicit curve, how can we use <span class="process-math">\(\frac{dy}{dx}\)</span> to answer important questions about the tangent line to the curve?</p></li>
+</ul></article><section class="introduction" id="VFV"><p id="FrE">In all of our studies with derivatives so far, we have worked with functions whose formula is given explicitly in terms of <span class="process-math">\(x\text{.}\)</span> But there are many interesting curves whose equations involving <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are impossible to solve for <span class="process-math">\(y\)</span> in terms of <span class="process-math">\(x\text{.}\)</span></p>
+<figure class="figure figure-like" id="Kbx"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_7_Intro.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7.1<span class="period">.</span></span><span class="space"> </span>At left, the circle given by <span class="process-math">\(x^2 + y^2 = 16\text{.}\)</span>  In the middle, the portion of the circle <span class="process-math">\(x^2 + y^2 = 16\)</span> that has been highlighted in the box at left.  And at right, the curve given by <span class="process-math">\(x^3 - y^3 = 6xy\text{.}\)</span></figcaption></figure><p id="lyN">Perhaps the simplest and most natural of all such curves are circles. Because of the circle's symmetry, for each <span class="process-math">\(x\)</span> value strictly between the endpoints of the horizontal diameter, there are two corresponding <span class="process-math">\(y\)</span>-values. For instance, in <a href="" class="xref" data-knowl="./knowl/F-2-7-Intro.html" title="Figure 2.7.1">Figure 2.7.1</a>, we have labeled <span class="process-math">\(A = (-3,\sqrt{7})\)</span> and <span class="process-math">\(B = (-3,-\sqrt{7})\text{,}\)</span> and these points demonstrate that the circle fails the vertical line test. Hence, it is impossible to represent the circle through a single function of the form <span class="process-math">\(y = f(x)\text{.}\)</span> But portions of the circle can be represented explicitly as a function of <span class="process-math">\(x\text{,}\)</span> such as the highlighted arc that is magnified in the center of <a href="" class="xref" data-knowl="./knowl/F-2-7-Intro.html" title="Figure 2.7.1">Figure 2.7.1</a>. Moreover, it is evident that the circle is locally linear, so we ought to be able to find a tangent line to the curve at every point. Thus, it makes sense to wonder if we can compute <span class="process-math">\(\frac{dy}{dx}\)</span> at any point on the circle, even though we cannot write <span class="process-math">\(y\)</span> explicitly as a function of <span class="process-math">\(x\text{.}\)</span></p>
+<p id="RFW">We say that the equation <span class="process-math">\(x^2 + y^2 = 16\)</span> defines <span class="process-math">\(y\)</span> <em class="emphasis">implicitly</em> as a function of <span class="process-math">\(x\text{.}\)</span> The graph of the equation can be broken into pieces where each piece can be defined by an explicit function of <span class="process-math">\(x\text{.}\)</span> For the circle, we could choose to take the top half as one function of <span class="process-math">\(x\text{,}\)</span> namely <span class="process-math">\(y = \sqrt{16 - x^2}\)</span> and the bottom half as <span class="process-math">\(y = -\sqrt{16 - x^2}\text{.}\)</span> The equation for the circle defines two <em class="emphasis">implicit functions</em> of <span class="process-math">\(x\text{.}\)</span> </p>
+<p id="xNf">The righthand curve in <a href="" class="xref" data-knowl="./knowl/F-2-7-Intro.html" title="Figure 2.7.1">Figure 2.7.1</a> is called a <em class="emphasis">lemniscate</em>  and is just one of many fascinating possibilities for implicitly given curves.</p>
+<p id="dUo">How can we find an equation for <span class="process-math">\(\frac{dy}{dx}\)</span> without an explicit formula for <span class="process-math">\(y\)</span> in terms of <span class="process-math">\(x\text{?}\)</span> The following preview activity reminds us of some ways we can compute derivatives of functions in settings where the function's formula is not known.</p>
+<article class="exploration project-like" id="zpX"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">2.7.1</span><span class="period">.</span>
+</h3>
+<p id="TiO">Let <span class="process-math">\(f\)</span> be a differentiable function of <span class="process-math">\(x\)</span> (whose formula is not known) and recall that <span class="process-math">\(\frac{d}{dx}[f(x)]\)</span> and <span class="process-math">\(f'(x)\)</span> are interchangeable notations. Determine each of the following derivatives of combinations of explicit functions of <span class="process-math">\(x\text{,}\)</span> the unknown function <span class="process-math">\(f\text{,}\)</span> and an arbitrary constant <span class="process-math">\(c\text{.}\)</span></p>
+<ol class="lower-alpha cols2">
+<li id="JPc"><p id="OyV"><span class="process-math">\(\displaystyle \frac{d}{dx} \left[ x^2 + f(x) \right]\)</span></p></li>
+<li id="pWl"><p id="uGe"><span class="process-math">\(\displaystyle \frac{d}{dx} \left[ x^2 f(x) \right]\)</span></p></li>
+<li id="Wdu"><p id="aNn"><span class="process-math">\(\displaystyle \frac{d}{dx} \left[ c + x + f(x)^2 \right]\)</span></p></li>
+<li id="CkD"><p id="GUw"><span class="process-math">\(\displaystyle \frac{d}{dx} \left[ f(x^2) \right]\)</span></p></li>
+<li id="irM"><p id="nbF"><span class="process-math">\(\displaystyle \frac{d}{dx} \left[ xf(x) + f(cx) + cf(x) \right]\)</span></p></li>
+</ol></article></section><section class="subsection" id="QWc"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.7.1</span> <span class="title">Implicit Differentiation</span>
+</h3>
+<p id="qiG">We begin our exploration of implicit differentiation with the example of the circle given by <span class="process-math">\(x^2 + y^2 = 16\text{.}\)</span> How can we find a formula for <span class="process-math">\(\frac{dy}{dx}\text{?}\)</span></p>
+<p id="WpP">By viewing <span class="process-math">\(y\)</span> as an <em class="emphasis">implicit</em> function of <span class="process-math">\(x\text{,}\)</span> we think of <span class="process-math">\(y\)</span> as some function whose formula <span class="process-math">\(f(x)\)</span> is unknown, but which we can differentiate. Just as <span class="process-math">\(y\)</span> represents an unknown formula, so too its derivative with respect to <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{dy}{dx}\text{,}\)</span> will be (at least temporarily) unknown.</p>
+<p id="CwY">So we view <span class="process-math">\(y\)</span> as an unknown differentiable function of <span class="process-math">\(x\)</span> and differentiate both sides of the equation with respect to <span class="process-math">\(x\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ x^2 + y^2 \right] = \frac{d}{dx} \left[ 16 \right]\text{.}
+\end{equation*}
+</div>
+<p id="iEh">On the right, the derivative of the constant <span class="process-math">\(16\)</span> is <span class="process-math">\(0\text{,}\)</span> and on the left we can apply the sum rule, so it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ x^2 \right]  + \frac{d}{dx} \left[ y^2 \right] = 0\text{.}
+\end{equation*}
+</div>
+<p id="OLq">Note carefully the different roles being played by <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> Because <span class="process-math">\(x\)</span> is the independent variable, <span class="process-math">\(\frac{d}{dx} \left[x^2\right] = 2x\text{.}\)</span> But <span class="process-math">\(y\)</span> is the dependent variable and <span class="process-math">\(y\)</span> is an implicit function of <span class="process-math">\(x\text{.}\)</span> Recall <a href="" class="xref" data-knowl="./knowl/PA-2-7.html" title="Preview Activity 2.7.1">Preview Activity 2.7.1</a>, where we computed <span class="process-math">\(\frac{d}{dx}[f(x)^2]\text{.}\)</span> Computing <span class="process-math">\(\frac{d}{dx}[y^2]\)</span> is the same, and requires the chain rule, by which we find that <span class="process-math">\(\frac{d}{dx}[y^2] = 2y^1 \frac{dy}{dx}\text{.}\)</span> We now have that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-2-7.html">
+\begin{equation*}
+2x + 2y \frac{dy}{dx} = 0\text{.}
+\end{equation*}
+</div>
+<p id="uSz">We solve this equation for <span class="process-math">\(\frac{dy}{dx}\)</span> by subtracting <span class="process-math">\(2x\)</span> from both sides and dividing by <span class="process-math">\(2y\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dx} = -\frac{2x}{2y} = -\frac{x}{y}\text{.}
+\end{equation*}
+</div>
+<p id="aZI">There are several important things to observe about the result that <span class="process-math">\(\frac{dy}{dx} = -\frac{x}{y}\text{.}\)</span> First, this expression for the derivative involves both <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> This makes sense because there are two corresponding points on the circle for each value of <span class="process-math">\(x\)</span> between <span class="process-math">\(-4\)</span> and <span class="process-math">\(4\text{,}\)</span> and the slope of the tangent line is different at each of these points.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel middle" style="width:50%;"><p id="tdm">Second, this formula is entirely consistent with our understanding of circles. The slope of the radius from the origin to the point <span class="process-math">\((a,b)\)</span> is <span class="process-math">\(m_r = \frac{b}{a}\text{.}\)</span> The tangent line to the circle at <span class="process-math">\((a,b)\)</span> is perpendicular to the radius, and thus has slope <span class="process-math">\(m_t = -\frac{a}{b}\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-2-7-Circle.html" title="Figure 2.7.2">Figure 2.7.2</a>. In particular, the slope of the tangent line is zero at <span class="process-math">\((0,4)\)</span> and <span class="process-math">\((0,-4)\text{,}\)</span> and is undefined at <span class="process-math">\((-4,0)\)</span> and <span class="process-math">\((4,0)\text{.}\)</span> All of these values are consistent with the formula <span class="process-math">\(\frac{dy}{dx} = -\frac{x}{y}\text{.}\)</span></p></div>
+<div class="sbspanel middle" style="width:46%;"><figure class="figure figure-like" id="Zkv"><img src="external/images/2_7_Circle.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7.2<span class="period">.</span></span><span class="space"> </span>The circle given by <span class="process-math">\(x^2 + y^2 = 16\)</span> with point <span class="process-math">\((a,b)\)</span> on the circle and the tangent line at that point, with labeled slopes of the radial line, <span class="process-math">\(m_r\text{,}\)</span> and tangent line, <span class="process-math">\(m_t\text{.}\)</span></figcaption></figure></div>
+</div></div>
+<article class="example example-like" id="dku"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.7.3</span><span class="period">.</span>
+</h4>
+<p id="gOU">For the curve given implicitly by <span class="process-math">\(x^3 + y^2 - 2xy = 2\text{,}\)</span> shown in <a href="" class="xref" data-knowl="./knowl/F-2-7-Ex1.html" title="Figure 2.7.4">Figure 2.7.4</a>, find the slope of the tangent line at <span class="process-math">\((-1,1)\text{.}\)</span></p>
+<figure class="figure figure-like" id="MWd"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/2_7_Ex1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7.4<span class="period">.</span></span><span class="space"> </span>The curve <span class="process-math">\(x^3 + y^2 - 2xy = 2\text{.}\)</span></figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-BNe" id="BNe"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-BNe"><div class="solution solution-like">
+<p id="PQJ">We begin by differentiating the curve's equation implicitly. Taking the derivative of each side with respect to <span class="process-math">\(x\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}\left[ x^3 + y^2 - 2xy \right] = \frac{d}{dx} \left[ 2 \right]\text{,}
+\end{equation*}
+</div>
+<p class="continuation">by the sum rule and the fact that the derivative of a constant is zero, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[x^3] + \frac{d}{dx}[y^2] - \frac{d}{dx}[2xy] = 0\text{.}
+\end{equation*}
+</div>
+<p id="vXS">For the three derivatives we now must execute, the first uses the simple power rule, the second requires the chain rule (since <span class="process-math">\(y\)</span> is an implicit function of <span class="process-math">\(x\)</span>), and the third necessitates the product rule (again since <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\)</span>). Applying these rules, we now find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+3x^2 + 2y\frac{dy}{dx} - [2x \frac{dy}{dx} + 2y] = 0\text{.}
+\end{equation*}
+</div>
+<p id="cfb">We want to solve this equation for <span class="process-math">\(\frac{dy}{dx}\text{.}\)</span> To do so, we first collect all of the terms involving <span class="process-math">\(\frac{dy}{dx}\)</span> on one side of the equation.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2y\frac{dy}{dx} - 2x \frac{dy}{dx}= 2y - 3x^2\text{.}
+\end{equation*}
+</div>
+<p id="Imk">Then we factor the left side to isolate <span class="process-math">\(\frac{dy}{dx}\text{.}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dx}(2y - 2x) = 2y - 3x^2\text{.}
+\end{equation*}
+</div>
+<p id="ott">Finally, we divide both sides by <span class="process-math">\((2y - 2x)\)</span> and conclude that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dx} = \frac{2y-3x^2}{2y-2x}\text{.}
+\end{equation*}
+</div>
+<p id="UAC">Note that the expression for <span class="process-math">\(\frac{dy}{dx}\)</span> depends on both <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span> To find the slope of the tangent line at <span class="process-math">\((-1,1)\text{,}\)</span> we substitute the coordinates into the formula for <span class="process-math">\(\frac{dy}{dx}\text{,}\)</span> using the notation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left. \frac{dy}{dx} \right|_{(-1,1)} = \frac{2(1)-3(-1)^2}{2(1)-2(-1)} = -\frac14\text{.}
+\end{equation*}
+</div>
+<p id="AHL">This value matches our visual estimate of the slope of the tangent line shown in <a href="" class="xref" data-knowl="./knowl/F-2-7-Ex1.html" title="Figure 2.7.4">Figure 2.7.4</a>.</p>
+</div></div>
+</div></article><p id="HgR"><a href="" class="xref" data-knowl="./knowl/Ex-2-7-1.html" title="Example 2.7.3">Example 2.7.3</a> shows that it is possible when differentiating implicitly to have multiple terms involving <span class="process-math">\(\frac{dy}{dx}\text{.}\)</span> We use addition and subtraction to collect all terms involving <span class="process-math">\(\frac{dy}{dx}\)</span> on one side of the equation, then factor to get a single term of <span class="process-math">\(\frac{dy}{dx}\text{.}\)</span> Finally, we divide to solve for <span class="process-math">\(\frac{dy}{dx}\text{.}\)</span></p>
+<p id="noa">We use the notation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\left. \frac{dy}{dx} \right|_{(a,b)}
+\end{equation*}
+</div>
+<p class="continuation">to denote the evaluation of <span class="process-math">\(\frac{dy}{dx}\)</span> at the point <span class="process-math">\((a,b)\text{.}\)</span> This is analogous to writing <span class="process-math">\(f'(a)\)</span> when <span class="process-math">\(f'\)</span> depends on a single variable.</p>
+<p id="Tvj">There is a big difference between writing <span class="process-math">\(\frac{d}{dx}\)</span> and <span class="process-math">\(\frac{dy}{dx}\text{.}\)</span> For example,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[x^2 + y^2]
+\end{equation*}
+</div>
+<p class="continuation">gives an instruction to take the derivative with respect to <span class="process-math">\(x\)</span> of the quantity <span class="process-math">\(x^2 + y^2\text{,}\)</span> presumably where <span class="process-math">\(y\)</span> is a function of <span class="process-math">\(x\text{.}\)</span> On the other hand,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dx}(x^2 + y^2)
+\end{equation*}
+</div>
+<p class="continuation">means the product of the derivative of <span class="process-math">\(y\)</span> with respect to <span class="process-math">\(x\)</span> with the quantity <span class="process-math">\(x^2 + y^2\text{.}\)</span> Understanding this notational subtlety is essential.</p>
+<article class="activity project-like" id="WTO"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.7.2</span><span class="period">.</span>
+</h4>
+<p id="tHl">Consider the curve defined by the equation <span class="process-math">\(x = y^5 - 5y^3 + 4y\text{,}\)</span> whose graph is pictured in <a href="" class="xref" data-knowl="./knowl/F-2-7-Act1.html" title="Figure 2.7.5">Figure 2.7.5</a>.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel middle" style="width:47%;"><ol id="hsT" class="lower-alpha">
+<li id="ABQ"><p id="uME">Explain why it is not possible to express <span class="process-math">\(y\)</span> as an explicit function of <span class="process-math">\(x\text{.}\)</span></p></li>
+<li id="gIZ"><p id="aTN">Use implicit differentiation to find a formula for <span class="process-math">\(dy/dx\text{.}\)</span></p></li>
+<li id="MQi"><p id="HaW">Use your result from part (b) to find an equation of the line tangent to the graph of <span class="process-math">\(x = y^5 - 5y^3 + 4y\)</span> at the point <span class="process-math">\((0, 1)\text{.}\)</span></p></li>
+<li id="sXr"><p id="nif">Use your result from part (b) to determine all of the points at which the graph of <span class="process-math">\(x = y^5 - 5y^3 + 4y\)</span> has a vertical tangent line.</p></li>
+</ol></div>
+<div class="sbspanel middle" style="width:47%;"><figure class="figure figure-like" id="NAc"><img src="external/images/2_7_Act1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7.5<span class="period">.</span></span><span class="space"> </span>The curve <span class="process-math">\(x = y^5 - 5y^3 + 4y\text{.}\)</span></figcaption></figure></div>
+</div></div></article><p id="zCs">It is natural to ask where the tangent line to a curve is vertical or horizontal. The slope of a horizontal tangent line must be zero, while the slope of a vertical tangent line is undefined. Often the formula for <span class="process-math">\(\frac{dy}{dx}\)</span> is expressed as a quotient of functions of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> say</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dx} = \frac{p(x,y)}{q(x,y)}\text{.}
+\end{equation*}
+</div>
+<p id="fJB">The tangent line is horizontal precisely when the numerator is zero and the denominator is nonzero, making the slope of the tangent line zero. If we can solve the equation <span class="process-math">\(p(x,y) = 0\)</span> for either <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in terms of the other, we can substitute that expression into the original equation for the curve. This gives an equation in a single variable, and if we can solve that equation we can find the point(s) on the curve where <span class="process-math">\(p(x,y) = 0\text{.}\)</span> At those points, the tangent line is horizontal.</p>
+<p id="LQK">Similarly, the tangent line is vertical whenever <span class="process-math">\(q(x,y) = 0\)</span> and <span class="process-math">\(p(x,y) \ne 0\text{,}\)</span> making the slope undefined.</p>
+<article class="activity project-like" id="tlM"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.7.3</span><span class="period">.</span>
+</h4>
+<p id="PZj">Consider the curve defined by the equation <span class="process-math">\(y(y^2-1)(y-2) = x(x-1)(x-2)\text{,}\)</span> whose graph is pictured in <a href="" class="xref" data-knowl="./knowl/F-2-7-Act2.html" title="Figure 2.7.6">Figure 2.7.6</a>. Through implicit differentiation, it can be shown that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-7-Act2.html">
+\begin{equation*}
+\frac{dy}{dx} = \frac{(x-1)(x-2) + x(x-2) + x(x-1)}{(y^2-1)(y-2) + 2y^2(y-2) + y(y^2-1)}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Use this fact to answer each of the following questions.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel middle" style="width:47%;"><ol id="DKR" class="lower-alpha">
+<li id="TZi"><p id="pHm">Determine all points <span class="process-math">\((x,y)\)</span> at which the tangent line to the curve is horizontal. (Use technology appropriately to find the needed zeros of the relevant polynomial function.)</p></li>
+<li id="Agr"><p id="VOv">Determine all points <span class="process-math">\((x,y)\)</span> at which the tangent line is vertical. (Use technology appropriately to find the needed zeros of the relevant polynomial function.)</p></li>
+<li id="gnA"><p id="BVE">Find the equation of the tangent line to the curve at one of the points where <span class="process-math">\(x = 1\text{.}\)</span></p></li>
+</ol></div>
+<div class="sbspanel middle" style="width:47%;"><figure class="figure figure-like" id="jSa"><img src="external/images/2_7_Act2.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.7.6<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(y(y^2-1)(y-2) = x(x-1)(x-2)\text{.}\)</span></figcaption></figure></div>
+</div></div></article><article class="activity project-like" id="ogu"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.7.4</span><span class="period">.</span>
+</h4>
+<p id="acP">For each of the following curves, use implicit differentiation to find <span class="process-math">\(dy/dx\)</span> and determine the equation of the tangent line at the given point.</p>
+<ol class="lower-alpha cols2">
+<li id="qrg"><p id="LZk"><span class="process-math">\(x^3 - y^3 = 6xy\text{,}\)</span>  <span class="process-math">\((-3,3)\)</span></p></li>
+<li id="Wyp"><p id="sgt"><span class="process-math">\(\sin(y) + y = x^3 + x\text{,}\)</span>  <span class="process-math">\((0,0)\)</span></p></li>
+<li id="CFy"><p id="YnC"><span class="process-math">\(3x e^{-xy} = y^2\text{,}\)</span>  <span class="process-math">\((0.619061,1)\)</span></p></li>
+</ol></article></section><section class="subsection" id="xdl"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.7.2</span> <span class="title">Summary</span>
+</h3>
+<ul id="rXT" class="disc">
+<li id="mEg"><p id="Xvi">In an equation involving <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> where portions of the graph can be defined by explicit functions of <span class="process-math">\(x\text{,}\)</span> we say that <span class="process-math">\(y\)</span> is an implicit function of <span class="process-math">\(x\text{.}\)</span> A good example of such a curve is the unit circle.</p></li>
+<li id="SLp"><p id="DCr">We use implicit differentiation to differentiate an implicitly defined function. We differentiate both sides of the equation with respect to <span class="process-math">\(x\text{,}\)</span> treating <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(x\)</span> by applying the chain rule. If possible, we subsequently solve for <span class="process-math">\(\frac{dy}{dx}\)</span> using algebra.</p></li>
+<li id="ySy"><p id="jJA">While <span class="process-math">\(\frac{dy}{dx}\)</span> may now involve both the variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> <span class="process-math">\(\frac{dy}{dx}\)</span> still gives the slope of the tangent line to the curve. It may be used to decide where the tangent line is horizontal (<span class="process-math">\(\frac{dy}{dx} = 0\)</span>) or vertical (<span class="process-math">\(\frac{dy}{dx}\)</span> is undefined), or to find the equation of the tangent line at a particular point on the curve.</p></li>
+</ul></section><section class="exercises" id="amx"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">2.7.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="dCC"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Implicit differentiaion in a polynomial equation.</span>
+</h4>
+<div id="webwork-91" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="91" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec7/Q07.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3100">Find <span class="process-math">\(dy/dx\)</span> in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> if <span class="process-math">\(x^{2} y - x - 5 y - 11 =0\text{.}\)</span></p>
+<p id="p-3101"><span class="process-math">\(\displaystyle \frac{dy}{dx} =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-91')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="JJL"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Implicit differentiation in an equation with logarithms.</span>
+</h4>
+<div id="webwork-92" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="92" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec7/Q11.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3104">Find <span class="process-math">\(\displaystyle \frac{dy}{dx}\)</span> in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> if <span class="process-math">\(x \ln y + y^{3} = 3 \ln x\text{.}\)</span></p>
+<p id="p-3105"><span class="process-math">\(\displaystyle \frac{dy}{dx} =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-92')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="pQU"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Implicit differentiation in an equation with inverse trigonometric functions.</span>
+</h4>
+<div id="webwork-93" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="93" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec7/Q15.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3108">Find <span class="process-math">\(dy/dx\)</span> in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> if <span class="process-math">\(\arctan(x^{3} y) = x y^{3}\text{.}\)</span></p>
+<p id="p-3109"><span class="process-math">\({dy\over dx} =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-93')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="VYd"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Slope of the tangent line to an implicit curve.</span>
+</h4>
+<div id="webwork-94" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="94" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec7/Q21.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3111">Find the slope of the tangent to the curve <span class="process-math">\(x^{3}+xy+y^{2} = 31\)</span>  at <span class="process-math">\((1,5)\text{.}\)</span></p>
+<p id="p-3112">The slope is <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>.</p>
+<p id="p-3113"><em class="emphasis">(Enter <em class="alert">undef</em> if the slope is not defined at this point.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-94')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Cfm"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Equation of the tangent line to an implicit curve.</span>
+</h4>
+<div id="webwork-95" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="95" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives2_5Implicit/s2_6_19.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3117">Use implicit differentiation to find an equation of the tangent line to the curve <span class="process-math">\(3xy^{3}+xy = 16\)</span> at the point <span class="process-math">\(\left(4,1\right)\text{.}\)</span></p>
+<p id="p-3118">The <a class="external" href="/webwork2_files/helpFiles/Entering-Equations.html" target="_blank">equation</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-51" id="fn-51"><sup> 1 </sup></a> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> defines the tangent line to the curve at the point <span class="process-math">\(\left(4,1\right)\text{.}\)</span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-95')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="imv"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="gbJ">Consider the curve given by the equation <span class="process-math">\(2y^3+y^2-y^5 = x^4 - 2x^3 + x^2\text{.}\)</span> Find all points at which the tangent line to the curve is horizontal or vertical. Be sure to use a graphing utility to plot this implicit curve and to visually check the results of algebraic reasoning that you use to determine where the tangent lines are horizontal and vertical.</p></article><article class="exercise exercise-like" id="OtE"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="MiS">For the curve given by the equation <span class="process-math">\(\sin(x+y) + \cos(x-y) = 1\text{,}\)</span> find the equation of the tangent line to the curve at the point <span class="process-math">\((\frac{\pi}{2}, \frac{\pi}{2})\text{.}\)</span></p></article><article class="exercise exercise-like" id="uAN"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="sqb">Implicit differentiation enables us a different perspective from which to see why the rule <span class="process-math">\(\frac{d}{dx} [a^x] = a^x \ln(a)\)</span> holds, if we assume that <span class="process-math">\(\frac{d}{dx}[\ln(x)] = \frac{1}{x}\text{.}\)</span> This exercise leads you through the key steps to do so.</p>
+<ol class="lower-alpha">
+<li id="DUz"><p id="hhc">Let <span class="process-math">\(y = a^x\text{.}\)</span> Rewrite this equation using the natural logarithm function to write <span class="process-math">\(x\)</span> in terms of <span class="process-math">\(y\)</span> (and the constant <span class="process-math">\(a\)</span>).</p></li>
+<li id="kbI"><p id="Nol">Differentiate both sides of the equation you found in (a) with respect to <span class="process-math">\(x\text{,}\)</span> keeping in mind that <span class="process-math">\(y\)</span> is implicitly a function of <span class="process-math">\(x\text{.}\)</span></p></li>
+<li id="QiR"><p id="tvu">Solve the equation you found in (b) for <span class="process-math">\(\frac{dy}{dx}\text{,}\)</span> and then use the definition of <span class="process-math">\(y\)</span> to write <span class="process-math">\(\frac{dy}{dx}\)</span> solely in terms of <span class="process-math">\(x\text{.}\)</span> What have you found?</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-51"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Entering-Equations.html</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC An Introduction to Differential Equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="C-7.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-7.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-7-2-qualitative.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="C-7.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-7.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-7-2-qualitative.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="active">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="knq"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.1</span> <span class="title">An Introduction to Differential Equations</span>
+</h2>
+<article class="objectives goal-like" id="Ves"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="FVu"><p id="qMw">What is a differential equation and what kinds of information can it tell us?</p></li>
+<li id="mcD"><p id="DaO">How do differential equations arise in the world around us?</p></li>
+<li id="SjM"><p id="jhX">What do we mean by a solution to a differential equation?</p></li>
+</ul></article><section class="introduction" id="BlB"><p id="TYZ">In previous chapters, we have seen that a function's derivative tells us the rate at which the function is changing. The Fundamental Theorem of Calculus helped us determine the total change of a function over an interval from the function's rate of change. For instance, an object's velocity tells us the rate of change of that object's position. By integrating the velocity over a time interval, we can determine how much the position changes over that time interval. If we know where the object is at the beginning of that interval, we have enough information to predict where it will be at the end of the interval.</p>
+<p id="Agi">In this chapter, we introduce the concept of <em class="emphasis">differential equations</em>. A differential equation is an equation that provides a description of a function's derivative, which means that it tells us the function's rate of change. Using this information, we would like to learn as much as possible about the function itself. Ideally we would like to have an algebraic description of the function. As we'll see, this may be too much to ask in some situations, but we will still be able to make accurate approximations.</p>
+<article class="exploration project-like" id="Mow"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">7.1.1</span><span class="period">.</span>
+</h3>
+<p id="ghn">The position of a moving object is given by the function <span class="process-math">\(s(t)\text{,}\)</span> where <span class="process-math">\(s\)</span> is measured in feet and <span class="process-math">\(t\)</span> in seconds. We determine that the velocity is <span class="process-math">\(v(t) = 4t + 1\)</span> feet per second.</p>
+<ol class="lower-alpha">
+<li id="ykR"><p id="Pjc">How much does the position change over the time interval <span class="process-math">\([0,4]\text{?}\)</span></p></li>
+<li id="esa"><p id="vql">Does this give you enough information to determine <span class="process-math">\(s(4)\text{,}\)</span> the position at time <span class="process-math">\(t=4\text{?}\)</span> If so, what is <span class="process-math">\(s(4)\text{?}\)</span> If not, what additional information would you need to know to determine <span class="process-math">\(s(4)\text{?}\)</span></p></li>
+<li id="Kzj"><p id="bxu">Suppose you are told that the object's initial position <span class="process-math">\(s(0) = 7\text{.}\)</span> Determine <span class="process-math">\(s(2)\text{,}\)</span> the object's position 2 seconds later.</p></li>
+<li id="qGs"><p id="HED">If you are told instead that the object's initial position is <span class="process-math">\(s(0) = 3\text{,}\)</span> what is <span class="process-math">\(s(2)\text{?}\)</span></p></li>
+<li id="WNB"><p id="nLM">If we only know the velocity <span class="process-math">\(v(t)=4t+1\text{,}\)</span> is it possible that the object's position at all times is <span class="process-math">\(s(t) = 2t^2 + t - 4\text{?}\)</span> Explain how you know.</p></li>
+<li id="CUK"><p id="TSV">Are there other possibilities for <span class="process-math">\(s(t)\text{?}\)</span> If so, what are they?</p></li>
+<li id="jbT"><p id="Aae">If, in addition to knowing the velocity function is <span class="process-math">\(v(t) = 4t+1\text{,}\)</span> we know the initial position <span class="process-math">\(s(0)\text{,}\)</span> how many possibilities are there for <span class="process-math">\(s(t)\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="Quz"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.1.1</span> <span class="title">What is a differential equation?</span>
+</h3>
+<p id="gnr">A differential equation is an equation that describes the derivative, or derivatives, of a function that is unknown to us. For instance, the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dx} = x\sin x
+\end{equation*}
+</div>
+<p class="continuation">describes the derivative of a function <span class="process-math">\(y(x)\)</span> that is unknown to us.</p>
+<p id="MuA">As many important examples of differential equations involve quantities that change in time, the independent variable in our discussion will frequently be time <span class="process-math">\(t\text{.}\)</span> In the preview activity, we considered the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{ds}{dt} = 4t + 1\text{.}
+\end{equation*}
+</div>
+<p id="sBJ">Knowing the velocity and the starting position of a moving object, we were able to find its position at any later time.</p>
+<p id="YIS">Because differential equations describe the derivative of a function, they give us information about how that function changes. Our goal will be to use this information to predict the value of the function in the future; in this way, differential equations provide us with something like a crystal ball.</p>
+<p id="EQb">Differential equations arise frequently in our every day world. For instance, you may hear a bank advertising:</p>
+<blockquote class="blockquote" id="hsK"><p id="HKH"><em class="emphasis">Your money will grow at a 3% annual interest rate with us.</em></p></blockquote>
+<p id="kXk">This innocuous statement is really a differential equation. Let's translate: <span class="process-math">\(A(t)\)</span> will be amount of money you have in your account at time <span class="process-math">\(t\text{.}\)</span> The rate at which your money grows is the derivative <span class="process-math">\(dA/dt\text{,}\)</span> and we are told that this rate is <span class="process-math">\(0.03 A\text{.}\)</span> This leads to the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dA}{dt} = 0.03 A\text{.}
+\end{equation*}
+</div>
+<p id="Ret">This differential equation has a slightly different feel than the previous equation <span class="process-math">\(\frac{ds}{dt} = 4t+1\text{.}\)</span> In the earlier example, the rate of change depends only on the independent variable <span class="process-math">\(t\text{,}\)</span> and we may find <span class="process-math">\(s(t)\)</span> by integrating the velocity <span class="process-math">\(4t+1\text{.}\)</span> In the banking example, however, the rate of change depends on the dependent variable <span class="process-math">\(A\text{,}\)</span> so we'll need some new techniques in order to find <span class="process-math">\(A(t)\text{.}\)</span></p>
+<article class="activity project-like" id="DUv"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.1.2</span><span class="period">.</span>
+</h4>
+<p id="mWk">Express the following statements as differential equations. In each case, you will need to introduce notation to describe the important quantities in the statement so be sure to clearly state what your notation means.</p>
+<ol class="lower-alpha">
+<li id="Gfh"><p id="ApV">The population of a town grows continuously at an annual rate of 1.25%.</p></li>
+<li id="mmq"><p id="gxe">A radioactive sample loses mass at a rate of 5.6% of its mass every day.</p></li>
+<li id="Stz"><p id="MEn">You have a bank account that continuously earns 4% interest every year. At the same time, you withdraw money continually from the account at the rate of $1000 per year.</p></li>
+<li id="yAI"><p id="sLw">A cup of hot chocolate is sitting in a 70<span class="process-math">\(^\circ\)</span> room. The temperature of the hot chocolate cools continuously by 10% of the difference between the hot chocolate's temperature and the room temperature every minute.</p></li>
+<li id="eHR"><p id="YSF">A can of cold soda is sitting in a 70<span class="process-math">\(^\circ\)</span> room. The temperature of the soda warms continuously at the rate of 10% of the difference between the soda's temperature and the room's temperature every minute.</p></li>
+</ol></article></section><section class="subsection" id="wBI"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.1.2</span> <span class="title">Differential equations in the world around us</span>
+</h3>
+<p id="xlC">Differential equations give a natural way to describe phenomena we see in the real world. For instance, physical principles are frequently expressed as a description of how a quantity changes. A good example is Newton's Second Law, which says:</p>
+<blockquote class="blockquote" id="NzT"><p id="nRQ"><em class="emphasis">The product of an object's mass and acceleration equals the force applied to it.</em></p></blockquote>
+<p id="dsL">For instance, when gravity acts on an object near the earth's surface, it exerts a force equal to <span class="process-math">\(mg\text{,}\)</span> the mass of the object times the gravitational constant <span class="process-math">\(g\text{.}\)</span> We therefore have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="UIT">
+\begin{align*}
+ma =\mathstrut \amp  mg, \ \text{or}\\
+\frac{dv}{dt} =\mathstrut \amp  g\text{,}
+\end{align*}
+</div>
+<p class="continuation">where <span class="process-math">\(v\)</span> is the velocity of the object, and <span class="process-math">\(g = 9.8\)</span> meters per second squared. Notice that this physical principle does not tell us what the object's velocity is, but rather how the object's velocity changes.</p>
+<article class="activity project-like" id="dQT"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.1.3</span><span class="period">.</span>
+</h4>
+<p id="PNo">Shown below are two graphs depicting the velocity of falling objects. On the left is the velocity of a skydiver, while on the right is the velocity of a meteorite entering the Earth's atmosphere.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1%;margin-right:1%;">
+<div class="sbspanel top" style="width:48.9795918367347%;"><figure class="figure figure-like" id="DyW"><img src="external/images/7_1_activity_0.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.1<span class="period">.</span></span><span class="space"> </span>A skydiver's velocity.</figcaption></figure></div>
+<div class="sbspanel top" style="width:48.9795918367347%;"><figure class="figure figure-like" id="jGf"><img src="external/images/7_1_activity_1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.2<span class="period">.</span></span><span class="space"> </span>A meteorite's velocity.</figcaption></figure></div>
+</div></div>
+<ol id="vUx" class="lower-alpha">
+<li id="AZP">
+<p id="gbF">Begin with the skydiver's velocity and use the given graph to measure the rate of change <span class="process-math">\(dv/dt\)</span> when the velocity is <span class="process-math">\(v=0.5, 1.0, 1.5, 2.0\text{,}\)</span> and <span class="process-math">\(2.5\text{.}\)</span> Plot your values on the graph below. You will want to think carefully about this: you are plotting the derivative <span class="process-math">\(dv/dt\)</span> as a function of <em class="emphasis">velocity</em>.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/7_1_dataplot.svg" role="img" class="contained"></div></div></div>
+</li>
+<li id="hgY"><p id="MiO">Now do the same thing with the meteorite's velocity: use the given graph to measure the rate of change <span class="process-math">\(dv/dt\)</span> when the velocity is <span class="process-math">\(v=3.5,4.0,4.5\text{,}\)</span> and <span class="process-math">\(5.0\text{.}\)</span> Plot your values on the graph above.</p></li>
+<li id="Noh"><p id="spX">You should find that all your points lie on a line. Write the equation of this line being careful to use proper notation for the quantities on the horizontal and vertical axes.</p></li>
+<li id="tvq"><p id="Yxg">The relationship you just found is a differential equation. Write a complete sentence that explains its meaning.</p></li>
+<li id="ZCz"><p id="EEp">By looking at the differential equation, determine the values of the velocity for which the velocity increases.</p></li>
+<li id="FJI"><p id="kLy">By looking at the differential equation, determine the values of the velocity for which the velocity decreases.</p></li>
+<li id="lQR"><p id="QSH">By looking at the differential equation, determine the values of the velocity for which the velocity remains constant.</p></li>
+</ol></article><p id="JzU">The point of this activity is to demonstrate how differential equations model processes in the real world. In this example, two factors influence the velocities: gravity and wind resistance. The differential equation describes how these factors influence the rate of change of the velocities.</p></section><section class="subsection" id="cIR"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.1.3</span> <span class="title">Solving a differential equation</span>
+</h3>
+<p id="pHd">A differential equation describes the derivative, or derivatives, of a function that is unknown to us. By a <em class="emphasis">solution</em> to a differential equation, we mean simply a function that satisies this description.</p>
+<p id="VOm">For instance, the first differential equation we looked at is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{ds}{dt} = 4t+1\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which describes an unknown function <span class="process-math">\(s(t)\text{.}\)</span> We may check that <span class="process-math">\(s(t) =
+2t^2+t\)</span> is a solution because it satisfies this description. Notice that <span class="process-math">\(s(t) = 2t^2+t+4\)</span> is also a solution.</p>
+<p id="BVv">If we have a candidate for a solution, it is straightforward to check whether it is a solution or not. Before we demonstrate, however, let's consider the same issue in a simpler context. Suppose we are given the equation <span class="process-math">\(2x^2 - 2x = 2x+6\)</span> and asked whether <span class="process-math">\(x=3\)</span> is a solution. To answer this question, we could rewrite the variable <span class="process-math">\(x\)</span> in the equation with the symbol <span class="process-math">\(\Box\text{:}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2\Box^2 - 2\Box = 2\Box + 6\text{.}
+\end{equation*}
+</div>
+<p id="icE">To determine whether <span class="process-math">\(x=3\)</span> is a solution, we can investigate the value of each side of the equation separately when the value <span class="process-math">\(3\)</span> is placed in <span class="process-math">\(\Box\)</span> and see if indeed the two resulting values are equal. Doing so, we observe that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2\Box^2 - 2\Box = 2\cdot3^2 - 2\cdot3 = 12\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2\Box + 6 = 2\cdot3 + 6 = 12\text{.}
+\end{equation*}
+</div>
+<p id="OjN">Therefore, <span class="process-math">\(x=3\)</span> is indeed a solution.</p>
+<p id="uqW">We will do the same thing with differential equations. Consider the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="ZsM">
+\begin{align*}
+\frac{dv}{dt} =\mathstrut \amp  1.5 - 0.5v, \ \text{or}\\
+\frac{d\Box}{dt} =\mathstrut \amp  1.5 - 0.5\Box\text{.}
+\end{align*}
+</div>
+<p id="ayf">Let's ask whether <span class="process-math">\(v(t) = 3 - 2e^{-0.5t}\)</span> is a solution<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-114" id="fn-114"><sup> 1 </sup></a>. Using this formula for <span class="process-math">\(v\text{,}\)</span> observe first that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dv}{dt} =  \frac{d\Box}{dt}  = \frac{d}{dt}[3 - 2e^{-0.5t}] = -2e^{-0.5t} \cdot (-0.5) = e^{-0.5t}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1.5 - 0.5v = 1.5 - 0.5\Box= 1.5 - 0.5(3 - 2e^{-0.5t}) = 1.5 - 1.5 + e^{-0.5t} = e^{-0.5t}\text{.}
+\end{equation*}
+</div>
+<p id="GFo">Since <span class="process-math">\(\frac{dv}{dt}\)</span> and <span class="process-math">\(1.5 - 0.5v\)</span> agree for all values of <span class="process-math">\(t\)</span> when <span class="process-math">\(v = 3-2e^{-0.5t}\text{,}\)</span> we have indeed found a solution to the differential equation.</p>
+<article class="activity project-like" id="PrP"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.1.4</span><span class="period">.</span>
+</h4>
+<p id="WWo">Consider the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dv}{dt} = 1.5 - 0.5v\text{.}
+\end{equation*}
+</div>
+<p id="Ddx">Which of the following functions are solutions of this differential equation?</p>
+<ol class="lower-alpha cols2">
+<li id="aWn"><p id="cLA"><span class="process-math">\(v(t) = 1.5t - 0.25t^2\text{.}\)</span></p></li>
+<li id="Hdw"><p id="ISJ"><span class="process-math">\(v(t) = 3 + 2e^{-0.5t}\text{.}\)</span></p></li>
+<li id="nkF"><p id="oZS"><span class="process-math">\(v(t) = 3\text{.}\)</span></p></li>
+<li id="TrO"><p id="Vhb"><span class="process-math">\(v(t) = 3 + Ce^{-0.5t}\)</span> where <span class="process-math">\(C\)</span> is any constant.</p></li>
+</ol></article><p id="mMx">This activity shows us something interesting. Notice that the differential equation has infinitely many solutions, which are parametrized by the constant <span class="process-math">\(C\)</span> in <span class="process-math">\(v(t) = 3+Ce^{-0.5t}\text{.}\)</span> In <a href="" class="xref" data-knowl="./knowl/F-7-1-family.html" title="Figure 7.1.3">Figure 7.1.3</a>, we see the graphs of these solutions for a few values of <span class="process-math">\(C\text{,}\)</span> as labeled.</p>
+<figure class="figure figure-like" id="PZa"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/7_1_family.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.3<span class="period">.</span></span><span class="space"> </span>The family of solutions to the differential equation <span class="process-math">\(\frac{dv}{dt} = 1.5 - 0.5v\text{.}\)</span></figcaption></figure><p id="STG">Notice that the value of <span class="process-math">\(C\)</span> is connected to the initial value of the velocity <span class="process-math">\(v(0)\text{,}\)</span> since <span class="process-math">\(v(0) = 3+C\text{.}\)</span> In other words, while the differential equation describes how the velocity changes as a function of the velocity itself, this is not enough information to determine the velocity uniquely: we also need to know the initial velocity. For this reason, differential equations will typically have infinitely many solutions, one corresponding to each initial value. We have seen this phenomenon before: given the velocity of a moving object <span class="process-math">\(v(t)\text{,}\)</span> we cannot uniquely determine the object's position function unless we also know its initial position.</p>
+<p id="zaP">If we are given a differential equation and an initial value for the unknown function, we say that we have an <em class="emphasis">initial value problem.</em> For instance,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dv}{dt} = 1.5-0.5v, \ v(0) = 0.5
+\end{equation*}
+</div>
+<p class="continuation">is an initial value problem. In this problem, we know the value of <span class="process-math">\(v\)</span> at one time and we know how <span class="process-math">\(v\)</span> is changing. Consequently, there should be exactly one function <span class="process-math">\(v\)</span> that satisfies the initial value problem.</p>
+<p id="fhY">This demonstrates the following important general property of initial value problems.</p>
+<article class="assemblage assemblage-like" id="oXj"><p id="Lph">Initial value problems that are “well behaved” have exactly one solution, which exists in some interval around the initial point.</p></article><p id="rwq">We won't worry about what “well behaved” means—it is a technical condition that will be satisfied by all the differential equations we consider.</p>
+<p id="XDz">To close this section, we note that differential equations may be classified based on certain characteristics they may possess. You may see many different types of differential equations in a later course in differential equations. For now, we would like to introduce a few terms that are used to describe differential equations.</p>
+<p id="DKI">A <em class="emphasis">first-order</em> differential equation  is one in which only the first derivative of the function occurs. For this reason,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dv}{dt} = 1.5-0.5v
+\end{equation*}
+</div>
+<p class="continuation">is a first-order equation while</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d^2 y}{dt^2} = -10y
+\end{equation*}
+</div>
+<p class="continuation">is a second-order equation.</p>
+<p id="jRR">A differential equation is <em class="emphasis">autonomous</em>  if the independent variable does not appear in the description of the derivative. For instance,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dv}{dt} = 1.5-0.5v
+\end{equation*}
+</div>
+<p class="continuation">is autonomous because the description of the derivative <span class="process-math">\(dv/dt\)</span> does not depend on time. The equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = 1.5t - 0.5y\text{,}
+\end{equation*}
+</div>
+<p class="continuation">however, is not autonomous.</p></section><section class="subsection" id="IQa"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.1.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="wgj" class="disc">
+<li id="yqV"><p id="Ppg">A differential equation is simply an equation that describes the derivative(s) of an unknown function.</p></li>
+<li id="eye"><p id="vwp">Physical principles, as well as some everyday situations, often describe how a quantity changes, which lead to differential equations.</p></li>
+<li id="KFn"><p id="bDy">A solution to a differential equation is a function whose derivatives satisfy the equation's description. Differential equations typically have infinitely many solutions, parametrized by the initial values.</p></li>
+</ul></section><section class="exercises" id="jtO"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">7.1.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="hLF"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Matching solutions with equations.</span>
+</h4>
+<div id="webwork-187" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="187" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec1/Q15.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7523">Match the solutions to the differential equations.  If there is more than one solution to an equation, select the answer that includes all solutions.</p>
+<ol id="p-7524" class="lower-alpha">
+<li id="li-4378"><p id="p-7525"><span class="process-math">\(\displaystyle \frac{dy}{dx}=6 y\)</span></p></li>
+<li id="li-4379"><p id="p-7526"><span class="process-math">\(\displaystyle \frac{dy}{dx}=-6 y\)</span></p></li>
+<li id="li-4380"><p id="p-7527"><span class="process-math">\(\displaystyle \frac{d^2y}{dx^2}=36 y\)</span></p></li>
+<li id="li-4381"><p id="p-7528"><span class="process-math">\(\displaystyle \frac{d^2y}{dx^2}=-36 y\)</span></p></li>
+</ol>
+<ol class="upper-alpha">
+<li id="li-4382"><p id="p-7529"><span class="process-math">\(y = e^{-6 x}\)</span> or <span class="process-math">\(y = e^{6 x}\)</span></p></li>
+<li id="li-4383"><p id="p-7530"><span class="process-math">\(\displaystyle y = e^{-6 x}\)</span></p></li>
+<li id="li-4384"><p id="p-7531"><span class="process-math">\(y = \sin(6 x)\)</span> or <span class="process-math">\(y = 6\sin(x)\)</span></p></li>
+<li id="li-4385"><p id="p-7532"><span class="process-math">\(\displaystyle y = 6\sin(x)\)</span></p></li>
+<li id="li-4386"><p id="p-7533"><span class="process-math">\(\displaystyle y = \sin(6 x)\)</span></p></li>
+<li id="li-4387"><p id="p-7534"><span class="process-math">\(\displaystyle y = e^{6 x}\)</span></p></li>
+</ol>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-187')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="NSO"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Finding constant to complete solution.</span>
+</h4>
+<div id="webwork-188" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="188" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec1/Q09.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7535">Find a positive value of <span class="process-math">\(k\)</span> for which <span class="process-math">\(y = \sin(k t)\)</span> satisfies</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d^2y}{dt^2} + 25 y = 0.
+\end{equation*}
+</div>
+<p id="p-7536"><span class="process-math">\(k =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-188')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="tZX"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Choosing solution of <span class="process-math">\(dy/dt=k(1-Ay)\)</span>.</span>
+</h4>
+<div id="webwork-189" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="189" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec1/Q03.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7538">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(k\)</span> be positive constants.</p>
+<p id="p-7539">Which of the given functions is a solution to <span class="process-math">\(\frac{dy}{dt}=k(1 - A y)\text{?}\)</span> <ul style="list-style:circle;">
+<li id="li-4388"><p id="p-7540"><span class="process-math">\(\displaystyle y = -A + C e^{kt}\)</span></p></li>
+<li id="li-4389"><p id="p-7541"><span class="process-math">\(\displaystyle y = A^{-1} + C e^{-Akt}\)</span></p></li>
+<li id="li-4390"><p id="p-7542"><span class="process-math">\(\displaystyle y = A^{-1} + C e^{Akt}\)</span></p></li>
+<li id="li-4391"><p id="p-7543"><span class="process-math">\(\displaystyle y = A + C e^{-kt}\)</span></p></li>
+<li id="li-4392"><p id="p-7544"><span class="process-math">\(\displaystyle y = -A + C e^{-kt}\)</span></p></li>
+<li id="li-4393"><p id="p-7545"><span class="process-math">\(\displaystyle y = A + C e^{kt}\)</span></p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-189')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="ahg"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="ErY">Suppose that <span class="process-math">\(T(t)\)</span> represents the temperature of a cup of coffee set out in a room, where <span class="process-math">\(T\)</span> is expressed in degrees Fahrenheit and <span class="process-math">\(t\)</span> in minutes. A physical principle known as Newton's Law of Cooling  tells us that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dT}{dt}= -\frac1{15}T+5\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="gGm"><p id="AdE">Supposes that <span class="process-math">\(T(0)=105\text{.}\)</span> What does the differential equation give us for the value of <span class="process-math">\(\frac{dT}{dt}\vert_{T=105}\text{?}\)</span> Explain in a complete sentence the meaning of these two facts.</p></li>
+<li id="MNv"><p id="gkN">Is <span class="process-math">\(T\)</span> increasing or decreasing at <span class="process-math">\(t=0\text{?}\)</span></p></li>
+<li id="sUE"><p id="MrW">What is the approximate temperature at <span class="process-math">\(t=1\text{?}\)</span></p></li>
+<li id="ZbN">
+<p id="szf">On the graph below, make a plot of <span class="process-math">\(dT/dt\)</span> as a function of <span class="process-math">\(T\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/7_1_exercise_1.svg" role="img" class="contained"></div></div></div>
+</li>
+<li id="FiW"><p id="YGo">For which values of <span class="process-math">\(T\)</span> does <span class="process-math">\(T\)</span> increase? For which values of <span class="process-math">\(T\)</span> does <span class="process-math">\(T\)</span> decrease?</p></li>
+<li id="lqf"><p id="ENx">What do you think is the temperature of the room? Explain your thinking.</p></li>
+<li id="Rxo"><p id="kUG">Verify that <span class="process-math">\(T(t) = 75 + 30e^{-t/15}\)</span> is the solution to the differential equation with initial value <span class="process-math">\(T(0) = 105\text{.}\)</span> What happens to this solution after a long time?</p></li>
+</ol></article><article class="exercise exercise-like" id="Gop"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="kzh">Suppose that the population of a particular species is described by the function <span class="process-math">\(P(t)\text{,}\)</span> where <span class="process-math">\(P\)</span> is expressed in millions. Suppose further that the population's rate of change is governed by the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dP}{dt} = f(P)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(f(P)\)</span> is the function graphed below.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/7_1_threshold.svg" role="img" class="contained"></div></div></div>
+<ol id="QGq" class="lower-alpha">
+<li id="fAT"><p id="SRc">For which values of the population <span class="process-math">\(P\)</span> does the population increase?</p></li>
+<li id="LIc"><p id="yYl">For which values of the population <span class="process-math">\(P\)</span> does the population decrease?</p></li>
+<li id="rPl"><p id="ffu">If <span class="process-math">\(P(0) = 3\text{,}\)</span> how will the population change in time?</p></li>
+<li id="XWu"><p id="LmD">If the initial population satisfies <span class="process-math">\(0\lt P(0)\lt 1\text{,}\)</span> what will happen to the population after a very long time?</p></li>
+<li id="EdD"><p id="rtM">If the initial population satisfies <span class="process-math">\(1\lt P(0)\lt 3\text{,}\)</span> what will happen to the population after a very long time?</p></li>
+<li id="kkM"><p id="XAV">If the initial population satisfies <span class="process-math">\(3\lt P(0)\text{,}\)</span> what will happen to the population after a very long time?</p></li>
+<li id="QrV"><p id="jPn">This model for a population's growth is sometimes called “growth with a threshold.” Explain why this is an appropriate name.</p></li>
+</ol></article><article class="exercise exercise-like" id="mvy"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="wNz">In this problem, we test further what it means for a function to be a solution to a given differential equation.</p>
+<ol class="lower-alpha">
+<li id="evA">
+<p id="xSS">Consider the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = y - t\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Determine whether the following functions are solutions to the given differential equation.</p>
+<ol class="lower-roman">
+<li id="HWy"><p id="PAX"><span class="process-math">\(\displaystyle y(t) = t + 1 + 2e^t\)</span></p></li>
+<li id="KCJ"><p id="eab"><span class="process-math">\(\displaystyle y(t) = t + 1\)</span></p></li>
+<li id="qJS"><p id="Khk"><span class="process-math">\(\displaystyle y(t) = t + 2\)</span></p></li>
+</ol>
+</li>
+<li id="TWv">
+<p id="qot">When you weigh bananas in a scale at the grocery store, the height <span class="process-math">\(h\)</span> of the bananas is described by the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d^2h}{dt^2} = -kh
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(k\)</span> is the <em class="emphasis">spring constant</em>, a constant that depends on the properties of the spring in the scale. After you put the bananas in the scale, you (cleverly) observe that the height of the bananas is given by <span class="process-math">\(h(t) = 4\sin(3t)\text{.}\)</span> What is the value of the spring constant?</p>
+</li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-114"><div class="fn">At this time, don't worry about why we chose this function;  we will learn techniques for finding solutions to differential equations soon enough.</div></div>
+</div></main>
+</div>
+</body>
+</html>

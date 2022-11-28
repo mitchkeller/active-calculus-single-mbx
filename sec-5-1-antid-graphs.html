@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Constructing Accurate Graphs of Antiderivatives</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="C-5.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-5.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-5-2-FTC2.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="C-5.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-5.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-5-2-FTC2.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="active">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="mjh"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.1</span> <span class="title">Constructing Accurate Graphs of Antiderivatives</span>
+</h2>
+<article class="objectives goal-like" id="Dhs"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="HRl"><p id="sIn">Given the graph of a function's derivative, how can we construct a completely accurate graph of the original function?</p></li>
+<li id="nYu"><p id="YPw">How many antiderivatives does a given function have? What do those antiderivatives all have in common?</p></li>
+<li id="UfD"><p id="EWF">Given a function <span class="process-math">\(f\text{,}\)</span> how does the rule <span class="process-math">\(A(x) = \int_0^x f(t) \, dt\)</span> define a new function <span class="process-math">\(A\text{?}\)</span></p></li>
+</ul></article><section class="introduction" id="joB"><p id="pNH">A recurring theme in our discussion of differential calculus has been the question “Given information about the derivative of an unknown function <span class="process-math">\(f\text{,}\)</span> how much information can we obtain about <span class="process-math">\(f\)</span> itself?” In <a href="" class="xref" data-knowl="./knowl/act-1-8-2.html" title="Activity 1.8.3">Activity 1.8.3</a>, the graph of <span class="process-math">\(y = f'(x)\)</span> was known (along with the value of <span class="process-math">\(f\)</span> at a single point) and we endeavored to sketch a possible graph of <span class="process-math">\(f\)</span> near the known point. In <a href="" class="xref" data-knowl="./knowl/Ex-f-from-f-prime.html" title="Example 3.1.7">Example 3.1.7</a> — we investigated how the first derivative test enables us to use information about <span class="process-math">\(f'\)</span> to determine where the original function <span class="process-math">\(f\)</span> is increasing and decreasing, as well as where <span class="process-math">\(f\)</span> has relative extreme values. If we know a formula or graph of <span class="process-math">\(f'\text{,}\)</span> by computing <span class="process-math">\(f''\)</span> we can find where the original function <span class="process-math">\(f\)</span> is concave up and concave down. Thus, knowing <span class="process-math">\(f'\)</span> and <span class="process-math">\(f''\)</span> enables us to understand the shape of the graph of <span class="process-math">\(f\text{.}\)</span></p>
+<p id="VUQ">We returned to this question in even more detail in <a href="sec-4-1-velocity-distance.html" class="internal" title="Section 4.1: Determining distance traveled from velocity">Section 4.1</a>. In that setting, we knew the instantaneous velocity of a moving object and worked to determine as much as possible about the object's position function. We found connections between the net signed area under the velocity function and the corresponding change in position of the function, and the Total Change Theorem further illuminated these connections between <span class="process-math">\(f'\)</span> and <span class="process-math">\(f\text{,}\)</span> showing that the total change in the value of <span class="process-math">\(f\)</span> over an interval <span class="process-math">\([a,b]\)</span> is determined by the net signed area bounded by <span class="process-math">\(f'\)</span> and the <span class="process-math">\(x\)</span>-axis on the same interval.</p>
+<p id="CbZ">In what follows, we explore the situation where we possess an accurate graph of the derivative function along with a single value of the function <span class="process-math">\(f\text{.}\)</span> From that information, we'd like to determine a graph of <span class="process-math">\(f\)</span> that shows where <span class="process-math">\(f\)</span> is increasing, decreasing, concave up, and concave down, and also provides an accurate function value at any point.</p>
+<article class="exploration project-like" id="Mhf"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">5.1.1</span><span class="period">.</span>
+</h3>
+<div id="webwork-134" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="134" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Westmont/ActiveCalculus/Preview_5_1/preview_5_1_abcdef/preview_5_1_abcdef.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5159">Suppose that the following information is known about a function <span class="process-math">\(f\text{:}\)</span>  the graph of its derivative, <span class="process-math">\(y = f'(x)\text{,}\)</span> is given in the figure below.  Further, assume that <span class="process-math">\(f'\)</span> is piecewise linear (as pictured) and that for <span class="process-math">\(x \le 0\)</span> and <span class="process-math">\(x \ge 6\text{,}\)</span> <span class="process-math">\(f'(x) = 0\text{.}\)</span> Finally, it is given that <span class="process-math">\(f(0) = 1\text{.}\)</span></p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-134-image-1.png" class="contained"></div>
+<p id="p-5160">On what interval(s) is <span class="process-math">\(f\)</span> an increasing function? (Separate multiple intervals with a comma.)</p>
+<p id="p-5161">Answer:<span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-5162">On what intervals is <span class="process-math">\(f\)</span> a decreasing function? (Separate multiple intervals with a comma.)</p>
+<p id="p-5163">Answer:<span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-5164">On what interval(s) is <span class="process-math">\(f\)</span> concave up? (Separate multiple intervals with a comma.)</p>
+<p id="p-5165">Answer:<span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-5166">On what interval(s) is <span class="process-math">\(f\)</span> concave down? (Separate multiple intervals with a comma.)</p>
+<p id="p-5167">Answer:<span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-5168">At what <span class="process-math">\(x\)</span> value(s) does <span class="process-math">\(f\)</span> have a relative minimum? (Separate multiple points with a comma.)</p>
+<p id="p-5169">Answer:<span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-5170">At what <span class="process-math">\(x\)</span> value(s) does <span class="process-math">\(f\)</span> have a relative maximum? (Separate multiple points with a comma.)</p>
+<p id="p-5171">Answer: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-5172">Recall that the Total Change Theorem tells us that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(1) - f(0) = \int_0^1 f'(x) \, dx.
+\end{equation*}
+</div>
+<p class="continuation">What is the exact value of <span class="process-math">\(f(1)\text{?}\)</span></p>
+<p id="p-5173"><span class="process-math">\(f(1)=\)</span><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-5174">Use the given information and similar reasoning to the previous question to determine the exact value of the following:</p>
+<p id="p-5175"><span class="process-math">\(f(2)=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>,</p>
+<p id="p-5176"><span class="process-math">\(f(3)=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>,</p>
+<p id="p-5177"><span class="process-math">\(f(4)=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>,</p>
+<p id="p-5178"><span class="process-math">\(f(5)=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>,</p>
+<p id="p-5179"><span class="process-math">\(f(6)=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5180">Based on your responses to all of the preceding questions, which of the following is an accurate graph of <span class="process-math">\(y=f(x)\text{?}\)</span> <ul style="list-style:circle;">
+<li id="li-3089"><p id="p-5182">A</p></li>
+<li id="li-3090"><p id="p-5183">B</p></li>
+<li id="li-3091"><p id="p-5184">C</p></li>
+<li id="li-3092"><p id="p-5185">D</p></li>
+</ul></p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b r l t lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-134-image-2.png" class="contained"></div></td>
+<td class="c m b r l0 t lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-134-image-3.png" class="contained"></div></td>
+</tr>
+<tr>
+<td class="c m b r l t0 lines">A</td>
+<td class="c m b r l0 t0 lines">B</td>
+</tr>
+<tr>
+<td class="c m b r l t0 lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-134-image-4.png" class="contained"></div></td>
+<td class="c m b r l0 t0 lines"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-134-image-5.png" class="contained"></div></td>
+</tr>
+<tr>
+<td class="c m b r l t0 lines">C</td>
+<td class="c m b r l0 t0 lines">D</td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-134')">Activate</button></div>
+</div></article></section><section class="subsection" id="Sqq"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.1</span> <span class="title">Constructing the graph of an antiderivative</span>
+</h3>
+<p id="iji"><a href="" class="xref" data-knowl="./knowl/PA-5-1.html" title="Preview Activity 5.1.1">Preview Activity 5.1.1</a> demonstrates that when we can find the exact area under the graph of a function on any given interval, it is possible to construct a graph of the function's antiderivative. That is, we can find a function whose derivative is given. We can now determine not only the overall shape of the antiderivative graph, but also the actual <em class="emphasis">height</em> of the graph at any point of interest.</p>
+<p id="Oqr">This is a consequence of the Fundamental Theorem of Calculus: if we know a function <span class="process-math">\(f\)</span> and the value of the antiderivative <span class="process-math">\(F\)</span> at some starting point <span class="process-math">\(a\text{,}\)</span> we can determine the value of <span class="process-math">\(F(b)\)</span> via the definite integral. Since <span class="process-math">\(F(b) - F(a) = \int_a^b f(x) \, dx\text{,}\)</span> it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="AWG">
+\begin{equation}
+F(b) = F(a) + \int_a^b f(x) \, dx\text{.}\tag{5.1.1}
+\end{equation}
+</div>
+<p id="uxA">We can also interpret the equation <span class="process-math">\(F(b) - F(a) = \int_a^b f(x) \, dx\)</span> in terms of the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(F\)</span> as follows. On an interval <span class="process-math">\([a,b]\text{,}\)</span></p>
+<blockquote class="blockquote" id="PvK"><p id="dzp"><em class="emphasis">differences in heights on the graph of the antiderivative</em> <em class="emphasis">given by <span class="process-math">\(F(b) - F(a)\)</span></em> <em class="emphasis">correspond to the net signed area bounded by the original function on the interval <span class="process-math">\([a,b]\text{,}\)</span></em> <em class="emphasis">which is given by</em> <span class="process-math">\(\int_a^b f(x) \, dx\text{.}\)</span></p></blockquote>
+<article class="activity project-like" id="YvT"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.1.2</span><span class="period">.</span>
+</h4>
+<p id="gas">Suppose that the function <span class="process-math">\(y = f(x)\)</span> is given by the graph shown in <a href="" class="xref" data-knowl="./knowl/F-5-1-Act1.html" title="Figure 5.1.1">Figure 5.1.1</a>, and that the pieces of <span class="process-math">\(f\)</span> are either portions of lines or portions of circles. In addition, let <span class="process-math">\(F\)</span> be an antiderivative of <span class="process-math">\(f\)</span> and say that <span class="process-math">\(F(0) = -1\text{.}\)</span> Finally, assume that for <span class="process-math">\(x \le 0\)</span> and <span class="process-math">\(x \ge 7\text{,}\)</span> <span class="process-math">\(f(x) = 0\text{.}\)</span></p>
+<figure class="figure figure-like" id="soK"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/5_1_Act1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.1<span class="period">.</span></span><span class="space"> </span>At left, the graph of <span class="process-math">\(y = f(x)\text{.}\)</span></figcaption></figure><ol id="MhB" class="lower-alpha">
+<li id="EYB"><p id="woJ">On what interval(s) is <span class="process-math">\(F\)</span> an increasing function? On what intervals is <span class="process-math">\(F\)</span> decreasing?</p></li>
+<li id="lfK"><p id="cvS">On what interval(s) is <span class="process-math">\(F\)</span> concave up? concave down? neither?</p></li>
+<li id="RmT"><p id="IDb">At what point(s) does <span class="process-math">\(F\)</span> have a relative minimum? a relative maximum?</p></li>
+<li id="xuc"><p id="oKk">Use the given information to determine the exact value of <span class="process-math">\(F(x)\)</span> for <span class="process-math">\(x = 1, 2, \ldots, 7\text{.}\)</span> In addition, what are the values of <span class="process-math">\(F(-1)\)</span> and <span class="process-math">\(F(8)\text{?}\)</span></p></li>
+<li id="dBl"><p id="URt">Based on your responses to all of the preceding questions, sketch a complete and accurate graph of <span class="process-math">\(y = F(x)\)</span> on the axes provided, being sure to indicate the behavior of <span class="process-math">\(F\)</span> for <span class="process-math">\(x \lt 0\)</span> and <span class="process-math">\(x \gt 7\text{.}\)</span> Clearly indicate the scale on the vertical and horizontal axes of your graph.</p></li>
+<li id="JIu"><p id="AYC">What happens if we change one key piece of information: in particular, say that <span class="process-math">\(G\)</span> is an antiderivative of <span class="process-math">\(f\)</span> and <span class="process-math">\(G(0) = 0\text{.}\)</span> How (if at all) would your answers to the preceding questions change? Sketch a graph of <span class="process-math">\(G\)</span> on the same axes as the graph of <span class="process-math">\(F\)</span> you constructed in (e).</p></li>
+</ol></article></section><section class="subsection" id="yxz"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.2</span> <span class="title">Multiple antiderivatives of a single function</span>
+</h3>
+<p id="aEJ">In the final question of <a href="" class="xref" data-knowl="./knowl/act-5-1-1.html" title="Activity 5.1.2">Activity 5.1.2</a>, we encountered a very important idea: a function <span class="process-math">\(f\)</span> has more than one antiderivative. Each antiderivative of <span class="process-math">\(f\)</span> is determined uniquely by its value at a single point. For example, suppose that <span class="process-math">\(f\)</span> is the function given at left in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ex1.html" title="Figure 5.1.2">Figure 5.1.2</a>, and suppose further that <span class="process-math">\(F\)</span> is an antiderivative of <span class="process-math">\(f\)</span> that satisfies <span class="process-math">\(F(0) = 1\text{.}\)</span></p>
+<figure class="figure figure-like" id="XKd"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="external/images/5_1_Ex1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.2<span class="period">.</span></span><span class="space"> </span>At left, the graph of <span class="process-math">\(y = f(x)\text{.}\)</span>  At right, three different antiderivatives of <span class="process-math">\(f\text{.}\)</span></figcaption></figure><p id="GLS">Then, using <a href="" class="xref" data-knowl="./knowl/E-FTCTCT.html" title="Equation 5.1.1">Equation (5.1.1)</a>, we can compute</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-FTCTCT.html ./knowl/F-5-1-Ex1.html" id="hdP">
+\begin{align*}
+F(1) &amp;= F(0) + \int_0^1 f(x) \, dx\\
+&amp;= 1 + 0.5\\
+&amp;= 1.5\text{.}
+\end{align*}
+</div>
+<p class="continuation">Similarly, <span class="process-math">\(F(2) = 1.5\text{,}\)</span> <span class="process-math">\(F(3) = -0.5\text{,}\)</span> <span class="process-math">\(F(4) = -2\text{,}\)</span> <span class="process-math">\(F(5) = -0.5\text{,}\)</span> and <span class="process-math">\(F(6) = 1\text{.}\)</span> In addition, we can use the fact that <span class="process-math">\(F' = f\)</span> to ascertain where <span class="process-math">\(F\)</span> is increasing and decreasing, concave up and concave down, and has relative extremes and inflection points. We ultimately find that the graph of <span class="process-math">\(F\)</span> is the one given in blue in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ex1.html" title="Figure 5.1.2">Figure 5.1.2</a>.</p>
+<p id="mTb">If we want an antiderivative <span class="process-math">\(G\)</span> for which <span class="process-math">\(G(0) = 3\text{,}\)</span> then <span class="process-math">\(G\)</span> will have the exact same shape as <span class="process-math">\(F\)</span> (since both share the derivative <span class="process-math">\(f\)</span>), but <span class="process-math">\(G\)</span> will be shifted vertically from the graph of <span class="process-math">\(F\text{,}\)</span> as pictured in red in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ex1.html" title="Figure 5.1.2">Figure 5.1.2</a>. Note that <span class="process-math">\(G(1) - G(0) = \int_0^1 f(x) \, dx = 0.5\text{,}\)</span> just as <span class="process-math">\(F(1) - F(0) = 0.5\text{,}\)</span> but since <span class="process-math">\(G(0) = 3\text{,}\)</span> <span class="process-math">\(G(1) = G(0) + 0.5 = 3.5\text{,}\)</span> whereas <span class="process-math">\(F(1) = 1.5\text{.}\)</span> In the same way, if we assigned a different initial value to the antiderivative, say <span class="process-math">\(H(0) = -1\text{,}\)</span> we would get still another antiderivative, as shown in magenta in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ex1.html" title="Figure 5.1.2">Figure 5.1.2</a>.</p>
+<p id="Tak">This example demonstrates an important fact that holds more generally:</p>
+<article class="assemblage assemblage-like" id="qTa"><p id="zht">If <span class="process-math">\(G\)</span> and <span class="process-math">\(H\)</span> are both antiderivatives of a function <span class="process-math">\(f\text{,}\)</span> then the function <span class="process-math">\(G - H\)</span> must be constant.</p></article><p id="foC">To see why this result holds, observe that if <span class="process-math">\(G\)</span> and <span class="process-math">\(H\)</span> are both antiderivatives of <span class="process-math">\(f\text{,}\)</span> then <span class="process-math">\(G' = f\)</span> and <span class="process-math">\(H' = f\text{.}\)</span> Hence,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[ G(x) - H(x) ] = G'(x) - H'(x) = f(x) - f(x) = 0\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since the only way a function can have derivative zero is by being a constant function, it follows that the function <span class="process-math">\(G - H\)</span> must be constant.</p>
+<p id="LvL">We now see that if a function has at least one antiderivative, it must have infinitely many: we can add any constant of our choice to the antiderivative and get another antiderivative. For this reason, we sometimes refer to the <em class="emphasis">general antiderivative</em>  of a function <span class="process-math">\(f\text{.}\)</span></p>
+<p id="rCU">To identify a particular antiderivative of <span class="process-math">\(f\text{,}\)</span> we must know a single value of the antiderivative <span class="process-math">\(F\)</span> (this value is often called an <em class="emphasis">initial condition</em>).  For example, if <span class="process-math">\(f(x) = x^2\text{,}\)</span> its general antiderivative is <span class="process-math">\(F(x) = \frac{1}{3}x^3 + C\text{,}\)</span> where we include the “<span class="process-math">\(+C\)</span>” to indicate that <span class="process-math">\(F\)</span> includes <em class="emphasis">all</em> of the possible antiderivatives of <span class="process-math">\(f\text{.}\)</span> If we know that <span class="process-math">\(F(2) = 3\text{,}\)</span> we substitute 2 for <span class="process-math">\(x\)</span> in <span class="process-math">\(F(x) = \frac{1}{3}x^3 + C\text{,}\)</span> and find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+3 = \frac{1}{3}(2)^3 + C\text{,}
+\end{equation*}
+</div>
+<p class="continuation">or <span class="process-math">\(C = 3 - \frac{8}{3} = \frac{1}{3}\text{.}\)</span> Therefore, the particular antiderivative in this case is <span class="process-math">\(F(x) = \frac{1}{3}x^3 + \frac{1}{3}\text{.}\)</span></p>
+<article class="activity project-like" id="UvU"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="period">.</span>
+</h4>
+<p id="PMb">For each of the following functions, sketch an accurate graph of the antiderivative that satisfies the given initial condition. In addition, sketch the graph of two additional antiderivatives of the given function, and state the corresponding initial conditions that each of them satisfy. If possible, find an algebraic formula for the antiderivative that satisfies the initial condition.</p>
+<ol class="lower-alpha">
+<li id="JmV"><p id="mzy">original function: <span class="process-math">\(g(x) = \left| x \right| - 1\text{;}\)</span> initial condition: <span class="process-math">\(G(-1) = 0\text{;}\)</span> interval for sketch: <span class="process-math">\([-2,2]\)</span></p></li>
+<li id="pue"><p id="SGH">original function: <span class="process-math">\(h(x) = \sin(x)\text{;}\)</span> initial condition: <span class="process-math">\(H(0) = 1\text{;}\)</span> interval for sketch: <span class="process-math">\([0,4\pi]\)</span></p></li>
+<li id="VBn"><p id="yNQ">original function: <span class="process-math">\(p(x) = \begin{cases}x^2, \amp \text{ if } 0 \lt x \lt 1 \\ -(x-2)^2, \amp \text{ if } 1 \lt x \lt 2 \\ 0 \amp \text{ otherwise } \end{cases}\text{;}\)</span> initial condition: <span class="process-math">\(P(0) = 1\text{;}\)</span> interval for sketch: <span class="process-math">\([-1,3]\)</span></p></li>
+</ol></article></section><section class="subsection" id="eEI"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.3</span> <span class="title">Functions defined by integrals</span>
+</h3>
+<p id="DRm">Equation <a href="" class="xref" data-knowl="./knowl/E-FTCTCT.html" title="Equation 5.1.1">(5.1.1)</a> allows us to compute the value of the antiderivative <span class="process-math">\(F\)</span> at a point <span class="process-math">\(b\text{,}\)</span> provided that we know <span class="process-math">\(F(a)\)</span> and can evaluate the definite integral from <span class="process-math">\(a\)</span> to <span class="process-math">\(b\)</span> of <span class="process-math">\(f\text{.}\)</span> That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-FTCTCT.html">
+\begin{equation*}
+F(b) = F(a) + \int_a^b f(x) \, dx\text{.}
+\end{equation*}
+</div>
+<p id="jYv">In several situations, we have used this formula to compute <span class="process-math">\(F(b)\)</span> for several different values of <span class="process-math">\(b\text{,}\)</span> and then plotted the points <span class="process-math">\((b,F(b))\)</span> to help us draw an accurate graph of <span class="process-math">\(F\text{.}\)</span> This suggests that we may want to think of <span class="process-math">\(b\text{,}\)</span> the upper limit of integration, as a variable itself. To that end, we introduce the idea of an <em class="emphasis">integral function</em>,  a function whose formula involves a definite integral.</p>
+<article class="definition definition-like" id="Xaj"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.1.3</span><span class="period">.</span>
+</h4>
+<p id="JGy">If <span class="process-math">\(f\)</span> is a continuous function, we define the corresponding <dfn class="terminology">integral function</dfn> <span class="process-math">\(A\)</span> according to the rule</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="FGz">
+\begin{equation}
+A(x) = \int_a^x f(t) \, dt\text{.}\tag{5.1.2}
+\end{equation}
+</div></article><p id="QfE">Note that because <span class="process-math">\(x\)</span> is the independent variable in the function <span class="process-math">\(A\text{,}\)</span> and determines the endpoint of the interval of integration, we need to use a different variable as the variable of integration. A standard choice is <span class="process-math">\(t\text{,}\)</span> but any variable other than <span class="process-math">\(x\)</span> is acceptable.</p>
+<p id="wmN">One way to think of the function <span class="process-math">\(A\)</span> is as the “net signed area from <span class="process-math">\(a\)</span> up to <span class="process-math">\(x\)</span>” function, where we consider the region bounded by <span class="process-math">\(y = f(t)\text{.}\)</span> For example, in <a href="" class="xref" data-knowl="./knowl/F-5-1-IntFxn.html" title="Figure 5.1.4">Figure 5.1.4</a>, we see a function <span class="process-math">\(f\)</span> pictured at left, and its corresponding area function (choosing <span class="process-math">\(a = 0\)</span>), <span class="process-math">\(A(x) = \int_0^x f(t) \, dt\)</span> shown at right.</p>
+<figure class="figure figure-like" id="oIo"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/5_1_IntFxn.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.4<span class="period">.</span></span><span class="space"> </span>At left, the graph of the given function <span class="process-math">\(f\text{.}\)</span>  At right, the area function <span class="process-math">\(A(x) = \int_0^x f(t) \  dt\text{.}\)</span></figcaption></figure><p id="ctW">The function <span class="process-math">\(A\)</span> measures the net signed area from <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = x\)</span> bounded by the curve <span class="process-math">\(y = f(t)\text{;}\)</span> this value is then reported as the corresponding height on the graph of <span class="process-math">\(y = A(x)\text{.}\)</span> <a class="external" href="https://gvsu.edu/s/cz" target="_blank">This applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-88" id="fn-88"><sup> 1 </sup></a>, brings the static picture in <a href="" class="xref" data-knowl="./knowl/F-5-1-IntFxn.html" title="Figure 5.1.4">Figure 5.1.4</a> to life. There, the user can move the red point on the function <span class="process-math">\(f\)</span> and see how the corresponding height changes at the light blue point on the graph of <span class="process-math">\(A\text{.}\)</span></p>
+<p id="IBf">The choice of <span class="process-math">\(a\)</span> is somewhat arbitrary. In the activity that follows, we explore how the value of <span class="process-math">\(a\)</span> affects the graph of the integral function.</p>
+<article class="activity project-like" id="kYG"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.1.4</span><span class="period">.</span>
+</h4>
+<p id="sDf">Suppose that <span class="process-math">\(g\)</span> is given by the graph at left in <a href="" class="xref" data-knowl="./knowl/F-5-1-Act3.html" title="Figure 5.1.5">Figure 5.1.5</a> and that <span class="process-math">\(A\)</span> is the corresponding integral function defined by <span class="process-math">\(A(x) = \int_1^x g(t) \, dt\text{.}\)</span></p>
+<figure class="figure figure-like" id="ERx"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/5_1_Act3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.5<span class="period">.</span></span><span class="space"> </span>At left, the graph of <span class="process-math">\(y = g(t)\text{;}\)</span> at right, axes for plotting <span class="process-math">\(y = A(x)\text{,}\)</span> where <span class="process-math">\(A\)</span> is defined by the formula <span class="process-math">\(A(x) = \int_1^x g(t) \  dt\text{.}\)</span></figcaption></figure><ol id="YKo" class="lower-alpha">
+<li id="RBo"><p id="IRw">On what interval(s) is <span class="process-math">\(A\)</span> an increasing function? On what intervals is <span class="process-math">\(A\)</span> decreasing? Why?</p></li>
+<li id="xIx"><p id="oYF">On what interval(s) do you think <span class="process-math">\(A\)</span> is concave up? concave down? Why?</p></li>
+<li id="dPG"><p id="VfO">At what point(s) does <span class="process-math">\(A\)</span> have a relative minimum? a relative maximum?</p></li>
+<li id="JWP"><p id="BmX">Use the given information to determine the exact values of <span class="process-math">\(A(0)\text{,}\)</span> <span class="process-math">\(A(1)\text{,}\)</span> <span class="process-math">\(A(2)\text{,}\)</span> <span class="process-math">\(A(3)\text{,}\)</span> <span class="process-math">\(A(4)\text{,}\)</span> <span class="process-math">\(A(5)\text{,}\)</span> and <span class="process-math">\(A(6)\text{.}\)</span></p></li>
+<li id="qdY"><p id="hug">Based on your responses to all of the preceding questions, sketch a complete and accurate graph of <span class="process-math">\(y = A(x)\)</span> on the axes provided, being sure to indicate the behavior of <span class="process-math">\(A\)</span> for <span class="process-math">\(x \lt 0\)</span> and <span class="process-math">\(x \gt 6\text{.}\)</span></p></li>
+<li id="Wlh"><p id="NBp">How does the graph of <span class="process-math">\(B\)</span> compare to <span class="process-math">\(A\)</span> if <span class="process-math">\(B\)</span> is instead defined by <span class="process-math">\(B(x) = \int_0^x g(t) \, dt\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="KLR"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.1.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="UPx" class="disc">
+<li id="AmM"><p id="ldO">Given the graph of a function <span class="process-math">\(f\text{,}\)</span> we can construct the graph of its antiderivative <span class="process-math">\(F\)</span> provided that (a) we know a starting value of <span class="process-math">\(F\text{,}\)</span> say <span class="process-math">\(F(a)\text{,}\)</span> and (b) we can evaluate the integral <span class="process-math">\(\int_a^b f(x) \, dx\)</span> exactly for relevant choices of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> For instance, if we wish to know <span class="process-math">\(F(3)\text{,}\)</span> we can compute <span class="process-math">\(F(3) = F(a) + \int_a^3 f(x) \, dx\text{.}\)</span> When we combine this information about the function values of <span class="process-math">\(F\)</span> together with our understanding of how the behavior of <span class="process-math">\(F' = f\)</span> affects the overall shape of <span class="process-math">\(F\text{,}\)</span> we can develop a completely accurate graph of the antiderivative <span class="process-math">\(F\text{.}\)</span></p></li>
+<li id="gtV"><p id="RkX">Because the derivative of a constant is zero, if <span class="process-math">\(F\)</span> is an antiderivative of <span class="process-math">\(f\text{,}\)</span> it follows that <span class="process-math">\(G(x) = F(x) + C\)</span> will also be an antiderivative of <span class="process-math">\(f\text{.}\)</span> Moreover, any two antiderivatives of a function <span class="process-math">\(f\)</span> differ precisely by a constant. Thus, any function with at least one antiderivative in fact has infinitely many, and the graphs of any two antiderivatives will differ only by a vertical translation.</p></li>
+<li id="MBe"><p id="xsg">Given a function <span class="process-math">\(f\text{,}\)</span> the rule <span class="process-math">\(A(x) = \int_a^x f(t) \, dt\)</span> defines a new function <span class="process-math">\(A\)</span> that measures the net-signed area bounded by <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,x]\text{.}\)</span> We call the function <span class="process-math">\(A\)</span> the integral function corresponding to <span class="process-math">\(f\text{.}\)</span></p></li>
+</ul></section><section class="exercises" id="gcJ"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">5.1.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="kTG"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Definite integral of a piecewise linear function.</span>
+</h4>
+<div id="webwork-135" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="135" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec2/Q29.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5290">Use the graph of <span class="process-math">\(f(x)\)</span> shown below to find the following integrals.</p>
+<div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-135-image-1.png" class="contained"></div>
+<p id="p-5291"><em class="emphasis">(Click on the graph for a larger version.)</em></p>
+<p id="p-5292"><em class="alert">A.</em> <span class="process-math">\(\int_{-5}^0 f(x) dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-5293"><em class="alert">B.</em> If the vertical red shaded area in the graph has area <span class="process-math">\(A\text{,}\)</span> estimate: <span class="process-math">\(\int_{-5}^{7} f(x) dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-5294"><em class="emphasis">(Your estimate may be written in terms of <span class="process-math">\(A\text{.}\)</span>)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-135')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="RaP"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">A smooth function that starts out at 0.</span>
+</h4>
+<div id="webwork-136" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="136" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap6Sec1/Q07.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5297">Consider the graph of the function <span class="process-math">\(f(x)\)</span> shown below.</p>
+<div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-136-image-1.png" class="contained"></div>
+<p id="p-5298"><em class="emphasis">(Click on the graph for a larger version)</em></p>
+<p id="p-5299"><em class="alert">A.</em> Estimate the integral</p>
+<p id="p-5300"><span class="process-math">\(\int_0^7{f(x)dx} \approx\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+<p id="p-5301"><em class="alert">B.</em> If <span class="process-math">\(F\)</span> is an antiderivative of the same function <span class="process-math">\(f\)</span> and <span class="process-math">\(F(0) = 45\text{,}\)</span> estimate <span class="process-math">\(F(7)\text{:}\)</span></p>
+<p id="p-5302"><span class="process-math">\(F(7) \approx\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-136')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="xhY"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">A piecewise constant function.</span>
+</h4>
+<div id="webwork-137" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="137" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap6Sec1/Q15.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5305">Assume <span class="process-math">\(f'\)</span> is given by the graph below. Suppose <span class="process-math">\(f\)</span> is continuous and that <span class="process-math">\(f(3)=0\text{.}\)</span></p>
+<div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-137-image-1.png" class="contained"></div>
+<p id="p-5306"><em class="emphasis">(Click on the graph for a larger version.)</em></p>
+<p id="p-5307">Sketch, on a sheet of work paper, an accurate graph of <span class="process-math">\(f\text{,}\)</span> and use it to find each of</p>
+<p id="p-5308"><span class="process-math">\(f(0) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+<p id="p-5309">and</p>
+<p id="p-5310"><span class="process-math">\(f(7) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+<p id="p-5311">Then find the value of the integral:</p>
+<p id="p-5312"><span class="process-math">\(\int_0^7 f'(x)\,dx =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+<p id="p-5313"><em class="emphasis">(Note that you can do this in two different ways!)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-137')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="dph"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Another piecewise linear function.</span>
+</h4>
+<div id="webwork-138" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="138" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec4/Q03.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5317">The figure below shows <span class="process-math">\(f\text{.}\)</span></p>
+<div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-138-image-1.png" class="contained"></div>
+<p id="p-5318"><em class="emphasis">(Click on the graph for a larger version.)</em></p>
+<p id="p-5319">If <span class="process-math">\(F'=f\)</span> and <span class="process-math">\(F(0)=0\text{,}\)</span> find <span class="process-math">\(F(b)\)</span> for <span class="process-math">\(b=\)</span>1, 2, 3, 4, 5, 6, and fill these values in the following table.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines"><span class="process-math">\(b\)</span></td>
+<td class="l m b2 r2 l0 t2 lines">1</td>
+<td class="l m b2 r2 l0 t2 lines">2</td>
+<td class="l m b2 r2 l0 t2 lines">3</td>
+<td class="l m b2 r2 l0 t2 lines">4</td>
+<td class="l m b2 r2 l0 t2 lines">5</td>
+<td class="l m b2 r2 l0 t2 lines">6</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(F(b)\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-138')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Jwq"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="lRV">A moving particle has its velocity given by the quadratic function <span class="process-math">\(v\)</span> pictured in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ez1.html" title="Figure 5.1.6">Figure 5.1.6</a>. In addition, it is given that <span class="process-math">\(A_1 = \frac{7}{6}\)</span> and <span class="process-math">\(A_2 = \frac{8}{3}\text{,}\)</span> as well as that for the corresponding position function <span class="process-math">\(s\text{,}\)</span> <span class="process-math">\(s(0) = 0.5\text{.}\)</span></p>
+<ol id="RZe" class="lower-alpha">
+<li id="Fwr"><p id="KQe">Use the given information to determine <span class="process-math">\(s(1)\text{,}\)</span> <span class="process-math">\(s(3)\text{,}\)</span> <span class="process-math">\(s(5)\text{,}\)</span> and <span class="process-math">\(s(6)\text{.}\)</span> What do these values mean in the context of the moving particle?</p></li>
+<li id="lDA"><p id="qXn">On what interval(s) is <span class="process-math">\(s\)</span> increasing? That is, when is the particle moving forward?  On what interval(s) is <span class="process-math">\(s\)</span> decreasing? That is, when is the particle moving backward?</p></li>
+<li id="RKJ"><p id="Xew">On what interval(s) is <span class="process-math">\(s\)</span> concave up? That is, when is the particle accelerating?  On what interval(s) is <span class="process-math">\(s\)</span> concave down? That is, when is the particle decelerating?</p></li>
+<li id="xRS"><p id="DlF">Sketch an accurate, labeled graph of <span class="process-math">\(s\)</span> on the axes at right in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ez1.html" title="Figure 5.1.6">Figure 5.1.6</a>.</p></li>
+<li id="dZb"><p id="jsO">Note that <span class="process-math">\(v(t) = -2 + \frac{1}{2}(t-3)^2\text{.}\)</span> Find a formula for <span class="process-math">\(s\text{.}\)</span></p></li>
+</ol>
+<figure class="figure figure-like" id="ygn"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/5_1_Ez1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.6<span class="period">.</span></span><span class="space"> </span>At left, the given graph of <span class="process-math">\(v\text{.}\)</span>  At right, axes for plotting <span class="process-math">\(s\text{.}\)</span></figcaption></figure></article><article class="exercise exercise-like" id="pDz"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="enw">A person exercising on a treadmill experiences different levels of resistance and thus burns calories at different rates, depending on the treadmill's setting. In a particular workout, the rate at which a person is burning calories is given by the piecewise constant function <span class="process-math">\(c\)</span> pictured in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ez2.html" title="Figure 5.1.7">Figure 5.1.7</a>. Note that the units on <span class="process-math">\(c\)</span> are “calories per minute.”</p>
+<figure class="figure figure-like" id="qBO"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/5_1_Ez2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.7<span class="period">.</span></span><span class="space"> </span>At left, the given graph of <span class="process-math">\(c\text{.}\)</span>  At right, axes for plotting <span class="process-math">\(C\text{.}\)</span></figcaption></figure><ol id="KuF" class="lower-alpha">
+<li id="TzW"><p id="lib">Let <span class="process-math">\(C\)</span> be an antiderivative of <span class="process-math">\(c\text{.}\)</span> What does the function <span class="process-math">\(C\)</span> measure? What are its units?</p></li>
+<li id="zHf"><p id="Rpk">Assume that <span class="process-math">\(C(0) = 0\text{.}\)</span> Determine the exact value of <span class="process-math">\(C(t)\)</span> at the values <span class="process-math">\(t = 5, 10, 15, 20, 25, 30\text{.}\)</span></p></li>
+<li id="fOo"><p id="xwt">Sketch an accurate graph of <span class="process-math">\(C\)</span> on the axes provided at right in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ez2.html" title="Figure 5.1.7">Figure 5.1.7</a>. Be certain to label the scale on the vertical axis.</p></li>
+<li id="LVx"><p id="dDC">Determine a formula for <span class="process-math">\(C\)</span> that does not involve an integral and is valid for <span class="process-math">\(5 \le t \le 10\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="VKI"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="WIX">Consider the piecewise linear function <span class="process-math">\(f\)</span> given in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ez3.html" title="Figure 5.1.8">Figure 5.1.8</a>. Let the functions <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> be defined by the rules <span class="process-math">\(A(x) = \int_{-1}^{x} f(t) \, dt\text{,}\)</span> <span class="process-math">\(B(x) = \int_{0}^{x} f(t) \, dt\text{,}\)</span> and <span class="process-math">\(C(x) = \int_{1}^{x} f(t) \, dt\text{.}\)</span></p>
+<ol id="CQg" class="lower-alpha">
+<li id="pia"><p id="zlG">For the values <span class="process-math">\(x = -1, 0, 1, \ldots, 6\text{,}\)</span> make a table that lists corresponding values of <span class="process-math">\(A(x)\text{,}\)</span> <span class="process-math">\(B(x)\text{,}\)</span> and <span class="process-math">\(C(x)\text{.}\)</span></p></li>
+<li id="Vpj"><p id="fsP">On the axes provided in <a href="" class="xref" data-knowl="./knowl/F-5-1-Ez3.html" title="Figure 5.1.8">Figure 5.1.8</a>, sketch the graphs of <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\text{.}\)</span></p></li>
+<li id="Bws"><p id="LzY">How are the graphs of <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> related?</p></li>
+<li id="hDB"><p id="rHh">How would you best describe the relationship between the function <span class="process-math">\(A\)</span> and the function <span class="process-math">\(f\text{?}\)</span></p></li>
+</ol>
+<figure class="figure figure-like" id="iXp"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/5_1_Ez3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.1.8<span class="period">.</span></span><span class="space"> </span>At left, the given graph of <span class="process-math">\(f\text{.}\)</span>  At right, axes for plotting <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\text{.}\)</span></figcaption></figure></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-88"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/cz</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Using Derivatives to Evaluate Limits</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-2-7-implicit.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="C-3.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-2-7-implicit.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="C-3.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="active">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="miH"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.8</span> <span class="title">Using Derivatives to Evaluate Limits</span>
+</h2>
+<article class="objectives goal-like" id="DgS"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="bJC"><p id="MAE">How can derivatives be used to help us evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\text{?}\)</span></p></li>
+<li id="HQL"><p id="sHN">What does it mean to say that <span class="process-math">\(\lim_{x \to \infty} f(x) = L\)</span> and <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{?}\)</span></p></li>
+<li id="nXU"><p id="YOW">How can derivatives assist us in evaluating indeterminate limits of the form <span class="process-math">\(\frac{\infty}{\infty}\text{?}\)</span></p></li>
+</ul></article><section class="introduction" id="job"><p id="JFY">Because differential calculus is based on the definition of the derivative, and the definition of the derivative involves a limit, there is a sense in which all of calculus rests on limits. In addition, the limit involved in the definition of the derivative always generates the indeterminate form <span class="process-math">\(\frac{0}{0}\text{.}\)</span> If <span class="process-math">\(f\)</span> is a differentiable function, then in the definition</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">not only does <span class="process-math">\(h \to 0\)</span> in the denominator, but also <span class="process-math">\((f(x+h)-f(x)) \to 0\)</span> in the numerator, since <span class="process-math">\(f\)</span> is continuous. Remember, saying that a limit has an indeterminate form only means that we don't yet know its value and have more work to do: indeed, limits of the form <span class="process-math">\(\frac{0}{0}\)</span> can take on any value, as is evidenced by evaluating <span class="process-math">\(f'(x)\)</span> for varying values of <span class="process-math">\(x\)</span> for a function such as <span class="process-math">\(f'(x) = x^2\text{.}\)</span></p>
+<p id="pNh">We have learned many techniques for evaluating the limits that result from the derivative definition, including a large number of shortcut rules. In this section, we turn the situation upside-down: instead of using limits to evaluate derivatives, we explore how to use derivatives to evaluate certain limits.</p>
+<article class="exploration project-like" id="tAL"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">2.8.1</span><span class="period">.</span>
+</h3>
+<p id="hmt">Let <span class="process-math">\(h\)</span> be the function given by <span class="process-math">\(h(x) = \frac{x^5 + x - 2}{x^2 - 1}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="LEp"><p id="wvr">What is the domain of <span class="process-math">\(h\text{?}\)</span></p></li>
+<li id="rLy"><p id="cCA">Explain why <span class="process-math">\(\displaystyle\lim_{x \to 1} \frac{x^5 + x - 2}{x^2 - 1}\)</span> results in an indeterminate form.</p></li>
+<li id="XSH"><p id="IJJ">Next we will investigate the behavior of both the numerator and denominator of <span class="process-math">\(h\)</span> near the point where <span class="process-math">\(x = 1\text{.}\)</span> Let <span class="process-math">\(f(x) = x^5 + x - 2\)</span> and <span class="process-math">\(g(x) = x^2 - 1\text{.}\)</span> Find the local linearizations of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(a = 1\text{,}\)</span> and call these functions <span class="process-math">\(L_f(x)\)</span> and <span class="process-math">\(L_g(x)\text{,}\)</span> respectively.</p></li>
+<li id="DZQ"><p id="oQS">Explain why <span class="process-math">\(h(x) \approx \frac{L_f(x)}{L_g(x)}\)</span> for <span class="process-math">\(x\)</span> near <span class="process-math">\(a = 1\text{.}\)</span></p></li>
+<li id="kgZ">
+<p id="UYb">Using your work from (c) and (d), evaluate</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to 1} \frac{L_f(x)}{L_g(x)}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">What do you think your result tells us about <span class="process-math">\(\lim_{x \to 1} h(x)\text{?}\)</span></p>
+</li>
+<li id="Qoi"><p id="Bfk">Investigate the function <span class="process-math">\(h(x)\)</span> graphically and numerically near <span class="process-math">\(x = 1\text{.}\)</span> What do you think is the value of <span class="process-math">\(\lim_{x \to 1} h(x)\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="SpQ"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.8.1</span> <span class="title">Using derivatives to evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\text{.}\)</span></span>
+</h3>
+<figure class="figure figure-like" id="Lvl"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_LHR.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.1<span class="period">.</span></span><span class="space"> </span>At left, the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> near the value <span class="process-math">\(a\text{,}\)</span> along with their tangent line approximations <span class="process-math">\(L_f\)</span> and <span class="process-math">\(L_g\)</span> at <span class="process-math">\(x = a\text{.}\)</span>  At right, zooming in on the point <span class="process-math">\(a\)</span> and the four graphs.</figcaption></figure><p id="VUq">The idea demonstrated in <a href="" class="xref" data-knowl="./knowl/PA-2-8.html" title="Preview Activity 2.8.1">Preview Activity 2.8.1</a> — that we can evaluate an indeterminate limit of the form <span class="process-math">\(\frac{0}{0}\)</span> by replacing each of the numerator and denominator with their local linearizations at the point of interest — can be generalized in a way that enables us to evaluate a wide range of limits. We have a function <span class="process-math">\(h(x)\)</span> that can be written as a quotient <span class="process-math">\(h(x) = \frac{f(x)}{g(x)}\text{,}\)</span> where <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are both differentiable at <span class="process-math">\(x=a\)</span> and for which <span class="process-math">\(f(a) = g(a) = 0\text{.}\)</span> We would like to evaluate the indeterminate limit given by <span class="process-math">\(\lim_{x \to a} h(x)\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/F-2-8-LHR.html" title="Figure 2.8.1">Figure 2.8.1</a> illustrates the situation. We see that both <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have an <span class="process-math">\(x\)</span>-intercept at <span class="process-math">\(x = a\text{.}\)</span> Their respective tangent line approximations <span class="process-math">\(L_f\)</span> and <span class="process-math">\(L_g\)</span> at <span class="process-math">\(x = a\)</span> are also shown in the figure. We can take advantage of the fact that a function and its tangent line approximation become indistinguishable as <span class="process-math">\(x \to a\text{.}\)</span></p>
+<p id="Cbz">First, let's recall that <span class="process-math">\(L_f(x) = f'(a)(x-a) + f(a)\)</span> and <span class="process-math">\(L_g(x) = g'(a)(x-a) +g(a)\text{.}\)</span> Because <span class="process-math">\(x\)</span> is getting arbitrarily close to <span class="process-math">\(a\)</span> when we take the limit, we can replace <span class="process-math">\(f\)</span> with <span class="process-math">\(L_f\)</span> and replace <span class="process-math">\(g\)</span> with <span class="process-math">\(L_g\text{,}\)</span> and thus we observe that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="iSC">
+\begin{align*}
+\lim_{x \to a} \frac{f(x)}{g(x)} =\mathstrut \amp  \lim_{x \to a} \frac{L_f(x)}{L_g(x)}\\
+=\mathstrut \amp  \lim_{x \to a} \frac{f'(a)(x-a) + f(a)}{g'(a)(x-a) + g(a)}\text{.}
+\end{align*}
+</div>
+<p id="iiI">Next, we remember that both <span class="process-math">\(f(a) = 0\)</span> and <span class="process-math">\(g(a) = 0\text{,}\)</span> which is precisely what makes the original limit indeterminate. Substituting these values for <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(g(a)\)</span> in the limit above, we now have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="vgU">
+\begin{align*}
+\lim_{x \to a} \frac{f(x)}{g(x)} =\mathstrut \amp  \lim_{x \to a} \frac{f'(a)(x-a)}{g'(a)(x-a)}\\
+=\mathstrut \amp  \lim_{x \to a} \frac{f'(a)}{g'(a)}\text{,}
+\end{align*}
+</div>
+<p class="continuation">where the latter equality holds because <span class="process-math">\(\frac{x-a}{x-a} = 1\)</span> when <span class="process-math">\(x\)</span> is approaching (but not equal to) <span class="process-math">\(a\text{.}\)</span> Finally, we note that <span class="process-math">\(\frac{f'(a)}{g'(a)}\)</span> is constant with respect to <span class="process-math">\(x\text{,}\)</span> and thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)}\text{.}
+\end{equation*}
+</div>
+<p id="OpR">This result holds as long as <span class="process-math">\(g'(a)\)</span> is not equal to zero. The formal name of the result is L'Hôpital's Rule.</p>
+<article class="assemblage assemblage-like" id="KLr"><h4 class="heading"><span class="title">L'Hôpital's Rule.</span></h4>
+<p id="uxa">Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be differentiable at <span class="process-math">\(x=a\text{,}\)</span> and suppose that <span class="process-math">\(f(a) = g(a) = 0\)</span> and that <span class="process-math">\(g'(a) \neq 0\text{.}\)</span> Then <span class="process-math">\(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)}\text{.}\)</span></p></article><p id="aEj">In practice, we typically work with a slightly more general version of L'Hôpital's Rule, which states that (under the identical assumptions as the boxed rule above and the extra assumption that <span class="process-math">\(g'\)</span> is continuous at <span class="process-math">\(x=a\)</span>)</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">provided the righthand limit exists. This form reflects the basic idea of L'Hôpital's Rule: if <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> produces an indeterminate limit of form <span class="process-math">\(\frac{0}{0}\)</span> as <span class="process-math">\(x \to a\text{,}\)</span> that limit is equivalent to the limit of the quotient of the two functions' derivatives, <span class="process-math">\(\frac{f'(x)}{g'(x)}\text{.}\)</span></p>
+<p id="GLs">For example, if we consider the limit from <a href="" class="xref" data-knowl="./knowl/PA-2-8.html" title="Preview Activity 2.8.1">Preview Activity 2.8.1</a>,</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-2-8.html">
+\begin{equation*}
+\lim_{x \to 1} \frac{x^5 + x - 2}{x^2 - 1}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">by L'Hôpital's Rule we have that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-2-8.html">
+\begin{equation*}
+\lim_{x \to 1} \frac{x^5 + x - 2}{x^2 - 1} = \lim_{x \to 1} \frac{5x^4 + 1}{2x} = \frac{6}{2} = 3. \\
+\end{equation*}
+</div>
+<p id="mSB">By replacing the numerator and denominator with their respective derivatives, we often replace an indeterminate limit with one whose value we can easily determine.</p>
+<article class="activity project-like" id="vpu"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.8.2</span><span class="period">.</span>
+</h4>
+<p id="ScR">Evaluate each of the following limits. If you use L'Hôpital's Rule, indicate where it was used, and be certain its hypotheses are met before you apply it.</p>
+<ol class="lower-alpha cols2">
+<li id="llO"><p id="fwC"><span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{\ln(1 + x)}{x}\)</span></p></li>
+<li id="RsX"><p id="LDL"><span class="process-math">\(\displaystyle \lim_{x \to \pi} \frac{\cos(x)}{x}\)</span></p></li>
+<li id="xAg"><p id="rKU"><span class="process-math">\(\displaystyle \lim_{x \to 1} \frac{2 \ln(x)}{1-e^{x-1}}\)</span></p></li>
+<li id="dHp"><p id="XSd"><span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{\sin(x) - x}{\cos(2x)-1}\)</span></p></li>
+</ol></article><p id="SZK">While L'Hôpital's Rule can be applied in an entirely algebraic way, it is important to remember that the justification of the rule is graphical: the main idea is that the slopes of the tangent lines to <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(x = a\)</span> determine the value of the limit of <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> as <span class="process-math">\(x \to a\text{.}\)</span></p>
+<figure class="figure figure-like" id="rCu"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_LHR2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.2<span class="period">.</span></span><span class="space"> </span>Two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> that satisfy L'Hôpital's Rule.</figcaption></figure><p id="zgT">We see this in <a href="" class="xref" data-knowl="./knowl/F-2-8-LHR2.html" title="Figure 2.8.2">Figure 2.8.2</a>, where we can see from the grid that <span class="process-math">\(f'(a) = 2\)</span> and <span class="process-math">\(g'(a) = -1\text{,}\)</span> hence by L'Hôpital's Rule,</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-8-LHR2.html">
+\begin{equation*}
+\lim_{x \to a}\frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)} = \frac{2}{-1} = -2\text{.}
+\end{equation*}
+</div>
+<p id="foc">It's not the fact that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> both approach zero that matters most, but rather the <em class="emphasis">rate</em> at which each approaches zero that determines the value of the limit. This is a good way to remember what L'Hôpital's Rule says: if <span class="process-math">\(f(a) = g(a) = 0\text{,}\)</span> the the limit of <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> as <span class="process-math">\(x \to a\)</span> is given by the ratio of the slopes of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(x = a\text{.}\)</span></p>
+<article class="activity project-like" id="Fta"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.8.3</span><span class="period">.</span>
+</h4>
+<p id="cgx">In this activity, we reason graphically from the following figure to evaluate limits of ratios of functions about which some information is known.</p>
+<figure class="figure figure-like" id="ouP"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_Act2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.3<span class="period">.</span></span><span class="space"> </span>Three graphs referenced in the questions of <a href="" class="xref" data-knowl="./knowl/act-2-8-2.html" title="Activity 2.8.3">Activity 2.8.3</a>.</figcaption></figure><ol id="InG" class="lower-alpha">
+<li id="suO"><p id="OcS">Use the left-hand graph to determine the values of <span class="process-math">\(f(2)\text{,}\)</span> <span class="process-math">\(f'(2)\text{,}\)</span> <span class="process-math">\(g(2)\text{,}\)</span> and <span class="process-math">\(g'(2)\text{.}\)</span> Then, evaluate <span class="process-math">\(\lim\limits_{x \to 2} \frac{f(x)}{g(x)}\text{.}\)</span></p></li>
+<li id="YBX"><p id="ukb">Use the middle graph to find <span class="process-math">\(p(2)\text{,}\)</span> <span class="process-math">\(p'(2)\text{,}\)</span> <span class="process-math">\(q(2)\text{,}\)</span> and <span class="process-math">\(q'(2)\text{.}\)</span> Then, determine the value of <span class="process-math">\(\lim\limits_{x \to 2} \frac{p(x)}{q(x)}\text{.}\)</span></p></li>
+<li id="EJg"><p id="ark">Assume that <span class="process-math">\(r\)</span> and <span class="process-math">\(s\)</span> are functions whose for which <span class="process-math">\(r''(2) \ne 0\)</span> and <span class="process-math">\(s''(2) \ne 0\)</span> Use the right-hand graph to compute <span class="process-math">\(r(2)\text{,}\)</span> <span class="process-math">\(r'(2)\text{,}\)</span> <span class="process-math">\(s(2)\text{,}\)</span> <span class="process-math">\(s'(2)\text{.}\)</span> Explain why you cannot determine the exact value of <span class="process-math">\(\lim\limits_{x \to 2} \frac{r(x)}{s(x)}\)</span> without further information being provided, but that you can determine the sign of <span class="process-math">\(\lim\limits_{x \to 2} \frac{r(x)}{s(x)}\text{.}\)</span> In addition, state what the sign of the limit will be, with justification.</p></li>
+</ol></article></section><section class="subsection" id="ywZ"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.8.2</span> <span class="title">Limits involving <span class="process-math">\(\infty\)</span></span>
+</h3>
+<p id="XJD">The concept of infinity,  denoted <span class="process-math">\(\infty\text{,}\)</span> arises naturally in calculus, as it does in much of mathematics. It is important to note from the outset that <span class="process-math">\(\infty\)</span> is a concept, but not a number itself. Indeed, the notion of <span class="process-math">\(\infty\)</span> naturally invokes the idea of limits. Consider, for example, the function <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> whose graph is pictured in <a href="" class="xref" data-knowl="./knowl/F-2-8-Infty.html" title="Figure 2.8.4">Figure 2.8.4</a>.</p>
+<p id="DQM">We note that <span class="process-math">\(x = 0\)</span> is not in the domain of <span class="process-math">\(f\text{,}\)</span> so we may naturally wonder what happens as <span class="process-math">\(x \to 0\text{.}\)</span> As <span class="process-math">\(x \to 0^+\text{,}\)</span> we observe that <span class="process-math">\(f(x)\)</span> <em class="emphasis">increases without bound</em>. That is, we can make the value of <span class="process-math">\(f(x)\)</span> as large as we like by taking <span class="process-math">\(x\)</span> closer and closer (but not equal) to 0, while keeping <span class="process-math">\(x \gt 0\text{.}\)</span> This is a good way to think about what infinity represents: a quantity is tending to infinity if there is no single number that the quantity is always less than.</p>
+<figure class="figure figure-like" id="KpS"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/2_8_Infty.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.4<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(f(x) = \frac{1}{x}\text{.}\)</span></figcaption></figure><p id="jXV">Recall that the statement <span class="process-math">\(\lim_{x \to a} f(x) = L\text{,}\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we'd like by taking <span class="process-math">\(x\)</span> sufficiently close (but not equal) to <span class="process-math">\(a\text{.}\)</span> We now expand this notation and language to include the possibility that either <span class="process-math">\(L\)</span> or <span class="process-math">\(a\)</span> can be <span class="process-math">\(\infty\text{.}\)</span> For instance, for <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> we now write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to 0^+} \frac{1}{x} = \infty\text{,}
+\end{equation*}
+</div>
+<p class="continuation">by which we mean that we can make <span class="process-math">\(\frac{1}{x}\)</span> as large as we like by taking <span class="process-math">\(x\)</span> sufficiently close (but not equal) to 0. In a similar way, we write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} \frac{1}{x} = 0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">since we can make <span class="process-math">\(\frac{1}{x}\)</span> as close to 0 as we'd like by taking <span class="process-math">\(x\)</span> sufficiently large (i.e., by letting <span class="process-math">\(x\)</span> increase without bound).</p>
+<p id="Qfe">In general, the notation <span class="process-math">\(\lim_{x \to a} f(x) = \infty\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as large as we like by taking <span class="process-math">\(x\)</span> sufficiently close (but not equal) to <span class="process-math">\(a\text{,}\)</span> and the notation <span class="process-math">\(\lim_{x \to \infty} f(x) = L\)</span>  means that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we like by taking <span class="process-math">\(x\)</span> sufficiently large. This notation also applies to left- and right-hand limits, and to limits involving <span class="process-math">\(-\infty\text{.}\)</span> For example, returning to <a href="" class="xref" data-knowl="./knowl/F-2-8-Infty.html" title="Figure 2.8.4">Figure 2.8.4</a> and <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> we can say that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-8-Infty.html">
+\begin{equation*}
+\lim_{x \to 0^-} \frac{1}{x} = -\infty \ \ \text{and}  \ \ \lim_{x \to -\infty} \frac{1}{x} = 0\text{.}
+\end{equation*}
+</div>
+<p id="wmn">Finally, we write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} f(x) = \infty
+\end{equation*}
+</div>
+<p class="continuation">if we can make the value of <span class="process-math">\(f(x)\)</span> as large as we'd like by taking <span class="process-math">\(x\)</span> sufficiently large. For example,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} x^2 = \infty\text{.}
+\end{equation*}
+</div>
+<p id="ctw">Limits involving infinity identify <em class="emphasis">vertical</em> and <em class="emphasis">horizontal asymptotes</em>  of a function. If <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{,}\)</span> then <span class="process-math">\(x = a\)</span> is a vertical asymptote of <span class="process-math">\(f\text{,}\)</span> while if <span class="process-math">\(\lim_{x \to \infty} f(x) = L\text{,}\)</span> then <span class="process-math">\(y = L\)</span> is a horizontal asymptote of <span class="process-math">\(f\text{.}\)</span> Similar statements can be made using <span class="process-math">\(-\infty\text{,}\)</span> and with left- and right-hand limits as <span class="process-math">\(x \to a^-\)</span> or <span class="process-math">\(x \to a^+\text{.}\)</span></p>
+<p id="IAF">In precalculus classes, it is common to study the <em class="emphasis">end behavior</em> of certain families of functions, by which we mean the behavior of a function as <span class="process-math">\(x \to \infty\)</span> and as <span class="process-math">\(x \to -\infty\text{.}\)</span> Here we briefly examine some familiar functions and note the values of several limits involving <span class="process-math">\(\infty\text{.}\)</span></p>
+<figure class="figure figure-like" id="qxb"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_InftyLib.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.5<span class="period">.</span></span><span class="space"> </span>Graphs of some familiar functions whose end behavior as <span class="process-math">\(x \to \pm \infty\)</span> is known.  In the middle graph, <span class="process-math">\(f(x) = x^3 - 16x\)</span> and <span class="process-math">\(g(x) = x^4 - 16x^2 - 8\text{.}\)</span></figcaption></figure><p id="oHO">For the natural exponential function <span class="process-math">\(e^x\text{,}\)</span> we note that <span class="process-math">\(\lim_{x \to \infty} e^x = \infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} e^x = 0\text{.}\)</span> For the exponential decay function <span class="process-math">\(e^{-x}\text{,}\)</span> these limits are reversed, with <span class="process-math">\(\lim_{x \to \infty} e^{-x} = 0\)</span> and <span class="process-math">\(\lim_{x \to -\infty} e^{-x} = \infty\text{.}\)</span> Turning to the natural logarithm function, we have <span class="process-math">\(\lim_{x \to 0^+} \ln(x) = -\infty\)</span> and <span class="process-math">\(\lim_{x \to \infty} \ln(x) = \infty\text{.}\)</span> While both <span class="process-math">\(e^x\)</span> and <span class="process-math">\(\ln(x)\)</span> grow without bound as <span class="process-math">\(x \to \infty\text{,}\)</span> the exponential function does so much more quickly than the logarithm function does. We'll soon use limits to quantify what we mean by “quickly.”</p>
+<p id="UOX">For polynomial functions of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-8-InftyLib.html ./knowl/F-2-8-InftyLib.html">
+\begin{equation*}
+p(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots a_1 x + a_0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">the end behavior depends on the sign of <span class="process-math">\(a_n\)</span> and whether the highest power <span class="process-math">\(n\)</span> is even or odd. If <span class="process-math">\(n\)</span> is even and <span class="process-math">\(a_n\)</span> is positive, then <span class="process-math">\(\lim_{x \to \infty} p(x) = \infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} p(x) = \infty\text{,}\)</span> as in the plot of <span class="process-math">\(g\)</span> in <a href="" class="xref" data-knowl="./knowl/F-2-8-InftyLib.html" title="Figure 2.8.5">Figure 2.8.5</a>. If instead <span class="process-math">\(a_n\)</span> is negative, then <span class="process-math">\(\lim_{x \to \infty} p(x) = -\infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} p(x) = -\infty\text{.}\)</span> In the situation where <span class="process-math">\(n\)</span> is odd, then either <span class="process-math">\(\lim_{x \to \infty} p(x) = \infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} p(x) = -\infty\)</span> (which occurs when <span class="process-math">\(a_n\)</span> is positive, as in the graph of <span class="process-math">\(f\)</span> in <a href="" class="xref" data-knowl="./knowl/F-2-8-InftyLib.html" title="Figure 2.8.5">Figure 2.8.5</a>), or <span class="process-math">\(\lim_{x \to \infty} p(x) = -\infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} p(x) = \infty\)</span> (when <span class="process-math">\(a_n\)</span> is negative).</p>
+<p id="AWg">A function can fail to have a limit as <span class="process-math">\(x \to \infty\text{.}\)</span> For example, consider the plot of the sine function at right in <a href="" class="xref" data-knowl="./knowl/F-2-8-InftyLib.html" title="Figure 2.8.5">Figure 2.8.5</a>. Because the function continues oscillating between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\)</span> as <span class="process-math">\(x \to \infty\text{,}\)</span> we say that <span class="process-math">\(\lim_{x \to \infty} \sin(x)\)</span> does not exist.</p>
+<p id="hdp">Finally, it is straightforward to analyze the behavior of any rational function as <span class="process-math">\(x \to \infty\text{.}\)</span></p>
+<article class="example example-like" id="WZJ"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8.6</span><span class="period">.</span>
+</h4>
+<p id="xrG">Determine the limit of the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+q(x) =  \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10}
+\end{equation*}
+</div>
+<p class="continuation">as <span class="process-math">\(x \to \infty\text{.}\)</span></p>
+<p id="dyP">Note that both <span class="process-math">\((3x^2 - 4x + 5) \to \infty\)</span> as <span class="process-math">\(x \to \infty\)</span> and <span class="process-math">\((7x^2 + 9x - 10) \to \infty\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span> Here we say that <span class="process-math">\(\lim_{x \to \infty} q(x)\)</span> has indeterminate form <span class="process-math">\(\frac{\infty}{\infty}\text{.}\)</span> We can determine the value of this limit through a standard algebraic approach. Multiplying the numerator and denominator each by <span class="process-math">\(\frac{1}{x^2}\text{,}\)</span> we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="QOY">
+\begin{align*}
+\lim_{x \to \infty} q(x) =\mathstrut \amp  \lim_{x \to \infty} \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10} \cdot \frac{\frac{1}{x^2}}{\frac{1}{x^2}}\\
+=\mathstrut \amp  \lim_{x \to \infty} \frac{3 - 4\frac{1}{x} + 5\frac{1}{x^2}}{7 + 9\frac{1}{x} - 10\frac{1}{x^2}} = \frac{3}{7}
+\end{align*}
+</div>
+<p class="continuation">since <span class="process-math">\(\frac{1}{x^2} \to 0\)</span> and <span class="process-math">\(\frac{1}{x} \to 0\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span> This shows that the rational function <span class="process-math">\(q\)</span> has a horizontal asymptote at <span class="process-math">\(y = \frac{3}{7}\text{.}\)</span> A similar approach can be used to determine the limit of any rational function as <span class="process-math">\(x \to \infty\text{.}\)</span></p></article><p id="Nky">But how should we handle a limit such as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} \frac{x^2}{e^x}?
+\end{equation*}
+</div>
+<p id="trH">Here, both <span class="process-math">\(x^2 \to \infty\)</span> and <span class="process-math">\(e^x \to \infty\text{,}\)</span> but there is not an obvious algebraic approach that enables us to find the limit's value. Fortunately, it turns out that L'Hôpital's Rule extends to cases involving infinity.</p>
+<article class="assemblage assemblage-like" id="qSA"><h4 class="heading"><span class="title">L'Hôpital's Rule (<span class="process-math">\(\infty\)</span>).</span></h4>
+<p id="ZyQ">If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable and both approach zero or both approach <span class="process-math">\(\pm \infty\)</span> as <span class="process-math">\(x \to a\)</span> (where <span class="process-math">\(a\)</span> is allowed to be <span class="process-math">\(\infty\)</span>) , then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">provided the righthand limit exists.</p></article><p id="FFZ">(To be technically correct, we need to add the additional hypothesis that <span class="process-math">\(g'(x) \ne 0\)</span> on an open interval that contains <span class="process-math">\(a\)</span> or in every neighborhood of infinity if <span class="process-math">\(a\)</span> is <span class="process-math">\(\infty\text{;}\)</span> this is almost always met in practice.)</p>
+<p id="lNi">To evaluate <span class="process-math">\(\lim_{x \to \infty} \frac{x^2}{e^x}\text{,}\)</span> we can apply L'Hôpital's Rule, since both <span class="process-math">\(x^2 \to \infty\)</span> and <span class="process-math">\(e^x \to \infty\text{.}\)</span> Doing so, it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} \frac{x^2}{e^x} = \lim_{x \to \infty} \frac{2x}{e^x}\text{.}
+\end{equation*}
+</div>
+<p id="RUr">This updated limit is still indeterminate and of the form <span class="process-math">\(\frac{\infty}{\infty}\text{,}\)</span> but it is simpler since <span class="process-math">\(2x\)</span> has replaced <span class="process-math">\(x^2\text{.}\)</span> Hence, we can apply L'Hôpital's Rule again, and find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} \frac{x^2}{e^x} = \lim_{x \to \infty} \frac{2x}{e^x} = \lim_{x \to \infty} \frac{2}{e^x}\text{.}
+\end{equation*}
+</div>
+<p id="ybA">Now, since <span class="process-math">\(2\)</span> is constant and <span class="process-math">\(e^x \to \infty\)</span> as <span class="process-math">\(x \to \infty\text{,}\)</span> it follows that <span class="process-math">\(\frac{2}{e^x} \to 0\)</span> as <span class="process-math">\(x \to \infty\text{,}\)</span> which shows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} \frac{x^2}{e^x} = 0\text{.}
+\end{equation*}
+</div>
+<article class="activity project-like" id="pOD"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.8.4</span><span class="period">.</span>
+</h4>
+<p id="guR">Evaluate each of the following limits. If you use L'Hôpital's Rule, indicate where it was used, and be certain its hypotheses are met before you apply it.</p>
+<ol class="lower-alpha cols2">
+<li id="Cyu"><p id="VlS"><span class="process-math">\(\displaystyle \lim_{x \to \infty} \frac{x}{\ln(x)}\)</span></p></li>
+<li id="iFD"><p id="Btb"><span class="process-math">\(\displaystyle \lim_{x \to \infty} \frac{e^{x} + x}{2e^{x} + x^2}\)</span></p></li>
+<li id="OMM"><p id="hAk"><span class="process-math">\(\displaystyle \lim_{x \to 0^+} \frac{\ln(x)}{\frac{1}{x}}\)</span></p></li>
+<li id="uTV"><p id="NHt"><span class="process-math">\(\displaystyle \lim_{x \to \frac{\pi}{2}^-} \frac{\tan(x)}{x-\frac{\pi}{2}}\)</span></p></li>
+<li id="bbe"><p id="tOC"><span class="process-math">\(\displaystyle \lim_{x \to \infty} xe^{-x}\)</span></p></li>
+</ol></article><p id="eiJ">To evaluate the limit of a quotient of two functions <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> that results in an indeterminate form of <span class="process-math">\(\frac{\infty}{\infty}\text{,}\)</span> in essence we are asking which function is growing faster without bound. We say that the function <span class="process-math">\(g\)</span> <em class="emphasis">dominates</em> the function <span class="process-math">\(f\)</span> as <span class="process-math">\(x \to \infty\)</span> provided that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} \frac{f(x)}{g(x)} = 0\text{,}
+\end{equation*}
+</div>
+<p class="continuation">whereas <span class="process-math">\(f\)</span> dominates <span class="process-math">\(g\)</span> provided that <span class="process-math">\(\lim_{x \to \infty} \frac{f(x)}{g(x)} = \infty\text{.}\)</span> Finally, if the value of <span class="process-math">\(\lim_{x \to \infty} \frac{f(x)}{g(x)}\)</span> is finite and nonzero, we say that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> <em class="emphasis">grow at the same rate</em>. For example, we saw that <span class="process-math">\(\lim_{x \to \infty} \frac{x^2}{e^x} = 0\text{,}\)</span> so <span class="process-math">\(e^x\)</span> dominates <span class="process-math">\(x^2\text{,}\)</span> while <span class="process-math">\(\lim_{x \to \infty} \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10} = \frac{3}{7}\text{,}\)</span> so <span class="process-math">\(f(x) = 3x^2 - 4x + 5\)</span> and <span class="process-math">\(g(x) = 7x^2 + 9x - 10\)</span> grow at the same rate.</p></section><section class="subsection" id="eEi"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.8.3</span> <span class="title">Summary</span>
+</h3>
+<ul id="WEk" class="disc">
+<li id="Ufd">
+<p id="EWf">Derivatives can be used to help us evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\)</span> through L'Hôpital's Rule, by replacing the functions in the numerator and denominator with their tangent line approximations. In particular, if <span class="process-math">\(f(a) = g(a) = 0\)</span> and <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable at <span class="process-math">\(a\text{,}\)</span> L'Hôpital's Rule tells us that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a}\frac{f(x)}{g(x)} = \lim_{x \to a}\frac{f'(x)}{g'(x)}\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="Amm"><p id="ldo">When we write <span class="process-math">\(x \to \infty\text{,}\)</span> this means that <span class="process-math">\(x\)</span> is increasing without bound. Thus, <span class="process-math">\(\lim_{x \to \infty} f(x) = L\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we like by choosing <span class="process-math">\(x\)</span> to be sufficiently large. Similarly, <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{,}\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as large as we like by choosing <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(a\text{.}\)</span></p></li>
+<li id="gtv">
+<p id="Rkx">A version of L'Hôpital's Rule also helps us evaluate indeterminate limits of the form <span class="process-math">\(\frac{\infty}{\infty}\text{.}\)</span> If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable and both approach zero or both approach <span class="process-math">\(\pm \infty\)</span> as <span class="process-math">\(x \to a\)</span> (where <span class="process-math">\(a\)</span> is allowed to be <span class="process-math">\(\infty\)</span>), then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}\text{.}
+\end{equation*}
+</div>
+</li>
+</ul></section><section class="exercises" id="qtK"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">2.8.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="eWq"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">L'Hôpital's Rule with graphs.</span>
+</h4>
+<div id="webwork-96" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="96" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec7/Q01.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3254">For the figures below, determine the nature of <span class="process-math">\(\displaystyle \lim_{x\to a}\,\frac{f(x)}{g(x)}\text{,}\)</span> if <span class="process-math">\(f(x)\)</span> is shown as the blue curve and <span class="process-math">\(g(x)\)</span> as the black curve.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-96-image-1.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-96-image-2.png" class="contained"></div></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">
+<span class="process-math">\(\displaystyle \lim_{x\to a}\,\frac{f(x)}{g(x)} =\)</span><ul style="list-style:circle;">
+<li id="li-2062"><p id="p-3256">positive</p></li>
+<li id="li-2063"><p id="p-3257">negative</p></li>
+<li id="li-2064"><p id="p-3258">zero</p></li>
+<li id="li-2065"><p id="p-3259">undefined</p></li>
+</ul>
+</td>
+<td class="l m b2 r2 l0 t0 lines">
+<span class="process-math">\(\displaystyle \lim_{x\to a}\,\frac{f(x)}{g(x)} =\)</span><ul style="list-style:circle;">
+<li id="li-2067"><p id="p-3261">positive</p></li>
+<li id="li-2068"><p id="p-3262">negative</p></li>
+<li id="li-2069"><p id="p-3263">zero</p></li>
+<li id="li-2070"><p id="p-3264">undefined</p></li>
+</ul>
+</td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-96')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Ldz"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">L'Hôpital's Rule to evaluate a limit.</span>
+</h4>
+<div id="webwork-97" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="97" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec7/Q17.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3267">Find the limit: <span class="process-math">\(\displaystyle \lim_{x \rightarrow 4}\frac{\ln(x/4)}{x^2 - 16} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+<p id="p-3268"><em class="emphasis">(Enter <em class="alert">undefined</em> if the limit does not exist.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-97')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="rkI"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Determining if L'Hôpital's Rule applies.</span>
+</h4>
+<div id="webwork-98" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="98" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives21LHospital/osu_dr_21_2.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3270">Compute the following limits using l'H\^opital's rule if appropriate. Use INF to denote <span class="process-math">\(\infty\)</span> and MINF to denote <span class="process-math">\(-\infty\text{.}\)</span></p>
+<p id="p-3271"><span class="process-math">\(\displaystyle \lim_{x\to 0} \frac{1-\cos(7 x)}{1-\cos(3 x)}\)</span> =  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-3272"><span class="process-math">\(\displaystyle \lim_{x\to 1} \frac{4^x-3^x -1}{x^2-1}\)</span> =  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-98')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="XrR"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Using L'Hôpital's Rule multiple times.</span>
+</h4>
+<div id="webwork-99" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="99" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives21LHospital/ur_dr_21_1.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3275">Evaluate the limit using L'Hopital's rule.</p>
+<p id="p-3276"><span class="process-math">\(\displaystyle \lim_{ x \rightarrow \infty } \frac{15 x^3}{e^{2 x}} =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-99')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Dza"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="SWt">Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be differentiable functions about which the following information is known: <span class="process-math">\(f(3) = g(3) = 0\text{,}\)</span> <span class="process-math">\(f'(3) = g'(3) = 0\text{,}\)</span> <span class="process-math">\(f''(3) = -2\text{,}\)</span> and <span class="process-math">\(g''(3) = 1\text{.}\)</span> Let a new function <span class="process-math">\(h\)</span> be given by the rule <span class="process-math">\(h(x) = \frac{f(x)}{g(x)}\text{.}\)</span> On the same set of axes, sketch possible graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> near <span class="process-math">\(x = 3\text{,}\)</span> and use the provided information to determine the value of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to 3} h(x)\text{.}
+\end{equation*}
+</div>
+<p id="zdC">Provide explanation to support your conclusion.</p></article><article class="exercise exercise-like" id="jGj"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="fkL">Find all vertical and horizontal asymptotes of the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+R(x) = \frac{3(x-a)(x-b)}{5(x-a)(x-c)}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> are distinct, arbitrary constants. In addition, state all values of <span class="process-math">\(x\)</span> for which <span class="process-math">\(R\)</span> is not continuous. Sketch a possible graph of <span class="process-math">\(R\text{,}\)</span> clearly labeling the values of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{.}\)</span></p></article><article class="exercise exercise-like" id="PNs"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="LrU">Consider the function <span class="process-math">\(g(x) = x^{2x}\text{,}\)</span> which is defined for all <span class="process-math">\(x \gt 0\text{.}\)</span> Observe that <span class="process-math">\(\lim_{x \to 0^+} g(x)\)</span> is indeterminate due to its form of <span class="process-math">\(0^0\text{.}\)</span> (Think about how we know that <span class="process-math">\(0^k = 0\)</span> for all <span class="process-math">\(k \gt 0\text{,}\)</span> while <span class="process-math">\(b^0 = 1\)</span> for all <span class="process-math">\(b \ne 0\text{,}\)</span> but that neither rule can apply to <span class="process-math">\(0^0\text{.}\)</span>)</p>
+<ol class="lower-alpha">
+<li id="JYg"><p id="tJP">Let <span class="process-math">\(h(x) = \ln(g(x))\text{.}\)</span> Explain why <span class="process-math">\(h(x) = 2x \ln(x)\text{.}\)</span></p></li>
+<li id="qfp"><p id="ZQY">Next, explain why it is equivalent to write <span class="process-math">\(h(x) = \frac{2\ln(x)}{\frac{1}{x}}\text{.}\)</span></p></li>
+<li id="Wmy"><p id="FYh">Use L'Hôpital's Rule and your work in (b) to compute <span class="process-math">\(\lim_{x \to 0^+} h(x)\text{.}\)</span></p></li>
+<li id="CtH"><p id="mfq">Based on the value of <span class="process-math">\(\lim_{x \to 0^+} h(x)\text{,}\)</span> determine <span class="process-math">\(\lim_{x \to 0^+} g(x)\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="vUB"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="rzd">Recall we say that function <span class="process-math">\(g\)</span> <dfn class="terminology">dominates</dfn>  function <span class="process-math">\(f\)</span> provided that <span class="process-math">\(\lim_{x \to \infty} f(x) = \infty\text{,}\)</span> <span class="process-math">\(\lim_{x \to \infty} g(x) = \infty\text{,}\)</span> and <span class="process-math">\(\lim_{x \to \infty} \frac{f(x)}{g(x)} = 0\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="fGk"><p id="PrT">Which function dominates the other: <span class="process-math">\(\ln(x)\)</span> or <span class="process-math">\(\sqrt{x}\text{?}\)</span></p></li>
+<li id="LNt"><p id="vzc">Which function dominates the other: <span class="process-math">\(\ln(x)\)</span> or <span class="process-math">\(\sqrt[n]{x}\text{?}\)</span> (<span class="process-math">\(n\)</span> can be any positive integer)</p></li>
+<li id="rUC"><p id="bGl">Explain why <span class="process-math">\(e^x\)</span> will dominate any polynomial function.</p></li>
+<li id="YbL"><p id="HNu">Explain why <span class="process-math">\(x^n\)</span> will dominate <span class="process-math">\(\ln(x)\)</span> for any positive integer <span class="process-math">\(n\text{.}\)</span></p></li>
+<li id="EiU"><p id="nUD">Give any example of two nonlinear functions such that neither dominates the other.</p></li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

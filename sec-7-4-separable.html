@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Separable differential equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-7-3-euler.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-7.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-7-5-modeling.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-7-3-euler.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-7.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-7-5-modeling.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="active">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="arb"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.4</span> <span class="title">Separable differential equations</span>
+</h2>
+<article class="objectives goal-like" id="faU"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="PRW"><p id="AIY">What is a separable differential equation?</p></li>
+<li id="vZf"><p id="gQh">How can we find solutions to a separable differential equation?</p></li>
+<li id="cgo"><p id="MXq">Are some of the differential equations that arise in applications separable?</p></li>
+</ul></article><section class="introduction" id="Lid"><p id="fKO">In <a href="sec-7-2-qualitative.html" class="internal" title="Section 7.2: Qualitative behavior of solutions to DEs">Sections 7.2</a> and <a href="sec-7-3-euler.html" class="internal" title="Section 7.3: Euler's method">7.3</a>, we have seen several ways to approximate the solution to an initial value problem. Given the frequency with which differential equations arise in the world around us, we would like to have some techniques for finding explicit algebraic solutions of certain initial value problems. In this section, we focus on a particular class of differential equations (called <em class="emphasis">separable</em>) and develop a method for finding algebraic formulas for their solutions.</p>
+<p id="LRX">A <em class="emphasis">separable differential equation</em>  is a differential equation whose algebraic structure allows the variables to be separated in a particular way. For instance, consider the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = ty\text{.}
+\end{equation*}
+</div>
+<p id="rZg">We would like to separate the variables <span class="process-math">\(t\)</span> and <span class="process-math">\(y\)</span> so that all occurrences of <span class="process-math">\(t\)</span> appear on the right-hand side, and all occurrences of <span class="process-math">\(y\)</span> appear on the left, multiplied by <span class="process-math">\(dy/dt\text{.}\)</span> For this example, we divide both sides by <span class="process-math">\(y\)</span> so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac1y \frac{dy}{dt} = t\text{.}
+\end{equation*}
+</div>
+<p id="Ygp">Note that when we attempt to separate the variables in a differential equation, we require that one side is a product in which the derivative <span class="process-math">\(dy/dt\)</span> is one factor and the other factor is solely an expression involving <span class="process-math">\(y\text{.}\)</span></p>
+<p id="Eny">Not every differential equation is separable. For example, if we consider the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = t-y\text{,}
+\end{equation*}
+</div>
+<p class="continuation">it may seem natural to separate it by writing</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y + \frac{dy}{dt} = t\text{.}
+\end{equation*}
+</div>
+<p id="kuH">As we will see, this will not be helpful, since the left-hand side is not a product of a function of <span class="process-math">\(y\)</span> with <span class="process-math">\(\frac{dy}{dt}\text{.}\)</span></p>
+<article class="exploration project-like" id="zEF"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span>
+</h3>
+<p id="bbV">In this preview activity, we explore whether certain differential equations are separable or not, and then revisit some key ideas from earlier work in integral calculus.</p>
+<ol id="Hje" class="lower-alpha">
+<li id="MYq">
+<p id="dWB">Which of the following differential equations are separable? If the equation is separable, write the equation in the revised form <span class="process-math">\(g(y) \frac{dy}{dt} = h(t)\text{.}\)</span></p>
+<ol id="KdK" class="lower-roman">
+<li id="LSX"><p id="fLO"><span class="process-math">\(\displaystyle \frac{dy}{dt} = -3y\text{.}\)</span></p></li>
+<li id="tfz"><p id="qkT"><span class="process-math">\(\displaystyle \frac{dy}{dt} = ty - y\text{.}\)</span></p></li>
+<li id="ZmI"><p id="Wsc"><span class="process-math">\(\displaystyle \frac{dy}{dt} = t + 1\text{.}\)</span></p></li>
+<li id="FtR"><p id="Czl"><span class="process-math">\(\displaystyle \frac{dy}{dt} = t^2 - y^2\text{.}\)</span></p></li>
+</ol>
+</li>
+<li id="lBa"><p id="iGu">Explain why any autonomous differential equation is guaranteed to be separable.</p></li>
+<li id="RIj">
+<p id="OND">Why do we include the term “<span class="process-math">\(+C\)</span>” in the expression</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int x~dx =
+\frac{x^2}{2} + C?
+\end{equation*}
+</div>
+</li>
+<li id="xPs">
+<p id="uUM">Suppose we know that a certain function <span class="process-math">\(f\)</span> satisfies the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int f'(x)~dx = \int x~dx\text{.}
+\end{equation*}
+</div>
+<p class="continuation">What can you conclude about <span class="process-math">\(f\text{?}\)</span></p>
+</li>
+</ol></article></section><section class="subsection" id="Gyk"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.4.1</span> <span class="title">Solving separable differential equations</span>
+</h3>
+<p id="QBQ">Before we discuss a general approach to solving a separable differential equation, it is instructive to consider an example.</p>
+<article class="example example-like" id="SMC"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span>
+</h4>
+<p id="Tww">Find all functions <span class="process-math">\(y\)</span> that are solutions to the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt}= \frac{t}{y^2}\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-rpm" id="rpm"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-rpm"><div class="solution solution-like">
+<p id="lAa">We begin by separating the variables and writing</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y^2\frac{dy}{dt} = t\text{.}
+\end{equation*}
+</div>
+<p id="RHj">Integrating both sides of the equation with respect to the independent variable <span class="process-math">\(t\)</span> shows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int y^2\frac{dy}{dt}~dt = \int t~dt\text{.}
+\end{equation*}
+</div>
+<p id="xOs">Next, we notice that the left-hand side allows us to change the variable of antidifferentiation<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-118" id="fn-118"><sup> 1 </sup></a> from <span class="process-math">\(t\)</span> to <span class="process-math">\(y\text{.}\)</span> In particular, <span class="process-math">\(dy = \frac{dy}{dt}~dt\text{,}\)</span> so we now have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int y^2 ~dy = \int t~dt\text{.}
+\end{equation*}
+</div>
+<p id="dVB">This equation says that two families of antiderivatives are equal to each other. Therefore, when we find representative antiderivatives of both sides, we know they must differ by an arbitrary constant <span class="process-math">\(C\text{.}\)</span> Antidifferentiating and including the integration constant <span class="process-math">\(C\)</span> on the right, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{y^3}{3} = \frac{t^2}{2} + C\text{.}
+\end{equation*}
+</div>
+<p id="KcK">It is not necessary to include an arbitrary constant on both sides of the equation; we know that <span class="process-math">\(y^3/3\)</span> and <span class="process-math">\(t^2/2\)</span> are in the same family of antiderivatives and must therefore differ by a single constant.</p>
+<p id="qjT">Finally, we solve the last equation above for <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(t\text{,}\)</span> which gives</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y(t) = \sqrt[3]{\frac 32 \, t^2 + 3C}\text{.}
+\end{equation*}
+</div>
+<p id="Wrc">Of course, the term <span class="process-math">\(3C\)</span> on the right-hand side represents 3 times an unknown constant. It is, therefore, still an unknown constant, which we will rewrite as <span class="process-math">\(C\text{.}\)</span> We thus conclude that the funtion</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y(t) = \sqrt[3]{\frac 32 \, t^2 + C}
+\end{equation*}
+</div>
+<p class="continuation">is a solution to the original differential equation for any value of <span class="process-math">\(C\text{.}\)</span></p>
+<p id="Cyl">Notice that because this solution depends on the arbitrary constant <span class="process-math">\(C\text{,}\)</span> we have found an infinite family of solutions. This makes sense because we expect to find a unique solution that corresponds to any given initial value.</p>
+<p id="iFu">For example, if we want to solve the initial value problem</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = \frac{t}{y^2}, \
+y(0) = 2\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we know that the solution has the form <span class="process-math">\(y(t) = \sqrt[3]{\frac32\,
+t^2 + C}\)</span> for some constant <span class="process-math">\(C\text{.}\)</span> We therefore must find the appropriate value for <span class="process-math">\(C\)</span> that gives the initial value <span class="process-math">\(y(0)=2\text{.}\)</span> Hence,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+2 = y(0) = \sqrt[3]{\frac 32 \, 0^2 + C} = \sqrt[3]{C}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which shows that <span class="process-math">\(C = 2^3 = 8\text{.}\)</span> The solution to the initial value problem is then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y(t) = \sqrt[3]{\frac32\, t^2+8}\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><p id="wIZ">The strategy of <a href="" class="xref" data-knowl="./knowl/Ex-7-4-1.html" title="Example 7.4.1">Example 7.4.1</a> may be applied to any differential equation of the form <span class="process-math">\(\frac{dy}{dt} = g(y) \cdot h(t)\text{,}\)</span> and any differential equation of this form is said to be <em class="emphasis">separable</em>. We work to solve a separable differential equation by writing</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-7-4-1.html">
+\begin{equation*}
+\frac{1}{g(y)} \frac{dy}{dt} = h(t)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and then integrating both sides with respect to <span class="process-math">\(t\text{.}\)</span> After integrating, we try to solve algebraically for <span class="process-math">\(y\)</span> in order to write <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(t\text{.}\)</span></p>
+<article class="example example-like" id="yTL"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
+</h4>
+<p id="zDF">Solve the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} =3y\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-Xwv" id="Xwv"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-Xwv"><div class="solution solution-like">
+<p id="OMD">Following the same strategy as in <a href="" class="xref" data-knowl="./knowl/Ex-7-4-1.html" title="Example 7.4.1">Example 7.4.1</a>, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-7-4-1.html">
+\begin{equation*}
+\frac 1y \frac{dy}{dt} = 3\text{.}
+\end{equation*}
+</div>
+<p id="uTM">Integrating both sides with respect to <span class="process-math">\(t\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac 1y\frac{dy}{dt}~dt = \int 3~dt\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and thus</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac 1y~dy =  \int 3~dt\text{.}
+\end{equation*}
+</div>
+<p id="baV">Antidifferentiating and including the integration constant, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\ln|y| = 3t + C\text{.}
+\end{equation*}
+</div>
+<p id="Hie">Finally, we need to solve for <span class="process-math">\(y\text{.}\)</span> Here, one point deserves careful attention. By the definition of the natural logarithm function, it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|y| = e^{3t+C} = e^{3t}e^C\text{.}
+\end{equation*}
+</div>
+<p id="npn">Since <span class="process-math">\(C\)</span> is an unknown constant, <span class="process-math">\(e^C\)</span> is as well, though we do know that it is positive (because <span class="process-math">\(e^x\)</span> is positive for any <span class="process-math">\(x\)</span>). When we remove the absolute value in order to solve for <span class="process-math">\(y\text{,}\)</span> however, this constant may be either positive or negative. To account for a possible <span class="process-math">\(+\)</span> or <span class="process-math">\(-\text{,}\)</span> we denote this updated constant by <span class="process-math">\(C\)</span> to obtain</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+y(t) = Ce^{3t}\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><p id="cQi">There is one more technical point to make. Notice that <span class="process-math">\(y=0\)</span> is an equilibrium solution to this differential equation. In solving the equation above, we begin by dividing both sides by <span class="process-math">\(y\text{,}\)</span> which is not allowed if <span class="process-math">\(y=0\text{.}\)</span> To be perfectly careful, therefore, we should consider the equilibrium solutions separately. In this case, notice that the final form of our solution captures the equilibrium solution by allowing <span class="process-math">\(C=0\text{.}\)</span></p>
+<article class="activity project-like" id="lRe"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
+</h4>
+<p id="Bac">Suppose that the population of a town is growing continuously at an annual rate of 3% per year.</p>
+<ol class="lower-alpha">
+<li id="UiZ"><p id="OtN">Let <span class="process-math">\(P(t)\)</span> be the population of the town in year <span class="process-math">\(t\text{.}\)</span> Write a differential equation that describes the annual growth rate.</p></li>
+<li id="Aqi"><p id="uAW">Find the solutions of this differential equation.</p></li>
+<li id="gxr"><p id="aIf">If you know that the town's population in year 0 is 10,000, find the population <span class="process-math">\(P(t)\text{.}\)</span></p></li>
+<li id="MEA"><p id="GPo">How long does it take for the population to double? This time is called the <em class="emphasis">doubling time</em>.</p></li>
+<li id="sLJ"><p id="mWx">Working more generally, find the doubling time if the annual growth rate is <span class="process-math">\(k\)</span> times the population.</p></li>
+</ol></article><article class="activity project-like" id="gLM"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.3</span><span class="period">.</span>
+</h4>
+<p id="PNB">Suppose that a cup of coffee is initially at a temperature of <span class="process-math">\(105^\circ\)</span> F and is placed in a <span class="process-math">\(75^\circ\)</span> F room. If <span class="process-math">\(T\)</span> is the temperature of the coffee in degrees Fahrenheit at time <span class="process-math">\(t\)</span> in minutes, Newton's law of cooling says that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dT}{dt} = -k(T-75)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(k\)</span> is a constant of proportionality.</p>
+<ol class="lower-alpha">
+<li id="iWy"><p id="dhm">Suppose you measure that the coffee is cooling at one degree per minute at the time the coffee is brought into the room. Use the differential equation to determine the value of the constant <span class="process-math">\(k\text{.}\)</span></p></li>
+<li id="PdH"><p id="Jov">Find all the solutions of this differential equation.</p></li>
+<li id="vkQ"><p id="pvE">What happens to all the solutions as <span class="process-math">\(t\to\infty\text{?}\)</span> Explain how this agrees with your intuition.</p></li>
+<li id="brZ"><p id="VCN">What is the temperature of the cup of coffee after 20 minutes?</p></li>
+<li id="Hzi"><p id="BJW">How long does it take for the coffee to cool to <span class="process-math">\(80^\circ\text{?}\)</span></p></li>
+</ol></article><article class="activity project-like" id="ifA"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.4</span><span class="period">.</span>
+</h4>
+<p id="KIj">Solve each of the following differential equations or initial value problems.</p>
+<ol class="lower-alpha">
+<li id="dRg"><p id="YbU"><span class="process-math">\(\displaystyle \frac{dy}{dt} - (2-t) y = 2-t\)</span></p></li>
+<li id="JYp"><p id="Ejd"><span class="process-math">\(\displaystyle \frac{1}{t}\frac{dy}{dt} = e^{t^2-2y}\)</span></p></li>
+<li id="qfy"><p id="kqm"><span class="process-math">\(y' = 2y+2\text{,}\)</span>  <span class="process-math">\(y(0)=2\)</span></p></li>
+<li id="WmH"><p id="Qxv"><span class="process-math">\(y' = 2y^2\text{,}\)</span>  <span class="process-math">\(y(-1) = 2\)</span></p></li>
+<li id="CtQ"><p id="wEE"><span class="process-math">\(\frac{dy}{dt} = \frac{-2ty}{t^2 + 1}\text{,}\)</span>   <span class="process-math">\(y(0) = 4\)</span></p></li>
+</ol></article></section><section class="subsection" id="mFt"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.4.2</span> <span class="title">Summary</span>
+</h3>
+<ul id="IXr" class="disc">
+<li id="Inx"><p id="tez">A separable differential equation is one that may be rewritten with all occurrences of the dependent variable multiplying the derivative and all occurrences of the independent variable on the other side of the equation.</p></li>
+<li id="ouG"><p id="ZlI">We may find the solutions to certain separable differential equations by separating variables, integrating with respect to <span class="process-math">\(t\text{,}\)</span> and ultimately solving the resulting algebraic equation for <span class="process-math">\(y\text{.}\)</span></p></li>
+<li id="UBP"><p id="FsR">This technique allows us to solve many important differential equations that arise in the world around us. For instance, questions of growth and decay and Newton's Law of Cooling give rise to separable differential equations. Later, we will learn in <a href="sec-7-6-logistic.html" class="internal" title="Section 7.6: Population Growth and the Logistic Equation">Section 7.6</a> that the important logistic differential equation is also separable.</p></li>
+</ul></section><section class="exercises" id="Gau"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">7.4.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="ozt"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Initial value problem for <span class="process-math">\(dy/dx=x^8 y\)</span>.</span>
+</h4>
+<div id="webwork-197" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="197" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/FortLewis/DiffEq/1-First-order/03-Separable/Lebl-1-3-02.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><p id="p-8071">Find the equation of the solution to <span class="process-math">\(\displaystyle \frac{dy}{dx} = x^{6} y\)</span> through the point <span class="process-math">\((x,y) = (1,5)\text{.}\)</span></p></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-197')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="UGC"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Initial value problem for <span class="process-math">\(dy/dt=0.9(y-300)\)</span>.</span>
+</h4>
+<div id="webwork-198" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="198" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec4/Q13.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8073">Find the solution to the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = 0.9 (y - 150)
+\end{equation*}
+</div>
+<p class="continuation">if <span class="process-math">\(y=40\)</span> when <span class="process-math">\(t=0\text{.}\)</span></p>
+<p id="p-8074"><span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-198')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="ANL"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Initial value problem for <span class="process-math">\(dy/dt=y^2(8+t)\)</span>.</span>
+</h4>
+<div id="webwork-199" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="199" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec4/Q23.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8076">Find the solution to the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = y^2(1 + t),
+\end{equation*}
+</div>
+<p class="continuation"><span class="process-math">\(y=8\)</span> when <span class="process-math">\(t=1\text{.}\)</span></p>
+<p id="p-8077"><span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-199')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="gUU"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Initial value problem for <span class="process-math">\(du/dt=e^{6u+10t}\)</span>.</span>
+</h4>
+<div id="webwork-200" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="200" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ3Separable/jas7_4_5a.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8079">Solve the separable differential equation for <span class="process-math">\(u\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{du}{dt} = e^{4 u + 3 t}.
+\end{equation*}
+</div>
+<p class="continuation">Use the following initial condition: <span class="process-math">\(u(0) = 4.\)</span></p>
+<p id="p-8080"><span class="process-math">\(u =\)</span> <span class="fillin underline" role="img" aria-label="45-character blank" style="width: 20.4545454545455em;"></span>.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-200')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Ncd"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Initial value problem for <span class="process-math">\(dy/dx=170yx^{16}\)</span>.</span>
+</h4>
+<div id="webwork-201" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="201" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ3Separable/ns7_4_13a.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-8082">Find an equation of the curve that satisfies</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dx} = 44 yx^{10}
+\end{equation*}
+</div>
+<p class="continuation">and whose <span class="process-math">\(y\)</span>-intercept is <span class="process-math">\(3\text{.}\)</span></p>
+<p id="p-8083"><span class="process-math">\(y(x) =\)</span> <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span>.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-201')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="tjm"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="Kat">The mass of a radioactive sample decays at a rate that is proportional to its mass.</p>
+<ol class="lower-alpha">
+<li id="kzu"><p id="UUX">Express this fact as a differential equation for the mass <span class="process-math">\(M(t)\)</span> using <span class="process-math">\(k\)</span> for the constant of proportionality.</p></li>
+<li id="QGD"><p id="Bcg">If the initial mass is <span class="process-math">\(M_0\text{,}\)</span> find an expression for the mass <span class="process-math">\(M(t)\text{.}\)</span></p></li>
+<li id="wNM"><p id="hjp">The <em class="emphasis">half-life</em> of the sample is the amount of time required for half of the mass to decay. Knowing that the half-life of Carbon-14 is 5730 years, find the value of <span class="process-math">\(k\)</span> for a sample of Carbon-14.</p></li>
+<li id="cUV"><p id="Nqy">How long does it take for a sample of Carbon-14 to be reduced to one-quarter its original mass?</p></li>
+<li id="Jce"><p id="txH">Carbon-14 naturally occurs in our environment; any living organism takes in Carbon-14 when it eats and breathes. Upon dying, however, the organism no longer takes in Carbon-14. Suppose that you find remnants of a pre-historic firepit. By analyzing the charred wood in the pit, you determine that the amount of Carbon-14 is only 30% of the amount in living trees. Estimate the age of the firepit.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-119" id="fn-119"><sup> 2 </sup></a></p></li>
+</ol></article><article class="exercise exercise-like" id="Zqv"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="qhC">Consider the initial value problem</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = -\frac ty, \ y(0) = 8
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="yCZ"><p id="iYC">Find the solution of the initial value problem and sketch its graph.</p></li>
+<li id="eKi"><p id="PfL">For what values of <span class="process-math">\(t\)</span> is the solution defined?</p></li>
+<li id="KRr"><p id="vmU">What is the value of <span class="process-math">\(y\)</span> at the last time that the solution is defined?</p></li>
+<li id="qYA"><p id="bud">By looking at the differential equation, explain why we should not expect to find solutions with the value of <span class="process-math">\(y\)</span> you noted in (c).</p></li>
+</ol></article><article class="exercise exercise-like" id="FxE"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="WoL">Suppose that a cylindrical water tank with a hole in the bottom is filled with water. The water, of course, will leak out and the height of the water will decrease. Let <span class="process-math">\(h(t)\)</span> denote the height of the water. A physical principle called <em class="emphasis">Torricelli's Law</em> implies that the height decreases at a rate proportional to the square root of the height.</p>
+<ol class="lower-alpha">
+<li id="Uld"><p id="EGG">Express this fact using <span class="process-math">\(k\)</span> as the constant of proportionality.</p></li>
+<li id="Asm"><p id="kNP">Suppose you have two tanks, one with <span class="process-math">\(k=-1\)</span> and another with <span class="process-math">\(k=-10\text{.}\)</span> What physical differences would you expect to find?</p></li>
+<li id="gzv"><p id="QUY">Suppose you have a tank for which the height decreases at <span class="process-math">\(20\)</span> inches per minute when the water is filled to a depth of <span class="process-math">\(100\)</span> inches. Find the value of <span class="process-math">\(k\text{.}\)</span></p></li>
+<li id="MGE"><p id="xch">Solve the initial value problem for the tank in part (c), and graph the solution you determine.</p></li>
+<li id="sNN"><p id="djq">How long does it take for the water to run out of the tank?</p></li>
+<li id="YUW"><p id="Jqz">Is the solution that you found valid for all time <span class="process-math">\(t\text{?}\)</span> If so, explain how you know this. If not, explain why not.</p></li>
+</ol></article><article class="exercise exercise-like" id="lEN"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="CvU">The <em class="emphasis">Gompertz equation</em> is a model that is used to describe the growth of certain populations. Suppose that <span class="process-math">\(P(t)\)</span> is the population of some organism and that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dP}{dt} = -P\ln\left(\frac P3\right) = -P(\ln P - \ln 3)\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="aKj"><p id="LfM">Sketch a slope field for <span class="process-math">\(P(t)\)</span> over the range <span class="process-math">\(0\leq P\leq 6\text{.}\)</span></p></li>
+<li id="GRs"><p id="rmV">Identify any equilibrium solutions and determine whether they are stable or unstable.</p></li>
+<li id="mYB"><p id="Xue">Find the population <span class="process-math">\(P(t)\)</span> assuming that <span class="process-math">\(P(0) = 1\)</span> and sketch its graph. What happens to <span class="process-math">\(P(t)\)</span> after a very long time?</p></li>
+<li id="TfK"><p id="DBn">Find the population <span class="process-math">\(P(t)\)</span> assuming that <span class="process-math">\(P(0) = 6\)</span> and sketch its graph. What happens to <span class="process-math">\(P(t)\)</span> after a very long time?</p></li>
+<li id="zmT"><p id="jIw">Verify that the long-term behavior of your solutions agrees with what you predicted by looking at the slope field.</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-118"><div class="fn">This is why we required that the left-hand side be written as a product in which <span class="process-math">\(dy/dt\)</span> is one of the terms.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-119"><div class="fn">This approach is the basic idea behind radiocarbon dating.</div></div>
+</div></main>
+</div>
+</body>
+</html>

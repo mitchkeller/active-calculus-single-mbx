@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Global Optimization</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-3-2-families.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-3.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-3-4-applied-opt.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-3-2-families.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-3.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-3-4-applied-opt.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="active">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="bgZ"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.3</span> <span class="title">Global Optimization</span>
+</h2>
+<article class="objectives goal-like" id="LYb"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="VrN"><p id="jvs">What are the differences between finding relative extreme values and global extreme values of a function?</p></li>
+<li id="ByW"><p id="PCB">How is the process of finding the global maximum or minimum of a function over the function's entire domain different from determining the global maximum or minimum on a restricted domain?</p></li>
+<li id="hGf"><p id="vJK">For a function that is guaranteed to have both a global maximum and global minimum on a closed, bounded interval, what are the possible points at which these extreme values occur?</p></li>
+</ul></article><section class="introduction" id="Ymt"><p id="Thb">We have seen that we can use the first derivative of a function to determine where the function is increasing or decreasing, and the second derivative to know where the function is concave up or concave down. This information helps us determine the overall shape and behavior of the graph, as well as whether the function has relative extrema.</p>
+<p id="zok">Remember the difference between a relative maximum and a global maximum: there is a <em class="emphasis">relative</em> maximum of <span class="process-math">\(f\)</span> at <span class="process-math">\(x = p\)</span> if <span class="process-math">\(f(p) \ge f(x)\)</span> for all <span class="process-math">\(x\)</span> <em class="emphasis">near</em> <span class="process-math">\(p\text{,}\)</span> while there is a <em class="emphasis">global</em> maximum at <span class="process-math">\(p\)</span> if <span class="process-math">\(f(p) \ge f(x)\)</span> for <em class="emphasis">all</em> <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><p id="GSJ">For instance, in <a href="" class="xref" data-knowl="./knowl/F-3-3-Intro.html" title="Figure 3.3.1">Figure 3.3.1</a>, we see a function <span class="process-math">\(f\)</span> that has a global maximum at <span class="process-math">\(x = c\)</span> and a relative maximum at <span class="process-math">\(x = a\text{,}\)</span> since <span class="process-math">\(f(c)\)</span> is greater than <span class="process-math">\(f(x)\)</span> for every value of <span class="process-math">\(x\text{,}\)</span> while <span class="process-math">\(f(a)\)</span> is only greater than the value of <span class="process-math">\(f(x)\)</span> for <span class="process-math">\(x\)</span> near <span class="process-math">\(a\text{.}\)</span> Since the function appears to decrease without bound, <span class="process-math">\(f\)</span> has no global minimum, though clearly <span class="process-math">\(f\)</span> has a relative minimum at <span class="process-math">\(x = b\text{.}\)</span></p></div>
+<div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="mZS"><img src="external/images/3_3_Intro.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.1<span class="period">.</span></span><span class="space"> </span>A function <span class="process-math">\(f\)</span> with a global maximum, but no global minimum.</figcaption></figure></div>
+</div></div>
+<p id="fvt">Our emphasis in this section is on finding the global extreme values of a function (if they exist), either over its entire domain or on some restricted portion.</p>
+<article class="exploration project-like" id="Iok"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span>
+</h3>
+<p id="chb">Let <span class="process-math">\(f(x) = 2 + \frac{3}{1+(x+1)^2}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="GyX"><p id="rpZ">Determine all of the critical numbers of <span class="process-math">\(f\text{.}\)</span></p></li>
+<li id="mGg"><p id="Xxi">Construct a first derivative sign chart for <span class="process-math">\(f\)</span> and thus determine all intervals on which <span class="process-math">\(f\)</span> is increasing or decreasing.</p></li>
+<li id="SNp"><p id="DEr">Does <span class="process-math">\(f\)</span> have a global maximum? If so, why, and what is its value and where is the maximum attained? If not, explain why.</p></li>
+<li id="yUy"><p id="jLA">Determine <span class="process-math">\(\lim_{x \to \infty} f(x)\)</span> and <span class="process-math">\(\lim_{x \to -\infty} f(x)\text{.}\)</span></p></li>
+<li id="fbH"><p id="PSJ">Explain why <span class="process-math">\(f(x) \gt 2\)</span> for every value of <span class="process-math">\(x\text{.}\)</span></p></li>
+<li id="LiQ"><p id="vZS">Does <span class="process-math">\(f\)</span> have a global minimum? If so, why, and what is its value and where is the minimum attained? If not, explain why.</p></li>
+</ol></article></section><section class="subsection" id="Hoi"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.3.1</span> <span class="title">Global Optimization</span>
+</h3>
+<p id="LCC">In <a href="" class="xref" data-knowl="./knowl/F-3-3-Intro.html" title="Figure 3.3.1">Figure 3.3.1</a> and <a href="" class="xref" data-knowl="./knowl/PA-3-3.html" title="Preview Activity 3.3.1">Preview Activity 3.3.1</a>, we were interested in finding the global minimum and global maximum for <span class="process-math">\(f\)</span> on its entire domain. At other times, we might focus on some restriction of the domain.</p>
+<p id="rJL">For example, rather than considering <span class="process-math">\(f(x) = 2 + \frac{3}{1+(x+1)^2}\)</span> for every value of <span class="process-math">\(x\text{,}\)</span> perhaps instead we are only interested in those <span class="process-math">\(x\)</span> for which <span class="process-math">\(0 \le x \le 4\text{,}\)</span> and we would like to know which values of <span class="process-math">\(x\)</span> in the interval <span class="process-math">\([0,4]\)</span> produce the largest possible and smallest possible values of <span class="process-math">\(f\text{.}\)</span> We are accustomed to critical numbers playing a key role in determining the location of extreme values of a function; now, by restricting the domain to an interval, it makes sense that the endpoints of the interval will also be important to consider, as we see in the following activity. When limiting ourselves to a particular interval, we will often refer to the <em class="emphasis">absolute</em> maximum or minimum value, rather than the <em class="emphasis">global</em> maximum or minimum.</p>
+<article class="activity project-like" id="AnV"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span>
+</h4>
+<p id="HSu">Let <span class="process-math">\(g(x) = \frac{1}{3}x^3 - 2x + 2\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="Wry"><p id="IXN">Find all critical numbers of <span class="process-math">\(g\)</span> that lie in the interval <span class="process-math">\(-2 \le x \le 3\text{.}\)</span></p></li>
+<li id="CyH"><p id="peW">Use a graphing utility to construct the graph of <span class="process-math">\(g\)</span> on the interval <span class="process-math">\(-2 \le x \le 3\text{.}\)</span></p></li>
+<li id="iFQ"><p id="Vmf">From the graph, determine the <span class="process-math">\(x\)</span>-values at which the absolute minimum and absolute maximum of <span class="process-math">\(g\)</span> occur on the interval <span class="process-math">\([-2,3]\text{.}\)</span></p></li>
+<li id="OMZ"><p id="Bto">How do your answers change if we instead consider the interval <span class="process-math">\(-2 \le x \le 2\text{?}\)</span></p></li>
+<li id="uUi"><p id="hAx">What if we instead consider the interval <span class="process-math">\(-2 \le x \le 1\text{?}\)</span></p></li>
+</ol></article><p id="XQU">In <a href="" class="xref" data-knowl="./knowl/act-3-3-1.html" title="Activity 3.3.2">Activity 3.3.2</a>, we saw how the absolute maximum and absolute minimum of a function on a closed, bounded interval <span class="process-math">\([a,b]\text{,}\)</span> depend not only on the critical numbers of the function, but also on the values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> These observations demonstrate several important facts that hold more generally. First, we state an important result called the Extreme Value Theorem.</p>
+<article class="assemblage assemblage-like" id="zJJ"><h4 class="heading"><span class="title">The Extreme Value Theorem.</span></h4>
+<p id="DYd"> If <span class="process-math">\(f\)</span> is a continuous function on a closed interval <span class="process-math">\([a,b]\text{,}\)</span> then <span class="process-math">\(f\)</span> attains both an absolute minimum and absolute maximum on <span class="process-math">\([a,b]\text{.}\)</span> That is, for some value <span class="process-math">\(x_m\)</span> such that <span class="process-math">\(a \le x_m \le b\text{,}\)</span> it follows that <span class="process-math">\(f(x_m) \le f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span> Similarly, there is a value <span class="process-math">\(x_M\)</span> in <span class="process-math">\([a,b]\)</span> such that <span class="process-math">\(f(x_M) \ge f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span> Letting <span class="process-math">\(m = f(x_m)\)</span> and <span class="process-math">\(M = f(x_M)\text{,}\)</span> it follows that <span class="process-math">\(m \le f(x) \le M\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span></p></article><p id="kfm">The Extreme Value Theorem tells us that on any closed interval <span class="process-math">\([a,b]\text{,}\)</span> a continuous function has to achieve both an absolute minimum and an absolute maximum. The theorem does not tell us where these extreme values occur, but rather only that they must exist. As we saw in <a href="" class="xref" data-knowl="./knowl/act-3-3-1.html" title="Activity 3.3.2">Activity 3.3.2</a>, the only possible locations for relative extremes are at the endpoints of the interval or at a critical number.</p>
+<article class="note remark-like" id="kAL"><h4 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span>
+</h4>
+<p id="uEr">Thus, we have the following approach to finding the absolute maximum and minimum of a continuous function <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,b]\text{:}\)</span></p>
+<ul class="disc">
+<li id="NNo"><p id="bQT">find all critical numbers of <span class="process-math">\(f\)</span> that lie in the interval;</p></li>
+<li id="tUx"><p id="HYc">evaluate the function <span class="process-math">\(f\)</span> at each critical number in the interval and at each endpoint of the interval;</p></li>
+<li id="abG"><p id="ofl">from among those function values, the smallest is the absolute minimum of <span class="process-math">\(f\)</span> on the interval, while the largest is the absolute maximum.</p></li>
+</ul></article><article class="activity project-like" id="eUm"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="period">.</span>
+</h4>
+<p id="SFU">Find the <em class="emphasis">exact</em> absolute maximum and minimum of each function on the stated interval.</p>
+<ol class="lower-alpha">
+<li id="Tbt"><p id="lOR"><span class="process-math">\(h(x) = xe^{-x}\text{,}\)</span> <span class="process-math">\([0,3]\)</span></p></li>
+<li id="ziC"><p id="RWa"><span class="process-math">\(p(t) = \sin(t) + \cos(t)\text{,}\)</span> <span class="process-math">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span></p></li>
+<li id="fpL"><p id="ydj"><span class="process-math">\(q(x) = \frac{x^2}{x-2}\text{,}\)</span> <span class="process-math">\([3,7]\)</span></p></li>
+<li id="LwU"><p id="eks"><span class="process-math">\(f(x) = 4 - e^{-(x-2)^2}\text{,}\)</span> <span class="process-math">\((-\infty, \infty)\)</span></p></li>
+<li id="rEd"><p id="KrB"><span class="process-math">\(h(x) = xe^{-ax}\text{,}\)</span> <span class="process-math">\([0, \frac{2}{a}]\)</span> (<span class="process-math">\(a \gt 0\)</span>)</p></li>
+<li id="XLm"><p id="qyK"><span class="process-math">\(f(x) = b - e^{-(x-a)^2}\text{,}\)</span> <span class="process-math">\((-\infty, \infty)\text{,}\)</span> <span class="process-math">\(a, b \gt 0\)</span></p></li>
+</ol></article><p id="Qmv">The interval we choose has nearly the same influence on extreme values as the function under consideration. Consider, for instance, the function pictured in <a href="" class="xref" data-knowl="./knowl/F-3-3-Interval.html" title="Figure 3.3.3">Figure 3.3.3</a>.</p>
+<figure class="figure figure-like" id="IHW"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/3_3_Interval.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.3<span class="period">.</span></span><span class="space"> </span>A function <span class="process-math">\(g\)</span> considered on three different intervals.</figcaption></figure><p id="wtE">In sequence, from left to right, the interval under consideration is changed from <span class="process-math">\([-2,3]\)</span> to <span class="process-math">\([-2,2]\)</span> to <span class="process-math">\([-2,1]\text{.}\)</span></p>
+<ul class="disc">
+<li id="GiP"><p id="p-derived-GiP">On the interval <span class="process-math">\([-2,3]\text{,}\)</span> there are two critical numbers, with the absolute minimum at one critical number and the absolute maximum at the right endpoint.</p></li>
+<li id="mpY"><p id="p-derived-mpY">On the interval <span class="process-math">\([-2,2]\text{,}\)</span> both critical numbers are in the interval, with the absolute minimum and maximum at the two critical numbers.</p></li>
+<li id="Sxh"><p id="p-derived-Sxh">On the interval <span class="process-math">\([-2,1]\text{,}\)</span> just one critical number lies in the interval, with the absolute maximum at one critical number and the absolute minimum at one endpoint.</p></li>
+</ul>
+<p id="cAN">Remember to consider only the critical numbers that lie within the interval.</p></section><section class="subsection" id="nvr"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.3.2</span> <span class="title">Moving toward applications</span>
+</h3>
+<p id="oPf">We conclude this section with an example of an applied optimization problem. It highlights the role that a closed, bounded domain can play in finding absolute extrema.</p>
+<article class="example example-like" id="fQS"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span>
+</h4>
+<p id="aLA">A 20 cm piece of wire is cut into two pieces. One piece is used to form a square and the other to form an equilateral triangle. How should the wire be cut to maximize the total area enclosed by the square and triangle? to minimize the area?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-EtC" id="EtC"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-EtC"><div class="solution solution-like">
+<p id="Fdw">We begin by sketching a picture that illustrates the situation. The variable in the problem is where we decide to cut the wire. We thus label the cut point at a distance <span class="process-math">\(x\)</span> from one end of the wire, and note that the remaining portion of the wire then has length <span class="process-math">\(20-x\)</span></p>
+<p id="lkF">As shown in <a href="" class="xref" data-knowl="./knowl/F-3-3-Ex1.html" title="Figure 3.3.5">Figure 3.3.5</a>, we see that the <span class="process-math">\(x\)</span> cm of wire that is used to form the equilateral triangle with three sides of length <span class="process-math">\(\frac{x}{3}\text{.}\)</span> For the remaining <span class="process-math">\(20-x\)</span> cm of wire, the square that results will have each side of length <span class="process-math">\(\frac{20-x}{4}\text{.}\)</span></p>
+<figure class="figure figure-like" id="ipZ"><div class="image-box" style="width: 56%; margin-left: 22%; margin-right: 22%;"><img src="external/images/3_3_Ex1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.5<span class="period">.</span></span><span class="space"> </span>A 20 cm piece of wire cut into two pieces, one of which forms an equilateral triangle, the other which yields a square.</figcaption></figure><p id="RrO">At this point, we note that there are obvious restrictions on <span class="process-math">\(x\text{:}\)</span> in particular, <span class="process-math">\(0 \le x \le 20\text{.}\)</span> In the extreme cases, all of the wire is being used to make just one figure. For instance, if <span class="process-math">\(x = 0\text{,}\)</span> then all 20 cm of wire are used to make a square that is <span class="process-math">\(5 \times 5\text{.}\)</span></p>
+<p id="xyX">Now, our overall goal is to find the minimum and maximum areas that can be enclosed. Because the height of an equilateral triangle is <span class="process-math">\(\sqrt{3}\)</span> times half the length of the base, the area of the triangle is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A_{\Delta} = \frac{1}{2} bh = \frac{1}{2} \cdot \frac{x}{3} \cdot \frac{x\sqrt{3}}{6}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The area of the square is <span class="process-math">\(A_{\Box} = s^2 = \left( \frac{20-x}{4} \right)^2\text{.}\)</span> Therefore, the total area function is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A(x) = \frac{\sqrt{3}x^2}{36} + \left( \frac{20-x}{4} \right)^2\text{.}
+\end{equation*}
+</div>
+<p id="dGg">Remember that we are considering this function only on the restricted domain <span class="process-math">\([0,20]\text{.}\)</span></p>
+<p id="JNp">Differentiating <span class="process-math">\(A(x)\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A'(x) = \frac{\sqrt{3}x}{18} + 2\left( \frac{20-x}{4} \right)\left( -\frac{1}{4} \right) = \frac{\sqrt{3}}{18} x + \frac{1}{8}x - \frac{5}{2}\text{.}
+\end{equation*}
+</div>
+<p id="pUy">When we set <span class="process-math">\(A'(x) = 0\text{,}\)</span> we find that <span class="process-math">\(x = \frac{180}{4\sqrt{3}+9} \approx 11.3007\)</span> is the only critical number of <span class="process-math">\(A\)</span> in the interval <span class="process-math">\([0,20]\text{.}\)</span></p>
+<p id="WbH">Evaluating <span class="process-math">\(A\)</span> at the critical number and endpoints, we see that</p>
+<ul class="disc">
+<li id="yEq"><p id="Umu"><span class="process-math">\(\displaystyle A\left(\frac{180}{4\sqrt{3}+9}\right) = \frac{\sqrt{3}(\frac{180}{4\sqrt{3}+9})^2}{4} + \left( \frac{20-\frac{180}{4\sqrt{3}+9}}{4} \right)^2 \approx 10.8741\)</span></p></li>
+<li id="eLz"><p id="AtD"><span class="process-math">\(\displaystyle A(0) = 25\)</span></p></li>
+<li id="KSI"><p id="gAM"><span class="process-math">\(\displaystyle A(20) = \frac{\sqrt{3}}{36}(400) = \frac{100}{9} \sqrt{3} \approx 19.2450\)</span></p></li>
+</ul>
+<p id="CiQ">Thus, the absolute minimum occurs when <span class="process-math">\(x \approx 11.3007\)</span> and results in the minimum area of approximately <span class="process-math">\(10.8741\)</span> square centimeters. The absolute maximum occurs when we invest all of the wire in the square (and none in the triangle), resulting in 25 square centimeters of area. These results are confirmed by a plot of <span class="process-math">\(y = A(x)\)</span> on the interval <span class="process-math">\([0,20]\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-3-3-Ex1Plot.html" title="Figure 3.3.6">Figure 3.3.6</a>.</p>
+<figure class="figure figure-like" id="Oxi"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/3_3_Ex1Plot.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.6<span class="period">.</span></span><span class="space"> </span>A plot of the area function from <a href="" class="xref" data-knowl="./knowl/Ex-3-3-1.html" title="Example 3.3.4">Example 3.3.4</a>.</figcaption></figure>
+</div></div>
+</div></article><article class="activity project-like" id="JAD"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span>
+</h4>
+<p id="EQK">A piece of cardboard that is <span class="process-math">\(10 \times 15\)</span> (each measured in inches) is being made into a box without a top. To do so, squares are cut from each corner of the box and the remaining sides are folded up. If the box needs to be at least 1 inch deep and no more than 3 inches deep, what is the maximum possible volume of the box? what is the minimum volume? Justify your answers using calculus.</p>
+<ol class="lower-alpha">
+<li id="Zfa"><p id="Qvi">Draw a labeled diagram that shows the given information. What variable should we introduce to represent the choice we make in creating the box? Label the diagram appropriately with the variable, and write a sentence to state what the variable represents.</p></li>
+<li id="Fmj"><p id="wCr">Determine a formula for the function <span class="process-math">\(V\)</span> (that depends on the variable in (a)) that tells us the volume of the box.</p></li>
+<li id="lts"><p id="cJA">What is the domain of the function <span class="process-math">\(V\text{?}\)</span> That is, what values of <span class="process-math">\(x\)</span> make sense for input? Are there additional restrictions provided in the problem?</p></li>
+<li id="RAB"><p id="IQJ">Determine all critical numbers of the function <span class="process-math">\(V\text{.}\)</span></p></li>
+<li id="xHK"><p id="oXS">Evaluate <span class="process-math">\(V\)</span> at each of the endpoints of the domain and at any critical numbers that lie in the domain.</p></li>
+<li id="dOT"><p id="Vfb">What is the maximum possible volume of the box? the minimum?</p></li>
+</ol></article><p id="UWo"><a href="" class="xref" data-knowl="./knowl/Ex-3-3-1.html" title="Example 3.3.4">Example 3.3.4</a> and <a href="" class="xref" data-knowl="./knowl/act-3-3-3.html" title="Activity 3.3.4">Activity 3.3.4</a> illustrate standard steps that we undertake in almost every applied optimization problem: we draw a picture to demonstrate the situation, introduce one or more variables to represent quantities that are changing, find a function that models the quantity to be optimized, and then decide on an appropriate domain for that function. Once that is done, we are in the familiar situation of finding the absolute minimum and maximum of a function over a particular domain, so we apply the calculus ideas that we have been studying to this point in <a href="C-3.html" class="internal" title="Chapter 3: Using Derivatives">Chapter 3</a>.</p></section><section class="subsection" id="TCA"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.3.3</span> <span class="title">Summary</span>
+</h3>
+<ul id="Bdx" class="disc">
+<li id="qZR"><p id="MHV">To find relative extreme values of a function, we use a first derivative sign chart and classify all of the function's critical numbers. If instead we are interested in absolute extreme values, we first decide whether we are considering the entire domain of the function or a particular interval.</p></li>
+<li id="Xha"><p id="sPe">In the case of finding global extremes over the function's entire domain, we again use a first or second derivative sign chart. If we are working to find absolute extremes on a restricted interval, then we first identify all critical numbers of the function that lie in the interval.</p></li>
+<li id="Doj"><p id="YWn">For a continuous function on a closed, bounded interval, the only possible points at which absolute extreme values occur are the critical numbers and the endpoints. Thus, we simply evaluate the function at each endpoint and each critical number in the interval, and compare the results to decide which is largest (the absolute maximum) and which is smallest (the absolute minimum).</p></li>
+</ul></section><section class="exercises" id="GWJ"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">3.3.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="SIl"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="WfH">Based on the given information about each function, decide whether the function has global maximum, a global minimum, neither, both, or that it is not possible to say without more information. Assume that each function is twice differentiable and defined for all real numbers, unless noted otherwise. In each case, write one sentence to explain your conclusion.</p>
+<ol class="lower-alpha">
+<li id="ITa"><p id="rzq"><span class="process-math">\(f\)</span> is a function such that <span class="process-math">\(f''(x) \lt 0\)</span> for every <span class="process-math">\(x\text{.}\)</span></p></li>
+<li id="paj"><p id="XGz"><span class="process-math">\(g\)</span> is a function with two critical numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> (where <span class="process-math">\(a \lt b\)</span>), and <span class="process-math">\(g'(x) \lt 0\)</span> for <span class="process-math">\(x \lt a\text{,}\)</span> <span class="process-math">\(g'(x) \lt 0\)</span> for <span class="process-math">\(a \lt x \lt b\text{,}\)</span> and <span class="process-math">\(g'(x) \gt 0\)</span> for <span class="process-math">\(x \gt b\text{.}\)</span></p></li>
+<li id="Vhs"><p id="DNI"><span class="process-math">\(h\)</span> is a function with two critical numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> (where <span class="process-math">\(a \lt b\)</span>), and <span class="process-math">\(h'(x) \lt 0\)</span> for <span class="process-math">\(x \lt a\text{,}\)</span> <span class="process-math">\(h'(x) \gt 0\)</span> for <span class="process-math">\(a \lt x \lt b\text{,}\)</span> and <span class="process-math">\(h'(x) \lt 0\)</span> for <span class="process-math">\(x \gt b\text{.}\)</span> In addition, <span class="process-math">\(\lim_{x \to \infty} h(x) = 0\)</span> and <span class="process-math">\(\lim_{x \to -\infty} h(x) = 0\text{.}\)</span></p></li>
+<li id="BoB"><p id="jUR"><span class="process-math">\(p\)</span> is a function differentiable everywhere except at <span class="process-math">\(x = a\)</span> and <span class="process-math">\(p''(x) \gt 0\)</span> for <span class="process-math">\(x \lt a\)</span> and <span class="process-math">\(p''(x) \lt 0\)</span> for <span class="process-math">\(x \gt a\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="yPu"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="CmQ">For each family of functions that depends on one or more parameters, determine the function's absolute maximum and absolute minimum on the given interval.</p>
+<ol class="lower-alpha">
+<li id="eBe"><p id="Nhu"><span class="process-math">\(p(x) = x^3 - a^2x\text{,}\)</span> <span class="process-math">\([0,a]\)</span> (<span class="process-math">\(a \gt 0\)</span>)</p></li>
+<li id="KIn"><p id="toD"><span class="process-math">\(r(x) = axe^{-bx}\text{,}\)</span> <span class="process-math">\([\frac{1}{2b}, \frac{2}{b}]\)</span> (<span class="process-math">\(a \gt 0,
+b \gt 1\)</span>)</p></li>
+<li id="qPw"><p id="ZvM"><span class="process-math">\(w(x) = a(1-e^{-bx})\text{,}\)</span> <span class="process-math">\([b, 3b]\)</span> (<span class="process-math">\(a, b \gt 0\)</span>)</p></li>
+<li id="WWF"><p id="FCV"><span class="process-math">\(s(x) = \sin(kx)\text{,}\)</span> <span class="process-math">\(\left[\frac{\pi}{3k}, \frac{5\pi}{6k}\right]\)</span> (<span class="process-math">\(k \gt 0\)</span>)</p></li>
+</ol></article><article class="exercise exercise-like" id="eWD"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="itZ">For each of the functions described below (each continuous on <span class="process-math">\([a,b]\)</span>), state the location of the function's absolute maximum and absolute minimum on the interval <span class="process-math">\([a,b]\text{,}\)</span> or say there is not enough information provided to make a conclusion. Assume that any critical numbers mentioned in the problem statement represent all of the critical numbers the function has in <span class="process-math">\([a,b]\text{.}\)</span> In each case, write one sentence to explain your answer.</p>
+<ol class="lower-alpha">
+<li id="Aji"><p id="TGA"><span class="process-math">\(f'(x) \le 0\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\)</span></p></li>
+<li id="gqr"><p id="zNJ"><span class="process-math">\(g\)</span> has a critical number at <span class="process-math">\(c\)</span> such that <span class="process-math">\(a \lt c\lt b\)</span> and <span class="process-math">\(g'(x) \gt 0\)</span> for <span class="process-math">\(x \lt c\)</span> and <span class="process-math">\(g'(x) \lt 0\)</span> for <span class="process-math">\(x \gt c\)</span></p></li>
+<li id="MxA"><p id="fUS"><span class="process-math">\(h(a) = h(b)\)</span> and <span class="process-math">\(h''(x) \lt 0\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\)</span></p></li>
+<li id="sEJ"><p id="Mcb"><span class="process-math">\(p(a) \gt 0\text{,}\)</span> <span class="process-math">\(p(b) \lt 0\text{,}\)</span> and for the critical number <span class="process-math">\(c\)</span> such that <span class="process-math">\(a \lt c \lt b\text{,}\)</span> <span class="process-math">\(p'(x) \lt 0\)</span> for <span class="process-math">\(x \lt c\)</span> and <span class="process-math">\(p'(x) \gt 0\)</span> for <span class="process-math">\(x \gt c\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="LdM"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="OBi">Let <span class="process-math">\(s(t) = 3\sin(2(t-\frac{\pi}{6})) + 5\text{.}\)</span> Find the exact absolute maximum and minimum of <span class="process-math">\(s\)</span> on the provided intervals by testing the endpoints and finding and evaluating all relevant critical numbers of <span class="process-math">\(s\text{.}\)</span></p>
+<ol class="lower-alpha cols2">
+<li id="VRm"><p id="poE"><span class="process-math">\(\displaystyle [\frac{\pi}{6}, \frac{7\pi}{6}]\)</span></p></li>
+<li id="BYv"><p id="VvN"><span class="process-math">\(\displaystyle [0, \frac{\pi}{2}]\)</span></p></li>
+<li id="ifE"><p id="BCW"><span class="process-math">\(\displaystyle [0, 2\pi]\)</span></p></li>
+<li id="OmN"><p id="hKf"><span class="process-math">\(\displaystyle [\frac{\pi}{3}, \frac{5\pi}{6}]\)</span></p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-54"><div class="fn"><code class="code-inline tex2jax_ignore">wolframalpha.com</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

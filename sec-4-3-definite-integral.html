@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC The Definite Integral</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-4-2-Riemann.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-4.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-4-4-FTC.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-4-2-Riemann.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-4.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-4-4-FTC.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="active">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="Oja"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.3</span> <span class="title">The Definite Integral</span>
+</h2>
+<article class="objectives goal-like" id="jRe"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="ItO"><p id="ZrZ">How does increasing the number of subintervals affect the accuracy of the approximation generated by a Riemann sum?</p></li>
+<li id="oAX"><p id="Fzi">What is the definition of the definite integral of a function <span class="process-math">\(f\)</span> over the interval <span class="process-math">\([a,b]\text{?}\)</span></p></li>
+<li id="UIg"><p id="lGr">What does the definite integral measure exactly, and what are some of the key properties of the definite integral?</p></li>
+</ul></article><section class="introduction" id="PYn"><p id="Wxt">In <a href="" class="xref" data-knowl="./knowl/F-4-3-IncreaseN.html" title="Figure 4.3.1">Figure 4.3.1</a>, we see evidence that increasing the number of rectangles in a Riemann sum improves the accuracy of the approximation of the net signed area bounded by the given function.</p>
+<figure class="figure figure-like" id="iLL"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_2_NegF.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.1<span class="period">.</span></span><span class="space"> </span>At left and center, two left Riemann sums for a function <span class="process-math">\(f\)</span> that is sometimes negative; at right, the exact areas bounded by <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,d]\text{.}\)</span></figcaption></figure><p id="CEC">We therefore explore the natural idea of allowing the number of rectangles to increase without bound. In an effort to compute the exact net signed area we also consider the differences among left, right, and middle Riemann sums and the different results they generate as the value of <span class="process-math">\(n\)</span> increases. We begin with functions that are exclusively positive on the interval under consideration.</p>
+<article class="exploration project-like" id="XLD"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">4.3.1</span><span class="period">.</span>
+</h3>
+<p id="GNs">Consider this <a class="external" href="https://gvsu.edu/s/a9" target="_blank">applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-83" id="fn-83"><sup> 1 </sup></a>, in which you will initially see the situation shown in <a href="" class="xref" data-knowl="./knowl/F-4-3-GGBApplet.html" title="Figure 4.3.2">Figure 4.3.2</a>.</p>
+<figure class="figure figure-like" id="Lxl"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_3_GGBApplet.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.2<span class="period">.</span></span><span class="space"> </span>A right Riemann sum with 10 subintervals for the function <span class="process-math">\(f(x) = \sin(2x) - \frac{x^2}{10} + 3\)</span> on the interval <span class="process-math">\([1,7]\text{.}\)</span>  The value of the sum is <span class="process-math">\(R_{10} = 4.90595\text{.}\)</span></figcaption></figure><p id="mUB">Note that the value of the chosen Riemann sum is displayed next to the word “relative,” and that you can change the type of Riemann sum being computed by dragging the point on the slider bar below the phrase “sample point placement.”</p>
+<p id="TbK">Explore to see how you can change the window in which the function is viewed, as well as the function itself. You can set the minimum and maximum values of <span class="process-math">\(x\)</span> by clicking and dragging on the blue points that set the endpoints; you can change the function by typing a new formula in the “f(x)” window at the bottom; and you can adjust the overall window by “panning and zooming” by using the Shift key and the scrolling feature of your mouse. More information on how to pan and zoom <a class="external" href="http://gvsu.edu/s/Fl" target="_blank">is available</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-84" id="fn-84"><sup> 2 </sup></a>.</p>
+<p id="ziT">Work accordingly to adjust the applet so that it uses a left Riemann sum with <span class="process-math">\(n = 5\)</span> subintervals for the function is <span class="process-math">\(f(x) = 2x + 1\text{.}\)</span> You should see the updated figure shown in <a href="" class="xref" data-knowl="./knowl/F-4-3-GGBApplet2.html" title="Figure 4.3.3">Figure 4.3.3</a>. Then, answer the following questions.</p>
+<ol id="fqc" class="lower-alpha">
+<li id="xtG"><p id="Cdz">Update the applet (and view window, as needed) so that the function being considered is <span class="process-math">\(f(x) = 2x+1\)</span> on <span class="process-math">\([1,4]\text{,}\)</span> as directed above. For this function on this interval, compute <span class="process-math">\(L_{n}\text{,}\)</span> <span class="process-math">\(M_{n}\text{,}\)</span> <span class="process-math">\(R_{n}\)</span> for <span class="process-math">\(n = 5\text{,}\)</span> <span class="process-math">\(n = 25\text{,}\)</span> and <span class="process-math">\(n = 100\text{.}\)</span> What appears to be the exact area bounded by <span class="process-math">\(f(x) = 2x+1\)</span> and the <span class="process-math">\(x\)</span>-axis on <span class="process-math">\([1,4]\text{?}\)</span></p></li>
+<li id="dAP"><p id="ikI">Use basic geometry to determine the exact area bounded by <span class="process-math">\(f(x) = 2x+1\)</span> and the <span class="process-math">\(x\)</span>-axis on <span class="process-math">\([1,4]\text{.}\)</span></p></li>
+<li id="JHY"><p id="OrR">Based on your work in (a) and (b), what do you observe occurs when we increase the number of subintervals used in the Riemann sum?</p></li>
+<li id="pPh"><p id="uza">Update the applet to consider the function <span class="process-math">\(f(x) = x^2 + 1\)</span> on the interval <span class="process-math">\([1,4]\)</span> (note that you need to enter “<code class="code-inline tex2jax_ignore">x ^ 2 + 1</code>” for the function formula). Use the applet to compute <span class="process-math">\(L_{n}\text{,}\)</span> <span class="process-math">\(M_{n}\text{,}\)</span> <span class="process-math">\(R_{n}\)</span> for <span class="process-math">\(n = 5\text{,}\)</span> <span class="process-math">\(n = 25\text{,}\)</span> and <span class="process-math">\(n = 100\text{.}\)</span> What do you conjecture is the exact area bounded by <span class="process-math">\(f(x) = x^2+1\)</span> and the <span class="process-math">\(x\)</span>-axis on <span class="process-math">\([1,4]\text{?}\)</span></p></li>
+<li id="VWq"><p id="aGj">Why can we not compute the exact value of the area bounded by <span class="process-math">\(f(x) = x^2+1\)</span> and the <span class="process-math">\(x\)</span>-axis on <span class="process-math">\([1,4]\)</span> using a formula like we did in (b)?</p></li>
+</ol>
+<figure class="figure figure-like" id="rEu"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_3_GGBApplet2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.3<span class="period">.</span></span><span class="space"> </span>A left Riemann sum with 5 subintervals for the function <span class="process-math">\(f(x) = 2x+1\)</span> on the interval <span class="process-math">\([1,4]\text{.}\)</span>  The value of the sum is <span class="process-math">\(L_5 = 16.2\text{.}\)</span></figcaption></figure></article></section><section class="subsection" id="uqj"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span>
+</h3>
+<p id="OSU">In <a href="" class="xref" data-knowl="./knowl/PA-4-3.html" title="Preview Activity 4.3.1">Preview Activity 4.3.1</a>, we saw that as the number of rectangles got larger and larger, the values of <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(R_n\)</span> all grew closer and closer to the same value. It turns out that this occurs for any continuous function on an interval <span class="process-math">\([a,b]\text{,}\)</span> and also for a Riemann sum using any point <span class="process-math">\(x_{i+1}^*\)</span> in the interval <span class="process-math">\([x_i, x_{i+1}]\text{.}\)</span> Thus, as we let <span class="process-math">\(n \to \infty\text{,}\)</span> it doesn't really matter where we choose to evaluate the function within a given subinterval, because</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-4-3.html">
+\begin{equation*}
+\lim_{n \to \infty} L_n = \lim_{n \to \infty} R_n = \lim_{n \to \infty} M_n = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x\text{.}
+\end{equation*}
+</div>
+<p id="vad">That these limits always exist (and share the same value) when <span class="process-math">\(f\)</span> is continuous<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-85" id="fn-85"><sup> 3 </sup></a> allows us to make the following definition.</p>
+<article class="definition definition-like" id="DJV"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span>
+</h4>
+<p id="qqk">The <dfn class="terminology">definite integral</dfn> of a continuous function <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,b]\text{,}\)</span> denoted <span class="process-math">\(\int_a^b f(x) \, dx\text{,}\)</span> is the real number given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\Delta x = \frac{b-a}{n}\text{,}\)</span> <span class="process-math">\(x_i = a + i\Delta x\)</span> (for <span class="process-math">\(i = 0, \ldots, n\)</span>), and <span class="process-math">\(x_i^*\)</span> satisfies <span class="process-math">\(x_{i-1} \le x_i^* \le x_i\)</span> (for <span class="process-math">\(i = 1, \ldots, n\)</span>).</p></article><p id="bhm">We call the symbol <span class="process-math">\(\int\)</span> the <em class="emphasis">integral sign</em>,  the values <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> the <em class="emphasis">limits of integration</em>,  and the function <span class="process-math">\(f\)</span> the <em class="emphasis">integrand</em>.  The process of determining the real number <span class="process-math">\(\int_a^b f(x) \, dx\)</span> is called <em class="emphasis">evaluating the definite integral</em>. While there are several different interpretations of the definite integral, for now the most important is that <span class="process-math">\(\int_a^b f(x) \, dx\)</span> measures the net signed area bounded by <span class="process-math">\(y = f(x)\)</span> and the <span class="process-math">\(x\)</span>-axis on the interval <span class="process-math">\([a,b]\text{.}\)</span></p>
+<p id="Hov">For example, if <span class="process-math">\(f\)</span> is the function pictured in <a href="" class="xref" data-knowl="./knowl/F-4-3-DefIntInterp.html" title="Figure 4.3.5">Figure 4.3.5</a>, and <span class="process-math">\(A_1\text{,}\)</span> <span class="process-math">\(A_2\text{,}\)</span> and <span class="process-math">\(A_3\)</span> are the exact areas bounded by <span class="process-math">\(f\)</span> and the <span class="process-math">\(x\)</span>-axis on the respective intervals <span class="process-math">\([a,b]\text{,}\)</span> <span class="process-math">\([b,c]\text{,}\)</span> and <span class="process-math">\([c,d]\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-3-DefIntInterp.html" id="YWA">
+\begin{gather*}
+\int_a^b f(x) \, dx = A_1, \ \int_b^c f(x) \, dx = -A_2,\\
+\int_c^d f(x) \, dx = A_3,\\
+\text{ and } \int_a^d f(x) \, dx = A_1 - A_2 + A_3\text{.}
+\end{gather*}
+</div>
+<figure class="figure figure-like" id="sfx"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_3_DefIntInterp.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.5<span class="period">.</span></span><span class="space"> </span>A continuous function <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,d]\text{.}\)</span></figcaption></figure><p id="nvE">We can also use definite integrals to express the change in position and the distance traveled by a moving object. If <span class="process-math">\(v\)</span> is a velocity function on an interval <span class="process-math">\([a,b]\text{,}\)</span> then the change in position of the object, <span class="process-math">\(s(b) - s(a)\text{,}\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+s(b) - s(a) = \int_a^b v(t) \, dt\text{.}
+\end{equation*}
+</div>
+<p id="TCN">If the velocity function is nonnegative on <span class="process-math">\([a,b]\text{,}\)</span> then <span class="process-math">\(\int_a^b v(t) \,dt\)</span> tells us the distance the object traveled. If the velocity is sometimes negative on <span class="process-math">\([a,b]\text{,}\)</span> we can use definite integrals to find the areas bounded by the function on each interval where <span class="process-math">\(v\)</span> does not change sign, and the sum of these areas will tell us the distance the object traveled.</p>
+<p id="zJW">To compute the value of a definite integral from the definition, we have to take the limit of a sum. While this is possible to do in select circumstances, it is also tedious and time-consuming, and does not offer much additional insight into the meaning or interpretation of the definite integral. Instead, in <a href="sec-4-4-FTC.html" class="internal" title="Section 4.4: The Fundamental Theorem of Calculus">Section 4.4</a>, we will learn the Fundamental Theorem of Calculus, which provides a shortcut for evaluating a large class of definite integrals. This will enable us to determine the exact net signed area bounded by a continuous function and the <span class="process-math">\(x\)</span>-axis in many circumstances.</p>
+<p id="fRf">For now, our goal is to understand the meaning and properties of the definite integral, rather than to compute its value. To do this, we will rely on the net signed area interpretation of the definite integral. So we will use as examples curves that produce regions whose areas we can compute exactly through area formulas. We can thus compute the exact value of the corresponding integral.</p>
+<p id="LYo">For instance, if we wish to evaluate the definite integral <span class="process-math">\(\int_1^4 (2x+1) \, dx\text{,}\)</span> we observe that the region bounded by this function and the <span class="process-math">\(x\)</span>-axis is the trapezoid shown in <a href="" class="xref" data-knowl="./knowl/F-4-3-TrapArea.html" title="Figure 4.3.6">Figure 4.3.6</a>. By the formula for the area of a trapezoid, <span class="process-math">\(A = \frac{1}{2}(3+9) \cdot 3 = 18\text{,}\)</span> so</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-3-TrapArea.html">
+\begin{equation*}
+\int_1^4 (2x+1) \, dx = 18\text{.}
+\end{equation*}
+</div>
+<figure class="figure figure-like" id="YmG"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_3_TrapArea.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.6<span class="period">.</span></span><span class="space"> </span>The area bounded by <span class="process-math">\(f(x)=2x+1\)</span> and the <span class="process-math">\(x\)</span>-axis on the interval <span class="process-math">\([1,4]\text{.}\)</span></figcaption></figure><article class="activity project-like" id="gJZ"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.3.2</span><span class="period">.</span>
+</h4>
+<p id="PLO">Use known geometric formulas and the net signed area interpretation of the definite integral to evaluate each of the definite integrals below.</p>
+<ol id="vSX" class="lower-alpha">
+<li id="WGt"><p id="QRh"><span class="process-math">\(\displaystyle \int_0^1 3x \, dx\)</span></p></li>
+<li id="CNC"><p id="wYq"><span class="process-math">\(\displaystyle \int_{-1}^4 (2-2x) \, dx\)</span></p></li>
+<li id="iUL"><p id="dfz"><span class="process-math">\(\displaystyle \int_{-1}^1 \sqrt{1-x^2} \, dx\)</span></p></li>
+<li id="PbU">
+<p id="JmI"><span class="process-math">\(\int_{-3}^4 g(x) \, dx\text{,}\)</span> where <span class="process-math">\(g\)</span> is the function pictured in <a href="" class="xref" data-knowl="./knowl/F-4-3-Act1.html" title="Figure 4.3.7">Figure 4.3.7</a>. Assume that each portion of <span class="process-math">\(g\)</span> is either part of a line or part of a circle.</p>
+<figure class="figure figure-like" id="ptR"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/images/4_3_Act1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.7<span class="period">.</span></span><span class="space"> </span>The function <span class="process-math">\(g\)</span> for part (d).  Note that <span class="process-math">\(g\)</span> is piecewise defined, and each piece of the function is part of a circle or part of a line.</figcaption></figure>
+</li>
+</ol></article></section><section class="subsection" id="axs"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span>
+</h3>
+<p id="EtP">Regarding the definite integral of a function <span class="process-math">\(f\)</span> over an interval <span class="process-math">\([a,b]\)</span> as the net signed area bounded by <span class="process-math">\(f\)</span> and the <span class="process-math">\(x\)</span>-axis, we discover several standard properties of the definite integral. It is helpful to remember that the definite integral is defined in terms of Riemann sums, which consist of the areas of rectangles.</p>
+<p id="kAY">For any real number <span class="process-math">\(a\)</span> and the definite integral <span class="process-math">\(\int_a^a f(x) \, dx\)</span> it is evident that no area is enclosed, because the interval begins and ends with the same point. Hence,</p>
+<article class="assemblage assemblage-like" id="SST"><p id="QIh">If <span class="process-math">\(f\)</span> is a continuous function and <span class="process-math">\(a\)</span> is a real number, then <span class="process-math">\(\int_a^a f(x) \,dx = 0\text{.}\)</span></p></article><p id="wPq">Next, we consider the result of subdividing the interval of integration. In <a href="" class="xref" data-knowl="./knowl/F-4-3-AdditiveProp.html" title="Figure 4.3.8">Figure 4.3.8</a>, we see that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-3-AdditiveProp.html" id="Rsb">
+\begin{gather*}
+\int_a^b f(x) \, dx = A_1, \ \int_b^c f(x) \, dx = A_2,\\
+\text{and }\int_a^c f(x) \, dx = A_1 + A_2\text{,}
+\end{gather*}
+</div>
+<p class="continuation">which illustrates the following general rule.</p>
+<figure class="figure figure-like" id="eLM"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_3_AdditiveProp.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.8<span class="period">.</span></span><span class="space"> </span>The area bounded by <span class="process-math">\(y=f(x)\)</span> on the interval <span class="process-math">\([a,c]\text{.}\)</span></figcaption></figure><article class="assemblage assemblage-like" id="zac"><p id="cWz">If <span class="process-math">\(f\)</span> is a continuous function and <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> are real numbers, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^c f(x) \,dx = \int_a^b f(x) \,dx + \int_b^c f(x) \,dx\text{.}
+\end{equation*}
+</div></article><p id="JdI">While this rule is easy to see if <span class="process-math">\(a \lt b \lt c\text{,}\)</span> it in fact holds in general for any values of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{.}\)</span> Another property of the definite integral states that if we reverse the order of the limits of integration, we change the sign of the integral's value.</p>
+<article class="assemblage assemblage-like" id="fhl"><p id="pkR">If <span class="process-math">\(f\)</span> is a continuous function and <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are real numbers, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_b^a f(x) \,dx = -\int_a^b f(x) \,dx\text{.}
+\end{equation*}
+</div></article><p id="Vsa">This result makes sense because if we integrate from <span class="process-math">\(a\)</span> to <span class="process-math">\(b\text{,}\)</span> then in the defining Riemann sum we set <span class="process-math">\(\Delta x = \frac{b-a}{n}\text{,}\)</span> while if we integrate from <span class="process-math">\(b\)</span> to <span class="process-math">\(a\text{,}\)</span> we have <span class="process-math">\(\Delta x = \frac{a-b}{n} = -\frac{b-a}{n}\text{,}\)</span> and this is the only change in the sum used to define the integral.</p>
+<p id="Bzj">There are two additional useful properties of the definite integral. When we worked with derivative rules in <a href="C-2.html" class="internal" title="Chapter 2: Computing Derivatives">Chapter 2</a>, we formulated the Constant Multiple Rule and the Sum Rule. Recall that the Constant Multiple Rule says that if <span class="process-math">\(f\)</span> is a differentiable function and <span class="process-math">\(k\)</span> is a constant, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/C-2.html">
+\begin{equation*}
+\frac{d}{dx} [kf(x)] = kf'(x)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the Sum Rule says that if <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable functions, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/C-2.html">
+\begin{equation*}
+\frac{d}{dx}[f(x) + g(x)] = f'(x) + g'(x)\text{.}
+\end{equation*}
+</div>
+<p id="hGs">These rules are useful because they allow to deal individually with the simplest parts of certain functions by taking advantage of addition and multiplying by a constant. In other words, the process of taking the derivative respects addition and multiplying by constants in the simplest possible way.</p>
+<p id="NNB">It turns out that similar rules hold for the definite integral. First, let's consider the functions pictured in <a href="" class="xref" data-knowl="./knowl/F-4-3-ConstMult.html" title="Figure 4.3.9">Figure 4.3.9</a>.</p>
+<figure class="figure figure-like" id="KSV"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_3_ConstMult.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.9<span class="period">.</span></span><span class="space"> </span>The areas bounded by <span class="process-math">\(y = f(x)\)</span> and <span class="process-math">\(y = 2f(x)\)</span> on <span class="process-math">\([a,b]\text{.}\)</span></figcaption></figure><p id="tUK">Because multiplying the function by 2 doubles its height at every <span class="process-math">\(x\)</span>-value, we see that the height of each rectangle in a left Riemann sum is doubled, <span class="process-math">\(f(x_i)\)</span> for the original function, versus <span class="process-math">\(2f(x_i)\)</span> in the doubled function. For the areas <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{,}\)</span> it follows <span class="process-math">\(B = 2A\text{.}\)</span> As this is true regardless of the value of <span class="process-math">\(n\)</span> or the type of sum we use, we see that in the limit, the area of the red region bounded by <span class="process-math">\(y = 2f(x)\)</span> will be twice the area of the blue region bounded by <span class="process-math">\(y = f(x)\text{.}\)</span> As there is nothing special about the value <span class="process-math">\(2\)</span> compared to an arbitrary constant <span class="process-math">\(k\text{,}\)</span> the following general principle holds.</p>
+<article class="assemblage assemblage-like" id="Lou"><h4 class="heading"><span class="title">Constant Multiple Rule.</span></h4>
+<p id="abT">If <span class="process-math">\(f\)</span> is a continuous function and <span class="process-math">\(k\)</span> is any real number, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b k \cdot f(x) \,dx = k \int_a^b f(x) \,dx\text{.}
+\end{equation*}
+</div></article><p id="Gjc">We see a similar situation with the sum of two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{.}\)</span></p>
+<figure class="figure figure-like" id="rae"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_3_Sum.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.10<span class="period">.</span></span><span class="space"> </span>The areas bounded by <span class="process-math">\(y = f(x)\)</span> and <span class="process-math">\(y = g(x)\)</span> on <span class="process-math">\([a,b]\text{,}\)</span> as well as the area bounded by <span class="process-math">\(y = f(x) + g(x)\text{.}\)</span></figcaption></figure><p id="mql">If we take the sum of two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at every point in the interval, the height of the function <span class="process-math">\(f+g\)</span> is given by <span class="process-math">\((f+g)(x_i) = f(x_i) + g(x_i)\text{.}\)</span> Hence, for the pictured rectangles with areas <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\text{,}\)</span> it follows that <span class="process-math">\(C = A + B\text{.}\)</span> Because this will occur for every such rectangle, in the limit the area of the gray region will be the sum of the areas of the blue and red regions. In terms of definite integrals, we have the following general rule.</p>
+<article class="assemblage assemblage-like" id="rvD"><h4 class="heading"><span class="title">Sum Rule.</span></h4>
+<p id="Sxu">If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are continuous functions, then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b [f(x) + g(x)] \,dx = \int_a^b f(x) \,dx + \int_a^b g(x) \,dx\text{.}
+\end{equation*}
+</div></article><p id="yED">The Constant Multiple and Sum Rules can be combined to say that for any continuous functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> and any constants <span class="process-math">\(c\)</span> and <span class="process-math">\(k\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b [c f(x) \pm k g(x)] \,dx = c \int_a^b f(x) \,dx \pm k \int_a^b g(x) \,dx\text{.}
+\end{equation*}
+</div>
+<article class="activity project-like" id="BWE"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.3.3</span><span class="period">.</span>
+</h4>
+<p id="kYt">Suppose that the following information is known about the functions <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(g\text{,}\)</span> <span class="process-math">\(x^2\text{,}\)</span> and <span class="process-math">\(x^3\text{:}\)</span></p>
+<ul class="disc">
+<li id="JWC"><p id="BmK"><span class="process-math">\(\int_0^2 f(x) \, dx = -3\text{;}\)</span> <span class="process-math">\(\int_2^5 f(x) \, dx = 2\)</span></p></li>
+<li id="qdL"><p id="htT"><span class="process-math">\(\int_0^2 g(x) \, dx = 4\text{;}\)</span> <span class="process-math">\(\int_2^5 g(x) \, dx = -1\)</span></p></li>
+<li id="WkU"><p id="NBc"><span class="process-math">\(\int_0^2 x^2 \, dx = \frac{8}{3}\text{;}\)</span> <span class="process-math">\(\int_2^5 x^2 \, dx = \frac{117}{3}\)</span></p></li>
+<li id="Csd"><p id="tIl"><span class="process-math">\(\int_0^2 x^3 \, dx = 4\text{;}\)</span> <span class="process-math">\(\int_2^5 x^3 \, dx = \frac{609}{4}\)</span></p></li>
+</ul>
+<p id="RfC">Use the provided information and the rules discussed in the preceding section to evaluate each of the following definite integrals.</p>
+<ol class="lower-alpha cols2">
+<li id="izm"><p id="ZPu"><span class="process-math">\(\displaystyle \int_5^2 f(x) \, dx\)</span></p></li>
+<li id="OGv"><p id="FWD"><span class="process-math">\(\displaystyle \int_0^5 g(x) \, dx\)</span></p></li>
+<li id="uNE"><p id="mdM"><span class="process-math">\(\displaystyle \int_0^5 (f(x) + g(x))\, dx\)</span></p></li>
+<li id="aUN"><p id="SkV"><span class="process-math">\(\displaystyle \int_2^5 (3x^2 - 4x^3) \, dx\)</span></p></li>
+<li id="HbW"><p id="yse"><span class="process-math">\(\displaystyle \int_5^0 (2x^3 - 7g(x)) \, dx\)</span></p></li>
+</ol></article></section><section class="subsection" id="GEB"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span>
+</h3>
+<p id="Xhn">One of the most valuable applications of the definite integral is that it provides a way to discuss the average value of a function, even for a function that takes on infinitely many values. Recall that if we wish to take the average of <span class="process-math">\(n\)</span> numbers <span class="process-math">\(y_1\text{,}\)</span> <span class="process-math">\(y_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(y_n\text{,}\)</span> we compute</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+AVG  = \frac{y_1 + y_2 + \cdots + y_n}{n}\text{.}
+\end{equation*}
+</div>
+<p id="Dow">Since integrals arise from Riemann sums in which we add <span class="process-math">\(n\)</span> values of a function, it should not be surprising that evaluating an integral is similar to averaging the output values of a function. Consider, for instance, the right Riemann sum <span class="process-math">\(R_n\)</span> of a function <span class="process-math">\(f\text{,}\)</span> which is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+R_n = f(x_1) \Delta x + f(x_2) \Delta x + \cdots + f(x_n) \Delta x = (f(x_1) + f(x_2) + \cdots + f(x_n))\Delta x\text{.}
+\end{equation*}
+</div>
+<p id="jvF">Since <span class="process-math">\(\Delta x = \frac{b-a}{n}\text{,}\)</span> we can thus write</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="aLN">
+\begin{align}
+R_n =\mathstrut \amp (f(x_1) + f(x_2) + \cdots + f(x_n))\cdot \frac{b-a}{n}\notag\\
+=\mathstrut \amp (b-a) \frac{f(x_1) + f(x_2) + \cdots + f(x_n)}{n}\text{.}\tag{4.3.1}
+\end{align}
+</div>
+<p id="PCO">We see that the right Riemann sum with <span class="process-math">\(n\)</span> subintervals is just the length of the interval <span class="process-math">\((b-a)\)</span> times the average of the <span class="process-math">\(n\)</span> function values found at the right endpoints. And just as with our efforts to compute area, the larger the value of <span class="process-math">\(n\)</span> we use, the more accurate our average will be. Indeed, we will define the average value of <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\)</span> to be</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f_{\operatorname{AVG} [a,b]} = \lim_{n \to \infty} \frac{f(x_1) + f(x_2) + \cdots + f(x_n)}{n}\text{.}
+\end{equation*}
+</div>
+<p id="vJX">But we also know that for any continuous function <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{,}\)</span> taking the limit of a Riemann sum leads precisely to the definite integral. That is, <span class="process-math">\(\lim_{n \to \infty} R_n = \int_a^b f(x) \, dx\text{,}\)</span> and thus taking the limit as <span class="process-math">\(n \to \infty\)</span> in <a href="" class="xref" data-knowl="./knowl/E-RAvg.html" title="Equation 4.3.1">Equation (4.3.1)</a>, we have that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-RAvg.html" id="naf">
+\begin{equation}
+\int_a^b f(x) \, dx = (b-a) \cdot f_{\operatorname{AVG} [a,b]}\text{.}\tag{4.3.2}
+\end{equation}
+</div>
+<p id="bRg">Solving Equation <a href="" class="xref" data-knowl="./knowl/E-RAvg2.html" title="Equation 4.3.2">(4.3.2)</a> for <span class="process-math">\(f_{\operatorname{AVG} [a,b]}\text{,}\)</span> we have the following general principle.</p>
+<article class="assemblage assemblage-like" id="XCM"><h4 class="heading"><span class="title">Average value of a function.</span></h4>
+<p id="HYp"> If <span class="process-math">\(f\)</span> is a continuous function on <span class="process-math">\([a,b]\text{,}\)</span> then its average value on <span class="process-math">\([a,b]\)</span> is given by the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f_{\operatorname{AVG} [a,b]} = \frac{1}{b-a} \cdot \int_a^b f(x) \, dx\text{.}
+\end{equation*}
+</div></article><p id="ofy">Equation <a href="" class="xref" data-knowl="./knowl/E-RAvg2.html" title="Equation 4.3.2">(4.3.2)</a> tells us another way to interpret the definite integral: the definite integral of a function <span class="process-math">\(f\)</span> from <span class="process-math">\(a\)</span> to <span class="process-math">\(b\)</span> is the length of the interval <span class="process-math">\((b-a)\)</span> times the average value of the function on the interval. In addition, when the function <span class="process-math">\(f\)</span> is nonnegative on <span class="process-math">\([a,b]\text{,}\)</span> Equation <a href="" class="xref" data-knowl="./knowl/E-RAvg2.html" title="Equation 4.3.2">(4.3.2)</a> has a natural visual interpretation.</p>
+<figure class="figure figure-like" id="AtQ"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_3_AvgVal.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.11<span class="period">.</span></span><span class="space"> </span>A function <span class="process-math">\(y = f(x)\text{,}\)</span> the area it bounds, and its average value on <span class="process-math">\([a,b]\text{.}\)</span></figcaption></figure><p id="UmH">Consider <a href="" class="xref" data-knowl="./knowl/F-4-3-AvgVal.html" title="Figure 4.3.11">Figure 4.3.11</a>, where we see at left the shaded region whose area is <span class="process-math">\(\int_a^b f(x) \, dx\text{,}\)</span> at center the shaded rectangle whose dimensions are <span class="process-math">\((b-a)\)</span> by <span class="process-math">\(f_{\operatorname{AVG} [a,b]}\text{,}\)</span> and at right these two figures superimposed. Note that in dark green we show the horizontal line <span class="process-math">\(y = f_{\operatorname{AVG} [a,b]}\text{.}\)</span> Thus, the area of the green rectangle is given by <span class="process-math">\((b-a) \cdot f_{\operatorname{AVG} [a,b]}\text{,}\)</span> which is precisely the value of <span class="process-math">\(\int_a^b f(x) \, dx\text{.}\)</span> The area of the blue region in the left figure is the same as the area of the green rectangle in the center figure. We can also observe that the areas <span class="process-math">\(A_1\)</span> and <span class="process-math">\(A_2\)</span> in the rightmost figure appear to be equal. Thus, knowing the average value of a function enables us to construct a rectangle whose area is the same as the value of the definite integral of the function on the interval. <a class="external" href="https://gvsu.edu/s/az" target="_blank">This applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-86" id="fn-86"><sup> 4 </sup></a> provides an opportunity to explore how the average value of the function changes as the interval changes, through an image similar to that found in <a href="" class="xref" data-knowl="./knowl/F-4-3-AvgVal.html" title="Figure 4.3.11">Figure 4.3.11</a>.</p>
+<article class="activity project-like" id="KUR"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.3.4</span><span class="period">.</span>
+</h4>
+<p id="GkY">Suppose that <span class="process-math">\(v(t) = \sqrt{4-(t-2)^2}\)</span> tells us the instantaneous velocity of a moving object on the interval <span class="process-math">\(0 \le t \le 4\text{,}\)</span> where <span class="process-math">\(t\)</span> is measured in minutes and <span class="process-math">\(v\)</span> is measured in meters per minute.</p>
+<ol class="lower-alpha">
+<li id="zbY"><p id="qsg">Sketch an accurate graph of <span class="process-math">\(y = v(t)\text{.}\)</span> What kind of curve is <span class="process-math">\(y = \sqrt{4-(t-2)^2}\text{?}\)</span></p></li>
+<li id="fjh"><p id="Wzp">Evaluate <span class="process-math">\(\int_0^4 v(t) \, dt\)</span> exactly.</p></li>
+<li id="Lqq"><p id="CGy">In terms of the physical problem of the moving object with velocity <span class="process-math">\(v(t)\text{,}\)</span> what is the meaning of <span class="process-math">\(\int_0^4 v(t) \, dt\text{?}\)</span> Include units on your answer.</p></li>
+<li id="rxz"><p id="iNH">Determine the exact average value of <span class="process-math">\(v(t)\)</span> on <span class="process-math">\([0,4]\text{.}\)</span> Include units on your answer.</p></li>
+<li id="XEI"><p id="OUQ">Sketch a rectangle whose base is the line segment from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t = 4\)</span> on the <span class="process-math">\(t\)</span>-axis such that the rectangle's area is equal to the value of <span class="process-math">\(\int_0^4 v(t) \, dt\text{.}\)</span> What is the rectangle's exact height?</p></li>
+<li id="DLR"><p id="vbZ">How can you use the average value you found in (d) to compute the total distance traveled by the moving object over <span class="process-math">\([0,4]\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="mLK"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.3.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="gAZ" class="disc">
+<li id="APp"><p id="RNA">Any Riemann sum of a continuous function <span class="process-math">\(f\)</span> on an interval <span class="process-math">\([a,b]\)</span> provides an estimate of the net signed area bounded by the function and the horizontal axis on the interval. Increasing the number of subintervals in the Riemann sum improves the accuracy of this estimate, and letting the number of subintervals increase without bound results in the values of the corresponding Riemann sums approaching the exact value of the enclosed net signed area.</p></li>
+<li id="gWy">
+<p id="xUJ">When we take the limit of Riemann sums, we arrive at what we call the definite integral of <span class="process-math">\(f\)</span> over the interval <span class="process-math">\([a,b]\text{.}\)</span> In particular, the symbol <span class="process-math">\(\int_a^b f(x) \, dx\)</span> denotes the definite integral of <span class="process-math">\(f\)</span> over <span class="process-math">\([a,b]\text{,}\)</span> and this quantity is defined by the equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(\Delta x = \frac{b-a}{n}\text{,}\)</span> <span class="process-math">\(x_i = a + i\Delta x\)</span> (for <span class="process-math">\(i = 0, \ldots, n\)</span>), and <span class="process-math">\(x_i^*\)</span> satisfies <span class="process-math">\(x_{i-1} \le x_i^* \le x_i\)</span> (for <span class="process-math">\(i = 1, \ldots, n\)</span>).</p>
+</li>
+<li id="NdH"><p id="ebS">The definite integral <span class="process-math">\(\int_a^b f(x) \,dx\)</span> measures the exact net signed area bounded by <span class="process-math">\(f\)</span> and the horizontal axis on <span class="process-math">\([a,b]\text{;}\)</span> in addition, the value of the definite integral is related to what we call the average value of the function on <span class="process-math">\([a,b]\text{:}\)</span> <span class="process-math">\(f_{\text{AVG} [a,b]} = \frac{1}{b-a} \cdot \int_a^b f(x) \, dx\text{.}\)</span> In the setting where we consider the integral of a velocity function <span class="process-math">\(v\text{,}\)</span> <span class="process-math">\(\int_a^b v(t) \,dt\)</span> measures the exact change in position of the moving object on <span class="process-math">\([a,b]\text{;}\)</span> when <span class="process-math">\(v\)</span> is nonnegative, <span class="process-math">\(\int_a^b v(t) \,dt\)</span> is the object's distance traveled on <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+<li id="tkQ">
+<p id="Kjb">The definite integral is a sophisticated sum, and thus has some of the same natural properties that finite sums have. Perhaps most important of these is how the definite integral respects sums and constant multiples of functions, which can be summarized by the rule</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b [c f(x) \pm k g(x)] \,dx = c \int_a^b f(x) \,dx \pm k \int_a^b g(x) \,dx
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are continuous functions on <span class="process-math">\([a,b]\)</span> and <span class="process-math">\(c\)</span> and <span class="process-math">\(k\)</span> are arbitrary constants.</p>
+</li>
+</ul></section><section class="exercises" id="Ucz"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">4.3.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="oxT"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluating definite integrals from graphical information.</span>
+</h4>
+<div id="webwork-122" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="122" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec2/Q27.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4815">Use the following figure, which shows a graph of <span class="process-math">\(f(x)\)</span> to find each of the indicated integrals.</p>
+<div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-122-image-1.png" class="contained"></div>
+<p id="p-4816"><em class="emphasis">(Click on the graph for a larger version.)</em></p>
+<p id="p-4817">Note that the first area (with vertical, red shading) is 18 and the second (with oblique, black shading) is 6.</p>
+<p id="p-4818"><em class="alert">A.</em> <span class="process-math">\(\int_a^b f(x) dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4819"><em class="alert">B.</em> <span class="process-math">\(\int_b^c f(x) dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4820"><em class="alert">C.</em> <span class="process-math">\(\int_a^c f(x) dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4821"><em class="alert">D.</em> <span class="process-math">\(\int_a^c |f(x)| dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-122')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="UFc"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating definite integrals from a graph.</span>
+</h4>
+<div id="webwork-123" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="123" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec2/Q29.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4826">Use the graph of <span class="process-math">\(f(x)\)</span> shown below to find the following integrals.</p>
+<div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-123-image-1.png" class="contained"></div>
+<p id="p-4827"><em class="emphasis">(Click on the graph for a larger version.)</em></p>
+<p id="p-4828"><em class="alert">A.</em> <span class="process-math">\(\int_{-4}^0 f(x) dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4829"><em class="alert">B.</em> If the vertical red shaded area in the graph has area <span class="process-math">\(A\text{,}\)</span> estimate: <span class="process-math">\(\int_{-4}^{6} f(x) dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4830"><em class="emphasis">(Your estimate may be written in terms of <span class="process-math">\(A\text{.}\)</span>)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-123')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="AMl"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Finding the average value of a linear function.</span>
+</h4>
+<div id="webwork-124" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="124" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec3/Q11.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4833">Find the average value of <span class="process-math">\(f(x)=7 x + 1\)</span> over <span class="process-math">\([3,8]\)</span></p>
+<p id="p-4834">average value = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-124')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="gTu"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Finding the average value of a function given graphically.</span>
+</h4>
+<div id="webwork-125" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="125" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec3/Q23.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4836">The figure below to the left is a graph of <span class="process-math">\(f(x)\text{,}\)</span> and below to the right is <span class="process-math">\(g(x)\text{.}\)</span></p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-125-image-1.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-125-image-2.png" class="contained"></div></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(f(x)\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="process-math">\(g(x)\)</span></td>
+</tr>
+</table></div>
+<p id="p-4837"><em class="alert">(a)</em></p>
+<p id="p-4838">What is the average value of <span class="process-math">\(f(x)\)</span> on <span class="process-math">\(0\le x\le 2\text{?}\)</span></p>
+<p id="p-4839">avg value = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4840"><em class="alert">(b)</em></p>
+<p id="p-4841">What is the average value of <span class="process-math">\(g(x)\)</span> on <span class="process-math">\(0\le x\le 2\text{?}\)</span></p>
+<p id="p-4842">avg value = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4843"><em class="alert">(c)</em></p>
+<p id="p-4844">What is the average value of <span class="process-math">\(f(x)\cdot g(x)\)</span> on <span class="process-math">\(0\le x\le 2\text{?}\)</span></p>
+<p id="p-4845">avg value = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4846"><em class="alert">(d)</em></p>
+<p id="p-4847">Is the following statement true?</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\hbox{Average}(f)\cdot\hbox{Average(g)} = \hbox{Average}(f\cdot g)
+\end{equation*}
+</div>
+<p class="continuation"><ul style="list-style:circle;">
+<li id="li-2917"><p id="p-4848">Yes</p></li>
+<li id="li-2918"><p id="p-4849">No</p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-125')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="NaD"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating a definite integral and average value from a graph.</span>
+</h4>
+<div id="webwork-126" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="126" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec3/Q25.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4853">Use the figure below, which shows the graph of <span class="process-math">\(y=f(x)\text{,}\)</span> to answer the following questions.</p>
+<div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-126-image-1.png" class="contained"></div>
+<p id="p-4854"><em class="emphasis">(Click on the graph to get a larger version.)</em></p>
+<p id="p-4855"><em class="alert">A.</em> Estimate the integral: <span class="process-math">\(\int_{-3}^3 f(x)\,dx \approx\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+<p id="p-4856"><em class="emphasis">(You will certainly want to use an enlarged version of the graph to obtain your estimate.)</em></p>
+<p id="p-4857"><em class="alert">B.</em> Which of the following average values of <span class="process-math">\(f\)</span> is larger?</p>
+<p id="p-4858"><ul style="list-style:circle;">
+<li id="li-2919"><p id="p-4859">Between <span class="process-math">\(x=-3\)</span> and <span class="process-math">\(x=3\)</span></p></li>
+<li id="li-2920"><p id="p-4860">Between <span class="process-math">\(x=0\)</span> and <span class="process-math">\(x=3\)</span></p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-126')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="thM"><h4 class="heading">
+<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Using rules to combine known integral values.</span>
+</h4>
+<div id="webwork-127" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="127" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals3Definite/S05.02.DefiniteIntegral.PTP18.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4862">Suppose <span class="process-math">\(\displaystyle \int_{-9}^{-4.5} f(x) dx =10, \ \int_{-9}^{-7.5} f(x) dx=8, \ \int_{-6}^{-4.5} f(x)dx =10\text{.}\)</span></p>
+<p id="p-4863"><span class="process-math">\(\displaystyle \int_{-7.5}^{-6} f(x)dx =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+<p id="p-4864"><span class="process-math">\(\displaystyle \int_{-6}^{-7.5} (10 f(x)- 8)dx =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-127')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="ZoV"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="uPV">The velocity of an object moving along an axis is given by the piecewise linear function <span class="process-math">\(v\)</span> that is pictured in <a href="" class="xref" data-knowl="./knowl/F-4-3-Ez1.html" title="Figure 4.3.12">Figure 4.3.12</a>. Assume that the object is moving to the right when its velocity is positive, and moving to the left when its velocity is negative. Assume that the given velocity function is valid for <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 4\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><ol id="iBD" class="lower-alpha">
+<li id="phN"><p id="BaG">Write an expression involving definite integrals whose value is the total change in position of the object on the interval <span class="process-math">\([0,4]\text{.}\)</span></p></li>
+<li id="VoW"><p id="hhP">Use the provided graph of <span class="process-math">\(v\)</span> to determine the value of the total change in position on <span class="process-math">\([0,4]\text{.}\)</span></p></li>
+<li id="Bwf"><p id="NoY">Write an expression involving definite integrals whose value is the total distance traveled by the object on <span class="process-math">\([0,4]\text{.}\)</span> What is the exact value of the total distance traveled on <span class="process-math">\([0,4]\text{?}\)</span></p></li>
+<li id="hDo"><p id="twh">What is the object's exact average velocity on <span class="process-math">\([0,4]\text{?}\)</span></p></li>
+<li id="NKx"><p id="ZDq">Find an algebraic formula for the object's position function on <span class="process-math">\([0, 1.5]\)</span> that satisfies <span class="process-math">\(s(0) = 0\text{.}\)</span></p></li>
+</ol></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="OIM"><img src="external/images/4_3_Ez1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.12<span class="period">.</span></span><span class="space"> </span>The velocity function of a moving object.</figcaption></figure></div>
+</div></div></article><article class="exercise exercise-like" id="Fwe"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="aXe">Suppose that the velocity of a moving object is given by <span class="process-math">\(v(t) = t(t-1)(t-3)\text{,}\)</span> measured in feet per second, and that this function is valid for <span class="process-math">\(0 \le t \le 4\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="Dls"><p id="vlu">Write an expression involving definite integrals whose value is the total change in position of the object on the interval <span class="process-math">\([0,4]\text{.}\)</span></p></li>
+<li id="jsB"><p id="bsD">Use appropriate technology (such as <a class="external" href="https://gvsu.edu/s/a9" target="_blank">an applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-87" id="fn-87"><sup> 5 </sup></a>) to compute Riemann sums to estimate the object's total change in position on <span class="process-math">\([0,4]\text{.}\)</span> Work to ensure that your estimate is accurate to two decimal places, and explain how you know this to be the case.</p></li>
+<li id="PzK"><p id="HzM">Write an expression involving definite integrals whose value is the total distance traveled by the object on <span class="process-math">\([0,4]\text{.}\)</span></p></li>
+<li id="vGT"><p id="nGV">Use appropriate technology to compute Riemann sums to estimate the object's total distance travelled on <span class="process-math">\([0,4]\text{.}\)</span> Work to ensure that your estimate is accurate to two decimal places, and explain how you know this to be the case.</p></li>
+<li id="bOc"><p id="TOe">What is the object's average velocity on <span class="process-math">\([0,4]\text{,}\)</span> accurate to two decimal places?</p></li>
+</ol></article><article class="exercise exercise-like" id="lDn"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="Hen">Consider the graphs of two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> that are provided in <a href="" class="xref" data-knowl="./knowl/F-4-3-Ez2.html" title="Figure 4.3.13">Figure 4.3.13</a>. Each piece of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> is either part of a straight line or part of a circle.</p>
+<figure class="figure figure-like" id="TsF"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_3_Ez2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.3.13<span class="period">.</span></span><span class="space"> </span>Two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{.}\)</span></figcaption></figure><ol id="nlw" class="lower-alpha">
+<li id="RoX"><p id="VDr">Determine the exact value of <span class="process-math">\(\int_0^1 [f(x) + g(x)]\,dx\text{.}\)</span></p></li>
+<li id="xwg"><p id="BKA">Determine the exact value of <span class="process-math">\(\int_1^4 [2f(x) - 3g(x)] \, dx\text{.}\)</span></p></li>
+<li id="dDp"><p id="hRJ">Find the exact average value of <span class="process-math">\(h(x) = g(x) - f(x)\)</span> on <span class="process-math">\([0,4]\text{.}\)</span></p></li>
+<li id="JKy">
+<p id="NYS">For what constant <span class="process-math">\(c\)</span> does the following equation hold?</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_0^4 c \, dx = \int_0^4 [f(x) + g(x)] \, dx
+\end{equation*}
+</div>
+</li>
+</ol></article><article class="exercise exercise-like" id="RKw"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<p id="zzO">Let <span class="process-math">\(f(x) = 3 - x^2\)</span> and <span class="process-math">\(g(x) = 2x^2\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="mXb"><p id="rlv">On the interval <span class="process-math">\([-1,1]\text{,}\)</span> sketch a labeled graph of <span class="process-math">\(y = f(x)\)</span> and write a definite integral whose value is the exact area bounded by <span class="process-math">\(y = f(x)\)</span> on <span class="process-math">\([-1,1]\text{.}\)</span></p></li>
+<li id="Tek"><p id="XsE">On the interval <span class="process-math">\([-1,1]\text{,}\)</span> sketch a labeled graph of <span class="process-math">\(y = g(x)\)</span> and write a definite integral whose value is the exact area bounded by <span class="process-math">\(y = g(x)\)</span> on <span class="process-math">\([-1,1]\text{.}\)</span></p></li>
+<li id="zlt"><p id="DzN">Write an expression involving a difference of definite integrals whose value is the exact area that lies between <span class="process-math">\(y = f(x)\)</span> and <span class="process-math">\(y = g(x)\)</span> on <span class="process-math">\([-1,1]\text{.}\)</span></p></li>
+<li id="fsC"><p id="jGW">Explain why your expression in (c) has the same value as the single integral <span class="process-math">\(\int_{-1}^1 [f(x) - g(x)] \, dx\text{.}\)</span></p></li>
+<li id="LzL">
+<p id="POf">Explain why, in general, if <span class="process-math">\(p(x) \ge q(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{,}\)</span> the exact area between <span class="process-math">\(y = p(x)\)</span> and <span class="process-math">\(y = q(x)\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b [p(x) - q(x)] \, dx\text{.}
+\end{equation*}
+</div>
+</li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-83"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/a9</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-84"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/Fl</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-85"><div class="fn">It turns out that a function need not be continuous in order to have a definite integral. For our purposes, we assume that the functions we consider are continuous on the interval(s) of interest. It is straightforward to see that any function that is piecewise continuous on an interval of interest will also have a well-defined definite integral.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-86"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/az</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-87"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/a9</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

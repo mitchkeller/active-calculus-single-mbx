@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC The Fundamental Theorem of Calculus</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-4-3-definite-integral.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-4.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="C-5.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-4-3-definite-integral.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-4.html" title="Up">Up</a><a class="next-button button toolbar-item" href="C-5.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="active">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="LCP"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.4</span> <span class="title">The Fundamental Theorem of Calculus</span>
+</h2>
+<article class="objectives goal-like" id="oPs"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="FND"><p id="jag">How can we find the exact value of a definite integral without taking the limit of a Riemann sum?</p></li>
+<li id="lUM"><p id="Php">What is the statement of the Fundamental Theorem of Calculus, and how do antiderivatives of functions play a key role in applying the theorem?</p></li>
+<li id="SbV"><p id="voy">What is the meaning of the definite integral of a rate of change in contexts other than when the rate of change represents velocity?</p></li>
+</ul></article><section class="introduction" id="UWB"><p id="pzm">Much of our work in <a href="C-4.html" class="internal" title="Chapter 4: The Definite Integral">Chapter 4</a> has been motivated by the velocity-distance problem: if we know the instantaneous velocity function, <span class="process-math">\(v(t)\text{,}\)</span> for a moving object on a given time interval <span class="process-math">\([a,b]\text{,}\)</span> can we determine the distance it traveled on <span class="process-math">\([a,b]\text{?}\)</span> If the velocity function is nonnegative on <span class="process-math">\([a,b]\text{,}\)</span> the area bounded by <span class="process-math">\(y = v(t)\)</span> and the <span class="process-math">\(t\)</span>-axis on <span class="process-math">\([a,b]\)</span> is equal to the distance traveled. This area is also the value of the definite integral <span class="process-math">\(\int_a^b v(t) \, dt\text{.}\)</span> If the velocity is sometimes negative, the total area bounded by the velocity function still tells us distance traveled, while the net signed area tells us the object's change in position.</p>
+<p id="VGv">For instance, for the velocity function in <a href="" class="xref" data-knowl="./knowl/F-4-4-Intro.html" title="Figure 4.4.1">Figure 4.4.1</a>, the total distance <span class="process-math">\(D\)</span> traveled by the moving object on <span class="process-math">\([a,b]\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-4-Intro.html">
+\begin{equation*}
+D = A_1 + A_2 + A_3\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and the total change in the object's position is</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-4-Intro.html">
+\begin{equation*}
+s(b) - s(a) = A_1 - A_2 + A_3\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The areas <span class="process-math">\(A_1\text{,}\)</span> <span class="process-math">\(A_2\text{,}\)</span> and <span class="process-math">\(A_3\)</span> are each given by definite integrals, which may be computed by limits of Riemann sums (and in special circumstances by geometric formulas).</p>
+<figure class="figure figure-like" id="hUN"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_2_Intro.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.1<span class="period">.</span></span><span class="space"> </span>A velocity function that is sometimes negative.</figcaption></figure><p id="BNE">We turn our attention to an alternate approach.</p>
+<article class="exploration project-like" id="ZAQ"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">4.4.1</span><span class="period">.</span>
+</h3>
+<p id="ttH">A student with a third floor dormitory window 32 feet off the ground tosses a water balloon straight up in the air with an initial velocity of 16 feet per second. It turns out that the instantaneous velocity of the water balloon is given by <span class="process-math">\(v(t) = -32t + 16\text{,}\)</span> where <span class="process-math">\(v\)</span> is measured in feet per second and <span class="process-math">\(t\)</span> is measured in seconds.</p>
+<ol class="lower-alpha">
+<li id="jZV"><p id="oJO">Let <span class="process-math">\(s(t)\)</span> represent the height of the water balloon above ground at time <span class="process-math">\(t\text{,}\)</span> and note that <span class="process-math">\(s\)</span> is an antiderivative of <span class="process-math">\(v\text{.}\)</span> That is, <span class="process-math">\(v\)</span> is the derivative of <span class="process-math">\(s\text{:}\)</span> <span class="process-math">\(s'(t) = v(t)\text{.}\)</span> Find a formula for <span class="process-math">\(s(t)\)</span> that satisfies the initial condition that the balloon is tossed from 32 feet above ground. In other words, make your formula for <span class="process-math">\(s\)</span> satisfy <span class="process-math">\(s(0) = 32\text{.}\)</span></p></li>
+<li id="Qhe"><p id="UQX">When does the water balloon reach its maximum height? When does it land?</p></li>
+<li id="won"><p id="AYg">Compute <span class="process-math">\(s(\frac{1}{2}) - s(0)\text{,}\)</span> <span class="process-math">\(s(2) - s(\frac{1}{2})\text{,}\)</span> and <span class="process-math">\(s(2) - s(0)\text{.}\)</span> What do these represent?</p></li>
+<li id="cvw"><p id="hfp">What is the total vertical distance traveled by the water balloon from the time it is tossed until the time it lands?</p></li>
+<li id="ICF"><p id="Nmy">Sketch a graph of the velocity function <span class="process-math">\(y = v(t)\)</span> on the time interval <span class="process-math">\([0,2]\text{.}\)</span> What is the total net signed area bounded by <span class="process-math">\(y = v(t)\)</span> and the <span class="process-math">\(t\)</span>-axis on <span class="process-math">\([0,2]\text{?}\)</span> Answer this question in two ways: first by using your work above, and then by using a familiar geometric formula to compute areas of certain relevant regions.</p></li>
+</ol></article></section><section class="subsection" id="rJY"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.4.1</span> <span class="title">The Fundamental Theorem of Calculus</span>
+</h3>
+<p id="ObW">Suppose we know the position function <span class="process-math">\(s(t)\)</span> and the velocity function <span class="process-math">\(v(t)\)</span> of an object moving in a straight line, and for the moment let us assume that <span class="process-math">\(v(t)\)</span> is positive on <span class="process-math">\([a,b]\text{.}\)</span> Then, as shown in <a href="" class="xref" data-knowl="./knowl/F-4-4-FTCVel.html" title="Figure 4.4.2">Figure 4.4.2</a>, we know two different ways to compute the distance, <span class="process-math">\(D\text{,}\)</span> the object travels: one is that <span class="process-math">\(D = s(b) - s(a)\text{,}\)</span> the object's change in position. The other is the area under the velocity curve, which is given by the definite integral, so <span class="process-math">\(D = \int_a^b v(t) \, dt\text{.}\)</span></p>
+<figure class="figure figure-like" id="DCR"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_4_FTCVel.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.2<span class="period">.</span></span><span class="space"> </span>Finding distance traveled when we know a velocity function <span class="process-math">\(v\text{.}\)</span></figcaption></figure><p id="ujf">Since both of these expressions tell us the distance traveled, it follows that they are equal, so</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="bai">
+\begin{equation}
+s(b) - s(a) = \int_a^b v(t) \, dt\text{.}\tag{4.4.1}
+\end{equation}
+</div>
+<p id="aqo"><a href="" class="xref" data-knowl="./knowl/E-FTCVel.html" title="Equation 4.4.1">Equation (4.4.1)</a> holds even when velocity is sometimes negative, because <span class="process-math">\(s(b) - s(a)\text{,}\)</span>the object's change in position, is also measured by the net signed area on <span class="process-math">\([a,b]\)</span> which is given by <span class="process-math">\(\int_a^b v(t) \, dt\text{.}\)</span></p>
+<p id="Gxx">Perhaps the most powerful fact <a href="" class="xref" data-knowl="./knowl/E-FTCVel.html" title="Equation 4.4.1">Equation (4.4.1)</a> reveals is that we can compute the integral's value if we can find a formula for <span class="process-math">\(s\text{.}\)</span> Remember, <span class="process-math">\(s\)</span> and <span class="process-math">\(v\)</span> are related by the fact that <span class="process-math">\(v\)</span> is the derivative of <span class="process-math">\(s\text{,}\)</span> or equivalently that <span class="process-math">\(s\)</span> is an antiderivative of <span class="process-math">\(v\text{.}\)</span></p>
+<article class="example example-like" id="cBa"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.3</span><span class="period">.</span>
+</h4>
+<p id="xdL">Determine the exact distance traveled on <span class="process-math">\([1,5]\)</span> by an object with velocity function <span class="process-math">\(v(t) = 3t^2 + 40\)</span> feet per second. The distance traveled on the interval <span class="process-math">\([1,5]\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+D  =  \int_1^5 v(t) \,dt  =  \int_1^5 (3t^2 + 40) \, dt  =   s(5) - s(1)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(s\)</span> is an antiderivative of <span class="process-math">\(v\text{.}\)</span> Now, the derivative of <span class="process-math">\(t^3\)</span> is <span class="process-math">\(3t^2\)</span> and the derivative of <span class="process-math">\(40t\)</span> is <span class="process-math">\(40\text{,}\)</span> so it follows that <span class="process-math">\(s(t) = t^3 + 40t\)</span> is an antiderivative of <span class="process-math">\(v\text{.}\)</span> Therefore,</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="noA">
+\begin{align*}
+D &amp;= \int_1^5 3t^2 + 40 \, dt  = s(5) - s(1)\\
+&amp;=  (5^3 + 40 \cdot 5) - (1^3 + 40\cdot 1) = 284 \ \text{feet}\text{.}
+\end{align*}
+</div></article><p id="mEG">Note the key lesson of <a href="" class="xref" data-knowl="./knowl/Ex-FTCVel.html" title="Example 4.4.3">Example 4.4.3</a>: to find the distance traveled, we need to compute the area under a curve, which is given by the definite integral. But to evaluate the integral, we can find an antiderivative, <span class="process-math">\(s\text{,}\)</span> of the velocity function, and then compute the total change in <span class="process-math">\(s\)</span> on the interval. In particular, we can evaluate the integral without computing the limit of a Riemann sum.</p>
+<figure class="figure figure-like" id="jKa"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_4_FTCVel2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.4<span class="period">.</span></span><span class="space"> </span>The exact area of the region enclosed by <span class="process-math">\(v(t) = 3t^2 + 40\)</span> on <span class="process-math">\([1,5]\text{.}\)</span></figcaption></figure><p id="SLP">It will be convenient to have a shorthand symbol for a function's antiderivative. For a continuous function <span class="process-math">\(f\text{,}\)</span> we will often denote an antiderivative of <span class="process-math">\(f\)</span> by <span class="process-math">\(F\text{,}\)</span> so that <span class="process-math">\(F'(x) = f(x)\)</span> for all relevant <span class="process-math">\(x\text{.}\)</span> Using the notation <span class="process-math">\(V\)</span> in place of <span class="process-math">\(s\)</span> (so that <span class="process-math">\(V\)</span> is an antiderivative of <span class="process-math">\(v\)</span>) in Equation <a href="" class="xref" data-knowl="./knowl/E-FTCVel.html" title="Equation 4.4.1">(4.4.1)</a>, we can write</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-FTCVel.html" id="TvJ">
+\begin{equation}
+V(b) - V(a) = \int_a^b v(t) \, dt\text{.}\tag{4.4.2}
+\end{equation}
+</div>
+<p id="ySY">Now, to evaluate the definite integral <span class="process-math">\(\int_a^b f(x) \, dx\)</span> for an arbitrary continuous function <span class="process-math">\(f\text{,}\)</span> we could certainly think of <span class="process-math">\(f\)</span> as representing the velocity of some moving object, and <span class="process-math">\(x\)</span> as the variable that represents time. But <a href="" class="xref" data-knowl="./knowl/E-FTCVel.html" title="Equation 4.4.1">Equations (4.4.1)</a> and <a href="" class="xref" data-knowl="./knowl/E-FTCV.html" title="Equation 4.4.2">(4.4.2)</a> hold for any continuous velocity function, even when <span class="process-math">\(v\)</span> is sometimes negative. So <a href="" class="xref" data-knowl="./knowl/E-FTCV.html" title="Equation 4.4.2">Equation (4.4.2)</a> offers a shortcut route to evaluating any definite integral, provided that we can find an antiderivative of the integrand. The Fundamental Theorem of Calculus (FTC)  summarizes these observations.</p>
+<article class="assemblage assemblage-like" id="QmI"><h4 class="heading"><span class="title">Fundamental Theorem of Calculus.</span></h4>
+<p id="fah"> If <span class="process-math">\(f\)</span> is a continuous function on <span class="process-math">\([a,b]\text{,}\)</span> and <span class="process-math">\(F\)</span> is any antiderivative of <span class="process-math">\(f\text{,}\)</span> then <span class="process-math">\(\int_a^b f(x) \, dx = F(b) - F(a)\text{.}\)</span></p></article><p id="Lhq">A common alternate notation for <span class="process-math">\(F(b) - F(a)\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+F(b) - F(a) = \left.
+F(x) \right|_a^b\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where we read the righthand side as “the function <span class="process-math">\(F\)</span> evaluated from <span class="process-math">\(a\)</span> to <span class="process-math">\(b\text{.}\)</span>” In this notation, the FTC says that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b f(x) \, dx = \left.
+F(x) \right|_a^b\text{.}
+\end{equation*}
+</div>
+<p id="roz">The FTC opens the door to evaluating a wide range of integrals if we can find an antiderivative <span class="process-math">\(F\)</span> for the integrand <span class="process-math">\(f\text{.}\)</span> For instance since <span class="process-math">\(\frac{d}{dx}[\frac{1}{3}x^3] = x^2\text{,}\)</span> the FTC tells us that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="LRk">
+\begin{align*}
+\int_0^1 x^2 \, dx =\mathstrut \amp  \left. \frac{1}{3} \, x^3 \right|_0^1\\
+=\mathstrut \amp  \frac{1}{3} \, (1)^3 - \frac{1}{3} \, (0)^3\\
+=\mathstrut \amp  \frac{1}{3}\text{.}
+\end{align*}
+</div>
+<p id="XvI">But finding an antiderivative can be far from simple; it is often difficult or even impossible. While we can differentiate just about any function, even some relatively simple functions don't have an elementary antiderivative. A significant portion of integral calculus (which is the main focus of second semester college calculus) is devoted to the problem of finding antiderivatives.</p>
+<article class="activity project-like" id="jcc"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.4.2</span><span class="period">.</span>
+</h4>
+<p id="lWI">Use the Fundamental Theorem of Calculus to evaluate each of the following integrals exactly. For each, sketch a graph of the integrand on the relevant interval and write one sentence that explains the meaning of the value of the integral in terms of the (net signed) area bounded by the curve.</p>
+<ol class="lower-alpha cols2">
+<li id="Ial"><p id="aNJ"><span class="process-math">\(\displaystyle \int_{-1}^4 (2-2x) \, dx\)</span></p></li>
+<li id="ohu"><p id="GUS"><span class="process-math">\(\displaystyle \int_{0}^{\frac{\pi}{2}} \sin(x) \, dx\)</span></p></li>
+<li id="UoD"><p id="ncb"><span class="process-math">\(\displaystyle \int_0^1 e^x \, dx\)</span></p></li>
+<li id="AvM"><p id="Tjk"><span class="process-math">\(\displaystyle \int_{-1}^{1} x^5 \, dx\)</span></p></li>
+<li id="gCV"><p id="zqt"><span class="process-math">\(\displaystyle \int_0^2 (3x^3 - 2x^2 - e^x) \, dx\)</span></p></li>
+</ol></article></section><section class="subsection" id="XRh"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.4.2</span> <span class="title">Basic antiderivatives</span>
+</h3>
+<p id="PRj">The general problem of finding an antiderivative is difficult. In part, this is due to the fact that we are trying to undo the process of differentiating, and the undoing is much more difficult than the doing. For example, while it is evident that an antiderivative of <span class="process-math">\(f(x) = \sin(x)\)</span> is <span class="process-math">\(F(x) = -\cos(x)\)</span> and that an antiderivative of <span class="process-math">\(g(x) = x^2\)</span> is <span class="process-math">\(G(x) = \frac{1}{3} x^3\text{,}\)</span> combinations of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> can be far more complicated. Consider the functions</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+5\sin(x) - 4x^2, \ x^2 \sin(x), \ \frac{\sin(x)}{x^2}, \ \text{and}  \ \sin(x^2)\text{.}
+\end{equation*}
+</div>
+<p id="vYs">What is involved in trying to find an antiderivative for each? From our experience with derivative rules, we know that derivatives of sums and constant multiples of basic functions are simple to execute, but derivatives involving products, quotients, and composites of familiar functions are more complicated. Therefore, it stands to reason that antidifferentiating products, quotients, and composites of basic functions may be even more challenging. We defer our study of all but the most elementary antiderivatives to later in the text.</p>
+<p id="cfB">We do note that whenever we know the derivative of a function, we have a <em class="emphasis">function-derivative pair</em>, so we also know the antiderivative of a function. For instance, since we know that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[-\cos(x)] = \sin(x)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we also know that <span class="process-math">\(F(x) = -\cos(x)\)</span> is an antiderivative of <span class="process-math">\(f(x) = \sin(x)\text{.}\)</span> <span class="process-math">\(F\)</span> and <span class="process-math">\(f\)</span> together form a function-derivative pair. Clearly, every basic derivative rule leads us to such a pair, and thus to a known antiderivative.</p>
+<p id="ImK">In <a href="" class="xref" data-knowl="./knowl/act-4-4-2.html" title="Activity 4.4.3">Activity 4.4.3</a>, we will construct a list of the basic antiderivatives we know at this time. Those rules will help us  antidifferentiate sums and constant multiples of basic functions. For example, since <span class="process-math">\(-\cos(x)\)</span> is an antiderivative of <span class="process-math">\(\sin(x)\)</span> and <span class="process-math">\(\frac{1}{3}x^3\)</span> is an antiderivative of <span class="process-math">\(x^2\text{,}\)</span> it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-4-4-2.html">
+\begin{equation*}
+F(x) = -5\cos(x) - \frac{4}{3}x^3
+\end{equation*}
+</div>
+<p class="continuation">is an antiderivative of <span class="process-math">\(f(x) = 5\sin(x) - 4x^2\text{,}\)</span> by the sum and constant multiple rules for differentiation.</p>
+<p id="otT">Finally, before proceeding to build a list of common functions whose antiderivatives we know, we recall that each function has more than one antiderivative. Because the derivative of any constant is zero, we may add a constant of our choice to any antiderivative. For instance, we know that <span class="process-math">\(G(x) = \frac{1}{3}x^3\)</span> is an antiderivative of <span class="process-math">\(g(x) = x^2\text{.}\)</span> But we could also have chosen <span class="process-math">\(G(x) = \frac{1}{3}x^3 + 7\text{,}\)</span> since in this case as well, <span class="process-math">\(G'(x) = x^2\text{.}\)</span> If <span class="process-math">\(g(x) = x^2\text{,}\)</span> we say that the <em class="emphasis">general antiderivative</em>  of <span class="process-math">\(g\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+G(x) = \frac{1}{3}x^3 + C\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> represents an arbitrary real number constant. Regardless of the formula for <span class="process-math">\(g\text{,}\)</span> including <span class="process-math">\(+C\)</span> in the formula for its antiderivative <span class="process-math">\(G\)</span> results in the most general possible antiderivative.</p>
+<p id="UBc">Our current interest in antiderivatives is so that we can evaluate definite integrals by the Fundamental Theorem of Calculus. For that task, the constant <span class="process-math">\(C\)</span> is irrelevant, and we usually omit it. To see why, consider the definite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_0^1 x^2 \, dx\text{.}
+\end{equation*}
+</div>
+<p id="AIl">For the integrand <span class="process-math">\(g(x) = x^2\text{,}\)</span> suppose we find and use the general antiderivative <span class="process-math">\(G(x) = \frac{1}{3} x^3 + C\text{.}\)</span> Then, by the FTC,</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="wIm">
+\begin{align*}
+\int_0^1 x^2 \, dx &amp;=  \left. \frac{1}{3} x^3 + C \right|_0^1\\
+&amp;= \left(\frac{1}{3} (1)^3 + C  \right) - \left(\frac{1}{3} (0)^3 + C  \right)\\
+&amp;= \frac{1}{3} + C - 0 - C\\
+&amp;= \frac{1}{3}\text{.}
+\end{align*}
+</div>
+<p id="gPu">Observe that the <span class="process-math">\(C\)</span>-values appear as opposites in the evaluation of the integral and thus do not affect the definite integral's value.</p>
+<p id="MWD">In the following activity, we work to build a list of basic functions whose antiderivatives we already know.</p>
+<article class="activity project-like" id="ovP"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.4.3</span><span class="period">.</span>
+</h4>
+<p id="yUU">Use your knowledge of derivatives of basic functions to complete <a href="" class="xref" data-knowl="./knowl/T-4-4-Act2.html" title="Table 4.4.5: Familiar basic functions and their antiderivatives.">Table 4.4.5</a> of antiderivatives. For each entry, your task is to find a function <span class="process-math">\(F\)</span> whose derivative is the given function <span class="process-math">\(f\text{.}\)</span> When finished, use the FTC and the results in the table to evaluate the three given definite integrals.</p>
+<figure class="table table-like" id="PTf"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.4.5<span class="period">.</span></span><span class="space"> </span>Familiar basic functions and their antiderivatives.</figcaption><div class="tabular-box natural-width"><table class="tabular" id="wao">
+<tr>
+<td class="l m b2 r0 l0 t1 lines">given function, <span class="process-math">\(f(x)\)</span>
+</td>
+<td class="l m b2 r0 l0 t1 lines">antiderivative, <span class="process-math">\(F(x)\)</span>    </td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">
+<span class="process-math">\(k\text{,}\)</span> (<span class="process-math">\(k\)</span> is constant)</td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">
+<span class="process-math">\(x^n\text{,}\)</span> <span class="process-math">\(n \ne -1\)</span>
+</td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">
+<span class="process-math">\(\frac{1}{x}\text{,}\)</span> <span class="process-math">\(x \gt 0\)</span>
+</td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\sin(x)\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\cos(x)\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\sec(x) \tan(x)\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\csc(x) \cot(x)\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\sec^2 (x)\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\csc^2 (x)\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(e^x\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">
+<span class="process-math">\(a^x\)</span> <span class="process-math">\((a \gt 1)\)</span>
+</td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{1+x^2}\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{\sqrt{1-x^2}}\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"></td>
+</tr>
+</table></div></figure><ol id="fcd" class="lower-alpha">
+<li id="Aan"><p id="dmQ"><span class="process-math">\(\displaystyle \displaystyle \int_0^1 \left(x^3 - x - e^x + 2\right) \,dx\)</span></p></li>
+<li id="ghw"><p id="JtZ"><span class="process-math">\(\displaystyle \displaystyle \int_0^{\pi/3} (2\sin (t) - 4\cos(t) + \sec^2(t) - \pi) \, dt\)</span></p></li>
+<li id="MoF"><p id="pBi"><span class="process-math">\(\displaystyle \displaystyle \int_0^1 (\sqrt{x}-x^2) \, dx\)</span></p></li>
+</ol></article></section><section class="subsection" id="DYq"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.4.3</span> <span class="title">The total change theorem</span>
+</h3>
+<p id="tdM">Let us review three interpretations of the definite integral.</p>
+<ul class="disc">
+<li id="yje"><p id="bvH">For a moving object with instantaneous velocity <span class="process-math">\(v(t)\text{,}\)</span> the object's change in position on the time interval <span class="process-math">\([a,b]\)</span> is given by <span class="process-math">\(\int_a^b v(t) \, dt\text{,}\)</span> and whenever <span class="process-math">\(v(t) \ge 0\)</span> on <span class="process-math">\([a,b]\text{,}\)</span> <span class="process-math">\(\int_a^b v(t) \, dt\)</span> tells us the total distance traveled by the object on <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+<li id="eqn"><p id="HCQ">For any continuous function <span class="process-math">\(f\text{,}\)</span> its definite integral <span class="process-math">\(\int_a^b f(x) \, dx\)</span> represents the net signed area bounded by <span class="process-math">\(y = f(x)\)</span> and the <span class="process-math">\(x\)</span>-axis on <span class="process-math">\([a,b]\text{,}\)</span> where regions that lie below the <span class="process-math">\(x\)</span>-axis have a minus sign associated with their area.</p></li>
+<li id="Kxw">
+<p id="nJZ">The value of a definite integral is linked to the average value of a function: for a continuous function <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{,}\)</span> its average value <span class="process-math">\(f_{\operatorname{AVG} [a,b]}\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f_{\operatorname{AVG} [a,b]} = \frac{1}{b-a} \int_a^b f(x) \, dx\text{.}
+\end{equation*}
+</div>
+</li>
+</ul>
+<p id="ZkV">The Fundamental Theorem of Calculus now enables us to evaluate exactly (without taking a limit of Riemann sums) any definite integral for which we are able to find an antiderivative of the integrand.</p>
+<p id="Fse">A slight change in perspective allows us to gain even more insight into the meaning of the definite integral. Recall <a href="" class="xref" data-knowl="./knowl/E-FTCV.html" title="Equation 4.4.2">Equation (4.4.2)</a>, where we wrote the Fundamental Theorem of Calculus for a velocity function <span class="process-math">\(v\)</span> with antiderivative <span class="process-math">\(V\)</span> as</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-FTCV.html">
+\begin{equation*}
+V(b) - V(a) = \int_a^b v(t) \, dt\text{.}
+\end{equation*}
+</div>
+<p id="lzn">If we instead replace <span class="process-math">\(V\)</span> with <span class="process-math">\(s\)</span> (which represents position) and replace <span class="process-math">\(v\)</span> with <span class="process-math">\(s'\)</span> (since velocity is the derivative of position), <a href="" class="xref" data-knowl="./knowl/E-FTCV.html" title="Equation 4.4.2">Equation (4.4.2)</a> then reads as</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-FTCV.html" id="pdN">
+\begin{equation}
+s(b) - s(a) = \int_a^b s'(t) \, dt\text{.}\tag{4.4.3}
+\end{equation}
+</div>
+<p id="RGw">In words, this version of the FTC tells us that the total change in an object's position function on a particular interval is given by the definite integral of the position function's derivative over that interval.</p>
+<p id="xNF">Of course, this result is not limited to only the setting of position and velocity. Writing the result in terms of a more general function <span class="process-math">\(f\text{,}\)</span> we have the Total Change Theorem.</p>
+<article class="assemblage assemblage-like" id="wtR"><h4 class="heading"><span class="title">Total Change Theorem.</span></h4>
+<p id="dUO"> If <span class="process-math">\(f\)</span> is a continuously differentiable function on <span class="process-math">\([a,b]\)</span> with derivative <span class="process-math">\(f'\text{,}\)</span> then <span class="process-math">\(f(b) - f(a) = \int_a^b f'(x) \, dx\text{.}\)</span> That is, the definite integral of the rate of change of a function on <span class="process-math">\([a,b]\)</span> is the total change of the function itself on <span class="process-math">\([a,b]\text{.}\)</span></p></article><p id="KbX">The Total Change Theorem tells us more about the relationship between the graph of a function and that of its derivative. Recall that heights on the graph of the derivative function are equal to slopes on the graph of the function itself. If instead we know <span class="process-math">\(f'\)</span> and are seeking information about <span class="process-math">\(f\text{,}\)</span> we can say the following:</p>
+<blockquote class="blockquote" id="hkT"><p id="QWC"><em class="emphasis">differences in heights on <span class="process-math">\(f\)</span> correspond to net signed areas bounded by <span class="process-math">\(f'\text{.}\)</span></em></p></blockquote>
+<figure class="figure figure-like" id="Cxy"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/4_4_TCT.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.6<span class="period">.</span></span><span class="space"> </span>The graphs of <span class="process-math">\(f'(x) = 4 - 2x\)</span> (at left) and an antiderivative <span class="process-math">\(f(x) = 4x - x^2\)</span> at right.  Differences in heights on <span class="process-math">\(f\)</span> correspond to net signed areas bounded by <span class="process-math">\(f'\text{.}\)</span></figcaption></figure><p id="qjg">To see why this is so, consider the difference <span class="process-math">\(f(1) - f(0)\text{.}\)</span> This value is 3, because <span class="process-math">\(f(1) = 3\)</span> and <span class="process-math">\(f(0) = 0\text{,}\)</span> but also because the net signed area bounded by <span class="process-math">\(y = f'(x)\)</span> on <span class="process-math">\([0,1]\)</span> is 3. That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(1) - f(0) = \int_0^1 f'(x) \, dx\text{.}
+\end{equation*}
+</div>
+<p id="Wqp">In addition to this observation about area, the Total Change Theorem enables us to answer questions about a function whose rate of change we know.</p>
+<article class="example example-like" id="IIj"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.4.7</span><span class="period">.</span>
+</h4>
+<p id="dkU">Suppose that pollutants are leaking out of an underground storage tank at a rate of <span class="process-math">\(r(t)\)</span> gallons/day, where <span class="process-math">\(t\)</span> is measured in days. It is conjectured that <span class="process-math">\(r(t)\)</span> is given by the formula <span class="process-math">\(r(t) = 0.0069t^3 -0.125t^2+11.079\)</span> over a certain 12-day period. The graph of <span class="process-math">\(y=r(t)\)</span> is given in <a href="" class="xref" data-knowl="./knowl/F-4-4-TCTEx.html" title="Figure 4.4.8">Figure 4.4.8</a>. What is the meaning of <span class="process-math">\(\int_4^{10} r(t) \, dt\)</span> and what is its value? What is the average rate at which pollutants are leaving the tank on the time interval <span class="process-math">\(4 \le t \le 10\text{?}\)</span></p>
+<figure class="figure figure-like" id="Jsd"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_4_TCTEx.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.8<span class="period">.</span></span><span class="space"> </span>The rate <span class="process-math">\(r(t)\)</span> of pollution leaking from a tank, measured in gallons per day.</figcaption></figure><div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-BdK" id="BdK"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-BdK"><div class="solution solution-like">
+<p id="MmJ">Since <span class="process-math">\(r(t) \ge 0\text{,}\)</span> the value of <span class="process-math">\(\int_4^{10} r(t) \, dt\)</span> is the area under the curve on the interval <span class="process-math">\([4,10]\text{.}\)</span> A Riemann sum for this area will have rectangles with heights measured in gallons per day and widths measured in days, so the area of each rectangle will have units of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{\text{gallons} }{\text{day} } \cdot \text{days}  = \text{gallons}\text{.}
+\end{equation*}
+</div>
+<p id="stS">Thus, the definite integral tells us the total number of gallons of pollutant that leak from the tank from day 4 to day 10. The Total Change Theorem tells us the same thing: if we let <span class="process-math">\(R(t)\)</span> denote the total number of gallons of pollutant that have leaked from the tank up to day <span class="process-math">\(t\text{,}\)</span> then <span class="process-math">\(R'(t) = r(t)\text{,}\)</span> and</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_4^{10} r(t) \, dt = R(10) - R(4)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">the number of gallons that have leaked from day 4 to day 10.</p>
+<p id="YBb">To compute the exact value of the integral, we use the Fundamental Theorem of Calculus. Antidifferentiating <span class="process-math">\(r(t) = 0.0069t^3 -0.125t^2+11.079\text{,}\)</span> we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="NGx">
+\begin{align*}
+\int_4^{10} 0.0069t^3 -0.125t^2+11.079 \, dt =\mathstrut \amp  \left. 0.0069 \cdot \frac{1}{4} \, t^4 - 0.125 \cdot \frac{1}{3} t^3 + 11.079t \right|_4^{10}\\
+\approx\mathstrut \amp  44.282\text{.}
+\end{align*}
+</div>
+<p id="EIk">Thus, approximately 44.282 gallons of pollutant leaked over the six day time period.</p>
+<p id="kPt">To find the average rate at which pollutant leaked from the tank over <span class="process-math">\(4 \le t \le 10\text{,}\)</span> we compute the average value of <span class="process-math">\(r\)</span> on <span class="process-math">\([4,10]\text{.}\)</span> Thus,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+r_{\operatorname{AVG} [4,10]} = \frac{1}{10-4} \int_4^{10} r(t) \, dt \approx \frac{44.282}{6} = 7.380
+\end{equation*}
+</div>
+<p class="continuation">gallons per day.</p>
+</div></div>
+</div></article><article class="activity project-like" id="HTh"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.4.4</span><span class="period">.</span>
+</h4>
+<p id="Ssm">During a 40-minute workout, a person riding an exercise machine burns calories at a rate of <span class="process-math">\(c\)</span> calories per minute, where the function <span class="process-math">\(y = c(t)\)</span> is given in <a href="" class="xref" data-knowl="./knowl/F-4-4-Act3.html" title="Figure 4.4.9">Figure 4.4.9</a>. On the interval <span class="process-math">\(0 \le t \le 10\text{,}\)</span> the formula for <span class="process-math">\(c\)</span> is <span class="process-math">\(c(t) = -0.05t^2 + t + 10\text{,}\)</span> while on <span class="process-math">\(30 \le t \le 40\text{,}\)</span> its formula is <span class="process-math">\(c(t) = -0.05t^2 + 3t - 30\text{.}\)</span></p>
+<figure class="figure figure-like" id="eGE"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/4_4_Act3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.9<span class="period">.</span></span><span class="space"> </span>The rate <span class="process-math">\(c(t)\)</span> at which a person exercising burns calories, measured in calories per minute.</figcaption></figure><ol id="yzv" class="lower-alpha">
+<li id="lBj"><p id="fLX">What is the exact total number of calories the person burns during the first 10 minutes of her workout?</p></li>
+<li id="RIs"><p id="LTg">Let <span class="process-math">\(C(t)\)</span> be an antiderivative of <span class="process-math">\(c(t)\text{.}\)</span> What is the meaning of <span class="process-math">\(C(40) - C(0)\)</span> in the context of the person exercising? Include units on your answer.</p></li>
+<li id="xPB"><p id="sap">Determine the exact average rate at which the person burned calories during the 40-minute workout.</p></li>
+<li id="dWK"><p id="Yhy">At what time(s), if any, is the instantaneous rate at which the person is burning calories equal to the average rate at which she burns calories, on the time interval <span class="process-math">\(0 \le t \le 40\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="kfz"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.4.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="iEH" class="disc">
+<li id="qEF"><p id="TRi">We can find the exact value of a definite integral without taking the limit of a Riemann sum or using a familiar area formula by finding the antiderivative of the integrand, and hence applying the Fundamental Theorem of Calculus.</p></li>
+<li id="WLO">
+<p id="zYr">The Fundamental Theorem of Calculus says that if <span class="process-math">\(f\)</span> is a continuous function on <span class="process-math">\([a,b]\)</span> and <span class="process-math">\(F\)</span> is an antiderivative of <span class="process-math">\(f\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b f(x) \, dx = F(b) - F(a)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Hence, if we can find an antiderivative for the integrand <span class="process-math">\(f\text{,}\)</span> evaluating the definite integral comes from simply computing the change in <span class="process-math">\(F\)</span> on <span class="process-math">\([a,b]\text{.}\)</span></p>
+</li>
+<li id="CSX">
+<p id="gfA">A slightly different perspective on the FTC allows us to restate it as the Total Change Theorem, which says that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b f'(x) \, dx = f(b) - f(a)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">for any continuously differentiable function <span class="process-math">\(f\text{.}\)</span> This means that the definite integral of the instantaneous rate of change of a function <span class="process-math">\(f\)</span> on an interval <span class="process-math">\([a,b]\)</span> is equal to the total change in the function <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{.}\)</span></p>
+</li>
+</ul></section><section class="exercises" id="HHd"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">4.4.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="laK"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Finding exact displacement.</span>
+</h4>
+<div id="webwork-128" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="128" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals3Definite/osu_in_3_1a.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5058">The velocity function is <span class="process-math">\(v(t) = - t^2  + 4 t  - 3\)</span> for a particle moving along a line.  Find the displacement (net distance covered) of the particle during the time interval <span class="process-math">\([-1,5]\text{.}\)</span></p>
+<p id="p-5059">displacement = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-128')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="RhT"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluating the definite integral of a rational function.</span>
+</h4>
+<div id="webwork-129" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="129" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals3Definite/c4s4p6.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents"><p id="p-5061">The value of <span class="process-math">\(\displaystyle \int_{2}^{4} \frac{1}{ x^2 } dx\)</span> is</p></div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-129')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="xpc"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluating the definite integral of a linear function.</span>
+</h4>
+<div id="webwork-130" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="130" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxuZXdjb21tYW5ke1xhbXB9eyZ9XCk8L2Rpdj4nKSk7CkNvbnRleHQoJ051bWVyaWMnKTskYTEgPSByYW5kb20oMiwxMCwyKTsKJGIxID0gcmFuZG9tKDIsMTAsMSk7CndoaWxlICgkYTEgPT0gJGIxKSB7JGIxID0gcmFuZG9tKDIsMTAsMSl9CgokYzEgPSByYW5kb20oNSw5LDEpOwokZDEgPSByYW5kb20oMiw0LDEpOwokYW5zID0gUmVhbCgoJGExKiRjMSoqMi8yICsgJGIxKiRjMSkgLSgkYTEqJGQxKioyLzIgKyAkYjEqJGQxICkpOwoKQkVHSU5fUEdNTApFdmFsdWF0ZSB0aGUgZGVmaW5pdGUgaW50ZWdyYWwKCltgYGBcaW50X3sgWyRkMV0gfSBeIHsgWyRjMV0gfSAoWyRhMV0geCArIFskYjFdKVwsIGR4IFx0ZXh0ey59YGBgXQoKCgpbX117JGFuc317MzB9CgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KRWFjaCBwYXJ0IG9mIHRoaXMgaW50ZWdyYWwgY2FuIGJlIGRvbmUgc2VwYXJhdGVseSwgYW5kIGVhY2ggaXMgYSBzcGVjaWFsIGNhc2Ugb2YgdGhlIGdlbmVyYWwgcnVsZSBbYFxkaXNwbGF5c3R5bGUgXGludCB1Xm4gZHUgPSBcZnJhY3t1XntuKzF9fXtuKzF9XHRleHR7On1gXQoKW2BgYFxiZWdpbnthbGlnbmVkfQpcaW50X3tbJGQxXX1ee1skYzFdfSAoWyRhMV0geCArIFskYjFdKSBkeCBcYW1wPSAgWyRhMV0gXGludF97WyRkMV19XntbJGMxXX0geFwsIGR4ICsgWyRiMV0gXGludF97WyRkMV19XntbJGMxXX0gZHhcXAogXGFtcD0gIFskYTFdIFxsZWZ0KCBcbGVmdC4gXGZyYWN7eF4yfXsyfSBccmlnaHR8X3tbJGQxXX1ee1skYzFdfSBccmlnaHQpCiAgICAgICAgICAgICAgICAgICAgICArIFskYjFdIFxsZWZ0KCBcbGVmdC4geCBccmlnaHR8X3tbJGQxXX1ee1skYzFdfSBccmlnaHQpXFwKIFxhbXA9ICBbJGExXSBcbGVmdCggXGZyYWN7WyRjMV1eMn17Mn0gLSBcZnJhY3tbJGQxXV4yfXsyfSBccmlnaHQpCiAgICAgICAgICAgICAgICAgICAgICArIFskYjFdIFxsZWZ0KCBbJGMxXSAtIFskZDFdIFxyaWdodCkgPSBbJGFuc10KXGVuZHthbGlnbmVkfQpgYGBdCgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5063">Evaluate the definite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-5064">
+\begin{equation*}
+\int_{ 2 } ^ { 9 } (4 x + 10)\, dx \text{.}
+\end{equation*}
+</div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-130')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="dwl"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluating the definite integral of a quadratic function.</span>
+</h4>
+<div id="webwork-131" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="131" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRhMSA9IHJhbmRvbSgyLDEwLDIpOwokYTIgPSAkYTEqJGExOwokYW5zID0gNCokYTEqKjMvMzsKJG51bSA9IDIqJGExKiozOwoKQkVHSU5fUEdNTApFdmFsdWF0ZSB0aGUgZGVmaW5pdGUgaW50ZWdyYWwKCltgYGBcaW50X3sgLVskYTFdIH0gXiB7IFskYTFdIH0gKFskYTJdIC14XjIpXCwgZHhcdGV4dHsufWBgYF0KCgoKW19deyRhbnN9ezMwfQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OClNpbmNlIHRoZSBmdW5jdGlvbiBbYGYoeCk9WyRhMl0gLSB4XjJgXSBpcyBldmVuLAoKW2BgYCBcaW50X3stWyRhMV19XntbJGExXX0gKFskYTJdIC14XjIpXCwgZHggPSAyIFxpbnRfezB9XntbJGExXX0gKFskYTJdIC14XjIpXCwgZHggPSAKMiBcbGVmdC4gXGxlZnQoWyRhMl0geCAtIFxmcmFje3heM317M31ccmlnaHQpIFxyaWdodHxfIHswfV57WyRhMV19ID0gCjIgXGxlZnRbIFxsZWZ0KFskYTJdIFxjZG90IFskYTFdLSBcZnJhY3tbJGExXV4zfXszfVxyaWdodCkgLSAoMC0wKSBccmlnaHRdID0gMiBcZnJhY3tbJG51bV19ezN9ID0gWyRhbnNdXHRleHR7Ln1gYGBdCgoKCgpFTkRfUEdNTF9TT0xVVElPTgoKRU5ERE9DVU1FTlQoKTs=" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5068">Evaluate the definite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-5069">
+\begin{equation*}
+\int_{ -6 } ^ { 6 } (36 -x^2)\, dx\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-131')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="JDu"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Simplifying an integrand before integrating.</span>
+</h4>
+<div id="webwork-132" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="132" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRhMSA9IHJhbmRvbSgyLDEwLDIpOwokYjEgPSByYW5kb20oMiwxMCwxKTsKJGMxID0gcmFuZG9tKDUsOSwxKTsKJGQxID0gcmFuZG9tKDEsNCwxKTsKJHAxID0gKDIqJGExKiRjMSoqMi41LzUgKyAyKiRiMSokYzEqKi41KTsKJHAyID0gICgyKiRhMSokZDEqKjIuNS81ICsgMiokYjEqJGQxKiouNSApOwokYW5zID0gJHAxIC0gJHAyOwoKQkVHSU5fUEdNTApFdmFsdWF0ZSB0aGUgZGVmaW5pdGUgaW50ZWdyYWwKCltgYGBcaW50X3sgWyRkMV0gfSBeIHsgWyRjMV0gfSBcZnJhYyB7WyRhMV0geF4yICsgWyRiMV0gfSB7IFxzcXJ0IHggfVwsZHhcdGV4dHsufWBgYF0KCgoKW19deyRhbnN9ezQwfQoKCkVORF9QR01MCgpCRUdJTl9QR01MX1NPTFVUSU9OClRvIGV2YWx1YXRlIHRoZSBkZWZpbml0ZSBpbnRlZ3JhbCwgd2UgbmVlZCB0byBkZXRlcm1pbmUgdGhlIGFudGlkZXJpdmF0aXZlIG9mIHRoZSBmb3JtdWxhIHRvIGJlIGludGVncmF0ZWQuIFRoaXMgY2FuIGJlIGRvbmUgdGVybS1ieS10ZXJtIGJ5IHJld3JpdGluZyB0aGUgaW50ZWdyYWwgYXM6CgpbYGBgXGludF97WyRkMV19XntbJGMxXX0gXGZyYWN7e1skYTFdfXheMiArIFskYjFdfXtcc3FydHt4fX1cLGR4ID0gCiAgICAgICAgICAgIFxpbnRfe1skZDFdfV57WyRjMV19IFxsZWZ0KCBcZnJhY3t7WyRhMV19eF4yfXtcc3FydHt4fX0gKyBcZnJhY3tbJGIxXX17XHNxcnR7eH19ICBccmlnaHQpXCxkeFx0ZXh0ey59YGBgXQoKVGhlbiwgd2UgY2FuIGZpbmQgdGhlIGRlcml2YXRpdmUsIHdoaWNoIGlzOgoKW2BgYEYoeCkgPSAgXGZyYWN7Mn17NX1cbGVmdChcZnJhY3t7WyRhMV19eF4zfXtcc3FydHt4fX1ccmlnaHQpCiAgICAgICAgICAgIC0gMihbJGIxXSlcc3FydHt4fVx0ZXh0ey59YGBgXQoKTm93LCBhcHBseWluZyB0aGUgc2Vjb25kIHBhcnQgb2YgdGhlIEZ1bmRhbWVudGFsIFRoZW9yZW0gb2YgQ2FsY3VsdXMsIHdlIGdldCB0aGUgdmFsdWUgb2YgdGhlIGRlZmluaXRlIGludGVncmFsIGFzOgoKW2BgYFxiZWdpbnthbGlnbmVkfQpGKFskYzFdKSAtIEYoWyRkMV0pICY9CiAgICAgICAgICAgICAgICBcZnJhY3syfXs1fVxsZWZ0KFxmcmFje3tbJGExXX0oWyRjMV0pXjN9e1xzcXJ0e1skYzFdfX1ccmlnaHQpCiAgICAgICAgICAgICAgICArIDIoWyRiMV0pXHNxcnR7WyRjMV19CiAgICAgICAgICAgICAgICAtXGZyYWN7Mn17NX1cbGVmdChcZnJhY3t7WyRhMV19KFskYzFdKV4zfXtcc3FydHtbJGMxXX19XHJpZ2h0KQogICAgICAgICAgICAgICAgLSAyKCRiMSlcc3FydHtbJGQxXX1cXAomPSBbIXskcDE6JTUuNGZ9XSAtIFsheyRwMjolNS40Zn1dXFwKJj0gWyF7JGFuczolNS40Zn1dIFx0ZXh0ey59ClxlbmR7YWxpZ25lZH0KYGBgXQoKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5073">Evaluate the definite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-5074">
+\begin{equation*}
+\int_{ 3 } ^ { 8 } \frac {8 x^2 + 3 } { \sqrt x }\,dx\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-132')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="pKD"><h4 class="heading">
+<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluating the definite integral of a trigonometric function.</span>
+</h4>
+<div id="webwork-133" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="133" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKQ29udGV4dCgnTnVtZXJpYycpOyRhMSA9IHJhbmRvbSgyLDEwLDIpOwokYW5zID0gMiokYTE7CgpCRUdJTl9QR01MCkV2YWx1YXRlIHRoZSBkZWZpbml0ZSBpbnRlZ3JhbAoKW2BgYCBcaW50X3sgMCB9IF4geyBccGkgfSBbJGExXSBcc2luKHgpXCxkeFx0ZXh0ey59YGBgXQoKCgpbX117JGFuc317MzB9CgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfU09MVVRJT04KVGhpcyBpbnRlZ3JhdGlvbiBjYW4gYmUgZG9uZSBiZWNhdXNlIHdlIGtub3cgdGhhdCB0aGUgZGVyaXZhdGl2ZSB3aXRoIHJlc3BlY3QgdG8gW2B4YF0gb2YgW2BcY29zKHgpYF0gaXMgW2AtXHNpbih4KVx0ZXh0ey59YF0gIFNvIHdlIG9idGFpbiBhIFtgLVxzaW4oeClgXSBpbnNpZGUgdGhlIGludGVncmFsLCBhbmQgd2UgY2FuIHRoZW4gaW50ZWdyYXRlIHRvIG9idGFpbiBbYFxjb3MoeClcdGV4dHsufWBdIE9mIGNvdXJzZSwgc2luY2UgdGhlcmUgaXNuJ3QgYSBtaW51cyBzaWduIGluc2lkZSB0aGUgaW50ZWdyYWwsIHdlJ2xsIGhhdmUgdG8gbXVsdGlwbHkgaW5zaWRlIGFuZCBvdXRzaWRlIGJ5IFtgLTFgXSAod2hpY2ggZG9lc24ndCBjaGFuZ2UgdGhlIHZhbHVlIG9mIGNvdXJzZSk6CgpbYGBgXGJlZ2lue2FsaWduZWR9ClxpbnRfMF5ccGkgWyRhMV0gXHNpbih4KVwsZHggJj0JLVskYTFdIFxpbnRfMF5ccGkgKC1cc2luKHgpKVwsZHhcXAomPQktWyRhMV0gXGxlZnQoIFxsZWZ0LiBcY29zKHgpIFxyaWdodHxfMF5ccGkgXHJpZ2h0KVxcCiY9CS1bJGExXSAoIFxjb3MoXHBpKSAtIFxjb3MoMCkgKSA9IC1bJGExXSAoLTEtMSkgPSAyIFxjZG90IFskYTFdID0gWyRhbnNdCiAgICAgICAgICAgICAgICAgICAgClxlbmR7YWxpZ25lZH0KYGBgXQoKCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5082">Evaluate the definite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-5083">
+\begin{equation*}
+\int_{ 0 } ^ { \pi } 8 \sin(x)\,dx\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-133')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="VRM"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="GXj">The instantaneous velocity (in meters per minute) of a moving object is given by the function <span class="process-math">\(v\)</span> as pictured in <a href="" class="xref" data-knowl="./knowl/F-4-4-Ez2.html" title="Figure 4.4.10">Figure 4.4.10</a>. Assume that on the interval <span class="process-math">\(0 \le t \le 4\text{,}\)</span> <span class="process-math">\(v(t)\)</span> is given by <span class="process-math">\(v(t) = -\frac{1}{4}t^3 + \frac{3}{2}t^2 + 1\text{,}\)</span> and that on every other interval <span class="process-math">\(v\)</span> is piecewise linear, as shown.</p>
+<figure class="figure figure-like" id="TlB"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_4_Ez2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.4.10<span class="period">.</span></span><span class="space"> </span>The velocity function of a moving body.</figcaption></figure><ol id="nes" class="lower-alpha">
+<li id="UMt"><p id="ppe">Determine the exact distance traveled by the object on the time interval <span class="process-math">\(0 \le t \le 4\text{.}\)</span></p></li>
+<li id="ATC"><p id="Vwn">What is the object's average velocity on <span class="process-math">\([12,24]\text{?}\)</span></p></li>
+<li id="haL"><p id="BDw">At what time is the object's acceleration greatest?</p></li>
+<li id="NhU"><p id="hKF">Suppose that the velocity of the object is increased by a constant value <span class="process-math">\(c\)</span> for all values of <span class="process-math">\(t\text{.}\)</span> What value of <span class="process-math">\(c\)</span> will make the object's total distance traveled on <span class="process-math">\([12,24]\)</span> be 210 meters?</p></li>
+</ol></article><article class="exercise exercise-like" id="BYV"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="zsK">A function <span class="process-math">\(f\)</span> is given piecewise by the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) = 
+\begin{cases}
+-x^2 + 2x + 1, \amp  \ \text{if}  \ 0 \le x \lt  2 \\
+-x + 3, \amp  \ \text{if}  \ 2 \le x \lt  3 \\
+x^2 - 8x + 15, \amp  \ \text{if}  \ 3 \le x \le 5
+\end{cases}\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="qux"><p id="rer">Determine the exact value of the net signed area enclosed by <span class="process-math">\(f\)</span> and the <span class="process-math">\(x\)</span>-axis on the interval <span class="process-math">\([2,5]\text{.}\)</span></p></li>
+<li id="WBG"><p id="XlA">Compute the exact average value of <span class="process-math">\(f\)</span> on <span class="process-math">\([0,5]\text{.}\)</span></p></li>
+<li id="CIP"><p id="DsJ">Find a formula for a function <span class="process-math">\(g\)</span> on <span class="process-math">\(5 \le x \le 7\)</span> so that if we extend the above definition of <span class="process-math">\(f\)</span> so that <span class="process-math">\(f(x) = g(x)\)</span> if <span class="process-math">\(5 \le x \le 7\text{,}\)</span> it follows that <span class="process-math">\(\int_0^7 f(x) \, dx = 0\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="ige"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="fzT">When an aircraft attempts to climb as rapidly as possible, its climb rate (in feet per minute) decreases as altitude increases, because the air is less dense at higher altitudes. Given below is a table showing performance data for a certain single engine aircraft, giving its climb rate at various altitudes, where <span class="process-math">\(c(h)\)</span> denotes the climb rate of the airplane at an altitude <span class="process-math">\(h\text{.}\)</span></p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="bzU">
+<tr>
+<td class="l m b1 r0 l0 t1 lines">
+<span class="process-math">\(h\)</span> (feet)</td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(1000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(2000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(3000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(4000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(5000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(6000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(7000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(8000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(9000\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(10{,}000\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">
+<span class="process-math">\(c\)</span> (ft/min)</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(925\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(875\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(830\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(780\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(730\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(685\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(635\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(585\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(535\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(490\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(440\)</span></td>
+</tr>
+</table></div></div></div>
+<p id="LHc">Let a new function called <span class="process-math">\(m(h)\)</span> measure the number of minutes required for a plane at altitude <span class="process-math">\(h\)</span> to climb the next foot of altitude.</p>
+<ol class="lower-alpha">
+<li id="THa"><p id="UqU">Determine a similar table of values for <span class="process-math">\(m(h)\)</span> and explain how it is related to the table above. Be sure to explain the units.</p></li>
+<li id="zOj"><p id="Ayd">Give a careful interpretation of a function whose derivative is <span class="process-math">\(m(h)\text{.}\)</span> Describe what the input is and what the output is. Also, explain in plain English what the function tells us.</p></li>
+<li id="fVs"><p id="gFm">Determine a definite integral whose value tells us exactly the number of minutes required for the airplane to ascend to 10,000 feet of altitude. Clearly explain why the value of this integral has the required meaning.</p></li>
+<li id="McB"><p id="MMv">Use the Riemann sum <span class="process-math">\(M_5\)</span> to estimate the value of the integral you found in (c). Include units on your result.</p></li>
+</ol></article><article class="exercise exercise-like" id="Onn"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<p id="rOl">In <a href="C-1.html" class="internal" title="Chapter 1: Understanding the Derivative">Chapter 1</a>, we showed that for an object moving along a straight line with position function <span class="process-math">\(s(t)\text{,}\)</span> the object's “average velocity on the interval <span class="process-math">\([a,b]\)</span>” is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/C-1.html">
+\begin{equation*}
+AV_{[a,b]} =  \frac{s(b)-s(a)}{b-a}\text{.}
+\end{equation*}
+</div>
+<p id="XVu">More recently in <a href="C-4.html" class="internal" title="Chapter 4: The Definite Integral">Chapter 4</a>, we found that for an object moving along a straight line with velocity function <span class="process-math">\(v(t)\text{,}\)</span> the object's “average value of its velocity function on <span class="process-math">\([a,b]\)</span>” is</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/C-4.html">
+\begin{equation*}
+\displaystyle v_{\operatorname{AVG} [a,b]}  = \frac{1}{b-a} \int_a^b v(t) \, dt\text{.}
+\end{equation*}
+</div>
+<p id="EcD">Are the “average velocity on the interval <span class="process-math">\([a,b]\)</span>” and the “average value of the velocity function on <span class="process-math">\([a,b]\)</span>” the same thing? Why or why not? Explain.</p></article><article class="exercise exercise-like" id="LVI"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<p id="uBY">In <a href="" class="xref" data-knowl="./knowl/T-4-4-Act2.html" title="Table 4.4.5: Familiar basic functions and their antiderivatives.">Table 4.4.5</a> in <a href="" class="xref" data-knowl="./knowl/act-4-4-2.html" title="Activity 4.4.3">Activity 4.4.3</a>, we noted that for <span class="process-math">\(x \gt 0\text{,}\)</span> the antiderivative of <span class="process-math">\(f(x) = \frac{1}{x}\)</span> is <span class="process-math">\(F(x) = \ln(x)\text{.}\)</span>  Here we observe that a key difference between <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(F(x)\)</span> is that <span class="process-math">\(f\)</span> is defined for all <span class="process-math">\(x \ne 0\text{,}\)</span> while <span class="process-math">\(F\)</span> is only defined for <span class="process-math">\(x \gt 0\text{,}\)</span> and see how we can actually define the antiderivative of <span class="process-math">\(f\)</span> for all values of <span class="process-math">\(x\text{.}\)</span></p>
+<ol id="aJh" class="lower-alpha">
+<li id="Vpu"><p id="qXy">Suppose that <span class="process-math">\(x \lt 0\text{,}\)</span> and let <span class="process-math">\(G(x) = \ln(-x)\text{.}\)</span>  Compute <span class="process-math">\(G'(x)\text{.}\)</span></p></li>
+<li id="BwD"><p id="XeH">Explain why <span class="process-math">\(G\)</span> is an antiderivative of <span class="process-math">\(f\)</span> for <span class="process-math">\(x \lt 0\text{.}\)</span></p></li>
+<li id="hDM">
+<p id="DlQ">Let <span class="process-math">\(H(x) = \ln(|x|)\text{,}\)</span> and recall that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+|x| = 
+\begin{cases}
+-x, \amp  \ \text{if}  \ x \lt 0 \\
+x, \amp  \ \text{if}   \ x \ge 0 
+\end{cases}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Explain why <span class="process-math">\(H(x) = G(x)\)</span> for <span class="process-math">\(x \lt 0\)</span> and <span class="process-math">\(H(x) = F(x)\)</span> for <span class="process-math">\(x \gt 0\text{.}\)</span></p>
+</li>
+<li id="NKV"><p id="jsZ">Now discuss why we say that the antiderivative of <span class="process-math">\(\frac{1}{x}\)</span> is <span class="process-math">\(\ln(|x|)\)</span> for all <span class="process-math">\(x \ne 0\text{.}\)</span></p></li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Qualitative behavior of solutions to DEs</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-7-1-diff-eq-intro.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-7.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-7-3-euler.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-7-1-diff-eq-intro.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-7.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-7-3-euler.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="active">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="Wyg"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">7.2</span> <span class="title">Qualitative behavior of solutions to DEs</span>
+</h2>
+<article class="objectives goal-like" id="nwr"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="LZb"><p id="wQd">What is a slope field?</p></li>
+<li id="sgk"><p id="cXm">How can we use a slope field to obtain qualitative information about the solutions of a differential equation?</p></li>
+<li id="Ynt"><p id="Jev">What are stable and unstable equilibrium solutions of an autonomous differential equation?</p></li>
+</ul></article><section class="introduction" id="TDA"><p id="GjP">In earlier work, we have used the tangent line to the graph of a function <span class="process-math">\(f\)</span> at a point <span class="process-math">\(a\)</span> to approximate the values of <span class="process-math">\(f\)</span> near <span class="process-math">\(a\text{.}\)</span> The usefulness of this approximation is that we need to know very little about the function; armed with only the value <span class="process-math">\(f(a)\)</span> and the derivative <span class="process-math">\(f'(a)\text{,}\)</span> we may find the equation of the tangent line and the approximation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x) \approx f(a) + f'(a)(x-a)\text{.}
+\end{equation*}
+</div>
+<p id="mqY">Remember that a first-order differential equation gives us information about the derivative of an unknown function. Since the derivative at a point tells us the slope of the tangent line at this point, a differential equation gives us crucial information about the tangent lines to the graph of a solution. We will use this information about the tangent lines to create a <em class="emphasis">slope field</em> for the differential equation, which enables us to sketch solutions to initial value problems. Our aim will be to understand the solutions qualitatively. That is, we would like to understand the basic nature of solutions, such as their long-range behavior, without precisely determining the value of a solution at a particular point.</p>
+<article class="exploration project-like" id="Gzk"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">7.2.1</span><span class="period">.</span>
+</h3>
+<p id="OdJ">Let's consider the initial value problem</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = t - 2, \ \ y(0) = 1\text{.}
+\end{equation*}
+</div>
+<ol id="ukS" class="lower-alpha">
+<li id="YCO">
+<p id="dmH">Use the differential equation to find the slope of the tangent line to the solution <span class="process-math">\(y(t)\)</span> at <span class="process-math">\(t=0\text{.}\)</span> Then use the initial value to find the equation of the tangent line at <span class="process-math">\(t=0\text{.}\)</span> Sketch this tangent line over the interval <span class="process-math">\(-0.25 \leq t \leq 0.25\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-2-PA.html" title="Figure 7.2.1">Figure 7.2.1</a>.</p>
+<figure class="figure figure-like" id="JtQ"><div class="image-box" style="width: 44%; margin-left: 28%; margin-right: 28%;"><img src="external/images/7_2_PA_tangents.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.1<span class="period">.</span></span><span class="space"> </span>Grid for plotting partial tangent lines.</figcaption></figure>
+</li>
+<li id="EJX"><p id="pAZ">Also shown in <a href="" class="xref" data-knowl="./knowl/F-7-2-PA.html" title="Figure 7.2.1">Figure 7.2.1</a> are the tangent lines to the solution <span class="process-math">\(y(t)\)</span> at the points <span class="process-math">\(t=1, 2\text{,}\)</span> and <span class="process-math">\(3\)</span> (we will see how to find these later). Use the graph to measure the slope of each tangent line and verify that each agrees with the value specified by the differential equation.</p></li>
+<li id="kRg"><p id="VIi">Using these tangent lines as a guide, sketch a graph of the solution <span class="process-math">\(y(t)\)</span> over the interval <span class="process-math">\(0\leq t\leq 3\)</span> so that the lines are tangent to the graph of <span class="process-math">\(y(t)\text{.}\)</span></p></li>
+<li id="QYp"><p id="BPr">Use the Fundamental Theorem of Calculus to find <span class="process-math">\(y(t)\text{,}\)</span> the solution to this initial value problem.</p></li>
+<li id="xfy"><p id="hWA">Graph the solution you found in (d) on the axes provided, and compare it to the sketch you made using the tangent lines.</p></li>
+</ol></article></section><section class="subsection" id="CFp"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.2.1</span> <span class="title">Slope fields</span>
+</h3>
+<p id="Syh"><a href="" class="xref" data-knowl="./knowl/PA-7-2.html" title="Preview Activity 7.2.1">Preview Activity 7.2.1</a> shows that we can sketch the solution to an initial value problem if we know an appropriate collection of tangent lines. We can use the differential equation to find the slope of the tangent line at any point of interest, and hence plot such a collection.</p>
+<p id="yFq">Let's continue looking at the differential equation <span class="process-math">\(\frac{dy}{dt} = t-2\text{.}\)</span> If <span class="process-math">\(t=0\text{,}\)</span> this equation says that <span class="process-math">\(dy/dt = 0-2=-2\text{.}\)</span> Note that this value holds regardless of the value of <span class="process-math">\(y\text{.}\)</span> We will therefore sketch tangent lines for several values of <span class="process-math">\(y\)</span> and <span class="process-math">\(t=0\)</span> with a slope of <span class="process-math">\(-2\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-7-2-field-0.html" title="Figure 7.2.2">Figure 7.2.2</a>.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="hHf"><img src="external/images/7_2_field_0.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.2<span class="period">.</span></span><span class="space"> </span>Tangent lines at points with <span class="process-math">\(t=0\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="NOo"><img src="external/images/7_2_field_1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.3<span class="period">.</span></span><span class="space"> </span>Adding tangent lines at points with <span class="process-math">\(t=1\text{.}\)</span></figcaption></figure></div>
+</div></div>
+<p id="eMz">Let's continue in the same way: if <span class="process-math">\(t=1\text{,}\)</span> the differential equation tells us that <span class="process-math">\(dy/dt = 1-2=-1\text{,}\)</span> and this holds regardless of the value of <span class="process-math">\(y\text{.}\)</span> We now sketch tangent lines for several values of <span class="process-math">\(y\)</span> and <span class="process-math">\(t=1\)</span> with a slope of <span class="process-math">\(-1\)</span> in <a href="" class="xref" data-knowl="./knowl/F-7-2-field-1.html" title="Figure 7.2.3">Figure 7.2.3</a>.</p>
+<p id="KTI">Similarly, we see that when <span class="process-math">\(t=2\text{,}\)</span> <span class="process-math">\(dy/dt = 0\)</span> and when <span class="process-math">\(t=3\text{,}\)</span> <span class="process-math">\(dy/dt=1\text{.}\)</span> We may therefore add to our growing collection of tangent line plots to achieve <a href="" class="xref" data-knowl="./knowl/F-7-2-field-2.html" title="Figure 7.2.4">Figure 7.2.4</a>.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="tVx"><img src="external/images/7_2_field_3.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.4<span class="period">.</span></span><span class="space"> </span>Adding tangent lines at points with <span class="process-math">\(t=2\)</span> and <span class="process-math">\(t=3\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="acG"><img src="external/images/7_2_field_23.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.5<span class="period">.</span></span><span class="space"> </span>A completed slope field.</figcaption></figure></div>
+</div></div>
+<p id="raR">In <a href="" class="xref" data-knowl="./knowl/F-7-2-field-2.html" title="Figure 7.2.4">Figure 7.2.4</a>, we begin to see the solutions to the differential equation emerge. For the sake of even greater clarity, we add more tangent lines to provide the more complete picture shown at right in <a href="" class="xref" data-knowl="./knowl/F-7-2-field-23.html" title="Figure 7.2.5">Figure 7.2.5</a>.</p>
+<p id="Xia"><a href="" class="xref" data-knowl="./knowl/F-7-2-field-23.html" title="Figure 7.2.5">Figure 7.2.5</a> is called a <em class="emphasis">slope field</em>  for the differential equation. It allows us to sketch solutions just as we did in the preview activity. We can begin with the initial value <span class="process-math">\(y(0) = 1\)</span> and start sketching the solution by following the tangent line. Whenever the solution passes through a point at which a tangent line is drawn, that line is tangent to the solution. This principle leads us to the sequence of images in <a href="" class="xref" data-knowl="./knowl/F-7-2-IVP-soln.html" title="Figure 7.2.6">Figure 7.2.6</a>.</p>
+<figure class="figure figure-like" id="PDB"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:30%;"><img src="external/images/7_2_field_31.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:30%;"><img src="external/images/7_2_field_32.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:30%;"><img src="external/images/7_2_field_33.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.6<span class="period">.</span></span><span class="space"> </span>A sequence of images that show how to sketch the IVP solution that satisfies <span class="process-math">\(y(0)=1\text{.}\)</span></figcaption></figure><p id="Dpj">In fact, we can draw solutions for any initial value. <a href="" class="xref" data-knowl="./knowl/F-7-2-field-4.html" title="Figure 7.2.7">Figure 7.2.7</a> shows solutions for several different initial values for <span class="process-math">\(y(0)\text{.}\)</span></p>
+<figure class="figure figure-like" id="vKK"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/images/7_2_field_4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.7<span class="period">.</span></span><span class="space"> </span>Different solutions to <span class="process-math">\(\frac{dy}{dt} = t-2\)</span> that correspond to different initial values.</figcaption></figure><p id="jws">Just as we did for the equation <span class="process-math">\(\frac{dy}{dt} = t-2\text{,}\)</span> we can construct a slope field for any differential equation of interest. The slope field provides us with visual information about how we expect solutions to the differential equation to behave.</p>
+<article class="activity project-like" id="nza"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.2.2</span><span class="period">.</span>
+</h4>
+<p id="oEt">Consider the autonomous differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = -\frac{1}{2}(y - 4)\text{.}
+\end{equation*}
+</div>
+<ol id="ULC" class="lower-alpha">
+<li id="AiR">
+<p id="Omw">Make a plot of <span class="process-math">\(\frac{dy}{dt}\)</span> versus <span class="process-math">\(y\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-2-act-1-2-dydt.html" title="Figure 7.2.8">Figure 7.2.8</a>. Looking at the graph, for what values of <span class="process-math">\(y\)</span> does <span class="process-math">\(y\)</span> increase and for what values of <span class="process-math">\(y\)</span> does <span class="process-math">\(y\)</span> decrease?</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel bottom" style="width:50%;"><figure class="figure figure-like" id="utF"><img src="external/images/7_2_Act1_1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.8<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(\frac{dy}{dt}\)</span> versus <span class="process-math">\(y\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel bottom" style="width:44%;"><figure class="figure figure-like" id="aAO"><img src="external/images/7_2_Act1_2.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.9<span class="period">.</span></span><span class="space"> </span>Axes for plotting the slope field for <span class="process-math">\(\frac{dy}{dt} = -\frac 12( y - 4)\text{.}\)</span></figcaption></figure></div>
+</div></div>
+</li>
+<li id="gqa"><p id="GHX">Next, sketch the slope field for this differential equation on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-2-act-1-2.html" title="Figure 7.2.9">Figure 7.2.9</a>.</p></li>
+<li id="Mxj"><p id="mPg">Use your work in (b) to sketch (on the same axes in <a href="" class="xref" data-knowl="./knowl/F-7-2-act-1-2.html" title="Figure 7.2.9">Figure 7.2.9</a>.) solutions that satisfy <span class="process-math">\(y(0) = 0\text{,}\)</span> <span class="process-math">\(y(0) = 2\text{,}\)</span> <span class="process-math">\(y(0) = 4\)</span> and <span class="process-math">\(y(0) = 6\text{.}\)</span></p></li>
+<li id="sEs"><p id="SWp">Verify that <span class="process-math">\(y(t) = 4 + 2e^{-t/2}\)</span> is a solution to the given differential equation with the initial value <span class="process-math">\(y(0) = 6\text{.}\)</span> Compare its graph to the one you sketched in (c).</p></li>
+<li id="YLB"><p id="zdy">What is special about the solution where <span class="process-math">\(y(0) = 4\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="iMy"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.2.2</span> <span class="title">Equilibrium solutions and stability</span>
+</h3>
+<p id="bRT">As our work in <a href="" class="xref" data-knowl="./knowl/act-7-2-1.html" title="Activity 7.2.2">Activity 7.2.2</a> demonstrates, first-order autonomous equations may have solutions that are constant. These are simple to detect by inspecting the differential equation <span class="process-math">\(dy/dt = f(y)\text{:}\)</span> constant solutions necessarily have a zero derivative, so <span class="process-math">\(dy/dt = 0 = f(y)\text{.}\)</span></p>
+<p id="HZc">For example, in <a href="" class="xref" data-knowl="./knowl/act-7-2-1.html" title="Activity 7.2.2">Activity 7.2.2</a>, we considered the equation <span class="process-math">\(\frac{dy}{dt} = f(y)=-\frac12(y-4)\text{.}\)</span> Constant solutions are found by setting <span class="process-math">\(f(y) = -\frac12(y-4) = 0\text{,}\)</span> which we immediately see implies that <span class="process-math">\(y = 4\text{.}\)</span></p>
+<p id="ogl">Values of <span class="process-math">\(y\)</span> for which <span class="process-math">\(f(y) = 0\)</span> in an autonomous differential equation <span class="process-math">\(\frac{dy}{dt} = f(y)\)</span> are called <em class="emphasis">equilibrium solutions</em>  of the differential equation.</p>
+<article class="activity project-like" id="Bhg"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.2.3</span><span class="period">.</span>
+</h4>
+<p id="uIa">Consider the autonomous differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = -\frac{1}{2}y(y-4)\text{.}
+\end{equation*}
+</div>
+<ol id="aPj" class="lower-alpha">
+<li id="Yqc">
+<p id="XkJ">Make a plot of <span class="process-math">\(\frac{dy}{dt}\)</span> versus <span class="process-math">\(y\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-2-act-2-2-dydt.html" title="Figure 7.2.10">Figure 7.2.10</a>. Looking at the graph, for what values of <span class="process-math">\(y\)</span> does <span class="process-math">\(y\)</span> increase and for what values of <span class="process-math">\(y\)</span> does <span class="process-math">\(y\)</span> decrease?</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel bottom" style="width:50%;"><figure class="figure figure-like" id="DrS"><img src="external/images/7_2_Act1_1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.10<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(dy/dt\)</span> vs <span class="process-math">\(y\)</span> for <span class="process-math">\(\frac{dy}{dt} = -\frac 12 y(y-4)\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel bottom" style="width:44%;"><figure class="figure figure-like" id="jzb"><img src="external/images/7_2_Act2_2.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.11<span class="period">.</span></span><span class="space"> </span>Axes for plotting the slope field for <span class="process-math">\(\frac{dy}{dt} = -\frac 12 y(y-4)\text{.}\)</span></figcaption></figure></div>
+</div></div>
+</li>
+<li id="Exl"><p id="PGk">Identify any equilibrium solutions of the given differential equation.</p></li>
+<li id="kEu"><p id="vNt">Now sketch the slope field for the given differential equation on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-2-act-2-2.html" title="Figure 7.2.11">Figure 7.2.11</a>.</p></li>
+<li id="QLD"><p id="bUC">Sketch the solutions to the given differential equation that correspond to initial values <span class="process-math">\(y(0)=-1, 0, 1, \ldots, 5\text{.}\)</span></p></li>
+<li id="wSM"><p id="IbL">An equilibrium solution <span class="process-math">\(\overline{y}\)</span> is called <em class="emphasis">stable</em>  if nearby solutions converge to <span class="process-math">\(\overline{y}\text{.}\)</span> This means that if the initial condition varies slightly from <span class="process-math">\(\overline{y}\text{,}\)</span> then <span class="process-math">\(\lim_{t\to\infty}y(t) = \overline{y}\text{.}\)</span> Conversely, an equilibrium solution <span class="process-math">\(\overline{y}\)</span> is called <em class="emphasis">unstable</em>  if nearby solutions are pushed away from <span class="process-math">\(\overline{y}\text{.}\)</span> Using your work above, classify the equilibrium solutions you found in (b) as either stable or unstable.</p></li>
+<li id="cZV"><p id="oiU">Suppose that <span class="process-math">\(y(t)\)</span> describes the population of a species of living organisms and that the initial value <span class="process-math">\(y(0)\)</span> is positive. What can you say about the eventual fate of this population?</p></li>
+<li id="Jhe"><p id="Uqd">Now consider a general autonomous differential equation of the form <span class="process-math">\(dy/dt = f(y)\text{.}\)</span> Remember that an equilibrium solution <span class="process-math">\(\overline{y}\)</span> satisfies <span class="process-math">\(f(\overline{y}) = 0\text{.}\)</span> If we graph <span class="process-math">\(dy/dt = f(y)\)</span> as a function of <span class="process-math">\(y\text{,}\)</span> for which of the differential equations represented in <a href="" class="xref" data-knowl="./knowl/F-7-2-act-2-3a.html" title="Figure 7.2.12">Figure 7.2.12</a> and <a href="" class="xref" data-knowl="./knowl/F-7-2-act-2-3b.html" title="Figure 7.2.13">Figure 7.2.13</a> is <span class="process-math">\(\overline{y}\)</span> a stable equilibrium and for which is <span class="process-math">\(\overline{y}\)</span> unstable? Why?</p></li>
+</ol>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;">
+<div class="sbspanel top" style="width:48.4536082474227%;"><figure class="figure figure-like" id="itI"><img src="external/images/7_2_Act2_3.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.12<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(\frac{dy}{dt}\)</span>  as a function of <span class="process-math">\(y\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:48.4536082474227%;"><figure class="figure figure-like" id="OAR"><img src="external/images/7_2_Act2_4.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.13<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(\frac{dy}{dt}\)</span>  as a different function of <span class="process-math">\(y\text{.}\)</span></figcaption></figure></div>
+</div></div></article></section><section class="subsection" id="OTH"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.2.3</span> <span class="title">Summary</span>
+</h3>
+<ul id="Unu" class="disc">
+<li id="EuC"><p id="plE">A slope field is a plot created by graphing the tangent lines of many different solutions to a differential equation.</p></li>
+<li id="kBL"><p id="VsN">Once we have a slope field, we may sketch the graph of solutions by drawing a curve that is always tangent to the lines in the slope field.</p></li>
+<li id="QIU"><p id="BzW">Autonomous differential equations sometimes have constant solutions that we call equilibrium solutions. These may be classified as stable or unstable, depending on the behavior of nearby solutions.</p></li>
+</ul></section><section class="exercises" id="ehs"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">7.2.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="pSU"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Graphing equilibrium solutions.</span>
+</h4>
+<div id="webwork-190" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="190" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UMN/calculusStewartET/s_9_2_1.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7679">Consider the direction field below for a differential equation.  Use the graph to find the equilibrium solutions.</p>
+<div class="image-box" style="width: 66.6666666666667%; margin-left: 16.6666666666667%; margin-right: 16.6666666666667%;"><img src="generated/webwork/images/webwork-190-image-1.png" class="contained"></div>
+<p id="p-7680">Answer (separate by commas):<span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span></p>
+<p id="p-7681"><em class="alert">Note:</em> <em class="emphasis">You can click on the graph to enlarge the image.</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-190')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Wad"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Sketching solution curves.</span>
+</h4>
+<div id="webwork-191" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="191" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec2/Q01.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7683">Consider the two slope fields shown, in figures 1 and 2 below.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-191-image-1.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-191-image-2.png" class="contained"></div></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">figure 1</td>
+<td class="l m b2 r2 l0 t0 lines">figure 2</td>
+</tr>
+</table></div>
+<p id="p-7684">On a print-out of these slope fields, sketch for each three solution curves to the differential equations that generated them.  Then complete the following statements:</p>
+<p id="p-7685">For the slope field in figure 1, a solution passing through the point (0,-2) has a <ul style="list-style:circle;">
+<li id="li-4499"><p id="p-7687">positive</p></li>
+<li id="li-4500"><p id="p-7688">negative</p></li>
+<li id="li-4501"><p id="p-7689">zero</p></li>
+<li id="li-4502"><p id="p-7690">undefined</p></li>
+</ul> slope.</p>
+<p id="p-7691">For the slope field in figure 1, a solution passing through the point (-2,-2) has a <ul style="list-style:circle;">
+<li id="li-4504"><p id="p-7693">positive</p></li>
+<li id="li-4505"><p id="p-7694">negative</p></li>
+<li id="li-4506"><p id="p-7695">zero</p></li>
+<li id="li-4507"><p id="p-7696">undefined</p></li>
+</ul> slope.</p>
+<p id="p-7697">For the slope field in figure 2, a solution passing through the point (2,-3) has a <ul style="list-style:circle;">
+<li id="li-4509"><p id="p-7699">positive</p></li>
+<li id="li-4510"><p id="p-7700">negative</p></li>
+<li id="li-4511"><p id="p-7701">zero</p></li>
+<li id="li-4512"><p id="p-7702">undefined</p></li>
+</ul> slope.</p>
+<p id="p-7703">For the slope field in figure 2, a solution passing through the point (0,-4) has a <ul style="list-style:circle;">
+<li id="li-4514"><p id="p-7705">positive</p></li>
+<li id="li-4515"><p id="p-7706">negative</p></li>
+<li id="li-4516"><p id="p-7707">zero</p></li>
+<li id="li-4517"><p id="p-7708">undefined</p></li>
+</ul> slope.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-191')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Chm"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Matching equations with direction fields.</span>
+</h4>
+<div id="webwork-192" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="192" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ2DirectionFields/ur_de_2_3.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7719">Match the following equations with their direction field. Clicking on each picture will give you an enlarged view.  While you can probably solve this problem by guessing, it is useful to try to predict characteristics of the direction field and then match them to the picture.</p>
+<p id="p-7720">Here are some handy characteristics to start with -- you will develop more as you practice.</p>
+<ol id="p-7721" class="upper-alpha">
+<li id="li-4518"><p id="p-7722">Set <span class="process-math">\(y\)</span> equal to zero and look at how the derivative behaves along the <span class="process-math">\(x\)</span>-axis.</p></li>
+<li id="li-4519"><p id="p-7723">Do the same for the <span class="process-math">\(y\)</span>-axis by setting <span class="process-math">\(x\)</span> equal to <span class="process-math">\(0\)</span></p></li>
+<li id="li-4520"><p id="p-7724">Consider the curve in the plane defined by setting <span class="process-math">\(y'=0\)</span> -- this should correspond to the points in the picture where the slope is zero.</p></li>
+<li id="li-4521"><p id="p-7725">Setting <span class="process-math">\(y'\)</span> equal to a constant other than zero gives the curve of points where the slope is that constant.  These are called isoclines, and can be used to construct the direction field picture by hand.</p></li>
+</ol>
+<ol id="p-7726" class="lower-alpha">
+<li id="li-4522"><p id="p-7727"><span class="process-math">\(\displaystyle \displaystyle y'= \frac{y}{x} +3\cos(2x)\)</span></p></li>
+<li id="li-4523"><p id="p-7728"><span class="process-math">\(\displaystyle y'= 2\sin(3x) + 1 + y\)</span></p></li>
+<li id="li-4524"><p id="p-7729"><span class="process-math">\(\displaystyle y'= y + xe^{-x} + 1\)</span></p></li>
+<li id="li-4525"><p id="p-7730"><span class="process-math">\(\displaystyle \displaystyle y'= -\frac{(2x+y)}{(2y)}\)</span></p></li>
+</ol>
+<p id="p-7731">Error: PGbasicmacros: imageRow: Unknown displayMode: PTX.</p>
+<p id="p-7732">Error: PGbasicmacros: imageRow: Unknown displayMode: PTX.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-192')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="iov"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Describing equilibrium solutions.</span>
+</h4>
+<div id="webwork-193" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="193" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ6AutonomousStability/ur_de_6_4.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7733">Given the differential equation <span class="process-math">\(x'(t) =   x^4 + 8x^3 + 17x^2  - 2x  - 24\text{.}\)</span></p>
+<p id="p-7734">List the constant (or equilibrium) solutions to this differential equation in increasing order and indicate whether or not these equilibria are stable, semi-stable, or unstable. (It helps to <a class="external" href="https://www.desmos.com/calculator" target="_blank">sketch the graph.</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-115" id="fn-115"><sup> 1 </sup></a> )</p>
+<p id="p-7735"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>  <ul style="list-style:circle;">
+<li id="li-4526"><p id="p-derived-li-4526"></p></li>
+<li id="li-4527"><p id="p-7736">stable</p></li>
+<li id="li-4528"><p id="p-7737">unstable</p></li>
+<li id="li-4529"><p id="p-7738">semi-stable</p></li>
+</ul></p>
+<p id="p-7739"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>  <ul style="list-style:circle;">
+<li id="li-4530"><p id="p-derived-li-4530"></p></li>
+<li id="li-4531"><p id="p-7740">stable</p></li>
+<li id="li-4532"><p id="p-7741">unstable</p></li>
+<li id="li-4533"><p id="p-7742">semi-stable</p></li>
+</ul></p>
+<p id="p-7743"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>  <ul style="list-style:circle;">
+<li id="li-4534"><p id="p-derived-li-4534"></p></li>
+<li id="li-4535"><p id="p-7744">stable</p></li>
+<li id="li-4536"><p id="p-7745">unstable</p></li>
+<li id="li-4537"><p id="p-7746">semi-stable</p></li>
+</ul></p>
+<p id="p-7747"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>  <ul style="list-style:circle;">
+<li id="li-4538"><p id="p-derived-li-4538"></p></li>
+<li id="li-4539"><p id="p-7748">stable</p></li>
+<li id="li-4540"><p id="p-7749">unstable</p></li>
+<li id="li-4541"><p id="p-7750">semi-stable</p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-193')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="OvE"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="LtU">Consider the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dy}{dt} = t-y\text{.}
+\end{equation*}
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><ol id="fmL" class="lower-alpha">
+<li id="lSV"><p id="qhp">Sketch a slope field on the axes at right.</p></li>
+<li id="Sae"><p id="Woy">Sketch the solutions whose initial values are <span class="process-math">\(y(0)= -4, -3, \ldots, 4\text{.}\)</span></p></li>
+<li id="yhn"><p id="CvH">What do your sketches suggest is the solution whose initial value is <span class="process-math">\(y(0) = -1\text{?}\)</span> Verify that this is indeed the solution to this initial value problem.</p></li>
+<li id="eow"><p id="iCQ">By considering the differential equation and the graphs you have sketched, what is the relationship between <span class="process-math">\(t\)</span> and <span class="process-math">\(y\)</span> at a point where a solution has a local minimum?</p></li>
+</ol></div>
+<div class="sbspanel top" style="width:47%;"><img src="external/images/7_2_ex_1.svg" role="img" class="contained"></div>
+</div></div></article><article class="exercise exercise-like" id="uCN"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="rBd">Consider the situation from problem 2 of <a href="sec-7-1-diff-eq-intro.html" class="internal" title="Section 7.1: An Introduction to Differential Equations">Section 7.1</a>: Suppose that the population of a particular species is described by the function <span class="process-math">\(P(t)\text{,}\)</span> where <span class="process-math">\(P\)</span> is expressed in millions. Suppose further that the population's rate of change is governed by the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-7-1-diff-eq-intro.html">
+\begin{equation*}
+\frac{dP}{dt} = f(P)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(f(P)\)</span> is the function graphed below.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:26.5%;margin-right:26.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/7_1_threshold.svg" role="img" class="contained"></div></div></div>
+<ol id="XIm" class="lower-alpha">
+<li id="HAZ"><p id="fIk">Sketch a slope field for this differential equation. You do not have enough information to determine the actual slopes, but you should have enough information to determine where slopes are positive, negative, zero, large, or small, and hence determine the qualitative behavior of solutions.</p></li>
+<li id="nIi"><p id="LPt">Sketch some solutions to this differential equation when the initial population <span class="process-math">\(P(0) \gt 0\text{.}\)</span></p></li>
+<li id="TPr"><p id="rWC">Identify any equilibrium solutions to the differential equation and classify them as stable or unstable.</p></li>
+<li id="zWA"><p id="YdL">If <span class="process-math">\(P(0) \gt 1\text{,}\)</span> what is the eventual fate of the species? if <span class="process-math">\(P(0) \lt 1\text{?}\)</span></p></li>
+<li id="gdJ"><p id="EkU">Remember that we referred to this model for population growth as “growth with a threshold.” Explain why this characterization makes sense by considering solutions whose inital value is close to 1.</p></li>
+</ol></article><article class="exercise exercise-like" id="aJW"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="DPv">The population of a species of fish in a lake is <span class="process-math">\(P(t)\)</span> where <span class="process-math">\(P\)</span> is measured in thousands of fish and <span class="process-math">\(t\)</span> is measured in months. The growth of the population is described by the differential equation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{dP}{dt} = f(P) = P(6-P)\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="VEE"><p id="NEG">Sketch a graph of <span class="process-math">\(f(P) = P(6-P)\)</span> and use it to determine the equilibrium solutions and whether they are stable or unstable. Write a complete sentence that describes the long-term behavior of the fish population.</p></li>
+<li id="BLN"><p id="tLP">Suppose now that the owners of the lake allow fishers to remove 1000 fish from the lake every month (remember that <span class="process-math">\(P(t)\)</span> is measured in <em class="emphasis">thousands</em> of fish). Modify the differential equation to take this into account. Sketch the new graph of <span class="process-math">\(dP/dt\)</span> versus <span class="process-math">\(P\text{.}\)</span> Determine the new equilibrium solutions and decide whether they are stable or unstable.</p></li>
+<li id="hSW"><p id="ZSY">Given the situation in part (b), give a description of the long-term behavior of the fish population.</p></li>
+<li id="Oaf"><p id="Gah">Suppose that fishermen remove <span class="process-math">\(h\)</span> thousand fish per month. How is the differential equation modified?</p></li>
+<li id="uho"><p id="mhq">What is the largest number of fish that can be removed per month without eliminating the fish population? If fish are removed at this maximum rate, what is the eventual population of fish?</p></li>
+</ol></article><article class="exercise exercise-like" id="GRf"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="jWE">Let <span class="process-math">\(y(t)\)</span> be the number of thousands of mice that live on a farm; assume time <span class="process-math">\(t\)</span> is measured in years.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-116" id="fn-116"><sup> 2 </sup></a></p>
+<ol class="lower-alpha">
+<li id="jIj"><p id="bIl">The population of the mice grows at a yearly rate that is twenty times the number of mice. Express this as a differential equation.</p></li>
+<li id="PPs">
+<p id="HPu">At some point, the farmer brings <span class="process-math">\(C\)</span> cats to the farm. The number of mice that the cats can eat in a year is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+M(y) = C\frac{y}{2+y}
+\end{equation*}
+</div>
+<p class="continuation">thousand mice per year. Explain how this modifies the differential equation that you found in part a).</p>
+</li>
+<li id="vWB"><p id="nWD">Sketch a graph of the function <span class="process-math">\(M(y)\)</span> for a single cat <span class="process-math">\(C=1\)</span> and explain its features by looking, for instance, at the behavior of <span class="process-math">\(M(y)\)</span> when <span class="process-math">\(y\)</span> is small and when <span class="process-math">\(y\)</span> is large.</p></li>
+<li id="cdK"><p id="UdM">Suppose that <span class="process-math">\(C=1\text{.}\)</span> Find the equilibrium solutions and determine whether they are stable or unstable. Use this to explain the long-term behavior of the mice population depending on the initial population of the mice.</p></li>
+<li id="IkT"><p id="AkV">Suppose that <span class="process-math">\(C=60\text{.}\)</span> Find the equilibrium solutions and determine whether they are stable or unstable. Use this to explain the long-term behavior of the mice population depending on the initial population of the mice.</p></li>
+<li id="osc"><p id="gse">What is the smallest number of cats you would need to keep the mice population from growing arbitrarily large?</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-115"><div class="fn"><code class="code-inline tex2jax_ignore">www.desmos.com/calculator</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-116"><div class="fn">This problem is based on an ecological analysis presented in a research paper by C.S. Hollings:  The Components of Predation as Revealed by a Study of Small Mammal Predation of the European Pine Sawfly, <em class="emphasis">Canadian Entomology</em> <em class="emphasis">91</em>: 283-320.</div></div>
+</div></main>
+</div>
+</body>
+</html>

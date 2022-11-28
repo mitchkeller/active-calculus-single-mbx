@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Improper Integrals</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-6-4-physics.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-6.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="C-7.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-6-4-physics.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-6.html" title="Up">Up</a><a class="next-button button toolbar-item" href="C-7.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="active">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="EBG"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6.5</span> <span class="title">Improper Integrals</span>
+</h2>
+<article class="objectives goal-like" id="psI"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="NVs"><p id="yMu">What are improper integrals and why are they important?</p></li>
+<li id="ucB"><p id="eTD">What does it mean to say that an improper integral converges or diverges?</p></li>
+<li id="ajK"><p id="LaM">What are some typical improper integrals that we can classify as convergent or divergent?</p></li>
+</ul></article><section class="introduction" id="VzR"><p id="jDw">Another important application of the definite integral measures the likelihood of certain events. For instance, consider a company that manufactures incandescent light bulbs. Based on a large volume of test results, they have determined that the fraction of light bulbs that fail between times <span class="process-math">\(t = a\)</span> and <span class="process-math">\(t = b\)</span> of use (where <span class="process-math">\(t\)</span> is measured in months) is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b 0.3 e^{-0.3t} \, dt\text{.}
+\end{equation*}
+</div>
+<p id="PKF">For example, the fraction of light bulbs that fail during their third month of use is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="CqU">
+\begin{align*}
+\int_2^3 0.3e^{-0.3t} \, dt \amp = -e^{-0.3t} \bigg \vert_2^3\\
+\amp = -e^{-0.9} + e^{-0.6}\\
+\amp \approx  0.1422\text{.}
+\end{align*}
+</div>
+<p id="vRO">Thus about 14.22% of all lightbulbs fail between <span class="process-math">\(t = 2\)</span> and <span class="process-math">\(t = 3\text{.}\)</span> Clearly we could adjust the limits of integration to measure the fraction of light bulbs that fail during any time period of interest.</p>
+<article class="exploration project-like" id="tAY"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">6.5.1</span><span class="period">.</span>
+</h3>
+<p id="Bfx">A company with a large customer base has a call center that receives thousands of calls a day. After studying the data that represents how long callers wait for assistance, they find that the function <span class="process-math">\(p(t) = 0.25e^{-0.25t}\)</span> models the time customers wait in the following way: the fraction of customers who wait between <span class="process-math">\(t = a\)</span> and <span class="process-math">\(t = b\)</span> minutes is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^b p(t) \, dt\text{.}
+\end{equation*}
+</div>
+<p id="hmG">Use this information to answer the following questions.</p>
+<ol class="lower-alpha">
+<li id="Tjb"><p id="khm">Determine the fraction of callers who wait between 5 and 10 minutes.</p></li>
+<li id="zqk"><p id="Qov">Determine the fraction of callers who wait between 10 and 20 minutes.</p></li>
+<li id="fxt">
+<p id="wvE">Next, let's study the fraction who wait up to a certain number of minutes:</p>
+<ol class="lower-roman">
+<li id="FPq"><p id="ZIh">What is the fraction of callers who wait between 0 and 5 minutes?</p></li>
+<li id="LEC"><p id="cCN">What is the fraction of callers who wait between 0 and 10 minutes?</p></li>
+<li id="rLL"><p id="IJW">Between 0 and 15 minutes? Between 0 and 20?</p></li>
+</ol>
+</li>
+<li id="XSU"><p id="oRf">Let <span class="process-math">\(F(b)\)</span> represent the fraction of callers who wait between <span class="process-math">\(0\)</span> and <span class="process-math">\(b\)</span> minutes. Find a formula for <span class="process-math">\(F(b)\)</span> that involves a definite integral, and then use the First FTC to find a formula for <span class="process-math">\(F(b)\)</span> that does not involve a definite integral.</p></li>
+<li id="Ead"><p id="UYo">What is the value of the limit <span class="process-math">\(\lim_{b \to \infty} F(b)\text{?}\)</span> What is its meaning in the context of the problem?</p></li>
+</ol></article></section><section class="subsection" id="kIP"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.5.1</span> <span class="title">Improper Integrals Involving Unbounded Intervals</span>
+</h3>
+<p id="bYX">In view of the above examples, we see that we may want to integrate over an interval whose upper limit grows without bound. For example, to find the fraction of light bulbs that fail <em class="emphasis">eventually</em>, we wish to find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{b \to \infty} \int_0^b 0.3e^{-0.3t} \, dt\text{,}
+\end{equation*}
+</div>
+<p class="continuation">for which we will also use the notation</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="OFm">
+\begin{equation}
+\int_0^\infty 0.3e^{-0.3t} \, dt\text{.}\tag{6.5.1}
+\end{equation}
+</div>
+<p id="Igg">Such an integral can be interpreted as the area of an unbounded region, as pictured at right in <a href="" class="xref" data-knowl="./knowl/F-6-5-InfReg.html" title="Figure 6.5.1">Figure 6.5.1</a>.</p>
+<figure class="figure figure-like" id="ABH"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/6_5_InfReg.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.5.1<span class="period">.</span></span><span class="space"> </span>At left, the area bounded by <span class="process-math">\(p(t) = 0.3e^{-0.3t}\)</span> on the finite interval <span class="process-math">\([0,b]\text{;}\)</span> at right, the result of letting <span class="process-math">\(b \to \infty\text{.}\)</span>  By “<span class="process-math">\(\cdots\)</span>” in the righthand figure, we mean that the region extends to the right without bound.</figcaption></figure><p id="onp">We call an integral for which the interval of integration is unbounded <em class="emphasis">improper</em>.  For instance, the integrals</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_1^{\infty} \frac{1}{x^2} \, dx, \ \ \int_{-\infty}^0 \frac{1}{1+x^2} \, dx, \ \ \text{and}  \int_{-\infty}^{\infty} e^{-x^2} \, dx
+\end{equation*}
+</div>
+<p class="continuation">are all improper because they have limits of integration that involve <span class="process-math">\(\infty\text{.}\)</span> To evaluate an improper integral we replace it with a limit of proper integrals. That is,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_0^\infty f(x) \, dx = \lim_{b \to \infty} \int_0^b f(x) \,dx\text{.}
+\end{equation*}
+</div>
+<p id="Uuy">We first attempt to evaluate <span class="process-math">\(\int_0^b f(x) \,dx\)</span> using the First FTC, and then evaluate the limit. Is it even possible for the area of an unbounded region to be finite? The following activity explores this issue and others in more detail.</p>
+<article class="activity project-like" id="EwY"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.5.2</span><span class="period">.</span>
+</h4>
+<p id="fUo">In this activity we explore the improper integrals <span class="process-math">\(\int_1^{\infty} \frac{1}{x} \, dx\)</span> and <span class="process-math">\(\int_1^{\infty} \frac{1}{x^{3/2}} \, dx\text{.}\)</span></p>
+<ol id="Mbx" class="lower-alpha">
+<li id="qOS">
+<p id="zdl">First we investigate <span class="process-math">\(\int_1^{\infty} \frac{1}{x} \, dx\text{.}\)</span></p>
+<ol id="fku" class="lower-roman">
+<li id="cZI"><p id="kEh">Use the First FTC to determine the exact values of <span class="process-math">\(\int_1^{10} \frac{1}{x} \, dx\text{,}\)</span> <span class="process-math">\(\int_1^{1000} \frac{1}{x} \, dx\text{,}\)</span> and <span class="process-math">\(\int_1^{100000} \frac{1}{x} \, dx\text{.}\)</span> Then, use your computational device to compute a decimal approximation of each result.</p></li>
+<li id="WWb"><p id="LrD">Use the First FTC to evaluate the definite integral <span class="process-math">\(\int_1^{b} \frac{1}{x} \, dx\)</span> (which results in an expression that depends on <span class="process-math">\(b\)</span>).</p></li>
+<li id="Ddk">
+<p id="ryM">Now, use your work from (ii.) to evaluate the limit given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{b \to \infty}  \int_1^{b} \frac{1}{x} \, dx\text{.}
+\end{equation*}
+</div>
+</li>
+</ol>
+</li>
+<li id="GHK">
+<p id="XFV">Next, we investigate <span class="process-math">\(\int_1^{\infty} \frac{1}{x^{3/2}} \, dx\text{.}\)</span></p>
+<ol class="lower-roman">
+<li id="jkt"><p id="vdm">Use the First FTC to determine the exact values of <span class="process-math">\(\int_1^{10} \frac{1}{x^{3/2}} \, dx\text{,}\)</span> <span class="process-math">\(\int_1^{1000} \frac{1}{x^{3/2}} \, dx\text{,}\)</span> and <span class="process-math">\(\int_1^{100000} \frac{1}{x^{3/2}} \, dx\text{.}\)</span> Then, use your calculator to compute a decimal approximation of each result.</p></li>
+<li id="PrC"><p id="DNe">Use the First FTC to evaluate the definite integral <span class="process-math">\(\int_1^{b} \frac{1}{x^{3/2}} \, dx\)</span> (which results in an expression that depends on <span class="process-math">\(b\)</span>).</p></li>
+<li id="vyL">
+<p id="jUn">Now, use your work from (ii.) to evaluate the limit given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{b \to \infty}  \int_1^{b} \frac{1}{x^{3/2}} \, dx\text{.}
+\end{equation*}
+</div>
+</li>
+</ol>
+</li>
+<li id="mOT"><p id="Qbw">Plot the functions <span class="process-math">\(y = \frac{1}{x}\)</span> and <span class="process-math">\(y = \frac{1}{x^{3/2}}\)</span> on the same coordinate axes for the values <span class="process-math">\(x = 0 \ldots 10\text{.}\)</span> How would you compare their behavior as <span class="process-math">\(x\)</span> increases without bound? What is similar? What is different?</p></li>
+<li id="SWc"><p id="wiF">How would you characterize the value of <span class="process-math">\(\int_1^{\infty} \frac{1}{x} \, dx\text{?}\)</span> of <span class="process-math">\(\int_1^{\infty} \frac{1}{x^{3/2}} \, dx\text{?}\)</span> What does this tell us about the respective areas bounded by these two curves for <span class="process-math">\(x \ge 1\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="QPY"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.5.2</span> <span class="title">Convergence and Divergence</span>
+</h3>
+<p id="gIQ"><a href="" class="xref" data-knowl="./knowl/act-6-5-1.html" title="Activity 6.5.2">Activity 6.5.2</a> suggests that <span class="process-math">\(\lim_{b \to \infty} \int_1^b f(x) \, dx\)</span> is either finite or infinite (or it doesn't exist). With these possibilities in mind, we introduce the following terminology.</p>
+<article class="assemblage assemblage-like" id="Jlz"><p id="MPZ">If <span class="process-math">\(f(x)\)</span> is nonnegative for <span class="process-math">\(x \ge a\text{,}\)</span> then we say that the improper integral <span class="process-math">\(\int_a^{\infty} f(x) \, dx\)</span> <dfn class="terminology">converges</dfn>  provided that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{b \to \infty} \int_a^{b} f(x) \, dx
+\end{equation*}
+</div>
+<p class="continuation">exists and is finite. Otherwise, we say that <span class="process-math">\(\int_a^{\infty} f(x) \, dx\)</span> <dfn class="terminology">diverges</dfn>. </p></article><p id="sXi">We will restrict our interest to improper integrals for which the integrand is nonnegative. Also, we require that <span class="process-math">\(\lim_{x \to \infty} f(x) = 0\text{,}\)</span> for if <span class="process-math">\(f\)</span> does not approach <span class="process-math">\(0\)</span> as <span class="process-math">\(x \to \infty\text{,}\)</span> then it is impossible for <span class="process-math">\(\int_a^{\infty} f(x) \, dx\)</span> to converge.</p>
+<article class="activity project-like" id="nNi"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.5.3</span><span class="period">.</span>
+</h4>
+<p id="KAF">Determine whether each of the following improper integrals converges or diverges. For each integral that converges, find its exact value.</p>
+<ol class="lower-alpha cols2">
+<li id="Xkw"><p id="OAE"><span class="process-math">\(\displaystyle \int_1^{\infty} \frac{1}{x^2} \, dx\)</span></p></li>
+<li id="DrF"><p id="uHN"><span class="process-math">\(\displaystyle \int_0^{\infty} e^{-x/4} \, dx\)</span></p></li>
+<li id="jyO"><p id="aOW"><span class="process-math">\(\displaystyle \int_2^{\infty} \frac{9}{(x+5)^{2/3}} \, dx\)</span></p></li>
+<li id="PFX"><p id="GWf"><span class="process-math">\(\displaystyle \int_4^{\infty} \frac{3}{(x+2)^{5/4}} \, dx\)</span></p></li>
+<li id="vNg"><p id="ndo"><span class="process-math">\(\displaystyle \int_0^{\infty} x e^{-x/4} \, dx\)</span></p></li>
+<li id="bUp"><p id="Tkx"><span class="process-math">\(\int_1^{\infty} \frac{1}{x^p} \, dx\text{,}\)</span> where <span class="process-math">\(p\)</span> is a positive real number</p></li>
+</ol></article></section><section class="subsection" id="wXh"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.5.3</span> <span class="title">Improper Integrals Involving Unbounded Integrands</span>
+</h3>
+<p id="Zer">An integral is also called improper if the integrand is unbounded on the interval of integration. For example, consider</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-6-5-InfIntegrand.html">
+\begin{equation*}
+\int_0^1 \frac{1}{\sqrt{x}} \, dx\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Because <span class="process-math">\(f(x) = \frac{1}{\sqrt{x}}\)</span> has a vertical asymptote at <span class="process-math">\(x = 0\text{,}\)</span> <span class="process-math">\(f\)</span> is not continuous on <span class="process-math">\([0,1]\text{,}\)</span> and the integral represents the area of the unbounded region shown at right in <a href="" class="xref" data-knowl="./knowl/F-6-5-InfIntegrand.html" title="Figure 6.5.2">Figure 6.5.2</a>.</p>
+<figure class="figure figure-like" id="dOk"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/6_5_InfIntegrand.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.5.2<span class="period">.</span></span><span class="space"> </span>At left, the area bounded by <span class="process-math">\(f(x) = \frac{1}{\sqrt{x}}\)</span> on the finite interval <span class="process-math">\([a,1]\text{;}\)</span> at right, the result of letting <span class="process-math">\(a \to 0^+\text{,}\)</span> where we see that the shaded region will extend vertically without bound.</figcaption></figure><p id="FlA">We address the problem of the integrand being unbounded  by replacing the improper integral with a limit of proper integrals. For example, to evaluate <span class="process-math">\(\int_0^1 \frac{1}{\sqrt{x}} \, dx\text{,}\)</span> we replace <span class="process-math">\(0\)</span> with <span class="process-math">\(a\)</span> and let <span class="process-math">\(a\)</span> approach 0 from the right. Thus,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_0^1 \frac{1}{\sqrt{x}} \, dx = \lim_{a \to 0^+} \int_a^1 \frac{1}{\sqrt{x}} \, dx\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We evaluate the proper integral <span class="process-math">\(\int_a^1 \frac{1}{\sqrt{x}} \, dx\text{,}\)</span> and then take the limit. We will say that the improper integral converges if this limit exists, and diverges otherwise. In this example, we observe that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="zwo">
+\begin{align*}
+\int_0^1 \frac{1}{\sqrt{x}} \, dx &amp;=  \lim_{a \to 0^+} \int_a^1 \frac{1}{\sqrt{x}} \, dx\\
+&amp;= \lim_{a \to 0^+} \left. 2\sqrt{x}\, \right\vert_a^1\\
+&amp;= \lim_{a \to 0^+} 2\sqrt{1} - 2\sqrt{a}\\
+&amp;= 2\text{,}
+\end{align*}
+</div>
+<p class="continuation">so the improper integral <span class="process-math">\(\int_0^1 \frac{1}{\sqrt{x}} \, dx\)</span> converges (to the value 2).</p>
+<p id="lsJ">We have to be particularly careful with unbounded integrands, for they may arise in ways that may not initially be obvious. Consider, for instance, the integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_1^3 \frac{1}{(x-2)^2} \, dx\text{.}
+\end{equation*}
+</div>
+<p id="RzS">At first glance we might think that we can simply apply the Fundamental Theorem of Calculus by antidifferentiating <span class="process-math">\(\frac{1}{(x-2)^2}\)</span> to get <span class="process-math">\(-\frac{1}{x-2}\)</span> and then evaluating from <span class="process-math">\(1\)</span> to <span class="process-math">\(3\text{.}\)</span> Were we to do so, we would be erroneously applying the FTC because <span class="process-math">\(f(x) = \frac{1}{(x-2)^2}\)</span> fails to be continuous throughout the interval, as seen in <a href="" class="xref" data-knowl="./knowl/F-6-5-InfIntegrand2.html" title="Figure 6.5.3">Figure 6.5.3</a>.</p>
+<figure class="figure figure-like" id="JVt"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/6_5_InfIntegrand2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.5.3<span class="period">.</span></span><span class="space"> </span>The function <span class="process-math">\(f(x) = \frac{1}{(x-2)^2}\)</span> on an interval including <span class="process-math">\(x = 2\text{.}\)</span></figcaption></figure><p id="xHb">Such an incorrect application of the FTC leads to an impossible result (<span class="process-math">\(-2\)</span>), which would itself suggest that something we did must be wrong. Instead, we must address the vertical asymptote at <span class="process-math">\(x = 2\)</span> by writing</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_1^3 \frac{1}{(x-2)^2} \, dx = \lim_{a \to 2^-} \int_1^a \frac{1}{(x-2)^2} \, dx + \lim_{b \to 2^+} \int_b^3 \frac{1}{(x-2)^2} \, dx\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We then evaluate two separate limits of proper integrals. For instance, doing so for the integral with <span class="process-math">\(a\)</span> approaching <span class="process-math">\(2\)</span> from the left, we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="rRP">
+\begin{align*}
+\int_1^2 \frac{1}{(x-2)^2} \, dx&amp;= \lim_{a \to 2^-} \int_1^a \frac{1}{(x-2)^2} \, dx\\
+&amp;= \lim_{a \to 2^-} -\frac{1}{(x-2)} \bigg\vert_1^a\\
+&amp;= \lim_{a \to 2^-} -\frac{1}{(a-2)} + \frac{1}{1-2}\\
+&amp;= \infty\text{,}
+\end{align*}
+</div>
+<p class="continuation">since <span class="process-math">\(\frac{1}{a-2} \to -\infty\)</span> as <span class="process-math">\(a\)</span> approaches 2 from the left. Thus, the improper integral <span class="process-math">\(\int_1^2 \frac{1}{(x-2)^2} \, dx\)</span> diverges; similar work shows that <span class="process-math">\(\int_2^3 \frac{1}{(x-2)^2} \, dx\)</span> also diverges. From either of these two results, we can conclude that that the original integral, <span class="process-math">\(\int_1^3 \frac{1}{(x-2)^2} \, dx\)</span> diverges, too.</p>
+<article class="activity project-like" id="IZN"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.5.4</span><span class="period">.</span>
+</h4>
+<p id="LUt">For each of the following definite integrals, decide whether the integral is improper or not. If the integral is proper, evaluate it using the First FTC. If the integral is improper, determine whether or not the integral converges or diverges; if the integral converges, find its exact value.</p>
+<ol class="lower-alpha cols2">
+<li id="kSC"><p id="ciK"><span class="process-math">\(\displaystyle \int_0^1 \frac{1}{x^{1/3}} \, dx\)</span></p></li>
+<li id="QZL"><p id="IpT"><span class="process-math">\(\displaystyle \int_0^2 e^{-x} \, dx\)</span></p></li>
+<li id="xgU"><p id="oxc"><span class="process-math">\(\displaystyle \int_1^4 \frac{1}{\sqrt{4-x}} \, dx\)</span></p></li>
+<li id="dod"><p id="UEl"><span class="process-math">\(\displaystyle \int_{-2}^2 \frac{1}{x^2} \, dx\)</span></p></li>
+<li id="Jvm"><p id="ALu"><span class="process-math">\(\displaystyle \int_0^{\pi/2} \tan(x) \, dx\)</span></p></li>
+<li id="pCv"><p id="gSD"><span class="process-math">\(\displaystyle \int_0^1 \frac{1}{\sqrt{1-x^2}} \, dx\)</span></p></li>
+</ol></article></section><section class="subsection" id="deq"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">6.5.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="qcC" class="disc">
+<li id="GqT"><p id="rhV">An integral <span class="process-math">\(\int_a^b f(x) \, dx\)</span> can be improper if at least one of <span class="process-math">\(a\)</span> or <span class="process-math">\(b\)</span> is <span class="process-math">\(\pm \infty\text{,}\)</span> making the interval unbounded, or if <span class="process-math">\(f\)</span> has a vertical asymptote at <span class="process-math">\(x = c\)</span> for some value of <span class="process-math">\(c\)</span> that satisfies <span class="process-math">\(a \le c \le b\text{.}\)</span> One reason that improper integrals are important is that certain probabilities can be represented by integrals that involve infinite limits.</p></li>
+<li id="myc">
+<p id="Xpe">When we encounter an improper integral, we work to understand it by replacing the improper integral with a limit of proper integrals. For instance, we write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_a^\infty f(x) \, dx = \lim_{b \to \infty} \int_a^b f(x) \, dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and then work to determine whether the limit exists and is finite. For any improper integral, if the resulting limit of proper integrals exists and is finite, we say the improper integral converges. Otherwise, the improper integral diverges.</p>
+</li>
+<li id="SFl">
+<p id="Dwn">An important class of improper integrals is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_1^{\infty} \frac{1}{x^p} \, dx
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(p\)</span> is a positive real number. We can show that this improper integral converges whenever <span class="process-math">\(p \gt 1\text{,}\)</span> and diverges whenever <span class="process-math">\(0 \lt  p \le 1\text{.}\)</span> A related class of improper integrals is <span class="process-math">\(\int_0^1 \frac{1}{x^p} \, dx\text{,}\)</span> which converges for <span class="process-math">\(0 \lt  p \lt  1\text{,}\)</span> and diverges for <span class="process-math">\(p \ge 1\text{.}\)</span></p>
+</li>
+</ul></section><section class="exercises" id="dbM"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">6.5.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="Wol"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">An improper integral on a finite interval.</span>
+</h4>
+<div id="webwork-182" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="182" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UCSB/Stewart5_7_8/Stewart5_7_8_28.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7361">Consider the integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_{0}^{\,3} {\frac{2}{x\sqrt{x}}}\, dx
+\end{equation*}
+</div>
+<p class="continuation">If the integral is divergent, type an upper-case "D".  Otherwise, evaluate the integral.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-182')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Cvu"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">An improper integral on an infinite interval.</span>
+</h4>
+<div id="webwork-183" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="183" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec7/Q07.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7363">Calculate the integral below, if it converges.  If it does not converge, enter <em class="alert">diverges</em> for your answer.</p>
+<p id="p-7364"><span class="process-math">\(\int_{0}^{\infty} 3xe^{-x^{2}} \,dx =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-183')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="iCD"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">An improper integral involving a ratio of exponential functions.</span>
+</h4>
+<div id="webwork-184" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="184" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec7/Q11.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7366">Calculate the integral, if it converges.  If it diverges, enter <em class="alert">diverges</em> for your answer.</p>
+<p id="p-7367"><span class="process-math">\(\int_{-\infty}^{-3}\,{e^{3 x}\over 1 + e^{3 x}}\,dx =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-184')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="OJM"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">A subtle improper integral.</span>
+</h4>
+<div id="webwork-185" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="185" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec7/Q15.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7369">Calculate the integral, if it converges.  If it diverges, enter <em class="alert">diverges</em> for your answer.</p>
+<p id="p-7370"><span class="process-math">\({\displaystyle\int_{-4}^{4}{1\over v}\,dv} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-185')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="uQV"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">An improper integral involving a ratio of trigonometric functions.</span>
+</h4>
+<div id="webwork-186" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="186" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec7/Q34.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-7372">Find the area under the curve <span class="process-math">\(y = {\cos(t)\over\sin(t)}\)</span> between <span class="process-math">\(t = 0\)</span> and <span class="process-math">\(t = \pi/2\text{.}\)</span>  Enter <em class="alert">diverges</em> if the area is not bounded.</p>
+<p id="p-7373">area = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-186')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="aYe"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="hbL">Determine, with justification, whether each of the following improper integrals converges or diverges.</p>
+<ol class="lower-alpha">
+<li id="wGi"><p id="grR"><span class="process-math">\(\displaystyle \int_e^{\infty} \frac{\ln(x)}{x} \, dx\)</span></p></li>
+<li id="cNr"><p id="Mza"><span class="process-math">\(\displaystyle \int_e^{\infty} \frac{1}{x\ln(x)} \, dx\)</span></p></li>
+<li id="IUA"><p id="sGj"><span class="process-math">\(\displaystyle \int_e^{\infty} \frac{1}{x(\ln(x))^2} \, dx\)</span></p></li>
+<li id="pbJ"><p id="YNs"><span class="process-math">\(\int_e^{\infty} \frac{1}{x(\ln(x))^p} \, dx\text{,}\)</span> where <span class="process-math">\(p\)</span> is a positive real number</p></li>
+<li id="ViS"><p id="EUB"><span class="process-math">\(\displaystyle \int_0^1 \frac{\ln(x)}{x} \, dx\)</span></p></li>
+<li id="Bqb"><p id="lbK"><span class="process-math">\(\displaystyle \int_0^1 \ln(x) \, dx\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="Hfn"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="NiU">Sometimes we may encounter an improper integral for which we cannot easily evaluate the limit of the corresponding proper integrals. For instance, consider <span class="process-math">\(\int_1^{\infty} \frac{1}{1+x^3} \, dx\text{.}\)</span> While it is hard (or perhaps impossible) to find an antiderivative for <span class="process-math">\(\frac{1}{1+x^3}\text{,}\)</span> we can still determine whether or not the improper integral converges or diverges by comparison to a simpler one. Observe that for all <span class="process-math">\(x \gt 0\text{,}\)</span> <span class="process-math">\(1 + x^3 \gt x^3\text{,}\)</span> and therefore</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{1+x^3} \lt  \frac{1}{x^3}\text{.}
+\end{equation*}
+</div>
+<p id="tqd">It therefore follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_1^b \frac{1}{1+x^3} \, dx \lt  \int_1^b \frac{1}{x^3} \, dx
+\end{equation*}
+</div>
+<p class="continuation">for every <span class="process-math">\(b \gt 1\text{.}\)</span> If we let <span class="process-math">\(b \to \infty\)</span> so as to consider the two improper integrals <span class="process-math">\(\int_1^\infty \frac{1}{1+x^3} \, dx\)</span> and <span class="process-math">\(\int_1^\infty \frac{1}{x^3} \, dx\text{,}\)</span> we know that the larger of the two improper integrals converges. And thus, since the smaller one lies below a convergent integral, it follows that the smaller one must converge, too. In particular, <span class="process-math">\(\int_1^\infty \frac{1}{1+x^3} \, dx\)</span> must converge, even though we never explicitly evaluated the corresponding limit of proper integrals. We use this idea and similar ones in the exercises that follow.</p>
+<ol class="lower-alpha">
+<li id="Dfo"><p id="fmy">Explain why <span class="process-math">\(x^2 + x + 1 \gt x^2\)</span> for all <span class="process-math">\(x \ge 1\text{,}\)</span> and hence show that <span class="process-math">\(\int_1^{\infty} \frac{1}{x^2 + x + 1} \, dx\)</span> converges by comparison to <span class="process-math">\(\int_1^{\infty} \frac{1}{x^2} \, dx\text{.}\)</span></p></li>
+<li id="jmx">
+<p id="LtH">Observe that for each <span class="process-math">\(x \gt 1\text{,}\)</span> <span class="process-math">\(\ln(x) \lt  x\text{.}\)</span> Explain why</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_2^b \frac{1}{x} \, dx \lt  \int_2^b \frac{1}{\ln(x)} \,dx
+\end{equation*}
+</div>
+<p class="continuation">for each <span class="process-math">\(b \gt 2\text{.}\)</span> Why must it be true that <span class="process-math">\(\int_2^\infty \frac{1}{\ln(x)} \, dx\)</span> diverges?</p>
+</li>
+<li id="PtG">
+<p id="rAQ">Explain why <span class="process-math">\(\sqrt{\frac{x^4+1}{x^4}} \gt 1\)</span> for all <span class="process-math">\(x \gt 1\text{.}\)</span> Then, determine whether or not the improper integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_1^{\infty} \frac{1}{x} \cdot \sqrt{\frac{x^4+1}{x^4}} \, dx
+\end{equation*}
+</div>
+<p class="continuation">converges or diverges.</p>
+</li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

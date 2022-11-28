@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Derivatives of other trigonometric functions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-2-3-prod-quot.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-2-5-chain.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-2-3-prod-quot.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-2-5-chain.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="active">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="ybn"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.4</span> <span class="title">Derivatives of other trigonometric functions</span>
+</h2>
+<article class="objectives goal-like" id="CLg"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="HuZ"><p id="EAt">What are the derivatives of the tangent, cotangent, secant, and cosecant functions?</p></li>
+<li id="nCi"><p id="kHC">How do the derivatives of <span class="process-math">\(\tan(x)\text{,}\)</span> <span class="process-math">\(\cot(x)\text{,}\)</span> <span class="process-math">\(\sec(x)\text{,}\)</span> and <span class="process-math">\(\csc(x)\)</span> combine with other derivative rules we have developed to expand the library of functions we can quickly differentiate?</p></li>
+</ul></article><section class="introduction" id="iSp"><p id="ddd">One of the powerful themes in trigonometry  comes from a very simple idea: locating a point on the unit circle.</p>
+<figure class="figure figure-like" id="BFN"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/2_4_UnitCircle.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.1<span class="period">.</span></span><span class="space"> </span>The unit circle and the definition of the sine and cosine functions.</figcaption></figure><p id="Jkm">Because each angle <span class="process-math">\(\theta\)</span> in standard position corresponds to one and only one point <span class="process-math">\((x,y)\)</span> on the unit circle, the <span class="process-math">\(x\)</span>- and <span class="process-math">\(y\)</span>-coordinates of this point are each functions of <span class="process-math">\(\theta\text{.}\)</span> In fact, this is the very definition of <span class="process-math">\(\cos(\theta)\)</span> and <span class="process-math">\(\sin(\theta)\text{:}\)</span> <span class="process-math">\(\cos(\theta)\)</span> is the <span class="process-math">\(x\)</span>-coordinate of the point on the unit circle corresponding to the angle <span class="process-math">\(\theta\text{,}\)</span> and <span class="process-math">\(\sin(\theta)\)</span> is the <span class="process-math">\(y\)</span>-coordinate. From this simple definition, all of trigonometry is founded. For instance, the Fundamental Trigonometric Identity, </p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-4-UnitCircle.html">
+\begin{equation*}
+\sin^2(\theta) + \cos^2(\theta) = 1\text{,}
+\end{equation*}
+</div>
+<p class="continuation">is a restatement of the Pythagorean Theorem, applied to the right triangle shown in <a href="" class="xref" data-knowl="./knowl/F-2-4-UnitCircle.html" title="Figure 2.4.1">Figure 2.4.1</a>.</p>
+<p id="prv">There are four other trigonometric functions, each defined in terms of the sine and/or cosine functions.</p>
+<ul class="disc">
+<li id="TJr"><p id="p-derived-TJr">The tangent function  is defined by <span class="process-math">\(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\text{;}\)</span></p></li>
+<li id="zQA"><p id="p-derived-zQA">the cotangent function is its reciprocal: <span class="process-math">\(\cot(\theta) = \frac{\cos(\theta)}{\sin(\theta)}\text{.}\)</span></p></li>
+<li id="fXJ"><p id="p-derived-fXJ">The secant function is the reciprocal of the cosine function, <span class="process-math">\(\sec(\theta) = \frac{1}{\cos(\theta)}\text{;}\)</span></p></li>
+<li id="MeS"><p id="p-derived-MeS">and the cosecant function is the reciprocal of the sine function, <span class="process-math">\(\csc(\theta) = \frac{1}{\sin(\theta)}\text{.}\)</span></p></li>
+</ul>
+<p class="continuation">These six trigonometric functions together offer us a wide range of flexibility in problems involving right triangles.</p>
+<p id="VyE">Because we know the derivatives of the sine and cosine function, we can now develop shortcut differentiation rules for the tangent, cotangent, secant, and cosecant functions. In this section's preview activity, we work through the steps to find the derivative of <span class="process-math">\(y = \tan(x)\text{.}\)</span></p>
+<article class="exploration project-like" id="hHS"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">2.4.1</span><span class="period">.</span>
+</h3>
+<p id="VtA">Consider the function <span class="process-math">\(f(x) = \tan(x)\text{,}\)</span> and remember that <span class="process-math">\(\tan(x) = \frac{\sin(x)}{\cos(x)}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="LZO"><p id="QJH">What is the domain of <span class="process-math">\(f\text{?}\)</span></p></li>
+<li id="sgX">
+<p id="wQQ">Use the quotient rule to show that one expression for <span class="process-math">\(f'(x)\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(x) = \frac{\cos(x)\cos(x) + \sin(x)\sin(x)}{\cos^2(x)}\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="Yog"><p id="cXZ">What is the Fundamental Trigonometric Identity? How can this identity be used to find a simpler form for <span class="process-math">\(f'(x)\text{?}\)</span></p></li>
+<li id="Evp"><p id="Jfi">Recall that <span class="process-math">\(\sec(x) = \frac{1}{\cos(x)}\text{.}\)</span> How can we express <span class="process-math">\(f'(x)\)</span> in terms of the secant function?</p></li>
+<li id="kCy"><p id="pmr">For what values of <span class="process-math">\(x\)</span> is <span class="process-math">\(f'(x)\)</span> defined? How does this set compare to the domain of <span class="process-math">\(f\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="eiw"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.1</span> <span class="title">Derivatives of the cotangent, secant, and cosecant functions</span>
+</h3>
+<p id="hMW">In <a href="" class="xref" data-knowl="./knowl/PA-2-4.html" title="Preview Activity 2.4.1">Preview Activity 2.4.1</a>, we found that the derivative of the tangent function can be expressed in several ways, but most simply in terms of the secant function. Next, we develop the derivative of the cotangent function.</p>
+<p id="NUf">Let <span class="process-math">\(g(x) = \cot(x)\text{.}\)</span> To find <span class="process-math">\(g'(x)\text{,}\)</span> we observe that <span class="process-math">\(g(x) = \frac{\cos(x)}{\sin(x)}\)</span> and apply the quotient rule. Hence</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="Dva">
+\begin{align*}
+g'(x) =\mathstrut \amp  \frac{\sin(x)(-\sin(x)) - \cos(x) \cos(x)}{\sin^2(x)}\\
+=\mathstrut \amp  -\frac{\sin^2(x) + \cos^2(x)}{\sin^2(x)}
+\end{align*}
+</div>
+<p id="ubo">By the Fundamental Trigonometric Identity, we see that <span class="process-math">\(g'(x) = -\frac{1}{\sin^2(x)}\text{,}\)</span> and recalling that <span class="process-math">\(\csc(x) = \frac{1}{\sin(x)}\text{,}\)</span> it follows that we can express <span class="process-math">\(g'\)</span> by the rule</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g'(x) = -\csc^2(x)\text{.}
+\end{equation*}
+</div>
+<p id="aix">Note that neither <span class="process-math">\(g\)</span> nor <span class="process-math">\(g'\)</span> is defined when <span class="process-math">\(\sin(x) = 0\text{,}\)</span> which occurs at every integer multiple of <span class="process-math">\(\pi\text{.}\)</span> Hence we have the following rule.</p>
+<article class="assemblage assemblage-like" id="qwO"><h4 class="heading"><span class="title">Cotangent Function.</span></h4>
+<p id="GpG"> For all real numbers <span class="process-math">\(x\)</span> such that <span class="process-math">\(x \ne k\pi\text{,}\)</span> where <span class="process-math">\(k = 0, \pm 1, \pm 2, \ldots\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} [\cot(x)] = -\csc^2(x)\text{.}
+\end{equation*}
+</div></article><p id="mwP">Notice that the derivative of the cotangent function is very similar to the derivative of the tangent function we discovered in <a href="" class="xref" data-knowl="./knowl/PA-2-4.html" title="Preview Activity 2.4.1">Preview Activity 2.4.1</a>.</p>
+<article class="assemblage assemblage-like" id="WDX"><h4 class="heading"><span class="title">Tangent Function.</span></h4>
+<p id="SDY"> For all real numbers <span class="process-math">\(x\)</span> such that <span class="process-math">\(x \ne \frac{(2k+1)\pi}{2}\text{,}\)</span> where <span class="process-math">\(k = \pm 1, \pm 2, \ldots\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} [\tan(x)] = \sec^2(x)\text{.}
+\end{equation*}
+</div></article><p id="yLh">In the next two activities, we develop the rules for differentiating the secant and cosecant functions.</p>
+<article class="activity project-like" id="Pwg"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.2</span><span class="period">.</span>
+</h4>
+<p id="XaF">Let <span class="process-math">\(h(x) = \sec(x)\)</span> and recall that <span class="process-math">\(\sec(x) = \frac{1}{\cos(x)}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="qjC"><p id="kuq">What is the domain of <span class="process-math">\(h\text{?}\)</span></p></li>
+<li id="WqL"><p id="QBz">Use the quotient rule to develop a formula for <span class="process-math">\(h'(x)\)</span> that is expressed completely in terms of <span class="process-math">\(\sin(x)\)</span> and <span class="process-math">\(\cos(x)\text{.}\)</span></p></li>
+<li id="CxU"><p id="wII">How can you use other relationships among trigonometric functions to write <span class="process-math">\(h'(x)\)</span> only in terms of <span class="process-math">\(\tan(x)\)</span> and <span class="process-math">\(\sec(x)\text{?}\)</span></p></li>
+<li id="iFd"><p id="cPR">What is the domain of <span class="process-math">\(h'\text{?}\)</span> How does this compare to the domain of <span class="process-math">\(h\text{?}\)</span></p></li>
+</ol></article><article class="activity project-like" id="lOe"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.3</span><span class="period">.</span>
+</h4>
+<p id="tsD">Let <span class="process-math">\(p(x) = \csc(x)\)</span> and recall that <span class="process-math">\(\csc(x) = \frac{1}{\sin(x)}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="MBA"><p id="GMo">What is the domain of <span class="process-math">\(p\text{?}\)</span></p></li>
+<li id="sIJ"><p id="mTx">Use the quotient rule to develop a formula for <span class="process-math">\(p'(x)\)</span> that is expressed completely in terms of <span class="process-math">\(\sin(x)\)</span> and <span class="process-math">\(\cos(x)\text{.}\)</span></p></li>
+<li id="YPS"><p id="TaG">How can you use other relationships among trigonometric functions to write <span class="process-math">\(p'(x)\)</span> only in terms of <span class="process-math">\(\cot(x)\)</span> and <span class="process-math">\(\csc(x)\text{?}\)</span></p></li>
+<li id="EXb"><p id="zhP">What is the domain of <span class="process-math">\(p'\text{?}\)</span> How does this compare to the domain of <span class="process-math">\(p\text{?}\)</span></p></li>
+</ol></article><p id="eSq">Using the quotient rule we have determined the derivatives of the tangent, cotangent, secant, and cosecant functions, expanding our overall library of functions we can differentiate. Observe that just as the derivative of any polynomial function is a polynomial, and the derivative of any exponential function is another exponential function, so it is that the derivative of any basic trigonometric function is another function that consists of basic trigonometric functions. This makes sense because all trigonometric functions are periodic, and hence their derivatives will be periodic, too.</p>
+<p id="KZz">The derivative retains all of its fundamental meaning as an instantaneous rate of change and as the slope of the tangent line to the function under consideration.</p>
+<article class="activity project-like" id="qcy"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.4.4</span><span class="period">.</span>
+</h4>
+<p id="MPV">Answer each of the following questions. Where a derivative is requested, be sure to label the derivative function with its name using proper notation.</p>
+<ol class="lower-alpha">
+<li id="iTy"><p id="BGW">Let <span class="process-math">\(f(x) = 5 \sec(x) - 2\csc(x)\text{.}\)</span> Find the slope of the tangent line to <span class="process-math">\(f\)</span> at the point where <span class="process-math">\(x =\frac{\pi}{3}\text{.}\)</span></p></li>
+<li id="PaH"><p id="hOf">Let <span class="process-math">\(p(z) = z^2\sec(z) - z\cot(z)\text{.}\)</span> Find the instantaneous rate of change of <span class="process-math">\(p\)</span> at the point where <span class="process-math">\(z = \frac{\pi}{4}\text{.}\)</span></p></li>
+<li id="vhQ"><p id="NVo">Let <span class="process-math">\(h(t) = \displaystyle \frac{\tan (t)}{t^2+1} - 2e^t \cos(t)\text{.}\)</span> Find <span class="process-math">\(h'(t)\text{.}\)</span></p></li>
+<li id="boZ"><p id="ucx">Let <span class="process-math">\(g(r) = \displaystyle \frac{r \sec(r) }{5^r}\text{.}\)</span> Find <span class="process-math">\(g'(r)\text{.}\)</span></p></li>
+<li id="Hwi">
+<p id="ajG">When a mass hangs from a spring and is set in motion, the object's position oscillates in a way that the size of the oscillations decrease. This is usually called a <em class="emphasis">damped oscillation</em>. Suppose that for a particular object, its displacement from equilibrium (where the object sits at rest) is modeled by the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+s(t) = \frac{15 \sin(t)}{e^t}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Assume that <span class="process-math">\(s\)</span> is measured in inches and <span class="process-math">\(t\)</span> in seconds. Sketch a graph of this function for <span class="process-math">\(t \ge 0\)</span> to see how it represents the situation described. Then compute <span class="process-math">\(ds/dt\text{,}\)</span> state the units on this function, and explain what it tells you about the object's motion. Finally, compute and interpret <span class="process-math">\(s'(2)\text{.}\)</span></p>
+</li>
+</ol></article></section><section class="subsection" id="KpF"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">2.4.2</span> <span class="title">Summary</span>
+</h3>
+<ul id="rgI" class="disc">
+<li id="smb">
+<p id="QOL">The derivatives of the other four trigonometric functions are</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[\tan(x)] = \sec^2(x), \ \ \frac{d}{dx}[\cot(x)] = -\csc^2(x)\text{,}
+\end{equation*}
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[\sec(x)] = \sec(x)\tan(x), \ \text{and}  \ \frac{d}{dx}[\csc(x)] = -\csc(x)\cot(x)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Each derivative exists and is defined on the same domain as the original function. For example, both the tangent function and its derivative are defined for all real numbers <span class="process-math">\(x\)</span> such that <span class="process-math">\(x \ne \frac{k\pi}{2}\text{,}\)</span> where <span class="process-math">\(k = \pm 1, \pm 2, \ldots\text{.}\)</span></p>
+</li>
+<li id="Ytk"><p id="wVU">The four rules for the derivatives of the tangent, cotangent, secant, and cosecant can be used along with the rules for power functions, exponential functions, and the sine and cosine, as well as the sum, constant multiple, product, and quotient rules, to quickly differentiate a wide range of different functions.</p></li>
+</ul></section><section class="exercises" id="ZgR"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">2.4.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="gwV"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">A sum and product involving <span class="process-math">\(\tan(x)\)</span>.</span>
+</h4>
+<div id="webwork-71" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="71" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec5/Q29.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2496">Find the derivative of <span class="process-math">\(h(t) = t \tan t + \cos t\)</span></p>
+<p id="p-2497"><span class="process-math">\(h'(t) =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-71')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="MEe"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">A quotient involving <span class="process-math">\(\tan(t)\)</span>.</span>
+</h4>
+<div id="webwork-72" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="72" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives4Trig/s2_4_25.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2499">Let <span class="process-math">\(f(x) = \displaystyle \frac{5\tan\!\left(x\right)}{x}\text{.}\)</span>  Find the following:</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1.</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(4)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span></td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-72')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="sLn"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">A quotient of trigonometric functions.</span>
+</h4>
+<div id="webwork-73" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="73" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives4Trig/s2_4_26.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2502">Let <span class="process-math">\(f(x) = \displaystyle \frac{\tan\!\left(x\right)-2}{\sec\!\left(x\right)}\text{.}\)</span>  Find the following:</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1.</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(1)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span></td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-73')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="YSw"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">A quotient that involves a product.</span>
+</h4>
+<div id="webwork-74" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="74" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives4Trig/s2_4_31.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2505">Let <span class="process-math">\(f(x) = \displaystyle \frac{2x^{2}\tan\!\left(x\right)}{\sec\!\left(x\right)}\text{.}\)</span>  Find the following:</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines">1.</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(x)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="fillin underline" role="img" aria-label="80-character blank" style="width: 36.3636363636364em;"></span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">2.</td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(f'(4)\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="fillin underline" role="img" aria-label="80-character blank" style="width: 36.3636363636364em;"></span></td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-74')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="EZF"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Finding a tangent line equation.</span>
+</h4>
+<div id="webwork-75" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="75" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives4Trig/s2_4_33.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-2508">Find the equation of the tangent line to the curve <span class="process-math">\(y =   3 \tan x\)</span> at the point <span class="process-math">\(( \pi/4 , 3)\text{.}\)</span> The equation of this tangent line can be written in the form <span class="process-math">\(y = mx+b\)</span> where <span class="process-math">\(m\)</span> is: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-2509">and  where <span class="process-math">\(b\)</span> is: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-75')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="lgO"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="vUo">An object moving vertically has its height at time <span class="process-math">\(t\)</span> (measured in feet, with time in seconds) given by the function <span class="process-math">\(h(t) = 3 + \frac{2\cos(t)}{1.2^t}\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="rFU"><p id="brD">What is the object's instantaneous velocity when <span class="process-math">\(t =2\text{?}\)</span></p></li>
+<li id="XNd"><p id="HyM">What is the object's acceleration at the instant <span class="process-math">\(t = 2\text{?}\)</span></p></li>
+<li id="DUm"><p id="nFV">Describe in everyday language the behavior of the object at the instant <span class="process-math">\(t = 2\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="RnX"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="cbx">Let <span class="process-math">\(f(x) = \sin(x) \cot(x)\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="USx"><p id="EEg">Use the product rule to find <span class="process-math">\(f'(x)\text{.}\)</span></p></li>
+<li id="AZG"><p id="kLp">True or false: for all real numbers <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(f(x) = \cos(x)\text{.}\)</span></p></li>
+<li id="hgP"><p id="QSy">Explain why the function that you found in (a) is almost the opposite of the sine function, but not quite. (Hint: convert all of the trigonometric functions in (a) to sines and cosines, and work to simplify. Think carefully about the domain of <span class="process-math">\(f\)</span> and the domain of <span class="process-math">\(f'\text{.}\)</span>)</p></li>
+</ol></article><article class="exercise exercise-like" id="xvg"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="IiG">Let <span class="process-math">\(p(z)\)</span> be given by the rule</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+p(z) = \frac{z\tan(z)}{z^2\sec(z) + 1} + 3 e^z + 1\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="yfa"><p id="hQJ">Determine <span class="process-math">\(p'(z)\text{.}\)</span></p></li>
+<li id="emj"><p id="NXS">Find an equation for the tangent line to <span class="process-math">\(p\)</span> at the point where <span class="process-math">\(z = 0\text{.}\)</span></p></li>
+<li id="Kts"><p id="ufb">At <span class="process-math">\(z = 0\text{,}\)</span> is <span class="process-math">\(p\)</span> increasing, decreasing, or neither? Why?</p></li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

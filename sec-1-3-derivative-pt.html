@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC The derivative of a function at a point</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-1-2-lim.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-1-4-derivative-fxn.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-1-2-lim.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-1-4-derivative-fxn.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="active">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="xyk"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">The derivative of a function at a point</span>
+</h2>
+<article class="objectives goal-like" id="Cid"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="fuG"><p id="hjT">How is the average rate of change of a function on a given interval defined, and what does this quantity measure?</p></li>
+<li id="LBP"><p id="Nrc">How is the instantaneous rate of change of a function at a particular point defined? How is the instantaneous rate of change linked to average rate of change?</p></li>
+<li id="rIY"><p id="tyl">What is the derivative of a function at a given point? What does this derivative value measure? How do we interpret the derivative value graphically?</p></li>
+<li id="XQh"><p id="ZFu">How are limits used formally in the computation of derivatives?</p></li>
+</ul></article><section class="introduction" id="Owv"><p id="buH">The <em class="emphasis">instantaneous rate of change</em> of a function is an idea that sits at the foundation of calculus. It is a generalization of the notion of instantaneous velocity and measures how fast a particular function is changing at a given point. If the original function represents the position of a moving object, this instantaneous rate of change is precisely the velocity of the object. In other contexts, instantaneous rate of change could measure the number of cells added to a bacteria culture per day, the number of additional gallons of gasoline consumed by increasing a car's velocity one mile per hour, or the number of dollars added to a mortgage payment for each percentage point increase in interest rate. The instantaneous rate of change can also be interpreted geometrically on the function's graph, and this connection is fundamental to many of the main ideas in calculus.</p>
+<p id="HBQ">Recall that for a moving object with position function <span class="process-math">\(s\text{,}\)</span> its average velocity on the time interval <span class="process-math">\(t = a\)</span> to <span class="process-math">\(t = a+h\)</span> is given by the quotient</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+AV_{[a,a+h]} = \frac{s(a+h)-s(a)}{h}\text{.}
+\end{equation*}
+</div>
+<p id="nIZ">In a similar way, we make the following definition for an arbitrary function <span class="process-math">\(y = f(x)\text{.}\)</span></p>
+<article class="definition definition-like" id="ipm"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
+</h3>
+<p id="iZg">For a function <span class="process-math">\(f\text{,}\)</span> the <dfn class="terminology">average rate of change</dfn>  of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,a+h]\)</span> is given by the value</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+AV_{[a,a+h]} = \frac{f(a+h)-f(a)}{h}\text{.}
+\end{equation*}
+</div></article><p id="TQi">Equivalently, if we want to consider the average rate of change of <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{,}\)</span> we compute</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+AV_{[a,b]} = \frac{f(b)-f(a)}{b-a}\text{.}
+\end{equation*}
+</div>
+<p id="zXr">It is essential that you understand how the average rate of change of <span class="process-math">\(f\)</span> on an interval is connected to its graph.</p>
+<article class="exploration project-like" id="ltw"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span>
+</h3>
+<p id="sXV">Suppose that <span class="process-math">\(f\)</span> is the function given by the graph below and that <span class="process-math">\(a\)</span> and <span class="process-math">\(a+h\)</span> are the input values as labeled on the <span class="process-math">\(x\)</span>-axis. Use the graph in <a href="" class="xref" data-knowl="./knowl/F-1-3-PA1.html" title="Figure 1.3.2">Figure 1.3.2</a> to answer the following questions.</p>
+<figure class="figure figure-like" id="Fmn"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/1_3_PA1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.2<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(y = f(x)\)</span> for <a href="" class="xref" data-knowl="./knowl/PA-1-3.html" title="Preview Activity 1.3.1">Preview Activity 1.3.1</a>.</figcaption></figure><ol id="Zfe" class="lower-alpha">
+<li id="vSB"><p id="Uvl">Locate and label the points <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((a+h, f(a+h))\)</span> on the graph.</p></li>
+<li id="bZK"><p id="ACu">Construct a right triangle whose hypotenuse is the line segment from <span class="process-math">\((a,f(a))\)</span> to <span class="process-math">\((a+h,f(a+h))\text{.}\)</span> What are the lengths of the respective legs of this triangle?</p></li>
+<li id="IgT"><p id="gJD">What is the slope of the line that connects the points <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((a+h, f(a+h))\text{?}\)</span></p></li>
+<li id="ooc"><p id="MQM">Write a meaningful sentence that explains how the average rate of change of the function on a given interval and the slope of a related line are connected.</p></li>
+</ol></article></section><section class="subsection" id="dFt"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.1</span> <span class="title">The Derivative of a Function at a Point</span>
+</h3>
+<p id="geA">Just as we defined instantaneous velocity in terms of average velocity, we now define the instantaneous rate of change of a function at a point in terms of the average rate of change of the function <span class="process-math">\(f\)</span> over related intervals. This instantaneous rate of change of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\)</span>  is called “the <em class="emphasis">derivative</em> of <span class="process-math">\(f\)</span> at <span class="process-math">\(a\text{,}\)</span>” and is denoted by <span class="process-math">\(f'(a)\text{.}\)</span></p>
+<article class="definition definition-like" id="pTL"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span>
+</h4>
+<p id="Pgp">Let <span class="process-math">\(f\)</span> be a function and <span class="process-math">\(x = a\)</span> a value in the function's domain. We define the <dfn class="terminology">derivative of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\)</span> evaluated at <span class="process-math">\(x = a\)</span></dfn>,  denoted <span class="process-math">\(f'(a)\text{,}\)</span> by the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(a) = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">provided this limit exists.</p></article><p id="MlJ">Aloud, we read the symbol <span class="process-math">\(f'(a)\)</span> as either “<span class="process-math">\(f\)</span>-prime at <span class="process-math">\(a\)</span>” or “the derivative of <span class="process-math">\(f\)</span> evaluated at <span class="process-math">\(x = a\text{.}\)</span>” Much of the next several chapters will be devoted to understanding, computing, applying, and interpreting derivatives. For now, we observe the following important things.</p>
+<article class="note remark-like" id="aKN"><h4 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span>
+</h4>
+<ul id="WKO" class="disc">
+<li id="DXq"><p id="p-derived-DXq">The derivative of <span class="process-math">\(f\)</span> at the value <span class="process-math">\(x = a\)</span> is defined as the limit of the average rate of change of <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,a+h]\)</span> as <span class="process-math">\(h \to 0\text{.}\)</span> This limit may not exist, so not every function has a derivative at every point.</p></li>
+<li id="kez"><p id="p-derived-kez">We say that a function is <em class="emphasis">differentiable</em>  at <span class="process-math">\(x = a\)</span> if it has a derivative at <span class="process-math">\(x = a\text{.}\)</span></p></li>
+<li id="QlI"><p id="p-derived-QlI">The derivative is a generalization of the instantaneous velocity of a position function: if <span class="process-math">\(y = s(t)\)</span> is a position function of a moving body, <span class="process-math">\(s'(a)\)</span> tells us the instantaneous velocity of the body at time <span class="process-math">\(t=a\text{.}\)</span></p></li>
+<li id="wsR"><p id="p-derived-wsR">Because the units on <span class="process-math">\(\frac{f(a+h)-f(a)}{h}\)</span> are “units of <span class="process-math">\(f(x)\)</span> per unit of <span class="process-math">\(x\text{,}\)</span>” the derivative has these very same units. For instance, if <span class="process-math">\(s\)</span> measures position in feet and <span class="process-math">\(t\)</span> measures time in seconds, the units on <span class="process-math">\(s'(a)\)</span> are feet per second.</p></li>
+<li id="cAa"><p id="p-derived-cAa">Because the quantity <span class="process-math">\(\frac{f(a+h)-f(a)}{h}\)</span> represents the slope of the line through <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((a+h, f(a+h))\text{,}\)</span> when we compute the derivative we are taking the limit of a collection of slopes of lines. Thus, the derivative itself represents the slope of a particularly important line.</p></li>
+</ul></article><p id="ssS">We first consider the derivative at a given value as the slope of a certain line.</p>
+<p id="YAb">When we compute an instantaneous rate of change, we allow the interval <span class="process-math">\([a,a+h]\)</span> to shrink as <span class="process-math">\(h \to 0\text{.}\)</span> We can think of one endpoint of the interval as “sliding towards” the other. In particular, provided that <span class="process-math">\(f\)</span> has a derivative at <span class="process-math">\((a,f(a))\text{,}\)</span> the point <span class="process-math">\((a+h,f(a+h))\)</span> will approach <span class="process-math">\((a,f(a))\)</span> as <span class="process-math">\(h \to 0\text{.}\)</span> Because the process of taking a limit is a dynamic one, it can be helpful to use computing technology to visualize it. One option is a java applet in which the user is able to control the point that is moving. For a helpful collection of examples, consider the <a class="external" href="http://gvsu.edu/s/5r" target="_blank">work of David Austin</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-29" id="fn-29"><sup> 1 </sup></a> of Grand Valley State University, and <a class="external" href="http://gvsu.edu/s/5s" target="_blank">this particularly relevant example</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-30" id="fn-30"><sup> 2 </sup></a>. For applets that have been built in Geogebra<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-31" id="fn-31"><sup> 3 </sup></a>, see <a class="external" href="http://gvsu.edu/s/5p" target="_blank">Marc Renault's library</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-33" id="fn-33"><sup> 5 </sup></a> via Shippensburg University, with <a class="external" href="http://gvsu.edu/s/5q" target="_blank">this example</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-34" id="fn-34"><sup> 6 </sup></a> being especially fitting for our work in this section.</p>
+<p id="EHk"><a href="" class="xref" data-knowl="./knowl/F-1-3-SecToTanSeq.html" title="Figure 1.3.5">Figure 1.3.5</a> shows a sequence of figures with several different lines through the points <span class="process-math">\((a, f(a))\)</span> and <span class="process-math">\((a+h,f(a+h))\text{,}\)</span> generated by different values of <span class="process-math">\(h\text{.}\)</span> These lines (shown in the first three figures in magenta), are often called <em class="emphasis">secant lines</em>  to the curve <span class="process-math">\(y = f(x)\text{.}\)</span> A secant line to a curve is simply a line that passes through two points on the curve. For each such line, the slope of the secant line is <span class="process-math">\(m = \frac{f(a+h) - f(a)}{h}\text{,}\)</span> where the value of <span class="process-math">\(h\)</span> depends on the location of the point we choose. We can see in the diagram how, as <span class="process-math">\(h \to 0\text{,}\)</span> the secant lines start to approach a single line that passes through the point <span class="process-math">\((a,f(a))\text{.}\)</span> If the limit of the slopes of the secant lines exists, we say that the resulting value is the slope of the <em class="emphasis">tangent line</em> to the curve. This tangent line  (shown in the right-most figure in green) to the graph of <span class="process-math">\(y = f(x)\)</span> at the point <span class="process-math">\((a,f(a))\)</span> has slope <span class="process-math">\(m = f'(a)\text{.}\)</span></p>
+<figure class="figure figure-like" id="djU"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/1_3_SecToTanSeq.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.5<span class="period">.</span></span><span class="space"> </span>A sequence of secant lines approaching the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\((a,f(a))\text{.}\)</span></figcaption></figure><p id="kOt">If the tangent line at <span class="process-math">\(x = a\)</span> exists, the graph of <span class="process-math">\(f\)</span> looks like a straight line when viewed up close at <span class="process-math">\((a,f(a))\text{.}\)</span> In <a href="" class="xref" data-knowl="./knowl/F-1-3-SecToTan.html" title="Figure 1.3.6">Figure 1.3.6</a> we combine the four graphs in <a href="" class="xref" data-knowl="./knowl/F-1-3-SecToTanSeq.html" title="Figure 1.3.5">Figure 1.3.5</a> into the single one on the left, and zoom in on the box centered at <span class="process-math">\((a,f(a))\)</span> on the right. Note how the tangent line sits relative to the curve <span class="process-math">\(y = f(x)\)</span> at <span class="process-math">\((a,f(a))\)</span> and how closely it resembles the curve near <span class="process-math">\(x = a\text{.}\)</span></p>
+<figure class="figure figure-like" id="Jrd"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/images/1_3_SecToTan.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.6<span class="period">.</span></span><span class="space"> </span>A sequence of secant lines approaching the tangent line to <span class="process-math">\(f\)</span> at <span class="process-math">\((a,f(a))\text{.}\)</span>  At right, we zoom in on the point <span class="process-math">\((a,f(a))\text{.}\)</span>  The slope of the tangent line (in green) to <span class="process-math">\(f\)</span> at <span class="process-math">\((a,f(a))\)</span> is given by <span class="process-math">\(f'(a)\text{.}\)</span></figcaption></figure><article class="note remark-like" id="GRW"><h4 class="heading">
+<span class="type">Note</span><span class="space"> </span><span class="codenumber">1.3.7</span><span class="period">.</span>
+</h4>
+<p id="CRX">The instantaneous rate of change of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\)</span> at <span class="process-math">\(x = a\text{,}\)</span> <span class="process-math">\(f'(a)\text{,}\)</span> also measures the slope of the tangent line to the curve <span class="process-math">\(y = f(x)\)</span> at <span class="process-math">\((a,f(a))\text{.}\)</span></p></article><p id="QVC">The following example demonstrates several key ideas involving the derivative of a function.</p>
+<article class="example example-like" id="WaU"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.8</span><span class="period">.</span><span class="space"> </span><span class="title">Using the limit definition of the derivative.</span>
+</h4>
+<p id="vny">For the function <span class="process-math">\(f(x) = x - x^2\text{,}\)</span> use the limit definition of the derivative to compute <span class="process-math">\(f'(2)\text{.}\)</span> In addition, discuss the meaning of this value and draw a labeled graph that supports your explanation.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-uDE" id="uDE"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-uDE"><div class="solution solution-like">
+<p id="FMD">From the limit definition, we know that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(2) = \lim_{h \to 0} \frac{f(2+h)-f(2)}{h}\text{.}
+\end{equation*}
+</div>
+<p id="lTM">Now we use the rule for <span class="process-math">\(f\text{,}\)</span> and observe that <span class="process-math">\(f(2) = 2 - 2^2 = -2\)</span> and <span class="process-math">\(f(2+h) = (2+h) - (2+h)^2\text{.}\)</span> Substituting these values into the limit definition, we have that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(2) = \lim_{h \to 0} \frac{(2+h) - (2+h)^2 -  (-2)}{h}\text{.}
+\end{equation*}
+</div>
+<p id="SaV">In order to let <span class="process-math">\(h \to 0\text{,}\)</span> we must simplify the quotient. Expanding and distributing in the numerator,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(2) = \lim_{h \to 0} \frac{2+h - 4 - 4h - h^2 + 2}{h}\text{.}
+\end{equation*}
+</div>
+<p id="yie">Combining like terms, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(2) = \lim_{h \to 0} \frac{ -3h - h^2}{h}\text{.}
+\end{equation*}
+</div>
+<p id="epn">Next, we remove a common factor of <span class="process-math">\(h\)</span> in both the numerator and denominator and find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(2) = \lim_{h \to 0} (-3-h)\text{.}
+\end{equation*}
+</div>
+<p id="Kww">Finally, we are able to take the limit as <span class="process-math">\(h \to 0\text{,}\)</span> and thus conclude that <span class="process-math">\(f'(2) = -3\text{.}\)</span> We note that <span class="process-math">\(f'(2)\)</span> is the instantaneous rate of change of <span class="process-math">\(f\)</span> at the point <span class="process-math">\((2,-2)\text{.}\)</span> It is also the slope of the tangent line to the graph of <span class="process-math">\(y = x - x^2\)</span> at the point <span class="process-math">\((2,-2)\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/F-1-3-Ex1.html" title="Figure 1.3.9">Figure 1.3.9</a> shows both the function and the line through <span class="process-math">\((2,-2)\)</span> with slope <span class="process-math">\(m = f'(2) = -3\text{.}\)</span></p>
+<figure class="figure figure-like" id="qDF"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/images/1_3_Ex1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.9<span class="period">.</span></span><span class="space"> </span>The tangent line to <span class="process-math">\(y = x - x^2\)</span> at the point <span class="process-math">\((2,-2)\text{.}\)</span></figcaption></figure>
+</div></div>
+</div></article><p id="xcL">The following activities will help you explore a variety of key ideas related to derivatives.</p>
+<article class="activity project-like" id="Mtw"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span>
+</h4>
+<p id="nQM">Consider the function <span class="process-math">\(f\)</span> whose formula is <span class="process-math">\(\displaystyle f(x) = 3 - 2x\text{.}\)</span></p>
+<ol id="TXV" class="lower-alpha">
+<li id="hrG"><p id="p-derived-hrG">What familiar type of function is <span class="process-math">\(f\text{?}\)</span> What can you say about the slope of <span class="process-math">\(f\)</span> at every value of <span class="process-math">\(x\text{?}\)</span></p></li>
+<li id="NyP"><p id="p-derived-NyP">Compute the average rate of change of <span class="process-math">\(f\)</span> on the intervals <span class="process-math">\([1,4]\text{,}\)</span> <span class="process-math">\([3,7]\text{,}\)</span> and <span class="process-math">\([5,5+h]\text{;}\)</span> simplify each result as much as possible. What do you notice about these quantities?</p></li>
+<li id="tFY"><p id="p-derived-tFY">Use the limit definition of the derivative to compute the exact instantaneous rate of change of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\)</span> at the value <span class="process-math">\(a = 1\text{.}\)</span> That is, compute <span class="process-math">\(f'(1)\)</span> using the limit definition. Show your work. Is your result surprising?</p></li>
+<li id="ZNh"><p id="p-derived-ZNh">Without doing any additional computations, what are the values of <span class="process-math">\(f'(2)\text{,}\)</span> <span class="process-math">\(f'(\pi)\text{,}\)</span> and <span class="process-math">\(f'(-\sqrt{2})\text{?}\)</span> Why?</p></li>
+</ol></article><article class="activity project-like" id="RNj"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span>
+</h4>
+<p id="Ndq">A water balloon is tossed vertically in the air from a window. The balloon's height in feet at time <span class="process-math">\(t\)</span> in seconds after being launched is given by <span class="process-math">\(s(t) = -16t^2 + 16t + 32\text{.}\)</span> Use this function to respond to each of the following questions.</p>
+<ol id="tkz" class="lower-alpha">
+<li id="JyQ">
+<p id="cmo">Sketch an accurate, labeled graph of <span class="process-math">\(s\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-1-3-Act2.html" title="Figure 1.3.10">Figure 1.3.10</a>. You should be able to do this without using computing technology.</p>
+<figure class="figure figure-like" id="Itx"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/1_3_Act2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.10<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(y = s(t)\)</span> in <a href="" class="xref" data-knowl="./knowl/act-1-3-2.html" title="Activity 1.3.3">Activity 1.3.3</a>.</figcaption></figure>
+</li>
+<li id="pFZ"><p id="p-derived-pFZ">Compute the average rate of change of <span class="process-math">\(s\)</span> on the time interval <span class="process-math">\([1,2]\text{.}\)</span> Include units on your answer and write one sentence to explain the meaning of the value you found.</p></li>
+<li id="VNi"><p id="p-derived-VNi">Use the limit definition to compute the instantaneous rate of change of <span class="process-math">\(s\)</span> with respect to time, <span class="process-math">\(t\text{,}\)</span> at the instant <span class="process-math">\(a = 1\text{.}\)</span> Show your work using proper notation, include units on your answer, and write one sentence to explain the meaning of the value you found.</p></li>
+<li id="BUr"><p id="p-derived-BUr">On your graph in (a), sketch two lines: one whose slope represents the average rate of change of <span class="process-math">\(s\)</span> on <span class="process-math">\([1,2]\text{,}\)</span> the other whose slope represents the instantaneous rate of change of <span class="process-math">\(s\)</span> at the instant <span class="process-math">\(a=1\text{.}\)</span> Label each line clearly.</p></li>
+<li id="ibA"><p id="p-derived-ibA">For what values of <span class="process-math">\(a\)</span> do you expect <span class="process-math">\(s'(a)\)</span> to be positive? Why? Answer the same questions when “positive” is replaced by “negative” and “zero.”</p></li>
+</ol></article><article class="activity project-like" id="vJG"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span>
+</h4>
+<p id="eLv">A rapidly growing city in Arizona has its population <span class="process-math">\(P\)</span> at time <span class="process-math">\(t\text{,}\)</span> where <span class="process-math">\(t\)</span> is the number of decades after the year 2010, modeled by the formula <span class="process-math">\(P(t) = 25000 e^{t/5}\text{.}\)</span> Use this function to respond to the following questions.</p>
+<ol id="KSE" class="lower-alpha">
+<li id="OSD">
+<p id="abC">Sketch an accurate graph of <span class="process-math">\(P\)</span> for <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 5\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-1-3-Act3.html" title="Figure 1.3.11">Figure 1.3.11</a>. Label the scale on the axes carefully.</p>
+<figure class="figure figure-like" id="GiL"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/1_3_Act3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.11<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(y = P(t)\)</span> in <a href="" class="xref" data-knowl="./knowl/act-1-3-3.html" title="Activity 1.3.4">Activity 1.3.4</a>.</figcaption></figure>
+</li>
+<li id="uZM"><p id="p-derived-uZM">Compute the average rate of change of <span class="process-math">\(P\)</span> between 2030 and 2050. Include units on your answer and write one sentence to explain the meaning (in everyday language) of the value you found.</p></li>
+<li id="bgV"><p id="p-derived-bgV">Use the limit definition to write an expression for the instantaneous rate of change of <span class="process-math">\(P\)</span> with respect to time, <span class="process-math">\(t\text{,}\)</span> at the instant <span class="process-math">\(a = 2\text{.}\)</span> Explain why this limit is difficult to evaluate exactly.</p></li>
+<li id="Hoe"><p id="p-derived-Hoe">Estimate the limit in (c) for the instantaneous rate of change of <span class="process-math">\(P\)</span> at the instant <span class="process-math">\(a = 2\)</span> by using several small <span class="process-math">\(h\)</span> values. Once you have determined an accurate estimate of <span class="process-math">\(P'(2)\text{,}\)</span> include units on your answer, and write one sentence (using everyday language) to explain the meaning of the value you found.</p></li>
+<li id="nvn"><p id="p-derived-nvn">On your graph above, sketch two lines: one whose slope represents the average rate of change of <span class="process-math">\(P\)</span> on <span class="process-math">\([2,4]\text{,}\)</span> the other whose slope represents the instantaneous rate of change of <span class="process-math">\(P\)</span> at the instant <span class="process-math">\(a=2\text{.}\)</span></p></li>
+<li id="TCw"><p id="p-derived-TCw">In a carefully-worded sentence, describe the behavior of <span class="process-math">\(P'(a)\)</span> as <span class="process-math">\(a\)</span> increases in value. What does this reflect about the behavior of the given function <span class="process-math">\(P\text{?}\)</span></p></li>
+</ol></article></section><section class="subsection" id="JMC"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.3.2</span> <span class="title">Summary</span>
+</h3>
+<ul id="pym" class="disc">
+<li id="IHj"><p id="p-derived-IHj">The average rate of change of a function <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,b]\)</span> is <span class="process-math">\(\frac{f(b)-f(a)}{b-a}\text{.}\)</span> The units on the average rate of change are units of <span class="process-math">\(f(x)\)</span> per unit of <span class="process-math">\(x\text{,}\)</span> and the numerical value of the average rate of change represents the slope of the secant line between the points <span class="process-math">\((a,f(a))\)</span> and <span class="process-math">\((b,f(b))\)</span> on the graph of <span class="process-math">\(y = f(x)\text{.}\)</span> If we view the interval as being <span class="process-math">\([a,a+h]\)</span> instead of <span class="process-math">\([a,b]\text{,}\)</span> the meaning is still the same, but the average rate of change is now computed by <span class="process-math">\(\frac{f(a+h)-f(a)}{h}\text{.}\)</span></p></li>
+<li id="oOs"><p id="p-derived-oOs">The instantaneous rate of change with respect to <span class="process-math">\(x\)</span> of a function <span class="process-math">\(f\)</span> at a value <span class="process-math">\(x = a\)</span> is denoted <span class="process-math">\(f'(a)\)</span> (read “the derivative of <span class="process-math">\(f\)</span> evaluated at <span class="process-math">\(a\)</span>” or “<span class="process-math">\(f\)</span>-prime at <span class="process-math">\(a\)</span>”) and is defined by the formula<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f'(a) = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}\text{,}
+\end{equation*}
+</div>provided the limit exists. Note particularly that the instantaneous rate of change at <span class="process-math">\(x = a\)</span> is the limit of the average rate of change on <span class="process-math">\([a,a+h]\)</span> as <span class="process-math">\(h \to 0\text{.}\)</span></p></li>
+<li id="UVB"><p id="p-derived-UVB">Provided the derivative <span class="process-math">\(f'(a)\)</span> exists, its value tells us the instantaneous rate of change of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\)</span> at <span class="process-math">\(x = a\text{,}\)</span> which geometrically is the slope of the tangent line to the curve <span class="process-math">\(y = f(x)\)</span> at the point <span class="process-math">\((a,f(a))\text{.}\)</span> We even say that <span class="process-math">\(f'(a)\)</span> is the “slope of the curve” at the point <span class="process-math">\((a,f(a))\text{.}\)</span></p></li>
+<li id="BcK"><p id="p-derived-BcK">Limits allow us to move from the rate of change over an interval to the rate of change at a single point.</p></li>
+</ul></section><section class="exercises" id="WsC"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">1.3.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="oDk"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating derivative values graphically.</span>
+</h4>
+<div id="webwork-26" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="26" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec2/Q09.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-481">Consider the function <span class="process-math">\(y = f(x)\)</span> graphed below.</p>
+<div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-26-image-1.png" class="contained"></div>
+<p id="p-482">Give the <span class="process-math">\(x\)</span>-coordinate of a point where:</p>
+<p id="p-483"><em class="alert">A.</em> the derivative of the function is negative: <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-484"><em class="alert">B.</em> the value of the function is negative: <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-485"><em class="alert">C.</em> the derivative of the function is smallest (most negative): <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-486"><em class="alert">D.</em> the derivative of the function is zero: <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-487"><em class="alert">E.</em> the derivative of the function is approximately the same as the derivative at <span class="process-math">\(x = 2.25\)</span> (be sure that you give a point that is distinct from <span class="process-math">\(x = 2.25\text{!}\)</span>): <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-26')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="UKt"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Tangent line to a curve.</span>
+</h4>
+<div id="webwork-27" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="27" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec2/Q13.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-493">The figure below shows a function <span class="process-math">\(g(x)\)</span> and its tangent line at the point <span class="process-math">\(B = (6.8,2)\text{.}\)</span>  If the point <span class="process-math">\(A\)</span> on the tangent line is <span class="process-math">\((6.74,2.05)\text{,}\)</span> fill in the blanks below to complete the statements about the function <span class="process-math">\(g\)</span> at the point <span class="process-math">\(B\text{.}\)</span></p>
+<div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-27-image-1.png" class="contained"></div>
+<p id="p-494"><span class="process-math">\(g(\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\() =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+<p id="p-495"><span class="process-math">\(g'(\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\() =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-27')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="ARC"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Interpreting values and slopes from a graph.</span>
+</h4>
+<div id="webwork-28" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="28" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec2/Q15.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-500">Consider the graph of the function <span class="process-math">\(f(x)\)</span> shown below.</p>
+<div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-28-image-1.png" class="contained"></div>
+<p id="p-501">Using this graph, for each of the following pairs of numbers decide which is larger.  <em class="emphasis">Be sure that you can explain your answer.</em></p>
+<p id="p-502"><em class="alert">A.</em> <span class="process-math">\(f(6)\)</span> <ul style="list-style:circle;">
+<li id="li-373"><p id="p-504">&lt;</p></li>
+<li id="li-374"><p id="p-505">=</p></li>
+<li id="li-375"><p id="p-506">&gt;</p></li>
+</ul> <span class="process-math">\(f(8)\)</span></p>
+<p id="p-507"><em class="alert">B.</em> <span class="process-math">\(f(6) - f(4)\)</span> <ul style="list-style:circle;">
+<li id="li-377"><p id="p-509">&lt;</p></li>
+<li id="li-378"><p id="p-510">=</p></li>
+<li id="li-379"><p id="p-511">&gt;</p></li>
+</ul> <span class="process-math">\(f(4) - f(2)\)</span></p>
+<p id="p-512"><em class="alert">C.</em> <span class="process-math">\(\frac{f(4) - f(2)}{4 - 2}\)</span> <ul style="list-style:circle;">
+<li id="li-381"><p id="p-514">&lt;</p></li>
+<li id="li-382"><p id="p-515">=</p></li>
+<li id="li-383"><p id="p-516">&gt;</p></li>
+</ul> <span class="process-math">\(\frac{f(6) - f(2)}{6 - 2}\)</span></p>
+<p id="p-517"><em class="alert">D.</em> <span class="process-math">\(f'(2)\)</span> <ul style="list-style:circle;">
+<li id="li-385"><p id="p-519">&lt;</p></li>
+<li id="li-386"><p id="p-520">=</p></li>
+<li id="li-387"><p id="p-521">&gt;</p></li>
+</ul> <span class="process-math">\(f'(8)\)</span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-28')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="gYL"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Finding an exact derivative value algebraically.</span>
+</h4>
+<div id="webwork-29" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="29" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec2/Q35.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-526">Find the derivative of <span class="process-math">\(g(t) = 2 t^2 + 2 t\)</span> at <span class="process-math">\(t=7\)</span> algebraically.</p>
+<p id="p-527"><span class="process-math">\(g'(7) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-29')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="NfU"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating a derivative from the limit definition.</span>
+</h4>
+<div id="webwork-30" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="30" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec2/Q07.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-529">Estimate <span class="process-math">\(f'(3)\)</span> for <span class="process-math">\(f(x) = 6^x\text{.}\)</span>  Be sure your answer is accurate to within 0.1 of the actual value.</p>
+<p id="p-530"><span class="process-math">\(f'(3) \approx\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></p>
+<p id="p-531"><em class="emphasis">Be sure that you can explain your reasoning.</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-30')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="tnd"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="GzK">Consider the graph of <span class="process-math">\(y = f(x)\)</span> provided in <a href="" class="xref" data-knowl="./knowl/F-1-3-Ez1.html" title="Figure 1.3.12">Figure 1.3.12</a>.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><ol id="uls" class="lower-alpha">
+<li id="NPO">
+<p id="EKx">On the graph of <span class="process-math">\(y = f(x)\text{,}\)</span> sketch and label the following quantities:</p>
+<ul class="disc">
+<li id="cYM"><p id="p-derived-cYM">the secant line to <span class="process-math">\(y = f(x)\)</span> on the interval <span class="process-math">\([-3,-1]\)</span> and the secant line to <span class="process-math">\(y = f(x)\)</span> on the interval <span class="process-math">\([0,2]\text{.}\)</span></p></li>
+<li id="JfV"><p id="p-derived-JfV">the tangent line to <span class="process-math">\(y = f(x)\)</span> at <span class="process-math">\(x = -3\)</span> and the tangent line to <span class="process-math">\(y = f(x)\)</span> at <span class="process-math">\(x = 0\text{.}\)</span></p></li>
+</ul>
+</li>
+<li id="tWX"><p id="p-derived-tWX">What is the approximate value of the average rate of change of <span class="process-math">\(f\)</span> on <span class="process-math">\([-3,-1]\text{?}\)</span> On <span class="process-math">\([0,2]\text{?}\)</span> How are these values related to your work in (a)?</p></li>
+<li id="aeg"><p id="p-derived-aeg">What is the approximate value of the instantaneous rate of change of <span class="process-math">\(f\)</span> at <span class="process-math">\(x = -3\text{?}\)</span> At <span class="process-math">\(x = 0\text{?}\)</span> How are these values related to your work in (a)?</p></li>
+</ol></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="asB"><img src="external/images/1_3_Ez1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.12<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(y = f(x)\text{.}\)</span></figcaption></figure></div>
+</div></div></article><article class="exercise exercise-like" id="Zum"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="mGT">For each of the following prompts, sketch a graph on the provided axes in <a href="" class="xref" data-knowl="./knowl/F-1-3-Ez2.html" title="Figure 1.3.13">Figure 1.3.13</a> of a function that has the stated properties.</p>
+<figure class="figure figure-like" id="yVl"><div class="image-box" style="width: 99%; margin-left: 0.5%; margin-right: 0.5%;"><img src="external/images/1_2_Ez3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.13<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(y = f(x)\)</span> in (a) and <span class="process-math">\(y = g(x)\)</span> in (b).</figcaption></figure><ol id="SOc" class="lower-alpha">
+<li id="rcr">
+<p id="kRG"><span class="process-math">\(y = f(x)\)</span> such that</p>
+<ul class="disc">
+<li id="pne"><p id="p-derived-pne">the average rate of change of <span class="process-math">\(f\)</span> on <span class="process-math">\([-3,0]\)</span> is <span class="process-math">\(-2\)</span> and the average rate of change of <span class="process-math">\(f\)</span> on <span class="process-math">\([1,3]\)</span> is 0.5, and</p></li>
+<li id="Vun"><p id="p-derived-Vun">the instantaneous rate of change of <span class="process-math">\(f\)</span> at <span class="process-math">\(x = -1\)</span> is <span class="process-math">\(-1\)</span> and the instantaneous rate of change of <span class="process-math">\(f\)</span> at <span class="process-math">\(x = 2\)</span> is 1.</p></li>
+</ul>
+</li>
+<li id="XjA">
+<p id="QYP"><span class="process-math">\(y = g(x)\)</span> such that</p>
+<ul class="disc">
+<li id="BBw"><p id="p-derived-BBw"><span class="process-math">\(\frac{g(3)-g(-2)}{5} = 0\)</span> and <span class="process-math">\(\frac{g(1)-g(-1)}{2} = -1\text{,}\)</span> and</p></li>
+<li id="hIF"><p id="p-derived-hIF"><span class="process-math">\(g'(2) = 1\)</span> and <span class="process-math">\(g'(-1) = 0\)</span></p></li>
+</ul>
+</li>
+</ol></article><article class="exercise exercise-like" id="FBv"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="fcu">Suppose that the population, <span class="process-math">\(P\text{,}\)</span> of China (in billions) can be approximated by the function <span class="process-math">\(P(t) = 1.15(1.014)^t\)</span> where <span class="process-math">\(t\)</span> is the number of years since the start of 1993.</p>
+<ol id="LjD" class="lower-alpha">
+<li id="bTt"><p id="p-derived-bTt">According to the model, what was the total change in the population of China between January 1, 1993 and January 1, 2000? What will be the average rate of change of the population over this time period? Is this average rate of change greater or less than the instantaneous rate of change of the population on January 1, 2000? Explain and justify, being sure to include proper units on all your answers.</p></li>
+<li id="IaC"><p id="p-derived-IaC">According to the model, what is the average rate of change of the population of China in the ten-year period starting on January 1, 2012?</p></li>
+<li id="ohL"><p id="p-derived-ohL">Write an expression involving limits that, if evaluated, would give the exact instantaneous rate of change of the population on today's date. Then estimate the value of this limit (discuss how you chose to do so) and explain the meaning (including units) of the value you have found.</p></li>
+<li id="UoU"><p id="p-derived-UoU">Find an equation for the tangent line to the function <span class="process-math">\(y = P(t)\)</span> at the point where the <span class="process-math">\(t\)</span>-value is given by today's date.</p></li>
+</ol></article><article class="exercise exercise-like" id="lIE"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="rqM">The goal of this problem is to compute the value of the derivative at a point for several different functions, where for each one we do so in three different ways, and then to compare the results to see that each produces the same value.</p>
+<p id="XxV">For each of the following functions, use the limit definition of the derivative to compute the value of <span class="process-math">\(f'(a)\)</span> using three different approaches: strive to use the algebraic approach first (to compute the limit exactly), then test your result using numerical evidence (with small values of <span class="process-math">\(h\)</span>), and finally plot the graph of <span class="process-math">\(y = f(x)\)</span> near <span class="process-math">\((a,f(a))\)</span> along with the appropriate tangent line to estimate the value of <span class="process-math">\(f'(a)\)</span> visually. Compare your findings among all three approaches; if you are unable to complete the algebraic approach, still work numerically and graphically.</p>
+<ol id="DFe" class="lower-alpha cols2">
+<li id="xBx"><p id="p-derived-xBx"><span class="process-math">\(f(x) = x^2 - 3x\text{,}\)</span> <span class="process-math">\(a = 2\)</span></p></li>
+<li id="dIG"><p id="p-derived-dIG"><span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> <span class="process-math">\(a = 1\)</span></p></li>
+<li id="JPP"><p id="p-derived-JPP"><span class="process-math">\(f(x) = \sqrt{x}\text{,}\)</span> <span class="process-math">\(a = 1\)</span></p></li>
+<li id="pWY"><p id="p-derived-pWY"><span class="process-math">\(f(x) = 2 - |x-1|\text{,}\)</span> <span class="process-math">\(a = 1\)</span></p></li>
+<li id="Weh"><p id="p-derived-Weh"><span class="process-math">\(f(x) = \sin(x)\text{,}\)</span> <span class="process-math">\(a = \frac{\pi}{2}\)</span></p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-29"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/5r</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-30"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/5s</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-31"><div class="fn">You can even consider building your own examples; the fantastic program Geogebra is available for <a class="external" href="http://geogebra.org" target="_blank">free download</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-32" id="fn-32"><sup> 4 </sup></a> and is easy to learn and use.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-32"><div class="fn"><code class="code-inline tex2jax_ignore">geogebra.org</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-33"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/5p</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-34"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/5q</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

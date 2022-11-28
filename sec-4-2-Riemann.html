@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Riemann Sums</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-4-1-velocity-distance.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-4.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-4-3-definite-integral.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-4-1-velocity-distance.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-4.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-4-3-definite-integral.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="active">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="DvA"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Riemann Sums</span>
+</h2>
+<article class="objectives goal-like" id="Ift"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="MPm"><p id="xGo">How can we use a Riemann sum to estimate the area between a given curve and the horizontal axis over a particular interval?</p></li>
+<li id="sWv"><p id="dNx">What are the differences among left, right, middle, and random Riemann sums?</p></li>
+<li id="ZdE"><p id="JUG">How can we write Riemann sums in an abbreviated form?</p></li>
+</ul></article><section class="introduction" id="UtL"><p id="uLI">In <a href="sec-4-1-velocity-distance.html" class="internal" title="Section 4.1: Determining distance traveled from velocity">Section 4.1</a>, we learned that if an object moves with positive velocity <span class="process-math">\(v\text{,}\)</span> the area between <span class="process-math">\(y = v(t)\)</span> and the <span class="process-math">\(t\)</span>-axis over a given time interval tells us the distance traveled by the object over that time period. If <span class="process-math">\(v(t)\)</span> is sometimes negative and we view the area of any region below the <span class="process-math">\(t\)</span>-axis as having an associated negative sign, then the sum of these signed areas tells us the moving object's change in position over a given time interval.</p>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;">
+<p id="ixq">For instance, for the velocity function given in <a href="" class="xref" data-knowl="./knowl/F-4-2-Intro.html" title="Figure 4.2.1">Figure 4.2.1</a>, if the areas of shaded regions are <span class="process-math">\(A_1\text{,}\)</span> <span class="process-math">\(A_2\text{,}\)</span> and <span class="process-math">\(A_3\)</span> as labeled, then the total distance <span class="process-math">\(D\)</span> traveled by the moving object on <span class="process-math">\([a,b]\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-2-Intro.html">
+\begin{equation*}
+D = A_1 + A_2 + A_3\text{,}
+\end{equation*}
+</div>
+<p class="continuation">while the total change in the object's position on <span class="process-math">\([a,b]\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-2-Intro.html">
+\begin{equation*}
+s(b) - s(a) = A_1 - A_2 + A_3\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="OEz"><img src="external/images/4_2_Intro.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.1<span class="period">.</span></span><span class="space"> </span>A velocity function that is sometimes negative.</figcaption></figure></div>
+</div></div>
+<p id="aSR">Because the motion is in the negative direction on the interval where <span class="process-math">\(v(t) \lt 0\text{,}\)</span> we subtract <span class="process-math">\(A_2\)</span> to determine the object's total change in position.</p>
+<p id="Haa">Of course, finding <span class="process-math">\(D\)</span> and <span class="process-math">\(s(b)-s(a)\)</span> for the graph in <a href="" class="xref" data-knowl="./knowl/F-4-2-Intro.html" title="Figure 4.2.1">Figure 4.2.1</a> presumes that we can actually find the areas <span class="process-math">\(A_1\text{,}\)</span> <span class="process-math">\(A_2\text{,}\)</span> and <span class="process-math">\(A_3\text{.}\)</span> So far, we have worked with velocity functions that were either constant or linear, so that the area bounded by the velocity function and the horizontal axis is a combination of rectangles and triangles, and we can find the area exactly. But when the curve bounds a region that is not a familiar geometric shape, we cannot find its area exactly. Indeed, this is one of our biggest goals in <a href="C-4.html" class="internal" title="Chapter 4: The Definite Integral">Chapter 4</a>: to learn how to find the exact area bounded between a curve and the horizontal axis for as many different types of functions as possible.</p>
+<p id="nhj">In <a href="" class="xref" data-knowl="./knowl/act-4-1-1.html" title="Activity 4.1.2">Activity 4.1.2</a>, we approximated the area under a nonlinear velocity function using rectangles. In the following preview activity, we consider three different options for the heights of the rectangles we will use.</p>
+<article class="exploration project-like" id="lfo"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="period">.</span>
+</h3>
+<p id="Uhd">A person walking along a straight path has her velocity in miles per hour at time <span class="process-math">\(t\)</span> given by the function <span class="process-math">\(v(t) = 0.25t^3-1.5t^2+3t+0.25\text{,}\)</span> for times in the interval <span class="process-math">\(0 \le t \le 2\text{.}\)</span> The graph of this function is also given in each of the three diagrams in <a href="" class="xref" data-knowl="./knowl/F-4-2-PA1.html" title="Figure 4.2.2">Figure 4.2.2</a>.</p>
+<figure class="figure figure-like" id="gvv"><div class="image-box" style="width: 97%; margin-left: 1.5%; margin-right: 1.5%;"><img src="external/images/4_2_PA1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.2<span class="period">.</span></span><span class="space"> </span>Three approaches to estimating the area under <span class="process-math">\(y = v(t)\)</span> on the interval <span class="process-math">\([0,2]\text{.}\)</span></figcaption></figure><p id="Aom">Note that in each diagram, we use four rectangles to estimate the area under <span class="process-math">\(y = v(t)\)</span> on the interval <span class="process-math">\([0,2]\text{,}\)</span> but the method by which the four rectangles' respective heights are decided varies among the three individual graphs.</p>
+<ol class="lower-alpha">
+<li id="XbJ">
+<p id="vEt">How are the heights of rectangles in the left-most diagram being chosen? Explain, and hence determine the value of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S = A_1 + A_2 + A_3 + A_4
+\end{equation*}
+</div>
+<p class="continuation">by evaluating the function <span class="process-math">\(y = v(t)\)</span> at appropriately chosen values and observing the width of each rectangle. Note, for example, that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+A_3 = v(1) \cdot \frac{1}{2} = 2 \cdot \frac{1}{2} = 1\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="DiS">
+<p id="bLC">Explain how the heights of rectangles are being chosen in the middle diagram and find the value of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+T = B_1 + B_2 + B_3 + B_4\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="jqb">
+<p id="HSL">Likewise, determine the pattern of how heights of rectangles are chosen in the right-most diagram and determine</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+U = C_1 + C_2 + C_3 + C_4\text{.}
+\end{equation*}
+</div>
+</li>
+<li id="Pxk"><p id="nZU">Of the estimates <span class="process-math">\(S\text{,}\)</span> <span class="process-math">\(T\text{,}\)</span> and <span class="process-math">\(U\text{,}\)</span> which do you think is the best approximation of <span class="process-math">\(D\text{,}\)</span> the total distance the person traveled on <span class="process-math">\([0,2]\text{?}\)</span> Why?</p></li>
+</ol></article></section><section class="subsection" id="jCJ"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.1</span> <span class="title">Sigma Notation</span>
+</h3>
+<p id="Tos">We have used sums of areas of rectangles to approximate the area under a curve. Intuitively, we expect that using a larger number of thinner rectangles will provide a better estimate for the area. Consequently, we anticipate dealing with sums of a large number of terms. To do so, we introduce <em class="emphasis">sigma notation</em>,  named for the Greek letter <span class="process-math">\(\Sigma\text{,}\)</span> which is the capital letter <span class="process-math">\(S\)</span> in the Greek alphabet.</p>
+<p id="zvB">For example, say we are interested in the sum</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+1 + 2 + 3 + \cdots + 100\text{,}
+\end{equation*}
+</div>
+<p class="continuation">the sum of the first 100 natural numbers. In sigma notation we write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{100} k =  1 + 2 + 3 + \cdots + 100\text{.}
+\end{equation*}
+</div>
+<p id="fCK">We read the symbol <span class="process-math">\(\sum_{k=1}^{100} k\)</span> as “the sum from <span class="process-math">\(k\)</span> equals 1 to 100 of <span class="process-math">\(k\text{.}\)</span>” The variable <span class="process-math">\(k\)</span> is called the index of summation, and any letter can be used for this variable. The pattern in the terms of the sum is denoted by a function of the index; for example,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^{10} (k^2 + 2k) =  (1^2 + 2\cdot 1) + (2^2 + 2\cdot 2) + (3^2 + 2\cdot 3) + \cdots + (10^2 + 2\cdot 10)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and more generally,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\sum_{k=1}^n f(k) = f(1) + f(2) + \cdots + f(n)\text{.}
+\end{equation*}
+</div>
+<p id="LJT">Sigma notation allows us to vary easily the function being used to describe the terms in the sum, and to adjust the number of terms in the sum simply by changing the value of <span class="process-math">\(n\text{.}\)</span> We test our understanding of this new notation in the following activity.</p>
+<article class="activity project-like" id="chk"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
+</h4>
+<p id="SNy">For each sum written in sigma notation, write the sum long-hand and evaluate the sum to find its value. For each sum written in expanded form, write the sum in sigma notation.</p>
+<ol class="lower-alpha cols2">
+<li id="oRb"><p id="HEz"><span class="process-math">\(\displaystyle \sum_{k=1}^{5} (k^2 + 2)\)</span></p></li>
+<li id="UYk"><p id="nLI"><span class="process-math">\(\displaystyle \sum_{i=3}^{6} (2i-1)\)</span></p></li>
+<li id="Bft"><p id="TSR"><span class="process-math">\(\displaystyle 3 + 7 + 11 + 15 + \cdots + 27\)</span></p></li>
+<li id="hmC"><p id="Aaa"><span class="process-math">\(\displaystyle 4 + 8 + 16 + 32 + \cdots + 256\)</span></p></li>
+<li id="NtL"><p id="ghj"><span class="process-math">\(\displaystyle \sum_{i=1}^{6} \frac{1}{2^i}\)</span></p></li>
+</ol></article></section><section class="subsection" id="PJS"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.2</span> <span class="title">Riemann Sums</span>
+</h3>
+<p id="rRc">When a moving body has a positive velocity function <span class="process-math">\(y = v(t)\)</span> on a given interval <span class="process-math">\([a,b]\text{,}\)</span> the area under the curve over the interval gives the total distance the body travels on <span class="process-math">\([a,b]\text{.}\)</span> We are also interested in finding the exact area bounded by <span class="process-math">\(y = f(x)\)</span> on an interval <span class="process-math">\([a,b]\text{,}\)</span> regardless of the meaning or context of the function <span class="process-math">\(f\text{.}\)</span> For now, we continue to focus on finding an accurate estimate of this area by using a sum of the areas of rectangles. Unless otherwise indicated, we assume that <span class="process-math">\(f\)</span> is continuous and non-negative on <span class="process-math">\([a,b]\text{.}\)</span></p>
+<p id="XYl">The first choice we make in such an approximation is the number of rectangles.</p>
+<figure class="figure figure-like" id="SiZ"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/4_2_Interval.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.3<span class="period">.</span></span><span class="space"> </span>Subdividing the interval <span class="process-math">\([a,b]\)</span> into <span class="process-math">\(n\)</span> subintervals of equal length <span class="process-math">\(\Delta x\text{.}\)</span></figcaption></figure><p id="Efu">If we desire <span class="process-math">\(n\)</span> rectangles of equal width to subdivide the interval <span class="process-math">\([a,b]\text{,}\)</span> then each rectangle must have width <span class="process-math">\(\Delta x = \frac{b-a}{n}\text{.}\)</span> We let <span class="process-math">\(x_0 = a\text{,}\)</span> <span class="process-math">\(x_n = b\text{,}\)</span> and define <span class="process-math">\(x_{i} = a + i\Delta x\text{,}\)</span> so that <span class="process-math">\(x_1 = x_0 + \Delta x\text{,}\)</span> <span class="process-math">\(x_2 = x_0 + 2 \Delta x\text{,}\)</span> and so on, as pictured in <a href="" class="xref" data-knowl="./knowl/F-4-2-Interval.html" title="Figure 4.2.3">Figure 4.2.3</a>.</p>
+<p id="kmD">We use each subinterval <span class="process-math">\([x_i, x_{i+1}]\)</span> as the base of a rectangle, and next choose the height of the rectangle on that subinterval. There are three standard choices: we can use the left endpoint of each subinterval, the right endpoint of each subinterval, or the midpoint of each. These are precisely the options encountered in <a href="" class="xref" data-knowl="./knowl/PA-4-2.html" title="Preview Activity 4.2.1">Preview Activity 4.2.1</a> and seen in <a href="" class="xref" data-knowl="./knowl/F-4-2-PA1.html" title="Figure 4.2.2">Figure 4.2.2</a>. We next explore how these choices can be described in sigma notation.</p>
+<p id="QtM">Consider an arbitrary positive function <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\)</span> with the interval subdivided as shown in <a href="" class="xref" data-knowl="./knowl/F-4-2-Interval.html" title="Figure 4.2.3">Figure 4.2.3</a>, and choose to use left endpoints. Then on each interval <span class="process-math">\([x_{i}, x_{i+1}]\text{,}\)</span> the area of the rectangle formed is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-2-Interval.html ./knowl/F-4-2-LeftSum.html">
+\begin{equation*}
+A_{i+1} = f(x_i) \cdot \Delta x\text{,}
+\end{equation*}
+</div>
+<p class="continuation">as seen in <a href="" class="xref" data-knowl="./knowl/F-4-2-LeftSum.html" title="Figure 4.2.4">Figure 4.2.4</a>.</p>
+<figure class="figure figure-like" id="yqi"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/images/4_2_LeftSum.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.4<span class="period">.</span></span><span class="space"> </span>Subdividing the interval <span class="process-math">\([a,b]\)</span> into <span class="process-math">\(n\)</span> subintervals of equal length <span class="process-math">\(\Delta x\)</span> and approximating the area under <span class="process-math">\(y = f(x)\)</span> over <span class="process-math">\([a,b]\)</span> using left rectangles.</figcaption></figure><p id="wAV">If we let <span class="process-math">\(L_n\)</span> denote the sum of the areas of these rectangles, we see that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="kWx">
+\begin{align*}
+L_n =\mathstrut \amp  A_1 + A_2 + \cdots + A_{i+1} + \cdots + A_n\\
+=\mathstrut \amp  f(x_0) \cdot \Delta x + f(x_1) \cdot \Delta x + \cdots + f(x_i) \cdot \Delta x + \cdots + f(x_{n-1}) \cdot \Delta x\text{.}
+\end{align*}
+</div>
+<p class="continuation">In the more compact sigma notation, we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+L_n = \sum_{i = 0}^{n-1} f(x_i) \Delta x\text{.}
+\end{equation*}
+</div>
+<p id="cIe">Note that since the index of summation begins at <span class="process-math">\(0\)</span> and ends at <span class="process-math">\(n-1\text{,}\)</span> there are indeed <span class="process-math">\(n\)</span> terms in this sum. We call <span class="process-math">\(L_n\)</span> the <em class="emphasis">left Riemann sum</em>  for the function <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,b]\text{.}\)</span></p>
+<p id="IPn">To see how the Riemann sums for right endpoints and midpoints are constructed, we consider <a href="" class="xref" data-knowl="./knowl/F-4-2-RightMidSum.html" title="Figure 4.2.5">Figure 4.2.5</a>.</p>
+<figure class="figure figure-like" id="exr"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_2_RightMidSum.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.5<span class="period">.</span></span><span class="space"> </span>Riemann sums using right endpoints and midpoints.</figcaption></figure><p id="oWw">For the sum with right endpoints, we see that the area of the rectangle on an arbitrary interval <span class="process-math">\([x_i, x_{i+1}]\)</span> is given by <span class="process-math">\(B_{i+1} = f(x_{i+1}) \cdot \Delta x\text{,}\)</span> and that the sum of all such areas of rectangles is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="RdG">
+\begin{align*}
+R_n =\mathstrut \amp  B_1 + B_2 + \cdots + B_{i+1} + \cdots + B_n\\
+=\mathstrut \amp  f(x_1) \cdot \Delta x + f(x_2) \cdot \Delta x + \cdots + f(x_{i+1}) \cdot \Delta x + \cdots + f(x_{n}) \cdot \Delta x\\
+=\mathstrut \amp  \sum_{i=1}^{n} f(x_i) \Delta x\text{.}
+\end{align*}
+</div>
+<p id="VdF">We call <span class="process-math">\(R_n\)</span> the <em class="emphasis">right Riemann sum</em>  for the function <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,b]\text{.}\)</span></p>
+<p id="BkO">For the sum that uses midpoints, we introduce the notation</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-2-RightMidSum.html">
+\begin{equation*}
+\overline{x}_{i+1} = \frac{x_{i} + x_{i+1}}{2}
+\end{equation*}
+</div>
+<p class="continuation">so that <span class="process-math">\(\overline{x}_{i+1}\)</span> is the midpoint of the interval <span class="process-math">\([x_i, x_{i+1}]\text{.}\)</span> For instance, for the rectangle with area <span class="process-math">\(C_1\)</span> in <a href="" class="xref" data-knowl="./knowl/F-4-2-RightMidSum.html" title="Figure 4.2.5">Figure 4.2.5</a>, we now have</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-2-RightMidSum.html">
+\begin{equation*}
+C_1 = f(\overline{x}_1) \cdot \Delta x\text{.}
+\end{equation*}
+</div>
+<p id="hrX">Hence, the sum of all the areas of rectangles that use midpoints is</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="Jzh">
+\begin{align*}
+M_n =\mathstrut \amp  C_1 + C_2 + \cdots + C_{i+1} + \cdots + C_n\\
+=\mathstrut \amp  f(\overline{x_1}) \cdot \Delta x + f(\overline{x_2}) \cdot \Delta x + \cdots + f(\overline{x}_{i+1}) \cdot \Delta x + \cdots + f(\overline{x}_{n}) \cdot \Delta x\\
+=\mathstrut \amp  \sum_{i=1}^{n} f(\overline{x}_i) \Delta x\text{,}
+\end{align*}
+</div>
+<p class="continuation">and we say that <span class="process-math">\(M_n\)</span> is the <em class="emphasis">middle Riemann sum</em>  for <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{.}\)</span></p>
+<p id="Nzg">Thus, we have two variables to explore: the number of rectangles and the height of each rectangle. We can explore these choices dynamically, and <a class="external" href="https://gvsu.edu/s/a9" target="_blank">this applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-77" id="fn-77"><sup> 1 </sup></a> is a particularly useful one. There we see the image shown in <a href="" class="xref" data-knowl="./knowl/F-4-2-RenaultAppletRS.html" title="Figure 4.2.6">Figure 4.2.6</a>, but with the opportunity to adjust the slider bars for the heights and the number of rectangles.</p>
+<figure class="figure figure-like" id="KEA"><div class="image-box" style="width: 71%; margin-left: 14.5%; margin-right: 14.5%;"><img src="external/images/4_2_RenaultAppletRS.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.6<span class="period">.</span></span><span class="space"> </span>A snapshot of the applet found at <a class="external" href="https://gvsu.edu/s/a9" target="_blank">gvsu.edu/s/a9</a>.</figcaption></figure><p id="tGp">By moving the sliders, we can see how the heights of the rectangles change as we consider left endpoints, midpoints, and right endpoints, as well as the impact that a larger number of narrower rectangles has on the approximation of the exact area bounded by the function and the horizontal axis.</p>
+<p id="ZNy">When <span class="process-math">\(f(x) \ge 0\)</span> on <span class="process-math">\([a,b]\text{,}\)</span> each of the Riemann sums <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> and <span class="process-math">\(M_n\)</span> provides an estimate of the area under the curve <span class="process-math">\(y = f(x)\)</span> over the interval <span class="process-math">\([a,b]\text{.}\)</span> We also recall that in the context of a nonnegative velocity function <span class="process-math">\(y = v(t)\text{,}\)</span> the corresponding Riemann sums approximate the distance traveled on <span class="process-math">\([a,b]\)</span> by a moving object with velocity function <span class="process-math">\(v\text{.}\)</span></p>
+<p id="FUH">There is a more general way to think of Riemann sums, and that is to allow any choice of where the function is evaluated to determine the rectangle heights. Rather than saying we'll always choose left endpoints, or always choose midpoints, we simply say that a point <span class="process-math">\(x_{i+1}^*\)</span> will be selected at random in the interval <span class="process-math">\([x_i, x_{i+1}]\)</span> (so that <span class="process-math">\(x_i \le x_{i+1}^* \le x_{i+1}\)</span>). The Riemann sum is then given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+f(x_1^*) \cdot \Delta x + f(x_2^*) \cdot \Delta x + \cdots + f(x_{i+1}^*) \cdot \Delta x + \cdots + f(x_n^*) \cdot \Delta x = \sum_{i=1}^{n} f(x_i^*) \Delta x\text{.}
+\end{equation*}
+</div>
+<p id="mbQ"><a class="external" href="https://gvsu.edu/s/a9" target="_blank">The applet noted earlier</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-78" id="fn-78"><sup> 2 </sup></a> and referenced in <a href="" class="xref" data-knowl="./knowl/F-4-2-RenaultAppletRS.html" title="Figure 4.2.6">Figure 4.2.6</a>, by unchecking the “relative” box at the top left, and instead checking “random,” we can easily explore the effect of using random point locations in subintervals on a Riemann sum. In computational practice, we most often use <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> or <span class="process-math">\(M_n\text{,}\)</span> while the random Riemann sum is useful in theoretical discussions. In the following activity, we investigate several different Riemann sums for a particular velocity function.</p>
+<article class="activity project-like" id="KNA"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
+</h4>
+<p id="GdH">Suppose that an object moving along a straight line path has its velocity in feet per second at time <span class="process-math">\(t\)</span> in seconds given by <span class="process-math">\(v(t) = \frac{2}{9}(t-3)^2 + 2\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="ZmE"><p id="Txs">Carefully sketch the region whose exact area will tell you the value of the distance the object traveled on the time interval <span class="process-math">\(2 \le t \le 5\text{.}\)</span></p></li>
+<li id="FtN"><p id="zEB">Estimate the distance traveled on <span class="process-math">\([2,5]\)</span> by computing <span class="process-math">\(L_4\text{,}\)</span> <span class="process-math">\(R_4\text{,}\)</span> and <span class="process-math">\(M_4\text{.}\)</span></p></li>
+<li id="lAW"><p id="fLK">Does averaging <span class="process-math">\(L_4\)</span> and <span class="process-math">\(R_4\)</span> result in the same value as <span class="process-math">\(M_4\text{?}\)</span> If not, what do you think the average of <span class="process-math">\(L_4\)</span> and <span class="process-math">\(R_4\)</span> measures?</p></li>
+<li id="RIf"><p id="LST">For this question, think about an arbitrary function <span class="process-math">\(f\text{,}\)</span> rather than the particular function <span class="process-math">\(v\)</span> given above. If <span class="process-math">\(f\)</span> is positive and increasing on <span class="process-math">\([a,b]\text{,}\)</span> will <span class="process-math">\(L_n\)</span> over-estimate or under-estimate the exact area under <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{?}\)</span> Will <span class="process-math">\(R_n\)</span> over- or under-estimate the exact area under <span class="process-math">\(f\)</span> on <span class="process-math">\([a,b]\text{?}\)</span> Explain.</p></li>
+</ol></article></section><section class="subsection" id="vRb"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.3</span> <span class="title">When the function is sometimes negative</span>
+</h3>
+<p id="qLJ">For a Riemann sum such as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+L_n = \sum_{i=0}^{n-1} f(x_i) \Delta x\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we can of course compute the sum even when <span class="process-math">\(f\)</span> takes on negative values. We know that when <span class="process-math">\(f\)</span> is positive on <span class="process-math">\([a,b]\text{,}\)</span> a Riemann sum estimates the area bounded between <span class="process-math">\(f\)</span> and the horizontal axis over the interval.</p>
+<figure class="figure figure-like" id="bCL"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_2_NegF.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.7<span class="period">.</span></span><span class="space"> </span>At left and center, two left Riemann sums for a function <span class="process-math">\(f\)</span> that is sometimes negative; at right, the areas bounded by <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,d]\text{.}\)</span></figcaption></figure><p id="WSS">For the function pictured in the first graph of <a href="" class="xref" data-knowl="./knowl/F-4-2-NegF.html" title="Figure 4.2.7">Figure 4.2.7</a>, a left Riemann sum with 12 subintervals over <span class="process-math">\([a,d]\)</span> is shown. The function is negative on the interval <span class="process-math">\(b \le x \le c\text{,}\)</span> so at the four left endpoints that fall in <span class="process-math">\([b,c]\text{,}\)</span> the terms <span class="process-math">\(f(x_i) \Delta x\)</span> are negative. This means that those four terms in the Riemann sum produce an estimate of the <em class="emphasis">opposite</em> of the area bounded by <span class="process-math">\(y = f(x)\)</span> and the <span class="process-math">\(x\)</span>-axis on <span class="process-math">\([b,c]\text{.}\)</span></p>
+<p id="Dab">In the middle graph of <a href="" class="xref" data-knowl="./knowl/F-4-2-NegF.html" title="Figure 4.2.7">Figure 4.2.7</a>, we see that by increasing the number of rectangles the approximation of the area (or the opposite of the area) bounded by the curve appears to improve.</p>
+<p id="jhk">In general, any Riemann sum of a continuous function <span class="process-math">\(f\)</span> on an interval <span class="process-math">\([a,b]\)</span> approximates the difference between the area that lies above the horizontal axis on <span class="process-math">\([a,b]\)</span> and under <span class="process-math">\(f\)</span> and the area that lies below the horizontal axis on <span class="process-math">\([a,b]\)</span> and above <span class="process-math">\(f\text{.}\)</span> In the notation of <a href="" class="xref" data-knowl="./knowl/F-4-2-NegF.html" title="Figure 4.2.7">Figure 4.2.7</a>, we may say that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-2-NegF.html">
+\begin{equation*}
+L_{24} \approx A_1 - A_2 + A_3\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(L_{24}\)</span> is the left Riemann sum using 24 subintervals shown in the middle graph. <span class="process-math">\(A_1\)</span> and <span class="process-math">\(A_3\)</span> are the areas of the regions where <span class="process-math">\(f\)</span> is positive, and <span class="process-math">\(A_2\)</span> is the area where <span class="process-math">\(f\)</span> is negative. We will call the quantity <span class="process-math">\(A_1 - A_2 + A_3\)</span> the <em class="emphasis">net signed area</em>  bounded by <span class="process-math">\(f\)</span> over the interval <span class="process-math">\([a,d]\text{,}\)</span> where by the phrase “signed area” we indicate that we are attaching a minus sign to the areas of regions that fall below the horizontal axis.</p>
+<p id="vvC">Finally, we recall that if the function <span class="process-math">\(f\)</span> represents the velocity of a moving object, the sum of the areas bounded by the curve tells us the total distance traveled over the relevant time interval, while the net signed area bounded by the curve computes the object's change in position on the interval.</p>
+<article class="activity project-like" id="ZAZ"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.2.4</span><span class="period">.</span>
+</h4>
+<p id="oJX">Suppose that an object moving along a straight line path has its velocity <span class="process-math">\(v\)</span> (in feet per second) at time <span class="process-math">\(t\)</span> (in seconds) given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+v(t) = \frac{1}{2}t^2 - 3t + \frac{7}{2}\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="HSU"><p id="CdI">Compute <span class="process-math">\(M_5\text{,}\)</span> the middle Riemann sum, for <span class="process-math">\(v\)</span> on the time interval <span class="process-math">\([1,5]\text{.}\)</span> Be sure to clearly identify the value of <span class="process-math">\(\Delta t\)</span> as well as the locations of <span class="process-math">\(t_0\text{,}\)</span> <span class="process-math">\(t_1\text{,}\)</span> <span class="process-math">\(\cdots\text{,}\)</span> <span class="process-math">\(t_5\text{.}\)</span> In addition, provide a careful sketch of the function and the corresponding rectangles that are being used in the sum.</p></li>
+<li id="oad"><p id="ikR">Building on your work in (a), estimate the total change in position of the object on the interval <span class="process-math">\([1,5]\text{.}\)</span></p></li>
+<li id="Uhm"><p id="Osa">Building on your work in (a) and (b), estimate the total distance traveled by the object on <span class="process-math">\([1,5]\text{.}\)</span></p></li>
+<li id="Aov"><p id="uzj">Use appropriate computing technology<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-79" id="fn-79"><sup> 3 </sup></a> to compute <span class="process-math">\(M_{10}\)</span> and <span class="process-math">\(M_{20}\text{.}\)</span> What exact value do you think the middle sum eventually approaches as <span class="process-math">\(n\)</span> increases without bound? What does that number represent in the physical context of the overall problem?</p></li>
+</ol></article></section><section class="subsection" id="bYk"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">4.2.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="HJU" class="disc">
+<li id="FkN"><p id="qbP">A Riemann sum is simply a sum of products of the form <span class="process-math">\(f(x_i^*) \Delta x\)</span> that estimates the area between a positive function and the horizontal axis over a given interval. If the function is sometimes negative on the interval, the Riemann sum estimates the difference between the areas that lie above the horizontal axis and those that lie below the axis.</p></li>
+<li id="lrW"><p id="WiY">The three most common types of Riemann sums are left, right, and middle sums, but we can also work with a more general Riemann sum. The only difference among these sums is the location of the point at which the function is evaluated to determine the height of the rectangle whose area is being computed. For a left Riemann sum, we evaluate the function at the left endpoint of each subinterval, while for right and middle sums, we use right endpoints and midpoints, respectively.</p></li>
+<li id="Rzf">
+<p id="Cqh">The left, right, and middle Riemann sums are denoted <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> and <span class="process-math">\(M_n\text{,}\)</span> with formulas</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="ibR">
+\begin{align*}
+L_n = f(x_0) \Delta x + f(x_1) \Delta x + \cdots + f(x_{n-1}) \Delta x \amp= \sum_{i = 0}^{n-1} f(x_i) \Delta x,\\
+R_n = f(x_1) \Delta x + f(x_2) \Delta x + \cdots + f(x_{n}) \Delta x \amp= \sum_{i = 1}^{n} f(x_i) \Delta x,\\
+M_n = f(\overline{x}_1) \Delta x + f(\overline{x}_2) \Delta x + \cdots + f(\overline{x}_{n}) \Delta x \amp= \sum_{i = 1}^{n} f(\overline{x}_i) \Delta x\text{,}
+\end{align*}
+</div>
+<p class="continuation">where <span class="process-math">\(x_0 = a\text{,}\)</span> <span class="process-math">\(x_i = a + i\Delta x\text{,}\)</span> and <span class="process-math">\(x_n = b\text{,}\)</span> using <span class="process-math">\(\Delta x = \frac{b-a}{n}\text{.}\)</span> For the midpoint sum, <span class="process-math">\(\overline{x}_{i} = (x_{i-1} + x_i)/2\text{.}\)</span></p>
+</li>
+</ul></section><section class="exercises" id="DGR"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">4.2.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="aBs"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Evaluating Riemann sums for a quadratic function.</span>
+</h4>
+<div id="webwork-119" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="119" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals0Theory/S05.01.AreaDistance.PTP00.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4564">The rectangles in the graph below illustrate a left endpoint Riemann sum for <span class="process-math">\(\displaystyle f(x) = \frac{-x^{2}}{4}+2x\)</span> on the interval <span class="process-math">\(\lbrack 3, 7 \rbrack\text{.}\)</span></p>
+<p id="p-4565">The value of this left endpoint Riemann sum is <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>, and this Riemann sum is <ul style="list-style:circle;">
+<li id="li-2777"><p id="p-4566">[select an answer]</p></li>
+<li id="li-2778"><p id="p-4567">an overestimate of</p></li>
+<li id="li-2779"><p id="p-4568">equal to</p></li>
+<li id="li-2780"><p id="p-4569">an underestimate of</p></li>
+<li id="li-2781"><p id="p-4570">there is ambiguity</p></li>
+</ul> the area of the region enclosed by <span class="process-math">\(\displaystyle y = f(x)\text{,}\)</span> the x-axis, and the vertical lines x = 3 and x = 7.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr><td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 66.6666666666667%; margin-left: 16.6666666666667%; margin-right: 16.6666666666667%;"><img src="generated/webwork/images/webwork-119-image-1.png" class="contained"></div></td></tr>
+<tr><td class="l m b2 r2 l2 t0 lines">Left endpoint Riemann sum for <span class="process-math">\(y = \frac{-x^{2}}{4}+2x\)</span> on <span class="process-math">\(\lbrack 3, 7 \rbrack\)</span>
+</td></tr>
+</table></div>
+<p id="p-4571">The rectangles in the graph below illustrate a right endpoint Riemann sum for <span class="process-math">\(\displaystyle f(x) = \frac{-x^{2}}{4}+2x\)</span> on the interval <span class="process-math">\(\lbrack 3, 7 \rbrack\text{.}\)</span></p>
+<p id="p-4572">The value of this right endpoint Riemann sum is <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>, and this Riemann sum is <ul style="list-style:circle;">
+<li id="li-2782"><p id="p-4573">[select an answer]</p></li>
+<li id="li-2783"><p id="p-4574">an overestimate of</p></li>
+<li id="li-2784"><p id="p-4575">equal to</p></li>
+<li id="li-2785"><p id="p-4576">an underestimate of</p></li>
+<li id="li-2786"><p id="p-4577">there is ambiguity</p></li>
+</ul> the area of the region enclosed by <span class="process-math">\(\displaystyle y = f(x)\text{,}\)</span> the x-axis, and the vertical lines x = 3 and x = 7.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr><td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 66.6666666666667%; margin-left: 16.6666666666667%; margin-right: 16.6666666666667%;"><img src="generated/webwork/images/webwork-119-image-2.png" class="contained"></div></td></tr>
+<tr><td class="l m b2 r2 l2 t0 lines">Right endpoint Riemann sum for <span class="process-math">\(y = \frac{-x^{2}}{4}+2x\)</span> on <span class="process-math">\(\lbrack 3, 7 \rbrack\)</span>
+</td></tr>
+</table></div>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-119')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="GIB"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating distance traveled with a Riemann sum from data.</span>
+</h4>
+<div id="webwork-120" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="120" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals0Theory/S05.01.AreaDistance.PTP03.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4585">Your task is to estimate how far an object traveled during the time interval <span class="process-math">\(0 \leq t \leq 8\text{,}\)</span> but you only have the following data about the velocity of the object.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines">time (sec)</td>
+<td class="l m b2 r2 l0 t2 lines">0</td>
+<td class="l m b2 r2 l0 t2 lines">1</td>
+<td class="l m b2 r2 l0 t2 lines">2</td>
+<td class="l m b2 r2 l0 t2 lines">3</td>
+<td class="l m b2 r2 l0 t2 lines">4</td>
+<td class="l m b2 r2 l0 t2 lines">5</td>
+<td class="l m b2 r2 l0 t2 lines">6</td>
+<td class="l m b2 r2 l0 t2 lines">7</td>
+<td class="l m b2 r2 l0 t2 lines">8</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">velocity (feet/sec)</td>
+<td class="l m b2 r2 l0 t0 lines">-4</td>
+<td class="l m b2 r2 l0 t0 lines">-2</td>
+<td class="l m b2 r2 l0 t0 lines">-3</td>
+<td class="l m b2 r2 l0 t0 lines">1</td>
+<td class="l m b2 r2 l0 t0 lines">2</td>
+<td class="l m b2 r2 l0 t0 lines">3</td>
+<td class="l m b2 r2 l0 t0 lines">2</td>
+<td class="l m b2 r2 l0 t0 lines">3</td>
+<td class="l m b2 r2 l0 t0 lines">4</td>
+</tr>
+</table></div>
+<p id="p-4586">To get an idea of what the velocity function might look like, you pick up a black pen, plot the data points, and connect them by curves. Your sketch looks something like the black curve in the graph below.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr><td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 66.6666666666667%; margin-left: 16.6666666666667%; margin-right: 16.6666666666667%;"><img src="generated/webwork/images/webwork-120-image-1.png" class="contained"></div></td></tr>
+<tr><td class="l m b2 r2 l2 t0 lines">Left endpoint approximation</td></tr>
+</table></div>
+<p id="p-4587">You decide to use a left endpoint Riemann sum to estimate the total displacement.  So, you pick up a blue pen and draw rectangles whose height is determined by the velocity measurement at the left endpoint of each one-second interval.  By using the left endpoint Riemann sum as an approximation, you are assuming that the actual velocity is approximately constant on each one-second interval (or, equivalently, that the actual acceleration is approximately zero on each one-second interval), and that the velocity and acceleration have discontinuous jumps every second.  This assumption is probably incorrect because it is likely that the velocity and acceleration change continuously over time.  However, you decide to use this approximation anyway since it seems like a reasonable approximation to the actual velocity given the limited amount of data.</p>
+<p id="p-4588">(A) Using the left endpoint Riemann sum, find approximately how far the object traveled.  Your answers must include the correct <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-81" id="fn-81"><sup> 5 </sup></a>.</p>
+<p id="p-4589">Total displacement = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-4590">Total distance traveled = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-4591">Using the same data, you also decide to estimate how far the object traveled using a right endpoint Riemann sum.  So, you sketch the curve again with a black pen, and draw rectangles whose height is determined by the velocity measurement at the right endpoint of each one-second interval.</p>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr><td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 66.6666666666667%; margin-left: 16.6666666666667%; margin-right: 16.6666666666667%;"><img src="generated/webwork/images/webwork-120-image-2.png" class="contained"></div></td></tr>
+<tr><td class="l m b2 r2 l2 t0 lines">Right endpoint approximation</td></tr>
+</table></div>
+<p id="p-4592">(B) Using the right endpoint Riemann sum, find approximately how far the object traveled.  Your answers must include the correct <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-82" id="fn-82"><sup> 6 </sup></a>.</p>
+<p id="p-4593">Total displacement = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-4594">Total distance traveled = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-120')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="mPK"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Writing basic Riemann sums.</span>
+</h4>
+<div id="webwork-121" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="121" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec2/Q19.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-4599">On a sketch of <span class="process-math">\(y = e^{x}\text{,}\)</span> represent the left Riemann sum with <span class="process-math">\(n = 2\)</span> approximating <span class="process-math">\(\int_{0}^{1}\,e^{x}\,dx\text{.}\)</span>  Write out the terms of the sum, but do not evaluate it:</p>
+<p id="p-4600">Sum = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4601">On another sketch, represent the right Riemann sum with <span class="process-math">\(n = 2\)</span> approximating <span class="process-math">\(\int_{0}^{1}\,e^{x}\,dx\text{.}\)</span>  Write out the terms of the sum, but do not evaluate it:</p>
+<p id="p-4602">Sum = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-4603">Which sum is an overestimate? <ul style="list-style:circle;">
+<li id="li-2787"><p id="p-4604">the left Riemann sum</p></li>
+<li id="li-2788"><p id="p-4605">the right Riemann sum</p></li>
+<li id="li-2789"><p id="p-4606">neither sum</p></li>
+</ul></p>
+<p id="p-4607">Which sum is an underestimate? <ul style="list-style:circle;">
+<li id="li-2790"><p id="p-4608">the right Riemann sum</p></li>
+<li id="li-2791"><p id="p-4609">the left Riemann sum</p></li>
+<li id="li-2792"><p id="p-4610">neither sum</p></li>
+</ul></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-121')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="SWT"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="kTt">Consider the function <span class="process-math">\(f(x) = 3x + 4\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="Knb"><p id="sTr">Compute <span class="process-math">\(M_4\)</span> for <span class="process-math">\(y=f(x)\)</span> on the interval <span class="process-math">\([2,5]\text{.}\)</span> Be sure to clearly identify the value of <span class="process-math">\(\Delta x\text{,}\)</span> as well as the locations of <span class="process-math">\(x_0, x_1, \ldots, x_4\text{.}\)</span> Include a careful sketch of the function and the corresponding rectangles being used in the sum.</p></li>
+<li id="quk"><p id="ZaA">Use a familiar geometric formula to determine the exact value of the area of the region bounded by <span class="process-math">\(y = f(x)\)</span> and the <span class="process-math">\(x\)</span>-axis on <span class="process-math">\([2,5]\text{.}\)</span></p></li>
+<li id="WBt"><p id="FhJ">Explain why the values you computed in (a) and (b) turn out to be the same. Will this be true if we use a number different than <span class="process-math">\(n = 4\)</span> and compute <span class="process-math">\(M_n\text{?}\)</span> Will <span class="process-math">\(L_4\)</span> or <span class="process-math">\(R_4\)</span> have the same value as the exact area of the region found in (b)?</p></li>
+<li id="CIC"><p id="loS">Describe the collection of functions <span class="process-math">\(g\)</span> for which it will always be the case that <span class="process-math">\(M_n\text{,}\)</span> regardless of the value of <span class="process-math">\(n\text{,}\)</span> gives the exact net signed area bounded between the function <span class="process-math">\(g\)</span> and the <span class="process-math">\(x\)</span>-axis on the interval <span class="process-math">\([a,b]\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="zec"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="RaC">Let <span class="process-math">\(S\)</span> be the sum given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+S = ((1.4)^2 + 1) \cdot 0.4 + ((1.8)^2 + 1) \cdot 0.4 + ((2.2)^2 + 1) \cdot 0.4 + ((2.6)^2 + 1) \cdot 0.4 +((3.0)^2 + 1) \cdot 0.4\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="fVf"><p id="aPN">Assume that <span class="process-math">\(S\)</span> is a right Riemann sum. For what function <span class="process-math">\(f\)</span> and what interval <span class="process-math">\([a,b]\)</span> is <span class="process-math">\(S\)</span> this function's Riemann sum? Why?</p></li>
+<li id="Mco"><p id="GWW">How does your answer to (a) change if <span class="process-math">\(S\)</span> is a left Riemann sum? a middle Riemann sum?</p></li>
+<li id="sjx"><p id="nef">Suppose that <span class="process-math">\(S\)</span> really is a right Riemann sum. What is geometric quantity does <span class="process-math">\(S\)</span> approximate?</p></li>
+<li id="YqG"><p id="Tlo">Use sigma notation to write a new sum <span class="process-math">\(R\)</span> that is the right Riemann sum for the same function, but that uses twice as many subintervals as <span class="process-math">\(S\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="fll"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="xhL">A car traveling along a straight road is braking and its velocity is measured at several different points in time, as given in the following table.</p>
+<figure class="table table-like" id="rsz"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.2.8<span class="period">.</span></span><span class="space"> </span>Data for the braking car.</figcaption><div class="tabular-box natural-width"><table class="tabular" id="XzI">
+<tr>
+<td class="l m b1 r0 l0 t1 lines">seconds, <span class="process-math">\(t\)</span>
+</td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(0\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(0.3\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(0.6\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(0.9\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(1.2\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(1.5\)</span></td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(1.8\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines">Velocity in ft/sec, <span class="process-math">\(v(t)\)</span>
+</td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(100\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(88\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(74\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(59\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(40\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(19\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+</tr>
+</table></div></figure><ol id="doU" class="lower-alpha">
+<li id="BDj"><p id="cFa">Plot the given data on a set of axes with time on the horizontal axis and the velocity on the vertical axis.</p></li>
+<li id="hKs"><p id="IMj">Estimate the total distance traveled during the car the time brakes using a middle Riemann sum with 3 subintervals.</p></li>
+<li id="NRB"><p id="oTs">Estimate the total distance traveled on <span class="process-math">\([0,1.8]\)</span> by computing <span class="process-math">\(L_6\text{,}\)</span> <span class="process-math">\(R_6\text{,}\)</span> and <span class="process-math">\(\frac{1}{2}(L_6 + R_6)\text{.}\)</span></p></li>
+<li id="tYK"><p id="VaB">Assuming that <span class="process-math">\(v(t)\)</span> is always decreasing on <span class="process-math">\([0,1.8]\text{,}\)</span> what is the maximum possible distance the car traveled before it stopped? Why?</p></li>
+</ol></article><article class="exercise exercise-like" id="Lsu"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="Jwd">The rate at which pollution escapes a scrubbing process at a manufacturing plant increases over time as filters and other technologies become less effective. For this particular example, assume that the rate of pollution (in tons per week) is given by the function <span class="process-math">\(r\)</span> that is pictured in <a href="" class="xref" data-knowl="./knowl/F-4-2-Ez4.html" title="Figure 4.2.9">Figure 4.2.9</a>.</p>
+<ol id="pDm" class="lower-alpha">
+<li id="Xln"><p id="SfV">Use the graph to estimate the value of <span class="process-math">\(M_4\)</span> on the interval <span class="process-math">\([0,4]\text{.}\)</span></p></li>
+<li id="Dsw"><p id="yne">What is the meaning of <span class="process-math">\(M_4\)</span> in terms of the pollution discharged by the plant?</p></li>
+<li id="jzF"><p id="eun">Suppose that <span class="process-math">\(r(t) = 0.5 e^{0.5t}\text{.}\)</span> Use this formula for <span class="process-math">\(r\)</span> to compute <span class="process-math">\(L_5\)</span> on <span class="process-math">\([0,4]\text{.}\)</span></p></li>
+<li id="PGO"><p id="KBw">Determine an upper bound on the total amount of pollution that can escape the plant during the pictured four week time period that is accurate within an error of at most one ton of pollution.</p></li>
+</ol>
+<figure class="figure figure-like" id="VKv"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_2_Ez4.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.2.9<span class="period">.</span></span><span class="space"> </span>The rate, <span class="process-math">\(r(t)\text{,}\)</span> of pollution in tons per week.</figcaption></figure></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-77"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/a9</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-78"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/a9</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-79"><div class="fn">For instance, consider the <a class="external" href="https://gvsu.edu/s/a9" target="_blank">applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-80" id="fn-80"><sup> 4 </sup></a> and change the function and adjust the locations of the blue points that represent the interval endpoints <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span>
+</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-80"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/a9</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-81"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-82"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
+</div></main>
+</div>
+</body>
+</html>

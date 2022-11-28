@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Integration by Substitution</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-5-2-FTC2.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-5.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-5-4-parts.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-5-2-FTC2.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-5.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-5-4-parts.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="active">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="wBi"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.3</span> <span class="title">Integration by Substitution</span>
+</h2>
+<article class="objectives goal-like" id="ZNL"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="exE"><p id="vvP">How can we begin to find algebraic formulas for antiderivatives of more complicated algebraic functions?</p></li>
+<li id="KEN"><p id="bCY">What is an indefinite integral and how is its notation used in discussing antiderivatives?</p></li>
+<li id="qLW"><p id="HKh">How does the technique of <span class="process-math">\(u\)</span>-substitution work to help us evaluate certain indefinite integrals, and how does this process rely on identifying function-derivative pairs?</p></li>
+</ul></article><section class="introduction" id="FUU"><p id="dsl">In <a href="sec-4-4-FTC.html" class="internal" title="Section 4.4: The Fundamental Theorem of Calculus">Section 4.4</a>, we learned the key role that antiderivatives play in the process of evaluating definite integrals exactly. The Fundamental Theorem of Calculus tells us that if <span class="process-math">\(F\)</span> is any antiderivative of <span class="process-math">\(f\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-4-4-FTC.html">
+\begin{equation*}
+\int_a^b f(x) \, dx = F(b) - F(a)\text{.}
+\end{equation*}
+</div>
+<p id="Jzu">Furthermore, we realized that each elementary derivative rule developed in <a href="C-2.html" class="internal" title="Chapter 2: Computing Derivatives">Chapter 2</a> leads to a corresponding elementary antiderivative, as summarized in <a href="" class="xref" data-knowl="./knowl/T-4-4-Act2.html" title="Table 4.4.5: Familiar basic functions and their antiderivatives.">Table 4.4.5</a>. Thus, if we wish to evaluate an integral such as</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/C-2.html ./knowl/T-4-4-Act2.html">
+\begin{equation*}
+\int_0^1 \left(x^3 - \sqrt{x} + 5^x \right) \,dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">it is straightforward to do so, since we can easily antidifferentiate <span class="process-math">\(f(x) = x^3 - \sqrt{x} + 5^x\text{.}\)</span> Because one antiderivative of <span class="process-math">\(f\)</span> is <span class="process-math">\(F(x) = \frac{1}{4}x^4 - \frac{2}{3}x^{3/2} + \frac{1}{\ln(5)}5^x\text{,}\)</span> the Fundamental Theorem of Calculus tells us that</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/C-2.html ./knowl/T-4-4-Act2.html" id="gWL">
+\begin{align*}
+\int_0^1 \left(x^3 - \sqrt{x} + 5^x\right) \,dx &amp;=  \left. \frac{1}{4}x^4 - \frac{2}{3}x^{3/2} + \frac{1}{\ln(5)}5^x\right|_0^1\\
+&amp;= \left( \frac{1}{4}(1)^4 - \frac{2}{3}(1)^{3/2} + \frac{1}{\ln(5)}5^1 \right) - \left( 0 - 0 + \frac{1}{\ln(5)}5^0 \right)\\
+&amp;= -\frac{5}{12} + \frac{4}{\ln(5)}\text{.}
+\end{align*}
+</div>
+<p id="pGD">We see that we have a natural interest in being able to find such algebraic antiderivatives. We emphasize <em class="emphasis">algebraic</em> antiderivatives, as opposed to any antiderivative, since we know by the Second Fundamental Theorem of Calculus that <span class="process-math">\(G(x) = \int_a^x f(t) \, dt\)</span> is indeed an antiderivative of the given function <span class="process-math">\(f\text{,}\)</span> but one that still involves a definite integral. Our goal in this section is to “undo” the process of differentiation to find an algebraic antiderivative for a given function.</p>
+<article class="exploration project-like" id="fEx"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span>
+</h3>
+<div id="webwork-143" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="143" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Westmont/ActiveCalculus/Preview_5_3/preview_5_3_abc.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5589">Recall the Chain Rule and how it can be applied to find the derivative of a composite function.  In particular, if <span class="process-math">\(u\)</span> is a differentiable function of <span class="process-math">\(x\text{,}\)</span> and <span class="process-math">\(f\)</span> is a differentiable function of <span class="process-math">\(u(x)\text{,}\)</span> then</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ f(u(x))  \right] = f'(u(x)) \cdot u'(x).
+\end{equation*}
+</div>
+<p class="continuation">In words, we say that the derivative of a composite function <span class="process-math">\(c(x) = f(u(x))\text{,}\)</span> where <span class="process-math">\(f\)</span> is considered the "outer" function and <span class="process-math">\(u\)</span> the "inner" function, is "the derivative of the outer function, evaluated at the inner function, times the derivative of the inner function."</p>
+<p id="p-5590"><em class="alert">(a)</em> For each of the following functions, use the Chain Rule to find the function's derivative. Notice the label of each derivative respects the functions name (e.g., the derivative of <span class="process-math">\(g(x)\)</span> should be labeled <span class="process-math">\(g'(x)\)</span>).</p>
+<p id="p-5591">(i) If  <span class="process-math">\(g(x) = e^{3x}\text{,}\)</span> then <span class="process-math">\(g'(x)=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5592">(ii) If <span class="process-math">\(h(x) = \sin(5x+1)\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5593">(iii) If <span class="process-math">\(p(x) = \arctan(2x)\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5594">(iv) If <span class="process-math">\(q(x) = (2-7x)^4\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5595">(v) If <span class="process-math">\(r(x) = 3^{4-11x}\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5596"><em class="alert">(b)</em> For each of the following functions, use your work in (a) to help you determine the general antiderivative of the function. (Recall that the general antiderivative of a function includes ``<span class="process-math">\(+C\)</span>'' to reflect the entire family of functions that share the same derivative.) Notice the label of each antiderivative respects the name (e.g., the antiderivative of <span class="process-math">\(m\)</span> should be called <span class="process-math">\(M\)</span>).  In addition, check your work by computing the derivative of each proposed antiderivative.</p>
+<p id="p-5597">(i) If <span class="process-math">\(m(x) = e^{3x}\text{,}\)</span> then <span class="process-math">\(M(x)=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5598">(ii) If <span class="process-math">\(n(x) = \cos(5x+1)\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5599">(iii) If <span class="process-math">\(\displaystyle s(x) = \frac{1}{1+4x^2}\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5600">(iv) If <span class="process-math">\(v(x) = (2-7x)^3\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5601">(v) If <span class="process-math">\(w(x) = 3^{4-11x}\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5602"><em class="alert">(c)</em> Based on your experience in parts (a) and (b), conjecture an antiderivative for each of the following functions.  Test your conjectures by computing the derivative of each proposed antiderivative.</p>
+<p id="p-5603">(i) If <span class="process-math">\(a(x) = \cos(\pi x)\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5604">(ii) If <span class="process-math">\(b(x) = (4x+7)^{11}\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+<p id="p-5605">(iii) If <span class="process-math">\(c(x) = xe^{x^2}\text{,}\)</span> then <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-143')">Activate</button></div>
+</div></article></section><section class="subsection" id="cIr"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.1</span> <span class="title">Reversing the Chain Rule: First Steps</span>
+</h3>
+<p id="VNM">Whenever <span class="process-math">\(f\)</span> is a familiar function whose antiderivative is known and <span class="process-math">\(u(x)\)</span> is a linear function, it is  straightforward to antidifferentiate a function of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h(x) = f(u(x))\text{.}
+\end{equation*}
+</div>
+<article class="example example-like" id="Nzt"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span>
+</h4>
+<p id="EPB">Determine the general antiderivative of</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+h(x) = (5x-3)^6\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Check the result by differentiating.</p>
+<p id="kWK">For this composite function, the outer function <span class="process-math">\(f\)</span> is <span class="process-math">\(f(u) = u^6\text{,}\)</span> while the inner function is <span class="process-math">\(u(x) = 5x - 3\text{.}\)</span> Since the antiderivative of <span class="process-math">\(f\)</span> is <span class="process-math">\(F(u) = \frac{1}{7}u^7+C\text{,}\)</span> we see that the antiderivative of <span class="process-math">\(h\)</span> is</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H(x) = \frac{1}{7} (5x-3)^7 \cdot \frac{1}{5} + C = \frac{1}{35} (5x-3)^7 + C\text{.}
+\end{equation*}
+</div>
+<p id="RdT">The inclusion of the constant <span class="process-math">\(\frac{1}{5}\)</span> is essential precisely because the derivative of the inner function is <span class="process-math">\(u'(x) = 5\text{.}\)</span> Indeed, if we now compute <span class="process-math">\(H'(x)\text{,}\)</span> we find by the Chain Rule (and Constant Multiple Rule) that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H'(x) = \frac{1}{35} \cdot 7(5x-3)^6 \cdot 5 = (5x-3)^6 = h(x)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and thus <span class="process-math">\(H\)</span> is indeed the general antiderivative of <span class="process-math">\(h\text{.}\)</span></p></article><p id="BUV">Hence, in the special case where the outer function is familiar and the inner function is linear, we can antidifferentiate composite functions according to the following rule.</p>
+<article class="assemblage assemblage-like" id="Blb"><p id="ice">If <span class="process-math">\(h(x) = f(ax + b)\)</span> and <span class="process-math">\(F\)</span> is a known algebraic antiderivative of <span class="process-math">\(f\text{,}\)</span> then the general antiderivative of <span class="process-math">\(h\)</span> is given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+H(x) = \frac{1}{a} F(ax+b) + C\text{.}
+\end{equation*}
+</div></article><p id="Ojn">It is useful to have shorthand notation that indicates the instruction to find an antiderivative. Thus, in a similar way to how the notation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ f(x) \right]
+\end{equation*}
+</div>
+<p class="continuation">represents the derivative of <span class="process-math">\(f(x)\)</span> with respect to <span class="process-math">\(x\text{,}\)</span> we use the notation of the <em class="emphasis">indefinite integral</em>, </p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int f(x) \, dx
+\end{equation*}
+</div>
+<p class="continuation">to represent the general antiderivative of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\text{.}\)</span> Returning to the earlier example with <span class="process-math">\(h(x) = (5x-3)^6\text{,}\)</span> we can rephrase the relationship between <span class="process-math">\(h\)</span> and its antiderivative <span class="process-math">\(H\)</span> through the notation</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int (5x-3)^6 \, dx = \frac{1}{35} (5x-6)^7 + C\text{.}
+\end{equation*}
+</div>
+<p id="uqw">When we find an antiderivative, we will often say that we <em class="emphasis">evaluate an indefinite integral</em>.  Just as the notation <span class="process-math">\(\frac{d}{dx} [ \Box ]\)</span> means “find the derivative with respect to <span class="process-math">\(x\)</span> of <span class="process-math">\(\Box\text{,}\)</span>” the notation <span class="process-math">\(\int \Box \, dx\)</span> means “find a function of <span class="process-math">\(x\)</span> whose derivative is <span class="process-math">\(\Box\text{.}\)</span>”</p>
+<article class="activity project-like" id="YRF"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span>
+</h4>
+<p id="sKw">Evaluate each of the following indefinite integrals. Check each antiderivative that you find by differentiating.</p>
+<ol class="lower-alpha cols2">
+<li id="lBw"><p id="cRE"><span class="process-math">\(\displaystyle \int \sin(8-3x) \, dx\)</span></p></li>
+<li id="RIF"><p id="IYN"><span class="process-math">\(\displaystyle \int \sec^2 (4x) \, dx\)</span></p></li>
+<li id="xPO"><p id="pfW"><span class="process-math">\(\displaystyle \int \frac{1}{11x - 9} \, dx\)</span></p></li>
+<li id="dWX"><p id="Vnf"><span class="process-math">\(\displaystyle \int \csc(2x+1) \cot(2x+1) \, dx\)</span></p></li>
+<li id="Keg"><p id="Buo"><span class="process-math">\(\displaystyle \int \frac{1}{\sqrt{1-16x^2}}\, dx\)</span></p></li>
+<li id="qlp"><p id="hBx"><span class="process-math">\(\displaystyle \int 5^{-x}\, dx\)</span></p></li>
+</ol></article></section><section class="subsection" id="IPA"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.2</span> <span class="title">Reversing the Chain Rule: <span class="process-math">\(u\)</span>-substitution</span>
+</h3>
+<p id="axF">A natural question arises from our recent work: what happens when the inner function is not linear? For example, can we find antiderivatives of such functions as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g(x) = x e^{x^2} \ \text{and}  \ h(x) = e^{x^2}?
+\end{equation*}
+</div>
+<p id="GEO">It is important to remember that differentiation and antidifferentiation are almost inverse processes (that they are not is due to the <span class="process-math">\(+C\)</span> that arises when antidifferentiating). This almost-inverse relationship enables us to take any known derivative rule and rewrite it as a corresponding rule for an indefinite integral. For example, since</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[x^5\right] = 5x^4\text{,}
+\end{equation*}
+</div>
+<p class="continuation">we can equivalently write</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int 5x^4 \, dx = x^5 + C\text{.}
+\end{equation*}
+</div>
+<p id="mLX">Recall that the Chain Rule states that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ f(g(x)) \right] = f'(g(x)) \cdot g'(x)\text{.}
+\end{equation*}
+</div>
+<p id="STg">Restating this relationship in terms of an indefinite integral,</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="iLY">
+\begin{equation}
+\int f'(g(x)) g'(x) \, dx = f(g(x))+C\text{.}\tag{5.3.1}
+\end{equation}
+</div>
+<p id="zap"><a href="" class="xref" data-knowl="./knowl/E-usubst.html" title="Equation 5.3.1">Equation (5.3.1)</a> tells us that if we can view a given function as <span class="process-math">\(f'(g(x)) g'(x)\)</span> for some appropriate choices of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\text{,}\)</span> then we can antidifferentiate the function by reversing the Chain Rule. Note that both <span class="process-math">\(g(x)\)</span> and <span class="process-math">\(g'(x)\)</span> appear in the form of <span class="process-math">\(f'(g(x)) g'(x)\text{;}\)</span> we will sometimes say that we seek to <em class="emphasis">identify a function-derivative pair</em>  (<span class="process-math">\(g(x)\)</span> and <span class="process-math">\(g'(x)\)</span>) when trying to apply the rule in <a href="" class="xref" data-knowl="./knowl/E-usubst.html" title="Equation 5.3.1">Equation (5.3.1)</a>.</p>
+<p id="fhy">If we can identify a function-derivative pair, we will introduce a new variable <span class="process-math">\(u\)</span> to represent the function <span class="process-math">\(g(x)\text{.}\)</span> With <span class="process-math">\(u = g(x)\text{,}\)</span> it follows in Leibniz notation that <span class="process-math">\(\frac{du}{dx} = g'(x)\text{,}\)</span> so that in terms of differentials<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-91" id="fn-91"><sup> 1 </sup></a>, <span class="process-math">\(du = g'(x)\, dx\text{.}\)</span> Now converting the indefinite integral to a new one in terms of <span class="process-math">\(u\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int f'(g(x)) g'(x) \, dx = \int f'(u) \,du\text{.}
+\end{equation*}
+</div>
+<p id="LoH">Provided that <span class="process-math">\(f'\)</span> is an elementary function whose antiderivative is known, we can easily evaluate the indefinite integral in <span class="process-math">\(u\text{,}\)</span> and then go on to determine the desired overall antiderivative of <span class="process-math">\(f'(g(x)) g'(x)\text{.}\)</span> We call this process <em class="emphasis"><span class="process-math">\(u\)</span>-substitution</em>, and summarize the rule as follows:</p>
+<article class="assemblage assemblage-like" id="hsk"><p id="rvQ">With the substitution <span class="process-math">\(u = g(x)\text{,}\)</span></p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int f'(g(x)) g'(x) \, dx = \int f'(u) \,du = f(u) + C = f(g(x)) + C\text{.}
+\end{equation*}
+</div></article><p id="XCZ">To see <span class="process-math">\(u\)</span>-substitution at work, we consider the following example.</p>
+<article class="example example-like" id="tGC"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span>
+</h4>
+<p id="xlc">Evaluate the indefinite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int x^3 \cdot \sin (7x^4 + 3) \, dx
+\end{equation*}
+</div>
+<p class="continuation">and check the result by differentiating.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-mcd" id="mcd"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-mcd"><div class="solution solution-like">
+<p id="gmR">We can make two algebraic observations regarding the integrand, <span class="process-math">\(x^3 \cdot \sin (7x^4 + 3)\text{.}\)</span> First, <span class="process-math">\(\sin (7x^4 + 3)\)</span> is a composite function; as such, we know we'll need a more sophisticated approach to antidifferentiating. Second, <span class="process-math">\(x^3\)</span> is almost the derivative of <span class="process-math">\((7x^4 + 3)\text{;}\)</span> the only issue is a missing constant. Thus, <span class="process-math">\(x^3\)</span> and <span class="process-math">\((7x^4 + 3)\)</span> are nearly a function-derivative pair. Furthermore, we know the antiderivative of <span class="process-math">\(f(u) = \sin(u)\text{.}\)</span> The combination of these observations suggests that we can evaluate the given indefinite integral by reversing the chain rule through <span class="process-math">\(u\)</span>-substitution.</p>
+<p id="Mua">Letting <span class="process-math">\(u\)</span> represent the inner function of the composite function <span class="process-math">\(\sin (7x^4 + 3)\text{,}\)</span> we have <span class="process-math">\(u = 7x^4 + 3\text{,}\)</span> and thus <span class="process-math">\(\frac{du}{dx} = 28x^3\text{.}\)</span> In differential notation, it follows that <span class="process-math">\(du = 28x^3 \, dx\text{,}\)</span> and thus <span class="process-math">\(x^3 \, dx = \frac{1}{28} \, du\text{.}\)</span> The original indefinite integral may be slightly rewritten as</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \sin (7x^4 + 3) \cdot x^3 \, dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and so by substituting <span class="process-math">\(u\)</span> for <span class="process-math">\(7x^4 + 3\)</span> and <span class="process-math">\(\frac{1}{28} \, du\)</span> for <span class="process-math">\(x^3 \, dx\text{,}\)</span> it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \sin (7x^4 + 3) \cdot x^3 \, dx = \int \sin(u) \cdot \frac{1}{28} \, du\text{.}
+\end{equation*}
+</div>
+<p id="sBj">Now we may evaluate the easier integral in <span class="process-math">\(u\text{,}\)</span> and then replace <span class="process-math">\(u\)</span> by the expression <span class="process-math">\(7x^4 + 3\text{.}\)</span> Doing so, we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="TDa">
+\begin{align*}
+\int \sin (7x^4 + 3) \cdot x^3 \, dx &amp;= \int \sin(u) \cdot \frac{1}{28} \, du\\
+&amp;= \frac{1}{28} \int \sin(u) \, du\\
+&amp;= \frac{1}{28} (-\cos(u)) + C\\
+&amp;= -\frac{1}{28} \cos(7x^4 + 3) + C\text{.}
+\end{align*}
+</div>
+<p id="YIs">To check our work, we observe by the Chain Rule that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx} \left[ -\frac{1}{28}\cos(7x^4 + 3) \right] = -\frac{1}{28} \cdot (-1)\sin(7x^4 + 3) \cdot 28x^3 = \sin(7x^4 + 3) \cdot x^3\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which is indeed the original integrand.</p>
+</div></div>
+</div></article><p id="DKi">The <span class="process-math">\(u\)</span>-substitution worked because the function multiplying <span class="process-math">\(\sin (7x^4 + 3)\)</span> was <span class="process-math">\(x^3\text{.}\)</span> If instead that function was <span class="process-math">\(x^2\)</span> or <span class="process-math">\(x^4\text{,}\)</span> the substitution process would not have worked. This is one of the primary challenges of antidifferentiation: slight changes in the integrand make tremendous differences. For instance, we can use <span class="process-math">\(u\)</span>-substitution with <span class="process-math">\(u = x^2\)</span> and <span class="process-math">\(du = 2xdx\)</span> to find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="fRs">
+\begin{align*}
+\int xe^{x^2} \, dx &amp;=  \int e^u \cdot \frac{1}{2} \, du\\
+&amp;= \frac{1}{2} \int e^u \, du\\
+&amp;= \frac{1}{2} e^u + C\\
+&amp;= \frac{1}{2} e^{x^2} + C\text{.}
+\end{align*}
+</div>
+<p id="jRr">However, for the similar indefinite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int e^{x^2} \, dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">the <span class="process-math">\(u\)</span>-substitution <span class="process-math">\(u = x^2\)</span> is no longer possible because the factor of <span class="process-math">\(x\)</span> is missing. Hence, part of the lesson of <span class="process-math">\(u\)</span>-substitution is just how specialized the process is: it only applies to situations where, up to a missing constant, the integrand is the result of applying the Chain Rule to a different, related function.</p>
+<article class="activity project-like" id="bqM"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span>
+</h4>
+<p id="vjD">Evaluate each of the following indefinite integrals by using these steps:</p>
+<ul class="disc">
+<li id="Cei"><p id="cwf">Find two functions within the integrand that form (up to a possible missing constant) a function-derivative pair;</p></li>
+<li id="ilr"><p id="IDo">Make a substitution and convert the integral to one involving <span class="process-math">\(u\)</span> and <span class="process-math">\(du\text{;}\)</span></p></li>
+<li id="OsA"><p id="oKx">Evaluate the new integral in <span class="process-math">\(u\text{;}\)</span></p></li>
+<li id="uzJ"><p id="URG">Convert the resulting function of <span class="process-math">\(u\)</span> back to a function of <span class="process-math">\(x\)</span> by using your earlier substitution;</p></li>
+<li id="aGS"><p id="AYP">Check your work by differentiating the function of <span class="process-math">\(x\text{.}\)</span> You should come up with the integrand originally given.</p></li>
+</ul>
+<ol class="lower-alpha cols2">
+<li id="GOb"><p id="hfY"><span class="process-math">\(\displaystyle \int \frac{x^2}{5x^3+1} \, dx\)</span></p></li>
+<li id="mVk"><p id="Nnh"><span class="process-math">\(\displaystyle \int e^x \sin(e^x) \, dx\)</span></p></li>
+<li id="Tct"><p id="tuq"><span class="process-math">\(\displaystyle \int \frac{\cos(\sqrt{x})}{\sqrt{x}} \, dx\)</span></p></li>
+</ol></article></section><section class="subsection" id="oWJ"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.3</span> <span class="title">Evaluating Definite Integrals via <span class="process-math">\(u\)</span>-substitution</span>
+</h3>
+<p id="PYA">We have introduced <span class="process-math">\(u\)</span>-substitution as a means to evaluate indefinite integrals of functions that can be written, up to a constant multiple, in the form <span class="process-math">\(f(g(x))g'(x)\text{.}\)</span> This same technique can be used to evaluate definite integrals involving such functions, though we need to be careful with the corresponding limits of integration. Consider, for instance, the definite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_2^5 xe^{x^2} \, dx\text{.}
+\end{equation*}
+</div>
+<p id="wfJ">Whenever we write a definite integral, it is implicit that the limits of integration correspond to the variable of integration. To be more explicit, observe that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int_2^5 xe^{x^2} \, dx = \int_{x=2}^{x=5} xe^{x^2} \, dx\text{.}
+\end{equation*}
+</div>
+<p id="cmS">When we execute a <span class="process-math">\(u\)</span>-substitution, we change the <em class="emphasis">variable</em> of integration; it is essential to note that this also changes the <em class="emphasis">limits</em> of integration. For instance, with the substitution <span class="process-math">\(u = x^2\)</span> and <span class="process-math">\(du = 2x \, dx\text{,}\)</span> it also follows that when <span class="process-math">\(x = 2\text{,}\)</span> <span class="process-math">\(u = 2^2 = 4\text{,}\)</span> and when <span class="process-math">\(x = 5\text{,}\)</span> <span class="process-math">\(u = 5^2 = 25\text{.}\)</span> Thus, under the change of variables of <span class="process-math">\(u\)</span>-substitution, we now have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="Euc">
+\begin{align*}
+\int_{x=2}^{x=5} xe^{x^2} \, dx    &amp;= \int_{u=4}^{u=25} e^{u} \cdot \frac{1}{2} \, du\\
+&amp;= \left. \frac{1}{2}e^u \right|_{u=4}^{u=25}\\
+&amp;= \frac{1}{2}e^{25} - \frac{1}{2}e^4\text{.}
+\end{align*}
+</div>
+<p id="Iub">Alternatively, we could consider the related indefinite integral <span class="process-math">\(\int xe^{x^2} \, dx\text{,}\)</span> find the antiderivative <span class="process-math">\(\frac{1}{2}e^{x^2}\)</span> through <span class="process-math">\(u\)</span>-substitution, and then evaluate the original definite integral. With that method, we'd have</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="kBl">
+\begin{align*}
+\int_{2}^{5} xe^{x^2} \, dx    &amp;= \left. \frac{1}{2}e^{x^2} \right|_{2}^{5}\\
+&amp;= \frac{1}{2}e^{25} - \frac{1}{2}e^4\text{,}
+\end{align*}
+</div>
+<p class="continuation">which is, of course, the same result.</p>
+<article class="activity project-like" id="ooY"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.3.4</span><span class="period">.</span>
+</h4>
+<p id="IhP">Evaluate each of the following definite integrals exactly through an appropriate <span class="process-math">\(u\)</span>-substitution.</p>
+<ol class="lower-alpha cols2">
+<li id="Ywg"><p id="uek"><span class="process-math">\(\displaystyle \int_1^2 \frac{x}{1 + 4x^2} \, dx\)</span></p></li>
+<li id="EDp"><p id="alt"><span class="process-math">\(\displaystyle \int_0^1 e^{-x} (2e^{-x}+3)^{9} \, dx\)</span></p></li>
+<li id="kKy"><p id="GsC"><span class="process-math">\(\displaystyle \int_{2/\pi}^{4/\pi} \frac{\cos\left(\frac{1}{x}\right)}{x^{2}} \,dx\)</span></p></li>
+</ol></article></section><section class="subsection" id="VdS"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.3.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="oBk" class="disc">
+<li id="Dao"><p id="nRq">To find algebraic formulas for antiderivatives of more complicated algebraic functions, we need to think carefully about how we can reverse known differentiation rules. To that end, it is essential that we understand and recall known derivatives of basic functions, as well as the standard derivative rules.</p></li>
+<li id="jhx">
+<p id="TYz">The indefinite integral provides notation for antiderivatives. When we write “<span class="process-math">\(\int f(x) \, dx\text{,}\)</span>” we mean “the general antiderivative of <span class="process-math">\(f\text{.}\)</span>”  In particular, if we have functions <span class="process-math">\(f\)</span> and <span class="process-math">\(F\)</span> such that <span class="process-math">\(F' = f\text{,}\)</span> the following two statements say the exact thing:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{d}{dx}[F(x)] = f(x) \ \text{and}  \ \int f(x) \, dx = F(x) + C\text{.}
+\end{equation*}
+</div>
+<p class="continuation">That is, <span class="process-math">\(f\)</span> is the derivative of <span class="process-math">\(F\text{,}\)</span> and <span class="process-math">\(F\)</span> is an antiderivative of <span class="process-math">\(f\text{.}\)</span></p>
+</li>
+<li id="PoG">
+<p id="AfI">The technique of <span class="process-math">\(u\)</span>-substitution helps us to evaluate indefinite integrals of the form <span class="process-math">\(\int f(g(x))g'(x) \, dx\)</span> through the substitutions <span class="process-math">\(u = g(x)\)</span> and <span class="process-math">\(du = g'(x) \, dx\text{,}\)</span> so that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int f(g(x))g'(x) \, dx = \int f(u) \, du\text{.}
+\end{equation*}
+</div>
+<p class="continuation">A key part of choosing the expression in <span class="process-math">\(x\)</span> to be represented by <span class="process-math">\(u\)</span> is the identification of a function-derivative pair. To do so, we often look for an “inner” function <span class="process-math">\(g(x)\)</span> that is part of a composite function, while investigating whether <span class="process-math">\(g'(x)\)</span> (or a constant multiple of <span class="process-math">\(g'(x)\)</span>) is present as a multiplying factor of the integrand.</p>
+</li>
+</ul></section><section class="exercises" id="lDN"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">5.3.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="sFw"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Product involving 4th power of a polynomial.</span>
+</h4>
+<div id="webwork-144" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="144" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec1/Q11.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5727">Find the following integral.  Note that you can check your answer by differentiation.</p>
+<p id="p-5728"><span class="process-math">\(\displaystyle \int\, t^{4}\!\left(t^{5}-5\right)^{2} \,dt =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-144')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="YMF"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Product involving <span class="process-math">\(\sin(x^6)\)</span>.</span>
+</h4>
+<div id="webwork-145" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="145" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec1/Q49.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5730">Find the the general antiderivative <span class="process-math">\(F(x)\)</span> of the function <span class="process-math">\(f(x)\)</span> given below.  Note that you can check your answer by differentiation.</p>
+<p id="p-5731"><span class="process-math">\(f(x) = 7 x \cos(x^{2})\)</span></p>
+<p id="p-5732">antiderivative <span class="process-math">\(F(x) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-145')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="ETO"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Fraction involving <span class="process-math">\(\ln^9\)</span>.</span>
+</h4>
+<div id="webwork-146" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="146" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec1/Q27.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5734">Find the following integral.  Note that you can check your answer by differentiation.</p>
+<p id="p-5735"><span class="process-math">\(\displaystyle  \int\,\frac{\ln^{3}\!\left(z\right)}{z}\,dz =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-146')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="laX"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Fraction involving <span class="process-math">\(e^{5 x}\)</span>.</span>
+</h4>
+<div id="webwork-147" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="147" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec1/Q33.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5737">Find the following integral.  Note that you can check your answer by differentiation.</p>
+<p id="p-5738"><span class="process-math">\(\displaystyle \int\, \frac{e^{3x}}{1+e^{3x}} \,dx =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-147')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Rig"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Fraction involving <span class="process-math">\(e^{5 \sqrt{y}}\)</span>.</span>
+</h4>
+<div id="webwork-148" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="148" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec1/Q31.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5740">Find the following integral.  Note that you can check your answer by differentiation.</p>
+<p id="p-5741"><span class="process-math">\(\displaystyle \int\, \frac{4e^{4\sqrt{y}}}{\sqrt{y}} \,dy =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-148')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="xpp"><h4 class="heading">
+<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Definite integral involving <span class="process-math">\(e^{-cos(q)}\)</span>.</span>
+</h4>
+<div id="webwork-149" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="149" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec1/Q55.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-5743">Use the Fundamental Theorem of Calculus to find</p>
+<p id="p-5744"><span class="process-math">\(\displaystyle  \int_{\pi/2}^{\pi}\, e^{\sin\!\left(q\right)}\cdot \cos\!\left(q\right) \,dq =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-149')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="dwy"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="pDM">This problem centers on finding antiderivatives for the basic trigonometric functions other than <span class="process-math">\(\sin(x)\)</span> and <span class="process-math">\(\cos(x)\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="UMG"><p id="Ayq">Consider the indefinite integral <span class="process-math">\(\int \tan(x) \, dx\text{.}\)</span> By rewriting the integrand as <span class="process-math">\(\tan(x) = \frac{\sin(x)}{\cos(x)}\)</span> and identifying an appropriate function-derivative pair, make a <span class="process-math">\(u\)</span>-substitution and hence evaluate <span class="process-math">\(\int \tan(x) \, dx\text{.}\)</span></p></li>
+<li id="ATP"><p id="gFz">In a similar way, evaluate <span class="process-math">\(\int \cot(x) \, dx\text{.}\)</span></p></li>
+<li id="haY">
+<p id="MMI">Consider the indefinite integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{\sec^2(x) + \sec(x) \tan(x)}{\sec(x) + \tan(x)} \, dx\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Evaluate this integral using the substitution <span class="process-math">\(u = \sec(x) + \tan(x)\text{.}\)</span></p>
+</li>
+<li id="Nih"><p id="sTR">Simplify the integrand in (c) by factoring the numerator. What is a far simpler way to write the integrand?</p></li>
+<li id="tpq"><p id="Zba">Combine your work in (c) and (d) to determine <span class="process-math">\(\int \sec(x) \, dx\text{.}\)</span></p></li>
+<li id="Zwz"><p id="Fij">Using (c)-(e) as a guide, evaluate <span class="process-math">\(\int \csc(x) \, dx\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="JDH"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="VKV">Consider the indefinite integral <span class="process-math">\(\int x \sqrt{x-1} \, dx\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="blM"><p id="GXw">At first glance, this integrand may not seem suited to substitution due to the presence of <span class="process-math">\(x\)</span> in separate locations in the integrand. Nonetheless, using the composite function <span class="process-math">\(\sqrt{x-1}\)</span> as a guide, let <span class="process-math">\(u = x-1\text{.}\)</span> Determine expressions for both <span class="process-math">\(x\)</span> and <span class="process-math">\(dx\)</span> in terms of <span class="process-math">\(u\text{.}\)</span></p></li>
+<li id="HsV"><p id="neF">Convert the given integral in <span class="process-math">\(x\)</span> to a new integral in <span class="process-math">\(u\text{.}\)</span></p></li>
+<li id="nAe"><p id="TlO">Evaluate the integral in (b) by noting that <span class="process-math">\(\sqrt{u} = u^{1/2}\)</span> and observing that it is now possible to rewrite the integrand in <span class="process-math">\(u\)</span> by expanding through multiplication.</p></li>
+<li id="THn"><p id="zsX">Evaluate each of the integrals <span class="process-math">\(\int x^2 \sqrt{x-1} \, dx\)</span> and <span class="process-math">\(\int x \sqrt{x^2 - 1} \, dx\text{.}\)</span> Write a paragraph to discuss the similarities among the three indefinite integrals in this problem and the role of substitution and algebraic rearrangement in each.</p></li>
+</ol></article><article class="exercise exercise-like" id="pKQ"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<p id="BSe">Consider the indefinite integral <span class="process-math">\(\int \sin^3(x) \, dx\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="QMH"><p id="Vbb">Explain why the substitution <span class="process-math">\(u = \sin(x)\)</span> will not work to help evaluate the given integral.</p></li>
+<li id="wTQ"><p id="Bik">Recall the Fundamental Trigonometric Identity, which states that <span class="process-math">\(\sin^2(x) + \cos^2(x) = 1\text{.}\)</span> By observing that <span class="process-math">\(\sin^3(x) = \sin(x) \cdot \sin^2(x)\text{,}\)</span> use the Fundamental Trigonometric Identity to rewrite the integrand as the product of <span class="process-math">\(\sin(x)\)</span> with another function.</p></li>
+<li id="daZ"><p id="hpt">Explain why the substitution <span class="process-math">\(u = \cos(x)\)</span> now provides a possible way to evaluate the integral in (b).</p></li>
+<li id="Jii"><p id="NwC">Use your work in (a)-(c) to evaluate the indefinite integral <span class="process-math">\(\int \sin^3(x) \, dx\text{.}\)</span></p></li>
+<li id="ppr"><p id="tDL">Use a similar approach to evaluate <span class="process-math">\(\int \cos^3(x) \, dx\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="VRZ"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<p id="hZn">For the town of Mathland, MI, residential power consumption has shown certain trends over recent years. Based on data reflecting average usage, engineers at the power company have modeled the town's rate of energy consumption by the function</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+r(t) = 4 + \sin(0.263t + 4.7) + \cos(0.526t+9.4)\text{.}
+\end{equation*}
+</div>
+<p id="Ogw">Here, <span class="process-math">\(t\)</span> measures time in hours after midnight on a typical weekday, and <span class="process-math">\(r\)</span> is the rate of consumption in megawatts<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-92" id="fn-92"><sup> 2 </sup></a> at time <span class="process-math">\(t\text{.}\)</span> Units are critical throughout this problem.</p>
+<ol class="lower-alpha">
+<li id="eQm"><p id="jeG">Sketch a carefully labeled graph of <span class="process-math">\(r(t)\)</span> on the interval [0,24] and explain its meaning. Why is this a reasonable model of power consumption?</p></li>
+<li id="KXv"><p id="PlP">Without calculating its value, explain the meaning of <span class="process-math">\(\int_0^{24} r(t) \, dt\text{.}\)</span> Include appropriate units on your answer.</p></li>
+<li id="reE"><p id="vsY">Determine the exact amount of energy Mathland consumes in a typical day.</p></li>
+<li id="XlN"><p id="bAh">What is Mathland's average rate of power consumption in a given 24-hour period? What are the units on this quantity?</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-91"><div class="fn">If we recall from the definition of the derivative that <span class="process-math">\(\frac{du}{dx} \approx \frac{\Delta{u}}{\Delta{x}}\)</span> and use the fact that <span class="process-math">\(\frac{du}{dx} = g'(x)\text{,}\)</span> then we see that <span class="process-math">\(g'(x) \approx \frac{\Delta{u}}{\Delta{x}}\text{.}\)</span> Solving for <span class="process-math">\(\Delta u\text{,}\)</span> <span class="process-math">\(\Delta u \approx g'(x) \Delta x\text{.}\)</span> It is this last relationship that, when expressed in “differential” notation enables us to write <span class="process-math">\(du = g'(x) \, dx\)</span> in the change of variable formula.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-92"><div class="fn">The unit <em class="emphasis">megawatt</em> is itself a rate, which measures energy consumption per unit time. A <em class="emphasis">megawatt-hour</em> is the total amount of energy that is equivalent to a constant stream of 1 megawatt of power being sustained for 1 hour.</div></div>
+</div></main>
+</div>
+</body>
+</html>

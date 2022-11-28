@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Other Options for Finding Algebraic Antiderivatives</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-5-4-parts.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-5.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-5-6-num-int.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-5-4-parts.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-5.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-5-6-num-int.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="internal">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="active">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content">
+<section class="section" id="GxK"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">5.5</span> <span class="title">Other Options for Finding Algebraic Antiderivatives</span>
+</h2>
+<article class="objectives goal-like" id="XvV"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="Zli"><p id="Kck">How does the method of partial fractions enable any rational function to be antidifferentiated?</p></li>
+<li id="Fsr"><p id="qjt">What role have integral tables historically played in the study of calculus and how can a table be used to evaluate integrals such as <span class="process-math">\(\int \sqrt{a^2 + u^2} \, du\text{?}\)</span></p></li>
+<li id="lzA"><p id="WqC">What role can a computer algebra system play in the process of finding antiderivatives?</p></li>
+</ul></article><section class="introduction" id="DDe"><p id="IWR">We have learned two antidifferentiation techniques: <span class="process-math">\(u\)</span>-substitution and integration by parts. The former is used to reverse the chain rule, while the latter to reverse the product rule. But we have seen that each works only in specialized circumstances. For example, while <span class="process-math">\(\int xe^{x^2} \, dx\)</span> may be evaluated by <span class="process-math">\(u\)</span>-substitution and <span class="process-math">\(\int x e^x \, dx\)</span> by integration by parts, neither method provides a route to evaluate <span class="process-math">\(\int e^{x^2} \, dx\text{,}\)</span> and in fact an elementary algebraic antiderivative for <span class="process-math">\(e^{x^2}\)</span> does not exist. No antidifferentiation method will provide us with a simple algebraic formula for a function <span class="process-math">\(F(x)\)</span> that satisfies <span class="process-math">\(F'(x) = e^{x^2}\text{.}\)</span></p>
+<p id="pea">In this section of the text, our main goals are to identify some classes of functions that can be antidifferentiated, and to learn some methods to do so. We should also recognize that there are many functions for which an algebraic formula for an antiderivative does not exist, and appreciate the role that computing technology can play in finding antiderivatives of other complicated functions.</p>
+<article class="exploration project-like" id="XEz"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span>
+</h3>
+<p id="rxq">For each of the indefinite integrals below, the main question is to decide whether the integral can be evaluated using <span class="process-math">\(u\)</span>-substitution, integration by parts, a combination of the two, or neither. For integrals for which your answer is affirmative, state the substitution(s) you would use. It is not necessary to actually evaluate any of the integrals completely, unless the integral can be evaluated immediately using a familiar basic antiderivative.</p>
+<ol class="lower-alpha">
+<li id="urW"><p id="SUG"><span class="process-math">\(\int x^2 \sin(x^3) \, dx\text{,}\)</span>  <span class="process-math">\(\int x^2 \sin(x) \, dx\text{,}\)</span>   <span class="process-math">\(\int \sin(x^3) \, dx\text{,}\)</span>   <span class="process-math">\(\int x^5 \sin(x^3) \, dx\)</span></p></li>
+<li id="azf"><p id="zbP"><span class="process-math">\(\int \frac{1}{1+x^2} \, dx\text{,}\)</span>   <span class="process-math">\(\int \frac{x}{1+x^2} \, dx\text{,}\)</span>   <span class="process-math">\(\int \frac{2x+3}{1+x^2} \, dx\text{,}\)</span>  <span class="process-math">\(\int \frac{e^x}{1+(e^x)^2} \, dx\text{,}\)</span></p></li>
+<li id="GGo"><p id="fiY"><span class="process-math">\(\int x \ln(x) \, dx\text{,}\)</span>   <span class="process-math">\(\int \frac{\ln(x)}{x} \, dx\text{,}\)</span>   <span class="process-math">\(\int \ln(1+x^2) \, dx\text{,}\)</span>  <span class="process-math">\(\int x\ln(1+x^2) \, dx\text{,}\)</span></p></li>
+<li id="mNx"><p id="Lqh"><span class="process-math">\(\int x \sqrt{1-x^2} \, dx\text{,}\)</span>   <span class="process-math">\(\int \frac{1}{\sqrt{1-x^2}} \, dx\text{,}\)</span>   <span class="process-math">\(\int \frac{x}{\sqrt{1-x^2}}\, dx\text{,}\)</span>  <span class="process-math">\(\int \frac{1}{x\sqrt{1-x^2}} \, dx\text{,}\)</span></p></li>
+</ol></article></section><section class="subsection" id="mET"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.5.1</span> <span class="title">The Method of Partial Fractions</span>
+</h3>
+<p id="Vlj">The method of partial fractions is used to integrate rational functions. It involves reversing the process of finding a common denominator.</p>
+<article class="example example-like" id="LhD"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.1</span><span class="period">.</span>
+</h4>
+<p id="wIz">Evaluate</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{5x}{x^2-x-2} \, dx\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-jKn" id="jKn"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-jKn"><div class="solution solution-like">
+<p id="uTm">If we factor the denominator, we can see how <span class="process-math">\(R\)</span> might be the sum of two fractions of the form <span class="process-math">\(\frac{A}{x-2} + \frac{B}{x+1}\text{,}\)</span> so we suppose that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{5x}{(x-2)(x+1)} = \frac{A}{x-2} + \frac{B}{x+1}
+\end{equation*}
+</div>
+<p class="continuation">and look for the constants <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span></p>
+<p id="bav">Multiplying both sides of this equation by <span class="process-math">\((x-2)(x+1)\text{,}\)</span> we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+5x = A(x+1) + B(x-2)\text{.}
+\end{equation*}
+</div>
+<p id="HhE">Since we want this equation to hold for every value of <span class="process-math">\(x\text{,}\)</span> we can use insightful choices of specific <span class="process-math">\(x\)</span>-values to help us find <span class="process-math">\(A\)</span> and <span class="process-math">\(B\text{.}\)</span> Taking <span class="process-math">\(x = -1\text{,}\)</span> we have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+5(-1) = A(0) + B(-3)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so <span class="process-math">\(B = \frac{5}{3}\text{.}\)</span> Choosing <span class="process-math">\(x = 2\text{,}\)</span> it follows</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+5(2) = A(3) + B(0)\text{,}
+\end{equation*}
+</div>
+<p class="continuation">so <span class="process-math">\(A = \frac{10}{3}\text{.}\)</span> Thus,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{5x}{x^2-x-2} \, dx = \int \frac{10/3}{x-2} + \frac{5/3}{x+1} \, dx\text{.}
+\end{equation*}
+</div>
+<p id="noN">This integral is straightforward to evaluate, and hence we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{5x}{x^2-x-2} \, dx = \frac{10}{3} \ln|x-2| + \frac{5}{3}\ln|x+1| + C\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article><p id="Bss">It turns out that we can use the method of partial fractions, together with <span class="process-math">\(u\)</span>-substitution and other algebraic techniques,<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-94" id="fn-94"><sup> 1 </sup></a> to rewrite any rational function <span class="process-math">\(R(x) = \frac{P(x)}{Q(x)}\)</span> where the degree of the polynomial <span class="process-math">\(P\)</span> is less than<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-95" id="fn-95"><sup> 2 </sup></a> the degree of <span class="process-math">\(Q\)</span> as a sum of simpler rational functions of one of the following forms:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{A}{x-c},\ \frac{A}{(x-c)^n},\ \frac{Ax+B}{x^2 + k},\ \text{or }\frac{Ax+B}{\left(x^2 + k\right)^n}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(c\)</span> are real numbers, and <span class="process-math">\(k\)</span> is a positive real number. Because we can antidifferentiate each of these basic forms, partial fractions enables us to antidifferentiate any rational function.</p>
+<p id="hzB">A computer algebra system such as <em class="emphasis">Maple</em>, <em class="emphasis">Mathematica</em>, or <em class="emphasis">WolframAlpha</em> can be used to find the partial fraction decomposition of any rational function. In <em class="emphasis">WolframAlpha</em>, entering</p>
+<blockquote class="blockquote" id="vYF"><p id="fKo"><code class="code-inline tex2jax_ignore">partial fraction 5x/(x^2-x-2)</code></p></blockquote>
+<p id="NGK">results in the output</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{5x}{x^2-x-2} = \frac{10}{3(x-2)} + \frac{5}{3(x+1)}\text{.}
+\end{equation*}
+</div>
+<p id="tNT">We will use technology to generate partial fraction decompositions of rational functions, and then evaluate the integrals using established methods.</p>
+<article class="activity project-like" id="TTE"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.5.2</span><span class="period">.</span>
+</h4>
+<p id="byd">For each of the following problems, evaluate the integral by using the partial fraction decomposition provided.</p>
+<ol class="lower-alpha">
+<li id="rMu"><p id="Nuy"><span class="process-math">\(\int \frac{1}{x^2 - 2x - 3} \, dx\text{,}\)</span> given that <span class="process-math">\(\frac{1}{x^2 - 2x - 3} = \frac{1/4}{x-3} - \frac{1/4}{x+1}\)</span></p></li>
+<li id="XTD"><p id="tBH"><span class="process-math">\(\int \frac{x^2+1}{x^3 - x^2} \, dx\text{,}\)</span> given that <span class="process-math">\(\frac{x^2+1}{x^3 - x^2} = -\frac{1}{x} - \frac{1}{x^2} + \frac{2}{x-1}\)</span></p></li>
+<li id="EaM"><p id="ZIQ"><span class="process-math">\(\int \frac{x-2}{x^4 + x^2}\, dx\text{,}\)</span> given that <span class="process-math">\(\frac{x-2}{x^4 + x^2} = \frac{1}{x} - \frac{2}{x^2} + \frac{-x+2}{1+x^2}\)</span></p></li>
+</ol></article></section><section class="subsection" id="SMc"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.5.2</span> <span class="title">Using an Integral Table</span>
+</h3>
+<p id="ZVc">Calculus has a long history, going back to Greek mathematicians in 400-300 BC. Its main foundations were first investigated and understood independently by Isaac Newton and Gottfried Wilhelm Leibniz in the late 1600s, making the modern ideas of calculus well over 300 years old. It is instructive to realize that until the late 1980s, the personal computer did not exist, so calculus (and other mathematics) had to be done by hand for roughly 300 years. In the 21st century, however, computers have revolutionized many aspects of the world we live in, including mathematics. In this section we take a short historical tour to precede discussing the role computer algebra systems can play in evaluating indefinite integrals. In particular, we consider a class of integrals involving certain radical expressions.</p>
+<p id="Gcl">As seen in the short table of integrals found in <a href="integral-table.html" class="internal" title="Appendix A: A Short Table of Integrals">Appendix A</a>, there are many forms of integrals that involve <span class="process-math">\(\sqrt{a^2 \pm w^2}\)</span> and <span class="process-math">\(\sqrt{w^2 - a^2}\text{.}\)</span> These integral rules can be developed using a technique known as <em class="emphasis">trigonometric substitution</em> that we choose to omit; instead, we will simply accept the results presented in the table. To see how these rules are used, consider the differences among</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/integral-table.html">
+\begin{equation*}
+\int \frac{1}{\sqrt{1-x^2}} \,dx, \ \ \  \int \frac{x}{\sqrt{1-x^2}} \,dx, \ \ \  \text{and}  \ \ \ \int \sqrt{1-x^2} \,dx\text{.}
+\end{equation*}
+</div>
+<p id="mju">The first integral is a familiar basic one, and results in <span class="process-math">\(\arcsin(x) + C\text{.}\)</span> The second integral can be evaluated using a standard <span class="process-math">\(u\)</span>-substitution with <span class="process-math">\(u = 1-x^2\text{.}\)</span> The third, however, is not familiar and does not lend itself to <span class="process-math">\(u\)</span>-substitution.</p>
+<p id="SqD">In <a href="integral-table.html" class="internal" title="Appendix A: A Short Table of Integrals">Appendix A</a>, we find the rule</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/integral-table.html">
+\begin{equation*}
+(h) ~  \int \sqrt{a^2 - u^2} \, du = \frac{u}{2}\sqrt{a^2 - u^2} + \frac{a^2}{2} \arcsin \left( \frac{u}{a} \right) + C\text{.}
+\end{equation*}
+</div>
+<p id="yxM">Using the substitutions <span class="process-math">\(a = 1\)</span> and <span class="process-math">\(u = x\)</span> (so that <span class="process-math">\(du = dx\)</span>), it follows that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \sqrt{1-x^2} \, dx = \frac{x}{2} \sqrt{1-x^2} - \frac{1}{2} \arcsin (x) + C\text{.}
+\end{equation*}
+</div>
+<p id="eEV">Whenever we are applying a rule in the table, we are doing a <span class="process-math">\(u\)</span>-substitution, especially when the substitution is more complicated than setting <span class="process-math">\(u = x\)</span> as in the last example.</p>
+<article class="example example-like" id="roM"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.5.2</span><span class="period">.</span>
+</h4>
+<p id="cPI">Evaluate the integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \sqrt{9 + 64x^2} \, dx\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-PRw" id="PRw"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-PRw"><div class="solution solution-like">
+<p id="TvW">Here, we want to use Rule (c) from the table, but we now set <span class="process-math">\(a = 3\)</span> and <span class="process-math">\(u = 8x\text{.}\)</span> We also choose the “<span class="process-math">\(+\)</span>” option in the rule. With this substitution, it follows that <span class="process-math">\(du = 8dx\text{,}\)</span> so <span class="process-math">\(dx = \frac{1}{8} du\text{.}\)</span> Applying the substitution,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \sqrt{9 + 64x^2} \, dx = \int \sqrt{9 + u^2} \cdot \frac{1}{8} \, du = \frac{1}{8} \int \sqrt{9+u^2} \, du\text{.}
+\end{equation*}
+</div>
+<p id="zDf">By Rule (c), we now find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="rDh">
+\begin{align*}
+\int \sqrt{9 + 64x^2} \, dx =\mathstrut \amp  \frac{1}{8} \left( \frac{u}{2}\sqrt{u^2 + 9} + \frac{9}{2}\ln|u + \sqrt{u^2 + 9}| + C \right)\\
+=\mathstrut \amp  \frac{1}{8} \left( \frac{8x}{2}\sqrt{64x^2 + 9} + \frac{9}{2}\ln|8x + \sqrt{64x^2 + 9}| + C \right)\text{.}
+\end{align*}
+</div>
+</div></div>
+</div></article><p id="KMe">Whenever we use a <span class="process-math">\(u\)</span>-subsitution in conjunction with <a href="integral-table.html" class="internal" title="Appendix A: A Short Table of Integrals">Appendix A</a>, it's important that we not forget to address any constants that arise and include them in our computations, such as the <span class="process-math">\(\frac{1}{8}\)</span> that appeared in <a href="" class="xref" data-knowl="./knowl/ex-5-5-table-c.html" title="Example 5.5.2">Example 5.5.2</a>.</p>
+<article class="activity project-like" id="OOm"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.5.3</span><span class="period">.</span>
+</h4>
+<p id="xQb">For each of the following integrals, evaluate the integral using <span class="process-math">\(u\)</span>-substitution and/or an entry from the table found in <a href="integral-table.html" class="internal" title="Appendix A: A Short Table of Integrals">Appendix A</a>.</p>
+<ol class="lower-alpha cols2">
+<li id="QYY"><p id="LjM"><span class="process-math">\(\displaystyle \int \sqrt{x^2 + 4} \, dx\)</span></p></li>
+<li id="xgh"><p id="rqV"><span class="process-math">\(\displaystyle \int \frac{x}{\sqrt{x^2 +4}} \, dx\)</span></p></li>
+<li id="dnq"><p id="Xye"><span class="process-math">\(\displaystyle \int \frac{2}{\sqrt{16+25x^2}}\, dx\)</span></p></li>
+<li id="Juz"><p id="DFn"><span class="process-math">\(\displaystyle \int \frac{1}{x^2 \sqrt{49-36x^2}} \, dx\)</span></p></li>
+</ol></article></section><section class="subsection" id="yTl"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.5.3</span> <span class="title">Using Computer Algebra Systems</span>
+</h3>
+<p id="qTn">A computer algebra system (CAS) is a computer program that is capable of executing symbolic mathematics. For example, if we ask a CAS to solve the equation <span class="process-math">\(ax^2 + bx + c = 0\)</span> for the variable <span class="process-math">\(x\text{,}\)</span> where <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> are arbitrary constants, the program will return <span class="process-math">\(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\text{.}\)</span> Research to develop the first CAS dates to the 1960s, and these programs became publicly available in the early 1990s. Two prominent examples are the programs <em class="emphasis">Maple</em> and <em class="emphasis">Mathematica</em>, which were among the first computer algebra systems to offer a graphical user interface. Today, <em class="emphasis">Maple</em> and <em class="emphasis">Mathematica</em> are exceptionally powerful professional software packages that can execute an amazing array of sophisticated mathematical computations. They are also very expensive, as each is a proprietary program. The CAS <em class="emphasis">SAGE</em> is an open-source, free alternative to <em class="emphasis">Maple</em> and <em class="emphasis">Mathematica</em>.</p>
+<p id="Xaw">For the purposes of this text, when we need to use a CAS, we are going to turn instead to a similar, but somewhat different computational tool, the web-based “computational knowledge engine” called <em class="emphasis">WolframAlpha</em>. There are two features of <em class="emphasis">WolframAlpha</em> that make it stand out from the CAS options mentioned above: (1) unlike <em class="emphasis">Maple</em> and <em class="emphasis">Mathematica</em>, <em class="emphasis">WolframAlpha</em> is free (provided we are willing to navigate some pop-up advertising); and (2) unlike any of the three, the syntax in <em class="emphasis">WolframAlpha</em> is flexible. Think of <em class="emphasis">WolframAlpha</em> as being a little bit like doing a Google search: the program will interpret what is input, and then provide a summary of options.</p>
+<p id="DhF">If we want to have <em class="emphasis">WolframAlpha</em> evaluate an integral for us, we can provide it syntax such as</p>
+<blockquote class="blockquote" id="cfO"><p id="LRx"><code class="code-inline tex2jax_ignore">integrate x^2 dx</code></p></blockquote>
+<p id="joO">to which the program responds with</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int x^2 \, dx = \frac{x^3}{3} + \text{constant}\text{.}
+\end{equation*}
+</div>
+<p id="PvX">While there is much to be enthusiastic about regarding CAS programs such as <em class="emphasis">WolframAlpha</em>, there are several things we should be cautious about: (1) a CAS only responds to exactly what is input; (2) a CAS can answer using powerful functions from very advanced mathematics; and (3) there are problems that even a CAS cannot do without additional human insight.</p>
+<p id="vDg">Although (1) likely goes without saying, we have to be careful with our input: if we enter syntax that defines the wrong function, the CAS will work with precisely the function we define. For example, if we are interested in evaluating the integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{1}{16-5x^2} \, dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and we mistakenly enter</p>
+<blockquote class="blockquote" id="ImX"><p id="rYG"><code class="code-inline tex2jax_ignore">integrate 1/16 - 5x^2 dx</code></p></blockquote>
+<p id="bKp">a CAS will (correctly) reply with</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\frac{1}{16}x - \frac{5}{3} x^3\text{.}
+\end{equation*}
+</div>
+<p id="HRy">But if we are sufficiently well-versed in antidifferentiation, we will recognize that this function cannot be the one that we seek: integrating a rational function such as <span class="process-math">\(\frac{1}{16-5x^2}\text{,}\)</span> we expect the logarithm function to be present in the result.</p>
+<p id="nYH">Regarding (2), even for a relatively simple integral such as <span class="process-math">\(\int \frac{1}{16-5x^2} \, dx\text{,}\)</span> some CASs will invoke advanced functions rather than simple ones. For instance, if we use <em class="emphasis">Maple</em> to execute the command</p>
+<blockquote class="blockquote" id="oug"><p id="YfP"><code class="code-inline tex2jax_ignore">int(1/(16-5*x^2), x);</code></p></blockquote>
+<p id="UfQ">the program responds with</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{1}{16-5x^2} \, dx = \frac{\sqrt{5}}{20} \arctanh  (\frac{\sqrt{5}}{4}x)\text{.}
+\end{equation*}
+</div>
+<p id="AmZ">While this is correct (save for the missing arbitrary constant, which <em class="emphasis">Maple</em> never reports), the inverse hyperbolic tangent function is not a common nor familiar one; a simpler way to express this function can be found by using the partial fractions method, and happens to be the result reported by <em class="emphasis">WolframAlpha</em>:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{1}{16-5x^2} \, dx = \frac{1}{8\sqrt{5}} \left(\log(4\sqrt{5}+5x) - \log(4\sqrt{5}-5x)\right) + \text{constant}\text{.}
+\end{equation*}
+</div>
+<p id="gui">Using sophisticated functions from more advanced mathematics is sometimes the way a CAS says to the user “I don't know how to do this problem.” For example, if we want to evaluate</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int e^{-x^2} \, dx\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and we ask <em class="emphasis">WolframAlpha</em> to do so, the input</p>
+<blockquote class="blockquote" id="UBp"><p id="EmY"><code class="code-inline tex2jax_ignore">integrate exp(-x^2) dx</code></p></blockquote>
+<p id="MBr">results in the output</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int e^{-x^2} \, dx = \frac{\sqrt{\pi}}{2}\erf  (x) + \text{constant}\text{.}
+\end{equation*}
+</div>
+<p id="sIA">The function “erf<span class="process-math">\((x)\)</span>” is the <em class="emphasis">error function</em>,  which is actually defined by an integral:</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\erf  (x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} \, dt\text{.}
+\end{equation*}
+</div>
+<p id="YPJ">So, in producing output involving an integral, the CAS has basically reported back to us the very question we asked.</p>
+<p id="EWS">Finally, as remarked at (3) above, there are times that a CAS will actually fail without some additional human insight. If we consider the integral</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int (1+x)e^x \sqrt{1+x^2e^{2x}} \, dx
+\end{equation*}
+</div>
+<p class="continuation">and ask <em class="emphasis">WolframAlpha</em> to evaluate</p>
+<blockquote class="blockquote" id="AIy"><p id="kuh"><code class="code-inline tex2jax_ignore">int (1+x) * exp(x) * sqrt(1+x^2 * exp(2x)) dx</code>,</p></blockquote>
+<p id="leb">the program thinks for a moment and then reports</p>
+<blockquote class="blockquote" id="gPH"><p id="QBq">(<em class="emphasis">no result found in terms of standard mathematical functions</em>)</p></blockquote>
+<p id="Rlk">But in fact this integral is not that difficult to evaluate. If we let <span class="process-math">\(u = xe^{x}\text{,}\)</span> then <span class="process-math">\(du = (1+x)e^x \, dx\text{,}\)</span> which means that the preceding integral has form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int (1+x)e^x \sqrt{1+x^2e^{2x}} \, dx = \int \sqrt{1+u^2} \, du\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which is a straightforward one for any CAS to evaluate.</p>
+<p id="xst">So, we should proceed with some caution: while any CAS is capable of evaluating a wide range of integrals (both definite and indefinite), there are times when the result can mislead us. We must think carefully about the meaning of the output, whether it is consistent with what we expect, and whether or not it makes sense to proceed.</p></section><section class="subsection" id="fau"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">5.5.4</span> <span class="title">Summary</span>
+</h3>
+<ul id="dzC" class="disc">
+<li id="RGJ"><p id="CxL">We can antidifferentiate any rational function with the method of partial fractions. Any polynomial function can be factored into a product of linear and irreducible quadratic terms, so any rational function may be written as the sum of a polynomial plus rational terms of the form <span class="process-math">\(\frac{A}{(x-c)^n}\)</span> (where <span class="process-math">\(n\)</span> is a natural number) and <span class="process-math">\(\frac{Bx+C}{x^2 + k}\)</span> (where <span class="process-math">\(k\)</span> is a positive real number).</p></li>
+<li id="xNS"><p id="iEU">Until the development of compute algebra systems, integral tables enabled students of calculus to evaluate integrals such as <span class="process-math">\(\int \sqrt{a^2 + u^2} \, du\text{,}\)</span> where <span class="process-math">\(a\)</span> is a positive real number. A short table of integrals may be found in <a href="integral-table.html" class="internal" title="Appendix A: A Short Table of Integrals">Appendix A</a>.</p></li>
+<li id="dVb"><p id="OMd">Computer algebra systems can play an important role in finding antiderivatives, though we must be cautious to use correct input, to watch for unusual or unfamiliar advanced functions that the CAS may cite in its result, and to consider the possibility that a CAS may need further assistance or insight from us in order to answer a particular question.</p></li>
+</ul></section><section class="exercises" id="okl"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">5.5.5</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="fHx"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Partial fractions: linear over difference of squares.</span>
+</h4>
+<div id="webwork-154" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="154" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec4/Q57.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-6128">Calculate the integral below by partial fractions and by using the indicated substitution. Be sure that you can show how the results you obtain are the same.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{2x}{x^{2}-1}\,dx
+\end{equation*}
+</div>
+<p id="p-6129">First, rewrite this with partial fractions:</p>
+<p id="p-6130"><span class="process-math">\(\int \frac{2x}{x^{2}-1}\,dx = \int\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> <span class="process-math">\(dx + \int\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> <span class="process-math">\(dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> <span class="process-math">\(+ C\text{.}\)</span></p>
+<p id="p-6131"><em class="emphasis">(Note that you should not include the <span class="process-math">\(+C\)</span> in your entered answer, as it has been provided at the end of the expression.)</em></p>
+<p id="p-6132">Next, use the substitution <span class="process-math">\(w = x^2 - 1\)</span> to find the integral:</p>
+<p id="p-6133"><span class="process-math">\(\int \frac{2x}{x^{2}-1}\,dx = \int\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> <span class="process-math">\(dw =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> <span class="process-math">\(+ C =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> <span class="process-math">\(+ C\text{.}\)</span></p>
+<p id="p-6134"><em class="emphasis">(For the second answer blank, give your antiderivative in terms of the variable <span class="process-math">\(w\text{.}\)</span>  Again, note that you should not include the <span class="process-math">\(+C\)</span> in your answer.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-154')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="LOG"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Partial fractions: constant over product.</span>
+</h4>
+<div id="webwork-155" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="155" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec4/Q33.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-6142">Calculate the integral:</p>
+<p id="p-6143"><span class="process-math">\(\displaystyle \int \frac{1}{(x+6)(x+8)}\,dx =\)</span> <span class="fillin underline" role="img" aria-label="55-character blank" style="width: 25em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-155')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="rVP"><h4 class="heading">
+<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Partial fractions: linear over quadratic.</span>
+</h4>
+<div id="webwork-156" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="156" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec4/Q39.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-6145">Calculate the integral</p>
+<p id="p-6146"><span class="process-math">\(\displaystyle \int \frac{3 x + 6}{x^2-3x+2}dx =\)</span> <span class="fillin underline" role="img" aria-label="55-character blank" style="width: 25em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-156')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="YcY"><h4 class="heading">
+<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Partial fractions: cubic over 4th degree.</span>
+</h4>
+<div id="webwork-157" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="157" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ma123DB/set3/s7_4_39.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-6148">Consider the following indefinite integral.</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\int \frac{6 x^3+ 8 x^2+ 100 x+ 100 }{x^4+25 x^2}\, dx
+\end{equation*}
+</div>
+<p id="p-6149">The integrand has partial fractions decomposition:</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-6150">
+\begin{equation*}
+\frac{a}{x^2} + \frac{b}{x} + \frac{cx + d}{x^2+25}
+\end{equation*}
+</div>
+<p class="continuation">where</p>
+<p id="p-6151"><span class="process-math">\(a =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-6152"><span class="process-math">\(b =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-6153"><span class="process-math">\(c =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-6154"><span class="process-math">\(d =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></p>
+<p id="p-6155">Now integrate term by term to evaluate the integral.</p>
+<p id="p-6156">Answer: <span class="fillin underline" role="img" aria-label="60-character blank" style="width: 27.2727272727273em;"></span> <span class="process-math">\(+C\)</span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-157')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="Ekh"><h4 class="heading">
+<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Partial fractions: quadratic over factored cubic.</span>
+</h4>
+<div id="webwork-158" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="158" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ma123DB/set3/s7_4_31.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-6162">The form of the partial fraction decomposition of a rational function is given below.</p>
+<div class="displaymath process-math" data-contains-math-knowls="" id="p-6163">
+\begin{equation*}
+\frac{7x^{2}-8x+45}{(x - 4)(x^2+9)} 
+= \frac{A}{x - 4} + \frac{B x + C}{x^2+9}
+\end{equation*}
+</div>
+<p id="p-6164"><span class="process-math">\(A =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(B =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(C =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></p>
+<p id="p-6165">Now evaluate the indefinite integral.</p>
+<p id="p-6166"><span class="process-math">\(\displaystyle \int \frac{7x^{2}-8x+45}{(x - 4)(x^2+9)} dx =\)</span> <span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-158')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="krq"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<p id="fVS">For each of the following integrals involving rational functions, (1) use a CAS to find the partial fraction decomposition of the integrand; (2) evaluate the integral of the resulting function without the assistance of technology; (3) use a CAS to evaluate the original integral to test and compare your result in (2).</p>
+<ol class="lower-alpha">
+<li id="KJn"><p id="mQx"><span class="process-math">\(\displaystyle \int \frac{x^3 + x + 1}{x^4 - 1} \, dx\)</span></p></li>
+<li id="qQw"><p id="SXG"><span class="process-math">\(\displaystyle \int \frac{x^5 + x^2 + 3}{x^3 - 6x^2 + 11x - 6} \, dx\)</span></p></li>
+<li id="WXF"><p id="zeP"><span class="process-math">\(\displaystyle \int \frac{x^2 - x - 1}{(x-3)^3} \, dx\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="Qyz"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<p id="Mdb">For each of the following integrals involving radical functions, (1) use an appropriate <span class="process-math">\(u\)</span>-substitution along with <a href="integral-table.html" class="internal" title="Appendix A: A Short Table of Integrals">Appendix A</a> to evaluate the integral without the assistance of technology, and (2) use a CAS to evaluate the original integral to test and compare your result in (1).</p>
+<ol class="lower-alpha">
+<li id="vAp"><p id="XHz"><span class="process-math">\(\displaystyle \int \frac{1}{x \sqrt{9x^2 + 25}} \, dx\)</span></p></li>
+<li id="bHy"><p id="DOI"><span class="process-math">\(\displaystyle \int x \sqrt{1 + x^4} \, dx\)</span></p></li>
+<li id="HOH"><p id="jVR"><span class="process-math">\(\displaystyle \int e^x \sqrt{4 + e^{2x}} \, dx\)</span></p></li>
+<li id="nVQ"><p id="Qda"><span class="process-math">\(\displaystyle \int \frac{\tan(x)}{\sqrt{9 - \cos^2(x)}} \, dx\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="wFI"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<p id="skk">Consider the indefinite integral given by</p>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/integral-table.html">
+\begin{equation*}
+\int \frac{\sqrt{x+\sqrt{1+x^2}}}{x} \, dx\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li id="Rit"><p id="tpD">Explain why <span class="process-math">\(u\)</span>-substitution does not offer a way to simplify this integral by discussing at least two different options you might try for <span class="process-math">\(u\text{.}\)</span></p></li>
+<li id="xpC"><p id="ZwM">Explain why integration by parts does not seem to be a reasonable way to proceed, either, by considering one option for <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{.}\)</span></p></li>
+<li id="dwL"><p id="FDV">Is there any line in the integral table in <a href="integral-table.html" class="internal" title="Appendix A: A Short Table of Integrals">Appendix A</a> that is helpful for this integral?</p></li>
+<li id="JDU"><p id="lLe">Evaluate the given integral using <em class="emphasis">WolframAlpha</em>. What do you observe?</p></li>
+</ol></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-94"><div class="fn">Specifically, if we encounter a quadratic function of the form <span class="process-math">\(x^2 + bx + c\)</span> that we cannot factor, we complete the square to rewrite it as <span class="process-math">\((x-h)^2+k\text{.}\)</span> Then the substitution <span class="process-math">\(u = x - h\)</span> enables us to antidifferentiate the result.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-95"><div class="fn">If the degree of <span class="process-math">\(P\)</span> is greater than or equal to the degree of <span class="process-math">\(Q\text{,}\)</span> long division may be used to write <span class="process-math">\(R\)</span> as the sum of a polynomial plus a rational function where the numerator's degree is less than the denominator's.</div></div>
+</div></main>
+</div>
+</body>
+</html>

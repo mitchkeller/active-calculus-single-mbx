@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Using derivatives to describe families of functions</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+},
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-ptx.aimath.org/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.13/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-ptx.aimath.org/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.13/pretext.js"></script><script>miniversion=0.674</script><script src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div class="searchwrapper" role="search"><div class="gcse-search"></div></div>
+</div></div>
+<nav id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3">
+<a class="index-button toolbar-item button" href="index-1.html" title="Index">Index</a><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="sec-3-1-tests.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="C-3.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="sec-3-3-optimization.html" title="Next">Next</a></span>
+</div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="sec-3-1-tests.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="C-3.html" title="Up">Up</a><a class="next-button button toolbar-item" href="sec-3-3-optimization.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link frontmatter">
+<a href="frontmatter.html" data-scroll="yaN" class="internal"><span class="title">Front Matter</span></a><ul>
+<li><a href="colophon-1.html" data-scroll="colophon-1" class="internal">Colophon</a></li>
+<li><a href="acknowledgement-1.html" data-scroll="acknowledgement-1" class="internal">Acknowledgements</a></li>
+<li><a href="preface-1.html" data-scroll="ehW" class="internal">Contributors</a></li>
+<li><a href="preface-2.html" data-scroll="Kpf" class="internal">Active Calculus: Our Goals</a></li>
+<li><a href="preface-3.html" data-scroll="qwo" class="internal">Features of the Text</a></li>
+<li><a href="preface-for-students.html" data-scroll="lZk" class="internal">Students!  Read this!</a></li>
+<li><a href="preface-for-instructors.html" data-scroll="Sgt" class="internal">Instructors!  Read this!</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-1.html" data-scroll="UOk" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a><ul>
+<li><a href="sec-1-1-vel.html" data-scroll="Cph" class="internal">How do we measure velocity?</a></li>
+<li><a href="sec-1-2-lim.html" data-scroll="VMz" class="internal">The notion of limit</a></li>
+<li><a href="sec-1-3-derivative-pt.html" data-scroll="xyk" class="internal">The derivative of a function at a point</a></li>
+<li><a href="sec-1-4-derivative-fxn.html" data-scroll="eZh" class="internal">The derivative function</a></li>
+<li><a href="sec-1-5-units.html" data-scroll="IVE" class="internal">Interpreting, estimating, and using the derivative</a></li>
+<li><a href="sec-1-6-second-d.html" data-scroll="QeE" class="internal">The second derivative</a></li>
+<li><a href="sec-1-7-lim-cont-diff.html" data-scroll="UsY" class="internal">Limits, Continuity, and Differentiability</a></li>
+<li><a href="sec-1-8-tan-line-approx.html" data-scroll="fgy" class="internal">The Tangent Line Approximation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-2.html" data-scroll="AVt" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a><ul>
+<li><a href="sec-2-1-elem-rules.html" data-scroll="SwH" class="internal">Elementary derivative rules</a></li>
+<li><a href="sec-2-2-sin-cos.html" data-scroll="kOG" class="internal">The sine and cosine functions</a></li>
+<li><a href="sec-2-3-prod-quot.html" data-scroll="gOH" class="internal">The product and quotient rules</a></li>
+<li><a href="sec-2-4-other-trig.html" data-scroll="ybn" class="internal">Derivatives of other trigonometric functions</a></li>
+<li><a href="sec-2-5-chain.html" data-scroll="omc" class="internal">The chain rule</a></li>
+<li><a href="sec-2-6-inverse.html" data-scroll="iLl" class="internal">Derivatives of Inverse Functions</a></li>
+<li><a href="sec-2-7-implicit.html" data-scroll="kOT" class="internal">Derivatives of Functions Given Implicitly</a></li>
+<li><a href="sec-2-8-LHR.html" data-scroll="miH" class="internal">Using Derivatives to Evaluate Limits</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-3.html" data-scroll="hcC" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a><ul>
+<li><a href="sec-3-1-tests.html" data-scroll="ubB" class="internal">Using derivatives to identify extreme values</a></li>
+<li><a href="sec-3-2-families.html" data-scroll="sAJ" class="active">Using derivatives to describe families of functions</a></li>
+<li><a href="sec-3-3-optimization.html" data-scroll="bgZ" class="internal">Global Optimization</a></li>
+<li><a href="sec-3-4-applied-opt.html" data-scroll="ZGh" class="internal">Applied Optimization</a></li>
+<li><a href="sec-3-5-rel-rates.html" data-scroll="uiS" class="internal">Related Rates</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-4.html" data-scroll="NjL" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a><ul>
+<li><a href="sec-4-1-velocity-distance.html" data-scroll="YPj" class="internal">Determining distance traveled from velocity</a></li>
+<li><a href="sec-4-2-Riemann.html" data-scroll="DvA" class="internal">Riemann Sums</a></li>
+<li><a href="sec-4-3-definite-integral.html" data-scroll="Oja" class="internal">The Definite Integral</a></li>
+<li><a href="sec-4-4-FTC.html" data-scroll="LCP" class="internal">The Fundamental Theorem of Calculus</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-5.html" data-scroll="tqU" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a><ul>
+<li><a href="sec-5-1-antid-graphs.html" data-scroll="mjh" class="internal">Constructing Accurate Graphs of Antiderivatives</a></li>
+<li><a href="sec-5-2-FTC2.html" data-scroll="lNI" class="internal">The Second Fundamental Theorem of Calculus</a></li>
+<li><a href="sec-5-3-substitution.html" data-scroll="wBi" class="internal">Integration by Substitution</a></li>
+<li><a href="sec-5-4-parts.html" data-scroll="cWM" class="internal">Integration by Parts</a></li>
+<li><a href="sec-5-5-other-opt.html" data-scroll="GxK" class="internal">Other Options for Finding Algebraic Antiderivatives</a></li>
+<li><a href="sec-5-6-num-int.html" data-scroll="sec-5-6-num-int" class="internal">Numerical Integration</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-6.html" data-scroll="Zyd" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a><ul>
+<li><a href="sec-6-1-area.html" data-scroll="HaA" class="internal">Using Definite Integrals to Find Area and Length</a></li>
+<li><a href="sec-6-2-volume.html" data-scroll="KjB" class="internal">Using Definite Integrals to Find Volume</a></li>
+<li><a href="sec-6-3-mass.html" data-scroll="ZGU" class="internal">Density, Mass, and Center of Mass</a></li>
+<li><a href="sec-6-4-physics.html" data-scroll="Enl" class="internal">Physics Applications:  Work, Force, and Pressure</a></li>
+<li><a href="sec-6-5-improper.html" data-scroll="EBG" class="internal">Improper Integrals</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-7.html" data-scroll="FFm" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a><ul>
+<li><a href="sec-7-1-diff-eq-intro.html" data-scroll="knq" class="internal">An Introduction to Differential Equations</a></li>
+<li><a href="sec-7-2-qualitative.html" data-scroll="Wyg" class="internal">Qualitative behavior of solutions to DEs</a></li>
+<li><a href="sec-7-3-euler.html" data-scroll="gBM" class="internal">Euler's method</a></li>
+<li><a href="sec-7-4-separable.html" data-scroll="arb" class="internal">Separable differential equations</a></li>
+<li><a href="sec-7-5-modeling.html" data-scroll="Ugq" class="internal">Modeling with differential equations</a></li>
+<li><a href="sec-7-6-logistic.html" data-scroll="NVF" class="internal">Population Growth and the Logistic Equation</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="C-8.html" data-scroll="lMv" class="internal"><span class="codenumber">8</span> <span class="title">Sequences and Series</span></a><ul>
+<li><a href="sec-8-1-sequences.html" data-scroll="kXx" class="internal">Sequences</a></li>
+<li><a href="sec-8-2-geometric.html" data-scroll="Kkb" class="internal">Geometric Series</a></li>
+<li><a href="sec-8-3-series.html" data-scroll="nbf" class="internal">Series of Real Numbers</a></li>
+<li><a href="sec-8-4-alternating.html" data-scroll="GMS" class="internal">Alternating Series</a></li>
+<li><a href="sec-8-5-taylor.html" data-scroll="cnS" class="internal">Taylor Polynomials and Taylor Series</a></li>
+<li><a href="sec-8-6-powerseries.html" data-scroll="YgP" class="internal">Power Series</a></li>
+</ul>
+</li>
+<li class="link backmatter"><a href="backmatter.html" data-scroll="gsI" class="internal"><span class="title">Back Matter</span></a></li>
+<li class="link"><a href="integral-table.html" data-scroll="Alz" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></li>
+<li class="link"><a href="activities-answers.html" data-scroll="MzR" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></li>
+<li class="link"><a href="exercises-answers.html" data-scroll="sHa" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></li>
+<li class="link"><a href="index-1.html" data-scroll="index-1" class="internal"><span class="title">Index</span></a></li>
+<li class="link"><a href="colophon-2.html" data-scroll="colophon-2" class="internal"><span class="title">Colophon</span></a></li>
+</ul></nav><div class="extras"><nav><a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section class="section" id="sAJ"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Using derivatives to describe families of functions</span>
+</h2>
+<article class="objectives goal-like" id="Rdt"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="VNm"><p id="upW">Given a family of functions that depends on one or more parameters, how does the shape of the graph of a typical function in the family depend on the value of the parameters?</p></li>
+<li id="BUv"><p id="axf">How can we construct first and second derivative sign charts of functions that depend on one or more parameters while allowing those parameters to remain arbitrary constants?</p></li>
+</ul></article><section class="introduction" id="xkC"><p id="Ndu">Mathematicians are often interested in making general observations, say by describing patterns that hold in a large number of cases. Think about the Pythagorean Theorem: it doesn't tell us something about a single right triangle, but rather a fact about <em class="emphasis">every</em> right triangle. In the next part of our studies, we use calculus to make general observations about families of functions that depend on one or more parameters. People who use applied mathematics, such as engineers and economists, often encounter the same types of functions where only small changes to certain constants occur. These constants are called <em class="emphasis">parameters</em>.</p>
+<figure class="figure figure-like" id="lGe"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;"><img src="external/images/3_2_SineFam.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.1<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(f(t) = a \sin(b(t-c)) + d\)</span> based on parameters <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> <span class="process-math">\(c\text{,}\)</span> and <span class="process-math">\(d\text{.}\)</span></figcaption></figure><p id="tkD">You are already familiar with certain families of functions. For example, <span class="process-math">\(f(t) = a \sin(b(t-c)) + d\)</span> is a stretched and shifted version of the sine function with amplitude <span class="process-math">\(a\text{,}\)</span> period <span class="process-math">\(\frac{2\pi}{b}\text{,}\)</span> phase shift <span class="process-math">\(c\text{,}\)</span> and vertical shift <span class="process-math">\(d\text{.}\)</span> We know that <span class="process-math">\(a\)</span> affects the size of the oscillation, <span class="process-math">\(b\)</span> the rapidity of oscillation, and <span class="process-math">\(c\)</span> where the oscillation starts, as shown in <a href="" class="xref" data-knowl="./knowl/F-3-2-SineFam.html" title="Figure 3.2.1">Figure 3.2.1</a>, while <span class="process-math">\(d\)</span> affects the vertical positioning of the graph.</p>
+<p id="ZrM">As another example, every function of the form <span class="process-math">\(y = mx + b\)</span> is a line with slope <span class="process-math">\(m\)</span> and <span class="process-math">\(y\)</span>-intercept <span class="process-math">\((0,b)\text{.}\)</span> The value of <span class="process-math">\(m\)</span> affects the line's steepness, and the value of <span class="process-math">\(b\)</span> situates the line vertically on the coordinate axes. These two parameters describe all possible non-vertical lines.</p>
+<p id="FyV">For other less familiar families of functions, we can use calculus to discover where key behavior occurs: where members of the family are increasing or decreasing, concave up or concave down, where relative extremes occur, and more, all in terms of the parameters involved. To get started, we revisit a common collection of functions to see how calculus confirms things we already know.</p>
+<article class="exploration project-like" id="ukF"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h3>
+<p id="Odw">Let <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(h\text{,}\)</span> and <span class="process-math">\(k\)</span> be arbitrary real numbers with <span class="process-math">\(a \ne 0\text{,}\)</span> and let <span class="process-math">\(f\)</span> be the function given by the rule <span class="process-math">\(f(x) = a(x-h)^2 + k\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="EJK"><p id="JtD">What familiar type of function is <span class="process-math">\(f\text{?}\)</span> What information do you know about <span class="process-math">\(f\)</span> just by looking at its form? (Think about the roles of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(h\text{,}\)</span> and <span class="process-math">\(k\text{.}\)</span>)</p></li>
+<li id="kQT"><p id="pAM">Next we use some calculus to develop familiar ideas from a different perspective. To start, treat <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(h\text{,}\)</span> and <span class="process-math">\(k\)</span> as constants and compute <span class="process-math">\(f'(x)\text{.}\)</span></p></li>
+<li id="QYc"><p id="VHV">Find all critical numbers of <span class="process-math">\(f\text{.}\)</span> (These will depend on at least one of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(h\text{,}\)</span> and <span class="process-math">\(k\text{.}\)</span>)</p></li>
+<li id="xfl"><p id="BPe">Assume that <span class="process-math">\(a \lt 0\text{.}\)</span> Construct a first derivative sign chart for <span class="process-math">\(f\text{.}\)</span></p></li>
+<li id="dmu"><p id="hWn">Based on the information you've found above, classify the critical values of <span class="process-math">\(f\)</span> as maxima or minima.</p></li>
+</ol></article></section><section class="subsection" id="YHS"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.2.1</span> <span class="title">Describing families of functions in terms of parameters</span>
+</h3>
+<p id="RNn">Our goal is to describe the key characteristics of the overall behavior of each member of a family of functions in terms of its parameters. By finding the first and second derivatives and constructing sign charts (each of which may depend on one or more of the parameters), we can often make broad conclusions about how each member of the family will appear.</p>
+<article class="example example-like" id="kWk"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h4>
+<p id="gWl">Consider the two-parameter family of functions given by <span class="process-math">\(g(x) = axe^{-bx}\text{,}\)</span> where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are positive real numbers. Fully describe the behavior of a typical member of the family in terms of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> including the location of all critical numbers, where <span class="process-math">\(g\)</span> is increasing, decreasing, concave up, and concave down, and the long term behavior of <span class="process-math">\(g\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-drL" id="drL"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-drL"><div class="solution solution-like">
+<p id="SSG">We begin by computing <span class="process-math">\(g'(x)\text{.}\)</span> By the product rule,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g'(x) = ax \frac{d}{dx}\left[e^{-bx}\right] + e^{-bx} \frac{d}{dx}[ax]\text{.}
+\end{equation*}
+</div>
+<p class="continuation">By applying the chain rule and constant multiple rule, we find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g'(x) = axe^{-bx}(-b) + e^{-bx}(a)\text{.}
+\end{equation*}
+</div>
+<p id="yZP">To find the critical numbers of <span class="process-math">\(g\text{,}\)</span> we solve the equation <span class="process-math">\(g'(x) = 0\text{.}\)</span> By factoring <span class="process-math">\(g'(x)\text{,}\)</span> we find</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+0 = ae^{-bx}(-bx + 1)\text{.}
+\end{equation*}
+</div>
+<p id="fgY">Since we are given that <span class="process-math">\(a \ne 0\)</span> and we know that <span class="process-math">\(e^{-bx} \ne 0\)</span> for all values of <span class="process-math">\(x\text{,}\)</span> the only way this equation can hold is when <span class="process-math">\(-bx + 1 = 0\text{.}\)</span> Solving for <span class="process-math">\(x\text{,}\)</span> we find <span class="process-math">\(x = \frac{1}{b}\text{,}\)</span> and this is therefore the only critical number of <span class="process-math">\(g\text{.}\)</span></p>
+<p id="Loh">We construct the first derivative sign chart for <span class="process-math">\(g\)</span> that is shown in <a href="" class="xref" data-knowl="./knowl/F-3-2-signchartg.html" title="Figure 3.2.3">Figure 3.2.3</a>.</p>
+<figure class="figure figure-like" id="oAK"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/3_2_signchartg.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.3<span class="period">.</span></span><span class="space"> </span>The first derivative sign chart for <span class="process-math">\(g(x) = axe^{-bx}\text{.}\)</span></figcaption></figure><p id="rvq">Because the factor <span class="process-math">\(ae^{-bx}\)</span> is always positive, the sign of <span class="process-math">\(g'\)</span> depends on the linear factor <span class="process-math">\((1-bx)\text{,}\)</span> which is positive for <span class="process-math">\(x \lt \frac{1}{b}\)</span> and negative for <span class="process-math">\(x \gt \frac{1}{b}\text{.}\)</span> Hence we can not only conclude that <span class="process-math">\(g\)</span> is always increasing for <span class="process-math">\(x \lt \frac{1}{b}\)</span> and decreasing for <span class="process-math">\(x \gt \frac{1}{b}\text{,}\)</span> but also that <span class="process-math">\(g\)</span> has a global maximum at <span class="process-math">\((\frac{1}{b}, g(\frac{1}{b}))\)</span> and no local minimum.</p>
+<p id="XCz">We turn next to analyzing the concavity of <span class="process-math">\(g\text{.}\)</span> With <span class="process-math">\(g'(x) = -abxe^{-bx} + ae^{-bx}\text{,}\)</span> we differentiate to find that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g''(x) = -abxe^{-bx}(-b) + e^{-bx}(-ab) + ae^{-bx}(-b)\text{.}
+\end{equation*}
+</div>
+<p id="DJI">Combining like terms and factoring, we now have</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+g''(x) = ab^2xe^{-bx} - 2abe^{-bx} = abe^{-bx}(bx - 2)\text{.}
+\end{equation*}
+</div>
+<figure class="figure figure-like" id="UHT"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/3_2_signchartg2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.4<span class="period">.</span></span><span class="space"> </span>The second derivative sign chart for <span class="process-math">\(g(x) = axe^{-bx}\text{.}\)</span></figcaption></figure><p id="jQR">We observe that <span class="process-math">\(abe^{-bx}\)</span> is always positive, and thus the sign of <span class="process-math">\(g''\)</span> depends on the sign of <span class="process-math">\((bx-2)\text{,}\)</span> which is zero when <span class="process-math">\(x = \frac{2}{b}\text{.}\)</span> Since <span class="process-math">\(b\)</span> is positive, the value of <span class="process-math">\((bx-2)\)</span> is negative for <span class="process-math">\(x \lt \frac{2}{b}\)</span> and positive for <span class="process-math">\(x \gt \frac{2}{b}\text{.}\)</span> The sign chart for <span class="process-math">\(g''\)</span> is shown in <a href="" class="xref" data-knowl="./knowl/F-3-2-signchartg2.html" title="Figure 3.2.4">Figure 3.2.4</a>. Thus, <span class="process-math">\(g\)</span> is concave down for all <span class="process-math">\(x \lt \frac{2}{b}\)</span> and concave up for all <span class="process-math">\(x \gt \frac{2}{b}\text{.}\)</span></p>
+<p id="PYa">Finally, we analyze the long term behavior of <span class="process-math">\(g\)</span> by considering two limits. First, we note that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to \infty} g(x) = \lim_{x \to \infty} axe^{-bx} = \lim_{x \to \infty} \frac{ax}{e^{bx}}\text{.}
+\end{equation*}
+</div>
+<p id="wfj">This limit has indeterminate form <span class="process-math">\(\frac{\infty}{\infty}\text{,}\)</span> so we apply L'Hôpital's Rule and find that <span class="process-math">\(\lim_{x \to \infty} g(x) = 0\text{.}\)</span> In the other direction,</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\lim_{x \to -\infty} g(x) = \lim_{x \to -\infty} axe^{-bx} = -\infty\text{,}
+\end{equation*}
+</div>
+<p class="continuation">because <span class="process-math">\(ax \to -\infty\)</span> and <span class="process-math">\(e^{-bx} \to \infty\)</span> as <span class="process-math">\(x \to -\infty\text{.}\)</span> Hence, as we move left on its graph, <span class="process-math">\(g\)</span> decreases without bound, while as we move to the right, <span class="process-math">\(g(x) \to 0\text{.}\)</span></p>
+<p id="cms">All of this information now helps us produce the graph of a typical member of this family of functions without using a graphing utility (and without choosing particular values for <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span>), as shown in <a href="" class="xref" data-knowl="./knowl/F-3-2-SurgeFam.html" title="Figure 3.2.5">Figure 3.2.5</a>.</p>
+<figure class="figure figure-like" id="APc"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/3_2_SurgeFam.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.5<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(g(x) = axe^{-bx}\text{.}\)</span></figcaption></figure><p id="ItB">Note that the value of <span class="process-math">\(b\)</span> controls the horizontal location of the global maximum and the inflection point, as neither depends on <span class="process-math">\(a\text{.}\)</span> The value of <span class="process-math">\(a\)</span> affects the vertical stretch of the graph. For example, the global maximum occurs at the point <span class="process-math">\((\frac{1}{b}, g(\frac{1}{b})) = (\frac{1}{b}, \frac{a}{b}e^{-1})\text{,}\)</span> so the larger the value of <span class="process-math">\(a\text{,}\)</span> the greater the value of the global maximum.</p>
+</div></div>
+</div></article><p id="xUw">The work we've completed in <a href="" class="xref" data-knowl="./knowl/Ex-3-2-1.html" title="Example 3.2.2">Example 3.2.2</a> can often be replicated for other families of functions that depend on parameters. Normally we are most interested in determining all critical numbers, a first derivative sign chart, a second derivative sign chart, and the limit of the function as <span class="process-math">\(x \to \infty\text{.}\)</span> Throughout, we prefer to work with the parameters as arbitrary constants. In addition, we can experiment with some particular values of the parameters present to reduce the algebraic complexity of our work. The following activities offer several key examples where we see that the values of the parameters substantially affect the behavior of individual functions within a given family.</p>
+<article class="activity project-like" id="wQz"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h4>
+<p id="YnP">Consider the family of functions defined by <span class="process-math">\(p(x) = x^3 - ax\text{,}\)</span> where <span class="process-math">\(a \ne 0\)</span> is an arbitrary constant.</p>
+<ol class="lower-alpha">
+<li id="fiu"><p id="FAr">Find <span class="process-math">\(p'(x)\)</span> and determine the critical numbers of <span class="process-math">\(p\text{.}\)</span> How many critical numbers does <span class="process-math">\(p\)</span> have?</p></li>
+<li id="LpD"><p id="lHA">Construct a first derivative sign chart for <span class="process-math">\(p\text{.}\)</span> What can you say about the overall behavior of <span class="process-math">\(p\)</span> if the constant <span class="process-math">\(a\)</span> is positive? Why? What if the constant <span class="process-math">\(a\)</span> is negative? In each case, describe the relative extremes of <span class="process-math">\(p\text{.}\)</span></p></li>
+<li id="rwM"><p id="ROJ">Find <span class="process-math">\(p''(x)\)</span> and construct a second derivative sign chart for <span class="process-math">\(p\text{.}\)</span> What does this tell you about the concavity of <span class="process-math">\(p\text{?}\)</span> What role does <span class="process-math">\(a\)</span> play in determining the concavity of <span class="process-math">\(p\text{?}\)</span></p></li>
+<li id="XDV"><p id="xVS">Without using a graphing utility, sketch and label typical graphs of <span class="process-math">\(p(x)\)</span> for the cases where <span class="process-math">\(a\gt 0\)</span> and <span class="process-math">\(a \lt 0\text{.}\)</span> Label all inflection points and local extrema.</p></li>
+<li id="DLe"><p id="edb">Finally, use a graphing utility to test your observations above by entering and plotting the function <span class="process-math">\(p(x) = x^3 - ax\)</span> for at least four different values of <span class="process-math">\(a\text{.}\)</span> Write several sentences to describe your overall conclusions about how the behavior of <span class="process-math">\(p\)</span> depends on <span class="process-math">\(a\text{.}\)</span></p></li>
+</ol></article><article class="activity project-like" id="cCj"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+</h4>
+<p id="rLh">Consider the two-parameter family of functions of the form <span class="process-math">\(h(x) = a(1-e^{-bx})\text{,}\)</span> where <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are positive real numbers.</p>
+<ol class="lower-alpha">
+<li id="tVT"><p id="MJr">Find the first derivative and the critical numbers of <span class="process-math">\(h\text{.}\)</span> Use these to construct a first derivative sign chart and determine for which values of <span class="process-math">\(x\)</span> the function <span class="process-math">\(h\)</span> is increasing and decreasing.</p></li>
+<li id="adc"><p id="sQA">Find the second derivative and build a second derivative sign chart. For which values of <span class="process-math">\(x\)</span> is a function in this family concave up? concave down?</p></li>
+<li id="Gkl"><p id="YXJ">What is the value of <span class="process-math">\(\lim_{x \to \infty} a(1-e^{-bx})\text{?}\)</span> <span class="process-math">\(\lim_{x \to -\infty} a(1-e^{-bx})\text{?}\)</span></p></li>
+<li id="mru"><p id="FeS">How does changing the value of <span class="process-math">\(b\)</span> affect the shape of the curve?</p></li>
+<li id="SyD"><p id="lmb">Without using a graphing utility, sketch the graph of a typical member of this family. Write several sentences to describe the overall behavior of a typical function <span class="process-math">\(h\)</span> and how this behavior depends on <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span></p></li>
+</ol></article><article class="activity project-like" id="Zme"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="period">.</span>
+</h4>
+<p id="jLj">Let <span class="process-math">\(L(t) = \frac{A}{1+ce^{-kt}}\text{,}\)</span> where <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(c\text{,}\)</span> and <span class="process-math">\(k\)</span> are all positive real numbers.</p>
+<ol class="lower-alpha">
+<li id="ZHD"><p id="YCk">Observe that we can equivalently write <span class="process-math">\(L(t) = A(1+ce^{-kt})^{-1}\text{.}\)</span> Find <span class="process-math">\(L'(t)\)</span> and explain why <span class="process-math">\(L\)</span> has no critical numbers. Is <span class="process-math">\(L\)</span> always increasing or always decreasing? Why?</p></li>
+<li id="FOM">
+<p id="EJt">Given the fact that</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+L''(t) = Ack^2e^{-kt} \frac{ce^{-kt}-1}{(1+ce^{-kt})^3}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">find all values of <span class="process-math">\(t\)</span> such that <span class="process-math">\(L''(t) = 0\)</span> and hence construct a second derivative sign chart. For which values of <span class="process-math">\(t\)</span> is a function in this family concave up?  concave down?</p>
+</li>
+<li id="lVV"><p id="kQC">What is the value of <span class="process-math">\(\lim_{t \to \infty} \frac{A}{1+ce^{-kt}}\text{?}\)</span> <span class="process-math">\(\lim_{t \to -\infty} \frac{A}{1+ce^{-kt}}\text{?}\)</span></p></li>
+<li id="Sde"><p id="QXL">Find the value of <span class="process-math">\(L(x)\)</span> at the inflection point found in (b).</p></li>
+<li id="ykn"><p id="xeU">Without using a graphing utility, sketch the graph of a typical member of this family. Write several sentences to describe the overall behavior of a typical function <span class="process-math">\(L\)</span> and how this behavior depends on <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(c\text{,}\)</span> and <span class="process-math">\(k\)</span> number.</p></li>
+<li id="erw"><p id="dmd">Explain why it is reasonable to think that the function <span class="process-math">\(L(t)\)</span> models the growth of a population over time in a setting where the largest possible population the surrounding environment can support is <span class="process-math">\(A\text{.}\)</span></p></li>
+</ol></article></section><section class="subsection" id="EPb"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">3.2.2</span> <span class="title">Summary</span>
+</h3>
+<ul id="ebF" class="disc">
+<li id="ibE"><p id="GEo">Given a family of functions that depends on one or more parameters, by investigating how critical numbers and locations where the second derivative is zero depend on the values of these parameters, we can often accurately describe the shape of the function in terms of the parameters.</p></li>
+<li id="OiN"><p id="mLx">In particular, just as we can created first and second derivative sign charts for a single function, we often can do so for entire families of functions where critical numbers and possible inflection points depend on arbitrary constants. These sign charts then reveal where members of the family are increasing or decreasing, concave up or concave down, and help us to identify relative extremes and inflection points.</p></li>
+</ul></section><section class="exercises" id="mBc"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">3.2.3</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="iIh"><h4 class="heading">
+<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Drug dosage with a parameter.</span>
+</h4>
+<div id="webwork-103" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="103" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec3/Q21.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3622">For some positive constant <span class="process-math">\(C\text{,}\)</span> a patient's temperature change, <span class="process-math">\(T\text{,}\)</span> due to a dose, <span class="process-math">\(D\text{,}\)</span> of a drug is given by <span class="process-math">\(T = \left(\frac{C}{2} - \frac{D}{3}\right)D^2.\)</span></p>
+<p id="p-3623">What dosage maximizes the temperature change?</p>
+<p id="p-3624"><span class="process-math">\(D =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span></p>
+<p id="p-3625">The sensitivity of the body to the drug is defined as <span class="process-math">\(dT/dD\text{.}\)</span> What dosage maximizes sensitivity?</p>
+<p id="p-3626"><span class="process-math">\(D =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-103')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="OPq"><h4 class="heading">
+<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Using the graph of <span class="process-math">\(g'\)</span>.</span>
+</h4>
+<div id="webwork-104" class="exercise-wrapper" data-domain="https://webwork-ptx.aimath.org" data-seed="104" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec3/Q35.pg" data-courseID="anonymous" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-contents">
+<p id="p-3633">The figure below gives the behavior of the derivative of <span class="process-math">\(g(x)\)</span> on <span class="process-math">\(-2\le x\le 2\text{.}\)</span></p>
+<div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-104-image-1.png" class="contained"></div>
+<p id="p-3634"><em class="emphasis">Graph of <span class="process-math">\(g'(x)\)</span> (<em class="alert">not</em> <span class="process-math">\(g(x)\)</span>)</em></p>
+<p id="p-3635"><em class="emphasis">(Click on the graph to get a larger version.)</em></p>
+<p id="p-3636">Sketch a graph of <span class="process-math">\(g(x)\)</span> and use your sketch to answer the following questions.</p>
+<p id="p-3637"><em class="alert">A.</em> Where does the graph of <span class="process-math">\(g(x)\)</span> have inflection points?</p>
+<p id="p-3638"><span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-3639"><em class="emphasis">Enter your answer as a comma-separated list of values, or enter <em class="alert">none</em> if there are none.</em></p>
+<p id="p-3640"><em class="alert">B.</em> Where are the global maxima and minima of <span class="process-math">\(g\)</span> on <span class="process-math">\([-2,2]\text{?}\)</span></p>
+<p id="p-3641">minimum at <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-3642">maximum at <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></p>
+<p id="p-3643"><em class="alert">C.</em> If <span class="process-math">\(g(-2) = -8\text{,}\)</span> what are possible values for <span class="process-math">\(g(0)\text{?}\)</span></p>
+<p id="p-3644"><span class="process-math">\(g(0)\)</span> is in <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span></p>
+<p id="p-3645"><em class="emphasis">(Enter your answer as an interval, or union of intervals, giving the possible values.  Thus if you know <span class="process-math">\(-5 \lt  g(0) \le -2\text{,}\)</span> enter <em class="alert">(-5,-2]</em>.  Enter <em class="alert">infinity</em> for <span class="process-math">\(\infty\text{,}\)</span> the interval <em class="alert">[1,1]</em> to indicate a single point).</em></p>
+<p id="p-3646">How is the value of <span class="process-math">\(g(2)\)</span> related to the value of <span class="process-math">\(g(0)\text{?}\)</span></p>
+<p id="p-3647"><span class="process-math">\(g(2)\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span> <span class="process-math">\(g(0)\)</span></p>
+<p id="p-3648"><em class="emphasis">(Enter the appropriate mathematical equality or inequality, <span class="process-math">\(=\text{,}\)</span> <span class="process-math">\(\lt \text{,}\)</span> <span class="process-math">\(&gt;\text{,}\)</span> etc.)</em></p>
+</div>
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('webwork-104')">Activate</button></div>
+</div></article><article class="exercise exercise-like" id="uWz"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="pvI">Consider the one-parameter family of functions given by <span class="process-math">\(p(x) = x^3-ax^2\text{,}\)</span> where <span class="process-math">\(a \gt 0\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="BvF"><p id="zkT">Sketch a plot of a typical member of the family, using the fact that each is a cubic polynomial with a repeated zero at <span class="process-math">\(x = 0\)</span> and another zero at <span class="process-math">\(x = a\text{.}\)</span></p></li>
+<li id="hCO"><p id="fsc">Find all critical numbers of <span class="process-math">\(p\text{.}\)</span></p></li>
+<li id="NJX"><p id="Lzl">Compute <span class="process-math">\(p''\)</span> and find all values for which <span class="process-math">\(p''(x) = 0\text{.}\)</span> Hence construct a second derivative sign chart for <span class="process-math">\(p\text{.}\)</span></p></li>
+<li id="tRg"><p id="rGu">Describe how the location of the critical numbers and the inflection point of <span class="process-math">\(p\)</span> change as <span class="process-math">\(a\)</span> changes. That is, if the value of <span class="process-math">\(a\)</span> is increased, what happens to the critical numbers and inflection point?</p></li>
+</ol></article><article class="exercise exercise-like" id="bdI"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="VCR">Let <span class="process-math">\(q(x) = \frac{e^{-x}}{x-c}\)</span> be a one-parameter family of functions where <span class="process-math">\(c \gt 0\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li id="XdJ"><p id="oLO">Explain why <span class="process-math">\(q\)</span> has a vertical asymptote at <span class="process-math">\(x = c\text{.}\)</span></p></li>
+<li id="DkS"><p id="USX">Determine <span class="process-math">\(\lim_{x \to \infty} q(x)\)</span> and <span class="process-math">\(\lim_{x \to -\infty} q(x)\text{.}\)</span></p></li>
+<li id="jsb"><p id="Bag">Compute <span class="process-math">\(q'(x)\)</span> and find all critical numbers of <span class="process-math">\(q\text{.}\)</span></p></li>
+<li id="Pzk"><p id="hhp">Construct a first derivative sign chart for <span class="process-math">\(q\)</span> and determine whether each critical number leads to a local minimum, local maximum, or neither for the function <span class="process-math">\(q\text{.}\)</span></p></li>
+<li id="vGt"><p id="Noy">Sketch a typical member of this family of functions with important behaviors clearly labeled.</p></li>
+</ol></article><article class="exercise exercise-like" id="HkR"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="BKa">Let <span class="process-math">\(E(x) = e^{-\frac{(x-m)^2}{2s^2}}\text{,}\)</span> where <span class="process-math">\(m\)</span> is any real number and <span class="process-math">\(s\)</span> is a positive real number.</p>
+<ol class="lower-alpha">
+<li id="lho"><p id="WIk">Compute <span class="process-math">\(E'(x)\)</span> and hence find all critical numbers of <span class="process-math">\(E\text{.}\)</span></p></li>
+<li id="Rox"><p id="CPt">Construct a first derivative sign chart for <span class="process-math">\(E\)</span> and classify each critical number of the function as a local minimum, local maximum, or neither.</p></li>
+<li id="xvG">
+<p id="iWC">It can be shown that <span class="process-math">\(E''(x)\)</span> is given by the formula</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+E''(x) = e^{-\frac{(x-m)^2}{2s^2}} \left(\frac{(x-m)^2 - s^2}{s^4} \right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Find all values of <span class="process-math">\(x\)</span> for which <span class="process-math">\(E''(x) = 0\text{.}\)</span></p>
+</li>
+<li id="dCP"><p id="PdL">Determine <span class="process-math">\(\lim_{x \to \infty} E(x)\)</span> and <span class="process-math">\(\lim_{x \to -\infty} E(x)\text{.}\)</span></p></li>
+<li id="JJY"><p id="vkU">Construct a labeled graph of a typical function <span class="process-math">\(E\)</span> that clearly shows how important points on the graph of <span class="process-math">\(y = E(x)\)</span> depend on <span class="process-math">\(m\)</span> and <span class="process-math">\(s\text{.}\)</span></p></li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>
