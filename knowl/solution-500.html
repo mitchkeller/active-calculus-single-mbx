@@ -13,22 +13,96 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">8.4.4.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">8.3.7.7.1</span><span class="period">.</span>
 </h4>
-<p>First note that the sequence <span class="process-math">\(\left\{\frac{1}{k^4}\right\}\)</span> decreases to 0, so the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k^4}\)</span> converges by the Alternating Series Test. Let <span class="process-math">\(S\)</span> be the sum <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k^4}\)</span> and <span class="process-math">\(S_n\)</span> the <span class="process-math">\(n\)</span>th partial sum of the series. We know that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical"><ol class="lower-roman">
+<li><div class="para">Since <span class="process-math">\(a_n = 1 + \frac{1}{2^n} \to 1 \ne 0\)</span> and <span class="process-math">\(b_n = -1 \to -1 \ne 0\)</span> as <span class="process-math">\(n \to \infty\text{,}\)</span> by the Divergence Test both <span class="process-math">\(\sum_{k=0}^{\infty} a_k\)</span> and <span class="process-math">\(\sum_{k=0}^{\infty} b_k\)</span> diverge.</div></li>
+<li><div class="para logical">
+<div class="para">However, the series</div>
+<div class="displaymath process-math">
 \begin{equation*}
-|S - S_n| \lt  a_{n+1} = \frac{1}{(n+1)^4}\text{.}
+\sum_{k=0}^{\infty} (a_k+b_k) = \sum_{k=0}^{\infty} (1 + \frac{1}{2^k} - 1) = \sum_{k=0}^{\infty} \frac{1}{2^k}
 \end{equation*}
 </div>
-<p>So we only need to determine the value of <span class="process-math">\(n\)</span> so that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">converges because the series is geometric with <span class="process-math">\(r = \frac{1}{2}\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">The issue is that it doesn't make any sense to talk about</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\frac{1}{(n+1)^4} \lt  0.0001\text{.}
+\sum_{k=0}^{\infty} a_k + \sum_{k=0}^{\infty} b_k\text{.}
 \end{equation*}
 </div>
-<p>This happens when <span class="process-math">\((n+1)^4 \lt 10000\)</span> or when <span class="process-math">\(n+1 \gt 10\text{.}\)</span> So <span class="process-math">\(n = 10\)</span> will do. A computer algebra system gives <span class="process-math">\(S_{10} \approx 0.9469925924\)</span> while <span class="process-math">\(\frac{7}{720} \pi^4 \approx 0.9470328299\text{.}\)</span> These do agree to <span class="process-math">\(0.0001\text{.}\)</span></p>
+<div class="para">when <span class="process-math">\(\sum_{k=0}^{\infty} a_k\)</span> and <span class="process-math">\(\sum_{k=0}^{\infty} b_k\)</span> diverge. Since those series diverge, neither sum is a finite number, so it doesn't make any sense to add them.</div>
+</div></li>
+</ol></div></li>
+<li><div class="para logical"><ol class="lower-roman">
+<li><div class="para logical">
+<div class="para">Let <span class="process-math">\(A_n\)</span> and <span class="process-math">\(B_n\)</span> be the <span class="process-math">\(n\)</span>th partial sums of the series <span class="process-math">\(\sum_{k=1}^{\infty} a_k\)</span> and <span class="process-math">\(\sum_{k=1}^{\infty} b_k\text{,}\)</span> respectively. By definition,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_n + B_n = \sum_{k=1}^{n} a_k + \sum_{k=1}^{n} b_k\text{.}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-8-4-alternating.html#Xes" class="internal">in-context</a></span>
+<div class="para">Expanding these finite sums, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_n + B_n = (a_1 + a_2 + \cdots a_n) + (b_1 + b_2 + cdots + b_n)\text{.}
+\end{equation*}
+</div>
+<div class="para">By the associative and commutative properties of finite sums, we can rearrange these sums in any order we wish, and also group the terms in any pairings we wish. Thus,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_n + B_n = (a_1 + b_1) + (a_2 + b_2) + \cdots + (a_n + b_n)\text{,}
+\end{equation*}
+</div>
+<div class="para">and therefore</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_n + B_n = \sum_{k=1}^n (a_k+b_k)\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">The last equality we demonstrated above tells us that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=1}^n (a_k+b_k) = \sum_{k=1}^{n} a_k + \sum_{k=1}^{n} b_k\text{.}
+\end{equation*}
+</div>
+<div class="para">In this equality, we can take the limit of both sides as <span class="process-math">\(n \to \infty\text{.}\)</span> On the right side, we know that both <span class="process-math">\(\lim_{n \to \infty} \sum_{k=1}^{n} a_k\)</span> and <span class="process-math">\(\lim_{n \to \infty} \sum_{k=1}^{n} b_k\)</span> exist because the two series converge, and therefore the limit of the sum is the sum of the limits. Hence,</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{n \to \infty} \sum_{k=1}^n (a_k+b_k) &amp;= \lim_{n \to \infty} \left( \sum_{k=1}^{n} a_k + \sum_{k=1}^{n} b_k \right)\\
+&amp;= \lim_{n \to \infty} \sum_{k=1}^{n} a_k + \lim_{n \to \infty} \sum_{k=1}^{n} b_k\text{.}
+\end{align*}
+</div>
+<div class="para">Thus we have shown that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=1}^{\infty} (a_k+b_k) = \sum_{k=1}^{\infty} a_k + \sum_{k=1}^{\infty} b_k\text{.}
+\end{equation*}
+</div>
+</div></li>
+</ol></div></li>
+<li><div class="para logical">
+<div class="para">Since both <span class="process-math">\(\sum_{k=0}^{\infty} \left( \frac{2}{5} \right)^k\)</span> and <span class="process-math">\(\sum_{k=0}^{\infty} \left( \frac{3}{5} \right)^k\)</span> are convergent geometric series, we can apply the result from the last exercise above to say that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=0}^{\infty} \frac{2^k+3^k}{5^k} = \sum_{k=0}^{\infty} \left( \frac{2}{5} \right)^k + \sum_{k=0}^{\infty} \left( \frac{3}{5} \right)^k\text{.}
+\end{equation*}
+</div>
+<div class="para">Applying the known sum of geometric series to each sum on the right, we then have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=0}^{\infty} \frac{2^k+3^k}{5^k} = \frac{1}{1 - \frac{2}{5}} + \frac{1}{1 - \frac{3}{5}} = \frac{5}{3} + \frac{5}{2} = \frac{25}{6}\text{.}
+\end{equation*}
+</div>
+</div></li>
+</ol></div>
+</div>
+<span class="incontext"><a href="sec-8-3-series.html#zgp" class="internal">in-context</a></span>
 </body>
 </html>

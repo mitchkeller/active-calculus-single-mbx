@@ -12,7 +12,40 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>For which values of <span class="process-math">\(T\)</span> does <span class="process-math">\(T\)</span> increase? For which values of <span class="process-math">\(T\)</span> does <span class="process-math">\(T\)</span> decrease?</p>
-<span class="incontext"><a href="sec-7-1-diff-eq-intro.html#YGo" class="internal">in-context</a></span>
+<div class="para logical">
+<div class="para">This integral is improper since the integrand is undefined at <span class="process-math">\(x=0\text{.}\)</span> So we write the improper integral as a limit, then use parts with <span class="process-math">\(u = \ln(x)\text{,}\)</span> <span class="process-math">\(du = \frac{1}{x} \, dx\text{,}\)</span> <span class="process-math">\(dv = dx\text{,}\)</span> and <span class="process-math">\(v = x\)</span> to evaluate the definite integral, then take the limit:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_0^1 \ln(x) \, dx  &amp;= \lim_{a \to 0^+} \int_a^1 \ln(x) \, dx\\
+&amp;= \lim_{a \to 0^+} \left( x\ln(x)\biggm|_a^1 - \int_{a}^{1} \ dx \right)\\
+&amp;= \lim_{a \to 0^+} \left( -a\ln(a) - x\biggm|_{\ln(a)}^{0} \right)\\
+&amp;= \lim_{a \to 0^+} \left( -a\ln(a) - (1-a) \right)\\
+&amp;= \lim_{a \to 0^+} \left( -a\ln(a) \right) - 1\text{.}
+\end{align*}
+</div>
+<div class="para">The limit <span class="process-math">\(\lim_{a \to 0^+} \left( -a\ln(a) \right)\)</span> has the form <span class="process-math">\(0 \times \infty\text{,}\)</span> which is indeterminate, so we need to rewrite it in a form in which we can apply L'Hopital's Rule. Now,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{a \to 0^+} \left( -a\ln(a) \right) = \lim_{a \to 0^+} \left( \frac{-\ln(a)}{\frac{1}{a}} \right)\text{,}
+\end{equation*}
+</div>
+<div class="para">and this latter limit is of the form <span class="process-math">\(\frac{\infty}{\infty}\text{.}\)</span> Applying L'Hopital's Rule gives us</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{a \to 0^+} \left( \frac{-\ln(a)}{\frac{1}{a}} \right)  &amp;= \lim_{a \to 0^+} \left( \frac{-\frac{1}{a}}{-\frac{1}{a^2}} \right)\\
+&amp;= \lim_{a \to 0^+} a\\
+&amp;= 0
+\end{align*}
+</div>
+<div class="para">Returning to our earlier established equality that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int_0^1 \ln(x) \, dx = \lim_{a \to 0^+} \left( -a\ln(a) \right) - 1\text{,}
+\end{equation*}
+</div>
+<div class="para">this most recent limit shows that the improper integral <span class="process-math">\(\int_0^1 \ln(x) \, dx\)</span> converges to <span class="process-math">\(-1\text{.}\)</span>
+</div>
+</div>
+<span class="incontext"><a href="sec-6-5-improper.html#zfp" class="internal">in-context</a></span>
 </body>
 </html>

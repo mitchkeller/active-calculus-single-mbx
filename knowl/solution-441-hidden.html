@@ -10,50 +10,52 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like"><ol class="lower-alpha">
-<li>
-<p>A differential equation that represents the given description is</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical">
+<div class="para">We have</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\frac{dM}{dt} = kM\text{.}
+\frac{dT}{dt} = -k(T - 75)\text{,}
 \end{equation*}
 </div>
-</li>
-<li>
-<p>Separating the variables to solve the differential equation yields</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">where <span class="process-math">\(k\)</span> is a constant. We also have <span class="process-math">\(T(0) = 105\text{.}\)</span>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Since the coffee is cooling at a rate of one degree per minute at time <span class="process-math">\(0\text{,}\)</span> it follows that <span class="process-math">\(\frac{dT}{dt} = -1\)</span> at this instant. From the given differential equation, we know <span class="process-math">\(-k(T(0) - 75) = -1\text{.}\)</span> Next, <span class="process-math">\(T(0) = 105\text{,}\)</span> so <span class="process-math">\(-k(105 - 75) = -1\text{,}\)</span> and thus <span class="process-math">\(k = \frac{1}{30}\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">We use separation of variables to solve the differential equation <span class="process-math">\(\frac{dT}{dt} = -\frac{1}{30} (T - 75)\text{.}\)</span> Separating variables and integrating both sides with respect to <span class="process-math">\(t\text{,}\)</span>
+</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\frac{1}{M} \, dM = k \, dt
+\int \frac{1}{T - 75} dT = -\int \frac{1}{30} dt
 \end{equation*}
 </div>
-<p class="continuation">so</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">Integrating both sides,</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\int \frac{1}{M} \, dM = \int k \, dt\text{.}
+\ln \left| T - 75 \right| = -\frac{1}{30} t + c
 \end{equation*}
 </div>
-<p class="continuation">Integrating and solving for <span class="process-math">\(M\text{,}\)</span> we find <span class="process-math">\(\ln|M| = kt + C\)</span> and thus <span class="process-math">\(|M| = e^{kt+C} = e^{kt}e^C = Ke^{kt}\)</span> for some constant <span class="process-math">\(K\text{.}\)</span> By absorbing the absolute value into the constant <span class="process-math">\(K\text{,}\)</span> we have <span class="process-math">\(M = Ke^{kt}\text{.}\)</span> Using the initial condition <span class="process-math">\(M(0) = M_0\text{,}\)</span> it follows that <span class="process-math">\(K = M_0\text{.}\)</span> Therefore, the mass at time <span class="process-math">\(t\)</span> is given by</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">Using the definition of the logarithm function and writing <span class="process-math">\(e^c = C\text{,}\)</span> we see that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-M(t) = M_0e^{kt}\text{.}
+|T - 75| = e^{-t/30 + c} = C e^{-t/30}
 \end{equation*}
 </div>
-</li>
-<li>
-<p>If we let <span class="process-math">\(5730\)</span> years pass from time <span class="process-math">\(0\text{,}\)</span> the remaining mass of the radioactive sample will be <span class="process-math">\(\frac{1}{2}M_0\text{.}\)</span> This allows us to find the value of <span class="process-math">\(k\)</span> by setting <span class="process-math">\(M(5730)\)</span> equal to <span class="process-math">\(\frac{1}{2}M_0\)</span> and solving for <span class="process-math">\(t\text{.}\)</span> Doing so, we have <span class="process-math">\(\frac{1}{2}M_0 = M_0e^{5730k}\text{,}\)</span> and thus <span class="process-math">\(\frac{1}{2} = e^{5730k}\text{.}\)</span> It follows that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">Finally, including the absolute value in <span class="process-math">\(C\)</span> and solving for <span class="process-math">\(T\text{,}\)</span> <span class="process-math">\(T - 75 = C e^{-t/30}\text{,}\)</span> so <span class="process-math">\(T = 75 + Ce^{-t/30}\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">As <span class="process-math">\(t \to \infty\text{,}\)</span> <span class="process-math">\(e^{-t/30} \to 0\text{.}\)</span> So</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\ln\left(\frac{1}{2}\right) = 5730k
+\lim_{t \to \infty} \left(75 + Ce^{-t/30} \right) = 75\text{.}
 \end{equation*}
 </div>
-<p class="continuation">from which we find <span class="process-math">\(k = \frac{1}{5730}\ln\left(\frac{1}{2}\right) = -\frac{\ln(2)}{5730}\text{.}\)</span> Hence,</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-M(t) = M_0e^{-\frac{\ln(2)}{5730}t} \approx M_0e^{-0.000121t}
-\end{equation*}
-</div>
-</li>
-<li><p>Now we want to find the time <span class="process-math">\(t\)</span> so that <span class="process-math">\(M(t) = \frac{1}{4}M_0\text{.}\)</span> Similar work to our recent efforts in (c) shows that <span class="process-math">\(t = \frac{5730\ln(4)}{\ln(2)} \approx 11460\)</span> years. This number makes sense because it takes <span class="process-math">\(5730\)</span> years for half of the sample to decay, then another <span class="process-math">\(5730\)</span> years for half to decay again, for a total of <span class="process-math">\((2)(5730)\)</span> years for the substance to decay to one quarter of its original amount.</p></li>
-<li><p>We want to find the time it takes for <span class="process-math">\(M(t)\)</span> to be <span class="process-math">\(30\)</span>% of <span class="process-math">\(M_0\text{,}\)</span> so we need to solve <span class="process-math">\(0.3M_0 = M_0e^{-\frac{\ln(2)}{5730}t}\text{.}\)</span> Doing so in the usual way, we find that <span class="process-math">\(t = -\frac{5730\ln(0.3)}{\ln(2)} \approx 9952.8\)</span> years, so we estimate that the sample is about <span class="process-math">\(9973\)</span> years old.</p></li>
-</ol></div></body>
+<div class="para">This means that as <span class="process-math">\(t \to \infty\text{,}\)</span> <span class="process-math">\(T \to 75\text{,}\)</span> or the temperature of the coffee tends to 75 degrees.</div>
+</div></li>
+<li><div class="para">In order to determine the temperature of the coffee after 20 minutes, we need to first determine the value of the constant <span class="process-math">\(C\)</span> in the solution <span class="process-math">\(T = 75 + Ce^{-t/30}\text{.}\)</span> To do this, we use the fact that the temperature of the coffee at <span class="process-math">\(t = 0\)</span> is <span class="process-math">\(105^\circ\)</span>F. Thus, <span class="process-math">\(105 = 75 + Ce^0\text{,}\)</span> so <span class="process-math">\(C = 30\text{.}\)</span> Now we know that <span class="process-math">\(T = 75 + 30e^{-t/30}\text{,}\)</span> and when <span class="process-math">\(t = 20\text{,}\)</span> <span class="process-math">\(T(20) = 75 + 30e^{-2/3}\text{.}\)</span> The temperature of the coffee after 20 minutes is approximately <span class="process-math">\(90.4^\circ\)</span>F.</div></li>
+<li><div class="para">To determine how long it will take the coffee to cool to <span class="process-math">\(80^\circ\)</span>F, we solve the equation <span class="process-math">\(80 = 75 + 30 e^{-t/30}\)</span> for <span class="process-math">\(t\text{.}\)</span> Solving first for <span class="process-math">\(e^{-t/30}\text{,}\)</span> we subtract <span class="process-math">\(75\)</span> from both sides and divide by <span class="process-math">\(30\)</span> to get <span class="process-math">\(e^{-t/30} = \frac{5}{30}\text{.}\)</span> Taking logarithms and solving for <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(-\frac{t}{30} = \ln \left( \frac{1}{6} \right)\text{,}\)</span> and thus <span class="process-math">\(t = -30 \ln \left( \frac{1}{6} \right)\text{.}\)</span> We conclude that it will take about 53.75 minutes for the coffee to cool to <span class="process-math">\(80^\circ\)</span>F.</div></li>
+</ol>
+</div></div></body>
 </html>

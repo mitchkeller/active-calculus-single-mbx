@@ -13,70 +13,64 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">7.5.3.6.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">7.4.3.9.1</span><span class="period">.</span>
 </h4>
-<ol class="lower-alpha">
-<li>
-<p>Let <span class="process-math">\(A(t)\)</span> be the amount of money (in millions) in the account at time <span class="process-math">\(t\text{.}\)</span> We know that the rate of change of <span class="process-math">\(A\)</span> is affected by the addition of <span class="process-math">\(1\)</span> million dollars a year, plus the interest earned, which is <span class="process-math">\(0.05A\text{.}\)</span> Thus,</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/7_4_Ez4Soln.svg" role="img" class="contained"></div></div></div></li>
+<li><div class="para">The only equilibrium solution is <span class="process-math">\(P = 3\text{,}\)</span> since <span class="process-math">\(\ln(1) = 0\)</span> (note: <span class="process-math">\(\ln(0)\)</span> is undefined, so the differential equation is not defined for <span class="process-math">\(P = 0\)</span>). From the slope field pictured in (a), the equilibrium solution <span class="process-math">\(P = 3\)</span> is stable.</div></li>
+<li><div class="para logical">
+<div class="para">To solve the IVP with <span class="process-math">\(\frac{dP}{dt} = -P\ln\left(\frac P3\right)\)</span> and <span class="process-math">\(P(0) = 1\text{,}\)</span> we use separation of variables. Observe that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\frac{dA}{dt} = 1 + 0.05A
+\frac{1}{P\ln\left(\frac P3\right)}\frac{dP}{dt} = -1
 \end{equation*}
 </div>
-</li>
-<li>
-<p>If there is no amount of money in the account when you open it, that means <span class="process-math">\(A(0) = 0\text{.}\)</span> Solving the initial value problem, we can find how much money will be in the account after 25 years. Note that <span class="process-math">\(1 + 0.05A = 0.05(20 + A)\text{,}\)</span> so we have</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">and thus</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\frac{1}{20+A} \frac{dA}{dt} = 0.05
+\int \frac{1}{P\ln\left(\frac P3\right)} \, dP = - \int 1 \, dt
 \end{equation*}
 </div>
-<p class="continuation">and thus</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">On the left, using the substitution <span class="process-math">\(u = \ln (P/3)\text{,}\)</span> it follows <span class="process-math">\(du = \frac{3}{P} \cdot \frac{1}{3} \, dP\text{,}\)</span> we can rewrite the most recent equation as</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\int \frac{1}{20+A} \, dA = \int 0.05 \, dt\text{.}
+\int \frac{du}{u} = - \int 1 \, dt\text{.}
 \end{equation*}
 </div>
-<p class="continuation">Integrating (and noting that <span class="process-math">\(A(t) &gt; 0\)</span> for all <span class="process-math">\(t\text{,}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">Therefore,</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\ln (20 + A) = 0.05t + C\text{,}
+\ln |u| = -t + C\text{,}
 \end{equation*}
 </div>
-<p class="continuation">so solving for <span class="process-math">\(A\)</span> in the standard way,</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">so <span class="process-math">\(|u| = e^{C-t}\text{,}\)</span> or <span class="process-math">\(u = Ke^{-t}\text{.}\)</span> Next, we recall that <span class="process-math">\(u = \ln \left(\frac P3\right)\text{,}\)</span> so</div>
+<div class="displaymath process-math">
 \begin{equation*}
-20 + A = Ke^{0.05t}
+\frac{P}{3} = e^{Ke^{-t}}
 \end{equation*}
 </div>
-<p class="continuation">and thus <span class="process-math">\(A(t) = Ke^{0.05t} - 20\text{.}\)</span> Since <span class="process-math">\(A(0) = 0\text{,}\)</span> <span class="process-math">\(K = 20\text{,}\)</span> and we've shown</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">and <span class="process-math">\(P = 3e^{Ke^{-t}}\text{.}\)</span> Applying the initial condition, <span class="process-math">\(1 = 3e^K\text{,}\)</span> so <span class="process-math">\(K = \ln \left(\frac{1}{3} \right)\text{,}\)</span> and thus</div>
+<div class="displaymath process-math">
 \begin{equation*}
-A(t) = 20(e^{0.05t} - 1)\text{.}
+P(t) = 3e^{\ln \left(\frac{1}{3} \right) e^{-t}}\text{.}
 \end{equation*}
 </div>
-<p class="continuation">It follows that <span class="process-math">\(A(25) = 49.80686\)</span> million dollars.</p>
-</li>
-<li>
-<p>For this option, we know that <span class="process-math">\(\frac{dA}{dt} = 0.05A\text{,}\)</span> <span class="process-math">\(A(0) = 10\text{,}\)</span> and thus by the standard solution to this IVP,</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">This function's plot is shown in blue in the image above in (a) and we see (both graphically and algebraically) that <span class="process-math">\(P(t) \to 3\)</span> as <span class="process-math">\(t \to \infty\)</span> since <span class="process-math">\(e^{-t} \to 0\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Changing the initial condition to <span class="process-math">\(P(0) = 6\text{,}\)</span> we can use all of our preceding work in (c) up to where we established <span class="process-math">\(P = 3e^{Ke^{-t}}\text{.}\)</span> Applying this initial condition, <span class="process-math">\(6 = 3e^K\text{,}\)</span> so <span class="process-math">\(K = \ln \left(2 \right)\text{,}\)</span> and thus</div>
+<div class="displaymath process-math">
 \begin{equation*}
-A(t) = 10e^{0.05t}
+P(t) = 3e^{\ln \left( 2 \right) e^{-t}}\text{.}
 \end{equation*}
 </div>
-<p class="continuation">from which we see that <span class="process-math">\(A(25) = 34.90343\)</span> million dollars.</p>
-</li>
-<li><p>The first option is obviously better because it leads to more money in the long term.</p></li>
-<li>
-<p>The amount of money in the account under the first option overtakes the amount of money in the account under the second option when <span class="process-math">\(20(e^{0.05t} - 1) = 10e^{0.05t}\text{.}\)</span> Solving for <span class="process-math">\(t\text{,}\)</span> we find that <span class="process-math">\(10e^{0.05t} = 20\text{,}\)</span> so <span class="process-math">\(e^{0.05t} = 2\text{,}\)</span> and thus</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-t = 20 \ln(2) \approx 13.86 \ \text{years}\text{.}
-\end{equation*}
+<div class="para">This function's plot is shown in red in the image above in (a) and we see (both graphically and algebraically) that <span class="process-math">\(P(t) \to 3\)</span> as <span class="process-math">\(t \to \infty\)</span> since <span class="process-math">\(e^{-t} \to 0\text{.}\)</span>
 </div>
-</li>
-</ol>
+</div></li>
+<li><div class="para">Our work in (c) and (d) suggests that regardless of the initial condition with <span class="process-math">\(P(0) \gt 0\text{,}\)</span> the long-term behavior of <span class="process-math">\(P\)</span> will be for it to tend to <span class="process-math">\(3\)</span> as <span class="process-math">\(t\)</span> increases without bound. This matches our initial observations based on the slope field.</div></li>
+</ol></div>
 </div>
-<span class="incontext"><a href="sec-7-5-modeling.html#Pug" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-7-4-separable.html#CCY" class="internal">in-context</a></span>
 </body>
 </html>

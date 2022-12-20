@@ -10,32 +10,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like"><ol class="lower-alpha">
-<li>
-<p>The graphs of the 10th (magenta), 20th (blue), and 30th (green) Taylor polynomials centered at <span class="process-math">\(0\)</span> for <span class="process-math">\(e^x\)</span> are shown below along with the graph of <span class="process-math">\(f(x)\)</span> in red:</p>
-<div class="sidebyside"><div class="sbsrow" style="margin-left:26.5%;margin-right:26.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/8_5_exp_graphs.svg" role="img" class="contained"></div></div></div>
-<p>It appears that as we increase the order of the Taylor polynomials, they fit the graph of <span class="process-math">\(f\)</span> better and better over larger intervals. So it looks like the Taylor polynomials converge to <span class="process-math">\(e^x\)</span> for every value of <span class="process-math">\(x\text{.}\)</span></p>
-</li>
-<li>
-<p>The graphs of the 10th (magenta), 20th (blue), and 30th (green) Taylor polynomials centered at <span class="process-math">\(0\)</span> for <span class="process-math">\(\cos(x)\)</span> are shown below along with the graph of <span class="process-math">\(f(x)\)</span> in red:</p>
-<div class="sidebyside"><div class="sbsrow" style="margin-left:26.5%;margin-right:26.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/8_5_cos_graphs.svg" role="img" class="contained"></div></div></div>
-<p>It appears that as we increase the order of the Taylor polynomials, they fit the graph of <span class="process-math">\(f\)</span> better and better over larger intervals. So it looks like the Taylor polynomials converge to <span class="process-math">\(\cos(x)\)</span> for every value of <span class="process-math">\(x\text{.}\)</span> Based on the <span class="process-math">\(n\)</span>th order Taylor polynomials we found earlier for <span class="process-math">\(\cos(x)\text{,}\)</span> the Taylor series for <span class="process-math">\(f(x)\)</span> centered at <span class="process-math">\(0\)</span> is</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">Since <span class="process-math">\(S_{n+1} = S_n + (-1)^{n+2}a_{n+1}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+\frac{S_n+S_{n+1}}{2} \amp = \frac{S_n+S_{n} + (-1)^{n+2}a_{n+1}}{2}\\
+\amp = \frac{2S_{n} + (-1)^{n+2}a_{n+1}}{2}\\
+\amp = S_n + \frac{1}{2}(-1)^{n+2}a_{n+1}\text{.}
+\end{align*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We have two options for estimating <span class="process-math">\(\ln(2)\)</span> using partial sums. For the first one, we use</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\sum_{k=0}^{\infty} \frac{x^{2k}}{(2k)!}\text{.}
+\ln(2) \approx S_{20} = \frac{155685007}{232792560} = 0.668771403 \ldots\text{,}
 \end{equation*}
 </div>
-</li>
-<li>
-<p>The graphs of the 10th (magenta), 20th (blue), and 30th (green) Taylor polynomials centered at <span class="process-math">\(0\)</span> for <span class="process-math">\(\frac{1}{1-x}\)</span> are shown below along with the graph of <span class="process-math">\(f(x)\)</span> in red:</p>
-<div class="sidebyside"><div class="sbsrow" style="margin-left:26.5%;margin-right:26.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/8_5_1over1minusx_graphs.svg" role="img" class="contained"></div></div></div>
-<p>It appears that as we increase the order of the Taylor polynomials, they only fit the graph of <span class="process-math">\(f\)</span> better and better over the interval <span class="process-math">\((-1,1)\)</span> and appear to diverge outside that interval. So it looks like the Taylor polynomials converge to <span class="process-math">\(\frac{1}{1-x}\)</span> only on the interval <span class="process-math">\((-1,1)\text{.}\)</span></p>
-<p>Based on the <span class="process-math">\(n\)</span>th order Taylor polynomials we found earlier for <span class="process-math">\(\frac{1}{1-x}\text{,}\)</span> the Taylor series for <span class="process-math">\(f(x)\)</span> centered at <span class="process-math">\(0\)</span> is</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">and note that <span class="process-math">\(\ln(2) \approx 0.6931471\text{,}\)</span> so the error in approximating with <span class="process-math">\(S_{20}\)</span> is about <span class="process-math">\(0.025\text{.}\)</span> If we instead use <span class="process-math">\(\frac{S_{20} + S_{21}}{2}\text{,}\)</span> we get</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\sum_{k=0}^{\infty} x^k\text{.}
+\ln(2) \approx \frac{\frac{155685007}{232792560} + \left(\frac{155685007}{232792560} + \frac{1}{21} \right) }{2} = \frac{161227687}{232792560}
 \end{equation*}
 </div>
-</li>
-</ol></div></body>
+<div class="para">and since</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{161227687}{232792560} = 0.692580926 \ldots\text{,}
+\end{equation*}
+</div>
+<div class="para">we see that we've obtained a much more accurate approximation of <span class="process-math">\(\ln(2)\text{,}\)</span> accurate to within about <span class="process-math">\(0.0006\text{.}\)</span>
+</div>
+</div></li>
+</ol></div></div></body>
 </html>

@@ -13,115 +13,63 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">8.6.4.6.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">8.6.5.1</span><span class="period">.</span>
 </h4>
-<ol class="lower-alpha">
-<li><div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-y' \amp = \sum_{k=1}^{\infty} ka_kx^{k-1}\\
-y'' \amp = \sum_{k=2}^{\infty} (k-1)na_kx^{k-2}\text{.}
-\end{align*}
-</div></li>
-<li>
-<p>We substitute our series from (a) into the Airy equation to obtain the equation</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para logical">
+<div class="para">While we could differentiate <span class="process-math">\(\arctan(x)\)</span> repeatedly and look for patterns in the derivative values at <span class="process-math">\(x = 0\)</span> in an attempt to find the Maclaurin series for <span class="process-math">\(\arctan(x)\)</span> from the definition, it turns out to be far easier to use a known series in an insightful way. In <a href="" class="xref" data-knowl="./knowl/act-8-6-2.html" title="Activity 8.6.3">Activity 8.6.3</a>, we found that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-6-2.html">
 \begin{equation*}
-\sum_{k=2}^{\infty} (k-1)ka_kx^{k-2} + x\sum_{k=0}^{\infty} a_kx^{k} = 0\text{.}
+\frac{1}{1+x^2} = \sum_{k=0}^{\infty} (-1)^k x^{2k}
 \end{equation*}
 </div>
-<p>Distributing the <span class="process-math">\(x\)</span> in the second term on the left yields the desired equation.</p>
-</li>
-<li>
-<p>Note that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-\amp\sum_{k=2}^{\infty} (k-1)ka_kx_{k-2}\\
-\amp = (1)(2)a_2 + (2)(3)a_3x + (3)(4)a_4x^2 + (4)(5)a_5x^3 + \cdots + (k-1)(k)a_{k+2}x^{k-2} + \cdots\\
-\amp = (0+1)(0+2)x^0 + (1+1)(1+2)x^1 + (2+1)(2+2)x^2 + \cdots + (k+1)(k+2)x^k + \cdots\text{.}
-\end{align*}
-</div>
-<p>In other words, we can re-index this series by increasing every <span class="process-math">\(k\)</span> by 2, or replacing <span class="process-math">\(k-2\)</span> with <span class="process-math">\(k\text{,}\)</span> <span class="process-math">\(k-1\)</span> with <span class="process-math">\(k+1\)</span> and <span class="process-math">\(k\)</span> with <span class="process-math">\(k+2\text{.}\)</span> This gives us the next desired equation.</p>
-</li>
-<li>
-<p>As we did in the previous part,</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-\sum_{k=0}^{\infty} a_kx_{k+1} \amp = a_0x + a_1x^2 + a_2x^3 +  \cdots + a_kx^{k+1} + \cdots\\
-\amp = a_0x + a_1x^2 + a_2x^3 +  \cdots + a_{k-1}x^{k} + \cdots\\
-\amp = \sum_{k=1}^{\infty} a_{k-1}x^k\text{.}
-\end{align*}
-</div>
-</li>
-<li>
-<p>Notice that we have like powers of <span class="process-math">\(x\)</span> in the two series, so we can combine them and obtain</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-0 \amp = \sum_{k=0}^{\infty} (k+1)(k+2)a_{k+2}x^{k} + \sum_{k=1}^{\infty} a_{k-1}x^{k}\\
-\amp = \left[(1)(2)a_2 + \sum_{k=1}^{\infty} (k+1)(k+2)a_{k+2}x^{k} \right] + \sum_{k=1}^{\infty} a_{k-1}x^{k}\\
-\amp = 2a_2 + \sum_{k=1}^{\infty} \left[(k+1)(k+2)a_{k+2}+a_{k-1} \right] x^{k}\text{.}
-\end{align*}
-</div>
-</li>
-<li>
-<p>Equation <a href="" class="xref" data-knowl="./knowl/eq-PA-8-6-Airy-sum-3.html" title="Equation 8.6.9">(8.6.9)</a> implies that <span class="process-math">\(a_2 = 0\)</span> and <span class="process-math">\((k+1)(k+2)a_{k+2}+a_{k-2} = 0\)</span> for all <span class="process-math">\(k \geq 1\text{.}\)</span></p>
-<p>Solving for <span class="process-math">\(a_{k+2}\)</span> in the second equation shows that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-a_2 \amp = 0\\
-a_{k+2} \amp = -\frac{1}{(k+1)(k+2)}a_{k-1} \text{ for }   k \geq 1\text{.}
-\end{align*}
-</div>
-<p>These last equations are called <em class="emphasis">recurrence relations</em> and allow us to write every coefficient of <span class="process-math">\(y\)</span> in terms of <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\text{.}\)</span> For example, <span class="process-math">\(k=1\)</span> shows that <span class="process-math">\(a_3 = \frac{1}{(2)(3)} a_0 = \frac{1}{6}a_0\text{.}\)</span> We can continue in this way to obtain the first 10 coefficients in terms of <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\text{:}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{align*}
-a_3 \amp = \frac{1}{(2)(3)}a_0\\
-a_4 \amp = \frac{1}{(3)(4)}a_1\\
-a_5 \amp = \frac{1}{(4)(5)} a_2 = 0\\
-a_6 \amp = \frac{1}{(5)(6)} a_3 = \frac{1}{(5)(6)} \left(\frac{1}{(2)(3)} a_0 \right) = \frac{1}{(2)(3)(5)(6)} a_0\\
-a_7 \amp = \frac{1}{(6)(7)} a_4 = \frac{1}{(6)(7)} \left(\frac{1}{(3)(4)} a_1 \right) = \frac{1}{(3)(4)(6)(7)} a_1\\
-a_8 \amp = \frac{1}{(7)(8)} a_5 = 0\\
-a_9 \amp = \frac{1}{(8)(9)} a_6 = \frac{1}{(8)(9)} \left(\frac{1}{(2)(3)(5)(6)} a_0 \right) = \frac{1}{(2)(3)(5)(6)(8)(9)} a_0\\
-a_{10} \amp = \frac{1}{(9)(10)} a_7 = \frac{1}{(9)(10)} \left(\frac{1}{(3)(4)(6)(7)} a_1 \right) = \frac{1}{(3)(4)(6)(7)(9)(10)} a_1\text{.}
-\end{align*}
-</div>
-<p>It may not be obvious, but there is a pattern.</p>
-<ul class="disc">
-<li><p>All of the terms involving <span class="process-math">\(a_2\)</span> are 0. These terms are <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(a_5\text{,}\)</span> <span class="process-math">\(a_8\text{,}\)</span> etc. The subscripts of these terms are all of the form <span class="process-math">\(3k+2\text{.}\)</span> So <span class="process-math">\(a_{3k+2} = 0\)</span> for every positive integer <span class="process-math">\(k\text{.}\)</span></p></li>
-<li>
-<p>The terms that involve <span class="process-math">\(a_0\)</span> have the form <span class="process-math">\(a_3\text{,}\)</span> <span class="process-math">\(a_6\text{,}\)</span> <span class="process-math">\(a_{9}\text{,}\)</span> etc. and are all of the form <span class="process-math">\(a_{3k}\)</span> for positive integers <span class="process-math">\(k\text{.}\)</span> The pattern in the denominators of the coefficient for <span class="process-math">\(a_{3k}\)</span> is <span class="process-math">\((2)(3)(5)(6) \cdots (3k-1)(3k)\text{.}\)</span> So</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">for <span class="process-math">\(-1 \lt  x \lt  1\text{.}\)</span> Recall that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-6-2.html">
 \begin{equation*}
-a_{3k} = \frac{1}{(2)(3)(5)(6) \cdots (3k-1)(3k)} a_0 \text{ for }  k \geq 1\text{.}
+\frac{d}{dx} \left[ \arctan(x) \right] = \frac{1}{1+x^2}\text{,}
 \end{equation*}
 </div>
-</li>
-<li>
-<p>The terms that involve <span class="process-math">\(a_1\)</span> have the form <span class="process-math">\(a_4\text{,}\)</span> <span class="process-math">\(a_7\text{,}\)</span> <span class="process-math">\(a_{10}\text{,}\)</span> etc. and are all of the form <span class="process-math">\(a_{3k+1}\)</span> for positive integers <span class="process-math">\(k\text{.}\)</span> The pattern in the denominators of the coefficient for <span class="process-math">\(a_{3k+1}\)</span> is <span class="process-math">\((3)(4)(6)(7) \cdots (3k)(3k+1)\text{.}\)</span> So</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">and therefore</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8-6-2.html">
 \begin{equation*}
-a_{3k+1} = \frac{1}{(3)(4)(6)(7) \cdots (3k)(3k+1)} a_1 \text{ for }  k \geq 1\text{.}
+\int \frac{1}{1+x^2} \ dx = \arctan(x) + C\text{.}
 \end{equation*}
 </div>
-</li>
-</ul>
-</li>
-<li>
-<p>We can write the solution <span class="process-math">\(y\)</span> in three pieces as</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-y = \sum_{k = 0}^{\infty} a_kx^k = \sum_{k=0}^{\infty} a_{3k}x^{3k} + \sum_{k=0}^{\infty} a_{3k+1}x^{3k+1} + \sum_{k=0}^{\infty} a_{3k+2}x^{3k+2}
-\end{equation*}
-</div>
-<p class="continuation">and so our results from the previous part of this exercise show that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+</div> <div class="para logical">
+<div class="para">It follows that we can integrate the series for <span class="process-math">\(\frac{1}{1+x^2}\)</span> term by term to obtain the power series expansion for <span class="process-math">\(\arctan(x)\text{.}\)</span> Doing so, we find that</div>
+<div class="displaymath process-math">
 \begin{align*}
-y\amp = a_0\left( 1+\sum_{k=1}^{\infty} \frac{x^{3k}}{(2)(3)(5)(6) \cdots (3k-1)(3k)} \right)\\
-\amp\phantom{={}}+ a_1 \left( x + \sum_{k=1}^{\infty} \frac{x^{3k+1}}{(3)(4)(6)(7) \cdots (3k)(3k+1)} \right)\text{.}
+\arctan(x) \amp = \int \left( \sum_{k=0}^{\infty} (-1)^kx^{2k} \right) \ dx\\
+\amp = \sum_{k=0}^{\infty} \left( \int (-1)^k x^{2k} \ dx \right)\\
+\amp = \left( \sum_{k=0}^{\infty} (-1)^k\frac{x^{2k+1}}{2k+1} \right) + C\text{.}
 \end{align*}
 </div>
-</li>
-</ol>
+</div> <div class="para">The Power Series Differentiation and Integration Theorem tells us that this equality is valid for at least <span class="process-math">\(-1 \lt x \lt 1\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">To find the value of the constant <span class="process-math">\(C\text{,}\)</span> we can use the fact that <span class="process-math">\(\arctan(0) = 0\text{.}\)</span> So</div>
+<div class="displaymath process-math">
+\begin{equation*}
+0 = \arctan(0) = \left( \sum_{k=0}^{\infty} (-1)^k\frac{0^{2k+1}}{2k+1} \right) + C = C\text{,}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-8-6-powerseries.html#Mtj" class="internal">in-context</a></span>
+<div class="para">and we must have <span class="process-math">\(C = 0\text{.}\)</span> Therefore,</div>
+<div class="displaymath process-math">
+\begin{equation}
+\arctan(x) = \sum_{k=0}^{\infty} (-1)^k\frac{x^{2k+1}}{2k+1}\tag{8.6.3}
+\end{equation}
+</div>
+<div class="para">for at least <span class="process-math">\(-1 \lt  x \lt  1\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">It is a straightforward exercise to check that the power series</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-arctanseries.html">
+\begin{equation*}
+\sum_{k=0}^{\infty} (-1)^k\frac{x^{2k+1}}{2k+1}
+\end{equation*}
+</div>
+<div class="para">converges both when <span class="process-math">\(x = -1\)</span> and when <span class="process-math">\(x = 1\text{;}\)</span> in each case, we have an alternating series with terms <span class="process-math">\(\frac{1}{2k+1}\)</span> that decrease to <span class="process-math">\(0\text{,}\)</span> and thus the interval of convergence for the series expansion for <span class="process-math">\(\arctan(x)\)</span> in Equation <a href="" class="xref" data-knowl="./knowl/E-arctanseries.html" title="Equation 8.6.3">(8.6.3)</a> is <span class="process-math">\(-1 \le x \le 1\text{.}\)</span>
+</div>
+</div>
+</div>
+<span class="incontext"><a href="sec-8-6-powerseries.html#Gdl" class="internal">in-context</a></span>
 </body>
 </html>

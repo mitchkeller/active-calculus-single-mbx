@@ -12,7 +12,104 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p><span class="process-math">\(\displaystyle \int e^z \sin(z) \, dz\)</span></p>
-<span class="incontext"><a href="sec-5-4-parts.html#SzQ" class="internal">in-context</a></span>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">We use integration by parts with <span class="process-math">\(u = \arctan(x)\)</span> and <span class="process-math">\(dv = dx\text{.}\)</span> So <span class="process-math">\(du = \dfrac{1}{1+x^2}dx\)</span> and <span class="process-math">\(v = x\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int{\arctan(x) dx} \amp = uv - \int{v du}\\
+\amp = x\arctan(x) - \int\frac{x}{1+x^2} dx
+\end{align*}
+</div>
+<div class="para">For the integral in the last equation, use the substitution <span class="process-math">\(z = 1+x^2\)</span> and <span class="process-math">\(dz = 2x\, dx\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int \arctan(x) dx  \amp = x\arctan(x) -\int\frac{x}{1+x^2} dx\\
+\amp = x\arctan(x) - \frac{1}{2} \int \frac{1}{z} dz\\
+\amp = x\arctan(x) - \frac{1}{2} \ln|z| + c\\
+\amp = x\arctan(x) - \frac{1}{2} \ln \left( | 1 + x^2 | \right) + c
+\end{align*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Using <span class="process-math">\(u = \ln(z)\)</span> and <span class="process-math">\(dv = dz\text{,}\)</span> we obtain <span class="process-math">\(du = \dfrac{1}{z} dz\)</span> and <span class="process-math">\(v = z\text{.}\)</span> So</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int \ln(z) dz \amp = z \ln(z) - \int dz\\
+\amp = z \ln(z) - z + c
+\end{align*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Using <span class="process-math">\(z = t^2\text{,}\)</span> we obtain <span class="process-math">\(dz = 2t dt\)</span> and <span class="process-math">\(\dfrac{1}{2} dz = t dt\text{.}\)</span> So</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int t^3 \sin(t^2) dt \amp = \int t^2 \sin(t^2) \cdot t dt\\
+\amp = \int z \sin(z) \frac{1}{2} dz\\
+\amp = \frac{1}{2} \int z \sin(z) dz
+\end{align*}
+</div>
+<div class="para">Now using integration by parts with <span class="process-math">\(u = z\)</span> and <span class="process-math">\(dv = \sin(z) dz\text{,}\)</span> we obtain <span class="process-math">\(du = dz\)</span> and <span class="process-math">\(v = -\cos(z)\text{.}\)</span> So</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int t^3 \sin(t^2) dt \amp = \frac{1}{2} \int z \sin(z) dz\\
+\amp = \frac{1}{2} \left( -z \cos(z) + \int \cos(z) dz \right)\\
+\amp = \frac{1}{2} \left( -z \cos(z) + \sin(z) \right)
+\end{align*}
+</div>
+<div class="para">Finally, we use <span class="process-math">\(z = t^2\)</span> and obtain</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int t^3 \sin(t^2) dt = \frac{1}{2} \left( -t^2 \cos\left(t^2 \right) + \sin\left(t^2\right) \right)\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Use a substitution with <span class="process-math">\(z = s^3\)</span> and <span class="process-math">\(dz = 3s^2 ds\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int s^5 e^{s^3} ds \amp = \int s^2 s^3 e^{s^3} ds\\
+\amp = \frac{1}{3} \int z e^z dz
+\end{align*}
+</div>
+<div class="para">Now use integration by parts with <span class="process-math">\(u = z\)</span> and <span class="process-math">\(dv = e^z dz\text{.}\)</span> So <span class="process-math">\(du = dz\)</span> and <span class="process-math">\(v = e^z\text{.}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int s^5 e^{s^3} ds \amp = \frac{1}{3} \int z e^z dz\\
+\amp = \frac{1}{3} \left( z e^z - \int e^z dz \right)\\
+\amp = \frac{1}{3} \left( z e^z - e^z \right) + c\\
+\amp = \frac{1}{3} \left( s^3 e^{s^3} - e^{s^3} \right) + c
+\end{align*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Using <span class="process-math">\(z = e^t\text{,}\)</span> we see that <span class="process-math">\(dz = e^t dt\)</span> and so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-5-4-IBP.html">
+\begin{align*}
+\int e^{2t} \cos\left( e^t \right) dt \amp = \int e^t \cos\left( e^t \right) \cdot e^t  dt\\
+\amp = \int z \cos(z) dz
+\end{align*}
+</div>
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/Ex-5-4-IBP.html" title="Example 5.4.1">Example 5.4.1</a>, we saw that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-5-4-IBP.html">
+\begin{equation*}
+\int z \cos(z) dz = z \sin(z) + \cos(z) + c\text{.}
+\end{equation*}
+</div>
+<div class="para">Combining these two results, we obtain</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-5-4-IBP.html">
+\begin{align*}
+\int e^{2t} \cos\left( e^t \right) dt \amp = \int z \cos(z) dz\\
+\amp = z \sin(z) + \cos(z) + c\\
+\amp = e^t \sin \left( e^t \right) + \cos \left( e^t \right) + c
+\end{align*}
+</div>
+</div></li>
+</ol></div>
+<span class="incontext"><a href="sec-5-4-parts.html#Iwk" class="internal">in-context</a></span>
 </body>
 </html>

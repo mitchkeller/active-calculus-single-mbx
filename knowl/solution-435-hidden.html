@@ -10,42 +10,56 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like">
-<p>Following the same strategy as in <a href="" class="xref" data-knowl="./knowl/Ex-7-4-1.html" title="Example 7.4.1">Example 7.4.1</a>, we have</p>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-7-4-1.html">
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">To solve the linear system</div>
+<div class="displaymath process-math">
+\begin{align*}
+y(1) - 2.4883 =\mathstrut \amp  0.2K\\
+y(1) - 2.5937 =\mathstrut \amp  0.1K
+\end{align*}
+</div>
+<div class="para">we subtract the second equation from the first to eliminate <span class="process-math">\(y(1)\text{.}\)</span> Doing so, we find that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\frac 1y \frac{dy}{dt} = 3\text{.}
+-2.4883 - (-2.5937) = 0.2K - 0.1K
 \end{equation*}
 </div>
-<p>Integrating both sides with respect to <span class="process-math">\(t\text{,}\)</span></p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">so that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\int \frac 1y\frac{dy}{dt}~dt = \int 3~dt\text{,}
+0.1054 = 0.1K
 \end{equation*}
 </div>
-<p class="continuation">and thus</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
+<div class="para">and thus <span class="process-math">\(K = 1.054\text{.}\)</span> Substituting this value into the first equation in the system, it follows that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\int \frac 1y~dy =  \int 3~dt\text{.}
+y(1) - 2.4883 = 0.2(1.054)
 \end{equation*}
 </div>
-<p>Antidifferentiating and including the integration constant, we find that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-\ln|y| = 3t + C\text{.}
-\end{equation*}
+<div class="para">so <span class="process-math">\(y(1) = 0.2(1.054) + 2.4883 = 2.6991\text{.}\)</span>
 </div>
-<p>Finally, we need to solve for <span class="process-math">\(y\text{.}\)</span> Here, one point deserves careful attention. By the definition of the natural logarithm function, it follows that</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-|y| = e^{3t+C} = e^{3t}e^C\text{.}
-\end{equation*}
+</div></li>
+<li><div class="para logical">
+<div class="para">Recalling that <span class="process-math">\(E_{0.05} = 2.6533\)</span> and <span class="process-math">\(E_{0.025} = 2.6851\text{,}\)</span> it follows that this data generates the similar linear system given by</div>
+<div class="displaymath process-math">
+\begin{align*}
+y(1) - 2.6533 =\mathstrut \amp  0.05K\\
+y(1) - 2.6851 =\mathstrut \amp  0.025K\text{.}
+\end{align*}
 </div>
-<p>Since <span class="process-math">\(C\)</span> is an unknown constant, <span class="process-math">\(e^C\)</span> is as well, though we do know that it is positive (because <span class="process-math">\(e^x\)</span> is positive for any <span class="process-math">\(x\)</span>). When we remove the absolute value in order to solve for <span class="process-math">\(y\text{,}\)</span> however, this constant may be either positive or negative. To account for a possible <span class="process-math">\(+\)</span> or <span class="process-math">\(-\text{,}\)</span> we denote this updated constant by <span class="process-math">\(C\)</span> to obtain</p>
-<div class="displaymath process-math" data-contains-math-knowls="">
-\begin{equation*}
-y(t) = Ce^{3t}\text{.}
-\end{equation*}
+<div class="para">Solving this system yields <span class="process-math">\(K = 1.272\)</span> and <span class="process-math">\(y(1) = 2.7169\text{.}\)</span> Knowing that the true value of <span class="process-math">\(y(1)\)</span> is <span class="process-math">\(e = 2.71828\ldots\text{,}\)</span> we see that the approximation here in (b) is much better. That is expected because we are already working with better approximations that come from using <span class="process-math">\(\Delta t = 0.05\)</span> and <span class="process-math">\(\Delta t = 0.025\text{,}\)</span> which have been twice halved from the smaller <span class="process-math">\(\Delta t\)</span> value in (a).</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">To compute <span class="process-math">\(E_{0.1}\)</span> and <span class="process-math">\(E_{0.05}\text{,}\)</span> we first compute the estimates to <span class="process-math">\(y(0.3)\)</span> using <span class="process-math">\(\Delta t = 0.1\)</span> and <span class="process-math">\(\Delta t = 0.5\text{.}\)</span> Doing so and making similar assumptions about the error as we did in (a) and (b), we find that for <span class="process-math">\(\Delta t = 0.1\text{,}\)</span> <span class="process-math">\(y(1) \approx 0.0290\)</span> and for <span class="process-math">\(\Delta t = 0.05\text{,}\)</span> <span class="process-math">\(y(1) \approx 0.0351\text{,}\)</span> and therefore we consider the system</div>
+<div class="displaymath process-math">
+\begin{align*}
+y(0.3) - 0.0290 &amp;= 0.1K\\
+y(0.3) - 0.0351 &amp;= 0.05K\text{.}
+\end{align*}
 </div>
-</div></body>
+<div class="para">Solving the system, it follows that <span class="process-math">\(K = (-0.0290 + 0.0351)/0.05 = 0.122\)</span> and <span class="process-math">\(y(0.3) = 0.1(0.122) + 0.0290 = 0.0412\text{,}\)</span> which is much closer to the actual value of <span class="process-math">\(y(0.3) = 0.0408\text{.}\)</span>
+</div>
+</div></li>
+</ol></div></div></body>
 </html>

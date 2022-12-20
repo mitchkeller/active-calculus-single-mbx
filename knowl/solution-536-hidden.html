@@ -10,16 +10,90 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like">
-<span class="process-math">\(\displaystyle c_n = \frac{f^{(n)}(0)}{n!}\text{,}\)</span> e.g. <span class="process-math">\(\displaystyle c_0 = \frac{f(0)}{0!} = 0\text{.}\)</span> <span class="process-math">\(\displaystyle c_1 = \frac{f'(0)}{1!}\text{;}\)</span> <span class="process-math">\(\displaystyle f'(x)=8 \arctan(2 x) + 8 x\frac{1}{(2 x)^2+1}2 
-= 8 \arctan(2 x) + \frac{16 x}{4 x^2+1}\text{;}\)</span> <span class="process-math">\(c_1 = 0\text{.}\)</span> <span class="process-math">\(\displaystyle c_2 = \frac{f''(0)}{2!}\text{;}\)</span> <span class="process-math">\(\displaystyle 
-f''(x) = \left( 8 \arctan(2 x) + \frac{16 x}{4 x^2+1} \right)'\)</span><span class="process-math">\(\displaystyle = 
-\frac{16}{4 x^2+1} + \frac{16(4 x^2+1)-16 x4\cdot 2x}{(4 x^2+1)^2}\)</span><span class="process-math">\(\displaystyle
-= \frac{64 x^2 + 16}{(4 x^2+1)^2} + \frac{16 - 64 x^2}{(4 x^2+1)^2}
-= \frac{32}{(4 x^2+1)^2}\text{;}\)</span> <span class="process-math">\(\displaystyle c_2 = \frac{32}{2} = 16\text{;}\)</span> and so on. Another way is to use the power series for arctan: <span class="process-math">\(\displaystyle \arctan(t) = \sum_{n=0}^{\infty} (-1)^n \frac{t^{2n+1}}{2n+1} 
-= t-\frac{t^3}{3}+\frac{t^5}{5}-\frac{t^7}{7}+...\text{.}\)</span> Then <span class="process-math">\(\displaystyle 8 x \arctan(2 x) = 
-8 x \sum_{n=0}^\infty (-1)^n \frac{(2 x)^{2n+1}}{2n+1} = 
-\sum_{n=0}^\infty (-1)^n \frac{8\cdot 2^{2n+1}}{2n+1} x^{2n+2}\)</span><span class="process-math">\(\displaystyle  
-= 16 x^2 - \frac{64}{3} x^4 + \frac{256}{5} x^6 - \frac{1024}{7} x^7+...\text{.}\)</span> So <span class="process-math">\(c_0=0\text{,}\)</span> <span class="process-math">\(c_1=0\text{,}\)</span> <span class="process-math">\(c_2=16\text{,}\)</span> <span class="process-math">\(c_3=0\text{,}\)</span> <span class="process-math">\(c_4=-\frac{64}{3}=-21.3333333333333\text{...}\)</span> This is an alternating series. It converges if and only if <span class="process-math">\(\displaystyle \lim_{n\to\infty}\frac{8 \cdot (2 x)^{2n+1}}{2n+1}=0\text{.}\)</span> This limit is equal to 0 if and only if <span class="process-math">\(|2 x| \le 1\text{,}\)</span> so <span class="process-math">\(\displaystyle |x|\le \frac{1}{2}\text{.}\)</span> Therefore the radius of convergence is <span class="process-math">\(\displaystyle \frac{1}{2}\text{.}\)</span>
-</div></body>
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
+<li>
+<div class="para logical">
+<div class="para">We use the Ratio Test with <span class="process-math">\(a_k = \frac{|x-1|^k}{3k}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{k \to \infty} \frac{ \frac{|x-1|^{k+1}}{3(k+1)} }{ \frac{|x-1|^k}{3k} } \amp = \lim_{k \to \infty} \frac{3k|x-1|^{k+1}}{3(    k+1)|x-1|^{k}}\\
+\amp = |x-1| \lim_{k \to \infty} \frac{k}{k+1}\\
+\amp = |x-1|\text{.}
+\end{align*}
+</div>
+<div class="para">So the power series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(x-1)^k}{3k}\)</span> converges absolutely when <span class="process-math">\(|x-1| \lt  1\)</span> or when <span class="process-math">\(0 \lt  x \lt  2\)</span> and diverges outside this interval. To completely determine the interval of convergence, we need to check what happens at the endpoints of this interval.</div>
+</div>
+<div class="para logical"><ul class="disc">
+<li><div class="para">When <span class="process-math">\(x=0\)</span> our power series is <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(-1)^k}{3k}\)</span> which is just a scalar multiple of the alternating harmonic series and so converges.</div></li>
+<li><div class="para">When <span class="process-math">\(x=2\)</span> our power series is <span class="process-math">\(\sum_{k=1}^{\infty} \frac{1}{3k}\)</span> which is just a scalar multiple of the harmonic series and so diverges.</div></li>
+</ul></div>
+<div class="para">Therefore, the interval of convergence of the power series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(x-1)^k}{3k}\)</span> is <span class="process-math">\([0,2)\text{.}\)</span>
+</div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">We use the Ratio Test with <span class="process-math">\(a_k = k|x|^k\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{k \to \infty} \frac{ (k+1)|x|^{k+1} }{ k|x|^k } \amp = |x|\lim_{k \to \infty} \frac{k+1}{k}\\
+\amp = |x|\text{.}
+\end{align*}
+</div>
+<div class="para">So the power series <span class="process-math">\(\sum_{k=1}^{\infty} kx^k\)</span> converges absolutely when <span class="process-math">\(|x| \lt  1\)</span> or when <span class="process-math">\(-1 \lt  x \lt  1\)</span> and diverges outside this interval. To completely determine the interval of convergence, we need to check what happens at the endpoints of this interval.</div>
+</div>
+<div class="para logical"><ul class="disc">
+<li><div class="para">When <span class="process-math">\(x=-1\)</span> our power series is <span class="process-math">\(\sum_{k=1}^{\infty} (-1)^k k\text{.}\)</span> Since <span class="process-math">\(k \to \infty\)</span> as <span class="process-math">\(k \to infty\text{,}\)</span> this series diverges by the Divergence Test.</div></li>
+<li><div class="para">When <span class="process-math">\(x=1\)</span> our power series is <span class="process-math">\(\sum_{k=1}^{\infty} k\)</span> which again diverges by the Divergence Test.</div></li>
+</ul></div>
+<div class="para">Therefore, the interval of convergence of the power series <span class="process-math">\(\sum_{k=1}^{\infty} kx^k\)</span> is <span class="process-math">\((-1,1)\text{.}\)</span>
+</div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">We use the Ratio Test with <span class="process-math">\(a_k = \frac{k^2|x+1|^k}{4^k}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{k \to \infty} \frac{ \frac{(k+1)^2|x+1|^{k+1}}{4^{k+1}} }{ \frac{k^2|x+1|^k}{4^k} } \amp = \lim_{k \to \infty} \frac{4^k(k+1)^2|x+1|^{k+1}}{4^{k+1}k^2|x+1|^k}\\
+\amp = \frac{1}{4}|x+1| \lim_{k \to \infty} \left(\frac{k+1}{k}\right)^2\\
+\amp = \frac{1}{4}|x+1|\text{.}
+\end{align*}
+</div>
+<div class="para">So the power series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{k^2(x+1)^k}{4^k}\)</span> converges absolutely when <span class="process-math">\(\frac{1}{4}|x+1| \lt  1\)</span> or when <span class="process-math">\(-5 \lt  x \lt  3\)</span> and diverges outside this interval. To completely determine the interval of convergence, we need to check what happens at the endpoints of this interval.</div>
+</div>
+<div class="para logical"><ul class="disc">
+<li><div class="para">When <span class="process-math">\(x=-5\)</span> our power series is <span class="process-math">\(\sum_{k=1}^{\infty} (-1)^k k^2\text{.}\)</span> Since <span class="process-math">\(k^2 \to \infty\)</span> as <span class="process-math">\(k \to \infty\text{,}\)</span> this series diverges by the Divergence Test.</div></li>
+<li><div class="para">When <span class="process-math">\(x=3\)</span> our power series is <span class="process-math">\(\sum_{k=1}^{\infty} k^2\text{,}\)</span> which again diverges by the Divergence Test.</div></li>
+</ul></div>
+<div class="para">Therefore, the interval of convergence of the power series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{k^2(x+1)^k}{4^k}\)</span> is <span class="process-math">\((-5,3)\text{.}\)</span>
+</div>
+</li>
+<li><div class="para logical">
+<div class="para">We use the Ratio Test with <span class="process-math">\(a_k = \frac{|x|^k}{(2k)!}\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{k \to \infty} \frac{ \frac{|x|^{k+1}}{(2(k+1))!} }{ \frac{|x|^k}{(2k)!} } \amp = \lim_{k \to \infty} |x|\frac{(2k)!}{(2(k+1))!}\\
+\amp = |x| \lim_{k \to \infty} \frac{1}{(2k+2)(2k+1)}\\
+\amp = 0\text{.}
+\end{align*}
+</div>
+<div class="para">So the power series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{x^k}{(2k)!}\)</span> converges absolutely on the interval <span class="process-math">\((-\infty, \infty)\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We use the Ratio Test with <span class="process-math">\(a_k = k!|x|^k\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+\lim_{k \to \infty} \frac{ (k+1)!|x|^{k+1} }{ k!|x|^k} \amp = \lim_{k \to \infty} |x|(k+1)\\
+\amp = \infty
+\end{align*}
+</div>
+<div class="para">unless <span class="process-math">\(x=0\text{.}\)</span> So the interval of convergence of the power series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{x^k}{k!}\)</span> is <span class="process-math">\(\{0\}\text{.}\)</span>
+</div>
+</div></li>
+</ol></div></div></body>
 </html>
