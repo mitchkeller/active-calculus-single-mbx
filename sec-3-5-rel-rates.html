@@ -11,6 +11,7 @@
 <title>AC Related Rates</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://runestone.academy/ns/books/published/boelkins-ACS/sec-3-5-rel-rates.html">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
@@ -58,7 +59,7 @@ window.MathJax = {
   },
 };
 </script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
 <script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -76,6 +77,77 @@ window.MathJax = {
 <link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
 <link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = true;
+eBookConfig.host = '';
+eBookConfig.app = eBookConfig.host + '/runestone';
+eBookConfig.course = '~._ course_name _.~';
+eBookConfig.basecourse = '~._ base_course _.~';
+eBookConfig.isLoggedIn = ~._ is_logged_in _.~;
+eBookConfig.email = '~._ user_email _.~';
+eBookConfig.isInstructor = ~._ is_instructor _.~;
+eBookConfig.logLevel = 10;
+eBookConfig.ajaxURL = eBookConfig.app + "/ajax/";
+eBookConfig.username = '~._ user_id _.~';
+eBookConfig.readings = ~._ readings|safe _.~;
+eBookConfig.activities = ~._ activity_info|safe _.~;
+eBookConfig.downloadsEnabled = ~._ downloads_enabled _.~;
+eBookConfig.allow_pairs = ~._ allow_pairs _.~;
+eBookConfig.enableScratchAC = true;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.new_server_prefix = "/ns";
+</script>
+
+{% if serve_ad and settings.adsenseid %}
+<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+{% endif %}
+<style>.dropdown {
+    position: relative;
+    display: inline-block;
+    height: 39px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+    text-align: center;
+    background-color: #eeeeee;
+    border: 1px solid;
+    border-color: #aaaaaa;
+ }
+ .dropdown-content {
+    position: absolute;
+    display: none;
+    left: 300px;
+    text-align: left;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
+}
+.dropdown:hover {
+    background-color: #ddd;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+    position: fixed;
+}
+.dropdown-content {
+    background-color: white;
+    z-index: 1800;
+    min-width: 100px;
+    padding: 5px;
+}
+.dropdown-content a {
+    display: block;
+    text-decoration: none;
+    color: #662211;
+}
+.dropdown-content a:hover {
+    background-color: #671d12;
+    color: #ffffff;
+}
+</style>
+<!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
+<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
@@ -89,7 +161,22 @@ window.MathJax = {
 <div id="searchempty"><span>No results.</span></div>
 <ol id="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+{% if settings.academy_mode: %}
+<a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
+<a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
+<a href="/runestone/default/courses">Change Course</a><hr>
+<a id="ip_dropdown_link" href="/runestone/admin/index">Instructor's Page</a><hr>
+{% endif %}
+<a href="/runestone/dashboard/studentreport">Progress Page</a><hr>
+{% if is_logged_in %}
+<a href="/runestone/default/user/profile">Edit Profile</a><a href="/runestone/default/user/change_password">Change Password</a><a href="/runestone/default/user/logout">Log Out</a>
+{% else %}
+<a href="/runestone/default/user/register">Register</a><a href="/runestone/default/user/login">Login</a>
+{% endif %}
+</div>
+</div>
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -226,73 +313,73 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-1-1-vel.html" class="internal"><span class="codenumber">1.1</span> <span class="title">How do we measure velocity?</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-1-1-vel.html#iwq" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Position and average velocity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-1-vel.html#ODz" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Instantaneous Velocity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-1-vel.html#uKI" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-1-vel.html#NIx" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-1-vel.html#subsection-1" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Position and average velocity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-1-vel.html#subsection-2" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Instantaneous Velocity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-1-vel.html#subsection-3" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-1-vel.html#ez-1-1" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-1-2-lim.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The notion of limit</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-1-2-lim.html#BTI" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The Notion of Limit</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-2-lim.html#iaR" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Instantaneous Velocity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-2-lim.html#Oia" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-2-lim.html#GGO" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-2-lim.html#subsection-4" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The Notion of Limit</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-2-lim.html#subsection-5" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Instantaneous Velocity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-2-lim.html#subsection-6" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-2-lim.html#ez-1-2" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-1-3-derivative-pt.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The derivative of a function at a point</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#dFt" class="internal"><span class="codenumber">1.3.1</span> <span class="title">The Derivative of a Function at a Point</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#JMC" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#WsC" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#subsection-7" class="internal"><span class="codenumber">1.3.1</span> <span class="title">The Derivative of a Function at a Point</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#subsection-8" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#ez-1-3" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-1-4-derivative-fxn.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The derivative function</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#Lgq" class="internal"><span class="codenumber">1.4.1</span> <span class="title">How the derivative is itself a function</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#rnz" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#rjI" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#subsection-9" class="internal"><span class="codenumber">1.4.1</span> <span class="title">How the derivative is itself a function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#subsection-10" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#ez-1-4" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-1-5-units.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Interpreting, estimating, and using the derivative</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-1-5-units.html#pcN" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Units of the derivative function</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-5-units.html#VjW" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Toward more accurate derivative estimates</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-5-units.html#Brf" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-5-units.html#tXk" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-5-units.html#subsection-11" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Units of the derivative function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-5-units.html#subsection-12" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Toward more accurate derivative estimates</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-5-units.html#subsection-13" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-5-units.html#ez-1-5" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-1-6-second-d.html" class="internal"><span class="codenumber">1.6</span> <span class="title">The second derivative</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-1-6-second-d.html#wlN" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Increasing or decreasing</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-6-second-d.html#csW" class="internal"><span class="codenumber">1.6.2</span> <span class="title">The Second Derivative</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-6-second-d.html#IAf" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Concavity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-6-second-d.html#oHo" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-6-second-d.html#DjS" class="internal"><span class="codenumber">1.6.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#subsection-14" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Increasing or decreasing</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#subsection-15" class="internal"><span class="codenumber">1.6.2</span> <span class="title">The Second Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#subsection-16" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#subsection-17" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#ez-1-6" class="internal"><span class="codenumber">1.6.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-1-7-lim-cont-diff.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Limits, Continuity, and Differentiability</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#AAh" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Having a limit at a point</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#gHq" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Being continuous at a point</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#MOz" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Being differentiable at a point</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#sVI" class="internal"><span class="codenumber">1.7.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#bFy" class="internal"><span class="codenumber">1.7.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#subsection-18" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Having a limit at a point</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#subsection-19" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Being continuous at a point</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#subsection-20" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Being differentiable at a point</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#subsection-21" class="internal"><span class="codenumber">1.7.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#ez-1-7" class="internal"><span class="codenumber">1.7.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-1-8-tan-line-approx.html" class="internal"><span class="codenumber">1.8</span> <span class="title">The Tangent Line Approximation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#LnH" class="internal"><span class="codenumber">1.8.1</span> <span class="title">The tangent line</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#ruQ" class="internal"><span class="codenumber">1.8.2</span> <span class="title">The local linearization</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#XBZ" class="internal"><span class="codenumber">1.8.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#ZJh" class="internal"><span class="codenumber">1.8.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#subsection-22" class="internal"><span class="codenumber">1.8.1</span> <span class="title">The tangent line</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#subsection-23" class="internal"><span class="codenumber">1.8.2</span> <span class="title">The local linearization</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#subsection-24" class="internal"><span class="codenumber">1.8.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#ez-1-8" class="internal"><span class="codenumber">1.8.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -303,75 +390,75 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-2-1-elem-rules.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Elementary derivative rules</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#yDQ" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Some Key Notation</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#eKZ" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Constant, Power, and Exponential Functions</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#KSi" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Constant Multiples and Sums of Functions</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#qZr" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#QSl" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#subsection-25" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Some Key Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#subsection-26" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Constant, Power, and Exponential Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#subsection-27" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Constant Multiples and Sums of Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#subsection-28" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#ez-2-1" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-2-2-sin-cos.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The sine and cosine functions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#QVP" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The sine and cosine functions</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#xcY" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#gZy" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#subsection-29" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The sine and cosine functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#subsection-30" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#ez-2-2" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-2-3-prod-quot.html" class="internal"><span class="codenumber">2.3</span> <span class="title">The product and quotient rules</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#MVQ" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The product rule</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#tcZ" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The quotient rule</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#Zki" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Combining rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#Frr" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#ApM" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#subsection-31" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The product rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#subsection-32" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The quotient rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#subsection-33" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Combining rules</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#subsection-34" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#ez-2-3" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-2-4-other-trig.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Derivatives of other trigonometric functions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-2-4-other-trig.html#eiw" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Derivatives of the cotangent, secant, and cosecant functions</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-4-other-trig.html#KpF" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-4-other-trig.html#ZgR" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-4-other-trig.html#subsection-35" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Derivatives of the cotangent, secant, and cosecant functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-4-other-trig.html#subsection-36" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-4-other-trig.html#ez-2-4" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-2-5-chain.html" class="internal"><span class="codenumber">2.5</span> <span class="title">The chain rule</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-2-5-chain.html#Utl" class="internal"><span class="codenumber">2.5.1</span> <span class="title">The chain rule</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-5-chain.html#AAu" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Using multiple rules simultaneously</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-5-chain.html#gHD" class="internal"><span class="codenumber">2.5.3</span> <span class="title">The composite version of basic function rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-5-chain.html#MOM" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-5-chain.html#dJG" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#subsection-37" class="internal"><span class="codenumber">2.5.1</span> <span class="title">The chain rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#subsection-38" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Using multiple rules simultaneously</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#subsection-39" class="internal"><span class="codenumber">2.5.3</span> <span class="title">The composite version of basic function rules</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#subsection-40" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#ez-2-5" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-2-6-inverse.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Derivatives of Inverse Functions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-2-6-inverse.html#OSu" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Basic facts about inverse functions</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-6-inverse.html#uZD" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The derivative of the natural logarithm function</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-6-inverse.html#bgM" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Inverse trigonometric functions and their derivatives</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-6-inverse.html#HnV" class="internal"><span class="codenumber">2.6.4</span> <span class="title">The link between the derivative of a function and the derivative of its inverse</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-6-inverse.html#nve" class="internal"><span class="codenumber">2.6.5</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-6-inverse.html#YSJ" class="internal"><span class="codenumber">2.6.6</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#subsection-41" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Basic facts about inverse functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#subsection-42" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The derivative of the natural logarithm function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#subsection-43" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Inverse trigonometric functions and their derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#subsection-44" class="internal"><span class="codenumber">2.6.4</span> <span class="title">The link between the derivative of a function and the derivative of its inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#subsection-45" class="internal"><span class="codenumber">2.6.5</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#ez-2-6" class="internal"><span class="codenumber">2.6.6</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-2-7-implicit.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Derivatives of Functions Given Implicitly</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-2-7-implicit.html#QWc" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Implicit Differentiation</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-7-implicit.html#xdl" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-7-implicit.html#amx" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-7-implicit.html#subsection-46" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Implicit Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-7-implicit.html#subsection-47" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-7-implicit.html#ez-2-7" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-2-8-LHR.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Using Derivatives to Evaluate Limits</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-2-8-LHR.html#SpQ" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Using derivatives to evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\text{.}\)</span></span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-8-LHR.html#ywZ" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Limits involving <span class="process-math">\(\infty\)</span></span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-8-LHR.html#eEi" class="internal"><span class="codenumber">2.8.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-2-8-LHR.html#qtK" class="internal"><span class="codenumber">2.8.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-8-LHR.html#subsection-48" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Using derivatives to evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\text{.}\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-8-LHR.html#subsection-49" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Limits involving <span class="process-math">\(\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-8-LHR.html#subsection-50" class="internal"><span class="codenumber">2.8.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-8-LHR.html#ez-2-8" class="internal"><span class="codenumber">2.8.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -382,43 +469,43 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-3-1-tests.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Using derivatives to identify extreme values</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-3-1-tests.html#aiK" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Critical numbers and the first derivative test</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-1-tests.html#GpT" class="internal"><span class="codenumber">3.1.2</span> <span class="title">The second derivative test</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-1-tests.html#mxc" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-1-tests.html#RJW" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-1-tests.html#subsection-51" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Critical numbers and the first derivative test</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-1-tests.html#subsection-52" class="internal"><span class="codenumber">3.1.2</span> <span class="title">The second derivative test</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-1-tests.html#subsection-53" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-1-tests.html#ez-3-1" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-3-2-families.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Using derivatives to describe families of functions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-3-2-families.html#YHS" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Describing families of functions in terms of parameters</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-2-families.html#EPb" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-2-families.html#mBc" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-2-families.html#subsection-54" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Describing families of functions in terms of parameters</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-2-families.html#subsection-55" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-2-families.html#ez-3-2" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-3-3-optimization.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Global Optimization</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-3-3-optimization.html#Hoi" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Global Optimization</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-3-optimization.html#nvr" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Moving toward applications</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-3-optimization.html#TCA" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-3-optimization.html#GWJ" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-3-optimization.html#subsection-56" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Global Optimization</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-3-optimization.html#subsection-57" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Moving toward applications</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-3-optimization.html#subsection-58" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-3-optimization.html#ez-3-3" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-3-4-applied-opt.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Applied Optimization</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#FNq" class="internal"><span class="codenumber">3.4.1</span> <span class="title">More applied optimization problems</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#lUz" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#DGE" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#subsection-59" class="internal"><span class="codenumber">3.4.1</span> <span class="title">More applied optimization problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#subsection-60" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#ez-3-4" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="active">
 <div class="toc-item"><a href="sec-3-5-rel-rates.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Related Rates</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#aqb" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Related Rates Problems</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#Gxk" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#Pzx" class="internal"><span class="codenumber">3.5.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#subsection-61" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Related Rates Problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#subsection-62" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#ez-3-5" class="internal"><span class="codenumber">3.5.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -429,41 +516,41 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-4-1-velocity-distance.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Determining distance traveled from velocity</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#EWs" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Area under the graph of the velocity function</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#ldB" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Two approaches: area and antidifferentiation</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#RkK" class="internal"><span class="codenumber">4.1.3</span> <span class="title">When velocity is negative</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#xrT" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#lax" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#subsection-63" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Area under the graph of the velocity function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#subsection-64" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Two approaches: area and antidifferentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#subsection-65" class="internal"><span class="codenumber">4.1.3</span> <span class="title">When velocity is negative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#subsection-66" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#ez-4-1" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-4-2-Riemann.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Riemann Sums</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-4-2-Riemann.html#jCJ" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Sigma Notation</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-2-Riemann.html#PJS" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Riemann Sums</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-2-Riemann.html#vRb" class="internal"><span class="codenumber">4.2.3</span> <span class="title">When the function is sometimes negative</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-2-Riemann.html#bYk" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-2-Riemann.html#DGR" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#sigma-notation" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Sigma Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#subsection-68" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#subsection-69" class="internal"><span class="codenumber">4.2.3</span> <span class="title">When the function is sometimes negative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#subsection-70" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#ez-4-2" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-4-3-definite-integral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Definite Integral</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#uqj" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#axs" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#GEB" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#mLK" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#Ucz" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-4-4-FTC.html" class="internal"><span class="codenumber">4.4</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-4-4-FTC.html#rJY" class="internal"><span class="codenumber">4.4.1</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-4-FTC.html#XRh" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Basic antiderivatives</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-4-FTC.html#DYq" class="internal"><span class="codenumber">4.4.3</span> <span class="title">The total change theorem</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-4-FTC.html#kfz" class="internal"><span class="codenumber">4.4.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-4-FTC.html#HHd" class="internal"><span class="codenumber">4.4.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#subsection-75" class="internal"><span class="codenumber">4.4.1</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#subsection-76" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Basic antiderivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#subsection-77" class="internal"><span class="codenumber">4.4.3</span> <span class="title">The total change theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#subsection-78" class="internal"><span class="codenumber">4.4.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#ez-4-4" class="internal"><span class="codenumber">4.4.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -474,64 +561,64 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-5-1-antid-graphs.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Constructing Accurate Graphs of Antiderivatives</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#Sqq" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Constructing the graph of an antiderivative</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#yxz" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Multiple antiderivatives of a single function</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#eEI" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Functions defined by integrals</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#KLR" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#gcJ" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#subsection-79" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Constructing the graph of an antiderivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#subsection-80" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Multiple antiderivatives of a single function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#subsection-81" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Functions defined by integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#subsection-82" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#ez-5-1" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-5-2-FTC2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">The Second Fundamental Theorem of Calculus</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-5-2-FTC2.html#RUR" class="internal"><span class="codenumber">5.2.1</span> <span class="title">The Second Fundamental Theorem of Calculus</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-2-FTC2.html#yca" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Understanding Integral Functions</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-2-FTC2.html#ejj" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Differentiating an Integral Function</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-2-FTC2.html#Kqs" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-2-FTC2.html#AjV" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#subsection-83" class="internal"><span class="codenumber">5.2.1</span> <span class="title">The Second Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#subsection-84" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Understanding Integral Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#subsection-85" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Differentiating an Integral Function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#subsection-86" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#ez-5-2" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-5-3-substitution.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Integration by Substitution</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-5-3-substitution.html#cIr" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Reversing the Chain Rule: First Steps</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-3-substitution.html#IPA" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Reversing the Chain Rule: <span class="process-math">\(u\)</span>-substitution</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-3-substitution.html#oWJ" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Evaluating Definite Integrals via <span class="process-math">\(u\)</span>-substitution</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-3-substitution.html#VdS" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-3-substitution.html#lDN" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#subsection-87" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Reversing the Chain Rule: First Steps</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#subsection-88" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Reversing the Chain Rule: <span class="process-math">\(u\)</span>-substitution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#subsection-89" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Evaluating Definite Integrals via <span class="process-math">\(u\)</span>-substitution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#subsection-90" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#ez-5-3" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-5-4-parts.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Integration by Parts</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-5-4-parts.html#JdV" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Reversing the Product Rule: Integration by Parts</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-4-parts.html#ple" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Some Subtleties with Integration by Parts</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-4-parts.html#Vsn" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Using Integration by Parts Multiple Times</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-4-parts.html#Bzw" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Evaluating Definite Integrals Using Integration by Parts</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-4-parts.html#hGF" class="internal"><span class="codenumber">5.4.5</span> <span class="title">When <span class="process-math">\(u\)</span>-substitution and Integration by Parts Fail to Help</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-4-parts.html#NNO" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-4-parts.html#zAo" class="internal"><span class="codenumber">5.4.7</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#subsection-91" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Reversing the Product Rule: Integration by Parts</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#subsection-92" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Some Subtleties with Integration by Parts</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#subsection-93" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Using Integration by Parts Multiple Times</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#subsection-94" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Evaluating Definite Integrals Using Integration by Parts</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#subsection-95" class="internal"><span class="codenumber">5.4.5</span> <span class="title">When <span class="process-math">\(u\)</span>-substitution and Integration by Parts Fail to Help</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#subsection-96" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#ez-5-4" class="internal"><span class="codenumber">5.4.7</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-5-5-other-opt.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Other Options for Finding Algebraic Antiderivatives</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-5-5-other-opt.html#mET" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Method of Partial Fractions</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-5-other-opt.html#SMc" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Using an Integral Table</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-5-other-opt.html#yTl" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Using Computer Algebra Systems</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-5-other-opt.html#fau" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-5-other-opt.html#okl" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#subsection-97" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Method of Partial Fractions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#subsection-98" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Using an Integral Table</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#subsection-99" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Using Computer Algebra Systems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#subsection-100" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#ez-5-5" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-5-6-num-int.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Numerical Integration</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#Nll" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#tsu" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#ZzD" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#FGM" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#lNV" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#bOP" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -542,51 +629,51 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-6-1-area.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Using Definite Integrals to Find Area and Length</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-6-1-area.html#nhJ" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The Area Between Two Curves</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-1-area.html#ToS" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Finding Area with Horizontal Slices</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-1-area.html#zwb" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Finding the length of a curve</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-1-area.html#fDk" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-1-area.html#lwW" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#subsection-106" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The Area Between Two Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#subsection-107" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Finding Area with Horizontal Slices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#subsection-108" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Finding the length of a curve</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#subsection-109" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#ez-6-1" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-6-2-volume.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Using Definite Integrals to Find Volume</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-6-2-volume.html#qqK" class="internal"><span class="codenumber">6.2.1</span> <span class="title">The Volume of a Solid of Revolution</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-2-volume.html#WxT" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Revolving about the <span class="process-math">\(y\)</span>-axis</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-2-volume.html#CFc" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Revolving about horizontal and vertical lines other than the coordinate axes</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-2-volume.html#iMl" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-2-volume.html#dLt" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#subsection-110" class="internal"><span class="codenumber">6.2.1</span> <span class="title">The Volume of a Solid of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#subsection-111" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Revolving about the <span class="process-math">\(y\)</span>-axis</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#subsection-112" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Revolving about horizontal and vertical lines other than the coordinate axes</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#subsection-113" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#ez-6-2" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-6-3-mass.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Density, Mass, and Center of Mass</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-6-3-mass.html#FOd" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Density</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-3-mass.html#lVm" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Weighted Averages</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-3-mass.html#Scv" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Center of Mass</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-3-mass.html#yjE" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-3-mass.html#JLy" class="internal"><span class="codenumber">6.3.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#subsection-114" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Density</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#subsection-115" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Weighted Averages</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#subsection-116" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#subsection-117" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#ez-0-0-0" class="internal"><span class="codenumber">6.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-6-4-physics.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Physics Applications:  Work, Force, and Pressure</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-6-4-physics.html#kuu" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Work</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-4-physics.html#QBD" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Work: Pumping Liquid from a Tank</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-4-physics.html#wIM" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Force due to Hydrostatic Pressure</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-4-physics.html#cPV" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-4-physics.html#qhc" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#subsection-118" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Work</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#subsection-119" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Work: Pumping Liquid from a Tank</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#subsection-120" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Force due to Hydrostatic Pressure</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#subsection-121" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#ez-6-4" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-6-5-improper.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Improper Integrals</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-6-5-improper.html#kIP" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Improper Integrals Involving Unbounded Intervals</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-5-improper.html#QPY" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Convergence and Divergence</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-5-improper.html#wXh" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Improper Integrals Involving Unbounded Integrands</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-5-improper.html#deq" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-6-5-improper.html#dbM" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#subsection-122" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Improper Integrals Involving Unbounded Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#subsection-123" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Convergence and Divergence</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#subsection-124" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Improper Integrals Involving Unbounded Integrands</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#subsection-125" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#ez-6-5" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -597,54 +684,54 @@ window.MathJax = {
 <li>
 <div class="toc-item"><a href="sec-7-1-diff-eq-intro.html" class="internal"><span class="codenumber">7.1</span> <span class="title">An Introduction to Differential Equations</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#Quz" class="internal"><span class="codenumber">7.1.1</span> <span class="title">What is a differential equation?</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#wBI" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Differential equations in the world around us</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#cIR" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Solving a differential equation</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#IQa" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#jtO" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#subsection-126" class="internal"><span class="codenumber">7.1.1</span> <span class="title">What is a differential equation?</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#subsection-127" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Differential equations in the world around us</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#subsection-128" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Solving a differential equation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#subsection-129" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#ez-7-1" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-7-2-qualitative.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Qualitative behavior of solutions to DEs</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-2-qualitative.html#CFp" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Slope fields</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-2-qualitative.html#iMy" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Equilibrium solutions and stability</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-2-qualitative.html#OTH" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-2-qualitative.html#ehs" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-2-qualitative.html#subsection-130" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Slope fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-2-qualitative.html#subsection-131" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Equilibrium solutions and stability</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-2-qualitative.html#subsection-132" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-2-qualitative.html#ez-7-2" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#MIV" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#sQe" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#YXn" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#wdS" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-7-4-separable.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Separable differential equations</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-4-separable.html#Gyk" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Solving separable differential equations</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-4-separable.html#mFt" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-4-separable.html#Gau" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-4-separable.html#subsection-136" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Solving separable differential equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-4-separable.html#subsection-137" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-4-separable.html#ez-7-4" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-7-5-modeling.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Modeling with differential equations</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-5-modeling.html#Anz" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Developing a differential equation</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-5-modeling.html#guI" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-5-modeling.html#ORD" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-5-modeling.html#subsection-138" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Developing a differential equation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-5-modeling.html#subsection-139" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-5-modeling.html#ez-7-5" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#ucO" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#ajX" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#Grg" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#tcv" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -745,59 +832,59 @@ window.MathJax = {
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
-<section class="section" id="uiS"><h2 class="heading hide-type">
+<section class="section" id="sec-3-5-rel-rates"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.5</span> <span class="title">Related Rates</span>
 </h2>
-<article class="objectives goal-like" id="ySL"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
-<ul class="disc"><li id="cfo"><div class="para" id="RGj">If two quantities that are related, such as the radius and volume of a spherical balloon, are both changing as implicit functions of time, how are their rates of change related? That is, how does the relationship between the values of the quantities affect the relationship between their respective derivatives with respect to time?</div></li></ul></article><section class="introduction" id="eZU"><div class="para" id="IWr">In most of our applications of the derivative so far, we have been interested in the instantaneous rate at which one variable, say <span class="process-math">\(y\text{,}\)</span> changes with respect to another, say <span class="process-math">\(x\text{,}\)</span> leading us to compute and interpret <span class="process-math">\(\frac{dy}{dx}\text{.}\)</span> We next consider situations where several variable quantities are related, but where each quantity is implicitly a function of time, which will be represented by the variable <span class="process-math">\(t\text{.}\)</span> Through knowing how the quantities are related, we will be interested in determining how their respective rates of change with respect to time are related.</div> <div class="para" id="pdA">For example, suppose that air is being pumped into a spherical balloon so that its volume increases at a constant rate of 20 cubic inches per second. Since the balloon's volume and radius are related, by knowing how fast the volume is changing, we ought to be able to discover how fast the radius is changing. We are interested in questions such as: can we determine how fast the radius of the balloon is increasing at the moment the balloon's diameter is 12 inches?</div> <article class="exploration project-like" id="wJM"><h3 class="heading">
+<article class="objectives goal-like" id="objectives-21"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc"><li id="li-2442"><div class="para" id="p-3888">If two quantities that are related, such as the radius and volume of a spherical balloon, are both changing as implicit functions of time, how are their rates of change related? That is, how does the relationship between the values of the quantities affect the relationship between their respective derivatives with respect to time?</div></li></ul></article><section class="introduction" id="introduction-21"><div class="para" id="p-3889">In most of our applications of the derivative so far, we have been interested in the instantaneous rate at which one variable, say <span class="process-math">\(y\text{,}\)</span> changes with respect to another, say <span class="process-math">\(x\text{,}\)</span> leading us to compute and interpret <span class="process-math">\(\frac{dy}{dx}\text{.}\)</span> We next consider situations where several variable quantities are related, but where each quantity is implicitly a function of time, which will be represented by the variable <span class="process-math">\(t\text{.}\)</span> Through knowing how the quantities are related, we will be interested in determining how their respective rates of change with respect to time are related.</div> <div class="para" id="p-3890">For example, suppose that air is being pumped into a spherical balloon so that its volume increases at a constant rate of 20 cubic inches per second. Since the balloon's volume and radius are related, by knowing how fast the volume is changing, we ought to be able to discover how fast the radius is changing. We are interested in questions such as: can we determine how fast the radius of the balloon is increasing at the moment the balloon's diameter is 12 inches?</div> <article class="exploration project-like" id="PA-3-5"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="QCD">
+<div class="para logical" id="p-3891">
 <div class="para">A spherical balloon is being inflated at a constant rate of 20 cubic inches per second. How fast is the radius of the balloon changing at the instant the balloon's diameter is 12 inches? Is the radius changing more rapidly when <span class="process-math">\(d = 12\)</span> or when <span class="process-math">\(d = 16\text{?}\)</span> Why?</div>
 <ol class="lower-alpha">
-<li id="HiR"><div class="para" id="LSK">Draw several spheres with different radii, and observe that as volume changes, the radius, diameter, and surface area of the balloon also change.</div></li>
-<li id="nqa"><div class="para" id="rZT">Recall that the volume of a sphere of radius <span class="process-math">\(r\)</span> is <span class="process-math">\(V = \frac{4}{3} \pi r^3\text{.}\)</span> Note well that in the setting of this problem, <em class="emphasis">both</em> <span class="process-math">\(V\)</span> and <span class="process-math">\(r\)</span> are changing as time <span class="process-math">\(t\)</span> changes, and thus both <span class="process-math">\(V\)</span> and <span class="process-math">\(r\)</span> may be viewed as implicit functions of <span class="process-math">\(t\text{,}\)</span> with respective derivatives <span class="process-math">\(\frac{dV}{dt}\)</span> and <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span> Differentiate both sides of the equation <span class="process-math">\(V = \frac{4}{3} \pi r^3\)</span> with respect to <span class="process-math">\(t\)</span> (using the chain rule on the right) to find a formula for <span class="process-math">\(\frac{dV}{dt}\)</span> that depends on both <span class="process-math">\(r\)</span> and <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span>
+<li id="li-2443"><div class="para" id="p-3892">Draw several spheres with different radii, and observe that as volume changes, the radius, diameter, and surface area of the balloon also change.</div></li>
+<li id="li-2444"><div class="para" id="p-3893">Recall that the volume of a sphere of radius <span class="process-math">\(r\)</span> is <span class="process-math">\(V = \frac{4}{3} \pi r^3\text{.}\)</span> Note well that in the setting of this problem, <em class="emphasis">both</em> <span class="process-math">\(V\)</span> and <span class="process-math">\(r\)</span> are changing as time <span class="process-math">\(t\)</span> changes, and thus both <span class="process-math">\(V\)</span> and <span class="process-math">\(r\)</span> may be viewed as implicit functions of <span class="process-math">\(t\text{,}\)</span> with respective derivatives <span class="process-math">\(\frac{dV}{dt}\)</span> and <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span> Differentiate both sides of the equation <span class="process-math">\(V = \frac{4}{3} \pi r^3\)</span> with respect to <span class="process-math">\(t\)</span> (using the chain rule on the right) to find a formula for <span class="process-math">\(\frac{dV}{dt}\)</span> that depends on both <span class="process-math">\(r\)</span> and <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span>
 </div></li>
-<li id="Txj"><div class="para" id="Yhc">At this point in the problem, by differentiating we have “related the rates” of change of <span class="process-math">\(V\)</span> and <span class="process-math">\(r\text{.}\)</span> Recall that we are given in the problem that the balloon is being inflated at a constant <em class="emphasis">rate</em> of 20 cubic inches per second. Is this rate the value of <span class="process-math">\(\frac{dr}{dt}\)</span> or <span class="process-math">\(\frac{dV}{dt}\text{?}\)</span> Why?</div></li>
-<li id="zEs"><div class="para" id="Eol">From part (c), we know the value of <span class="process-math">\(\frac{dV}{dt}\)</span> at every value of <span class="process-math">\(t\text{.}\)</span> Next, observe that when the diameter of the balloon is 12, we know the value of the radius. In the equation <span class="process-math">\(\frac{dV}{dt} = 4\pi r^2 \frac{dr}{dt}\text{,}\)</span> substitute these values for the relevant quantities and solve for the remaining unknown quantity, which is <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span> How fast is the radius changing at the instant <span class="process-math">\(d = 12\text{?}\)</span>
+<li id="li-2445"><div class="para" id="p-3894">At this point in the problem, by differentiating we have “related the rates” of change of <span class="process-math">\(V\)</span> and <span class="process-math">\(r\text{.}\)</span> Recall that we are given in the problem that the balloon is being inflated at a constant <em class="emphasis">rate</em> of 20 cubic inches per second. Is this rate the value of <span class="process-math">\(\frac{dr}{dt}\)</span> or <span class="process-math">\(\frac{dV}{dt}\text{?}\)</span> Why?</div></li>
+<li id="li-2446"><div class="para" id="p-3895">From part (c), we know the value of <span class="process-math">\(\frac{dV}{dt}\)</span> at every value of <span class="process-math">\(t\text{.}\)</span> Next, observe that when the diameter of the balloon is 12, we know the value of the radius. In the equation <span class="process-math">\(\frac{dV}{dt} = 4\pi r^2 \frac{dr}{dt}\text{,}\)</span> substitute these values for the relevant quantities and solve for the remaining unknown quantity, which is <span class="process-math">\(\frac{dr}{dt}\text{.}\)</span> How fast is the radius changing at the instant <span class="process-math">\(d = 12\text{?}\)</span>
 </div></li>
-<li id="fLB"><div class="para" id="kvu">How is the situation different when <span class="process-math">\(d = 16\text{?}\)</span> When is the radius changing more rapidly, when <span class="process-math">\(d = 12\)</span> or when <span class="process-math">\(d = 16\text{?}\)</span>
+<li id="li-2447"><div class="para" id="p-3896">How is the situation different when <span class="process-math">\(d = 16\text{?}\)</span> When is the radius changing more rapidly, when <span class="process-math">\(d = 12\)</span> or when <span class="process-math">\(d = 16\text{?}\)</span>
 </div></li>
 </ol>
-</div></article></section><section class="subsection" id="aqb"><h3 class="heading hide-type">
+</div></article></section><section class="subsection" id="subsection-61"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.5.1</span> <span class="title">Related Rates Problems</span>
 </h3>
-<div class="para" id="VkJ">In problems where two or more quantities can be related to one another, and all of the variables involved are implicitly functions of time, <span class="process-math">\(t\text{,}\)</span> we are often interested in how their rates are related; we call these <em class="emphasis">related rates</em> problems.  Once we have an equation establishing the relationship among the variables, we differentiate implicitly with respect to time to find connections among the rates of change.</div>
-<article class="example example-like" id="mEt"><h4 class="heading">
+<div class="para" id="p-3897">In problems where two or more quantities can be related to one another, and all of the variables involved are implicitly functions of time, <span class="process-math">\(t\text{,}\)</span> we are often interested in how their rates are related; we call these <em class="emphasis">related rates</em> problems.  Once we have an equation establishing the relationship among the variables, we differentiate implicitly with respect to time to find connections among the rates of change.</div>
+<article class="example example-like" id="Ex-3-5-FallingSand"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.1</span><span class="period">.</span>
 </h4>
-<div class="para" id="QAQ">Sand is being dumped by a conveyor belt onto a pile so that the sand forms a right circular cone, as pictured in <a href="" class="xref" data-knowl="./knowl/F-3-5-ConeEx.html" title="Figure 3.5.2">Figure 3.5.2</a>.  How are the instantaneous rates of change of the sand's volume, height, and radius related to one another?</div> <figure class="figure figure-like" id="wHZ"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/3_5_ConeEx.svg" role="img" class="contained"></div>
+<div class="para" id="p-3898">Sand is being dumped by a conveyor belt onto a pile so that the sand forms a right circular cone, as pictured in <a href="" class="xref" data-knowl="./knowl/F-3-5-ConeEx.html" title="Figure 3.5.2">Figure 3.5.2</a>.  How are the instantaneous rates of change of the sand's volume, height, and radius related to one another?</div> <figure class="figure figure-like" id="F-3-5-ConeEx"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/3_5_ConeEx.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.2<span class="period">.</span></span><span class="space"> </span>A conical pile of sand.</figcaption></figure><div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-Lhd" id="Lhd"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-Lhd"><div class="solution solution-like">
-<div class="para" id="Hhe">As sand falls from the conveyor belt, several features of the sand pile will change: the volume of the pile will grow, the height will increase, and the radius will get bigger, too. All of these quantities are related to one another, and the rate at which each is changing is related to the rate at which sand falls from the conveyor.</div> <div class="para logical" id="non">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-227" id="solution-227"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-227"><div class="solution solution-like">
+<div class="para" id="p-3899">As sand falls from the conveyor belt, several features of the sand pile will change: the volume of the pile will grow, the height will increase, and the radius will get bigger, too. All of these quantities are related to one another, and the rate at which each is changing is related to the rate at which sand falls from the conveyor.</div> <div class="para logical" id="p-3900">
 <div class="para">We begin by identifying which variables are changing and how they are related. In this problem, we observe that the radius and height of the pile are related to its volume by the standard equation for the volume of a cone,</div>
 <div class="displaymath process-math">
 \begin{equation*}
 V = \frac{1}{3} \pi r^2 h\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="Tvw">
+</div> <div class="para logical" id="p-3901">
 <div class="para">Viewing each of <span class="process-math">\(V\text{,}\)</span> <span class="process-math">\(r\text{,}\)</span> and <span class="process-math">\(h\)</span> as functions of <span class="process-math">\(t\text{,}\)</span> we differentiate implicitly to arrive at an equation that relates their respective rates of change. Taking the derivative of each side of the equation with respect to <span class="process-math">\(t\text{,}\)</span> we find</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{d}{dt}[V] = \frac{d}{dt}\left[\frac{1}{3} \pi r^2 h\right]\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="zCF">
+</div> <div class="para logical" id="p-3902">
 <div class="para">On the left, <span class="process-math">\(\frac{d}{dt}[V]\)</span> is simply <span class="process-math">\(\frac{dV}{dt}\text{.}\)</span> On the right, the situation is more complicated, as both <span class="process-math">\(r\)</span> and <span class="process-math">\(h\)</span> are implicit functions of <span class="process-math">\(t\text{.}\)</span> Hence we need the product and chain rules. We find that</div>
-<div class="displaymath process-math" id="joo">
+<div class="displaymath process-math" id="md-73">
 \begin{align*}
 \frac{dV}{dt} &amp;=  \frac{d}{dt}\left[\frac{1}{3} \pi r^2 h\right]\\
 &amp;=  \frac{1}{3} \pi r^2 \frac{d}{dt}[h] + \frac{1}{3} \pi h \frac{d}{dt}[r^2]\\
 &amp;=  \frac{1}{3} \pi r^2 \frac{dh}{dt} + \frac{1}{3} \pi h 2r \frac{dr}{dt}
 \end{align*}
 </div>
-</div> <div class="para" id="fJO">(Note particularly how we are using ideas from <a href="sec-2-7-implicit.html" class="internal" title="Section 2.7: Derivatives of Functions Given Implicitly">Section 2.7</a> on implicit differentiation. There we found that when <span class="process-math">\(y\)</span> is an implicit function of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[y^2] = 2y \frac{dy}{dx}\text{.}\)</span> The same principles are applied here when we compute <span class="process-math">\(\frac{d}{dt}[r^2] = 2r \frac{dr}{dt}\text{.}\)</span>)</div> <div class="para logical" id="LQX">
+</div> <div class="para" id="p-3903">(Note particularly how we are using ideas from <a href="sec-2-7-implicit.html" class="internal" title="Section 2.7: Derivatives of Functions Given Implicitly">Section 2.7</a> on implicit differentiation. There we found that when <span class="process-math">\(y\)</span> is an implicit function of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[y^2] = 2y \frac{dy}{dx}\text{.}\)</span> The same principles are applied here when we compute <span class="process-math">\(\frac{d}{dt}[r^2] = 2r \frac{dr}{dt}\text{.}\)</span>)</div> <div class="para logical" id="p-3904">
 <div class="para">The equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -808,28 +895,28 @@ V = \frac{1}{3} \pi r^2 h\text{.}
 </div>
 </div>
 </div></div>
-</div></article><div class="para" id="BrS">If we are given sufficient additional information, we may then find the value of one or more of these rates of change at a specific point in time.</div>
-<article class="example example-like" id="SLC"><h4 class="heading">
+</div></article><div class="para" id="p-3905">If we are given sufficient additional information, we may then find the value of one or more of these rates of change at a specific point in time.</div>
+<article class="example example-like" id="example-31"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.5.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="cPi">In the setting of <a href="" class="xref" data-knowl="./knowl/Ex-3-5-FallingSand.html" title="Example 3.5.1">Example 3.5.1</a>, suppose we also know the following: (a) sand falls from the conveyor in such a way that the height of the pile is always half the radius, and (b) sand falls from the conveyor belt at a constant rate of 10 cubic feet per minute. How fast is the height of the sandpile changing at the moment the radius is 4 feet?</div>
+<div class="para" id="p-3906">In the setting of <a href="" class="xref" data-knowl="./knowl/Ex-3-5-FallingSand.html" title="Example 3.5.1">Example 3.5.1</a>, suppose we also know the following: (a) sand falls from the conveyor in such a way that the height of the pile is always half the radius, and (b) sand falls from the conveyor belt at a constant rate of 10 cubic feet per minute. How fast is the height of the sandpile changing at the moment the radius is 4 feet?</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-rom" id="rom"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-rom"><div class="solution solution-like">
-<div class="para logical" id="rYg">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-228" id="solution-228"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-228"><div class="solution solution-like">
+<div class="para logical" id="p-3907">
 <div class="para">The information that the height is always half the radius tells us that for all values of <span class="process-math">\(t\text{,}\)</span> <span class="process-math">\(h = \frac{1}{2}r\text{.}\)</span> Differentiating with respect to <span class="process-math">\(t\text{,}\)</span> it follows that <span class="process-math">\(\frac{dh}{dt} = \frac{1}{2} \frac{dr}{dt}\text{.}\)</span> These relationships enable us to relate <span class="process-math">\(\frac{dV}{dt}\)</span> to just one of <span class="process-math">\(r\)</span> or <span class="process-math">\(h\text{.}\)</span> Substituting the expressions involving <span class="process-math">\(r\)</span> and <span class="process-math">\(\frac{dr}{dt}\)</span> for <span class="process-math">\(h\)</span> and <span class="process-math">\(\frac{dh}{dt}\text{,}\)</span> we now have that</div>
-<div class="displaymath process-math" id="vCG">
+<div class="displaymath process-math" id="E-ConeRR">
 \begin{equation}
 \frac{dV}{dt} = \frac{1}{3} \pi r^2 \cdot \frac{1}{2} \frac{dr}{dt} + \frac{2}{3} \pi r \cdot \frac{1}{2}r \cdot \frac{dr}{dt}\text{.}\tag{3.5.1}
 \end{equation}
 </div>
-</div> <div class="para logical" id="Yfp">
+</div> <div class="para logical" id="p-3908">
 <div class="para">Since sand falls from the conveyor at the constant rate of 10 cubic feet per minute, the value of <span class="process-math">\(\frac{dV}{dt}\text{,}\)</span> the rate at which the volume of the sand pile changes, is <span class="process-math">\(\frac{dV}{dt} = 10\)</span> ft<span class="process-math">\(^3\)</span>/min. We are interested in how fast the height of the pile is changing at the instant when <span class="process-math">\(r = 4\text{,}\)</span> so we substitute <span class="process-math">\(r = 4\)</span> and <span class="process-math">\(\frac{dV}{dt} = 10\)</span> into Equation <a href="" class="xref" data-knowl="./knowl/E-ConeRR.html" title="Equation 3.5.1">(3.5.1)</a>, to find</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/E-ConeRR.html">
 \begin{equation*}
 10 = \frac{1}{3} \pi 4^2 \cdot \frac{1}{2}  \left. \frac{dr}{dt} \right|_{r=4} + \frac{2}{3} \pi 4 \cdot \frac{1}{2}4 \cdot \left. \frac{dr}{dt} \right|_{r=4} = \frac{8}{3}\pi \left. \frac{dr}{dt} \right|_{r=4} + \frac{16}{3} \pi \left. \frac{dr}{dt} \right|_{r=4}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="Emy">
+</div> <div class="para logical" id="p-3909">
 <div class="para">Only the value of <span class="process-math">\(\left. \frac{dr}{dt} \right|_{r=4}\)</span> remains unknown. We combine like terms on the right side of the equation above to get <span class="process-math">\(10 = 8 \pi \left. \frac{dr}{dt} \right|_{r=4}\text{,}\)</span> and solve for <span class="process-math">\(\left. \frac{dr}{dt} \right|_{r=4}\)</span> to find</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -844,9 +931,9 @@ V = \frac{1}{3} \pi r^2 h\text{.}
 </div>
 </div>
 </div></div>
-</div></article><div class="para" id="hzb">Note the difference between the notations <span class="process-math">\(\frac{dr}{dt}\)</span> and <span class="process-math">\(\left. \frac{dr}{dt} \right|_{r=4}\text{.}\)</span> The former represents the rate of change of <span class="process-math">\(r\)</span> with respect to <span class="process-math">\(t\)</span> at an arbitrary value of <span class="process-math">\(t\text{,}\)</span> while the latter is the rate of change of <span class="process-math">\(r\)</span> with respect to <span class="process-math">\(t\)</span> at a particular moment, the moment when <span class="process-math">\(r = 4\text{.}\)</span>
+</div></article><div class="para" id="p-3910">Note the difference between the notations <span class="process-math">\(\frac{dr}{dt}\)</span> and <span class="process-math">\(\left. \frac{dr}{dt} \right|_{r=4}\text{.}\)</span> The former represents the rate of change of <span class="process-math">\(r\)</span> with respect to <span class="process-math">\(t\)</span> at an arbitrary value of <span class="process-math">\(t\text{,}\)</span> while the latter is the rate of change of <span class="process-math">\(r\)</span> with respect to <span class="process-math">\(t\)</span> at a particular moment, the moment when <span class="process-math">\(r = 4\text{.}\)</span>
 </div>
-<div class="para logical" id="NGk">
+<div class="para logical" id="p-3911">
 <div class="para">Had we known that <span class="process-math">\(h = \frac{1}{2}r\)</span> at the beginning of <a href="" class="xref" data-knowl="./knowl/Ex-3-5-FallingSand.html" title="Example 3.5.1">Example 3.5.1</a>, we could have immediately simplified our work by writing <span class="process-math">\(V\)</span> solely in terms of <span class="process-math">\(r\)</span> to have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-3-5-FallingSand.html">
 \begin{equation*}
@@ -854,7 +941,7 @@ V = \frac{1}{3} \pi r^2 \left(\frac{1}{2}h\right) = \frac{1}{6} \pi r^3\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="tNt">
+<div class="para logical" id="p-3912">
 <div class="para">From this last equation, differentiating with respect to <span class="process-math">\(t\)</span> implies</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -863,77 +950,77 @@ V = \frac{1}{3} \pi r^2 \left(\frac{1}{2}h\right) = \frac{1}{6} \pi r^3\text{.}
 </div>
 <div class="para">from which the same conclusions can be made.</div>
 </div>
-<div class="para" id="ZUC">Our work with the sandpile problem above is similar in many ways to our approach in <a href="" class="xref" data-knowl="./knowl/PA-3-5.html" title="Preview Activity 3.5.1">Preview Activity 3.5.1</a>, and these steps are typical of most related rates problems. In certain ways, they also resemble work we do in applied optimization problems, and here we summarize the main approach for consideration in subsequent problems.</div>
-<article class="note remark-like" id="Xvv"><h4 class="heading">
+<div class="para" id="p-3913">Our work with the sandpile problem above is similar in many ways to our approach in <a href="" class="xref" data-knowl="./knowl/PA-3-5.html" title="Preview Activity 3.5.1">Preview Activity 3.5.1</a>, and these steps are typical of most related rates problems. In certain ways, they also resemble work we do in applied optimization problems, and here we summarize the main approach for consideration in subsequent problems.</div>
+<article class="note remark-like" id="note-6"><h4 class="heading">
 <span class="type">Note</span><span class="space"> </span><span class="codenumber">3.5.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="ktH"><ul class="disc">
-<li id="Imx"><div class="para" id="xNs">Identify the quantities in the problem that are changing and choose clearly defined variable names for them. Draw one or more figures that clearly represent the situation.</div></li>
-<li id="otG"><div class="para" id="dUB">Determine all rates of change that are known or given and identify the rate(s) of change to be found.</div></li>
-<li id="UAP"><div class="para" id="KbK">Find an equation that relates the variables whose rates of change are known to those variables whose rates of change are to be found.</div></li>
-<li id="AHY"><div class="para" id="qiT">Differentiate implicitly with respect to <span class="process-math">\(t\)</span> to relate the rates of change of the involved quantities.</div></li>
-<li id="gPh"><div class="para" id="Wqc">Evaluate the derivatives and variables at the information relevant to the instant at which a certain rate of change is sought. Use proper notation to identify when a derivative is being evaluated at a particular instant, such as <span class="process-math">\(\left. \frac{dr}{dt} \right|_{r=4}\text{.}\)</span>
+<div class="para logical" id="p-3914"><ul class="disc">
+<li id="li-2448"><div class="para" id="p-3915">Identify the quantities in the problem that are changing and choose clearly defined variable names for them. Draw one or more figures that clearly represent the situation.</div></li>
+<li id="li-2449"><div class="para" id="p-3916">Determine all rates of change that are known or given and identify the rate(s) of change to be found.</div></li>
+<li id="li-2450"><div class="para" id="p-3917">Find an equation that relates the variables whose rates of change are known to those variables whose rates of change are to be found.</div></li>
+<li id="li-2451"><div class="para" id="p-3918">Differentiate implicitly with respect to <span class="process-math">\(t\)</span> to relate the rates of change of the involved quantities.</div></li>
+<li id="li-2452"><div class="para" id="p-3919">Evaluate the derivatives and variables at the information relevant to the instant at which a certain rate of change is sought. Use proper notation to identify when a derivative is being evaluated at a particular instant, such as <span class="process-math">\(\left. \frac{dr}{dt} \right|_{r=4}\text{.}\)</span>
 </div></li>
-</ul></div></article><div class="para logical" id="GbL">
+</ul></div></article><div class="para logical" id="p-3920">
 <div class="para">When identifying variables and drawing a picture, it is important to think about the dynamic ways in which the quantities change. Sometimes a sequence of pictures can be helpful; for some pictures that can be easily modified as applets built in Geogebra, see the following links,<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-61" id="fn-61"><sup> 1 </sup></a> which represent</div>
 <ul class="disc">
-<li id="MWq"><div class="para" id="Cxl">how a circular oil slick's <a class="external" href="https://gvsu.edu/s/9n" target="_blank">area grows</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-62" id="fn-62"><sup> 2 </sup></a> as its radius increases;</div></li>
-<li id="tdz"><div class="para" id="iEu">how the location of the base of a ladder and its <a class="external" href="https://gvsu.edu/s/9o" target="_blank">height along a wall change</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-63" id="fn-63"><sup> 3 </sup></a> as the ladder slides;</div></li>
-<li id="ZkI"><div class="para" id="OLD">how the <a class="external" href="https://gvsu.edu/s/9p" target="_blank">water level changes</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-64" id="fn-64"><sup> 4 </sup></a> in a conical tank as it fills with water at a constant rate (compare the problem in <a href="" class="xref" data-knowl="./knowl/act-3-5-1.html" title="Activity 3.5.2">Activity 3.5.2</a>);</div></li>
-<li id="FrR"><div class="para" id="uSM">how a skateboarder's <a class="external" href="https://gvsu.edu/s/9q" target="_blank">shadow changes</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-65" id="fn-65"><sup> 5 </sup></a> as he moves past a lamppost.</div></li>
+<li id="li-2453"><div class="para" id="p-3921">how a circular oil slick's <a class="external" href="https://gvsu.edu/s/9n" target="_blank">area grows</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-62" id="fn-62"><sup> 2 </sup></a> as its radius increases;</div></li>
+<li id="li-2454"><div class="para" id="p-3922">how the location of the base of a ladder and its <a class="external" href="https://gvsu.edu/s/9o" target="_blank">height along a wall change</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-63" id="fn-63"><sup> 3 </sup></a> as the ladder slides;</div></li>
+<li id="li-2455"><div class="para" id="p-3923">how the <a class="external" href="https://gvsu.edu/s/9p" target="_blank">water level changes</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-64" id="fn-64"><sup> 4 </sup></a> in a conical tank as it fills with water at a constant rate (compare the problem in <a href="" class="xref" data-knowl="./knowl/act-3-5-1.html" title="Activity 3.5.2">Activity 3.5.2</a>);</div></li>
+<li id="li-2456"><div class="para" id="p-3924">how a skateboarder's <a class="external" href="https://gvsu.edu/s/9q" target="_blank">shadow changes</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-65" id="fn-65"><sup> 5 </sup></a> as he moves past a lamppost.</div></li>
 </ul>
 </div>
-<div class="para" id="miU">Drawing well-labeled diagrams and envisioning how different parts of the figure change is a key part of understanding related rates problems and being successful at solving them.</div>
-<article class="activity project-like" id="DEn"><h4 class="heading">
+<div class="para" id="p-3925">Drawing well-labeled diagrams and envisioning how different parts of the figure change is a key part of understanding related rates problems and being successful at solving them.</div>
+<article class="activity project-like" id="act-3-5-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.5.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="mGc">
+<div class="para logical" id="p-3926">
 <div class="para">A water tank has the shape of an inverted circular cone (point down) with a base of radius 6 feet and a depth of 8 feet. Suppose that water is being pumped into the tank at a constant instantaneous rate of 4 cubic feet per minute.</div>
 <ol class="lower-alpha">
-<li id="wvn"><div class="para" id="bxd">Draw a picture of the conical tank, including a sketch of the water level at a point in time when the tank is not yet full. Introduce variables that measure the radius of the water's surface and the water's depth in the tank, and label them on your figure.</div></li>
-<li id="cCw"><div class="para" id="HEm">Say that <span class="process-math">\(r\)</span> is the radius and <span class="process-math">\(h\)</span> the depth of the water at a given time, <span class="process-math">\(t\text{.}\)</span> What equation relates the radius and height of the water, and why?</div></li>
-<li id="IJF"><div class="para" id="nLv">Determine an equation that relates the volume of water in the tank at time <span class="process-math">\(t\)</span> to the depth <span class="process-math">\(h\)</span> of the water at that time.</div></li>
-<li id="oQO"><div class="para" id="TSE">Through differentiation, find an equation that relates the instantaneous rate of change of water volume with respect to time to the instantaneous rate of change of water depth at time <span class="process-math">\(t\text{.}\)</span>
+<li id="li-2457"><div class="para" id="p-3927">Draw a picture of the conical tank, including a sketch of the water level at a point in time when the tank is not yet full. Introduce variables that measure the radius of the water's surface and the water's depth in the tank, and label them on your figure.</div></li>
+<li id="li-2458"><div class="para" id="p-3928">Say that <span class="process-math">\(r\)</span> is the radius and <span class="process-math">\(h\)</span> the depth of the water at a given time, <span class="process-math">\(t\text{.}\)</span> What equation relates the radius and height of the water, and why?</div></li>
+<li id="li-2459"><div class="para" id="p-3929">Determine an equation that relates the volume of water in the tank at time <span class="process-math">\(t\)</span> to the depth <span class="process-math">\(h\)</span> of the water at that time.</div></li>
+<li id="li-2460"><div class="para" id="p-3930">Through differentiation, find an equation that relates the instantaneous rate of change of water volume with respect to time to the instantaneous rate of change of water depth at time <span class="process-math">\(t\text{.}\)</span>
 </div></li>
-<li id="UXX"><div class="para" id="zZN">Find the instantaneous rate at which the water level is rising when the water in the tank is 3 feet deep.</div></li>
-<li id="Bfg"><div class="para" id="ggW">When is the water rising most rapidly: at <span class="process-math">\(h = 3\text{,}\)</span> <span class="process-math">\(h = 4\text{,}\)</span> or <span class="process-math">\(h = 5\text{?}\)</span>
+<li id="li-2461"><div class="para" id="p-3931">Find the instantaneous rate at which the water level is rising when the water in the tank is 3 feet deep.</div></li>
+<li id="li-2462"><div class="para" id="p-3932">When is the water rising most rapidly: at <span class="process-math">\(h = 3\text{,}\)</span> <span class="process-math">\(h = 4\text{,}\)</span> or <span class="process-math">\(h = 5\text{?}\)</span>
 </div></li>
 </ol>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original has-image" data-refid="hk-rLu" id="rLu"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-rLu"><div class="hint solution-like"><div class="para logical" id="GyT"><ol class="lower-alpha">
-<li id="hmp"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/3_5_Act1Soln.svg" role="img" class="contained"></div></div></div></li>
-<li id="Nty"><div class="para" id="Mof">Think about similar triangles.</div></li>
-<li id="tAH"><div class="para" id="svo">Recall that the volume of a cone is <span class="process-math">\(V = \frac{1}{3} \pi r^2 h\text{.}\)</span>
+<a href="" data-knowl="" class="id-ref hint-knowl original has-image" data-refid="hk-hint-60" id="hint-60"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-60"><div class="hint solution-like"><div class="para logical" id="p-3933"><ol class="lower-alpha">
+<li id="li-2463"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/3_5_Act1Soln.svg" role="img" class="contained"></div></div></div></li>
+<li id="li-2464"><div class="para" id="p-3934">Think about similar triangles.</div></li>
+<li id="li-2465"><div class="para" id="p-3935">Recall that the volume of a cone is <span class="process-math">\(V = \frac{1}{3} \pi r^2 h\text{.}\)</span>
 </div></li>
-<li id="ZHQ"><div class="para" id="YCx">Remember to differentiate implicitly with respect to <span class="process-math">\(t\text{.}\)</span>
+<li id="li-2466"><div class="para" id="p-3936">Remember to differentiate implicitly with respect to <span class="process-math">\(t\text{.}\)</span>
 </div></li>
-<li id="FOZ"><div class="para" id="EJG">Use <span class="process-math">\(h = 3\)</span> and the fact that the value of <span class="process-math">\(\frac{dV}{dt}\)</span> is given.</div></li>
-<li id="lWi"><div class="para" id="kQP">Consider <a class="external" href="https://gvsu.edu/s/9p" target="_blank">this visualization</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-66" id="fn-66"><sup> 6 </sup></a>. Why does this phenomenon occur?</div></li>
+<li id="li-2467"><div class="para" id="p-3937">Use <span class="process-math">\(h = 3\)</span> and the fact that the value of <span class="process-math">\(\frac{dV}{dt}\)</span> is given.</div></li>
+<li id="li-2468"><div class="para" id="p-3938">Consider <a class="external" href="https://gvsu.edu/s/9p" target="_blank">this visualization</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-66" id="fn-66"><sup> 6 </sup></a>. Why does this phenomenon occur?</div></li>
 </ol></div></div></div>
-</div></article><div class="para" id="Sqd">Recognizing which geometric relationships are relevant in a given problem is often the key to finding the function to optimize. For instance, although the problem in <a href="" class="xref" data-knowl="./knowl/act-3-5-1.html" title="Activity 3.5.2">Activity 3.5.2</a> is about a conical tank, the most important fact is that there are two similar right triangles involved. In another setting, we might use the Pythagorean Theorem to relate the legs of the triangle. But in the conical tank, the fact that the water fills the tank so that that the ratio of radius to depth is constant turns out to be the important relationship. In other situations where a changing angle is involved, trigonometric functions may provide the means to find relationships among various parts of the triangle.</div>
-<article class="activity project-like" id="MCA"><h4 class="heading">
+</div></article><div class="para" id="p-3952">Recognizing which geometric relationships are relevant in a given problem is often the key to finding the function to optimize. For instance, although the problem in <a href="" class="xref" data-knowl="./knowl/act-3-5-1.html" title="Activity 3.5.2">Activity 3.5.2</a> is about a conical tank, the most important fact is that there are two similar right triangles involved. In another setting, we might use the Pythagorean Theorem to relate the legs of the triangle. But in the conical tank, the fact that the water fills the tank so that that the ratio of radius to depth is constant turns out to be the important relationship. In other situations where a changing angle is involved, trigonometric functions may provide the means to find relationships among various parts of the triangle.</div>
+<article class="activity project-like" id="act-3-5-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.5.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="yyV">
+<div class="para logical" id="p-3953">
 <div class="para">A television camera is positioned 4000 feet from the base of a rocket launching pad. The angle of elevation of the camera has to change at the correct rate in order to keep the rocket in sight. In addition, the auto-focus of the camera has to take into account the increasing distance between the camera and the rocket. We assume that the rocket rises vertically. (A similar problem is discussed and <a class="external" href="https://gvsu.edu/s/9t" target="_blank">pictured dynamically</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-67" id="fn-67"><sup> 7 </sup></a>. Exploring the applet at the link will be helpful to you in answering the questions that follow.)</div>
 <ol class="lower-alpha">
-<li id="AJH"><div class="para" id="Txf">Draw a figure that summarizes the given situation. What parts of the picture are changing? What parts are constant? Introduce appropriate variables to represent the quantities that are changing.</div></li>
-<li id="gQQ"><div class="para" id="zEo">Find an equation that relates the camera's angle of elevation to the height of the rocket, and then find an equation that relates the instantaneous rate of change of the camera's elevation angle to the instantaneous rate of change of the rocket's height (where all rates of change are with respect to time).</div></li>
-<li id="MXZ"><div class="para" id="fLx">Find an equation that relates the distance from the camera to the rocket to the rocket's height, as well as an equation that relates the instantaneous rate of change of distance from the camera to the rocket to the instantaneous rate of change of the rocket's height (where all rates of change are with respect to time).</div></li>
-<li id="tfi"><div class="para" id="LSG">Suppose that the rocket's speed is 600 ft/sec at the instant it has risen 3000 feet. How fast is the distance from the television camera to the rocket changing at that moment? If the camera is following the rocket, how fast is the camera's angle of elevation changing at that same moment?</div></li>
-<li id="Zmr"><div class="para" id="rZP">If from an elevation of 3000 feet onward the rocket continues to rise at 600 feet/sec, will the rate of change of distance with respect to time be greater when the elevation is 4000 feet than it was at 3000 feet, or less? Why?</div></li>
+<li id="li-2481"><div class="para" id="p-3954">Draw a figure that summarizes the given situation. What parts of the picture are changing? What parts are constant? Introduce appropriate variables to represent the quantities that are changing.</div></li>
+<li id="li-2482"><div class="para" id="p-3955">Find an equation that relates the camera's angle of elevation to the height of the rocket, and then find an equation that relates the instantaneous rate of change of the camera's elevation angle to the instantaneous rate of change of the rocket's height (where all rates of change are with respect to time).</div></li>
+<li id="li-2483"><div class="para" id="p-3956">Find an equation that relates the distance from the camera to the rocket to the rocket's height, as well as an equation that relates the instantaneous rate of change of distance from the camera to the rocket to the instantaneous rate of change of the rocket's height (where all rates of change are with respect to time).</div></li>
+<li id="li-2484"><div class="para" id="p-3957">Suppose that the rocket's speed is 600 ft/sec at the instant it has risen 3000 feet. How fast is the distance from the television camera to the rocket changing at that moment? If the camera is following the rocket, how fast is the camera's angle of elevation changing at that same moment?</div></li>
+<li id="li-2485"><div class="para" id="p-3958">If from an elevation of 3000 feet onward the rocket continues to rise at 600 feet/sec, will the rate of change of distance with respect to time be greater when the elevation is 4000 feet than it was at 3000 feet, or less? Why?</div></li>
 </ol>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-vZO" id="vZO"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-vZO"><div class="hint solution-like"><div class="para logical" id="SrM"><ol class="lower-alpha">
-<li id="FtA"><div class="para" id="YgY">Let <span class="process-math">\(\theta\)</span> represent the camera angle and note that one leg of the right triangle is constant. Which two are changing?</div></li>
-<li id="lAJ"><div class="para" id="Eoh">Think trigonometrically.</div></li>
-<li id="RHS"><div class="para" id="kvq">Think like Pythagoras.</div></li>
-<li id="xPb"><div class="para" id="QCz">Use the facts that <span class="process-math">\(h = 3000\)</span> and <span class="process-math">\(\frac{dh}{dt} = 600\)</span> in your preceding work.</div></li>
-<li id="dWk"><div class="para" id="wJI">You can answer this question intuitively or by changing the value of <span class="process-math">\(h\)</span> in your work in (d).</div></li>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-61" id="hint-61"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-61"><div class="hint solution-like"><div class="para logical" id="p-3959"><ol class="lower-alpha">
+<li id="li-2486"><div class="para" id="p-3960">Let <span class="process-math">\(\theta\)</span> represent the camera angle and note that one leg of the right triangle is constant. Which two are changing?</div></li>
+<li id="li-2487"><div class="para" id="p-3961">Think trigonometrically.</div></li>
+<li id="li-2488"><div class="para" id="p-3962">Think like Pythagoras.</div></li>
+<li id="li-2489"><div class="para" id="p-3963">Use the facts that <span class="process-math">\(h = 3000\)</span> and <span class="process-math">\(\frac{dh}{dt} = 600\)</span> in your preceding work.</div></li>
+<li id="li-2490"><div class="para" id="p-3964">You can answer this question intuitively or by changing the value of <span class="process-math">\(h\)</span> in your work in (d).</div></li>
 </ol></div></div></div>
-</div></article><div class="para logical" id="yxm">
+</div></article><div class="para logical" id="p-3976">
 <div class="para">In addition to finding instantaneous rates of change at particular points in time, we can often make more general observations about how particular rates themselves will change over time. For instance, when a conical tank is filling with water at a constant rate, it seems obvious that the depth of the water should increase more slowly over time. Note how carefully we must phrase the relationship: we mean to say that while the depth, <span class="process-math">\(h\text{,}\)</span> of the water is increasing, its rate of change, <span class="process-math">\(\frac{dh}{dt}\text{,}\)</span> is decreasing (both as a function of <span class="process-math">\(t\)</span> and as a function of <span class="process-math">\(h\)</span>). We make this observation by solving the equation that relates the various rates for one particular rate, without substituting any particular values for known variables or rates. For instance, in the conical tank problem in <a href="" class="xref" data-knowl="./knowl/act-3-5-1.html" title="Activity 3.5.2">Activity 3.5.2</a>, we established that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/act-3-5-1.html">
 \begin{equation*}
@@ -947,46 +1034,46 @@ V = \frac{1}{3} \pi r^2 \left(\frac{1}{2}h\right) = \frac{1}{6} \pi r^3\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="eEv">Provided that <span class="process-math">\(\frac{dV}{dt}\)</span> is constant, it is immediately apparent that as <span class="process-math">\(h\)</span> gets larger, <span class="process-math">\(\frac{dh}{dt}\)</span> will get smaller but remain positive. Hence, the depth of the water is increasing at a decreasing rate.</div>
-<article class="activity project-like" id="dfm"><h4 class="heading">
+<div class="para" id="p-3977">Provided that <span class="process-math">\(\frac{dV}{dt}\)</span> is constant, it is immediately apparent that as <span class="process-math">\(h\)</span> gets larger, <span class="process-math">\(\frac{dh}{dt}\)</span> will get smaller but remain positive. Hence, the depth of the water is increasing at a decreasing rate.</div>
+<article class="activity project-like" id="act-3-5-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.5.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="ECC">
+<div class="para logical" id="p-3978">
 <div class="para">As pictured in the <a class="external" href="https://gvsu.edu/s/9q" target="_blank">applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-68" id="fn-68"><sup> 8 </sup></a>, a skateboarder who is 6 feet tall rides under a 15 foot tall lamppost at a constant rate of 3 feet per second. We are interested in understanding how fast his shadow is changing at various points in time.</div>
 <ol class="lower-alpha">
-<li id="JHU"><div class="para" id="AYc">Draw an appropriate right triangle that represents a snapshot in time of the skateboarder, lamppost, and his shadow. Let <span class="process-math">\(x\)</span> denote the horizontal distance from the base of the lamppost to the skateboarder and <span class="process-math">\(s\)</span> represent the length of his shadow. Label these quantities, as well as the skateboarder's height and the lamppost's height on the diagram.</div></li>
-<li id="pPd"><div class="para" id="hfl">Observe that the skateboarder and the lamppost represent parallel line segments in the diagram, and thus similar triangles are present. Use similar triangles to establish an equation that relates <span class="process-math">\(x\)</span> and <span class="process-math">\(s\text{.}\)</span>
+<li id="li-2501"><div class="para" id="p-3979">Draw an appropriate right triangle that represents a snapshot in time of the skateboarder, lamppost, and his shadow. Let <span class="process-math">\(x\)</span> denote the horizontal distance from the base of the lamppost to the skateboarder and <span class="process-math">\(s\)</span> represent the length of his shadow. Label these quantities, as well as the skateboarder's height and the lamppost's height on the diagram.</div></li>
+<li id="li-2502"><div class="para" id="p-3980">Observe that the skateboarder and the lamppost represent parallel line segments in the diagram, and thus similar triangles are present. Use similar triangles to establish an equation that relates <span class="process-math">\(x\)</span> and <span class="process-math">\(s\text{.}\)</span>
 </div></li>
-<li id="VWm"><div class="para" id="Nmu">Use your work in (b) to find an equation that relates <span class="process-math">\(\frac{dx}{dt}\)</span> and <span class="process-math">\(\frac{ds}{dt}\text{.}\)</span>
+<li id="li-2503"><div class="para" id="p-3981">Use your work in (b) to find an equation that relates <span class="process-math">\(\frac{dx}{dt}\)</span> and <span class="process-math">\(\frac{ds}{dt}\text{.}\)</span>
 </div></li>
-<li id="Cdv"><div class="para" id="ttD">At what rate is the length of the skateboarder's shadow increasing at the instant the skateboarder is 8 feet from the lamppost?</div></li>
-<li id="ikE"><div class="para" id="ZAM">As the skateboarder's distance from the lamppost increases, is his shadow's length increasing at an increasing rate, increasing at a decreasing rate, or increasing at a constant rate?</div></li>
-<li id="OrN"><div class="para" id="FHV">Which is moving more rapidly: the skateboarder or the tip of his shadow? Explain, and justify your answer.</div></li>
+<li id="li-2504"><div class="para" id="p-3982">At what rate is the length of the skateboarder's shadow increasing at the instant the skateboarder is 8 feet from the lamppost?</div></li>
+<li id="li-2505"><div class="para" id="p-3983">As the skateboarder's distance from the lamppost increases, is his shadow's length increasing at an increasing rate, increasing at a decreasing rate, or increasing at a constant rate?</div></li>
+<li id="li-2506"><div class="para" id="p-3984">Which is moving more rapidly: the skateboarder or the tip of his shadow? Explain, and justify your answer.</div></li>
 </ol>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-EYb" id="EYb"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-EYb"><div class="hint solution-like"><div class="para logical" id="Yvt"><ol class="lower-alpha">
-<li id="uyW"><div class="para" id="lPe">Note that the lengths of the legs of the right triangle will be <span class="process-math">\(15\)</span> for the vertical one and <span class="process-math">\(x + s\)</span> for the horizontal one.</div></li>
-<li id="aGf"><div class="para" id="RWn">The small triangle formed by the skateboarder and his shadow, with legs <span class="process-math">\(6\)</span> and <span class="process-math">\(s\)</span> is similar to the large triangle that has the lamppost as one of its legs.</div></li>
-<li id="GNo"><div class="para" id="ydw">Simplify the equation in (b) as much as possible before differentiating implicitly with respect to <span class="process-math">\(t\text{.}\)</span>
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-62" id="hint-62"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-62"><div class="hint solution-like"><div class="para logical" id="p-3985"><ol class="lower-alpha">
+<li id="li-2507"><div class="para" id="p-3986">Note that the lengths of the legs of the right triangle will be <span class="process-math">\(15\)</span> for the vertical one and <span class="process-math">\(x + s\)</span> for the horizontal one.</div></li>
+<li id="li-2508"><div class="para" id="p-3987">The small triangle formed by the skateboarder and his shadow, with legs <span class="process-math">\(6\)</span> and <span class="process-math">\(s\)</span> is similar to the large triangle that has the lamppost as one of its legs.</div></li>
+<li id="li-2509"><div class="para" id="p-3988">Simplify the equation in (b) as much as possible before differentiating implicitly with respect to <span class="process-math">\(t\text{.}\)</span>
 </div></li>
-<li id="mUx"><div class="para" id="ekF">Find <span class="process-math">\(\left. \frac{ds}{dt} \right|_{x=8}\text{.}\)</span>
+<li id="li-2510"><div class="para" id="p-3989">Find <span class="process-math">\(\left. \frac{ds}{dt} \right|_{x=8}\text{.}\)</span>
 </div></li>
-<li id="TbG"><div class="para" id="KrO">Does the equation that relates <span class="process-math">\(\frac{dx}{dt}\)</span> and <span class="process-math">\(\frac{ds}{dt}\)</span> involve <span class="process-math">\(x\text{?}\)</span> Is <span class="process-math">\(\frac{dx}{dt}\)</span> changing or constant?</div></li>
-<li id="ziP"><div class="para" id="qyX">Let <span class="process-math">\(y\)</span> represent the location of the tip of the shadow, so that <span class="process-math">\(y = x + s\text{.}\)</span>
+<li id="li-2511"><div class="para" id="p-3990">Does the equation that relates <span class="process-math">\(\frac{dx}{dt}\)</span> and <span class="process-math">\(\frac{ds}{dt}\)</span> involve <span class="process-math">\(x\text{?}\)</span> Is <span class="process-math">\(\frac{dx}{dt}\)</span> changing or constant?</div></li>
+<li id="li-2512"><div class="para" id="p-3991">Let <span class="process-math">\(y\)</span> represent the location of the tip of the shadow, so that <span class="process-math">\(y = x + s\text{.}\)</span>
 </div></li>
 </ol></div></div></div>
-</div></article><div class="para" id="KLE">In the first three activities of this section, we provided guided instruction to build a solution in a step by step way. For the closing activity and the following exercises, most of the detailed work is left to the reader.</div>
-<article class="activity project-like" id="MQV"><h4 class="heading">
+</div></article><div class="para" id="p-4005">In the first three activities of this section, we provided guided instruction to build a solution in a step by step way. For the closing activity and the following exercises, most of the detailed work is left to the reader.</div>
+<article class="activity project-like" id="act-3-5-4"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.5.5</span><span class="period">.</span>
 </h4>
-<div class="para" id="riR">A baseball diamond is <span class="process-math">\(90'\)</span> square. A batter hits a ball along the third base line and runs to first base. At what rate is the distance between the ball and first base changing when the ball is halfway to third base, if at that instant the ball is traveling <span class="process-math">\(100\)</span> feet/sec? At what rate is the distance between the ball and the runner changing at the same instant, if at the same instant the runner is <span class="process-math">\(1/8\)</span> of the way to first base running at <span class="process-math">\(30\)</span> feet/sec?</div>
+<div class="para" id="p-4006">A baseball diamond is <span class="process-math">\(90'\)</span> square. A batter hits a ball along the third base line and runs to first base. At what rate is the distance between the ball and first base changing when the ball is halfway to third base, if at that instant the ball is traveling <span class="process-math">\(100\)</span> feet/sec? At what rate is the distance between the ball and the runner changing at the same instant, if at the same instant the runner is <span class="process-math">\(1/8\)</span> of the way to first base running at <span class="process-math">\(30\)</span> feet/sec?</div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-VAN" id="VAN"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-VAN"><div class="hint solution-like"><div class="para" id="LbI">Let <span class="process-math">\(x\)</span> denote the position of the ball along the third base line at time <span class="process-math">\(t\text{,}\)</span> and <span class="process-math">\(z\)</span> the distance from the ball to first base. Note that the basepaths meet at 90 degree angles.</div></div></div>
-</div></article></section><section class="subsection" id="Gxk"><h3 class="heading hide-type">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-63" id="hint-63"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-63"><div class="hint solution-like"><div class="para" id="p-4007">Let <span class="process-math">\(x\)</span> denote the position of the ball along the third base line at time <span class="process-math">\(t\text{,}\)</span> and <span class="process-math">\(z\)</span> the distance from the ball to first base. Note that the basepaths meet at 90 degree angles.</div></div></div>
+</div></article></section><section class="subsection" id="subsection-62"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.5.2</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="qSN"><ul class="disc"><li id="lza"><div class="para logical" id="aZV">
+<div class="para logical" id="p-4018"><ul class="disc"><li id="li-2525"><div class="para logical" id="p-4019">
 <div class="para">When two or more related quantities are changing as implicit functions of time, their rates of change can be related by implicitly differentiating the equation that relates the quantities themselves. For instance, if the sides of a right triangle are all changing as functions of time, say having lengths <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\text{,}\)</span> then these quantities are related by the Pythagorean Theorem: <span class="process-math">\(x^2 + y^2 = z^2\text{.}\)</span> It follows by implicitly differentiating with respect to <span class="process-math">\(t\)</span> that their rates are related by the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -994,10 +1081,10 @@ V = \frac{1}{3} \pi r^2 \left(\frac{1}{2}h\right) = \frac{1}{6} \pi r^3\text{.}
 \end{equation*}
 </div>
 <div class="para">so that if we know the values of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\text{,}\)</span> and <span class="process-math">\(z\)</span> at a particular time, as well as two of the three rates, we can deduce the value of the third.</div>
-</div></li></ul></div></section><section class="exercises" id="Pzx"><h3 class="heading hide-type">
+</div></li></ul></div></section><section class="exercises" id="ez-3-5"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">3.5.3</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="cjo"><h4 class="heading">
+<article class="exercise exercise-like" id="ez-3-5-WW2"><h4 class="heading">
 <span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Height of a conical pile of gravel.</span>
 </h4>
 <div id="webwork-110" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="110" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/270/setDerivatives8RelatedRates/s2_8_21.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
@@ -1006,7 +1093,7 @@ V = \frac{1}{3} \pi r^2 \left(\frac{1}{2}h\right) = \frac{1}{6} \pi r^3\text{.}
 </div> <div class="para" id="p-4021">When the pile is <span class="process-math">\(23\)</span> feet high, its height is increasing at <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> feet per minute.</div>
 </div>
 <div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="Iqx"><h4 class="heading">
+</div></article><article class="exercise exercise-like" id="ez-3-5-WW3"><h4 class="heading">
 <span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Movement of a shadow.</span>
 </h4>
 <div id="webwork-111" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="111" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/270/setDerivatives8RelatedRates/s2_8_7.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
@@ -1014,7 +1101,7 @@ V = \frac{1}{3} \pi r^2 \left(\frac{1}{2}h\right) = \frac{1}{6} \pi r^3\text{.}
 <div class="para" id="p-4024">A street light is at the top of a 13 foot tall pole. A 6 foot tall woman walks away from the pole with a speed of 6 ft/sec along a straight path. How fast is the tip of her shadow moving when she is 30 feet from the base of the pole?</div> <div class="para" id="p-4025">The tip of the shadow is moving at <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> ft/sec.</div>
 </div>
 <div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="oxG"><h4 class="heading">
+</div></article><article class="exercise exercise-like" id="ez-3-5-WW4"><h4 class="heading">
 <span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">A leaking conical tank.</span>
 </h4>
 <div id="webwork-112" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="112" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives8RelatedRates/c2s8p3.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
@@ -1023,12 +1110,13 @@ V = \frac{1}{3} \pi r^2 \left(\frac{1}{2}h\right) = \frac{1}{6} \pi r^3\text{.}
 </div>
 </div>
 <div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="UEP"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="Eqy">A sailboat is sitting at rest near its dock. A rope attached to the bow of the boat is drawn in over a pulley that stands on a post on the end of the dock that is 5 feet higher than the bow. If the rope is being pulled in at a rate of 2 feet per second, how fast is the boat approaching the dock when the length of rope from bow to pulley is 13 feet?</div></article><article class="exercise exercise-like" id="ALY"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para" id="kxH">A swimming pool is <span class="process-math">\(60\)</span> feet long and <span class="process-math">\(25\)</span> feet wide. Its depth varies uniformly from <span class="process-math">\(3\)</span> feet at the shallow end to <span class="process-math">\(15\)</span> feet at the deep end, as shown in the <a href="" class="xref" data-knowl="./knowl/F-3-5-Ez3.html" title="Figure 3.5.5">Figure 3.5.5</a>.</div> <figure class="figure figure-like" id="wLZ"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/3_5_Ez3.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.5<span class="period">.</span></span><span class="space"> </span>The swimming pool.</figcaption></figure> <div class="para" id="QEQ">Suppose the pool has been emptied and is now being filled with water at a rate of <span class="process-math">\(800\)</span> cubic feet per minute. At what rate is the depth of water (measured at the deepest point of the pool) increasing when it is <span class="process-math">\(5\)</span> feet deep at that end? Over time, describe how the depth of the water will increase: at an increasing rate, at a decreasing rate, or at a constant rate. Explain.</div></article><article class="exercise exercise-like" id="gTh"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para" id="cTi">A baseball diamond is a square with sides <span class="process-math">\(90\)</span> feet long. Suppose a baseball player is advancing from second to third base at the rate of <span class="process-math">\(24\)</span> feet per second, and an umpire is standing on home plate. Let <span class="process-math">\(\theta\)</span> be the angle between the third baseline and the line of sight from the umpire to the runner. How fast is <span class="process-math">\(\theta\)</span> changing when the runner is <span class="process-math">\(30\)</span> feet from third base?</div></article><article class="exercise exercise-like" id="Naq"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para" id="Jar">Sand is being dumped off a conveyor belt onto a pile in such a way that the pile forms in the shape of a cone whose radius is always equal to its height. Assuming that the sand is being dumped at a rate of <span class="process-math">\(10\)</span> cubic feet per minute, how fast is the height of the pile changing when there are <span class="process-math">\(1000\)</span> cubic feet on the pile?</div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-61"><div class="fn">We again refer to the work of Prof. Marc Renault of Shippensburg University, found at <a class="external" href="https://gvsu.edu/s/5p" target="_blank">gvsu.edu/s/5p</a>.</div></div>
+</div></article><article class="exercise exercise-like" id="exercise-173"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="p-4033">A sailboat is sitting at rest near its dock. A rope attached to the bow of the boat is drawn in over a pulley that stands on a post on the end of the dock that is 5 feet higher than the bow. If the rope is being pulled in at a rate of 2 feet per second, how fast is the boat approaching the dock when the length of rope from bow to pulley is 13 feet?</div></article><article class="exercise exercise-like" id="ez-3-5-pool"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="p-4039">A swimming pool is <span class="process-math">\(60\)</span> feet long and <span class="process-math">\(25\)</span> feet wide. Its depth varies uniformly from <span class="process-math">\(3\)</span> feet at the shallow end to <span class="process-math">\(15\)</span> feet at the deep end, as shown in the <a href="" class="xref" data-knowl="./knowl/F-3-5-Ez3.html" title="Figure 3.5.5">Figure 3.5.5</a>.</div> <figure class="figure figure-like" id="F-3-5-Ez3"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/3_5_Ez3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.5<span class="period">.</span></span><span class="space"> </span>The swimming pool.</figcaption></figure> <div class="para" id="p-4040">Suppose the pool has been emptied and is now being filled with water at a rate of <span class="process-math">\(800\)</span> cubic feet per minute. At what rate is the depth of water (measured at the deepest point of the pool) increasing when it is <span class="process-math">\(5\)</span> feet deep at that end? Over time, describe how the depth of the water will increase: at an increasing rate, at a decreasing rate, or at a constant rate. Explain.</div></article><article class="exercise exercise-like" id="exercise-175"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para" id="p-4044">A baseball diamond is a square with sides <span class="process-math">\(90\)</span> feet long. Suppose a baseball player is advancing from second to third base at the rate of <span class="process-math">\(24\)</span> feet per second, and an umpire is standing on home plate. Let <span class="process-math">\(\theta\)</span> be the angle between the third baseline and the line of sight from the umpire to the runner. How fast is <span class="process-math">\(\theta\)</span> changing when the runner is <span class="process-math">\(30\)</span> feet from third base?</div></article><article class="exercise exercise-like" id="exercise-176"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para" id="p-4049">Sand is being dumped off a conveyor belt onto a pile in such a way that the pile forms in the shape of a cone whose radius is always equal to its height. Assuming that the sand is being dumped at a rate of <span class="process-math">\(10\)</span> cubic feet per minute, how fast is the height of the pile changing when there are <span class="process-math">\(1000\)</span> cubic feet on the pile?</div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-61"><div class="fn">We again refer to the work of Prof. Marc Renault of Shippensburg University, found at <a class="external" href="https://gvsu.edu/s/5p" target="_blank">gvsu.edu/s/5p</a>.</div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-62"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/9n</code></div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-63"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/9o</code></div></div>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-64"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/9p</code></div></div>
@@ -1043,8 +1131,8 @@ V = \frac{1}{3} \pi r^2 \left(\frac{1}{2}h\right) = \frac{1}{6} \pi r^3\text{.}
 </div>
 <div class="ptx-page-footer">
 <a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
-<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
+<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
 </div>
 </body>
 </html>
