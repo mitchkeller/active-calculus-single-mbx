@@ -11,77 +11,50 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
-<li><div class="para">The volume of solution in the tank remains constant because the inflow and outflow are at the same rate.</div></li>
-<li><div class="para logical">
-<div class="para">Salt enters the tank with the inflow, which occurs at a rate of <span class="process-math">\(3\)</span> gallons per minute at a concentration of <span class="process-math">\(20\)</span> grams per gallon. Observing that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-20 \frac{\text{grams}}{\text{gallon}} \cdot 3 \frac{\text{gallons}}{\text{minute}} = 60 \frac{\text{grams}}{\text{minute}}\text{,}
-\end{equation*}
-</div>
-<div class="para">we see that salt is entering the tank at a rate of <span class="process-math">\(60\)</span> grams per minute.</div>
+<li><div class="para">Since the population <span class="process-math">\(P(t)\)</span> of the town is growing at an annual rate of <span class="process-math">\(3\%\)</span> per year, this means that <span class="process-math">\(\frac{dP}{dt} = 0.03 P\)</span>
 </div></li>
 <li><div class="para logical">
-<div class="para">Letting <span class="process-math">\(S(t)\)</span> denotes the number of grams of salt in the tank at time <span class="process-math">\(t\text{,}\)</span> since there are <span class="process-math">\(100\)</span> gallons of solution in the tank at any time <span class="process-math">\(t\text{,}\)</span> the concentration of salt in the tank in grams per gallon is</div>
+<div class="para">We use separation of variables and write <span class="process-math">\(\frac{1}{P} \frac{dP}{dt} = 1.03\text{.}\)</span> We then have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{S(t)}{100} \frac{\text{grams}}{\text{gallon}}
+\int \frac{1}{P} \frac{dP}{dt} dt = \int 0.03 dt
 \end{equation*}
 </div>
-<div class="para">at any time <span class="process-math">\(t\text{.}\)</span>
+<div class="para">and thus <span class="process-math">\(\int \frac{1}{P} dP = \int 0.03 dt\text{.}\)</span> Evaluating the integrals on each side, we have <span class="process-math">\(\ln|P| = 0.03 t + c\)</span> By definition of the logarithm function, it follows that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|P| = e^{0.03t + c} = e^c e^{0.03t} = C e^{0.03t}\text{.}
+\end{equation*}
+</div>
+<div class="para">Incorporating the <span class="process-math">\(\pm\)</span> that follows from the abslute value sign into the constant <span class="process-math">\(C\text{,}\)</span> we conclude that <span class="process-math">\(P = Ce^{0.03t}\text{.}\)</span>
 </div>
 </div></li>
 <li><div class="para logical">
-<div class="para">With water leaving the tank at <span class="process-math">\(3\)</span> gallons per minute, it follows that salt is leaving the tank at a rate of</div>
+<div class="para">Given that <span class="process-math">\(P(0) = 10000\text{,}\)</span> we see that <span class="process-math">\(10000 = C e^0 = C\text{.}\)</span> So</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{S(t)}{100} \frac{\text{grams}}{\text{gallon}} \cdot 3 \frac{\text{gallons}}{\text{minute}} = \frac{3S(t)}{100} \frac{\text{grams}}{\text{minute}}\text{.}
+P = 10000 e^{0.03t}\text{.}
 \end{equation*}
 </div>
 </div></li>
 <li><div class="para logical">
-<div class="para">Taking into account the rates at which salt enters and leaves the tank as established in (b) and (d) and noting that the units on <span class="process-math">\(\frac{dS}{dt}\)</span> are grams per minute, we have shown that</div>
+<div class="para">The population will have doubled when <span class="process-math">\(P = 200000\text{.}\)</span> To determine the time it takes the population to double, we solve the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dS}{dt} = 60 - \frac{3}{100} S\text{.}
+10000 e^{0.03t} = 20000\text{.}
 \end{equation*}
 </div>
-</div></li>
-<li><div class="para">Setting <span class="process-math">\(60 - \frac{3}{100} S = 0\text{,}\)</span> we find that <span class="process-math">\(S = 2000\)</span> is the only equilibrium solution. This makes sense because the inflow is carrying <span class="process-math">\(20\)</span> grams of salt per gallon and thus when the tank reaches this concentration, there will be <span class="process-math">\(20 \cdot 100\)</span> total grams of salt. This equilibrium is stable (both intuitively and because <span class="process-math">\(\frac{dS}{dt}\)</span> is positive for <span class="process-math">\(S \lt 2000\)</span> and negative for <span class="process-math">\(S \gt 2000\text{.}\)</span>
+<div class="para">Thus <span class="process-math">\(e^{0.03t} = 2\text{,}\)</span> so <span class="process-math">\(t = \frac{\ln(2)}{0.03} \approx 23.105\text{.}\)</span> It will take about 23.1 years for the population to double in size.</div>
 </div></li>
 <li><div class="para logical">
-<div class="para">Assuming that <span class="process-math">\(S(0) = 0\text{,}\)</span> we can solve the IVP with <span class="process-math">\(\frac{dS}{dt} = 60 - \frac{3}{100} S\text{.}\)</span> For somewhat simpler computations, we write <span class="process-math">\(60 - \frac{3}{100}S = -\frac{3}{100}(S-2000)\text{.}\)</span> Separating variables,</div>
+<div class="para">If the annual growth rate is <span class="process-math">\(k\text{,}\)</span> then the differential equation for the population is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{1}{S-2000} \frac{dS}{dt} = -\frac{3}{100}
+\frac{dP}{dt} = kP\text{.}
 \end{equation*}
 </div>
-<div class="para">and integrating with respect to <span class="process-math">\(t\text{,}\)</span>
-</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\int  \frac{1}{S-2000} \, dS = -\int \frac{3}{100} \, dt
-\end{equation*}
-</div>
-<div class="para">so that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\ln|S-2000| = -\frac{3}{100}t + C\text{.}
-\end{equation*}
-</div>
-<div class="para">Solving for <span class="process-math">\(S\)</span> in the usual way,</div>
-<div class="displaymath process-math">
-\begin{equation*}
-S = 2000 + Ke^{-\frac{3}{100}t}
-\end{equation*}
-</div>
-<div class="para">and using the initial condition that <span class="process-math">\(S(0) = 0\text{,}\)</span> we find <span class="process-math">\(K = -2000\)</span> so that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-S(t) = 2000 - 2000e^{-\frac{3}{100}t}\text{.}
-\end{equation*}
+<div class="para">We can use separation of variables to show that <span class="process-math">\(P = P_0 e^{kt}\text{,}\)</span> where <span class="process-math">\(P_0\)</span> is the population at time <span class="process-math">\(t = 0\text{.}\)</span> We then find the doubling time by solving the equation <span class="process-math">\(P_0 e^{kt} = 2P_0\text{.}\)</span> We first solve for <span class="process-math">\(e^{kt}\)</span> and get <span class="process-math">\(e^{kt} = 2\text{.}\)</span> Taking natural logs, <span class="process-math">\(kt = \ln(2)\text{,}\)</span> and dividing by <span class="process-math">\(k\text{,}\)</span> <span class="process-math">\(t = \frac{1}{k} \ln(2)\text{.}\)</span> The doubling time for the population is thus <span class="process-math">\(\frac{1}{k} \ln(2)\text{.}\)</span>
 </div>
 </div></li>
-<li><div class="para">As <span class="process-math">\(t \to \infty\text{,}\)</span> we know <span class="process-math">\(e^{-\frac{3}{100}t} \to 0\text{,}\)</span> and thus <span class="process-math">\(S(t) \to 2000\text{.}\)</span> This makes sense because the inflow carries <span class="process-math">\(20\)</span> grams of salt per liter continuously. As time goes on, the concentration of solution in the tank should tend to that same concentration, and with <span class="process-math">\(100\)</span> gallons of solution, the amount of salt will tend to <span class="process-math">\(20 \cdot 100 = 2000\)</span> grams. This value also matches the stable equilibrium that we found in (f).</div></li>
 </ol></div></div></body>
 </html>

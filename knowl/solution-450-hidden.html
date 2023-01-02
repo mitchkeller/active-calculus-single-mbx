@@ -10,102 +10,144 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like">
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">The differential equation for Alice's coffee is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dT_A}{dt} = -0.5(T-70)\text{,}
+\end{equation*}
+</div>
+<div class="para">so at the instant <span class="process-math">\(t = 0\text{,}\)</span> <span class="process-math">\(T = 100\text{,}\)</span> and thus <span class="process-math">\(\frac{dT_A}{dt} \vert_{T = 100} = -0.5(30) = -15\)</span> degrees per minute. For Bob's coffee,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dT_B}{dt} = -0.1(T-70)\text{,}
+\end{equation*}
+</div>
+<div class="para">so <span class="process-math">\(\frac{dT_B}{dt} \vert_{T = 100} = -0.1(30) = -3\)</span> degrees per minute. These are the initial rates of change of the respective cups of coffee.</div>
+</div></li>
+<li><div class="para">The difference between the cups of coffee could be explained by how insulated the containers are: Bob's coffee loses temperature less quickly, so his is likely better insulated.</div></li>
+<li>
 <div class="para logical">
-<div class="para">First, some basic facts about Lake Michigan.</div>
-<ul class="disc">
-<li><div class="para">The volume of the lake is <span class="process-math">\(5\cdot10^{12}\)</span> cubic meters.</div></li>
-<li><div class="para">Water flows into the lake at a rate of <span class="process-math">\(5\cdot10^{10}\)</span> cubic meters per year. It flows out of the lake at the same rate.</div></li>
-<li><div class="para">Each cubic meter flowing into the lake contains roughly <span class="process-math">\(3\cdot10^{-8}\)</span> cubic meters of plastic pollution.</div></li>
-</ul>
-</div> <div class="para">Let's denote the amount of pollution in the lake by <span class="process-math">\(P(t)\text{,}\)</span> where <span class="process-math">\(P\)</span> is measured in cubic meters of plastic and <span class="process-math">\(t\)</span> in years. Our goal is to describe the rate of change of this function; so we want to develop a differential equation describing <span class="process-math">\(P(t)\text{.}\)</span>
-</div> <div class="para logical">
-<div class="para">First, we will measure how <span class="process-math">\(P(t)\)</span> increases due to pollution flowing into the lake. We know that <span class="process-math">\(5\cdot10^{10}\)</span> cubic meters of water enters the lake every year and each cubic meter of water contains <span class="process-math">\(3\cdot10^{-8}\)</span> cubic meters of pollution. Therefore, pollution enters the lake at the rate of</div>
+<div class="para">With this varying temperature, the governing differential equation for Alice's coffee is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left(5\cdot 10^{10} \frac{m^3 \text{ water} }{\text{year} }\right) \left(3\cdot10^{-8} \frac{m^3 \text{ plastic} }{m^3 \text{ water} } \right) = 1.5\cdot 10^3
-\text{cubic m of plastic per year}\text{.}
+\frac{dT_A}{dt} = -0.5(T_A-(70+10\sin t))\text{,}
 \end{equation*}
 </div>
-</div> <div class="para logical">
-<div class="para">Second, we will measure how <span class="process-math">\(P(t)\)</span> decreases due to pollution flowing out of the lake. If the total amount of pollution is <span class="process-math">\(P\)</span> cubic meters and the volume of Lake Michigan is <span class="process-math">\(5\cdot 10^{12}\)</span> cubic meters, then the concentration of plastic pollution in Lake Michigan is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{P}{5\cdot10^{12}}  \text{cubic m of plastic per cubic m of water}\text{.}
-\end{equation*}
+<div class="para">with the inital condition <span class="process-math">\(T_A(0) = 100\text{.}\)</span> Implementing Euler's Method with <span class="process-math">\(\Delta t = 0.1\text{,}\)</span> we get the following (abbreviated) table of data.</div>
 </div>
-</div> <div class="para logical">
-<div class="para">Since <span class="process-math">\(5\cdot10^{10}\)</span> cubic meters of water flow out each year<a href="" class="fn-knowl original" data-knowl="./knowl/fn-120-hidden.html" title="Footnote 7.5.1"><sup> 1 </sup></a>, then the plastic pollution leaves the lake at the rate of</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\left(\frac{P}{5\cdot10^{12}} \frac{m^3 \text{ plastic} }{m^3 \text{ water} } \right) \left(5\cdot10^{10} \frac{m^3 \text{ water} }{\text{year} } \right)=\frac{P}{100}
-\text{cubic m of plastic per year}\text{.}
-\end{equation*}
-</div>
-</div> <div class="para logical">
-<div class="para">The total rate of change of <span class="process-math">\(P\)</span> is thus the difference between the rate at which pollution enters the lake and the rate at which pollution leaves the lake; that is,</div>
-<div class="displaymath process-math">
-\begin{align*}
-\frac{dP}{dt} =\mathstrut \amp  1.5\cdot10^{3}-\frac{P}{100}\\
-=\mathstrut \amp  \frac{1}{100}(1.5\cdot10^{5} - P)\text{.}
-\end{align*}
-</div>
-</div> <div class="para">We have now found a differential equation that describes the rate at which the amount of pollution is changing. To understand the behavior of <span class="process-math">\(P(t)\text{,}\)</span> we apply some of the techniques we have recently developed.</div> <div class="para">Because the differential equation is autonomous, we can sketch <span class="process-math">\(dP/dt\)</span> as a function of <span class="process-math">\(P\)</span> and then construct a slope field, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-5-Ex1-plot.html" title="Figure 7.5.2">Figure 7.5.2</a> and <a href="" class="xref" data-knowl="./knowl/F-7-5-Ex1-slope-field.html" title="Figure 7.5.3">Figure 7.5.3</a>.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like"><img src="external/images/7_5_lake_michigan.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.5.2<span class="period">.</span></span><span class="space"> </span>Plot of <span class="process-math">\(\frac{dP}{dt}\)</span> vs. <span class="process-math">\(P\)</span> for <span class="process-math">\(\frac{dP}{dt} = \frac{1}{100}(1.5\cdot10^{5} - P)\text{.}\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like"><img src="external/images/7_5_slope_field.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.5.3<span class="period">.</span></span><span class="space"> </span>Plot of the slope field for <span class="process-math">\(\frac{dP}{dt} = \frac{1}{100}(1.5\cdot10^{5} - P)\text{.}\)</span></figcaption></figure></div>
-</div></div> <div class="para">These plots both show that <span class="process-math">\(P=1.5\cdot10^5\)</span> is a stable equilibrium. Therefore, we should expect that the amount of pollution in Lake Michigan will stabilize near <span class="process-math">\(1.5\cdot10^5\)</span> cubic meters of pollution.</div> <div class="para logical">
-<div class="para">Next, assuming that there is initially no pollution in the lake, we will solve the initial value problem</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{dP}{dt} = \frac{1}{100}(1.5\cdot10^{5} - P), \ P(0) = 0\text{.}
-\end{equation*}
-</div>
-</div> <div class="para logical">
-<div class="para">Separating variables, we find that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac1{1.5\cdot10^5-P} \frac{dP}{dt} = \frac1{100}\text{.}
-\end{equation*}
-</div>
-</div> <div class="para logical">
-<div class="para">Integrating with respect to <span class="process-math">\(t\text{,}\)</span> we have</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\int \frac1{1.5\cdot10^5-P} \frac{dP}{dt}~dt = \int \frac1{100}~dt\text{,}
-\end{equation*}
-</div>
-<div class="para">and thus changing variables on the left and antidifferentiating on both sides, we find that</div>
-<div class="displaymath process-math">
-\begin{align*}
-\int \frac{dP}{1.5\cdot10^5-P} =\mathstrut \amp  \int \frac1{100}~dt\\
--\ln|1.5\cdot10^5 - P| =\mathstrut \amp  \frac1{100}t + C
-\end{align*}
-</div>
-</div> <div class="para logical">
-<div class="para">Finally, multiplying both sides by <span class="process-math">\(-1\)</span> and using the definition of the logarithm, we find that</div>
-<div class="displaymath process-math">
-\begin{equation}
-1.5\cdot10^5 - P = C e^{-t/100}\text{.}\tag{7.5.1}
-\end{equation}
-</div>
-</div> <div class="para logical">
-<div class="para">This is a good time to determine the constant <span class="process-math">\(C\text{.}\)</span> Since <span class="process-math">\(P =
-0\)</span> when <span class="process-math">\(t=0\text{,}\)</span> we have</div>
-<div class="displaymath process-math">
-\begin{equation*}
-1.5\cdot 10^5 - 0 = Ce^0 = C\text{,}
-\end{equation*}
-</div>
-</div> <div class="para">so <span class="process-math">\(C=1.5\cdot10^5\text{.}\)</span>
-</div> <div class="para logical">
-<div class="para">Using this value of <span class="process-math">\(C\)</span> in Equation <a href="" class="xref" data-knowl="./knowl/E-7-5-Ex1C.html" title="Equation 7.5.1">(7.5.1)</a> and solving for <span class="process-math">\(P\text{,}\)</span> we arrive at the solution</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/E-7-5-Ex1C.html">
-\begin{equation*}
-P(t) = 1.5\cdot10^5(1-e^{-t/100})\text{.}
-\end{equation*}
-</div>
-</div> <div class="para">Superimposing the graph of <span class="process-math">\(P\)</span> on the slope field we saw in <a href="" class="xref" data-knowl="./knowl/F-7-5-Ex1-slope-field.html" title="Figure 7.5.3">Figure 7.5.3</a>, we see, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-5-Ex1a.html" title="Figure 7.5.4">Figure 7.5.4</a>
-</div> <div class="para">We see that, as expected, the amount of plastic pollution stabilizes around <span class="process-math">\(1.5\cdot10^5\)</span> cubic meters.</div> <figure class="figure figure-like"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/images/7_5_solution.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.5.4<span class="period">.</span></span><span class="space"> </span>The solution <span class="process-math">\(P(t)\)</span> and the slope field for the differential equation <span class="process-math">\(\frac{dP}{dt} = \frac{1}{100}(1.5\cdot10^{5} - P)\text{.}\)</span></figcaption></figure>
-</div></body>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel fixed-width top" style="width:37.5%;"><table class="tabular" id="XBi">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(T_A(t)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(98.5\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(97.12492\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(95.86801\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(94.72237\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.56715\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.7\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.48008\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.8\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.43816\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.44183\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(50\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.49103\)</span></td>
+</tr>
+</table></div>
+<div class="sbspanel top" style="width:37.5%;"><img src="external/images/7_3_Ez1Soln.svg" role="img" class="contained"></div>
+</div></div>
+<div class="para">Plotting the data points that result from Euler's Method along with the room temperature function, we see how the room temperature drives the temperature of the coffee up and down as time goes on, as pictured in the figure above, where the data points for the coffee's approximate temperature are shown in dark blue, while the room temperature function, <span class="process-math">\(T_R(t) = 70 + 10\sin(t)\)</span> is shown in green.</div>
+</li>
+<li>
+<div class="para">Similar work with the differential equation for Bob's coffee yields the following abbreviated table of approximate function values along with the plot of the data and the temperature function.</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel fixed-width top" style="width:37.5%;"><table class="tabular" id="DIr">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(T_A(t)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(99.7\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(99.41298\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(99.13872\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(98.87689\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.39515\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.7\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.33946\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.8\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.29248\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.25467\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(50\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.22638\)</span></td>
+</tr>
+</table></div>
+<div class="sbspanel top" style="width:37.5%;"><img src="external/images/7_3_Ez1SolnB.svg" role="img" class="contained"></div>
+</div></div>
+</li>
+<li><div class="para">The behaviors of both cups of coffee are similar in that each decreases toward the room temperature initially and then is driven in an osciallating way by the room temperature function as it rises and falls. We see that Alice's coffee is more susceptible to being influenced away from the average room temperature, which is consistent with her mug being less well insulated, while in Bob's coffee, we see much less radical oscillations (and a slower overall rate of decrease to get near room temperature), which is consistent with being better insulated.</div></li>
+</ol></div></div></body>
 </html>

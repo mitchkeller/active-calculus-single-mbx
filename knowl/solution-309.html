@@ -13,17 +13,41 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.3.3.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.3.2.1</span><span class="period">.</span>
 </h4>
-<div class="para logical"><ol class="lower-alpha">
-<li><div class="para">Since <span class="process-math">\(5x^3 + 1\)</span> and <span class="process-math">\(15x^2\)</span> form a function-derivative pair, we let <span class="process-math">\(u=5x^3+1\text{,}\)</span> and observe that <span class="process-math">\(du=15x^2dx\text{,}\)</span> and thus <span class="process-math">\(x^2dx=\frac{1}{15}du\text{.}\)</span> Applying this substitution, integrating, and substituting back, <span class="process-math">\(\int \frac{x^2}{5x^3+1} \, dx = \int \frac{\frac{1}{15}du}{u} = \frac{1}{15} \ln(u) + C = \frac{1}{15} \ln(5x^3 + 1) + C\text{.}\)</span>
-</div></li>
-<li><div class="para">Because <span class="process-math">\(\frac{d}{dx}[e^x] = e^x\text{,}\)</span> if we let <span class="process-math">\(u=e^x\text{,}\)</span> it follows <span class="process-math">\(du = e^x dx\text{.}\)</span> Substituting and integrating, <span class="process-math">\(\int e^x \sin(e^x) \, dx = \int \sin(u) \, du = -\cos(u) + C = -\cos(e^x) + C\text{.}\)</span>
-</div></li>
-<li><div class="para">Let <span class="process-math">\(u = \sqrt{x}\text{,}\)</span> so that <span class="process-math">\(du = \frac{1}{2}x^{-1/2}dx = \frac{dx}{2\sqrt{x}}\text{.}\)</span> We observe that <span class="process-math">\(\frac{dx}{\sqrt{x}} = 2 du\text{,}\)</span> and thus <span class="process-math">\(\int \frac{\cos(\sqrt{x})}{\sqrt{x}}~dx = \int 2 \cos(u) \, du = 2\sin(u) + C = 2\sin(\sqrt{x}) + C\text{.}\)</span>
-</div></li>
-</ol></div>
+<div class="para">We can make two algebraic observations regarding the integrand, <span class="process-math">\(x^3 \cdot \sin (7x^4 + 3)\text{.}\)</span> First, <span class="process-math">\(\sin (7x^4 + 3)\)</span> is a composite function; as such, we know we'll need a more sophisticated approach to antidifferentiating. Second, <span class="process-math">\(x^3\)</span> is almost the derivative of <span class="process-math">\((7x^4 + 3)\text{;}\)</span> the only issue is a missing constant. Thus, <span class="process-math">\(x^3\)</span> and <span class="process-math">\((7x^4 + 3)\)</span> are nearly a function-derivative pair. Furthermore, we know the antiderivative of <span class="process-math">\(f(u) = \sin(u)\text{.}\)</span> The combination of these observations suggests that we can evaluate the given indefinite integral by reversing the chain rule through <span class="process-math">\(u\)</span>-substitution.</div> <div class="para logical">
+<div class="para">Letting <span class="process-math">\(u\)</span> represent the inner function of the composite function <span class="process-math">\(\sin (7x^4 + 3)\text{,}\)</span> we have <span class="process-math">\(u = 7x^4 + 3\text{,}\)</span> and thus <span class="process-math">\(\frac{du}{dx} = 28x^3\text{.}\)</span> In differential notation, it follows that <span class="process-math">\(du = 28x^3 \, dx\text{,}\)</span> and thus <span class="process-math">\(x^3 \, dx = \frac{1}{28} \, du\text{.}\)</span> The original indefinite integral may be slightly rewritten as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \sin (7x^4 + 3) \cdot x^3 \, dx\text{,}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-5-3-substitution.html#EYO" class="internal">in-context</a></span>
+<div class="para">and so by substituting <span class="process-math">\(u\)</span> for <span class="process-math">\(7x^4 + 3\)</span> and <span class="process-math">\(\frac{1}{28} \, du\)</span> for <span class="process-math">\(x^3 \, dx\text{,}\)</span> it follows that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \sin (7x^4 + 3) \cdot x^3 \, dx = \int \sin(u) \cdot \frac{1}{28} \, du\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Now we may evaluate the easier integral in <span class="process-math">\(u\text{,}\)</span> and then replace <span class="process-math">\(u\)</span> by the expression <span class="process-math">\(7x^4 + 3\text{.}\)</span> Doing so, we find</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int \sin (7x^4 + 3) \cdot x^3 \, dx &amp;= \int \sin(u) \cdot \frac{1}{28} \, du\\
+&amp;= \frac{1}{28} \int \sin(u) \, du\\
+&amp;= \frac{1}{28} (-\cos(u)) + C\\
+&amp;= -\frac{1}{28} \cos(7x^4 + 3) + C\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">To check our work, we observe by the Chain Rule that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{d}{dx} \left[ -\frac{1}{28}\cos(7x^4 + 3) \right] = -\frac{1}{28} \cdot (-1)\sin(7x^4 + 3) \cdot 28x^3 = \sin(7x^4 + 3) \cdot x^3\text{,}
+\end{equation*}
+</div>
+<div class="para">which is indeed the original integrand.</div>
+</div>
+</div>
+<span class="incontext"><a href="sec-5-3-substitution.html#mcd" class="internal">in-context</a></span>
 </body>
 </html>

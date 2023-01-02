@@ -13,54 +13,93 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.3.5.10.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">5.3.5.11.1</span><span class="period">.</span>
 </h4>
 <div class="para logical"><ol class="lower-alpha">
-<li>
-<div class="para">In the following plot, we see that the model is reasonable because it appears to be periodic and repeats every <span class="process-math">\(24\)</span> hours, as well as that the rate of consumption seems to peak at the times of day where people are most active in their homes: around <span class="process-math">\(7\)</span> a.m. and around <span class="process-math">\(5\)</span> p.m.</div>
-<div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/5_3_Ez4Soln.svg" role="img" class="contained"></div></div></div>
-</li>
-<li><div class="para">The meaning of <span class="process-math">\(\int_0^{24} r(t) \, dt\)</span> is the total power consumed in <span class="process-math">\(24\)</span> hours, measured in megawatt-hours. This is because <span class="process-math">\(r(t)\)</span> is measured in megawatts and <span class="process-math">\(\triangle t\)</span> in hours, and thus in the Riemann sum that corresponds to the definite integral, the terms in the sum of the form <span class="process-math">\(r(t) \cdot \triangle t\)</span> have units ``megawatt-hours''. Moreover, by integrating the rate of power consumption we get the total change in power consumed.</div></li>
 <li><div class="para logical">
-<div class="para">In a typical day, we know that Mathland consumes <span class="process-math">\(\int_0^{24} r(t) \, dt\)</span> megawatt-hours of power, and thus we seek to evaluate the integral</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\int_0^{24} r(t) \, dt = \int_0^{24} \left[ 4 + \sin(0.263t + 4.7) + \cos(0.526t+9.4) \right] \, dt\text{.}
-\end{equation*}
-</div>
-<div class="para">To do so, we use the subtitutions <span class="process-math">\(u = 0.263t + 4.7\)</span> (so <span class="process-math">\(du = 0.263 \, dt\)</span>) and <span class="process-math">\(w = 0.526t + 9.4\)</span> (so <span class="process-math">\(dw = 0.526 \, dt\)</span>) to help us antidifferentiate the two trigonometric expressions, and thus we find that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\int \sin(0.263t + 4.7) \, dt = \frac{1}{0.263} \int \sin(u) \, du = -\frac{1}{0.263} \cos(u) = -\frac{1}{0.263} \cos(0.263t + 4.7)
-\end{equation*}
-</div>
-<div class="para">and</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\int \cos(0.526t + 9.4) \, dt = \frac{1}{0.526} \int \cos(w) \, dw = \frac{1}{0.526} \sin(w) = \frac{1}{0.526} \sin(0.526t + 9.4)\text{.}
-\end{equation*}
-</div>
-<div class="para">Putting this all together and using the Fundamental Theorem of Calculus, we have</div>
+<div class="para">We let <span class="process-math">\(u = \cos(x)\text{,}\)</span> so <span class="process-math">\(du = -\sin(x) \ dx\text{.}\)</span> This change of variable transforms the integral into one we can integrate as follows:</div>
 <div class="displaymath process-math">
 \begin{align*}
-\int_0^{24} r(t) \, dt &amp;= \left. 4t -\frac{1}{0.263} \cos(0.263t + 4.7) + \frac{1}{0.526} \sin(0.526t + 9.4) \right|_0^{24}\\
-&amp;= \left[ 4 \cdot 24 -\frac{1}{0.263} \cos(0.263 \cdot 24 + 4.7) + \frac{1}{0.526} \sin(0.526 \cdot 24 + 9.4) \right] - \left[ -\frac{1}{0.263} \cos(4.7) + \frac{1}{0.526} \sin(9.4) \right]\\
-&amp;\approx 95.7809
+\int \tan(x) \, dx &amp;= \int \frac{\sin(x)}{\cos(x)} \ dx\\
+&amp;= -\int \frac{1}{u} \ du\\
+&amp;= -\ln(|u|) + C\\
+&amp;= -\ln(|\cos(x)| + C\\
+&amp;= \ln\left(|\cos(x)|^{-1}\right) + C\\
+&amp;= \ln\left(|\sec(x)|\right) + C\text{.}
 \end{align*}
 </div>
-<div class="para">megawatt-hours of power used in <span class="process-math">\(24\)</span> hours.</div>
+<div class="para">Note that we used the property of the logarithm that <span class="process-math">\(p \ln (z) = \ln(z^p)\)</span> as well as the fact that <span class="process-math">\(\frac{1}{\cos(x)} = \sec(x)\)</span> in order to simplify the result.</div>
 </div></li>
-<li><div class="para">We know that the average value of the rate function <span class="process-math">\(r\)</span> on <span class="process-math">\([0,24]\)</span> is<div class="displaymath process-math">
+<li><div class="para logical">
+<div class="para">We let <span class="process-math">\(u = \sin(x)\text{,}\)</span> so <span class="process-math">\(du = \cos(x) \ dx\text{.}\)</span> This change of variable transforms the integral into one we can integrate as follows:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int \cot(x) \, dx &amp;= \int \frac{\cos(x)}{\sin(x)} \ dx\\
+&amp;= \int \frac{1}{u} \ du\\
+&amp;= \ln(|u|) + C\\
+&amp;= \ln(|\sin(x)| + C\\
+&amp;= -\ln\left(|\sin(x)|^{-1}\right) + C\\
+&amp;= -\ln\left(|\csc(x)|\right) + C\text{.}
+\end{align*}
+</div>
+<div class="para">Note that here we used the fact that <span class="process-math">\(\ln(z) = (-1)(-1)\ln(z) = (-1) \ln(z^{-1})\)</span> in order to simplify the result.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We let <span class="process-math">\(u = \sec(x) + \tan(x)\text{,}\)</span> so it follows that <span class="process-math">\(du = \left(\sec(x)\tan(x)+\sec^2(x)\right) \ dx\text{.}\)</span> This change of variable shows that the basic structure of the integrand is simple and can be integrated as follows:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int \frac{\sec^2(x) + \sec(x) \tan(x)}{\sec(x) + \tan(x)} \, dx &amp;= \int \frac{1}{u} \ du\\
+&amp;= \ln(|u|) + C\\
+&amp;= \ln\left(|\sec(x) + \tan(x)|\right) + C\text{.}
+\end{align*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">The numerator of <span class="process-math">\(\frac{\sec^2(x) + \sec(x) \tan(x)}{\sec(x) + \tan(x)}\)</span> can be rewritten by removing the common factor of <span class="process-math">\(\sec(x)\)</span> to obtain</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\displaystyle r_{\operatorname{AVG} [0,24]}  = \frac{1}{24-0} \int_{0}^{24} r(t) \, dt\text{.}
+\sec(x)\left(\sec(x) + \tan(x)\right)\text{.}
 \end{equation*}
-</div>Thus, by our work in (c), we have that<div class="displaymath process-math">
+</div>
+<div class="para">The integrand can then be simplified to</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\displaystyle r_{\operatorname{AVG} [0,24]}  \approx \frac{1}{24} \cdot 95.7809 = 3.99087
+\frac{\sec^2(x) + \sec(x) \tan(x)}{\sec(x) + \tan(x)} = \frac{\sec(x)\left(\sec(x) + \tan(x)\right)}{\sec(x) + \tan(x)} = \sec(x)\text{.}
 \end{equation*}
-</div>which is measured in megawatts.</div></li>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Using the results of (c) and (d), we see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \sec(x) \, dx = \int \frac{\sec^2(x) + \sec(x) \tan(x)}{\sec(x) + \tan(x)} \, dx = \ln\left(|\sec(x) + \tan(x)|\right) + C\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Following (c)-(e) we can evaluate <span class="process-math">\(int \csc(x) \, dx\)</span> as follows. First, rewrite <span class="process-math">\(\csc(x)\)</span> by multiplying by <span class="process-math">\(1 = \frac{\csc(x) + \cot(x)}{\csc(x) + \cot(x)}\text{,}\)</span> so that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \csc(x) \, dx = \int \frac{\csc(x)\left(\csc(x) + \cot(x)\right)}{\csc(x) + \cot(x)} \, dx = \int \frac{\csc^2(x) + \csc(x) \cot(x)}{\csc(x) + \cot(x)} \, dx\text{.}
+\end{equation*}
+</div>
+<div class="para">Now we evaluate the last integral in the preceding equation with the substitution <span class="process-math">\(u = \csc(x) + \cot(x)\text{.}\)</span> Then <span class="process-math">\(du = -\left(\csc(x)\cot(x)+\csc^2(x)\right) \ dx\text{.}\)</span> This change of variable transforms the integral so that we can integrate:</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int \frac{\csc^2(x) + \csc(x) \cot(x)}{\csc(x) + \cot(x)} \, dx &amp;= - \int \frac{1}{u} \ dx\\
+&amp;= -\ln(|u|) + C\\
+&amp;= -\ln\left(|\csc(x) + \cot(x)|\right) + C\text{.}
+\end{align*}
+</div>
+<div class="para">Connecting the equalities we have established in our work, we have shown that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \csc(x) \, dx = -\ln\left(|\csc(x) + \cot(x)|\right) + C\text{.}
+\end{equation*}
+</div>
+</div></li>
 </ol></div>
 </div>
-<span class="incontext"><a href="sec-5-3-substitution.html#mQk" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-5-3-substitution.html#BZi" class="internal">in-context</a></span>
 </body>
 </html>

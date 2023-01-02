@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>AC Taylor Series</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Active Calculus">
+<meta property="book:author" content="Matthew Boelkins">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+    renderActions: {
+        findScript: [10, function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        }, '']
+    },
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body id="boelkins-ACS" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
+<p class="byline">Matthew Boelkins</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>No results.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-8a-3-geometric.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-8a.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-8a-5-finding-using-taylor-series.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
+<li>
+<div class="toc-item"><a href="preface-1.html" class="internal"><span class="title">Contributors</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="preface-1.html#contributors-1" class="internal"><span class="title"></span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="preface-2.html" class="internal"><span class="title">Active Calculus: Our Goals</span></a></div></li>
+<li><div class="toc-item"><a href="preface-3.html" class="internal"><span class="title">Features of the Text</span></a></div></li>
+<li><div class="toc-item"><a href="preface-for-students.html" class="internal"><span class="title">Students!  Read this!</span></a></div></li>
+<li><div class="toc-item"><a href="preface-for-instructors.html" class="internal"><span class="title">Instructors!  Read this!</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-1.html" class="internal"><span class="codenumber">1</span> <span class="title">Understanding the Derivative</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-1-1-vel.html" class="internal"><span class="codenumber">1.1</span> <span class="title">How do we measure velocity?</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-1-1-vel.html#iwq" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Position and average velocity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-1-vel.html#ODz" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Instantaneous Velocity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-1-vel.html#uKI" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-1-vel.html#NIx" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-1-2-lim.html" class="internal"><span class="codenumber">1.2</span> <span class="title">The notion of limit</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-1-2-lim.html#BTI" class="internal"><span class="codenumber">1.2.1</span> <span class="title">The Notion of Limit</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-2-lim.html#iaR" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Instantaneous Velocity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-2-lim.html#Oia" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-2-lim.html#GGO" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-1-3-derivative-pt.html" class="internal"><span class="codenumber">1.3</span> <span class="title">The derivative of a function at a point</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#dFt" class="internal"><span class="codenumber">1.3.1</span> <span class="title">The Derivative of a Function at a Point</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#JMC" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-3-derivative-pt.html#WsC" class="internal"><span class="codenumber">1.3.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-1-4-derivative-fxn.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The derivative function</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#Lgq" class="internal"><span class="codenumber">1.4.1</span> <span class="title">How the derivative is itself a function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#rnz" class="internal"><span class="codenumber">1.4.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-4-derivative-fxn.html#rjI" class="internal"><span class="codenumber">1.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-1-5-units.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Interpreting, estimating, and using the derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-1-5-units.html#pcN" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Units of the derivative function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-5-units.html#VjW" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Toward more accurate derivative estimates</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-5-units.html#Brf" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-5-units.html#tXk" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-1-6-second-d.html" class="internal"><span class="codenumber">1.6</span> <span class="title">The second derivative</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#wlN" class="internal"><span class="codenumber">1.6.1</span> <span class="title">Increasing or decreasing</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#csW" class="internal"><span class="codenumber">1.6.2</span> <span class="title">The Second Derivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#IAf" class="internal"><span class="codenumber">1.6.3</span> <span class="title">Concavity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#oHo" class="internal"><span class="codenumber">1.6.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-6-second-d.html#DjS" class="internal"><span class="codenumber">1.6.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-1-7-lim-cont-diff.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Limits, Continuity, and Differentiability</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#AAh" class="internal"><span class="codenumber">1.7.1</span> <span class="title">Having a limit at a point</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#gHq" class="internal"><span class="codenumber">1.7.2</span> <span class="title">Being continuous at a point</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#MOz" class="internal"><span class="codenumber">1.7.3</span> <span class="title">Being differentiable at a point</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#sVI" class="internal"><span class="codenumber">1.7.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-7-lim-cont-diff.html#bFy" class="internal"><span class="codenumber">1.7.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-1-8-tan-line-approx.html" class="internal"><span class="codenumber">1.8</span> <span class="title">The Tangent Line Approximation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#LnH" class="internal"><span class="codenumber">1.8.1</span> <span class="title">The tangent line</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#ruQ" class="internal"><span class="codenumber">1.8.2</span> <span class="title">The local linearization</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#XBZ" class="internal"><span class="codenumber">1.8.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-1-8-tan-line-approx.html#ZJh" class="internal"><span class="codenumber">1.8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-2.html" class="internal"><span class="codenumber">2</span> <span class="title">Computing Derivatives</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-2-1-elem-rules.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Elementary derivative rules</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#yDQ" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Some Key Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#eKZ" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Constant, Power, and Exponential Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#KSi" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Constant Multiples and Sums of Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#qZr" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-1-elem-rules.html#QSl" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-2-2-sin-cos.html" class="internal"><span class="codenumber">2.2</span> <span class="title">The sine and cosine functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#QVP" class="internal"><span class="codenumber">2.2.1</span> <span class="title">The sine and cosine functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#xcY" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-2-sin-cos.html#gZy" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-2-3-prod-quot.html" class="internal"><span class="codenumber">2.3</span> <span class="title">The product and quotient rules</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#MVQ" class="internal"><span class="codenumber">2.3.1</span> <span class="title">The product rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#tcZ" class="internal"><span class="codenumber">2.3.2</span> <span class="title">The quotient rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#Zki" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Combining rules</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#Frr" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-3-prod-quot.html#ApM" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-2-4-other-trig.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Derivatives of other trigonometric functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-2-4-other-trig.html#eiw" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Derivatives of the cotangent, secant, and cosecant functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-4-other-trig.html#KpF" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-4-other-trig.html#ZgR" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-2-5-chain.html" class="internal"><span class="codenumber">2.5</span> <span class="title">The chain rule</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-2-5-chain.html#Utl" class="internal"><span class="codenumber">2.5.1</span> <span class="title">The chain rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#AAu" class="internal"><span class="codenumber">2.5.2</span> <span class="title">Using multiple rules simultaneously</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#gHD" class="internal"><span class="codenumber">2.5.3</span> <span class="title">The composite version of basic function rules</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#MOM" class="internal"><span class="codenumber">2.5.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-5-chain.html#dJG" class="internal"><span class="codenumber">2.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-2-6-inverse.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Derivatives of Inverse Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#OSu" class="internal"><span class="codenumber">2.6.1</span> <span class="title">Basic facts about inverse functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#uZD" class="internal"><span class="codenumber">2.6.2</span> <span class="title">The derivative of the natural logarithm function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#bgM" class="internal"><span class="codenumber">2.6.3</span> <span class="title">Inverse trigonometric functions and their derivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#HnV" class="internal"><span class="codenumber">2.6.4</span> <span class="title">The link between the derivative of a function and the derivative of its inverse</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#nve" class="internal"><span class="codenumber">2.6.5</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-6-inverse.html#YSJ" class="internal"><span class="codenumber">2.6.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-2-7-implicit.html" class="internal"><span class="codenumber">2.7</span> <span class="title">Derivatives of Functions Given Implicitly</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-2-7-implicit.html#QWc" class="internal"><span class="codenumber">2.7.1</span> <span class="title">Implicit Differentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-7-implicit.html#xdl" class="internal"><span class="codenumber">2.7.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-7-implicit.html#amx" class="internal"><span class="codenumber">2.7.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-2-8-LHR.html" class="internal"><span class="codenumber">2.8</span> <span class="title">Using Derivatives to Evaluate Limits</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-2-8-LHR.html#SpQ" class="internal"><span class="codenumber">2.8.1</span> <span class="title">Using derivatives to evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\text{.}\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-8-LHR.html#ywZ" class="internal"><span class="codenumber">2.8.2</span> <span class="title">Limits involving <span class="process-math">\(\infty\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-8-LHR.html#eEi" class="internal"><span class="codenumber">2.8.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-2-8-LHR.html#qtK" class="internal"><span class="codenumber">2.8.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-3.html" class="internal"><span class="codenumber">3</span> <span class="title">Using Derivatives</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-3-1-tests.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Using derivatives to identify extreme values</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-3-1-tests.html#aiK" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Critical numbers and the first derivative test</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-1-tests.html#GpT" class="internal"><span class="codenumber">3.1.2</span> <span class="title">The second derivative test</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-1-tests.html#mxc" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-1-tests.html#RJW" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-3-2-families.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Using derivatives to describe families of functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-3-2-families.html#YHS" class="internal"><span class="codenumber">3.2.1</span> <span class="title">Describing families of functions in terms of parameters</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-2-families.html#EPb" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-2-families.html#mBc" class="internal"><span class="codenumber">3.2.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-3-3-optimization.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Global Optimization</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-3-3-optimization.html#Hoi" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Global Optimization</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-3-optimization.html#nvr" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Moving toward applications</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-3-optimization.html#TCA" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-3-optimization.html#GWJ" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-3-4-applied-opt.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Applied Optimization</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#FNq" class="internal"><span class="codenumber">3.4.1</span> <span class="title">More applied optimization problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#lUz" class="internal"><span class="codenumber">3.4.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-4-applied-opt.html#DGE" class="internal"><span class="codenumber">3.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-3-5-rel-rates.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Related Rates</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#aqb" class="internal"><span class="codenumber">3.5.1</span> <span class="title">Related Rates Problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#Gxk" class="internal"><span class="codenumber">3.5.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-3-5-rel-rates.html#Pzx" class="internal"><span class="codenumber">3.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-4.html" class="internal"><span class="codenumber">4</span> <span class="title">The Definite Integral</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-4-1-velocity-distance.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Determining distance traveled from velocity</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#EWs" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Area under the graph of the velocity function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#ldB" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Two approaches: area and antidifferentiation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#RkK" class="internal"><span class="codenumber">4.1.3</span> <span class="title">When velocity is negative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#xrT" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-1-velocity-distance.html#lax" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-4-2-Riemann.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Riemann Sums</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#jCJ" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Sigma Notation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#PJS" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Riemann Sums</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#vRb" class="internal"><span class="codenumber">4.2.3</span> <span class="title">When the function is sometimes negative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#bYk" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-2-Riemann.html#DGR" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-4-3-definite-integral.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Definite Integral</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#uqj" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#axs" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#GEB" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#mLK" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#Ucz" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-4-4-FTC.html" class="internal"><span class="codenumber">4.4</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#rJY" class="internal"><span class="codenumber">4.4.1</span> <span class="title">The Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#XRh" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Basic antiderivatives</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#DYq" class="internal"><span class="codenumber">4.4.3</span> <span class="title">The total change theorem</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#kfz" class="internal"><span class="codenumber">4.4.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-4-FTC.html#HHd" class="internal"><span class="codenumber">4.4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-5.html" class="internal"><span class="codenumber">5</span> <span class="title">Evaluating Integrals</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-5-1-antid-graphs.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Constructing Accurate Graphs of Antiderivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#Sqq" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Constructing the graph of an antiderivative</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#yxz" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Multiple antiderivatives of a single function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#eEI" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Functions defined by integrals</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#KLR" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-1-antid-graphs.html#gcJ" class="internal"><span class="codenumber">5.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-5-2-FTC2.html" class="internal"><span class="codenumber">5.2</span> <span class="title">The Second Fundamental Theorem of Calculus</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#RUR" class="internal"><span class="codenumber">5.2.1</span> <span class="title">The Second Fundamental Theorem of Calculus</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#yca" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Understanding Integral Functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#ejj" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Differentiating an Integral Function</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#Kqs" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-2-FTC2.html#AjV" class="internal"><span class="codenumber">5.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-5-3-substitution.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Integration by Substitution</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#cIr" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Reversing the Chain Rule: First Steps</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#IPA" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Reversing the Chain Rule: <span class="process-math">\(u\)</span>-substitution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#oWJ" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Evaluating Definite Integrals via <span class="process-math">\(u\)</span>-substitution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#VdS" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-3-substitution.html#lDN" class="internal"><span class="codenumber">5.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-5-4-parts.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Integration by Parts</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-5-4-parts.html#JdV" class="internal"><span class="codenumber">5.4.1</span> <span class="title">Reversing the Product Rule: Integration by Parts</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#ple" class="internal"><span class="codenumber">5.4.2</span> <span class="title">Some Subtleties with Integration by Parts</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#Vsn" class="internal"><span class="codenumber">5.4.3</span> <span class="title">Using Integration by Parts Multiple Times</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#Bzw" class="internal"><span class="codenumber">5.4.4</span> <span class="title">Evaluating Definite Integrals Using Integration by Parts</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#hGF" class="internal"><span class="codenumber">5.4.5</span> <span class="title">When <span class="process-math">\(u\)</span>-substitution and Integration by Parts Fail to Help</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#NNO" class="internal"><span class="codenumber">5.4.6</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-4-parts.html#zAo" class="internal"><span class="codenumber">5.4.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-5-5-other-opt.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Other Options for Finding Algebraic Antiderivatives</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#mET" class="internal"><span class="codenumber">5.5.1</span> <span class="title">The Method of Partial Fractions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#SMc" class="internal"><span class="codenumber">5.5.2</span> <span class="title">Using an Integral Table</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#yTl" class="internal"><span class="codenumber">5.5.3</span> <span class="title">Using Computer Algebra Systems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#fau" class="internal"><span class="codenumber">5.5.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-5-other-opt.html#okl" class="internal"><span class="codenumber">5.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-5-6-num-int.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Numerical Integration</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#Nll" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#tsu" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#ZzD" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#FGM" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#lNV" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#bOP" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-6.html" class="internal"><span class="codenumber">6</span> <span class="title">Using Definite Integrals</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-6-1-area.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Using Definite Integrals to Find Area and Length</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-6-1-area.html#nhJ" class="internal"><span class="codenumber">6.1.1</span> <span class="title">The Area Between Two Curves</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#ToS" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Finding Area with Horizontal Slices</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#zwb" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Finding the length of a curve</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#fDk" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-1-area.html#lwW" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-6-2-volume.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Using Definite Integrals to Find Volume</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-6-2-volume.html#qqK" class="internal"><span class="codenumber">6.2.1</span> <span class="title">The Volume of a Solid of Revolution</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#WxT" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Revolving about the <span class="process-math">\(y\)</span>-axis</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#CFc" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Revolving about horizontal and vertical lines other than the coordinate axes</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#iMl" class="internal"><span class="codenumber">6.2.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-2-volume.html#dLt" class="internal"><span class="codenumber">6.2.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-6-3-mass.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Density, Mass, and Center of Mass</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-6-3-mass.html#FOd" class="internal"><span class="codenumber">6.3.1</span> <span class="title">Density</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#lVm" class="internal"><span class="codenumber">6.3.2</span> <span class="title">Weighted Averages</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#Scv" class="internal"><span class="codenumber">6.3.3</span> <span class="title">Center of Mass</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#yjE" class="internal"><span class="codenumber">6.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-3-mass.html#JLy" class="internal"><span class="codenumber">6.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-6-4-physics.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Physics Applications:  Work, Force, and Pressure</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-6-4-physics.html#kuu" class="internal"><span class="codenumber">6.4.1</span> <span class="title">Work</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#QBD" class="internal"><span class="codenumber">6.4.2</span> <span class="title">Work: Pumping Liquid from a Tank</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#wIM" class="internal"><span class="codenumber">6.4.3</span> <span class="title">Force due to Hydrostatic Pressure</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#cPV" class="internal"><span class="codenumber">6.4.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-4-physics.html#qhc" class="internal"><span class="codenumber">6.4.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-6-5-improper.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Improper Integrals</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-6-5-improper.html#kIP" class="internal"><span class="codenumber">6.5.1</span> <span class="title">Improper Integrals Involving Unbounded Intervals</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#QPY" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Convergence and Divergence</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#wXh" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Improper Integrals Involving Unbounded Integrands</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#deq" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-6-5-improper.html#dbM" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-7.html" class="internal"><span class="codenumber">7</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-7-1-diff-eq-intro.html" class="internal"><span class="codenumber">7.1</span> <span class="title">An Introduction to Differential Equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#Quz" class="internal"><span class="codenumber">7.1.1</span> <span class="title">What is a differential equation?</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#wBI" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Differential equations in the world around us</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#cIR" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Solving a differential equation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#IQa" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-1-diff-eq-intro.html#jtO" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-7-2-qualitative.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Qualitative behavior of solutions to DEs</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-7-2-qualitative.html#CFp" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Slope fields</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-2-qualitative.html#iMy" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Equilibrium solutions and stability</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-2-qualitative.html#OTH" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-2-qualitative.html#ehs" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-7-3-euler.html#MIV" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#sQe" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#YXn" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#wdS" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-7-4-separable.html" class="internal"><span class="codenumber">7.4</span> <span class="title">Separable differential equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-7-4-separable.html#Gyk" class="internal"><span class="codenumber">7.4.1</span> <span class="title">Solving separable differential equations</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-4-separable.html#mFt" class="internal"><span class="codenumber">7.4.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-4-separable.html#Gau" class="internal"><span class="codenumber">7.4.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-7-5-modeling.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Modeling with differential equations</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-7-5-modeling.html#Anz" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Developing a differential equation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-5-modeling.html#guI" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-5-modeling.html#ORD" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#ucO" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#ajX" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#Grg" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#tcv" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-8a.html" class="internal"><span class="codenumber">8</span> <span class="title">Taylor Polynomials and Taylor Series</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-8a-1-linear-poly.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Approximating <span class="process-math">\(f(x) = e^x\)</span></span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-8a-1-linear-poly.html#subsection-143" class="internal"><span class="codenumber">8.1.1</span> <span class="title">Finding a quadratic approximation</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-1-linear-poly.html#subsection-144" class="internal"><span class="codenumber">8.1.2</span> <span class="title">Over and over again</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-1-linear-poly.html#subsection-145" class="internal"><span class="codenumber">8.1.3</span> <span class="title">As the degree of the approximation increases</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-1-linear-poly.html#subsection-146" class="internal"><span class="codenumber">8.1.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-1-linear-poly.html#ez-8a-1" class="internal"><span class="codenumber">8.1.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-8a-2-taylor-poly.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Taylor Polynomials</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-8a-2-taylor-poly.html#subsection-147" class="internal"><span class="codenumber">8.2.1</span> <span class="title">Taylor polynomials</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-2-taylor-poly.html#subsection-148" class="internal"><span class="codenumber">8.2.2</span> <span class="title">Taylor polynomial approximations centered at an arbitrary value <span class="process-math">\(a\)</span></span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-2-taylor-poly.html#subsection-149" class="internal"><span class="codenumber">8.2.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-2-taylor-poly.html#ez-8a-2" class="internal"><span class="codenumber">8.2.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-8a-3-geometric.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Geometric Sums</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-8a-3-geometric.html#subsection-150" class="internal"><span class="codenumber">8.3.1</span> <span class="title">Finite Geometric Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-3-geometric.html#subsection-151" class="internal"><span class="codenumber">8.3.2</span> <span class="title">Infinite Geometric Series</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-3-geometric.html#subsection-152" class="internal"><span class="codenumber">8.3.3</span> <span class="title">How geometric series naturally connect to Taylor polynomials</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-3-geometric.html#subsection-153" class="internal"><span class="codenumber">8.3.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-3-geometric.html#ez-8a-3" class="internal"><span class="codenumber">8.3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-8a-4-taylor-series.html" class="internal"><span class="codenumber">8.4</span> <span class="title">Taylor Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-8a-4-taylor-series.html#subsection-154" class="internal"><span class="codenumber">8.4.1</span> <span class="title">Taylor series and the Ratio Test</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-4-taylor-series.html#subsection-155" class="internal"><span class="codenumber">8.4.2</span> <span class="title">Taylor series of several important functions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-4-taylor-series.html#subsection-156" class="internal"><span class="codenumber">8.4.3</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-4-taylor-series.html#ez-8a-4" class="internal"><span class="codenumber">8.4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-8a-5-finding-using-taylor-series.html" class="internal"><span class="codenumber">8.5</span> <span class="title">Finding and Using Taylor Series</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-8a-5-finding-using-taylor-series.html#subsection-157" class="internal"><span class="codenumber">8.5.1</span> <span class="title">Using substitution and algebra to find new Taylor series expressions</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-5-finding-using-taylor-series.html#subsection-158" class="internal"><span class="codenumber">8.5.2</span> <span class="title">Differentiating and integrating Taylor series</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-5-finding-using-taylor-series.html#subsection-159" class="internal"><span class="codenumber">8.5.3</span> <span class="title">Alternating series of real numbers</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-5-finding-using-taylor-series.html#subsection-160" class="internal"><span class="codenumber">8.5.4</span> <span class="title">Summary</span></a></div></li>
+<li><div class="toc-item"><a href="sec-8a-5-finding-using-taylor-series.html#ez-8a-5" class="internal"><span class="codenumber">8.5.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-issues.html" class="internal"><span class="codenumber">9.6</span> <span class="title">Issues</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-issues.html#ez-safranski-issues" class="internal"><span class="codenumber">9.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
+<li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-8a-4-taylor-series"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">8.4</span> <span class="title">Taylor Series</span>
+</h2>
+<article class="objectives goal-like" id="objectives-46"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+<ul class="disc">
+<li id="li-5202"><div class="para" id="p-9561">What is the Taylor series centered at <span class="process-math">\(a\)</span> of a function <span class="process-math">\(f\text{?}\)</span>
+</div></li>
+<li id="li-5203"><div class="para" id="p-9562">What does it mean for an infinite Taylor series to converge to a finite sum, and how can we determine <span class="process-math">\(x\)</span>-values for which the series converges?</div></li>
+<li id="li-5204"><div class="para" id="p-9563">What are the Taylor series centered at <span class="process-math">\(a = 0\)</span> for <span class="process-math">\(\frac{1}{1-x}\text{,}\)</span> <span class="process-math">\(\ln(1+x)\text{,}\)</span> <span class="process-math">\(\sin(x)\text{,}\)</span> <span class="process-math">\(\cos(x)\text{,}\)</span> and <span class="process-math">\(e^x\text{,}\)</span> and for which <span class="process-math">\(x\)</span>-values do these series converge?</div></li>
+</ul></article><section class="introduction" id="introduction-50"><div class="para logical" id="p-9564">
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/act-8a-3-3.html" title="Activity 8.3.4">Activity 8.3.4</a>, we investigated several Taylor polynomials centered at <span class="process-math">\(0\)</span> for the function <span class="process-math">\(f(x) = \frac{1}{1-x}\)</span> and found that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8a-3-3.html ./knowl/D-8a-4-Taylor-series.html ./knowl/eq-8a-3-infinite-geometric-sum.html">
+\begin{equation*}
+T_n(x) = 1 + x + x^2 + x^3 + \cdots + x^n\text{.}
+\end{equation*}
+</div>
+<div class="para">Moreover, we saw that it is natural to extend the degree <span class="process-math">\(n\)</span> Taylor polynomial to an infinite Taylor <em class="emphasis">series</em><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-127" id="fn-127"><sup> 1 </sup></a>; for <span class="process-math">\(f(x) = \frac{1}{1-x}\text{,}\)</span> the corresponding Taylor series is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8a-3-3.html ./knowl/D-8a-4-Taylor-series.html ./knowl/eq-8a-3-infinite-geometric-sum.html">
+\begin{equation*}
+T(x) = 1 + x + x^2 + x^3 + \cdots x^n + \cdots\text{.}
+\end{equation*}
+</div>
+<div class="para">Because <span class="process-math">\(T(x)\)</span> is an infinite geometric series with <span class="process-math">\(a = 1\)</span> and <span class="process-math">\(r = x\text{,}\)</span> whenever <span class="process-math">\(|r| = |x| \lt 1\text{,}\)</span> the series converges and by <a href="" class="xref" data-knowl="./knowl/eq-8a-3-infinite-geometric-sum.html" title="Equation 8.3.12">Equation (8.3.12)</a> its sum is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8a-3-3.html ./knowl/D-8a-4-Taylor-series.html ./knowl/eq-8a-3-infinite-geometric-sum.html" id="Eq-8a-4-f-equals-Tf">
+\begin{equation}
+T(x) = 1 + x + x^2 + x^3 + \cdots x^n + \cdots = \frac{1}{1-x} = f(x)\text{.}\tag{8.4.1}
+\end{equation}
+</div>
+<div class="para">Remarkably, this shows that the original function, <span class="process-math">\(f(x) = \frac{1}{1-x}\text{,}\)</span> is <em class="emphasis">equal to its Taylor series</em> for all values of <span class="process-math">\(x\)</span> that satisfy <span class="process-math">\(|x| \lt 1\text{.}\)</span>  So, not only do Taylor polynomials provide increasingly better approximations to a function as the degree <span class="process-math">\(n\)</span> increases, but it appears that if we let <span class="process-math">\(n\)</span> increase without bound we arrive at a new representation of the original function through its Taylor series<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-128" id="fn-128"><sup> 2 </sup></a>.</div>
+</div> <div class="para" id="p-9565">In <a href="" class="xref" data-knowl="./knowl/PA-8a-4.html" title="Preview Activity 8.4.1">Preview Activity 8.4.1</a>, we consider an infinite geometric series and explore the function to which the series is related and that function's Taylor polynomials.</div> <article class="exploration project-like" id="PA-8a-4"><h3 class="heading">
+<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">8.4.1</span><span class="period">.</span>
+</h3>
+<div id="webwork-PA-8a-4" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="273" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIm5pY2VUYWJsZXMucGwiLCJzY2FmZm9sZC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJwYXJzZXJSYWRpb0J1dHRvbnMucGwiLCJjb250ZXh0RnJhY3Rpb24ucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKJHJhZGlvID0gUmFkaW9CdXR0b25zKFsKICAiSXQncyB0aGUgc2FtZS4iLAogICJUaGUgVGF5bG9yIHBvbHlub21pYWxzIG9mICR7Qk19Zih4KSR7RU19IGFyZSBwYXJ0aWFsIHN1bXMgb2YgdGhlIG9yaWdpbmFsIGluZmluaXRlIGdlb21ldHJpYyBzZXJpZXMuIiwKICAiTm8gcmVsYXRpb24uIgogIF0sIDEKKTsKQ29udGV4dCgiRnJhY3Rpb24iKTsKCkJFR0lOX1BHTUwKTGV0CgpbYGBgCiAgICAgICAgICBUKHgpID0gMyAtIHggKyBcZnJhYzEzeF4yIC0gXGZyYWMxOXheMyArIFxjZG90cyArIDNcbGVmdCgtXGZyYWMxM1xyaWdodClebiB4Xm4gKyBcY2RvdHMKICAgICAgICBcdGV4dHsufWBgYF0KCgoKCkVORF9QR01MClNjYWZmb2xkOjpCZWdpbihudW1iZXJlZCA9PiAxLGlzX29wZW4gPT4gImNvcnJlY3Rfb3JfZmlyc3RfaW5jb3JyZWN0IixjYW5fb3BlbiA9PiBhbHdheXMsKTtTZWN0aW9uOjpCZWdpbigiIik7CkJFR0lOX1BHTUwKU2hvdyB0aGF0IFtgVCh4KWBdIGlzIGEgZ2VvbWV0cmljIHNlcmllcyBieSBpZGVudGlmeWluZyB0aGUgdmFsdWVzIG9mIFtgYWBdIGFuZCBbYHJcdGV4dHsufWBdCgpbYGE9e31gXVtfXXsnMyd9ezEwfSBhbmQgW2ByPXt9YF1bX117Jy14LzMnfXsxMH0KCgpFTkRfUEdNTApTZWN0aW9uOjpFbmQoKTtTZWN0aW9uOjpCZWdpbigiIik7CkJFR0lOX1BHTUwKVXNlIHRoZSBmb3JtdWxhIGZvciB0aGUgc3VtIG9mIGFuIGluZmluaXRlIGdlb21ldHJpYyBzZXJpZXMgdG8gZmluZCBhIHNpbmdsZSBmcmFjdGlvbiB0aGF0IHJlcHJlc2VudHMgdGhlIHZhbHVlIG9mIFtgVCh4KVx0ZXh0ey59YF0KCltfXXsnMy8oMSt4LzMpJ317MjB9CgpGb3Igd2hpY2ggdmFsdWVzIG9mIFtgeGBdIGlzIHRoaXMgcmVwcmVzZW50YXRpb24gdmFsaWQ/CgpVc2UgaW50ZXJ2YWwgbm90YXRpb24uW19de0ludGVydmFsKCcoLTMsMyknKX17MjB9CgoKRU5EX1BHTUwKU2VjdGlvbjo6RW5kKCk7U2VjdGlvbjo6QmVnaW4oIiIpOwpCRUdJTl9QR01MCkNvbnNpZGVyIHRoZSBmdW5jdGlvbiBbYGYoeCkgPSA5KDMgKyB4KV57LTF9YF0gYW5kIGZpbGwgb3V0IHRoZSB0YWJsZSBiZWxvdy4KCj4+IFtARGF0YVRhYmxlKFtbW1BHTUwoccKmW2BmKHgpID0gOSAoMyArIHgpXnstMX1gXcKmKSxoYWxpZ24sJ2wnLF0sUEdNTChxwqZbYGYoMCkgPSB7fWBdW19deyczJ317MTB9wqYpLF0sW1BHTUwoccKmW2BmJyh4KSA9IHt9YF1bX117Jy05KDMgKyB4KV4oLTIpJ317MjB9wqYpLFBHTUwoccKmW2BmJygwKSA9IHt9YF1bX117Jy0xJ317MTB9wqYpLF0sW1BHTUwoccKmW2BmJycoeCkgPSB7fWBdW19deycxOCgzICsgeCleKC0zKSd9ezIwfcKmKSxQR01MKHHCpltgZicnKDApID0ge31gXVtfXXtGcmFjdGlvbigyLDMpfXsxMH3CpiksXSxbUEdNTChxwqZbYGYnJycoeCkgPSB7fWBdW19deyctNTQoMyArIHgpXigtNCknfXsyMH3CpiksUEdNTChxwqZbYGYnJycoMCkgPSB7fWBdW19de0ZyYWN0aW9uKC0yLDMpfXsxMH3CpiksXSxdLGFsaWduLCcqezJ9e3J9Jyx2YWxpZ24sJ21pZGRsZScsKTtAXSogPDwKClVzZSB5b3VyIGFuc3dlcnMgdG8gY2FsY3VsYXRlIHRoZSBkZWdyZWUgW2AzYF0gVGF5bG9yIHBvbHlub21pYWwgY2VudGVyZWQgYXQgW2AwYF0gZm9yIFtgZih4KVx0ZXh0ey59YF0KCltfXXsnMyAtIHggKyAxLzMgeF4yIC0gMS85IHheMyd9ezEwfQoKCkVORF9QR01MClNlY3Rpb246OkVuZCgpO1NlY3Rpb246OkJlZ2luKCIiKTsKQkVHSU5fUEdNTApIb3cgaXMgeW91ciB3b3JrIGluIHBhcnQgKGMpIGNvbm5lY3RlZCB0byB0aGUgb3JpZ2luYWwgZ2l2ZW4gc2VyaWVzIFtgVCh4KVx0ZXh0ez99YF0KCltfXXskcmFkaW99ezV9CgoKRU5EX1BHTUwKU2VjdGlvbjo6RW5kKCk7U2NhZmZvbGQ6OkVuZCgpOwpFTkRET0NVTUVOVCgpOw==" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<button id="webwork-PA-8a-4-button" class="webwork-button activate" onclick="handleWW('webwork-PA-8a-4')" aria-labelledby="webwork-PA-8a-4-button-label"><span id="webwork-PA-8a-4-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
+<div class="introduction" id="introduction-51">
+<div class="para" id="p-9566">Let</div> <div class="para logical" id="p-9567"><div class="displaymath process-math">
+\begin{equation*}
+T(x) = 3 - x + \frac13x^2 - \frac19x^3 + \cdots + 3\left(-\frac13\right)^n x^n + \cdots
+\text{.}
+\end{equation*}
+</div></div>
+</div> <article class="task exercise-like" id="task-15"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="p-9568">Show that <span class="process-math">\(T(x)\)</span> is a geometric series by identifying the values of <span class="process-math">\(a\)</span> and <span class="process-math">\(r\text{.}\)</span>
+</div> <div class="para" id="p-9569">
+<span class="process-math">\(a={}\)</span><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and <span class="process-math">\(r={}\)</span><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div></article> <article class="task exercise-like" id="task-16"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="p-9572">Use the formula for the sum of an infinite geometric series to find a single fraction that represents the value of <span class="process-math">\(T(x)\text{.}\)</span>
+</div> <div class="para" id="p-9573">For which values of <span class="process-math">\(x\)</span> is this representation valid?</div> <div class="para" id="p-9574">Use interval notation.<span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div></article> <article class="task exercise-like" id="task-17"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="p-9577">Consider the function <span class="process-math">\(f(x) = 9(3 + x)^{-1}\)</span> and fill out the table below.</div>  <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="r m b0 r0 l0 t0 lines"><span class="process-math">\(f(x) = 9 (3 + x)^{-1}\)</span></td>
+<td class="r m b0 r0 l0 t0 lines">
+<span class="process-math">\(f(0) = {}\)</span><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">
+<span class="process-math">\(f'(x) = {}\)</span><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</td>
+<td class="r m b0 r0 l0 t0 lines">
+<span class="process-math">\(f'(0) = {}\)</span><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">
+<span class="process-math">\(f''(x) = {}\)</span><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</td>
+<td class="r m b0 r0 l0 t0 lines">
+<span class="process-math">\(f''(0) = {}\)</span><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</td>
+</tr>
+<tr>
+<td class="r m b0 r0 l0 t0 lines">
+<span class="process-math">\(f'''(x) = {}\)</span><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</td>
+<td class="r m b0 r0 l0 t0 lines">
+<span class="process-math">\(f'''(0) = {}\)</span><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</td>
+</tr>
+</table></div> <div class="para" id="p-9578">Use your answers to calculate the degree <span class="process-math">\(3\)</span> Taylor polynomial centered at <span class="process-math">\(0\)</span> for <span class="process-math">\(f(x)\text{.}\)</span>
+</div></article> <article class="task exercise-like" id="task-18"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="p-9587">How is your work in part (c) connected to the original given series <span class="process-math">\(T(x)\text{?}\)</span>
+</div> <div class="para" id="p-9588"><ul style="list-style:circle;">
+<li id="li-5205"><div class="para" id="p-9589">It's the same.</div></li>
+<li id="li-5206"><div class="para" id="p-9590">The Taylor polynomials of <span class="process-math">\(f(x)\)</span> are partial sums of the original infinite geometric series.</div></li>
+<li id="li-5207"><div class="para" id="p-9591">No relation.</div></li>
+</ul></div></article>
+</div>
+<div class="problem-buttons"></div>
+</div></article></section><section class="subsection" id="subsection-154"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.4.1</span> <span class="title">Taylor series and the Ratio Test</span>
+</h3>
+<div class="para" id="p-9593">From our work in <a href="" class="xref" data-knowl="./knowl/act-8a-3-3.html" title="Activity 8.3.4">Activity 8.3.4</a> and <a href="" class="xref" data-knowl="./knowl/PA-8a-4.html" title="Preview Activity 8.4.1">Preview Activity 8.4.1</a>, we have seen two examples where the Taylor polynomials of a given function lead to a corresponding infinite Taylor series that is actually equal to the original function itself.  This suggests that Taylor series are important because they give rise to a polynomial-like representation of a non-polynomial function.  We are now ready to formally define the Taylor series of a function and then introduce a tool for determining where the Taylor series converges.</div>
+<article class="definition definition-like" id="D-8a-4-Taylor-series"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.4.1</span><span class="period">.</span>
+</h4> <div class="para logical" id="p-9594">
+<div class="para">Let <span class="process-math">\(f\)</span> be a function such that <span class="process-math">\(f^{(n)}(a)\)</span> exists for every natural number <span class="process-math">\(n\text{.}\)</span> The <dfn class="terminology">Taylor series for <span class="process-math">\(f\)</span> centered at <span class="process-math">\(x=a\)</span></dfn> is the series <span class="process-math">\(T_f(x)\)</span> defined by</div>
+<div class="displaymath process-math" id="md-233">
+\begin{align*}
+T_f(x) =\mathstrut \amp \sum_{k=0}^{\infty} \frac{f^{(k)}(a)}{k!}(x-a)^k\\
+=\mathstrut \amp f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + \cdots\text{.}
+\end{align*}
+</div>
+</div></article><div class="para" id="p-9595">In the special case where <span class="process-math">\(a=0\)</span> in <a href="" class="xref" data-knowl="./knowl/D-8a-4-Taylor-series.html" title="Definition 8.4.1">Definition 8.4.1</a>, the Taylor series is also sometimes called the <dfn class="terminology">Maclaurin series</dfn>  for <span class="process-math">\(f\text{.}\)</span>
+</div>
+<div class="para logical" id="p-9596">
+<div class="para">From <a href="" class="xref" data-knowl="./knowl/act-8a-3-3.html" title="Activity 8.3.4">Activity 8.3.4</a> we know the <span class="process-math">\(n\)</span>th order Taylor polynomial centered at <span class="process-math">\(0\)</span> for the function <span class="process-math">\(f(x) = \frac{1}{1-x}\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8a-3-3.html ./knowl/Eq-8a-4-f-equals-Tf.html">
+\begin{equation*}
+T_n(x) = 1 + x + x^2 + \cdots + x^n\text{,}
+\end{equation*}
+</div>
+<div class="para">and thus the Maclaurin series for <span class="process-math">\(f(x) = \frac{1}{1-x}\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8a-3-3.html ./knowl/Eq-8a-4-f-equals-Tf.html">
+\begin{equation*}
+T_f(x) = \sum_{k=0}^{\infty} x^k\text{.}
+\end{equation*}
+</div>
+<div class="para">As we noted earlier in <a href="" class="xref" data-knowl="./knowl/Eq-8a-4-f-equals-Tf.html" title="Equation 8.4.1">Equation (8.4.1)</a>, because this particular series is geometric (with common ratio <span class="process-math">\(r = x\)</span>), we are able to easily find a shortcut formula for its value and understand the values of <span class="process-math">\(x\)</span> for which the infinite sum makes sense.  In particular, for <span class="process-math">\(|x| \lt 1\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8a-3-3.html ./knowl/Eq-8a-4-f-equals-Tf.html">
+\begin{equation*}
+T_f(x) = \sum_{k=0}^{\infty} x^k = \frac{1}{1-x} \text{,}
+\end{equation*}
+</div>
+<div class="para">which shows that the Taylor series is equal to the original function <span class="process-math">\(f(x)\)</span> for this set of <span class="process-math">\(x\)</span> values.</div>
+</div>
+<div class="para" id="p-9597">It turns out that while most Taylor series are not geometric series, we can compare any Taylor series to a geometric series in order to determine an interval of <span class="process-math">\(x\)</span>-values for which the Taylor series converges.  To see how we approach this issue, we consider a particular function for which we know its Taylor polynomials and determine the <span class="process-math">\(x\)</span>-values for which its Taylor series should converge.</div>
+<div class="para logical" id="p-9598">
+<div class="para">We let <span class="process-math">\(f(x) = \ln(1+x)\)</span> and work to determine whether or not the Taylor series is geometric in order to investigate the <span class="process-math">\(x\)</span>-values for which the series appears to converge.  In <a href="" class="xref" data-knowl="./knowl/Ex-8a-2-Taylor-example.html" title="Example 8.2.6: The degree 5 Taylor polynomial of f(x) = \ln(1+x)">Example 8.2.6</a>, we found that the general degree <span class="process-math">\(n\)</span> Taylor polynomial centered at <span class="process-math">\(a = 0\)</span> for <span class="process-math">\(f(x) = \ln(1+x)\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-8a-2-Taylor-example.html">
+\begin{equation*}
+T_n(x) = x - \frac{1}{2}x^2 + \frac{1}{3}x^3 - \cdots + (-1)^{n-1}\frac{1}{n}x^n\text{.}
+\end{equation*}
+</div>
+<div class="para">This pattern thus allows us to see that the Taylor series for <span class="process-math">\(f(x)\text{,}\)</span> centered at <span class="process-math">\(a = 0\text{,}\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-8a-2-Taylor-example.html" id="md-234">
+\begin{align*}
+T_f(x) =\mathstrut \amp \sum_{k=1}^{\infty} (-1)^{k-1}\frac{1}{k}x^k\\
+=\mathstrut \amp x - \frac{1}{2}x^2 + \frac{1}{3}x^3 - \cdots + (-1)^{n-1}\frac{1}{n}x^n + \cdots\text{.}
+\end{align*}
+</div>
+<div class="para">Unlike the Taylor series for the function <span class="process-math">\(\frac{1}{1-x}\text{,}\)</span> the Taylor series for <span class="process-math">\(f(x) = \ln(1+x)\)</span> turns out to not be geometric, so we introduce some new ideas to think about the <span class="process-math">\(x\)</span>-values for which we expect the series to converge.</div>
+</div>
+<div class="para logical" id="p-9599">
+<div class="para">For a series to be geometric, it must have a constant ratio between the terms.  In <span class="process-math">\(T_f(x)\text{,}\)</span> the general <span class="process-math">\(n\)</span>th term is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_n(x) = (-1)^{n-1}\frac{1}{n}x^n 
+\end{equation*}
+</div>
+<div class="para">so the <span class="process-math">\((n+1)\)</span>st term is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{n+1}(x) = (-1)^{n}\frac{1}{n+1}x^{n+1} \text{.}
+\end{equation*}
+</div>
+<div class="para">If we consider the ratio of these consecutive terms and call that quantity <span class="process-math">\(r_n(x)\text{,}\)</span> we find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_n(x) = \frac{a_{n+1}(x)}{a_n(x)} = \frac{(-1)^{n}\frac{1}{n+1}x^{n+1}}{(-1)^{n-1}\frac{1}{n}x^n}\text{.}
+\end{equation*}
+</div>
+<div class="para">We can rewrite this fraction algebraically and simplify it considerably.  Grouping the similar terms between the numerator and denominator, we see</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_n(x) = \frac{(-1)^{n}}{(-1)^{n-1}} \cdot \frac{n}{n+1} \cdot \frac{x^{n+1}}{x^n}\text{,}
+\end{equation*}
+</div>
+<div class="para">which allows us to simplify and conclude that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_n(x) = (-1) \cdot \frac{n}{n+1} \cdot x\text{.}
+\end{equation*}
+</div>
+<div class="para">This tells us the series <span class="process-math">\(T_f(x)\)</span> is not geometric since the ratio of consecutive terms depends on <span class="process-math">\(n\text{.}\)</span>  For example, if we take <span class="process-math">\(n = 2\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_2(x) = -\frac{2}{3}x\text{,}
+\end{equation*}
+</div>
+<div class="para">which is the ratio between the third and second terms of <span class="process-math">\(T_f(x)\text{,}\)</span> while</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_3(x) = -\frac{3}{4}x
+\end{equation*}
+</div>
+<div class="para">is the ratio between the fourth and third terms.  Since the ratio <span class="process-math">\(r_n(x)\)</span> depends on <span class="process-math">\(n\text{,}\)</span> the series lacks a common ratio between terms.</div>
+</div>
+<div class="para logical" id="p-9600">
+<div class="para">However, as <span class="process-math">\(n\)</span> gets large, the series <span class="process-math">\(T_f(x)\)</span> is <em class="emphasis">almost</em> geometric.  This is because the quantity <span class="process-math">\(\frac{n}{n+1}\)</span> approaches <span class="process-math">\(1\)</span> as <span class="process-math">\(n\)</span> increases without bound, and therefore for large <span class="process-math">\(n\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-8a-4-ln-10-20.html">
+\begin{equation*}
+r_n(x) \approx -x\text{.}
+\end{equation*}
+</div>
+<div class="para">This suggests that the series <span class="process-math">\(T_f(x)\)</span> converges for <span class="process-math">\(|r_n(x)| \approx |-x| = |x| \lt 1\text{,}\)</span> since the series is very close to being geometric with a common ratio <span class="process-math">\(-x\text{.}\)</span>  Graphical evidence supports the conclusion that for <span class="process-math">\(|x| \lt 1\text{,}\)</span> the series <span class="process-math">\(T_f(x)\)</span> converges in the same way that a geometric one would, and also that the interval of convervence is <span class="process-math">\(-1 \lt x \lt 1\text{.}\)</span>  In <a href="" class="xref" data-knowl="./knowl/F-8a-4-ln-10-20.html" title="Figure 8.4.2">Figure 8.4.2</a>, we plot <span class="process-math">\(f(x) = \ln(1+x)\text{,}\)</span> <span class="process-math">\(T_{10}(x) = x - \frac{1}{2}x^2 + \cdots - \frac{1}{10}x^{10}\text{,}\)</span> and <span class="process-math">\(T_{20}(x) = x - \frac{1}{2}x^2 + \cdots - \frac{1}{20}x^{20}\text{.}\)</span>
+</div>
+</div>
+<figure class="figure figure-like" id="F-8a-4-ln-10-20"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/8a_4_Ex_1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.4.2<span class="period">.</span></span><span class="space"> </span>The function <span class="process-math">\(f(x)=\ln(1+x)\)</span> and its degree <span class="process-math">\(10\)</span> and <span class="process-math">\(20\)</span> Taylor polynomial approximations  <span class="process-math">\(T_{10}(x)\)</span> and <span class="process-math">\(T_{20}(x)\)</span> near the point <span class="process-math">\((0,f(0))\text{.}\)</span></figcaption></figure><div class="para logical" id="p-9601">
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/F-8a-4-ln-10-20.html" title="Figure 8.4.2">Figure 8.4.2</a> we see that on the interval <span class="process-math">\(-0.8 \lt x \lt 0.8\text{,}\)</span> <span class="process-math">\(f(x)\text{,}\)</span> <span class="process-math">\(T_{10}(x)\text{,}\)</span> and <span class="process-math">\(T_{20}(x)\)</span> are nearly indistinguishable.  Furthermore, we see that if we widen the interval to <span class="process-math">\(-0.9 \lt x \lt 0.9\text{,}\)</span> <span class="process-math">\(T_{20}(x)\)</span> remains a very good approximation of <span class="process-math">\(f(x)\text{.}\)</span>  For example, we can do some computations and find that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-8a-4-ln-10-20.html">
+\begin{equation*}
+f(-0.8) - T_{10}(-0.8) \approx -0.030563, f(-0.8) - T_{20}(-0.8) \approx -0.001091\text{,}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/F-8a-4-ln-10-20.html">
+\begin{equation*}
+f(-0.9) - T_{10}(-0.9) \approx -0.183837, f(-0.9) - T_{20}(-0.9) \approx -0.032564 \text{.}
+\end{equation*}
+</div>
+<div class="para">Increasing the degree of the approximation further allows us to do a bit better, but since <span class="process-math">\(f(x) = \ln(1+x)\)</span> is undefined with a vertical asymptote at <span class="process-math">\(x = -1\text{,}\)</span> no polynomial function can agree with <span class="process-math">\(f(x)\)</span> at <span class="process-math">\(x = -1\text{.}\)</span>  Thus, it appears to be the case that <span class="process-math">\(T_f(x)\)</span> converges for <span class="process-math">\(x\)</span>-values that satisfy <span class="process-math">\(-1 \lt x \lt 1\text{,}\)</span> and on that interval the Taylor series converges to <span class="process-math">\(f(x) = \ln(1+x)\text{.}\)</span>
+</div>
+</div>
+<div class="para logical" id="p-9602">
+<div class="para">From our most recent work, we see a striking result:  it appears that for <span class="process-math">\(x\)</span>-values where the Taylor series <span class="process-math">\(T_f(x)\)</span> of <span class="process-math">\(f(x) = \ln(1+x)\)</span> converges to a finite value, the Taylor series actually equals the function <span class="process-math">\(f\text{.}\)</span>  Said differently, it appears that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-f-equals-Tf.html">
+\begin{equation*}
+\ln(1+x) = x - \frac{1}{2}x^2 + \frac{1}{3}x^3 - \cdots + (-1)^{n-1}\frac{1}{n}x^n + \cdots
+\end{equation*}
+</div>
+<div class="para">for <span class="process-math">\(x\)</span>-values that satisfy <span class="process-math">\(-1 \lt x \lt 1\text{.}\)</span>  This result is analogous to <a href="" class="xref" data-knowl="./knowl/Eq-8a-4-f-equals-Tf.html" title="Equation 8.4.1">Equation (8.4.1)</a>, but is different in the sense that the Taylor series for <span class="process-math">\(\ln(1+x)\)</span> is not geometric.  We next introduce a more formal way to test “how geometric” a Taylor series is in an effort to understand where the Taylor series is guaranteed to converge.</div>
+</div>
+<article class="assemblage assemblage-like" id="assemblage-54"><h4 class="heading"><span class="title">The Ratio Test.</span></h4>
+<div class="para logical" id="p-9603">
+<div class="para">Consider an infinite series of the form <span class="process-math">\(T(x) = \sum_{k=0}^{\infty} c_k (x-a)^k\text{,}\)</span> where <span class="process-math">\(a\)</span> is any real number.  Let <span class="process-math">\(r_n(x) = \frac{c_{n+1} (x-a)^{n+1}}{c_n (x-a)^n}\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r(x) = \lim_{n \to \infty} r_n(x) = \lim_{n \to \infty} \frac{c_{n+1} (x-a)^{n+1}}{c_n (x-a)^n}\text{.}
+\end{equation*}
+</div>
+<div class="para">Then,</div>
+<ul class="disc">
+<li id="li-5208"><div class="para" id="p-9604">for any real number <span class="process-math">\(x\)</span> such that <span class="process-math">\(|r(x)| \lt 1\text{,}\)</span> the series <span class="process-math">\(T(x)\)</span> converges;</div></li>
+<li id="li-5209"><div class="para" id="p-9605">for any real number <span class="process-math">\(x\)</span> such that <span class="process-math">\(|r(x)| \gt 1\text{,}\)</span> the series <span class="process-math">\(T(x)\)</span> does not converge;</div></li>
+<li id="li-5210"><div class="para" id="p-9606">and for any <span class="process-math">\(x\)</span> such that <span class="process-math">\(|r(x)| = 1\text{,}\)</span> the series <span class="process-math">\(T(x)\)</span> may or may not converge.</div></li>
+</ul>
+</div></article><div class="para" id="p-9607">In essence, the Ratio Test is a way to find <span class="process-math">\(x\)</span> values for which <span class="process-math">\(T(x)\)</span> behaves like a geometric series with ratio <span class="process-math">\(r(x)\)</span> such that <span class="process-math">\(|r(x)| \lt 1\text{;}\)</span> for those <span class="process-math">\(x\)</span>-values, the infinite series converges to a finite value<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-129" id="fn-129"><sup> 3 </sup></a>.</div>
+<div class="para logical" id="p-9608">
+<div class="para">In light of the formal statement of the Ratio Test, we now see that in our initial investigation of the Taylor series for <span class="process-math">\(f(x) = \ln(1+x)\text{,}\)</span> we applied the Ratio Test to find an interval of <span class="process-math">\(x\)</span>-values for which its Taylor series converges.  In particular, for</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_f(x) = \sum_{k=1}^{\infty} (-1)^{k-1}\frac{1}{k}x^k
+\end{equation*}
+</div>
+<div class="para">we found that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r_n(x) = \frac{(-1)^{n}\frac{1}{n+1}x^{n+1}}{(-1)^{n-1}\frac{1}{n}x^n} = (-1) \cdot \frac{n}{n+1} \cdot x
+\end{equation*}
+</div>
+<div class="para">and therefore</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r(x) = \lim_{n \to \infty} r_n(x) = \lim_{n \to \infty} (-1) \cdot \frac{n}{n+1} \cdot x = -x\text{.}
+\end{equation*}
+</div>
+<div class="para">By the Ratio Test, it follows that if <span class="process-math">\(|r(x)| = |-x| = x \lt 1\text{,}\)</span> then the series converges, and if <span class="process-math">\(|r(x)| = x \gt 1\text{,}\)</span> the series does not converge.  When <span class="process-math">\(x = \pm 1\text{,}\)</span> we don't know if the series converges or diverges, but we will normally not be concerned with this “endpoint behavior”.</div>
+</div>
+<article class="activity project-like" id="act-8a-4-1"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4.2</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-9609">
+<div class="para">Consider the infinite Taylor series given by</div>
+<div class="displaymath process-math" id="md-235">
+\begin{align*}
+T(x) =\mathstrut \amp \sum_{k = 1}^{\infty} \frac{1}{k \cdot 2^k}(x-1)^k\\
+=\mathstrut \amp \frac{1}{1 \cdot 2}(x-1) + \frac{1}{2 \cdot 4}(x-1)^2 + \frac{1}{3 \cdot 8}(x-1)^3 + \cdots + \frac{1}{n \cdot 2^n}(x-1)^n + \cdots\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical" id="p-9610"><ol class="lower-alpha">
+<li id="li-5211"><div class="para" id="p-9611">As described in the statement of the Ratio Test, let <span class="process-math">\(r_n(x)\)</span> be the ratio of the <span class="process-math">\((n+1)\)</span>st term of <span class="process-math">\(T(x)\)</span> to the <span class="process-math">\(n\)</span>th term of <span class="process-math">\(T(x)\text{.}\)</span>  Find the simplest formula that you can for <span class="process-math">\(r_n(x)\text{.}\)</span>
+</div></li>
+<li id="li-5212"><div class="para" id="p-9612">Let <span class="process-math">\(r(x) = \lim_{n \to \infty} r_n(x)\text{.}\)</span>  Evaluate this limit to find the simplest formula you can for <span class="process-math">\(r(x)\text{.}\)</span>
+</div></li>
+<li id="li-5213"><div class="para" id="p-9613">For what values of <span class="process-math">\(x\)</span> is <span class="process-math">\(|r(x)| \lt 1\text{?}\)</span>  What does this tell us about <span class="process-math">\(T(x)\)</span> for these <span class="process-math">\(x\)</span>-values?</div></li>
+<li id="li-5214"><div class="para" id="p-9614">Let <span class="process-math">\(T_{10}(x)\)</span> be the sum of the first <span class="process-math">\(10\)</span> terms of <span class="process-math">\(T(x)\text{,}\)</span> and let <span class="process-math">\(f(x) = \ln(2) - \ln(3-x)\text{.}\)</span>  Plot <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(T_{10}(x)\)</span> on the same coordinate axes.  What do you notice?  What does this suggest about the series <span class="process-math">\(T(x)\text{?}\)</span>
+</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-135" id="hint-135"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-135"><div class="hint solution-like"></div></div>
+</div></article></section><section class="subsection" id="subsection-155"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.4.2</span> <span class="title">Taylor series of several important functions</span>
+</h3>
+<div class="para logical" id="p-9621">
+<div class="para">So far, we have established that the Taylor series of two important functions, <span class="process-math">\(\frac{1}{1-x}\)</span> and <span class="process-math">\(\ln(1+x)\text{,}\)</span> converge on an interval of <span class="process-math">\(x\)</span>-values and on that interval converge to the respective functions.  In particular,</div>
+<ul class="disc">
+<li id="li-5219"><div class="para" id="p-9622">If <span class="process-math">\(|x| \lt 1\text{,}\)</span> then <span class="process-math">\(\frac{1}{1-x} = \sum_{k=0}^{\infty} x^k = 1 + x + x^2 + x^3 + \cdots\text{;}\)</span>
+</div></li>
+<li id="li-5220"><div class="para" id="p-9623">If <span class="process-math">\(|x| \lt 1\text{,}\)</span> then<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-130" id="fn-130"><sup> 4 </sup></a> <span class="process-math">\(\ln(1+x) = \sum_{k=1}^{\infty} (-1)^{n-1} \cdot \frac{1}{n} \cdot x^n =  x - \frac{1}{2}x^2 + \frac{1}{3}x^3 - \cdots\text{.}\)</span>
+</div></li>
+</ul>
+<div class="para">Three other important functions that we have studied — <span class="process-math">\(\sin(x)\text{,}\)</span> <span class="process-math">\(\cos(x)\text{,}\)</span> and <span class="process-math">\(e^x\)</span> — have similar representations, and so we build on our work with their respective Taylor polynomials in <a href="sec-8a-1-linear-poly.html" class="internal" title="Section 8.1: Approximating f(x) = e^x">Section 8.1</a> and <a href="sec-8a-2-taylor-poly.html" class="internal" title="Section 8.2: Taylor Polynomials">Section 8.2</a> in order to investigate and understand their Taylor series.</div>
+</div>
+<div class="para logical" id="p-9624">
+<div class="para">Following <a href="" class="xref" data-knowl="./knowl/act-8a-2-1.html" title="Activity 8.2.2">Activity 8.2.2</a>, we noted some of the higher degree Taylor polynomials centered at <span class="process-math">\(a = 0\)</span> for <span class="process-math">\(\sin(x)\text{,}\)</span> <span class="process-math">\(\cos(x)\text{,}\)</span> and <span class="process-math">\(e^x\text{.}\)</span>  For the sine function, we observed that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8a-2-1.html">
+\begin{equation*}
+\sin(x) \approx P_7(x) = x - \frac{1}{3!}x^3 + \frac{1}{5!} x^5 - \frac{1}{7!}x^7\text{.}
+\end{equation*}
+</div>
+<div class="para">In the next example, we determine the Taylor series of <span class="process-math">\(f(x) = \sin(x)\)</span> and investigate the <span class="process-math">\(x\)</span>-values for which the series converges.</div>
+</div>
+<article class="example example-like" id="Ex-8a-4-sine"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.4.3</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="p-9625">
+<div class="para">Explain why the Taylor series centered at <span class="process-math">\(a = 0\)</span> for <span class="process-math">\(f(x) = \sin(x)\)</span> is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_f(x) = \sum_{k=0}^{\infty} (-1)^{k} \frac{1}{(2k+1)!}x^{2k+1}
+\end{equation*}
+</div>
+<div class="para">and find the interval of <span class="process-math">\(x\)</span>-values for which this Taylor series converges.  Investigate whether or not the Taylor series converges to <span class="process-math">\(f(x) = \sin(x)\text{.}\)</span>
+</div>
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-520" id="solution-520"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-520"><div class="solution solution-like">
+<div class="para logical" id="p-9626">
+<div class="para">We observed in <a href="sec-8a-2-taylor-poly.html" class="internal" title="Section 8.2: Taylor Polynomials">Section 8.2</a> that the derivatives of the sine function cycle and repeat every <span class="process-math">\(4\)</span> derivatives, since</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-8a-2-taylor-poly.html">
+\begin{equation*}
+f(x) = \sin(x), f'(x) = \cos(x), f''(x) = -\sin(x), f'''(x) = -\cos(x), 
+\end{equation*}
+</div>
+<div class="para">and so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-8a-2-taylor-poly.html">
+\begin{equation*}
+f^{(4)}(x) = \sin(x), f^{(5)}(x) = \cos(x), f^{(6)}(x) = -\sin(x), f^{(7)}(x) = -\cos(x)\text{.}
+\end{equation*}
+</div>
+<div class="para">We observe that <span class="process-math">\(f^{(4k)}(x) = \sin(x)\)</span> and <span class="process-math">\(f^{(4k+2)}(x) = -\sin(x)\)</span>  for every natural number <span class="process-math">\(k\text{.}\)</span>  This shows that <span class="process-math">\(f^{(4k)}(0) = \sin(0) = 0\)</span> and <span class="process-math">\(f^{(4k+2)}(0) = -\sin(0) = 0\text{,}\)</span> from which it follows that every even power of <span class="process-math">\(x\)</span> in the Taylor series of the sine function has a coefficient of <span class="process-math">\(0\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-9627">If we instead consider the odd powers, we can see that since <span class="process-math">\(f'(x) = \cos(x)\text{,}\)</span> we also have <span class="process-math">\(f^{(5)}(x) = \cos(x)\text{,}\)</span> <span class="process-math">\(f^{(9)}(x) = \cos(x)\text{,}\)</span> and so on.  From this, <span class="process-math">\(f'(0) = \cos(0) = 1\text{,}\)</span> and similarly, <span class="process-math">\(f^{(5)}(0) = 1\text{,}\)</span> <span class="process-math">\(f^{(9)}(x) = 1\text{,}\)</span> and indeed <span class="process-math">\(f^{(4k+1)}(0) = 1\)</span> for every nonnegative whole number <span class="process-math">\(k\text{.}\)</span>  Finally, since <span class="process-math">\(f'''(x) = -\cos(x)\text{,}\)</span> we have <span class="process-math">\(f'''(0) = -\cos(0) = -1\text{,}\)</span> and so <span class="process-math">\(f'''(0) = -1\text{,}\)</span> <span class="process-math">\(f^{(7)}(0) = -1\text{,}\)</span> and thus <span class="process-math">\(f^{(4k+3)}(0) = -1\)</span> for every nonnegative whole number <span class="process-math">\(k\text{.}\)</span>
+</div> <div class="para logical" id="p-9628">
+<div class="para">Putting these observations together about the various derivatives of <span class="process-math">\(f(x) = \sin(x)\)</span> evaluated at <span class="process-math">\(a = 0\)</span> and using the fact that the Taylor series of <span class="process-math">\(f(x)\)</span> centered at <span class="process-math">\(0\)</span> has form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_f(x) = \sum_{k=0}^{\infty} \frac{f^{(k)}(0)}{k!}x^k
+\end{equation*}
+</div>
+<div class="para">we see that</div>
+<div class="displaymath process-math" id="mdn-4">
+\begin{align}
+T_f(x) =\mathstrut \amp x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \frac{1}{7!}x^7 + \cdots + (-1)^{n} \frac{1}{(2n+1)!} x^{2n+1} + \cdots\notag\\
+=\mathstrut \amp \sum_{k=0}^{\infty} (-1)^{k} \frac{1}{(2k+1)!}x^{2k+1}\tag{8.4.2}
+\end{align}
+</div>
+</div> <div class="para logical" id="p-9629">
+<div class="para">Next, we use the Ratio Test to investigate the values of <span class="process-math">\(x\)</span> where <span class="process-math">\(T_f(x)\)</span> converges.  We therefore consider <span class="process-math">\(r_n(x)\text{,}\)</span> which is the ratio of consecutive nonzero terms, and have</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html">
+\begin{equation*}
+r_n(x) = \frac{(-1)^{n+1} \frac{1}{(2(n+1)+1)!}x^{2(n+1)+1}}{(-1)^{n} \frac{1}{(2n+1)!}x^{2n+1}}\text{.}
+\end{equation*}
+</div>
+<div class="para">Expanding the expression <span class="process-math">\(2(n+1)\text{,}\)</span> combining like terms, and slightly rearranging how we write the fraction, we see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html" id="mdn-5">
+\begin{align}
+r_n(x) =\mathstrut \amp \frac{(-1)^{n+1}}{(-1)^{n}} \cdot \frac{\frac{1}{(2n+3)!}}{\frac{1}{(2n+1)!}} \cdot \frac{x^{2n+3}}{x^{2n+1}}\notag\\
+=\mathstrut \amp \frac{(-1)^{n+1}}{(-1)^{n}} \cdot \frac{(2n+1)!}{(2n+3)!} \cdot \frac{x^{2n+3}}{x^{2n+1}}\tag{8.4.3}
+\end{align}
+</div>
+<div class="para">We now consider the three fractions in <a href="" class="xref" data-knowl="./knowl/Eq-8a-4-sine-ratio.html" title="Equation 8.4.3">Equation (8.4.3)</a> one at a time and simplify each.  First, we observe that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html">
+\begin{equation*}
+\frac{(-1)^{n+1}}{(-1)^{n}} = -1
+\end{equation*}
+</div>
+<div class="para">since the numerator and denominator are each always either <span class="process-math">\(1\)</span> or <span class="process-math">\(-1\)</span> and always of opposite signs.  Next, we expand the factorials and see that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html">
+\begin{equation*}
+(2n+1)! = (2n+1) (2n) (2n-1) \cdots (2) (1)
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html">
+\begin{equation*}
+(2n+3)!  = (2n+3) (2n+2) (2n+1) (2n) (2n-1) \cdots (2) (1)
+\end{equation*}
+</div>
+<div class="para">so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html">
+\begin{equation*}
+\frac{(2n+1)!}{(2n+3)!} = \frac{1}{(2n+3)(2n+2)}\text{.}
+\end{equation*}
+</div>
+<div class="para">Finally, we observe that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html">
+\begin{equation*}
+\frac{x^{2n+3}}{x^{2n+1}} = x^{(2n+3) - (2n+1)} = x^2\text{.}
+\end{equation*}
+</div>
+<div class="para">Putting all of this work together, we can update <a href="" class="xref" data-knowl="./knowl/Eq-8a-4-sine-ratio.html" title="Equation 8.4.3">Equation (8.4.3)</a> to the simpler form</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html">
+\begin{equation*}
+r_n(x) = (-1) \cdot \frac{1}{(2n+3)(2n+2)} \cdot x^2\text{.}
+\end{equation*}
+</div>
+<div class="para">From here, we compute <span class="process-math">\(r(x)\text{,}\)</span> the limit of <span class="process-math">\(r_n(x)\)</span> as <span class="process-math">\(n\)</span> increases without bound.  Since <span class="process-math">\(\frac{1}{(2n+3)(2n+2)} \to 0\)</span> as <span class="process-math">\(n \to \infty\text{,}\)</span> it follows that for any fixed value of <span class="process-math">\(x\text{,}\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Eq-8a-4-sine-ratio.html ./knowl/Eq-8a-4-sine-ratio.html">
+\begin{equation*}
+r(x) = \lim_{n \to \infty} r_n(x) = \lim_{n \to \infty} (-1) \cdot \frac{1}{(2n+3)(2n+2)} \cdot x^2 = -1 \cdot 0 \cdot x^2 = 0\text{.}
+\end{equation*}
+</div>
+<div class="para">The Ratio Test tells us that for any <span class="process-math">\(x\)</span> for which <span class="process-math">\(|r(x)| \lt 1\text{,}\)</span> the series <span class="process-math">\(T_f(x)\)</span> converges.  Here, since <span class="process-math">\(r(x) = 0\)</span> for every value of <span class="process-math">\(x\text{,}\)</span> this means that <span class="process-math">\(T_f(x)\)</span> converges for every real number <span class="process-math">\(x\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-9630">Finally, we investigate whether the Taylor series appears to converge to <span class="process-math">\(f(x) = \sin(x)\)</span> or not.  In <a href="" class="xref" data-knowl="./knowl/F-8a-4-T159.html" title="Figure 8.4.4">Figure 8.4.4</a>, we see the Taylor polynomials of degree <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(5\text{,}\)</span> and <span class="process-math">\(9\text{,}\)</span> and the significant improvement of the approximation as the degree increases.</div> <figure class="figure figure-like" id="F-8a-4-T159"><div class="sidebyside"><div class="sbsrow" style="margin-left:1.666666666666667%;margin-right:1.666666666666667%;">
+<div class="sbspanel top" style="width:31.0344827586207%;"><img src="external/images/8_5_Taylor1.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:31.0344827586207%;"><img src="external/images/8_5_Taylor5.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:31.0344827586207%;"><img src="external/images/8_5_Taylor9.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.4.4<span class="period">.</span></span><span class="space"> </span>Left to right, the degree <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(5\text{,}\)</span> and <span class="process-math">\(9\)</span> Taylor polynomials centered at <span class="process-math">\(x = 0\)</span> for <span class="process-math">\(f(x) = \sin(x)\text{,}\)</span> each plotted along with the sine function.</figcaption></figure> <div class="para" id="p-9631">In particular, for the degree <span class="process-math">\(9\)</span> approximation, we see that <span class="process-math">\(T_9(x)\)</span> and <span class="process-math">\(f(x) = \sin(x)\)</span> are almost indistinguishable on <span class="process-math">\(-4 \lt x \lt 4\text{,}\)</span> which is much wider than the interval <span class="process-math">\(-2 \lt x \lt 2\)</span> on which the <span class="process-math">\(T_5(x)\)</span> approximation is accurate.  Increasing the degree of the approximation appears to widen the interval on which the approximation is accurate and seems to do so without bound, which suggests that the Taylor series of <span class="process-math">\(f(x) = \sin(x)\)</span> in fact converges to <span class="process-math">\(f(x) = \sin(x)\text{.}\)</span>
+</div>
+</div></div>
+</div></article><div class="para logical" id="p-9632">
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/Ex-8a-4-sine.html" title="Example 8.4.3">Example 8.4.3</a>, we found that the Taylor series for the sine function appears to converge to the sine function, and to do so for every real number <span class="process-math">\(x\text{.}\)</span>  This result can be proven formally using a famous theorem called the Lagrange Error Bound<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-131" id="fn-131"><sup> 5 </sup></a>, a result that quantifies how accurate a Taylor polynomial approximation is on an interval. To summarize, we now know the remarkable result that the sine function is equal to its Taylor series for every value of <span class="process-math">\(x\text{,}\)</span> so</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-8a-4-sine.html" id="Eq-8a-4-sine-Taylor">
+\begin{equation}
+\sin(x) = \sum_{k=0}^{\infty} (-1)^{k} \frac{1}{(2k+1)!}x^{2k+1} = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \cdots\tag{8.4.4}
+\end{equation}
+</div>
+</div>
+<div class="para logical" id="p-9633">
+<div class="para">Nearly identical reasoning shows a similar result for the cosine function:  that its Taylor series centered at <span class="process-math">\(a = 0\)</span> converges for every real number <span class="process-math">\(x\)</span> and converges to the cosine function itself.  Thus, for any real number <span class="process-math">\(x\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="Eq-8a-4-cosine-Taylor">
+\begin{equation}
+\cos(x) = \sum_{k=0}^{\infty} (-1)^{k} \frac{1}{(2k)!}x^{2k} = 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 - \cdots\tag{8.4.5}
+\end{equation}
+</div>
+</div>
+<div class="para" id="p-9634">In the next activity, we conduct a similar investigation for <span class="process-math">\(f(x) = e^x\text{.}\)</span>
+</div>
+<article class="activity project-like" id="act-8a-4-2"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.4.3</span><span class="period">.</span>
+</h4>
+<div class="para" id="p-9635">Let <span class="process-math">\(f(x) = e^x\text{.}\)</span>  Our goal is to understand why the Taylor series for <span class="process-math">\(f(x)\)</span> converges for every real number <span class="process-math">\(x\)</span> and see that the Taylor series converges to <span class="process-math">\(e^x\text{.}\)</span>
+</div> <div class="para logical" id="p-9636"><ol class="lower-alpha">
+<li id="li-5221"><div class="para" id="p-9637">For <span class="process-math">\(f(x) = e^x\text{,}\)</span> explain why <span class="process-math">\(f^{(k)}(0) = 1\)</span> for every natural number <span class="process-math">\(k\text{.}\)</span>
+</div></li>
+<li id="li-5222"><div class="para" id="p-9638">State the Taylor series, <span class="process-math">\(T_f(x)\)</span> centered at <span class="process-math">\(a = 0\)</span> for <span class="process-math">\(f(x) = e^x\text{.}\)</span>  Write <span class="process-math">\(T_f(x)\)</span> in both sigma notation and as an expanded sum.</div></li>
+<li id="li-5223"><div class="para" id="p-9639">Let <span class="process-math">\(r_n(x)\)</span> be the ratio of the <span class="process-math">\((n+1)\)</span>st term to the <span class="process-math">\(n\)</span>th term of <span class="process-math">\(T_f(x)\text{.}\)</span>  Find the simplest expression you can for <span class="process-math">\(r_n(x)\text{.}\)</span>
+</div></li>
+<li id="li-5224"><div class="para" id="p-9640">Let <span class="process-math">\(r(x) = \lim_{n \to \infty} r_n(x)\text{.}\)</span>  Evaluate this limit, and then apply the Ratio Test to say what you can conclude about the <span class="process-math">\(x\)</span>-values for which <span class="process-math">\(T_f(x)\)</span> converges.</div></li>
+<li id="li-5225"><div class="para" id="p-9641">Use a computational device to graph <span class="process-math">\(f(x) = e^x\text{,}\)</span> <span class="process-math">\(T_{10}(x)\text{,}\)</span> and <span class="process-math">\(T_{20}(x)\)</span> on the same axes.  What do you observe?</div></li>
+</ol></div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref hint-knowl original" data-refid="hk-hint-136" id="hint-136"><span class="type">Hint</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-hint-136"><div class="hint solution-like"></div></div>
+</div></article><div class="para" id="p-9649">While there is considerable technical detail involved in finding Taylor series and deciding where they converge, it's important not to miss the big picture.  For certain “nice” functions that are infinitely differentiable, such as <span class="process-math">\(f(x) = \ln(1+x)\)</span> and <span class="process-math">\(f(x) = \sin(x)\text{,}\)</span> not only can we find the Taylor series for each and determine the <span class="process-math">\(x\)</span>-values at which the Taylor series converges, but <em class="emphasis">the Taylor series converges to the function itself</em>.  This means that for certain <span class="process-math">\(x\)</span>-values (and sometimes <em class="emphasis">all</em> <span class="process-math">\(x\)</span>-values), we can represent a non-polynomial function as being equal to an infinite polynomial.</div>
+<div class="para" id="p-9650">A function such as <span class="process-math">\(f(x) = \sin(x)\)</span> that is infinitely differentiable and has a convergent power series that converges on some interval to the function itself is said to be <dfn class="terminology">analytic</dfn>.  Analytic functions are amazing and among the nicest functions in all of mathematics:  they are completely determined by what happens at a single point.  Almost all functions are not analytic.  For example, if a function  measures your location as a function of time on a highway, that function cannot be analytic, since what happens at 12:01 is independent of what happens at 12:00 due to other circumstances such as traffic or construction.  At the same time, the mathematical universe is better to us than we deserve in that many of the most interesting functions are analytic, including those we've mentioned (<span class="process-math">\(\frac{1}{1-x}\text{,}\)</span> <span class="process-math">\(\ln(1+x)\text{,}\)</span> <span class="process-math">\(\sin(x)\text{,}\)</span> <span class="process-math">\(\cos(x)\text{,}\)</span> and <span class="process-math">\(e^x\)</span>) and most of those represented by buttons on a calculator.</div>
+<div class="para logical" id="p-9651">
+<div class="para">For the function <span class="process-math">\(f(x) = e^x\)</span> in particular, we now understand that we may write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^x = \sum_{k=0}^\infty \frac{1}{k!}x^k = 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots + \frac{1}{n!}x^n + \cdots\text{,}
+\end{equation*}
+</div>
+<div class="para">and this equation is true for every possible value of <span class="process-math">\(x\text{.}\)</span> This equation is completely determined by the values of <span class="process-math">\(f(x) = e^x\)</span> and its derivatives only at the value <span class="process-math">\(a = 0\text{!}\)</span>  When we use a computational device like <em class="emphasis">Desmos</em> or a calculator and enter <span class="process-math">\(e^2\text{,}\)</span> this is how the device finds the decimal representation of the number.  Since</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^2 = 1 + 2 + \frac{1}{2!}2^2 + \frac{1}{3!}2^3 + \cdots + \frac{1}{n!}2^n + \cdots
+\end{equation*}
+</div>
+<div class="para">if we take enough terms in the sum, we get a highly accurate approximation of <span class="process-math">\(e^2\text{.}\)</span>  For instance,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+e^2 \approx 1 + 2 + \frac{1}{2!}2^2 + \frac{1}{3!}2^3 + \cdots + \frac{1}{12!}2^{12} = \frac{691}{93555} = 7.3890545668 \ldots,
+\end{equation*}
+</div>
+<div class="para">which an accurate representation of <span class="process-math">\(e^2\)</span> to 5 decimal places, and more terms in the sum can be used in order to generate any desired level of accuracy.</div>
+</div>
+<div class="para" id="p-9652">The five Taylor series that we've found in our work to date are extremely important and will be used extensively in <a href="sec-8a-5-finding-using-taylor-series.html" class="internal" title="Section 8.5: Finding and Using Taylor Series">Section 8.5</a>, so we summarize them in</div>
+<article class="assemblage assemblage-like" id="assemblage-55"><h4 class="heading"><span class="title">Important Taylor series representations.</span></h4>
+<div class="para" id="p-9653"><figure class="table table-like" id="T-8a-4-big-5"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">8.4.5<span class="period">.</span></span><span class="space"> </span>Taylor series and the <span class="process-math">\(x\)</span>-values where they converge for <span class="process-math">\(5\)</span> important functions.</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="r m b1 r0 l0 t1 lines">function <span class="process-math">\(f(x)\)</span>
+</td>
+<td class="l m b1 r0 l0 t1 lines">Taylor series, <span class="process-math">\(T_f\text{,}\)</span> centered at <span class="process-math">\(0\)</span>
+</td>
+<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(f(x) = T_f(x)\)</span></td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(\frac{1}{1-x}=\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\sum_{k=0}^{\infty} x^k = 1 + x + x^2 + x^3 + \cdots\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">if <span class="process-math">\(|x| \lt 1\)</span>
+</td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(\ln(1+x)=\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\sum_{k=1}^{\infty} (-1)^{k-1} \frac{1}{k} x^k = x - \frac{1}{2}x^2 + \frac{1}{3}x^3 - \cdots\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">if <span class="process-math">\(|x| \lt 1\)</span>
+</td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(\sin(x)=\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\sum_{k=0}^{\infty} (-1)^{k} \frac{1}{(2k+1)!}x^{2k+1} = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \cdots\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">for all real <span class="process-math">\(x\)</span>
+</td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(\cos(x)=\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\sum_{k=0}^{\infty} (-1)^{k} \frac{1}{(2k)!}x^{2k} = 1 - \frac{1}{2!}x^2 + \frac{1}{4!}x^4 - \cdots\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">for all real <span class="process-math">\(x\)</span>
+</td>
+</tr>
+<tr>
+<td class="r m b1 r0 l0 t0 lines"><span class="process-math">\(e^x=\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\sum_{k=0}^{\infty} \frac{1}{k!}x^k = 1 + x + \frac{1}{2!}x^2 + \frac{1}{3!}x^3 + \cdots\)</span></td>
+<td class="l m b1 r0 l0 t0 lines">for all real <span class="process-math">\(x\)</span>
+</td>
+</tr>
+</table></div></figure></div></article></section><section class="subsection" id="subsection-156"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">8.4.3</span> <span class="title">Summary</span>
+</h3>
+<div class="para logical" id="p-9654"><ul class="disc">
+<li id="li-5231"><div class="para logical" id="p-9655">
+<div class="para">Provided that <span class="process-math">\(f\)</span> is a function for which every derivative of <span class="process-math">\(f\)</span> exists at <span class="process-math">\(x = a\text{,}\)</span> the Taylor series centered at <span class="process-math">\(a\)</span> of <span class="process-math">\(f\)</span> is the series <span class="process-math">\(T_f(x)\)</span> defined by</div>
+<div class="displaymath process-math" id="md-238">
+\begin{align*}
+T_f(x) =\mathstrut \amp \sum_{k=0}^{\infty} \frac{f^{(k)}(a)}{k!}(x-a)^k\\
+=\mathstrut \amp f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots + \frac{f^{(n)}(a)}{n!}(x-a)^n + \cdots\text{.}
+\end{align*}
+</div>
+</div></li>
+<li id="li-5232"><div class="para logical" id="p-9656">
+<div class="para">We know that an infinite geometric series converges whenever its common ratio, <span class="process-math">\(r\text{,}\)</span> satisfies <span class="process-math">\(|r| \lt 1\text{.}\)</span>  The Ratio Test enables us to consider a Taylor series and determine an interval of <span class="process-math">\(x\)</span>-values on which the series converges, essentially by comparing the Taylor series to a geometric series.  By letting <span class="process-math">\(r_n(x)\)</span> be the ratio of consecutive terms in the series and taking the limit</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r(x) = \lim_{n \to \infty} r_n(x)\text{,}
+\end{equation*}
+</div>
+<div class="para">we can say that for all <span class="process-math">\(x\)</span> for which <span class="process-math">\(|r(x)| \lt 1\text{,}\)</span> the Taylor series converges to a finite value.</div>
+</div></li>
+<li id="li-5233"><div class="para" id="p-9657">We have found the Taylor series for five important functions, determined an interval of <span class="process-math">\(x\)</span>-values on which each converges, and seen the striking result that where each Taylor series converges, it converges to original function <span class="process-math">\(f(x)\)</span> that we used to generate the Taylor series.  These results are summarized in <a href="" class="xref" data-knowl="./knowl/T-8a-4-big-5.html" title="Table 8.4.5: Taylor series and the x-values where they converge for 5 important functions.">Table 8.4.5</a>.</div></li>
+</ul></div></section><section class="exercises" id="ez-8a-4"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber">8.4.4</span> <span class="title">Exercises</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-397"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div id="webwork-274" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="274" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/WHFreeman/Rogawski_Calculus_Early_Transcendentals_Second_Edition/10_Infinite_Series/10.7_Taylor_Series/10.7.1.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<button id="webwork-274-button" class="webwork-button activate" onclick="handleWW('webwork-274')" aria-labelledby="webwork-274-button-label"><span id="webwork-274-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
+<div class="para logical" id="p-9658">
+<div class="para">Write out the first four terms of the Maclaurin series of <span class="process-math">\(f(x)\)</span> if</div>
+<div class="displaymath process-math">
+\begin{equation*}
+f(0) = -5, \qquad f'(0) = 11, \qquad f''(0) = 15, \qquad f'''(0) = -8
+\end{equation*}
+</div>
+</div> <div class="para" id="p-9659">
+<span class="process-math">\(f(x)\)</span> = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> <span class="process-math">\(+ \cdots\)</span>
+</div>
+</div>
+<div class="problem-buttons"></div>
+</div></article><article class="exercise exercise-like" id="exercise-398"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div id="webwork-275" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="275" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries9Taylor/ur_sr_9_5.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<button id="webwork-275-button" class="webwork-button activate" onclick="handleWW('webwork-275')" aria-labelledby="webwork-275-button-label"><span id="webwork-275-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
+<div class="para" id="p-9661">Write the Taylor series for <span class="process-math">\(f(x) = e^{x}\)</span> about <span class="process-math">\(x=-1\)</span>  as <span class="process-math">\(\displaystyle \sum_{n=0}^\infty c_n(x + 1)^n.\)</span>
+</div> <div class="para" id="p-9662">Find the first five coefficients.</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(c_0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(c_1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(c_2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(c_3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(c_4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(=\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"></td>
+</tr>
+</table></div>
+</div>
+<div class="problem-buttons"></div>
+</div></article><article class="exercise exercise-like" id="exercise-399"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div id="webwork-276" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="276" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/FortLewis/Calc2/10-2-Taylor-series/Taylor-series-01.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<button id="webwork-276-button" class="webwork-button activate" onclick="handleWW('webwork-276')" aria-labelledby="webwork-276-button-label"><span id="webwork-276-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
+<div class="para" id="p-9668">Find the first four terms of the Taylor series for the function <span class="process-math">\(\displaystyle \frac{3}{x}\)</span> about the point <span class="process-math">\(a = -1\text{.}\)</span>  (Your answers should include the variable x when appropriate.)</div> <div class="para" id="p-9669">
+<span class="process-math">\(\displaystyle \frac{3}{x} =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + ...</div>
+</div>
+<div class="problem-buttons"></div>
+</div></article><article class="exercise exercise-like" id="exercise-400"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div id="webwork-277" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="277" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/FortLewis/Calc2/10-2-Taylor-series/Taylor-series-04.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<button id="webwork-277-button" class="webwork-button activate" onclick="handleWW('webwork-277')" aria-labelledby="webwork-277-button-label"><span id="webwork-277-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
+<div class="para" id="p-9674">Find the first five terms of the Taylor series for the function <span class="process-math">\(f(x) = \ln\!\left(x\right)\)</span> about the point <span class="process-math">\(a = 8\text{.}\)</span> (Your answers should include the variable x when appropriate.)</div> <div class="para" id="p-9675">
+<span class="process-math">\(\ln\!\left(x\right) =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> + ...</div>
+</div>
+<div class="problem-buttons"></div>
+</div></article><article class="exercise exercise-like" id="exercise-401"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div id="webwork-278" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="278" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/FortLewis/Calc2/10-2-Taylor-series/Taylor-series-02.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<button id="webwork-278-button" class="webwork-button activate" onclick="handleWW('webwork-278')" aria-labelledby="webwork-278-button-label"><span id="webwork-278-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
+<div class="para" id="p-9681">Find the first four terms of the Taylor series for the function <span class="process-math">\(4 \sin(x)\)</span> about the point <span class="process-math">\(a = \pi/4\text{.}\)</span>  (Your answers should include the variable x when appropriate.)</div> <div class="para" id="p-9682">
+<span class="process-math">\(4 \sin(x) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> + <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> + <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> + <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> + ...</div>
+</div>
+<div class="problem-buttons"></div>
+</div></article><article class="exercise exercise-like" id="exercise-402"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div id="webwork-279" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="279" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/5e/Chap10Sec2/Q43.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<button id="webwork-279-button" class="webwork-button activate" onclick="handleWW('webwork-279')" aria-labelledby="webwork-279-button-label"><span id="webwork-279-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
+<div class="para" id="p-9687">For each of the following, solve exactly for the variable <span class="process-math">\(x\text{.}\)</span>
+</div> <div class="para" id="p-9688">
+<em class="alert">(a)</em> <span class="process-math">\(1 - 3 x + 9 x^2 - 27 x^3 + \cdots = 0.6\)</span>
+</div> <div class="para" id="p-9689">
+<span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-9690">
+<em class="alert">(b)</em> <span class="process-math">\(1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots = 5\)</span>
+</div> <div class="para" id="p-9691">
+<span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div>
+</div>
+<div class="problem-buttons"></div>
+</div></article><article class="exercise exercise-like" id="exercise-403"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div id="webwork-280" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="280" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap10Sec2/Q31.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<button id="webwork-280-button" class="webwork-button activate" onclick="handleWW('webwork-280')" aria-labelledby="webwork-280-button-label"><span id="webwork-280-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
+<div class="para" id="p-9694">By recognizing each series below as a Taylor series evaluated at a particular value of <span class="process-math">\(x\text{,}\)</span> find the sum of each convergent series.</div> <div class="para" id="p-9695">
+<em class="alert">A.</em> <span class="process-math">\(1 - {4^2\over 2!} + {4^4\over 4!} - {4^6\over 6!} + \cdots + {(-1)^{n} 4^{2n}\over (2n)!} + \cdots =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-9696">
+<em class="alert">B.</em> <span class="process-math">\(6 - {6^3\over 3!} + {6^5\over 5!} - {6^7\over 7!} + \cdots + {(-1)^{n} 6^{2n+1}\over (2n+1)!} + \cdots =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div>
+</div>
+<div class="problem-buttons"></div>
+</div></article><article class="exercise exercise-like" id="ez-8a-4-1"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para" id="p-9699">The examples we have considered so far in this section have all been for Taylor polynomials and series centered at 0, but Taylor polynomials and series can be centered at any value of <span class="process-math">\(a\text{.}\)</span>
+</div> <div class="para logical" id="p-9700"><ol class="lower-alpha">
+<li id="li-5234"><div class="para" id="p-9701">Let <span class="process-math">\(f(x) = \cos(x)\text{.}\)</span> Find the Taylor polynomials up through order four of <span class="process-math">\(f\)</span> centered at <span class="process-math">\(x = \frac{\pi}{2}\text{.}\)</span> Then find the Taylor series for <span class="process-math">\(f(x)\)</span> centered at <span class="process-math">\(x = \frac{\pi}{2}\text{.}\)</span> Why is the result not surprising?</div></li>
+<li id="li-5235"><div class="para" id="p-9702">Let <span class="process-math">\(f(x) = \frac{1}{1+x} = (1+x)^{-1}\text{.}\)</span> Find the Taylor polynomials up through order four of <span class="process-math">\(f\)</span> centered at <span class="process-math">\(x = 1\text{.}\)</span> Then find the Taylor series for <span class="process-math">\(f(x)\)</span> centered at <span class="process-math">\(x = 1\text{.}\)</span>
+</div></li>
+</ol></div></article><article class="exercise exercise-like" id="exercise-405"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="para" id="p-9705">As we will in more detail in the next section, we can use known Taylor series to obtain other Taylor series, and we preview that idea in this exercise.</div> <div class="para logical" id="p-9706"><ol class="lower-alpha">
+<li id="li-5237"><div class="para" id="p-9707">Calculate the first four derivatives of <span class="process-math">\(\sin(x^2)\)</span> and hence find the fourth order Taylor polynomial for <span class="process-math">\(\sin(x^2)\)</span> centered at <span class="process-math">\(a=0\text{.}\)</span>
+</div></li>
+<li id="li-5238"><div class="para logical" id="p-9708">
+<div class="para">Part (a) demonstrates the direct approach to finding Taylor polynomials and series. Next we utilize a known Taylor series to make the process simpler. Recall that the Taylor series centered at 0 for <span class="process-math">\(f(x) = \sin(x)\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-8a-4-Exercise2.html" id="eq-8a-4-Exercise2">
+\begin{equation}
+T(x) = \sum_{k=0}^{\infty} (-1)^{k} \frac{x^{2k+1}}{(2k+1)!}\text{.}\tag{8.4.6}
+\end{equation}
+</div>
+<ol class="lower-roman">
+<li id="li-5239"><div class="para" id="p-9709">Substitute <span class="process-math">\(x^2\)</span> for <span class="process-math">\(x\)</span> in the Taylor series <span class="process-math">\(T(x)\)</span> in <a href="" class="xref" data-knowl="./knowl/eq-8a-4-Exercise2.html" title="Equation 8.4.6">Equation (8.4.6)</a>. Write out the first several terms and compare to your work in part (a). Explain why the substitution in this problem should result in the Taylor series for <span class="process-math">\(\sin(x^2)\)</span> centered at 0.</div></li>
+<li id="li-5240"><div class="para" id="p-9710">For what interval of <span class="process-math">\(x\)</span>-values should we expect the Taylor series for <span class="process-math">\(\sin(x^2)\)</span> to converge?</div></li>
+</ol>
+</div></li>
+</ol></div></article></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-127"><div class="fn">We will formally define the Taylor series of a function <span class="process-math">\(f\)</span> in <a href="" class="xref" data-knowl="./knowl/D-8a-4-Taylor-series.html" title="Definition 8.4.1">Definition 8.4.1</a>.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-128"><div class="fn">This new representation may only be valid for a limited set of <span class="process-math">\(x\)</span>-values, such as <span class="process-math">\(|x| \lt 1\)</span> in the case of <span class="process-math">\(f(x) = \frac{1}{1-x}\text{.}\)</span>
+</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-129"><div class="fn">It is possible that the series <span class="process-math">\(T(x)\)</span> also converges when <span class="process-math">\(|r(x)| = 1\text{,}\)</span> but in what remains in <a href="C-8a.html" class="internal" title="Chapter 8: Taylor Polynomials and Taylor Series">Chapter 8</a>, we will not concern ourselves with this minor issue.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-130"><div class="fn">It turns out that this representation is also valid when <span class="process-math">\(x = 1\)</span> because the series <span class="process-math">\(1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots\)</span> converges, and does so to the exact value <span class="process-math">\(\ln(2)\text{.}\)</span>
+</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-131"><div class="fn">The Lagrange Error Bound states: Let <span class="process-math">\(f\)</span> be a continuous function with <span class="process-math">\(n+1\)</span> continuous derivatives. Suppose that <span class="process-math">\(M\)</span> is a positive real number such that <span class="process-math">\(\left|f^{(n+1)}(x)\right| \le M\)</span> on the interval <span class="process-math">\([a, c]\text{.}\)</span> If <span class="process-math">\(P_n(x)\)</span> is the <span class="process-math">\(n\)</span>th order Taylor polynomial for <span class="process-math">\(f(x)\)</span> centered at <span class="process-math">\(x=a\text{,}\)</span> then <span class="process-math">\(\left|P_n(c) - f(c)\right| \leq M\frac{|c-a|^{n+1}}{(n+1)!}
+\text{.}\)</span>
+</div></div>
+</div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-8a-3-geometric.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-8a-5-finding-using-taylor-series.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>

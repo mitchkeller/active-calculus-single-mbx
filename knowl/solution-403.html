@@ -13,61 +13,39 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.5.4.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">6.4.6.1</span><span class="period">.</span>
 </h4>
-<div class="para logical"><ol class="lower-alpha">
-<li><div class="para logical"><div class="displaymath process-math">
-\begin{align*}
-\int_0^1 \frac{1}{x^{1/3}}dx \amp = \lim_{a \to 0^+} \int_0^1 \frac{1}{x^{1/3}}dx\\
-\amp = \lim_{a \to 0^+} \left( \frac{3}{2} - \frac{3}{2} a^{2/3} \right)\\
-\amp = \frac{3}{2}
-\end{align*}
-</div></div></li>
-<li><div class="para logical"><div class="displaymath process-math">
-\begin{align*}
-\int_0^2 e^{-x} dx \amp = \left. -e^{-x} \right|_0^2\\
-\amp = 1 - e^{-2}
-\end{align*}
-</div></div></li>
-<li><div class="para logical"><div class="displaymath process-math">
-\begin{align*}
-\int_1^4 \frac{1}{\sqrt{4-x}} dx \amp = \lim_{b \to 4^-}\int_1^b \frac{1}{\sqrt{4-x}} dx\\
-\amp = \lim_{b \to 4^-} \left. -2\sqrt{4-x} \right|_1^b\\
-\amp = 2\sqrt{3}
-\end{align*}
-</div></div></li>
-<li><div class="para logical">
+<div class="para">First, we sketch a picture of the dam, as shown in <a href="" class="xref" data-knowl="./knowl/F-6-4-DamEx.html" title="Figure 6.4.7">Figure 6.4.7</a>. Note that, as in problems involving the work to pump out a tank, we let the positive <span class="process-math">\(x\)</span>-axis point down.</div> <figure class="figure figure-like"><div class="image-box" style="width: 73%; margin-left: 13.5%; margin-right: 13.5%;"><img src="external/images/6_4_DamEx.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.4.7<span class="period">.</span></span><span class="space"> </span>A trapezoidal dam that is 25 feet tall, 60 feet wide at its base, 90 feet wide at its top, with the water line 5 feet down from the top of its face.</figcaption></figure> <div class="para logical">
+<div class="para">Pressure is constant at a fixed depth, so we consider a slice of water at constant depth on the face, as shown in the figure. The area of this slice is approximately the area of the rectangle pictured. Since the width of that rectangle depends on the variable <span class="process-math">\(x\text{,}\)</span> we find a formula for the line that represents one side of the dam. It is straightforward to find that <span class="process-math">\(y = 45 - \frac{3}{5}x\text{.}\)</span> Hence, the approximate area of a representative slice is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int_{-2}^2 \frac{1}{x^2} dx = \int_{-2}^0 \frac{1}{x^2} + \int_{0}^2 \frac{1}{x^2}
+A_{\text{slice} } = 2 f(x) \Delta x = 2 (45 - \frac{3}{5}x) \Delta x\text{.}
 \end{equation*}
 </div>
-<div class="para">However, each of the improper integrals on the right side of the equation diverges. For example,</div>
+</div> <div class="para logical">
+<div class="para">At any point on this slice, the depth is approximately constant, so the pressure can be considered constant. Because the water rises to within 5 feet of the top of the dam, the depth of any point on the representative slice is approximately <span class="process-math">\((x-5)\text{.}\)</span> Now, since pressure is given by <span class="process-math">\(P = 62.4d\text{,}\)</span> we have that at any point on the slice</div>
 <div class="displaymath process-math">
-\begin{align*}
-\int_{0}^2 \frac{1}{x^2} dx \amp = \lim_{a \to 0^+} \int_{a}^2 \frac{1}{x^2} dx\\
-\amp = \lim_{a \to +} \left( -\frac{1}{2} + \frac{1}{a} \right)\\
-\amp = \infty
-\end{align*}
+\begin{equation*}
+P_{\text{slice} } = 62.4(x-5)\text{.}
+\end{equation*}
 </div>
-<div class="para">So <span class="process-math">\(\int_{-2}^2 \frac{1}{x^2}\)</span> dx diverges.</div>
-</div></li>
-<li><div class="para logical"><div class="displaymath process-math">
-\begin{align*}
-\int_0^{\pi/2} \tan(x) dx \amp = \lim_{b \to \dfrac{\pi}{2}^+} \int_0^b \tan(x) dx\\
-\amp = \lim_{b \to \dfrac{\pi}{2}^+} \left( -\ln(\cos(b)) + \ln(\cos(0)) \right)\\
-\amp = \infty
-\end{align*}
-</div></div></li>
-<li><div class="para logical"><div class="displaymath process-math">
-\begin{align*}
-\int_0^1 \frac{1}{\sqrt{1-x^2}} dx \amp = \lim_{b \to 1+} \int_0^b \frac{1}{\sqrt{1-x^2}} dx\\
-\amp = \lim_{b \to 1+} \left( \arcsin(b) - \arcsin(0) \right)\\
-\amp = \frac{\pi}{2}
-\end{align*}
-</div></div></li>
-</ol></div>
+</div> <div class="para logical">
+<div class="para">Knowing both the pressure and area, we can find the force the water exerts on the slice. Using <span class="process-math">\(F = PA\text{,}\)</span> it follows that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F_{\text{slice} } = P_{\text{slice} } \cdot A_{\text{slice} } = 62.4(x-5) \cdot 2 (45 - \frac{3}{5}x) \Delta x\text{.}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-6-5-improper.html#TUr" class="internal">in-context</a></span>
+</div> <div class="para logical">
+<div class="para">Finally, we use a definite integral to sum the forces over the appropriate range of <span class="process-math">\(x\)</span>-values. Since the water rises to within 5 feet of the top of the dam, we start at <span class="process-math">\(x = 5\)</span> and take slices all the way to the bottom of the dam, where <span class="process-math">\(x = 25\text{.}\)</span> Hence,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+F = \int_{x=5}^{x=25} 62.4(x-5) \cdot 2 (45 - \frac{3}{5}x) \, dx\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">Using technology to evaluate the integral, we find <span class="process-math">\(F = 848 640\)</span> pounds.</div>
+</div>
+<span class="incontext"><a href="sec-6-4-physics.html#ZVp" class="internal">in-context</a></span>
 </body>
 </html>

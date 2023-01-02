@@ -13,55 +13,71 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">7.4.3.6.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">7.3.3.1</span><span class="period">.</span>
 </h4>
 <div class="para logical"><ol class="lower-alpha">
-<li><div class="para logical">
-<div class="para">A differential equation that represents the given description is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{dM}{dt} = kM\text{.}
-\end{equation*}
-</div>
+<li>
+<div class="para">The slope field for this differential equation is shown in the following figure.</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/7_3_Act2_slope_field_soln.svg" role="img" class="contained"></div></div></div>
+</li>
+<li><div class="para">If <span class="process-math">\(y\)</span> is an equilibrium solution, then <span class="process-math">\(y\)</span> is constant so <span class="process-math">\(\frac{dy}{dt} = 0\text{.}\)</span> Solving <span class="process-math">\(0 = 6y - y^2\text{,}\)</span> we see that either <span class="process-math">\(y = 0\)</span> or <span class="process-math">\(y = 6\text{,}\)</span> which is also consistent with what we see in the slope field.  In addition, <span class="process-math">\(y = 0\)</span> is unstable because nearby solutions tend away from <span class="process-math">\(y = 0\text{,}\)</span> while <span class="process-math">\(y = 6\)</span> is stable since nearby solutions tend to <span class="process-math">\(y = 6\text{.}\)</span>
 </div></li>
-<li><div class="para logical">
-<div class="para">Separating the variables to solve the differential equation yields</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{1}{M} \, dM = k \, dt
-\end{equation*}
-</div>
-<div class="para">so</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\int \frac{1}{M} \, dM = \int k \, dt\text{.}
-\end{equation*}
-</div>
-<div class="para">Integrating and solving for <span class="process-math">\(M\text{,}\)</span> we find <span class="process-math">\(\ln|M| = kt + C\)</span> and thus <span class="process-math">\(|M| = e^{kt+C} = e^{kt}e^C = Ke^{kt}\)</span> for some constant <span class="process-math">\(K\text{.}\)</span> By absorbing the absolute value into the constant <span class="process-math">\(K\text{,}\)</span> we have <span class="process-math">\(M = Ke^{kt}\text{.}\)</span> Using the initial condition <span class="process-math">\(M(0) = M_0\text{,}\)</span> it follows that <span class="process-math">\(K = M_0\text{.}\)</span> Therefore, the mass at time <span class="process-math">\(t\)</span> is given by</div>
-<div class="displaymath process-math">
-\begin{equation*}
-M(t) = M_0e^{kt}\text{.}
-\end{equation*}
-</div>
+<li><div class="para">The long-term behavior of the solution that satisfies the initial value <span class="process-math">\(y(0) = 1\)</span> is that the solution will tend to <span class="process-math">\(y = 6\text{.}\)</span>
 </div></li>
-<li><div class="para logical">
-<div class="para">If we let <span class="process-math">\(5730\)</span> years pass from time <span class="process-math">\(0\text{,}\)</span> the remaining mass of the radioactive sample will be <span class="process-math">\(\frac{1}{2}M_0\text{.}\)</span> This allows us to find the value of <span class="process-math">\(k\)</span> by setting <span class="process-math">\(M(5730)\)</span> equal to <span class="process-math">\(\frac{1}{2}M_0\)</span> and solving for <span class="process-math">\(t\text{.}\)</span> Doing so, we have <span class="process-math">\(\frac{1}{2}M_0 = M_0e^{5730k}\text{,}\)</span> and thus <span class="process-math">\(\frac{1}{2} = e^{5730k}\text{.}\)</span> It follows that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\ln\left(\frac{1}{2}\right) = 5730k
-\end{equation*}
-</div>
-<div class="para">from which we find <span class="process-math">\(k = \frac{1}{5730}\ln\left(\frac{1}{2}\right) = -\frac{\ln(2)}{5730}\text{.}\)</span> Hence,</div>
-<div class="displaymath process-math">
-\begin{equation*}
-M(t) = M_0e^{-\frac{\ln(2)}{5730}t} \approx M_0e^{-0.000121t}
-\end{equation*}
-</div>
+<li>
+<div class="para">Using Euler's method with <span class="process-math">\(\Delta t = 0.2\text{,}\)</span> we approximate the solution of the IVP at <span class="process-math">\(t_i = 0.2, 0.4, 0.6, 0.8\text{,}\)</span> and <span class="process-math">\(1.0\)</span> as shown in the following table and figure. We see that our estimates actually jump slightly above the equilibrium solution before being pulled back down.</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel fixed-width top" style="width:47%;"><table class="tabular" id="mmD">
+<tr>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(t_i\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(y_i\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(dy/dt\)</span></td>
+<td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(\Delta y\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.0000\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(5.0000\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.0000\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.2\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.0000\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(8.0000\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.6000\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.4\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(3.6000\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(8.6400\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.7280\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.6\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(5.3280\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(3.5804\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.7161\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.8\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(6.0441\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(-0.2664\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(-0.0533\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(1.0\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(5.9908\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.0551\)</span></td>
+<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.0110\)</span></td>
+</tr>
+</table></div>
+<div class="sbspanel top" style="width:47%;"><img src="external/images/7_3_Act2_euler_soln.svg" role="img" class="contained"></div>
+</div></div>
+</li>
+<li><div class="para">If we apply Euler's method to approximate the solution with <span class="process-math">\(y(0) = 6\text{,}\)</span> the value of <span class="process-math">\(y_i = 6\)</span> for every value of <span class="process-math">\(i\)</span> since <span class="process-math">\(y=6\)</span> is an equilibrium solution and the slope of the tangent line will always be <span class="process-math">\(0\text{.}\)</span>
 </div></li>
-<li><div class="para">Now we want to find the time <span class="process-math">\(t\)</span> so that <span class="process-math">\(M(t) = \frac{1}{4}M_0\text{.}\)</span> Similar work to our recent efforts in (c) shows that <span class="process-math">\(t = \frac{5730\ln(4)}{\ln(2)} \approx 11460\)</span> years. This number makes sense because it takes <span class="process-math">\(5730\)</span> years for half of the sample to decay, then another <span class="process-math">\(5730\)</span> years for half to decay again, for a total of <span class="process-math">\((2)(5730)\)</span> years for the substance to decay to one quarter of its original amount.</div></li>
-<li><div class="para">We want to find the time it takes for <span class="process-math">\(M(t)\)</span> to be <span class="process-math">\(30\)</span>% of <span class="process-math">\(M_0\text{,}\)</span> so we need to solve <span class="process-math">\(0.3M_0 = M_0e^{-\frac{\ln(2)}{5730}t}\text{.}\)</span> Doing so in the usual way, we find that <span class="process-math">\(t = -\frac{5730\ln(0.3)}{\ln(2)} \approx 9952.8\)</span> years, so we estimate that the sample is about <span class="process-math">\(9973\)</span> years old.</div></li>
 </ol></div>
 </div>
-<span class="incontext"><a href="sec-7-4-separable.html#RLW" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-7-3-euler.html#PUF" class="internal">in-context</a></span>
 </body>
 </html>
