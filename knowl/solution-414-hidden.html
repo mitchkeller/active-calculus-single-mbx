@@ -13,53 +13,72 @@
 <body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
 <li><div class="para logical"><div class="displaymath process-math">
 \begin{align*}
-\int_0^1 \frac{1}{x^{1/3}}dx \amp = \lim_{a \to 0^+} \int_0^1 \frac{1}{x^{1/3}}dx\\
-\amp = \lim_{a \to 0^+} \left( \frac{3}{2} - \frac{3}{2} a^{2/3} \right)\\
-\amp = \frac{3}{2}
+\int_1^\infty \frac{1}{x^2} dx \amp = \lim_{b \to \infty} \int_1^b \frac{1}{x^2} dx\\
+\amp = \lim_{b \to \infty} \left.-\frac{1}{x} \right|_1^b\\
+\amp = \lim_{b \to \infty} \left( -\frac{1}{b} + 1 \right)\\
+\amp = 1
 \end{align*}
 </div></div></li>
 <li><div class="para logical"><div class="displaymath process-math">
 \begin{align*}
-\int_0^2 e^{-x} dx \amp = \left. -e^{-x} \right|_0^2\\
-\amp = 1 - e^{-2}
+\int_0^\infty e^{-x/4} dx \amp = \lim_{b \to \infty} \int_0^b e^{-x/4} dx\\
+\amp = \lim_{b \to \infty} \left.\left( - 4e^{-x/4} \right) \right|_0^b\\
+\amp = \lim_{b \to \infty} \left( -4e^{-b/4} + 4\right)\\
+\amp = 4
 \end{align*}
 </div></div></li>
 <li><div class="para logical"><div class="displaymath process-math">
 \begin{align*}
-\int_1^4 \frac{1}{\sqrt{4-x}} dx \amp = \lim_{b \to 4^-}\int_1^b \frac{1}{\sqrt{4-x}} dx\\
-\amp = \lim_{b \to 4^-} \left. -2\sqrt{4-x} \right|_1^b\\
-\amp = 2\sqrt{3}
+\int_2^\infty \frac{9}{(x+5)^{2/3}} dx \amp = \lim_{b \to \infty} \int_2^b \frac{9}{(x+5)^{2/3}} dx\\
+\amp = \lim_{b \to \infty} \left. 27(x+5)^{1/3} \right|_2^b\\
+\amp = \lim_{b \to \infty} \left( 27(b+5)^{1/3} - 27(7)^{1/3} \right)\\
+\amp = \infty
+\end{align*}
+</div></div></li>
+<li><div class="para logical"><div class="displaymath process-math">
+\begin{align*}
+\int_4^\infty \frac{3}{(x+2)^{5/4}} dx \amp = \lim_{b \to \infty} \int_4^b \frac{3}{(x+2)^{5/4}} dx\\
+\amp = \lim_{b \to \infty} \left( -\frac{12}{(b+2)^{1/4}} + \frac{12}{6^{1/4}} \right)\\
+\amp = \frac{12}{6^{1/4}}
+\end{align*}
+</div></div></li>
+<li><div class="para logical"><div class="displaymath process-math">
+\begin{align*}
+\int_0^\infty x e^{-x/4} dx \amp = \lim_{b \to \infty} \int_0^b x e^{-x/4} dx\\
+\amp = \lim_{b \to \infty} \left. \left( -4x e^{-x/4} -16e^{-x/4} \right) \right|_0^b\\
+\amp = 16
 \end{align*}
 </div></div></li>
 <li><div class="para logical">
+<div class="para">We assume that <span class="process-math">\(p\)</span> is a positive real number.</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_1^\infty \frac{1}{x^p} dx \amp = \lim_{b \to \infty} \int_1^b x^{-p} dx\\
+\amp = \lim_{b \to \infty} \left( -\frac{b^{1-p}}{p-1} + \frac{1}{p-1} \right)
+\end{align*}
+</div>
+<div class="para">We now use two cases:</div>
+<ul class="disc">
+<li><div class="para logical">
+<div class="para">(Assume <span class="process-math">\(0 \lt  p \lt  1\text{.}\)</span>)  In this case, <span class="process-math">\(1 - p \gt 0\)</span> and so <span class="process-math">\(\lim_{b \to \infty} b^{1-p} = \infty\)</span> and</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int_{-2}^2 \frac{1}{x^2} dx = \int_{-2}^0 \frac{1}{x^2} + \int_{0}^2 \frac{1}{x^2}
+\lim_{b \to \infty} \left( -\frac{b^{1-p}}{p-1} + \frac{1}{p-1} \right) = \infty
 \end{equation*}
 </div>
-<div class="para">However, each of the improper integrals on the right side of the equation diverges. For example,</div>
-<div class="displaymath process-math">
-\begin{align*}
-\int_{0}^2 \frac{1}{x^2} dx \amp = \lim_{a \to 0^+} \int_{a}^2 \frac{1}{x^2} dx\\
-\amp = \lim_{a \to +} \left( -\frac{1}{2} + \frac{1}{a} \right)\\
-\amp = \infty
-\end{align*}
-</div>
-<div class="para">So <span class="process-math">\(\int_{-2}^2 \frac{1}{x^2}\)</span> dx diverges.</div>
+<div class="para">Using this and equation (1), we see that <span class="process-math">\(\int_1^\infty \frac{1}{x^p} dx\)</span> diverges.</div>
 </div></li>
-<li><div class="para logical"><div class="displaymath process-math">
-\begin{align*}
-\int_0^{\pi/2} \tan(x) dx \amp = \lim_{b \to \dfrac{\pi}{2}^+} \int_0^b \tan(x) dx\\
-\amp = \lim_{b \to \dfrac{\pi}{2}^+} \left( -\ln(\cos(b)) + \ln(\cos(0)) \right)\\
-\amp = \infty
-\end{align*}
-</div></div></li>
-<li><div class="para logical"><div class="displaymath process-math">
-\begin{align*}
-\int_0^1 \frac{1}{\sqrt{1-x^2}} dx \amp = \lim_{b \to 1+} \int_0^b \frac{1}{\sqrt{1-x^2}} dx\\
-\amp = \lim_{b \to 1+} \left( \arcsin(b) - \arcsin(0) \right)\\
-\amp = \frac{\pi}{2}
-\end{align*}
-</div></div></li>
+<li><div class="para logical">
+<div class="para">(Assume <span class="process-math">\(p \gt 1\text{.}\)</span>)  In this case, <span class="process-math">\(1 - p \lt  0\)</span> and so <span class="process-math">\(\lim_{b \to \infty} b^{1-p} = 0\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{b \to \infty} \left( -\frac{b^{1-p}}{p-1} + \frac{1}{p-1} \right) = \frac{1}{p-1}
+\end{equation*}
+</div>
+<div class="para">Using this and equation (1), we see that <span class="process-math">\(\int_1^\infty \frac{1}{x^p} dx\)</span> converges to <span class="process-math">\(\dfrac{1}{p-1}\text{.}\)</span>
+</div>
+</div></li>
+</ul>
+</div></li>
 </ol></div></div></body>
 </html>

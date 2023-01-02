@@ -13,64 +13,61 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h4 class="heading">
-<span class="type">Solution</span><span class="space"> </span><span class="codenumber">7.4.3.11.1</span><span class="period">.</span>
+<span class="type">Solution</span><span class="space"> </span><span class="codenumber">7.4.3.10.1</span><span class="period">.</span>
 </h4>
 <div class="para logical"><ol class="lower-alpha">
-<li><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/7_4_Ez4Soln.svg" role="img" class="contained"></div></div></div></li>
-<li><div class="para">The only equilibrium solution is <span class="process-math">\(P = 3\text{,}\)</span> since <span class="process-math">\(\ln(1) = 0\)</span> (note: <span class="process-math">\(\ln(0)\)</span> is undefined, so the differential equation is not defined for <span class="process-math">\(P = 0\)</span>). From the slope field pictured in (a), the equilibrium solution <span class="process-math">\(P = 3\)</span> is stable.</div></li>
 <li><div class="para logical">
-<div class="para">To solve the IVP with <span class="process-math">\(\frac{dP}{dt} = -P\ln\left(\frac P3\right)\)</span> and <span class="process-math">\(P(0) = 1\text{,}\)</span> we use separation of variables. Observe that</div>
+<div class="para">Since <span class="process-math">\(\frac{dh}{dt}\)</span> is proportional to the square root of the height of the water, we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{1}{P\ln\left(\frac P3\right)}\frac{dP}{dt} = -1
+\frac{dh}{dt} = k \sqrt{h}\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">If one tank has <span class="process-math">\(k=-1\)</span> and the other has <span class="process-math">\(k=-10\text{,}\)</span> the tank with <span class="process-math">\(k = -10\)</span> will have water leaving the tank much more rapidly, which should correspond to that tank having a larger hole.</div></li>
+<li><div class="para logical">
+<div class="para">Since height decreases at <span class="process-math">\(20\)</span> inches per minute when the water is filled to a depth of <span class="process-math">\(100\)</span> inches, this tells us that <span class="process-math">\(\frac{dh}{dt}\vert_{h=100} = -20\text{.}\)</span> Applying this information to the differential equation,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+-20 = k \sqrt{100}
+\end{equation*}
+</div>
+<div class="para">and thus <span class="process-math">\(k = -5\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">To solve the differential equation <span class="process-math">\(\frac{dh}{dt} = -5 \sqrt{h}\)</span> with initial condition <span class="process-math">\(h(0) = 100\text{,}\)</span> we first separate the variables and write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{\sqrt{h}} \frac{dh}{dt} = -5\text{.}
+\end{equation*}
+</div>
+<div class="para">Rewriting the first fraction and integrating with respect to <span class="process-math">\(t\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int h^{-1/2} \, dh = \int -5 \, dt
 \end{equation*}
 </div>
 <div class="para">and thus</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int \frac{1}{P\ln\left(\frac P3\right)} \, dP = - \int 1 \, dt
+2h^{1/2} = -5t + C\text{,}
 \end{equation*}
 </div>
-<div class="para">On the left, using the substitution <span class="process-math">\(u = \ln (P/3)\text{,}\)</span> it follows <span class="process-math">\(du = \frac{3}{P} \cdot \frac{1}{3} \, dP\text{,}\)</span> we can rewrite the most recent equation as</div>
+<div class="para">or <span class="process-math">\(h = \left( C - 2.5t \right)^2\text{.}\)</span> Knowing that <span class="process-math">\(h(0) = 100\text{,}\)</span> we see that <span class="process-math">\(100 = C^2\text{,}\)</span> and thus <span class="process-math">\(C = 5\text{.}\)</span> This shows that the solution to the IVP is</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int \frac{du}{u} = - \int 1 \, dt\text{.}
+h(t) = \left( 5 - 2.5t \right)^2\text{.}
 \end{equation*}
 </div>
-<div class="para">Therefore,</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\ln |u| = -t + C\text{,}
-\end{equation*}
-</div>
-<div class="para">so <span class="process-math">\(|u| = e^{C-t}\text{,}\)</span> or <span class="process-math">\(u = Ke^{-t}\text{.}\)</span> Next, we recall that <span class="process-math">\(u = \ln \left(\frac P3\right)\text{,}\)</span> so</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\frac{P}{3} = e^{Ke^{-t}}
-\end{equation*}
-</div>
-<div class="para">and <span class="process-math">\(P = 3e^{Ke^{-t}}\text{.}\)</span> Applying the initial condition, <span class="process-math">\(1 = 3e^K\text{,}\)</span> so <span class="process-math">\(K = \ln \left(\frac{1}{3} \right)\text{,}\)</span> and thus</div>
-<div class="displaymath process-math">
-\begin{equation*}
-P(t) = 3e^{\ln \left(\frac{1}{3} \right) e^{-t}}\text{.}
-\end{equation*}
-</div>
-<div class="para">This function's plot is shown in blue in the image above in (a) and we see (both graphically and algebraically) that <span class="process-math">\(P(t) \to 3\)</span> as <span class="process-math">\(t \to \infty\)</span> since <span class="process-math">\(e^{-t} \to 0\text{.}\)</span>
+<div class="para">A plot of this function shows it to be a concave up parabola with <span class="process-math">\(y\)</span>-intercept <span class="process-math">\((0,25)\)</span> and a repeated zero at <span class="process-math">\((2.5,0)\text{.}\)</span>
 </div>
 </div></li>
-<li><div class="para logical">
-<div class="para">Changing the initial condition to <span class="process-math">\(P(0) = 6\text{,}\)</span> we can use all of our preceding work in (c) up to where we established <span class="process-math">\(P = 3e^{Ke^{-t}}\text{.}\)</span> Applying this initial condition, <span class="process-math">\(6 = 3e^K\text{,}\)</span> so <span class="process-math">\(K = \ln \left(2 \right)\text{,}\)</span> and thus</div>
-<div class="displaymath process-math">
-\begin{equation*}
-P(t) = 3e^{\ln \left( 2 \right) e^{-t}}\text{.}
-\end{equation*}
-</div>
-<div class="para">This function's plot is shown in red in the image above in (a) and we see (both graphically and algebraically) that <span class="process-math">\(P(t) \to 3\)</span> as <span class="process-math">\(t \to \infty\)</span> since <span class="process-math">\(e^{-t} \to 0\text{.}\)</span>
-</div>
+<li><div class="para">It takes <span class="process-math">\(2.5\)</span> minutes for the tank to empty since <span class="process-math">\(h(2.5) = 0\text{.}\)</span>
 </div></li>
-<li><div class="para">Our work in (c) and (d) suggests that regardless of the initial condition with <span class="process-math">\(P(0) \gt 0\text{,}\)</span> the long-term behavior of <span class="process-math">\(P\)</span> will be for it to tend to <span class="process-math">\(3\)</span> as <span class="process-math">\(t\)</span> increases without bound. This matches our initial observations based on the slope field.</div></li>
+<li><div class="para">No, this solution is not valid for all time <span class="process-math">\(t\text{.}\)</span> The physical constraints of the problem tell us that the solution is only valid for <span class="process-math">\(0 \lt t \lt 2.5\)</span> since at <span class="process-math">\(t = 2.5\)</span> the tank is empty.</div></li>
 </ol></div>
 </div>
-<span class="incontext"><a href="sec-7-4-separable.html#CCY" class="internal">in-context</a></span>
+<span class="incontext"><a href="sec-7-4-separable.html#qoG" class="internal">in-context</a></span>
 </body>
 </html>

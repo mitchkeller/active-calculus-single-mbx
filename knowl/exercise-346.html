@@ -12,49 +12,49 @@
 </head>
 <body class="ignore-math">
 <article class="exercise exercise-like"><h4 class="heading">
-<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">8<span class="period">.</span></span>
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">7<span class="period">.</span></span>
 </h4>
-<div class="para">In this problem, we'll modify Euler's method to obtain better approximations to solutions of initial value problems. This method is called the <em class="emphasis">Improved Euler's method.</em>
-</div> <div class="para">In Euler's method, we walk across an interval of width <span class="process-math">\(\Delta t\)</span> using the slope obtained from the differential equation at the left endpoint of the interval. Of course, the slope of the solution will most likely change over this interval. We can improve our approximation by trying to incorporate the change in the slope over the interval.</div> <div class="para">Let's again consider the initial value problem <span class="process-math">\(dy/dt = y\)</span> and <span class="process-math">\(y(0) = 1\text{,}\)</span> which we will approximate using steps of width <span class="process-math">\(\Delta t = 0.2\text{.}\)</span> Our first interval is therefore <span class="process-math">\(0\leq t \leq 0.2\text{.}\)</span> At <span class="process-math">\(t=0\text{,}\)</span> the differential equation tells us that the slope is 1, and the approximation we obtain from Euler's method is that <span class="process-math">\(y(0.2)\approx y_1= 1+ 1(0.2)= 1.2\text{.}\)</span>
-</div> <div class="para">This gives us some idea for how the slope has changed over the interval <span class="process-math">\(0\leq t\leq 0.2\text{.}\)</span> We know the slope at <span class="process-math">\(t=0\)</span> is 1, while the slope at <span class="process-math">\(t=0.2\)</span> is 1.2, trusting in the Euler's method approximation. We will therefore refine our estimate of the initial slope to be the average of these two slopes; that is, we will estimate the slope to be <span class="process-math">\((1+1.2)/2 = 1.1\text{.}\)</span> This gives the new approximation <span class="process-math">\(y(1) = y_1 = 1 + 1.1(0.2) = 1.22\text{.}\)</span>
-</div> <div class="para">The first few steps look like what is found in <a href="" class="xref" data-knowl="./knowl/T-7-3-ez-3.html" title="Table 7.3.14: The first several steps of the improved Euler's method">Table 7.3.14</a>.</div> <figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.14<span class="period">.</span></span><span class="space"> </span>The first several steps of the improved Euler's method</figcaption><div class="tabular-box natural-width"><table class="tabular" id="PWJ">
-<tr>
-<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(t_i\)</span></td>
-<td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(y_i\)</span></td>
-<td class="l m b1 r0 l0 t1 lines">Slope at <span class="process-math">\((t_{i+1},y_{i+1})\)</span>
-</td>
-<td class="l m b1 r0 l0 t1 lines">Average slope</td>
-</tr>
-<tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.0\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.0000\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.2000\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.1000\)</span></td>
-</tr>
-<tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.2\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.2200\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.4640\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.3420\)</span></td>
-</tr>
-<tr>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.4\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.4884\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.7861\)</span></td>
-<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(1.6372\)</span></td>
-</tr>
-<tr>
-<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
-<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
-<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
-<td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
-</tr>
-</table></div></figure> <div class="para logical"><ol class="lower-alpha">
-<li><div class="para">Continue with this method to obtain an approximation for <span class="process-math">\(y(1) = e\text{.}\)</span>
+<div class="para logical">
+<div class="para">We have seen that the error in approximating the solution to an initial value problem is proportional to <span class="process-math">\(\Delta t\text{.}\)</span> That is, if <span class="process-math">\(E_{\Delta t}\)</span> is the Euler's method approximation to the solution to an initial value problem at <span class="process-math">\(\overline{t}\text{,}\)</span> then</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y(\overline{t})-E_{\Delta t} \approx K\Delta t
+\end{equation*}
+</div>
+<div class="para">for some constant of proportionality <span class="process-math">\(K\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">In this problem, we will see how to use this fact to improve our estimates, using an idea called <em class="emphasis">accelerated convergence</em>.</div>
+<ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">We will create a new approximation by assuming the error is <em class="emphasis">exactly</em> proportional to <span class="process-math">\(\Delta t\text{,}\)</span> according to the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y(\overline{t})-E_{\Delta t} =K\Delta t\text{.}
+\end{equation*}
+</div>
+<div class="para">Using our earlier results from the initial value problem <span class="process-math">\(dy/dt = y\)</span> and <span class="process-math">\(y(0)=1\)</span> with <span class="process-math">\(\Delta t = 0.2\)</span> and <span class="process-math">\(\Delta t = 0.1\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{align*}
+y(1) - 2.4883 =\mathstrut \amp  0.2K\\
+y(1) - 2.5937 =\mathstrut \amp  0.1K\text{.}
+\end{align*}
+</div>
+<div class="para">This is a system of two linear equations in the unknowns <span class="process-math">\(y(1)\)</span> and <span class="process-math">\(K\text{.}\)</span> Solve this system to find a new approximation for <span class="process-math">\(y(1)\text{.}\)</span>  (You may remember that the exact value is <span class="process-math">\(y(1) = e =
+2.71828\ldots\text{.}\)</span>)</div>
 </div></li>
-<li><div class="para">Repeat this method with <span class="process-math">\(\Delta t = 0.1\)</span> to obtain a better approximation for <span class="process-math">\(y(1)\text{.}\)</span>
+<li><div class="para">Use the other data, <span class="process-math">\(E_{0.05} = 2.6533\)</span> and <span class="process-math">\(E_{0.025} = 2.6851\)</span> to do similar work as in (a) to obtain another approximation. Which gives the better approximation? Why do you think this is?</div></li>
+<li><div class="para logical">
+<div class="para">Let's now study the initial value problem</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dt} = t-y, \ y(0) = 0\text{.}
+\end{equation*}
+</div>
+<div class="para">Approximate <span class="process-math">\(y(0.3)\)</span> by applying Euler's method to find approximations <span class="process-math">\(E_{0.1}\)</span> and <span class="process-math">\(E_{0.05}\text{.}\)</span> Now use the idea of accelerated convergence to obtain a better approximation.  (For the sake of comparison, you want to  note that the actual value is <span class="process-math">\(y(0.3) =
+0.0408\text{.}\)</span>)</div>
 </div></li>
-<li><div class="para">We saw that the error in Euler's method is proportional to <span class="process-math">\(\Delta t\text{.}\)</span> Using your results from parts (a) and (b), what power of <span class="process-math">\(\Delta t\)</span> appears to be proportional to the error in the Improved Euler's Method?</div></li>
-</ol></div></article><span class="incontext"><a href="sec-7-3-euler.html#nBe" class="internal">in-context</a></span>
+</ol>
+</div></article><span class="incontext"><a href="sec-7-3-euler.html#HtV" class="internal">in-context</a></span>
 </body>
 </html>

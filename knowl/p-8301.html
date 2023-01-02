@@ -12,16 +12,146 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">Recalling that <span class="process-math">\(E_{0.05} = 2.6533\)</span> and <span class="process-math">\(E_{0.025} = 2.6851\text{,}\)</span> it follows that this data generates the similar linear system given by</div>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">The differential equation for Alice's coffee is</div>
 <div class="displaymath process-math">
-\begin{align*}
-y(1) - 2.6533 =\mathstrut \amp  0.05K\\
-y(1) - 2.6851 =\mathstrut \amp  0.025K\text{.}
-\end{align*}
+\begin{equation*}
+\frac{dT_A}{dt} = -0.5(T-70)\text{,}
+\end{equation*}
 </div>
-<div class="para">Solving this system yields <span class="process-math">\(K = 1.272\)</span> and <span class="process-math">\(y(1) = 2.7169\text{.}\)</span> Knowing that the true value of <span class="process-math">\(y(1)\)</span> is <span class="process-math">\(e = 2.71828\ldots\text{,}\)</span> we see that the approximation here in (b) is much better. That is expected because we are already working with better approximations that come from using <span class="process-math">\(\Delta t = 0.05\)</span> and <span class="process-math">\(\Delta t = 0.025\text{,}\)</span> which have been twice halved from the smaller <span class="process-math">\(\Delta t\)</span> value in (a).</div>
+<div class="para">so at the instant <span class="process-math">\(t = 0\text{,}\)</span> <span class="process-math">\(T = 100\text{,}\)</span> and thus <span class="process-math">\(\frac{dT_A}{dt} \vert_{T = 100} = -0.5(30) = -15\)</span> degrees per minute. For Bob's coffee,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dT_B}{dt} = -0.1(T-70)\text{,}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-7-3-euler.html#hqt" class="internal">in-context</a></span>
+<div class="para">so <span class="process-math">\(\frac{dT_B}{dt} \vert_{T = 100} = -0.1(30) = -3\)</span> degrees per minute. These are the initial rates of change of the respective cups of coffee.</div>
+</div></li>
+<li><div class="para">The difference between the cups of coffee could be explained by how insulated the containers are: Bob's coffee loses temperature less quickly, so his is likely better insulated.</div></li>
+<li>
+<div class="para logical">
+<div class="para">With this varying temperature, the governing differential equation for Alice's coffee is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dT_A}{dt} = -0.5(T_A-(70+10\sin t))\text{,}
+\end{equation*}
+</div>
+<div class="para">with the inital condition <span class="process-math">\(T_A(0) = 100\text{.}\)</span> Implementing Euler's Method with <span class="process-math">\(\Delta t = 0.1\text{,}\)</span> we get the following (abbreviated) table of data.</div>
+</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel fixed-width top" style="width:37.5%;"><table class="tabular" id="XBi">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(T_A(t)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(98.5\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(97.12492\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(95.86801\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(94.72237\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.56715\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.7\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.48008\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.8\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.43816\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.44183\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(50\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(65.49103\)</span></td>
+</tr>
+</table></div>
+<div class="sbspanel top" style="width:37.5%;"><img src="external/images/7_3_Ez1Soln.svg" role="img" class="contained"></div>
+</div></div>
+<div class="para">Plotting the data points that result from Euler's Method along with the room temperature function, we see how the room temperature drives the temperature of the coffee up and down as time goes on, as pictured in the figure above, where the data points for the coffee's approximate temperature are shown in dark blue, while the room temperature function, <span class="process-math">\(T_R(t) = 70 + 10\sin(t)\)</span> is shown in green.</div>
+</li>
+<li>
+<div class="para">Similar work with the differential equation for Bob's coffee yields the following abbreviated table of approximate function values along with the plot of the data and the temperature function.</div>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel fixed-width top" style="width:37.5%;"><table class="tabular" id="DIr">
+<tr>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
+<td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(T_A(t)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.0\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(100\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.1\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(99.7\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.2\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(99.41298\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.3\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(99.13872\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(0.4\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(98.87689\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.6\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.39515\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.7\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.33946\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.8\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.29248\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(49.9\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.25467\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(50\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(69.22638\)</span></td>
+</tr>
+</table></div>
+<div class="sbspanel top" style="width:37.5%;"><img src="external/images/7_3_Ez1SolnB.svg" role="img" class="contained"></div>
+</div></div>
+</li>
+<li><div class="para">The behaviors of both cups of coffee are similar in that each decreases toward the room temperature initially and then is driven in an osciallating way by the room temperature function as it rises and falls. We see that Alice's coffee is more susceptible to being influenced away from the average room temperature, which is consistent with her mug being less well insulated, while in Bob's coffee, we see much less radical oscillations (and a slower overall rate of decrease to get near room temperature), which is consistent with being better insulated.</div></li>
+</ol></div>
+<span class="incontext"><a href="sec-7-3-euler.html#WRo" class="internal">in-context</a></span>
 </body>
 </html>
