@@ -241,7 +241,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "1.2",
   "title": "The notion of limit",
-  "body": " The notion of limit     What is the mathematical notion of limit and what role do limits play in the study of functions?    What is the meaning of the notation ?    How do we go about determining the value of the limit of a function at a point?    How do we manipulate average velocity to compute instantaneous velocity?      In Section 1.1 we used a function, , to model the location of a moving object at a given time. Functions can model other interesting phenomena, such as the rate at which an automobile consumes gasoline at a given velocity, or the reaction of a patient to a given dosage of a drug. We can use calculus to study how a function value changes in response to changes in the input variable.  Think about the falling ball whose position function is given by . Its average velocity on the interval is given by .  Note that the average velocity is a function of . That is, the function tells us the average velocity of the ball on the interval from to . To find the instantaneous velocity of the ball when , we need to know what happens to as gets closer and closer to . But also notice that is not defined, because it leads to the quotient .  This is where the notion of a limit comes in. By using a limit, we can investigate the behavior of as gets arbitrarily close, but not equal, to . We first use the graph of a function to explore points where interesting behavior occurs.     Suppose that is the function given by the graph below.    Part a Use the graph to determine the values , , , , and , if defined. If the function value is not defined, enter DNE (for \"does not exist\").             Part b As gets closer and closer (but not equal) to , gets as close as we want to .  As gets closer and closer (but not equal) to , gets as close as we want to .  As gets closer and closer (but not equal) to , gets as close as we want to .   Part c As gets closer and closer to (but stays less than) , gets as close as we want to .  As gets closer and closer to (but stays greater than) , gets as close as we want to .  As gets closer and closer (but not equal) to , does get as close as we want to a single value? If such a value exists, enter it. If no such value exists, enter DNE.   .          The Notion of Limit  Limits give us a way to identify a trend in the values of a function as its input variable approaches a particular value of interest. We need a precise understanding of what it means to say a function has limit as approaches . To begin, think about a recent example.  In Preview Activity , we saw that as gets closer and closer (but not equal) to 0, gets as close as we want to the value 4. At first, this may feel counterintuitive, because the value of is , not . But limits describe the behavior of a function arbitrarily close to a fixed input, and the value of the function at the fixed input does not matter. More formally, What follows here is not what mathematicians consider the formal definition of a limit. To be completely precise, it is necessary to quantify both what it means to say as close to as we like and sufficiently close to . That can be accomplished through what is traditionally called the epsilon-delta definition of limits. The definition presented here is sufficient for the purposes of this text. we say the following.    Given a function , a fixed input , and a real number , we say that has limit as approaches , limit definition and write provided that we can make as close to as we like by taking sufficiently close (but not equal) to . If we cannot make as close to a single value as we would like as approaches , then we say that does not have a limit as approaches .       For the function pictured in the figure in Preview Activity , we make the following observations: . When working from a graph, it suffices to ask if the function approaches a single value from each side of the fixed input. The function value at the fixed input is irrelevant. This reasoning explains the values of the three limits stated above.  However, does not have a limit as . There is a jump in the graph at . If we approach from the left, the function values tend to get close to 3, but if we approach from the right, the function values get close to 2. There is no single number that all of these function values approach. This is why the limit of does not exist at .    For any function , there are typically three ways to answer the question does have a limit at , and if so, what is the limit? The first is to reason graphically as we have just done with the example from Preview Activity . If we have a formula for , there are two additional possibilities:  Evaluate the function at a sequence of inputs that approach on either side (typically using some sort of computing technology), and ask if the sequence of outputs seems to approach a single value.  Use the algebraic form of the function to understand the trend in its output values as the input values approach .  The first approach produces only an approximation of the value of the limit, while the latter can often be used to determine the limit exactly.   Limits of Two Functions   For each of the following functions, we'd like to know whether or not the function has a limit at the stated -values. Use both numerical and algebraic approaches to investigate and, if possible, estimate or determine the value of the limit. Compare the results with a careful graph of the function on an interval containing the points of interest.     ; ,    ; ,       a. We first construct a graph of along with tables of values near and .    Table of values near .                                           Table of values near .                                           Plot of on .     From Table , it appears that we can make as close as we want to 3 by taking sufficiently close to , which suggests that . This is also consistent with the graph of . To see this a bit more rigorously and from an algebraic point of view, consider the formula for : . As , , and , so as , the numerator of tends to 3 and the denominator tends to 1, hence .  The situation is more complicated when , because is not defined. If we try to use a similar algebraic argument regarding the numerator and denominator, we observe that as , , and , so as , the numerator and denominator of both tend to 0. We call an indeterminate form . indeterminate form This tells us that there is somehow more work to do. From Table and Figure , it appears that should have a limit of at .  To see algebraically why this is the case, observe that .  It is important to observe that, since we are taking the limit as , we are considering values that are close, but not equal, to . Because we never actually allow to equal , the quotient has value 1 for every possible value of . Thus, we can simplify the most recent expression above, and find that . This limit is now easy to determine, and its value clearly is . Thus, from several points of view we've seen that .  b. Next we turn to the function , and construct two tables and a graph.    Table of values near .                                           Table of values near .                                           Plot of on .     First, as , it appears from the table values that the function is approaching a number between and . From the graph it appears that as . The exact value of is , which is approximately 0.8660254038. This is convincing evidence that .  As , we observe that does not behave in an elementary way. When is positive and approaching zero, we are dividing by smaller and smaller positive values, and increases without bound. When is negative and approaching zero, decreases without bound. In this sense, as we get close to , the inputs to the sine function are growing rapidly, and this leads to increasingly rapid oscillations in the graph of betweem and . If we plot the function with a graphing utility and then zoom in on , we see that the function never settles down to a single value near the origin, which suggests that does not have a limit at .  How do we reconcile the graph with the righthand table above, which seems to suggest that the limit of as approaches may in fact be ? The data misleads us because of the special nature of the sequence of input values . When we evaluate , we get for each positive integer value of . But if we take a different sequence of values approaching zero, say , then we find that .  That sequence of function values suggests that the value of the limit is . Clearly the function cannot have two different values for the limit, so has no limit as .    An important lesson to take from Example is that tables can be misleading when determining the value of a limit. While a table of values is useful for investigating the possible value of a limit, we should also use other tools to confirm the value.    Estimate the value of each of the following limits by constructing appropriate tables of values. Then determine the exact value of the limit by using algebra to simplify the function. Finally, plot each function on an appropriate interval to check your result visually.           can be factored.  Expand the expression , and then combine like terms in the numerator.  Try multiplying the given function by this fancy form of 1: .        .  .  .      Estimating the values of the limits with tables is straightforward and should suggest the exact values stated below.     .   .   .      Recall that our primary motivation for considering limits of functions comes from our interest in studying the rate of change of a function. To that end, we close this section by revisiting our previous work with average and instantaneous velocity and highlighting the role that limits play.    Instantaneous Velocity  Suppose that we have a moving object whose position at time is given by a function . We know that the average velocity of the object on the time interval is . We define the instantaneous velocity  instantaneous velocity at to be the limit of average velocity as approaches . Note particularly that as , the length of the time interval gets shorter and shorter (while always including ). We will write for the instantaneous velocity at , and thus .  Equivalently, if we think of the changing value as being of the form , where is some small number, then we may instead write .  Again, the most important idea here is that to compute instantaneous velocity, we take a limit of average velocities as the time interval shrinks.    Consider a moving object whose position function is given by , where is measured in meters and is measured in minutes.     Determine the most simplified expression for the average velocity of the object on the interval , where .    Determine the average velocity of the object on the interval . Include units on your answer.   Determine the instantaneous velocity of the object when . Include units on your answer.        .  Recall that .  Consider and use your work in (a).        .  meters\/min.  meters per minute.        Observe that .  Using the expression just found in (a) with , meters\/min.  Taking the limit of average velocity and using our work from (a), we find that , so the instantaneous velocity of the object when is 6 meters per minute.      The closing activity of this section asks you to make some connections among average velocity, instantaneous velocity, and slopes of certain lines.    For the moving object whose position at time is given by the graph in Figure , answer each of the following questions. Assume that is measured in feet and is measured in seconds.   Plot of the position function in Activity .      Use the graph to estimate the average velocity of the object on each of the following intervals: , , . Draw each line whose slope represents the average velocity you seek.  How could you use average velocities or slopes of lines to estimate the instantaneous velocity of the object at a fixed time?  Use the graph to estimate the instantaneous velocity of the object when . Should this instantaneous velocity at be greater or less than the average velocity on that you computed in (a)? Why?        Remember that average velocity on an interval computes the quotient of change in over change in . This is the slope of the line between the corresponding two points on the graph of .  Think about shorter and shorter time intervals and drawing the lines whose slopes represent average velocity.  Think about zooming in on the graph at and drawing a line that, up close, looks just like the curve . What is the approximate slope of that line?         , , and .  Take shorter and shorter time intervals and draw the lines whose slopes represent average velocity. If those lines' slopes are approaching a single number, that number represents the instantaneous velocity.  The instantaneous velocity at is greater than the average velocity on .        The average velocity on is the slope of the line joining the points and , which is . On , we similarly find , and on , we have .  Take shorter and shorter time intervals and draw the lines whose slopes represent average velocity. If those lines' slopes are approaching a single number, that number represents the instantaneous velocity. For example, to estimate the instantaneous velocity at , we might consider average velocities on , , and .  If we draw the line through and , it looks like the line's slope is approximately 2.5: if we go over one grid-width, we appear to go up about 2.5. The slope of this line is clearly greater than the slope of the line through and , which is 2. Hence the instantaneous velocity at is greater than the average velocity on .        Summary     Limits enable us to examine trends in function behavior near a specific point. In particular, taking a limit at a given point asks if the function values nearby tend to approach a particular fixed value.    We read , as the limit of as approaches is , which means that we can make the value of as close to as we want by taking sufficiently close (but not equal) to .    To find for a given value of and a known function , we can estimate this value from the graph of , or we can make a table of function values for -values that are closer and closer to . If we want the exact value of the limit, we can work with the function algebraically to understand how different parts of the formula for change as .    We find the instantaneous velocity of a moving object at a fixed time by taking the limit of average velocities of the object over shorter and shorter time intervals containing the time of interest.         Use the figure below, which gives a graph of the function , to give values for the indicated limits. If a limit does not exist, enter none .   (a)  =  help (limits)  (b)  =  (c)  =  (d)  =                       (a) As approaches from either side, the values of get closer and closer to , so the limit appears to be about . (b) As approaches 0 from either side, the values of get closer and closer to . (Recall that to find a limit, we are interested in what happens to the function near but not at .) The limit appears to be about . (c) As approaches 2 from either side, the values of get closer and closer to on one side of and get closer and closer to on the other side of . Thus the limit does not exist. (d) As approaches 3 from either side, the values of get closer and closer to 4. (Again, recall that we don't care what happens right at .) The limit appears to be about 4.        Evaluate the limit, if it exists. If a limit does not exist, type \"DNE\".  Limit:              Evaluate the limit  (If the limit does not exist, enter DNE .)  Limit =              Evaluate the limit, if it exists. If a limit does not exist, type \"DNE\".  Limit:              Use algebra to evalute the following limit.          Thus, as we have .        Consider the function .  (a) Fill in the following table of values for :     -0.1  -0.01  -0.001  -0.0001  0.0001  0.001  0.01  0.1               (b) Based on your table of values, what would you expect the limit of as approaches zero to be?    (c) Graph the function to see if it is consistent with your answers to parts (a) and (b). By graphing, find an interval for near zero such that the difference between your conjectured limit and the value of the function is less than 0.01. In other words, find a window of height 0.02 such that the graph exits the sides of the window and not the top or bottom. What is the window?    ,    .                                                                    (a) The values of are    -0.1  -0.01  -0.001  -0.0001  0.0001  0.001  0.01  0.1     1.29449  1.37673  1.38533  1.3862  1.38639  1.38726  1.39595  1.48698    (b) From the values in this table, it appears that the limit is 1.38629. (c) When we graph the function we see the graph: This confirms our estimate of the limit. A reasonable range for so that the graph of enters and leaves a window of height 0.02 around is and .        Evaluate the limit If the limit does not exist enter DNE.  Limit =               Consider the function whose formula is .    What is the domain of ?  Use a sequence of values of near to estimate the value of , if you think the limit exists. If you think the limit doesn't exist, explain why.  Use algebra to simplify the expression and hence work to evaluate exactly, if it exists, or to explain how your work shows the limit fails to exist. Discuss how your findings compare to your results in (b).  True or false: . Why?  True or false: . Why? How is this equality connected to your work above with the function ?  Based on all of your work above, construct an accurate, labeled graph of on the interval , and write a sentence that explains what you now know about .        All real numbers except .                                                                 .     .    False.    False.                is defined for every value of except those that make . Hence, the domain of is the set of all real numbers except .    Using a spreadsheet, we generate the following table.                                                              The numerical trend suggests that .    By factoring the numerator and denominator of , we observe that . Taking the limit as , we take values closer and closer, but not equal to 2, and therefore , since for all . Finally, evaluating the last limit as , we see that .    False. In part (a), we saw that is not defined. We now know that has a limit of as approaches , but it is still the case that is undefined.    False. The noted equality only holds for -values other than or . We can use this equality when evaluating the limit, since in so doing we never let actually equal , but only approach .    Since is not defined but has a limit of as , we see that the graph has a ``hole'' in it at the point , as seen in the following figure.           Let .    What is the domain of ?  Use a sequence of values near to estimate the value of , if you think the limit exists. If you think the limit doesn't exist, explain why.  Use algebra to simplify the expression and hence work to evaluate exactly, if it exists, or to explain how your work shows the limit fails to exist. Discuss how your findings compare to your results in (b). (Hint: whenever , but whenever .)  True or false: . Why?  True or false: . Why? How is this equality connected to your work above with the function ?  Based on all of your work above, construct an accurate, labeled graph of on the interval , and write a sentence that explains what you now know about .        All real numbers except .                                                                The limit does not exist.    If , if , it follows that . Hence the limit does not exist.    False.    False.               The domain of is all real numbers except .    Using a spreadsheet, we generate the following table.                                                              As we approach from the right, the function values approach (stay constant at) ; but as we approach from the left, the function values approach (stay constant at) . As such, the function values do not get arbitrarily close to a single value, and hence the limit does not exist.    We observe that whenever , and that whenever . So, if , we see that whereas if , it follows that . Because the function value is to the right of and to the left of , it follows that the limit does not exist.    False, since does not belong to the domain of , is undefined.    False. This equality is only true when , as seen in our work in (c).    Since approaches different output values as approaches from different directions, does not have a limit as , as seen in the following figure.           For each of the following prompts, sketch a graph on the provided axes of a function that has the stated properties.   Axes for plotting in (a) and in (b).        such that   and    and    is not defined and    and does not exist.       such that   , , , and   At and , has a limit, and its limit equals the value of the function at that point.   is not defined and does not exist.                            One possible graph follows.        One possible graph follows.           A bungee jumper dives from a tower at time . Her height in feet at time in seconds is given by .    Write an expression for the average velocity of the bungee jumper on the interval .  Use computing technology to estimate the value of the limit as of the quantity you found in (a).  What is the meaning of the value of the limit in (b)? What are its units?              .    The instantaneous velocity of the bungee jumper at the moment is approximately ft\/sec.         Using the standard formula for average velocity, we see that     Using a spreadsheet and small values of in the expression , we see that   Values of near .                                                                             and hence .    Since this tells us that the instantaneous velocity of the bungee jumper at the moment is approximately ft\/sec.       "
+  "body": " The notion of limit     What is the mathematical notion of limit and what role do limits play in the study of functions?    What is the meaning of the notation ?    How do we go about determining the value of the limit of a function at a point?    How do we manipulate average velocity to compute instantaneous velocity?      In Section 1.1 we used a function, , to model the location of a moving object at a given time. Functions can model other interesting phenomena, such as the rate at which an automobile consumes gasoline at a given velocity, or the reaction of a patient to a given dosage of a drug. We can use calculus to study how a function value changes in response to changes in the input variable.  Think about the falling ball whose position function is given by . Its average velocity on the interval is given by .  Note that the average velocity is a function of . That is, the function tells us the average velocity of the ball on the interval from to . To find the instantaneous velocity of the ball when , we need to know what happens to as gets closer and closer to . But also notice that is not defined, because it leads to the quotient .  This is where the notion of a limit comes in. By using a limit, we can investigate the behavior of as gets arbitrarily close, but not equal, to . We first use the graph of a function to explore points where interesting behavior occurs.     Suppose that is the function given by the graph below.    Part a Use the graph to determine the values , , , , and , if defined. If the function value is not defined, enter DNE (for \"does not exist\").             Part b As gets closer and closer (but not equal) to , gets as close as we want to .  As gets closer and closer (but not equal) to , gets as close as we want to .  As gets closer and closer (but not equal) to , gets as close as we want to .   Part c As gets closer and closer to (but stays less than) , gets as close as we want to .  As gets closer and closer to (but stays greater than) , gets as close as we want to .  As gets closer and closer (but not equal) to , does get as close as we want to a single value? If such a value exists, enter it. If no such value exists, enter DNE.  gets close to          The Notion of Limit  Limits give us a way to identify a trend in the values of a function as its input variable approaches a particular value of interest. We need a precise understanding of what it means to say a function has limit as approaches . To begin, think about a recent example.  In Preview Activity , we saw that as gets closer and closer (but not equal) to 0, gets as close as we want to the value 4. At first, this may feel counterintuitive, because the value of is , not . But limits describe the behavior of a function arbitrarily close to a fixed input, and the value of the function at the fixed input does not matter. More formally, What follows here is not what mathematicians consider the formal definition of a limit. To be completely precise, it is necessary to quantify both what it means to say as close to as we like and sufficiently close to . That can be accomplished through what is traditionally called the epsilon-delta definition of limits. The definition presented here is sufficient for the purposes of this text. we say the following.    Given a function , a fixed input , and a real number , we say that has limit as approaches , limit definition and write provided that we can make as close to as we like by taking sufficiently close (but not equal) to . If we cannot make as close to a single value as we would like as approaches , then we say that does not have a limit as approaches .       For the function pictured in the figure in Preview Activity , we make the following observations: . When working from a graph, it suffices to ask if the function approaches a single value from each side of the fixed input. The function value at the fixed input is irrelevant. This reasoning explains the values of the three limits stated above.  However, does not have a limit as . There is a jump in the graph at . If we approach from the left, the function values tend to get close to 3, but if we approach from the right, the function values get close to 2. There is no single number that all of these function values approach. This is why the limit of does not exist at .    For any function , there are typically three ways to answer the question does have a limit at , and if so, what is the limit? The first is to reason graphically as we have just done with the example from Preview Activity . If we have a formula for , there are two additional possibilities:  Evaluate the function at a sequence of inputs that approach on either side (typically using some sort of computing technology), and ask if the sequence of outputs seems to approach a single value.  Use the algebraic form of the function to understand the trend in its output values as the input values approach .  The first approach produces only an approximation of the value of the limit, while the latter can often be used to determine the limit exactly.   Limits of Two Functions   For each of the following functions, we'd like to know whether or not the function has a limit at the stated -values. Use both numerical and algebraic approaches to investigate and, if possible, estimate or determine the value of the limit. Compare the results with a careful graph of the function on an interval containing the points of interest.     ; ,    ; ,       a. We first construct a graph of along with tables of values near and .    Table of values near .                                           Table of values near .                                           Plot of on .     From Table , it appears that we can make as close as we want to 3 by taking sufficiently close to , which suggests that . This is also consistent with the graph of . To see this a bit more rigorously and from an algebraic point of view, consider the formula for : . As , , and , so as , the numerator of tends to 3 and the denominator tends to 1, hence .  The situation is more complicated when , because is not defined. If we try to use a similar algebraic argument regarding the numerator and denominator, we observe that as , , and , so as , the numerator and denominator of both tend to 0. We call an indeterminate form . indeterminate form This tells us that there is somehow more work to do. From Table and Figure , it appears that should have a limit of at .  To see algebraically why this is the case, observe that .  It is important to observe that, since we are taking the limit as , we are considering values that are close, but not equal, to . Because we never actually allow to equal , the quotient has value 1 for every possible value of . Thus, we can simplify the most recent expression above, and find that . This limit is now easy to determine, and its value clearly is . Thus, from several points of view we've seen that .  b. Next we turn to the function , and construct two tables and a graph.    Table of values near .                                           Table of values near .                                           Plot of on .     First, as , it appears from the table values that the function is approaching a number between and . From the graph it appears that as . The exact value of is , which is approximately 0.8660254038. This is convincing evidence that .  As , we observe that does not behave in an elementary way. When is positive and approaching zero, we are dividing by smaller and smaller positive values, and increases without bound. When is negative and approaching zero, decreases without bound. In this sense, as we get close to , the inputs to the sine function are growing rapidly, and this leads to increasingly rapid oscillations in the graph of betweem and . If we plot the function with a graphing utility and then zoom in on , we see that the function never settles down to a single value near the origin, which suggests that does not have a limit at .  How do we reconcile the graph with the righthand table above, which seems to suggest that the limit of as approaches may in fact be ? The data misleads us because of the special nature of the sequence of input values . When we evaluate , we get for each positive integer value of . But if we take a different sequence of values approaching zero, say , then we find that .  That sequence of function values suggests that the value of the limit is . Clearly the function cannot have two different values for the limit, so has no limit as .    An important lesson to take from Example is that tables can be misleading when determining the value of a limit. While a table of values is useful for investigating the possible value of a limit, we should also use other tools to confirm the value.    Estimate the value of each of the following limits by constructing appropriate tables of values. Then determine the exact value of the limit by using algebra to simplify the function. Finally, plot each function on an appropriate interval to check your result visually.           can be factored.  Expand the expression , and then combine like terms in the numerator.  Try multiplying the given function by this fancy form of 1: .        .  .  .      Estimating the values of the limits with tables is straightforward and should suggest the exact values stated below.     .   .   .      Recall that our primary motivation for considering limits of functions comes from our interest in studying the rate of change of a function. To that end, we close this section by revisiting our previous work with average and instantaneous velocity and highlighting the role that limits play.    Instantaneous Velocity  Suppose that we have a moving object whose position at time is given by a function . We know that the average velocity of the object on the time interval is . We define the instantaneous velocity  instantaneous velocity at to be the limit of average velocity as approaches . Note particularly that as , the length of the time interval gets shorter and shorter (while always including ). We will write for the instantaneous velocity at , and thus .  Equivalently, if we think of the changing value as being of the form , where is some small number, then we may instead write .  Again, the most important idea here is that to compute instantaneous velocity, we take a limit of average velocities as the time interval shrinks.    Consider a moving object whose position function is given by , where is measured in meters and is measured in minutes.     Determine the most simplified expression for the average velocity of the object on the interval , where .    Determine the average velocity of the object on the interval . Include units on your answer.   Determine the instantaneous velocity of the object when . Include units on your answer.        .  Recall that .  Consider and use your work in (a).        .  meters\/min.  meters per minute.        Observe that .  Using the expression just found in (a) with , meters\/min.  Taking the limit of average velocity and using our work from (a), we find that , so the instantaneous velocity of the object when is 6 meters per minute.      The closing activity of this section asks you to make some connections among average velocity, instantaneous velocity, and slopes of certain lines.    For the moving object whose position at time is given by the graph in Figure , answer each of the following questions. Assume that is measured in feet and is measured in seconds.   Plot of the position function in Activity .      Use the graph to estimate the average velocity of the object on each of the following intervals: , , . Draw each line whose slope represents the average velocity you seek.  How could you use average velocities or slopes of lines to estimate the instantaneous velocity of the object at a fixed time?  Use the graph to estimate the instantaneous velocity of the object when . Should this instantaneous velocity at be greater or less than the average velocity on that you computed in (a)? Why?        Remember that average velocity on an interval computes the quotient of change in over change in . This is the slope of the line between the corresponding two points on the graph of .  Think about shorter and shorter time intervals and drawing the lines whose slopes represent average velocity.  Think about zooming in on the graph at and drawing a line that, up close, looks just like the curve . What is the approximate slope of that line?         , , and .  Take shorter and shorter time intervals and draw the lines whose slopes represent average velocity. If those lines' slopes are approaching a single number, that number represents the instantaneous velocity.  The instantaneous velocity at is greater than the average velocity on .        The average velocity on is the slope of the line joining the points and , which is . On , we similarly find , and on , we have .  Take shorter and shorter time intervals and draw the lines whose slopes represent average velocity. If those lines' slopes are approaching a single number, that number represents the instantaneous velocity. For example, to estimate the instantaneous velocity at , we might consider average velocities on , , and .  If we draw the line through and , it looks like the line's slope is approximately 2.5: if we go over one grid-width, we appear to go up about 2.5. The slope of this line is clearly greater than the slope of the line through and , which is 2. Hence the instantaneous velocity at is greater than the average velocity on .        Summary     Limits enable us to examine trends in function behavior near a specific point. In particular, taking a limit at a given point asks if the function values nearby tend to approach a particular fixed value.    We read , as the limit of as approaches is , which means that we can make the value of as close to as we want by taking sufficiently close (but not equal) to .    To find for a given value of and a known function , we can estimate this value from the graph of , or we can make a table of function values for -values that are closer and closer to . If we want the exact value of the limit, we can work with the function algebraically to understand how different parts of the formula for change as .    We find the instantaneous velocity of a moving object at a fixed time by taking the limit of average velocities of the object over shorter and shorter time intervals containing the time of interest.         Use the figure below, which gives a graph of the function , to give values for the indicated limits. If a limit does not exist, enter none .   (a)  =  help (limits)  (b)  =  (c)  =  (d)  =                       (a) As approaches from either side, the values of get closer and closer to , so the limit appears to be about . (b) As approaches 0 from either side, the values of get closer and closer to . (Recall that to find a limit, we are interested in what happens to the function near but not at .) The limit appears to be about . (c) As approaches 2 from either side, the values of get closer and closer to on one side of and get closer and closer to on the other side of . Thus the limit does not exist. (d) As approaches 3 from either side, the values of get closer and closer to 4. (Again, recall that we don't care what happens right at .) The limit appears to be about 4.        Evaluate the limit, if it exists. If a limit does not exist, type \"DNE\".  Limit:              Evaluate the limit  (If the limit does not exist, enter DNE .)  Limit =              Evaluate the limit, if it exists. If a limit does not exist, type \"DNE\".  Limit:              Use algebra to evalute the following limit.          Thus, as we have .        Consider the function .  (a) Fill in the following table of values for :     -0.1  -0.01  -0.001  -0.0001  0.0001  0.001  0.01  0.1               (b) Based on your table of values, what would you expect the limit of as approaches zero to be?    (c) Graph the function to see if it is consistent with your answers to parts (a) and (b). By graphing, find an interval for near zero such that the difference between your conjectured limit and the value of the function is less than 0.01. In other words, find a window of height 0.02 such that the graph exits the sides of the window and not the top or bottom. What is the window?    ,    .                                                                    (a) The values of are    -0.1  -0.01  -0.001  -0.0001  0.0001  0.001  0.01  0.1     1.29449  1.37673  1.38533  1.3862  1.38639  1.38726  1.39595  1.48698    (b) From the values in this table, it appears that the limit is 1.38629. (c) When we graph the function we see the graph: This confirms our estimate of the limit. A reasonable range for so that the graph of enters and leaves a window of height 0.02 around is and .        Evaluate the limit If the limit does not exist enter DNE.  Limit =               Consider the function whose formula is .    What is the domain of ?  Use a sequence of values of near to estimate the value of , if you think the limit exists. If you think the limit doesn't exist, explain why.  Use algebra to simplify the expression and hence work to evaluate exactly, if it exists, or to explain how your work shows the limit fails to exist. Discuss how your findings compare to your results in (b).  True or false: . Why?  True or false: . Why? How is this equality connected to your work above with the function ?  Based on all of your work above, construct an accurate, labeled graph of on the interval , and write a sentence that explains what you now know about .        All real numbers except .                                                                 .     .    False.    False.                is defined for every value of except those that make . Hence, the domain of is the set of all real numbers except .    Using a spreadsheet, we generate the following table.                                                              The numerical trend suggests that .    By factoring the numerator and denominator of , we observe that . Taking the limit as , we take values closer and closer, but not equal to 2, and therefore , since for all . Finally, evaluating the last limit as , we see that .    False. In part (a), we saw that is not defined. We now know that has a limit of as approaches , but it is still the case that is undefined.    False. The noted equality only holds for -values other than or . We can use this equality when evaluating the limit, since in so doing we never let actually equal , but only approach .    Since is not defined but has a limit of as , we see that the graph has a ``hole'' in it at the point , as seen in the following figure.           Let .    What is the domain of ?  Use a sequence of values near to estimate the value of , if you think the limit exists. If you think the limit doesn't exist, explain why.  Use algebra to simplify the expression and hence work to evaluate exactly, if it exists, or to explain how your work shows the limit fails to exist. Discuss how your findings compare to your results in (b). (Hint: whenever , but whenever .)  True or false: . Why?  True or false: . Why? How is this equality connected to your work above with the function ?  Based on all of your work above, construct an accurate, labeled graph of on the interval , and write a sentence that explains what you now know about .        All real numbers except .                                                                The limit does not exist.    If , if , it follows that . Hence the limit does not exist.    False.    False.               The domain of is all real numbers except .    Using a spreadsheet, we generate the following table.                                                              As we approach from the right, the function values approach (stay constant at) ; but as we approach from the left, the function values approach (stay constant at) . As such, the function values do not get arbitrarily close to a single value, and hence the limit does not exist.    We observe that whenever , and that whenever . So, if , we see that whereas if , it follows that . Because the function value is to the right of and to the left of , it follows that the limit does not exist.    False, since does not belong to the domain of , is undefined.    False. This equality is only true when , as seen in our work in (c).    Since approaches different output values as approaches from different directions, does not have a limit as , as seen in the following figure.           For each of the following prompts, sketch a graph on the provided axes of a function that has the stated properties.   Axes for plotting in (a) and in (b).        such that   and    and    is not defined and    and does not exist.       such that   , , , and   At and , has a limit, and its limit equals the value of the function at that point.   is not defined and does not exist.                            One possible graph follows.        One possible graph follows.           A bungee jumper dives from a tower at time . Her height in feet at time in seconds is given by .    Write an expression for the average velocity of the bungee jumper on the interval .  Use computing technology to estimate the value of the limit as of the quantity you found in (a).  What is the meaning of the value of the limit in (b)? What are its units?              .    The instantaneous velocity of the bungee jumper at the moment is approximately ft\/sec.         Using the standard formula for average velocity, we see that     Using a spreadsheet and small values of in the expression , we see that   Values of near .                                                                             and hence .    Since this tells us that the instantaneous velocity of the bungee jumper at the moment is approximately ft\/sec.       "
 },
 {
   "id": "objectives-2",
@@ -259,7 +259,7 @@ var ptx_lunr_docs = [
   "type": "Preview Activity",
   "number": "1.2.1",
   "title": "",
-  "body": "   Suppose that is the function given by the graph below.    Part a Use the graph to determine the values , , , , and , if defined. If the function value is not defined, enter DNE (for \"does not exist\").             Part b As gets closer and closer (but not equal) to , gets as close as we want to .  As gets closer and closer (but not equal) to , gets as close as we want to .  As gets closer and closer (but not equal) to , gets as close as we want to .   Part c As gets closer and closer to (but stays less than) , gets as close as we want to .  As gets closer and closer to (but stays greater than) , gets as close as we want to .  As gets closer and closer (but not equal) to , does get as close as we want to a single value? If such a value exists, enter it. If no such value exists, enter DNE.   .       "
+  "body": "   Suppose that is the function given by the graph below.    Part a Use the graph to determine the values , , , , and , if defined. If the function value is not defined, enter DNE (for \"does not exist\").             Part b As gets closer and closer (but not equal) to , gets as close as we want to .  As gets closer and closer (but not equal) to , gets as close as we want to .  As gets closer and closer (but not equal) to , gets as close as we want to .   Part c As gets closer and closer to (but stays less than) , gets as close as we want to .  As gets closer and closer to (but stays greater than) , gets as close as we want to .  As gets closer and closer (but not equal) to , does get as close as we want to a single value? If such a value exists, enter it. If no such value exists, enter DNE.  gets close to       "
 },
 {
   "id": "definition-1",
@@ -8740,6 +8740,672 @@ var ptx_lunr_docs = [
   "body": " Taylor series also provide an alternate way to evaluate indeterminate limits.    Find the Taylor series for and use it to evaluate the indeterminate limit given by . Compare your result to what follows from L'Hôpital's Rule (see Section as needed).    Consider the indeterminate limit given by . Find the Taylor series representations for and and use them to evaluate the given limit. How does your result compare to using L'Hôpital's Rule?              "
 },
 {
+  "id": "sec-safranksi-review1",
+  "level": "1",
+  "url": "sec-safranksi-review1.html",
+  "type": "Section",
+  "number": "9.1",
+  "title": "Review of Prerequsites for Calculus I",
+  "body": " Review of Prerequsites for Calculus I     What is the slope of the line through (8, 6) and (8,2)? If the slope is undefined, type undefined .  What is the slope of the line through (5, 9) and (-9,2)? If the slope is undefined, type undefined .  What is the slope of the line through (4, -6) and (10,-6)? If the slope is undefined, type undefined .                        The equation of the line that goes through the points and can be written in the form where    and                     Find all real numbers which satisfy the equation.   Answer:  Note: If there is more than one answer, write them separated by commas (e.g., 1, 2). Do not list individual values of more than once.              If , find and simplify the following:  (a)    (b)    (c)    (d)    (e)                              (a)   (b)   (c)   (d)   (e)  .        Express the equation in exponential form  (a) .  That is, write your answer in the form . Then  A=  B=  C=  (b) .  That is, write your answer in the form . Then  D=  E=  F=                                       The velocity (in ft\/s) of a sky diver seconds after jumping is given by After how many seconds is the velocity 55 ft\/s?  seconds              Refer to the right triangle in the figure. Click on the picture to see it more clearly.   If , and the angle , find any missing angles or sides. Give your answer to at least 3 decimal digits.  AB =  AC =  =                        Click on the graph to view a larger graph  For the given angle in the triangle given in the graph    ;   ;   ;   ;   ;   ;                                       Solve the following equations in the interval [0,2 ].  Note: Give the answer as a multiple of . Do not use decimal numbers. The answer should be a fraction or an integer. Note that is already included in the answer so you just have to enter the appropriate multiple. E.g. if the answer is you should enter 1\/2. If there is more than one answer enter them separated by commas.                 No correct answer specified         Solve the following equations in the interval [0, 2 ].  Note: Give the answer as a multiple of . Do not use decimal numbers. The answer should be a fraction or an integer. Note that is already included in the answer so you just have to enter the appropriate multiple. E.g. if the answer is you should enter 1\/2. If there is more than one answer enter them separated by commas.                 No correct answer specified        "
+},
+{
+  "id": "Library__ASU-topics__setLinesInPlane__lines2",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__ASU-topics__setLinesInPlane__lines2",
+  "type": "Exercise",
+  "number": "9.1.1",
+  "title": "",
+  "body": "  What is the slope of the line through (8, 6) and (8,2)? If the slope is undefined, type undefined .  What is the slope of the line through (5, 9) and (-9,2)? If the slope is undefined, type undefined .  What is the slope of the line through (4, -6) and (10,-6)? If the slope is undefined, type undefined .                     "
+},
+{
+  "id": "Library__ASU-topics__setLinesInPlane__srw1_10_13",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__ASU-topics__setLinesInPlane__srw1_10_13",
+  "type": "Exercise",
+  "number": "9.1.2",
+  "title": "",
+  "body": "  The equation of the line that goes through the points and can be written in the form where    and                  "
+},
+{
+  "id": "Library__ASU-topics__setSolveEquations__zhu1",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__ASU-topics__setSolveEquations__zhu1",
+  "type": "Exercise",
+  "number": "9.1.3",
+  "title": "",
+  "body": "  Find all real numbers which satisfy the equation.   Answer:  Note: If there is more than one answer, write them separated by commas (e.g., 1, 2). Do not list individual values of more than once.           "
+},
+{
+  "id": "Library__Michigan__Chap1Sec3__Q15",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__Michigan__Chap1Sec3__Q15",
+  "type": "Exercise",
+  "number": "9.1.4",
+  "title": "",
+  "body": "  If , find and simplify the following:  (a)    (b)    (c)    (d)    (e)                              (a)   (b)   (c)   (d)   (e)  .     "
+},
+{
+  "id": "Library__ASU-topics__setLogarithmicFunctions__beth3logfun",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__ASU-topics__setLogarithmicFunctions__beth3logfun",
+  "type": "Exercise",
+  "number": "9.1.5",
+  "title": "",
+  "body": "  Express the equation in exponential form  (a) .  That is, write your answer in the form . Then  A=  B=  C=  (b) .  That is, write your answer in the form . Then  D=  E=  F=                                    "
+},
+{
+  "id": "Library__ASU-topics__setLogarithmicFunctions__jj5",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__ASU-topics__setLogarithmicFunctions__jj5",
+  "type": "Exercise",
+  "number": "9.1.6",
+  "title": "",
+  "body": "  The velocity (in ft\/s) of a sky diver seconds after jumping is given by After how many seconds is the velocity 55 ft\/s?  seconds           "
+},
+{
+  "id": "Library__ASU-topics__setRightAngleTrig__p11",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__ASU-topics__setRightAngleTrig__p11",
+  "type": "Exercise",
+  "number": "9.1.7",
+  "title": "",
+  "body": "  Refer to the right triangle in the figure. Click on the picture to see it more clearly.   If , and the angle , find any missing angles or sides. Give your answer to at least 3 decimal digits.  AB =  AC =  =                     "
+},
+{
+  "id": "Library__Rochester__setTrig03FunctionsRightAngle__srw6_2_3",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__Rochester__setTrig03FunctionsRightAngle__srw6_2_3",
+  "type": "Exercise",
+  "number": "9.1.8",
+  "title": "",
+  "body": "  Click on the graph to view a larger graph  For the given angle in the triangle given in the graph    ;   ;   ;   ;   ;   ;                                    "
+},
+{
+  "id": "Library__ASU-topics__setTrigEquations__p5-pc",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__ASU-topics__setTrigEquations__p5-pc",
+  "type": "Exercise",
+  "number": "9.1.9",
+  "title": "",
+  "body": "  Solve the following equations in the interval [0,2 ].  Note: Give the answer as a multiple of . Do not use decimal numbers. The answer should be a fraction or an integer. Note that is already included in the answer so you just have to enter the appropriate multiple. E.g. if the answer is you should enter 1\/2. If there is more than one answer enter them separated by commas.                 No correct answer specified      "
+},
+{
+  "id": "Library__ASU-topics__setTrigEquations__p8",
+  "level": "2",
+  "url": "sec-safranksi-review1.html#Library__ASU-topics__setTrigEquations__p8",
+  "type": "Exercise",
+  "number": "9.1.10",
+  "title": "",
+  "body": "  Solve the following equations in the interval [0, 2 ].  Note: Give the answer as a multiple of . Do not use decimal numbers. The answer should be a fraction or an integer. Note that is already included in the answer so you just have to enter the appropriate multiple. E.g. if the answer is you should enter 1\/2. If there is more than one answer enter them separated by commas.                 No correct answer specified      "
+},
+{
+  "id": "sec-safranksi-review2",
+  "level": "1",
+  "url": "sec-safranksi-review2.html",
+  "type": "Section",
+  "number": "9.2",
+  "title": "Review of Prerequsites for Calculus II",
+  "body": " Review of Prerequsites for Calculus II     Let and be polynomials.  Find  if the degree of is (a) less than the degree of , and (b) greater than the degree of . If the answer is infinite, enter \"I\" below.  (a)  (b)                   Evaluate the limit using L'Hospital's rule if necessary.  Answer:              Suppose that .  (A) Find the slope of the line tangent to at .  (B) Find the instantaneous rate of change of at .  (C) Find the equation of the line tangent to at .                         Differentiate the following function:                Find the derivative of .                  Use the Product Rule to find the derivative of .           . Then         Differentiate .                If , find .  Answer:              Consider the function . Let be the antiderivative of with . Find .  Answer:        the antiderivative is just the term whose derivative is . That is, where is an unknown constant. Also, recall that the antiderivative of the function is the function. Applying these rules term-by-term to our function, we get:  Where is an artibrary constant. We are further told that so plugging this into the above general antiderivative, we get: So that the specific antiderivative is:         =        SOLUTION         "
+},
+{
+  "id": "Library__UCSB__Stewart5_2_6__Stewart5_2_6_51",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__UCSB__Stewart5_2_6__Stewart5_2_6_51",
+  "type": "Exercise",
+  "number": "9.2.1",
+  "title": "",
+  "body": "  Let and be polynomials.  Find  if the degree of is (a) less than the degree of , and (b) greater than the degree of . If the answer is infinite, enter \"I\" below.  (a)  (b)                "
+},
+{
+  "id": "Library__ma122DB__set8__s4_4_23",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__ma122DB__set8__s4_4_23",
+  "type": "Exercise",
+  "number": "9.2.2",
+  "title": "",
+  "body": "  Evaluate the limit using L'Hospital's rule if necessary.  Answer:           "
+},
+{
+  "id": "Library__ASU-topics__setDerivativeFunction__ur_dr_1_10",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__ASU-topics__setDerivativeFunction__ur_dr_1_10",
+  "type": "Exercise",
+  "number": "9.2.3",
+  "title": "",
+  "body": "  Suppose that .  (A) Find the slope of the line tangent to at .  (B) Find the instantaneous rate of change of at .  (C) Find the equation of the line tangent to at .                      "
+},
+{
+  "id": "Library__UCSB__Stewart5_3_1__Stewart5_3_1_20",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__UCSB__Stewart5_3_1__Stewart5_3_1_20",
+  "type": "Exercise",
+  "number": "9.2.4",
+  "title": "",
+  "body": "  Differentiate the following function:             "
+},
+{
+  "id": "Library__Michigan__Chap3Sec2__Q03",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__Michigan__Chap3Sec2__Q03",
+  "type": "Exercise",
+  "number": "9.2.5",
+  "title": "",
+  "body": "  Find the derivative of .               "
+},
+{
+  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__3_Differentiation__3-_6_Trigonometric_Functions__3-_6-_5",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__3_Differentiation__3-_6_Trigonometric_Functions__3-_6-_5",
+  "type": "Exercise",
+  "number": "9.2.6",
+  "title": "",
+  "body": "  Use the Product Rule to find the derivative of .           . Then      "
+},
+{
+  "id": "Library__UCSB__Stewart5_3_4__Stewart5_3_4_9",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__UCSB__Stewart5_3_4__Stewart5_3_4_9",
+  "type": "Exercise",
+  "number": "9.2.7",
+  "title": "",
+  "body": "  Differentiate .             "
+},
+{
+  "id": "Library__ma122DB__set6__s3_8_4",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__ma122DB__set6__s3_8_4",
+  "type": "Exercise",
+  "number": "9.2.8",
+  "title": "",
+  "body": "  If , find .  Answer:           "
+},
+{
+  "id": "Library__ma122DB__set10__s4_10_12",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__ma122DB__set10__s4_10_12",
+  "type": "Exercise",
+  "number": "9.2.9",
+  "title": "",
+  "body": "  Consider the function . Let be the antiderivative of with . Find .  Answer:        the antiderivative is just the term whose derivative is . That is, where is an unknown constant. Also, recall that the antiderivative of the function is the function. Applying these rules term-by-term to our function, we get:  Where is an artibrary constant. We are further told that so plugging this into the above general antiderivative, we get: So that the specific antiderivative is:      "
+},
+{
+  "id": "Library__ma122DB__set12__s5_4_26",
+  "level": "2",
+  "url": "sec-safranksi-review2.html#Library__ma122DB__set12__s5_4_26",
+  "type": "Exercise",
+  "number": "9.2.10",
+  "title": "",
+  "body": "  =        SOLUTION       "
+},
+{
+  "id": "sec-safranski-rational",
+  "level": "1",
+  "url": "sec-safranski-rational.html",
+  "type": "Section",
+  "number": "9.3",
+  "title": "Integrating Rational Functions",
+  "body": " Integrating Rational Functions   Preview Activity    For each of the indefinite integrals below, decide whether the integral can be evaluated: immediately because it's a basic integral, using -substitution, integration by parts, with multiple techniques, or if none of those will work.     ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above     Note that can be rewritten as .                            , a basic integral rule.  can be solved with u-substitution, letting so that , which turns the integral into , which we can integrate.  The substitution from the previous problem doesn't cancel out the . We could split the integral up into , and the first is u-sub, while the second is a basic integral involving OR, we could do integration by parts twice. The first time, let while , which gets us an answer involving , which can itself be done with integration by parts, letting and , giving an integral of , which is solved with u-sub.  can be solved with u-substitution, letting so that , which turns the integral into , which integrates to .  can't be done with u-sub or integration by parts, and it's not basic.         First, note that we can use algebra to combine into one fraction by finding a common denominator.   Also note that we know how to integrate   and    Which means we can integrate both sides of to get     Remember that you really should use absolute value instead of parentheses when you integrate to get . Sometimes WeBWorK doesn't care about the difference, but sometimes it does. For example, , not .                        Find the quotient and remainder using long division for  The quotient is  The remainder is                   Perform the indicated division and write the quotient and remainder in the provided blanks. Answer:                        Which of the following is the correct form of the partial fraction decomposition of                 SOLUTION  The denominator factors as . Since the denominator factors in the linear term repeated two times, and in the linear term , the correct form of the partial fraction is: Thus the correct answer is A .         Which of the following is the correct form of the partial fraction decomposition of                 SOLUTION  The denominator factors as . Since the denominator factors in the linear term , and in the irreducible quadratic , the correct form of the partial fraction is: Thus the correct answer is B .         What is the correct form of the partial fraction decomposition for the following integral?    There is no partial fraction decomposition because the denominator does not factor.    There is no partial fraction decomposition yet because long division must be done first.                   There is no partial fraction decomposition yet because there is cancellation.           What is the correct form of the partial fraction decomposition for the following integral?    There is no partial fraction decomposition yet because there is cancellation.                   There is no partial fraction decomposition because the denominator does not factor.    There is no partial fraction decomposition yet because long division must be done first.           Consider the indefinite integral  Then the integrand decomposes into the form where  =  =  =  =  Integrating term by term, we obtain that                                     Evaluate the integral for the cases where and where  Note: For the case where use only in your answer. Also, use an upper-case \"C\" for the constant of integration.  If   If                    Consider the integral Enter a T or an F in each answer space below to indicate whether or not a term of the given type occurs in the general form of the complete partial fractions decomposition of the integrand. and denote constants.  You must get all of the answers correct to receive credit.         Calculate the integral below by partial fractions and by using the indicated substitution. Be sure that you can show how the results you obtain are the same.  First, rewrite this with partial fractions:       +  .  (Note that you should not include the in your entered answer, as it has been provided at the end of the expression.)  Next, use the substitution to find the integral:        .  (For the second answer blank, give your antiderivative in terms of the variable . Again, note that you should not include the in your answer.)                                      so that Solving, we get , so that Using the substitution , we get , so we have The properties of logarithms show that the two results are the same:        "
+},
+{
+  "id": "csafranski__5-_5aPreview_prob1",
+  "level": "2",
+  "url": "sec-safranski-rational.html#csafranski__5-_5aPreview_prob1",
+  "type": "Question",
+  "number": "9.3.1",
+  "title": "",
+  "body": "  For each of the indefinite integrals below, decide whether the integral can be evaluated: immediately because it's a basic integral, using -substitution, integration by parts, with multiple techniques, or if none of those will work.     ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above     Note that can be rewritten as .                            , a basic integral rule.  can be solved with u-substitution, letting so that , which turns the integral into , which we can integrate.  The substitution from the previous problem doesn't cancel out the . We could split the integral up into , and the first is u-sub, while the second is a basic integral involving OR, we could do integration by parts twice. The first time, let while , which gets us an answer involving , which can itself be done with integration by parts, letting and , giving an integral of , which is solved with u-sub.  can be solved with u-substitution, letting so that , which turns the integral into , which integrates to .  can't be done with u-sub or integration by parts, and it's not basic.      "
+},
+{
+  "id": "csafranski__5-_5aPreview_prob2",
+  "level": "2",
+  "url": "sec-safranski-rational.html#csafranski__5-_5aPreview_prob2",
+  "type": "Question",
+  "number": "9.3.2",
+  "title": "",
+  "body": "  First, note that we can use algebra to combine into one fraction by finding a common denominator.   Also note that we know how to integrate   and    Which means we can integrate both sides of to get     Remember that you really should use absolute value instead of parentheses when you integrate to get . Sometimes WeBWorK doesn't care about the difference, but sometimes it does. For example, , not .                     "
+},
+{
+  "id": "csafranski__5-_5aPreview_prob3",
+  "level": "2",
+  "url": "sec-safranski-rational.html#csafranski__5-_5aPreview_prob3",
+  "type": "Question",
+  "number": "9.3.3",
+  "title": "",
+  "body": "  Find the quotient and remainder using long division for  The quotient is  The remainder is                "
+},
+{
+  "id": "csafranski__5-_5aPreview_prob4",
+  "level": "2",
+  "url": "sec-safranski-rational.html#csafranski__5-_5aPreview_prob4",
+  "type": "Question",
+  "number": "9.3.4",
+  "title": "",
+  "body": "  Perform the indicated division and write the quotient and remainder in the provided blanks. Answer:                   "
+},
+{
+  "id": "Library__UCSB__Stewart5_7_4__Stewart5_7_4_2a",
+  "level": "2",
+  "url": "sec-safranski-rational.html#Library__UCSB__Stewart5_7_4__Stewart5_7_4_2a",
+  "type": "Exercise",
+  "number": "9.3.2.1",
+  "title": "",
+  "body": "  Which of the following is the correct form of the partial fraction decomposition of                 SOLUTION  The denominator factors as . Since the denominator factors in the linear term repeated two times, and in the linear term , the correct form of the partial fraction is: Thus the correct answer is A .      "
+},
+{
+  "id": "Library__UCSB__Stewart5_7_4__Stewart5_7_4_2b",
+  "level": "2",
+  "url": "sec-safranski-rational.html#Library__UCSB__Stewart5_7_4__Stewart5_7_4_2b",
+  "type": "Exercise",
+  "number": "9.3.2.2",
+  "title": "",
+  "body": "  Which of the following is the correct form of the partial fraction decomposition of                 SOLUTION  The denominator factors as . Since the denominator factors in the linear term , and in the irreducible quadratic , the correct form of the partial fraction is: Thus the correct answer is B .      "
+},
+{
+  "id": "Library__Rochester__setIntegrals25RationalFunctions__S07-_04-_PartialFractions-_PTP15",
+  "level": "2",
+  "url": "sec-safranski-rational.html#Library__Rochester__setIntegrals25RationalFunctions__S07-_04-_PartialFractions-_PTP15",
+  "type": "Exercise",
+  "number": "9.3.2.3",
+  "title": "",
+  "body": "  What is the correct form of the partial fraction decomposition for the following integral?    There is no partial fraction decomposition because the denominator does not factor.    There is no partial fraction decomposition yet because long division must be done first.                   There is no partial fraction decomposition yet because there is cancellation.        "
+},
+{
+  "id": "Library__Rochester__setIntegrals25RationalFunctions__S07-_04-_PartialFractions-_PTP17",
+  "level": "2",
+  "url": "sec-safranski-rational.html#Library__Rochester__setIntegrals25RationalFunctions__S07-_04-_PartialFractions-_PTP17",
+  "type": "Exercise",
+  "number": "9.3.2.4",
+  "title": "",
+  "body": "  What is the correct form of the partial fraction decomposition for the following integral?    There is no partial fraction decomposition yet because there is cancellation.                   There is no partial fraction decomposition because the denominator does not factor.    There is no partial fraction decomposition yet because long division must be done first.        "
+},
+{
+  "id": "csafranski__5-_5aHW_prob5",
+  "level": "2",
+  "url": "sec-safranski-rational.html#csafranski__5-_5aHW_prob5",
+  "type": "Exercise",
+  "number": "9.3.2.5",
+  "title": "",
+  "body": "  Consider the indefinite integral  Then the integrand decomposes into the form where  =  =  =  =  Integrating term by term, we obtain that                                  "
+},
+{
+  "id": "Library__UCSB__Stewart5_7_4__Stewart5_7_4_14",
+  "level": "2",
+  "url": "sec-safranski-rational.html#Library__UCSB__Stewart5_7_4__Stewart5_7_4_14",
+  "type": "Exercise",
+  "number": "9.3.2.6",
+  "title": "",
+  "body": "  Evaluate the integral for the cases where and where  Note: For the case where use only in your answer. Also, use an upper-case \"C\" for the constant of integration.  If   If                 "
+},
+{
+  "id": "Library__Rochester__setIntegrals25RationalFunctions__osu_in_25_9a",
+  "level": "2",
+  "url": "sec-safranski-rational.html#Library__Rochester__setIntegrals25RationalFunctions__osu_in_25_9a",
+  "type": "Exercise",
+  "number": "9.3.2.7",
+  "title": "",
+  "body": "  Consider the integral Enter a T or an F in each answer space below to indicate whether or not a term of the given type occurs in the general form of the complete partial fractions decomposition of the integrand. and denote constants.  You must get all of the answers correct to receive credit.      "
+},
+{
+  "id": "Library__Michigan__Chap7Sec4__Q57-2",
+  "level": "2",
+  "url": "sec-safranski-rational.html#Library__Michigan__Chap7Sec4__Q57-2",
+  "type": "Exercise",
+  "number": "9.3.2.8",
+  "title": "",
+  "body": "  Calculate the integral below by partial fractions and by using the indicated substitution. Be sure that you can show how the results you obtain are the same.  First, rewrite this with partial fractions:       +  .  (Note that you should not include the in your entered answer, as it has been provided at the end of the expression.)  Next, use the substitution to find the integral:        .  (For the second answer blank, give your antiderivative in terms of the variable . Again, note that you should not include the in your answer.)                                      so that Solving, we get , so that Using the substitution , we get , so we have The properties of logarithms show that the two results are the same:      "
+},
+{
+  "id": "sec-safranski-trig",
+  "level": "1",
+  "url": "sec-safranski-trig.html",
+  "type": "Section",
+  "number": "9.4",
+  "title": "Integration with Trigonometric Functions",
+  "body": " Integration with Trigonometric Functions   Preview Activity    We already know we can do the following problem using u-substitution, with    We see that is solved similarly, because   the exponent of is odd.    the exponent of is odd.    None of the above    So we'll still use u-substitution with , after first rewriting and using a trig identity.  Select the trigonometric identity needed to solve this problem.                   None of the above    Finally, put it all together to calculate    The integral involves and where the exponent of is an odd, positive integer, namely, 3. So we factor out a copy of and use the identity to turn the remaining into an expression involving .  Thus the integral can be rewritten as  and we use u-substitution.  Letting so and thus .  This turns the integral into which can be multiplied out, and then each part integrated by power rule.         B   We factor out a copy of and use the identity to turn the remaining into an expression involving .  Then we use u-substitution, letting so and thus .   The correct trigonometric identity used is B.         Consider the integral .  In order to integrate, the key feature is that   the exponent of is odd.    the exponent of is odd.    the exponents of and are both even (remember that 0 is even)    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    And we use this identity to rewrite the integral as    And this can be split into two basic integrals and integrated, though I'm not asking for you to do that here.    C   The integral involves and where the exponents of both are even, non-negative integers (namely 2 for one of them and 0 for the other), and thus the answer to the first multiple choice is C. This means we use the appropriate half-angle identity, which is A.  Thus the integral can be rewritten as  And it could be calculated by continuing on:  Pulling out the constant turns the integral into two different, basic integrals.  So this integrates to         Select all the key features we could look for to evaluate trig integrals   the exponent of is odd.    the exponent of is odd.    the exponent of is even.    the exponent of is even.    the exponents of both and are even.    the exponent of is odd.    the exponent of is even.    the exponent of is odd.    the exponent of is even.    None of the above    All of the above    You should be sure to have this information written down so that you can use it to solve problems in class.         Consider the integral .  In order to integrate, the key feature is that   the exponent of is odd.    the exponent of is odd.    the exponent of is even.    the exponent of is even.    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    So to integrate, we would use u-substitution with . But first we'd have to rewrite the integral in order to have a copy of 's derivative , and use a trigonometric identity to turn the remaining even powers of into an expression of .   The integral involves and where the exponent of is odd and positive, so B. we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of , using the trig identity D.         Consider the integral .  In order to integrate, the key feature is that   the exponent of is even.    the exponent of is odd.    the exponent of is odd.    the exponent of is even.    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    So to integrate, we would use u-substitution with . But first we'd have to rewrite the integral in order to have a copy of 's derivative , and use a trigonometric identity to turn the remaining even powers of into an expression involving .   The integral involves and where the exponent of is even and positive, so A. Then to integrate, we rewrite in order to have one copy of for the derivative of . , and use a trigonometric identity, A, to turn the remaining even powers of into an expression of .           Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into  And each part can be integrated with power rule. Don't forget to plug back in what equals!        The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is E.         Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is even and positive. So we rewrite in order to have one copy of for the derivative, and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into Get it down to just 's, multiply out, integrate, and don't forget to plug back in what equals.        The integral involves and where the exponent of is even and positive. So we rewrite in order to have one copy of for the derivative, and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is A.         Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into        The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is A.         Evaluate the indefinite integral.                  Evaluate the indefinite integral.  =              Evaluate the integral:                Evaluate the integral               Evaluate the indefinite integral.                 Evaluate the indefinite integral.   Answer:               Match each of the trigonometric expressions below with the equivalent non-trigonometric function from the following list.      where    where    where    where                 None of the above           "
+},
+{
+  "id": "csafranski__5-_5bPreview_prob1",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob1",
+  "type": "Question",
+  "number": "9.4.1",
+  "title": "",
+  "body": "  We already know we can do the following problem using u-substitution, with    We see that is solved similarly, because   the exponent of is odd.    the exponent of is odd.    None of the above    So we'll still use u-substitution with , after first rewriting and using a trig identity.  Select the trigonometric identity needed to solve this problem.                   None of the above    Finally, put it all together to calculate    The integral involves and where the exponent of is an odd, positive integer, namely, 3. So we factor out a copy of and use the identity to turn the remaining into an expression involving .  Thus the integral can be rewritten as  and we use u-substitution.  Letting so and thus .  This turns the integral into which can be multiplied out, and then each part integrated by power rule.         B   We factor out a copy of and use the identity to turn the remaining into an expression involving .  Then we use u-substitution, letting so and thus .   The correct trigonometric identity used is B.      "
+},
+{
+  "id": "csafranski__5-_5bPreview_prob2",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob2",
+  "type": "Question",
+  "number": "9.4.2",
+  "title": "",
+  "body": "  Consider the integral .  In order to integrate, the key feature is that   the exponent of is odd.    the exponent of is odd.    the exponents of and are both even (remember that 0 is even)    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    And we use this identity to rewrite the integral as    And this can be split into two basic integrals and integrated, though I'm not asking for you to do that here.    C   The integral involves and where the exponents of both are even, non-negative integers (namely 2 for one of them and 0 for the other), and thus the answer to the first multiple choice is C. This means we use the appropriate half-angle identity, which is A.  Thus the integral can be rewritten as  And it could be calculated by continuing on:  Pulling out the constant turns the integral into two different, basic integrals.  So this integrates to      "
+},
+{
+  "id": "csafranski__5-_5bPreview_prob3",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob3",
+  "type": "Question",
+  "number": "9.4.3",
+  "title": "",
+  "body": "  Select all the key features we could look for to evaluate trig integrals   the exponent of is odd.    the exponent of is odd.    the exponent of is even.    the exponent of is even.    the exponents of both and are even.    the exponent of is odd.    the exponent of is even.    the exponent of is odd.    the exponent of is even.    None of the above    All of the above    You should be sure to have this information written down so that you can use it to solve problems in class.      "
+},
+{
+  "id": "csafranski__5-_5bPreview_prob4",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob4",
+  "type": "Question",
+  "number": "9.4.4",
+  "title": "",
+  "body": "  Consider the integral .  In order to integrate, the key feature is that   the exponent of is odd.    the exponent of is odd.    the exponent of is even.    the exponent of is even.    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    So to integrate, we would use u-substitution with . But first we'd have to rewrite the integral in order to have a copy of 's derivative , and use a trigonometric identity to turn the remaining even powers of into an expression of .   The integral involves and where the exponent of is odd and positive, so B. we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of , using the trig identity D.      "
+},
+{
+  "id": "csafranski__5-_5bPreview_prob5",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob5",
+  "type": "Question",
+  "number": "9.4.5",
+  "title": "",
+  "body": "  Consider the integral .  In order to integrate, the key feature is that   the exponent of is even.    the exponent of is odd.    the exponent of is odd.    the exponent of is even.    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    So to integrate, we would use u-substitution with . But first we'd have to rewrite the integral in order to have a copy of 's derivative , and use a trigonometric identity to turn the remaining even powers of into an expression involving .   The integral involves and where the exponent of is even and positive, so A. Then to integrate, we rewrite in order to have one copy of for the derivative of . , and use a trigonometric identity, A, to turn the remaining even powers of into an expression of .      "
+},
+{
+  "id": "csafranski__5-_5bHW_prob1",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob1",
+  "type": "Exercise",
+  "number": "9.4.2.1",
+  "title": "",
+  "body": "  Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into  And each part can be integrated with power rule. Don't forget to plug back in what equals!        The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is E.      "
+},
+{
+  "id": "csafranski__5-_5bHW_prob2",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob2",
+  "type": "Exercise",
+  "number": "9.4.2.2",
+  "title": "",
+  "body": "  Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is even and positive. So we rewrite in order to have one copy of for the derivative, and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into Get it down to just 's, multiply out, integrate, and don't forget to plug back in what equals.        The integral involves and where the exponent of is even and positive. So we rewrite in order to have one copy of for the derivative, and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is A.      "
+},
+{
+  "id": "csafranski__5-_5bHW_prob3",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob3",
+  "type": "Exercise",
+  "number": "9.4.2.3",
+  "title": "",
+  "body": "  Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into        The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is A.      "
+},
+{
+  "id": "csafranski__5-_5bHW_prob4",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob4",
+  "type": "Exercise",
+  "number": "9.4.2.4",
+  "title": "",
+  "body": "  Evaluate the indefinite integral.               "
+},
+{
+  "id": "csafranski__5-_5bHW_prob5",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob5",
+  "type": "Exercise",
+  "number": "9.4.2.5",
+  "title": "",
+  "body": "  Evaluate the indefinite integral.  =           "
+},
+{
+  "id": "csafranski__5-_5bHW_prob6",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob6",
+  "type": "Exercise",
+  "number": "9.4.2.6",
+  "title": "",
+  "body": "  Evaluate the integral:             "
+},
+{
+  "id": "csafranski__5-_5bHW_prob7",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob7",
+  "type": "Exercise",
+  "number": "9.4.2.7",
+  "title": "",
+  "body": "  Evaluate the integral            "
+},
+{
+  "id": "csafranski__5-_5bHW_prob8",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob8",
+  "type": "Exercise",
+  "number": "9.4.2.8",
+  "title": "",
+  "body": "  Evaluate the indefinite integral.              "
+},
+{
+  "id": "Library__Rochester__setIntegrals5Trig__S07-_02-_TrigIntegrals-_PTP20",
+  "level": "2",
+  "url": "sec-safranski-trig.html#Library__Rochester__setIntegrals5Trig__S07-_02-_TrigIntegrals-_PTP20",
+  "type": "Exercise",
+  "number": "9.4.2.9",
+  "title": "",
+  "body": "  Evaluate the indefinite integral.   Answer:            "
+},
+{
+  "id": "csafranski__5-_5bHW_prob10",
+  "level": "2",
+  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob10",
+  "type": "Exercise",
+  "number": "9.4.2.10",
+  "title": "",
+  "body": "  Match each of the trigonometric expressions below with the equivalent non-trigonometric function from the following list.      where    where    where    where                 None of the above         "
+},
+{
+  "id": "sec-safranski-parametic",
+  "level": "1",
+  "url": "sec-safranski-parametic.html",
+  "type": "Section",
+  "number": "9.5",
+  "title": "Parametric Curves",
+  "body": " Parametric Curves     Which is a parametric equation for the curve ?                 . Using the parametric representation of a circle we get .        Each set of parametric equations below describes the path of a particle that moves along the circle in some manner. Match each set of parametric equations to the path that it describes.         Consider the curve given by the parametric equations   a.) Determine the point on the curve where the tangent is horizontal.   b.) Determine the points , where the tangent is vertical and .                          Find an equation for each line that passes through the point (4, 3) and is tangent to the parametric curve If there are multiple answers then separate distinct answers with commas.              The functions and are shown below.            If the motion of a particle whose position at time is given by , , sketch a graph of the resulting motion and use your graph to answer the following questions:  (a) The slope of the graph at is  (enter undef if the slope is not defined)  (b) At this point the particle is moving   neither left nor right    to the left    to the right   and   neither up nor down    up    down   .  (c) The slope of the graph at is  (enter undef if the slope is not defined)  (d) At this point the particle is moving   neither left nor right    to the left    to the right   and   neither up nor down    up    down   .                                 that the particle starts at and moves out towards as , then moves back to . As this occurs, the graph of tells us that the vertical position of the particle starts at and increases to at , then decreases to at , then increases, etc. Thus the graph of the motion for is given as shown in the graph below, with the particle moving from at to to to . Then, for , the graph of shows us that the particle moves from back in to , while the vertical movement, which we read from , is just the same as for , repeated. Thus for the graph is Putting these two together, the graph of the particle's full path is given by         Consider the parametric curve given by  (a) Find and in terms of .  =  =  (b) Using \"less than\" and \"greater than\" notation, list the -interval where the curve is concave upward.  Use upper-case \"INF\" for positive infinity and upper-case \"NINF\" for negative infinity. If the curve is never concave upward, type an upper-case \"N\" in the answer field.  -interval:                               Calculate the length of the path over the given interval.        , hence and . By the formula for the arc length we obtain:         Find the length of the curve  Length =              Use the parametric equations of an ellipse to find the area that it encloses.  Area =              Find the area of the region enclosed by the parametric equation           and yields the same x and y coordinates, namely (0,40). These two values of t are going to be the upper and lower limits of integration. The area under a curve defined by parameters and can be expressed Plugging in the functions and the upper and lower limits of integration, we have            "
+},
+{
+  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_1_Parametric_Equations__11-_1-_27",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_1_Parametric_Equations__11-_1-_27",
+  "type": "Exercise",
+  "number": "9.5.1",
+  "title": "",
+  "body": "  Which is a parametric equation for the curve ?                 . Using the parametric representation of a circle we get .     "
+},
+{
+  "id": "csafranski__paraHW_prob2",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#csafranski__paraHW_prob2",
+  "type": "Exercise",
+  "number": "9.5.2",
+  "title": "",
+  "body": "  Each set of parametric equations below describes the path of a particle that moves along the circle in some manner. Match each set of parametric equations to the path that it describes.      "
+},
+{
+  "id": "Library__ma123DB__set8__s10_2_19",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#Library__ma123DB__set8__s10_2_19",
+  "type": "Exercise",
+  "number": "9.5.3",
+  "title": "",
+  "body": "  Consider the curve given by the parametric equations   a.) Determine the point on the curve where the tangent is horizontal.   b.) Determine the points , where the tangent is vertical and .                       "
+},
+{
+  "id": "Library__UCSB__Stewart5_10_2__Stewart5_10_2_30",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#Library__UCSB__Stewart5_10_2__Stewart5_10_2_30",
+  "type": "Exercise",
+  "number": "9.5.4",
+  "title": "",
+  "body": "  Find an equation for each line that passes through the point (4, 3) and is tangent to the parametric curve If there are multiple answers then separate distinct answers with commas.           "
+},
+{
+  "id": "Library__Michigan__Chap4Sec8__Q03",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#Library__Michigan__Chap4Sec8__Q03",
+  "type": "Exercise",
+  "number": "9.5.5",
+  "title": "",
+  "body": "  The functions and are shown below.            If the motion of a particle whose position at time is given by , , sketch a graph of the resulting motion and use your graph to answer the following questions:  (a) The slope of the graph at is  (enter undef if the slope is not defined)  (b) At this point the particle is moving   neither left nor right    to the left    to the right   and   neither up nor down    up    down   .  (c) The slope of the graph at is  (enter undef if the slope is not defined)  (d) At this point the particle is moving   neither left nor right    to the left    to the right   and   neither up nor down    up    down   .                                 that the particle starts at and moves out towards as , then moves back to . As this occurs, the graph of tells us that the vertical position of the particle starts at and increases to at , then decreases to at , then increases, etc. Thus the graph of the motion for is given as shown in the graph below, with the particle moving from at to to to . Then, for , the graph of shows us that the particle moves from back in to , while the vertical movement, which we read from , is just the same as for , repeated. Thus for the graph is Putting these two together, the graph of the particle's full path is given by      "
+},
+{
+  "id": "Library__UCSB__Stewart5_10_2__Stewart5_10_2_12",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#Library__UCSB__Stewart5_10_2__Stewart5_10_2_12",
+  "type": "Exercise",
+  "number": "9.5.6",
+  "title": "",
+  "body": "  Consider the parametric curve given by  (a) Find and in terms of .  =  =  (b) Using \"less than\" and \"greater than\" notation, list the -interval where the curve is concave upward.  Use upper-case \"INF\" for positive infinity and upper-case \"NINF\" for negative infinity. If the curve is never concave upward, type an upper-case \"N\" in the answer field.  -interval:                            "
+},
+{
+  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_2_Arc_Length_and_Speed__11-_2-_7",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_2_Arc_Length_and_Speed__11-_2-_7",
+  "type": "Exercise",
+  "number": "9.5.7",
+  "title": "",
+  "body": "  Calculate the length of the path over the given interval.        , hence and . By the formula for the arc length we obtain:      "
+},
+{
+  "id": "Library__UCSB__Stewart5_10_2__Stewart5_10_2_41",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#Library__UCSB__Stewart5_10_2__Stewart5_10_2_41",
+  "type": "Exercise",
+  "number": "9.5.8",
+  "title": "",
+  "body": "  Find the length of the curve  Length =           "
+},
+{
+  "id": "Library__UCSB__Stewart5_10_2__Stewart5_10_2_31",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#Library__UCSB__Stewart5_10_2__Stewart5_10_2_31",
+  "type": "Exercise",
+  "number": "9.5.9",
+  "title": "",
+  "body": "  Use the parametric equations of an ellipse to find the area that it encloses.  Area =           "
+},
+{
+  "id": "csafranski__paraHW_prob10",
+  "level": "2",
+  "url": "sec-safranski-parametic.html#csafranski__paraHW_prob10",
+  "type": "Exercise",
+  "number": "9.5.10",
+  "title": "",
+  "body": "  Find the area of the region enclosed by the parametric equation           and yields the same x and y coordinates, namely (0,40). These two values of t are going to be the upper and lower limits of integration. The area under a curve defined by parameters and can be expressed Plugging in the functions and the upper and lower limits of integration, we have          "
+},
+{
+  "id": "sec-safranski-polar",
+  "level": "1",
+  "url": "sec-safranski-polar.html",
+  "type": "Section",
+  "number": "9.6",
+  "title": "Calculus in Polar Coordinates",
+  "body": " Calculus in Polar Coordinates     (a) The Cartesian coordinates of a point are  (i) Find polar coordinates of the point, where and      (ii) Find polar coordinates of the point, where and      (b) The Cartesian coordinates of a point are  (i) Find polar coordinates of the point, where and      (ii) Find polar coordinates of the point, where and                                                     For each set of Polar coordinates, match the equivalent Cartesian coordinates.         Find the equation in polar coordinates of the line through the origin with slope .          makes an angle with the positive -axis. The equation of the line is , while is arbitrary.        Find the slope of the tangent line to the polar curve at the point specified by  Slope =        SOLUTION  Since when we can regard a polar equation as a parametric equation with as the parameter using and , we have (using the given polar equation ) :  So  and by multiplying the top and bottom by , this simplies to Therefore          Find the equation (in terms of and ) of the tangent line to the curve at .          and as being parametrically equations with parameter : Then we know that the slope of the tangent line is . Taking the derivatives, and . Thus We want this at , so that we get . Then, at , , and , so that the tangent line is (Note, however, that the correct answer may require more significant figures than are shown in this solution.)        Find the area of the region bounded by the polar curve , on the interval .  Answer:              Find the total area enclosed by the cardioid shown in the following figure:   Answer :        in and (cartesian, not polar, this time):  We see that as varies from to , the radius increases from to , so we get the upper half of the cardioid (the lower half is obtained as varies from to and consequently decreases from to . Since the cardioid is symmetric with respect to the -axis we may compute the upper area and double the result. Using we get         Find the area of one leaf of the \"four-petaled rose\" shown in the following figure:   With  Answer :        in cartesian coordinates: With We see that as varies from to the radius is increasing from to , and when varies from to , is decreasing back to zero. Hence, the leaf in the first quadrant is traced as varies from to . The area of the leaf (the four leaves have equal areas) is thus Using the identity we get The area of one leaf is .        Find the area lying outside and inside .  Area =        is a circle with radius 1 centered on (1,0), while is a cardioid that entirely encloses the circle. Therefore, to find the area, we subtract the area enclosed by the circle from that enclosed by the cardioid. The cardioid, , is traced out as goes from to . Thus, remembering that the area enclosed by a region lying within the polar equation is Area , The circle is traced out as goes from to , so its area is Of course, because the circle has radius 1, we know this second integral will evaluate to . We can find the area of the cardioid, numerically by using a calculator, or by parts, or using a table of integrals, to find that the area of the cardioid is . Thus, the area enclosed by the cardioid that lies outside of the circle is given by .        Find the exact length of the polar curve  Length =        SOLUTION  The arc length for a polar curve is given by .  So for on the interval , we have          Find the length of the spiraling polar curve   From 0 to .  The length is             "
+},
+{
+  "id": "Library__UCSB__Stewart5_10_3__Stewart5_10_3_5",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__UCSB__Stewart5_10_3__Stewart5_10_3_5",
+  "type": "Exercise",
+  "number": "9.6.1",
+  "title": "",
+  "body": "  (a) The Cartesian coordinates of a point are  (i) Find polar coordinates of the point, where and      (ii) Find polar coordinates of the point, where and      (b) The Cartesian coordinates of a point are  (i) Find polar coordinates of the point, where and      (ii) Find polar coordinates of the point, where and                                                  "
+},
+{
+  "id": "Library__ma123DB__set9__s10_4_3",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__ma123DB__set9__s10_4_3",
+  "type": "Exercise",
+  "number": "9.6.2",
+  "title": "",
+  "body": "  For each set of Polar coordinates, match the equivalent Cartesian coordinates.      "
+},
+{
+  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_3_Polar_Coordinates__11-_3-_8",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_3_Polar_Coordinates__11-_3-_8",
+  "type": "Exercise",
+  "number": "9.6.3",
+  "title": "",
+  "body": "  Find the equation in polar coordinates of the line through the origin with slope .          makes an angle with the positive -axis. The equation of the line is , while is arbitrary.     "
+},
+{
+  "id": "Library__UCSB__Stewart5_10_3__Stewart5_10_3_57",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__UCSB__Stewart5_10_3__Stewart5_10_3_57",
+  "type": "Exercise",
+  "number": "9.6.4",
+  "title": "",
+  "body": "  Find the slope of the tangent line to the polar curve at the point specified by  Slope =        SOLUTION  Since when we can regard a polar equation as a parametric equation with as the parameter using and , we have (using the given polar equation ) :  So  and by multiplying the top and bottom by , this simplies to Therefore       "
+},
+{
+  "id": "Library__Michigan__Chap8Sec3__Q31",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__Michigan__Chap8Sec3__Q31",
+  "type": "Exercise",
+  "number": "9.6.5",
+  "title": "",
+  "body": "  Find the equation (in terms of and ) of the tangent line to the curve at .          and as being parametrically equations with parameter : Then we know that the slope of the tangent line is . Taking the derivatives, and . Thus We want this at , so that we get . Then, at , , and , so that the tangent line is (Note, however, that the correct answer may require more significant figures than are shown in this solution.)     "
+},
+{
+  "id": "Library__ma123DB__set9__s10_5_2",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__ma123DB__set9__s10_5_2",
+  "type": "Exercise",
+  "number": "9.6.6",
+  "title": "",
+  "body": "  Find the area of the region bounded by the polar curve , on the interval .  Answer:           "
+},
+{
+  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_4_Area_and_Arc_Length_in_Polar_Coordinates__11-_4-_7",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_4_Area_and_Arc_Length_in_Polar_Coordinates__11-_4-_7",
+  "type": "Exercise",
+  "number": "9.6.7",
+  "title": "",
+  "body": "  Find the total area enclosed by the cardioid shown in the following figure:   Answer :        in and (cartesian, not polar, this time):  We see that as varies from to , the radius increases from to , so we get the upper half of the cardioid (the lower half is obtained as varies from to and consequently decreases from to . Since the cardioid is symmetric with respect to the -axis we may compute the upper area and double the result. Using we get      "
+},
+{
+  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_4_Area_and_Arc_Length_in_Polar_Coordinates__11-_4-_9",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_4_Area_and_Arc_Length_in_Polar_Coordinates__11-_4-_9",
+  "type": "Exercise",
+  "number": "9.6.8",
+  "title": "",
+  "body": "  Find the area of one leaf of the \"four-petaled rose\" shown in the following figure:   With  Answer :        in cartesian coordinates: With We see that as varies from to the radius is increasing from to , and when varies from to , is decreasing back to zero. Hence, the leaf in the first quadrant is traced as varies from to . The area of the leaf (the four leaves have equal areas) is thus Using the identity we get The area of one leaf is .     "
+},
+{
+  "id": "Library__Michigan__Chap8Sec3__Q27",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__Michigan__Chap8Sec3__Q27",
+  "type": "Exercise",
+  "number": "9.6.9",
+  "title": "",
+  "body": "  Find the area lying outside and inside .  Area =        is a circle with radius 1 centered on (1,0), while is a cardioid that entirely encloses the circle. Therefore, to find the area, we subtract the area enclosed by the circle from that enclosed by the cardioid. The cardioid, , is traced out as goes from to . Thus, remembering that the area enclosed by a region lying within the polar equation is Area , The circle is traced out as goes from to , so its area is Of course, because the circle has radius 1, we know this second integral will evaluate to . We can find the area of the cardioid, numerically by using a calculator, or by parts, or using a table of integrals, to find that the area of the cardioid is . Thus, the area enclosed by the cardioid that lies outside of the circle is given by .     "
+},
+{
+  "id": "csafranski__polarHW_prob10",
+  "level": "2",
+  "url": "sec-safranski-polar.html#csafranski__polarHW_prob10",
+  "type": "Exercise",
+  "number": "9.6.10",
+  "title": "",
+  "body": "  Find the exact length of the polar curve  Length =        SOLUTION  The arc length for a polar curve is given by .  So for on the interval , we have       "
+},
+{
+  "id": "Library__Rochester__setPolarCoord2Curves__ur_pc_2_10",
+  "level": "2",
+  "url": "sec-safranski-polar.html#Library__Rochester__setPolarCoord2Curves__ur_pc_2_10",
+  "type": "Exercise",
+  "number": "9.6.11",
+  "title": "",
+  "body": "  Find the length of the spiraling polar curve   From 0 to .  The length is           "
+},
+{
   "id": "integral-table",
   "level": "1",
   "url": "integral-table.html",
@@ -8749,677 +9415,11 @@ var ptx_lunr_docs = [
   "body": " A Short Table of Integrals                                                             "
 },
 {
-  "id": "sec-safranksi-review1",
-  "level": "1",
-  "url": "sec-safranksi-review1.html",
-  "type": "Section",
-  "number": "B.1",
-  "title": "Review of Prerequsites for Calculus I",
-  "body": " Review of Prerequsites for Calculus I     What is the slope of the line through (8, 6) and (8,2)? If the slope is undefined, type undefined .  What is the slope of the line through (5, 9) and (-9,2)? If the slope is undefined, type undefined .  What is the slope of the line through (4, -6) and (10,-6)? If the slope is undefined, type undefined .                        The equation of the line that goes through the points and can be written in the form where    and                     Find all real numbers which satisfy the equation.   Answer:  Note: If there is more than one answer, write them separated by commas (e.g., 1, 2). Do not list individual values of more than once.              If , find and simplify the following:  (a)    (b)    (c)    (d)    (e)                              (a)   (b)   (c)   (d)   (e)  .        Express the equation in exponential form  (a) .  That is, write your answer in the form . Then  A=  B=  C=  (b) .  That is, write your answer in the form . Then  D=  E=  F=                                       The velocity (in ft\/s) of a sky diver seconds after jumping is given by After how many seconds is the velocity 55 ft\/s?  seconds              Refer to the right triangle in the figure. Click on the picture to see it more clearly.   If , and the angle , find any missing angles or sides. Give your answer to at least 3 decimal digits.  AB =  AC =  =                        Click on the graph to view a larger graph  For the given angle in the triangle given in the graph    ;   ;   ;   ;   ;   ;                                       Solve the following equations in the interval [0,2 ].  Note: Give the answer as a multiple of . Do not use decimal numbers. The answer should be a fraction or an integer. Note that is already included in the answer so you just have to enter the appropriate multiple. E.g. if the answer is you should enter 1\/2. If there is more than one answer enter them separated by commas.                 No correct answer specified         Solve the following equations in the interval [0, 2 ].  Note: Give the answer as a multiple of . Do not use decimal numbers. The answer should be a fraction or an integer. Note that is already included in the answer so you just have to enter the appropriate multiple. E.g. if the answer is you should enter 1\/2. If there is more than one answer enter them separated by commas.                 No correct answer specified        "
-},
-{
-  "id": "Library__ASU-topics__setLinesInPlane__lines2",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__ASU-topics__setLinesInPlane__lines2",
-  "type": "Exercise",
-  "number": "B.1.1",
-  "title": "",
-  "body": "  What is the slope of the line through (8, 6) and (8,2)? If the slope is undefined, type undefined .  What is the slope of the line through (5, 9) and (-9,2)? If the slope is undefined, type undefined .  What is the slope of the line through (4, -6) and (10,-6)? If the slope is undefined, type undefined .                     "
-},
-{
-  "id": "Library__ASU-topics__setLinesInPlane__srw1_10_13",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__ASU-topics__setLinesInPlane__srw1_10_13",
-  "type": "Exercise",
-  "number": "B.1.2",
-  "title": "",
-  "body": "  The equation of the line that goes through the points and can be written in the form where    and                  "
-},
-{
-  "id": "Library__ASU-topics__setSolveEquations__zhu1",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__ASU-topics__setSolveEquations__zhu1",
-  "type": "Exercise",
-  "number": "B.1.3",
-  "title": "",
-  "body": "  Find all real numbers which satisfy the equation.   Answer:  Note: If there is more than one answer, write them separated by commas (e.g., 1, 2). Do not list individual values of more than once.           "
-},
-{
-  "id": "Library__Michigan__Chap1Sec3__Q15",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__Michigan__Chap1Sec3__Q15",
-  "type": "Exercise",
-  "number": "B.1.4",
-  "title": "",
-  "body": "  If , find and simplify the following:  (a)    (b)    (c)    (d)    (e)                              (a)   (b)   (c)   (d)   (e)  .     "
-},
-{
-  "id": "Library__ASU-topics__setLogarithmicFunctions__beth3logfun",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__ASU-topics__setLogarithmicFunctions__beth3logfun",
-  "type": "Exercise",
-  "number": "B.1.5",
-  "title": "",
-  "body": "  Express the equation in exponential form  (a) .  That is, write your answer in the form . Then  A=  B=  C=  (b) .  That is, write your answer in the form . Then  D=  E=  F=                                    "
-},
-{
-  "id": "Library__ASU-topics__setLogarithmicFunctions__jj5",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__ASU-topics__setLogarithmicFunctions__jj5",
-  "type": "Exercise",
-  "number": "B.1.6",
-  "title": "",
-  "body": "  The velocity (in ft\/s) of a sky diver seconds after jumping is given by After how many seconds is the velocity 55 ft\/s?  seconds           "
-},
-{
-  "id": "Library__ASU-topics__setRightAngleTrig__p11",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__ASU-topics__setRightAngleTrig__p11",
-  "type": "Exercise",
-  "number": "B.1.7",
-  "title": "",
-  "body": "  Refer to the right triangle in the figure. Click on the picture to see it more clearly.   If , and the angle , find any missing angles or sides. Give your answer to at least 3 decimal digits.  AB =  AC =  =                     "
-},
-{
-  "id": "Library__Rochester__setTrig03FunctionsRightAngle__srw6_2_3",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__Rochester__setTrig03FunctionsRightAngle__srw6_2_3",
-  "type": "Exercise",
-  "number": "B.1.8",
-  "title": "",
-  "body": "  Click on the graph to view a larger graph  For the given angle in the triangle given in the graph    ;   ;   ;   ;   ;   ;                                    "
-},
-{
-  "id": "Library__ASU-topics__setTrigEquations__p5-pc",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__ASU-topics__setTrigEquations__p5-pc",
-  "type": "Exercise",
-  "number": "B.1.9",
-  "title": "",
-  "body": "  Solve the following equations in the interval [0,2 ].  Note: Give the answer as a multiple of . Do not use decimal numbers. The answer should be a fraction or an integer. Note that is already included in the answer so you just have to enter the appropriate multiple. E.g. if the answer is you should enter 1\/2. If there is more than one answer enter them separated by commas.                 No correct answer specified      "
-},
-{
-  "id": "Library__ASU-topics__setTrigEquations__p8",
-  "level": "2",
-  "url": "sec-safranksi-review1.html#Library__ASU-topics__setTrigEquations__p8",
-  "type": "Exercise",
-  "number": "B.1.10",
-  "title": "",
-  "body": "  Solve the following equations in the interval [0, 2 ].  Note: Give the answer as a multiple of . Do not use decimal numbers. The answer should be a fraction or an integer. Note that is already included in the answer so you just have to enter the appropriate multiple. E.g. if the answer is you should enter 1\/2. If there is more than one answer enter them separated by commas.                 No correct answer specified      "
-},
-{
-  "id": "sec-safranksi-review2",
-  "level": "1",
-  "url": "sec-safranksi-review2.html",
-  "type": "Section",
-  "number": "B.2",
-  "title": "Review of Prerequsites for Calculus II",
-  "body": " Review of Prerequsites for Calculus II     Let and be polynomials.  Find  if the degree of is (a) less than the degree of , and (b) greater than the degree of . If the answer is infinite, enter \"I\" below.  (a)  (b)                   Evaluate the limit using L'Hospital's rule if necessary.  Answer:              Suppose that .  (A) Find the slope of the line tangent to at .  (B) Find the instantaneous rate of change of at .  (C) Find the equation of the line tangent to at .                         Differentiate the following function:                Find the derivative of .                  Use the Product Rule to find the derivative of .           . Then         Differentiate .                If , find .  Answer:              Consider the function . Let be the antiderivative of with . Find .  Answer:        the antiderivative is just the term whose derivative is . That is, where is an unknown constant. Also, recall that the antiderivative of the function is the function. Applying these rules term-by-term to our function, we get:  Where is an artibrary constant. We are further told that so plugging this into the above general antiderivative, we get: So that the specific antiderivative is:         =        SOLUTION         "
-},
-{
-  "id": "Library__UCSB__Stewart5_2_6__Stewart5_2_6_51",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__UCSB__Stewart5_2_6__Stewart5_2_6_51",
-  "type": "Exercise",
-  "number": "B.2.1",
-  "title": "",
-  "body": "  Let and be polynomials.  Find  if the degree of is (a) less than the degree of , and (b) greater than the degree of . If the answer is infinite, enter \"I\" below.  (a)  (b)                "
-},
-{
-  "id": "Library__ma122DB__set8__s4_4_23",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__ma122DB__set8__s4_4_23",
-  "type": "Exercise",
-  "number": "B.2.2",
-  "title": "",
-  "body": "  Evaluate the limit using L'Hospital's rule if necessary.  Answer:           "
-},
-{
-  "id": "Library__ASU-topics__setDerivativeFunction__ur_dr_1_10",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__ASU-topics__setDerivativeFunction__ur_dr_1_10",
-  "type": "Exercise",
-  "number": "B.2.3",
-  "title": "",
-  "body": "  Suppose that .  (A) Find the slope of the line tangent to at .  (B) Find the instantaneous rate of change of at .  (C) Find the equation of the line tangent to at .                      "
-},
-{
-  "id": "Library__UCSB__Stewart5_3_1__Stewart5_3_1_20",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__UCSB__Stewart5_3_1__Stewart5_3_1_20",
-  "type": "Exercise",
-  "number": "B.2.4",
-  "title": "",
-  "body": "  Differentiate the following function:             "
-},
-{
-  "id": "Library__Michigan__Chap3Sec2__Q03",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__Michigan__Chap3Sec2__Q03",
-  "type": "Exercise",
-  "number": "B.2.5",
-  "title": "",
-  "body": "  Find the derivative of .               "
-},
-{
-  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__3_Differentiation__3-_6_Trigonometric_Functions__3-_6-_5",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__3_Differentiation__3-_6_Trigonometric_Functions__3-_6-_5",
-  "type": "Exercise",
-  "number": "B.2.6",
-  "title": "",
-  "body": "  Use the Product Rule to find the derivative of .           . Then      "
-},
-{
-  "id": "Library__UCSB__Stewart5_3_4__Stewart5_3_4_9",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__UCSB__Stewart5_3_4__Stewart5_3_4_9",
-  "type": "Exercise",
-  "number": "B.2.7",
-  "title": "",
-  "body": "  Differentiate .             "
-},
-{
-  "id": "Library__ma122DB__set6__s3_8_4",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__ma122DB__set6__s3_8_4",
-  "type": "Exercise",
-  "number": "B.2.8",
-  "title": "",
-  "body": "  If , find .  Answer:           "
-},
-{
-  "id": "Library__ma122DB__set10__s4_10_12",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__ma122DB__set10__s4_10_12",
-  "type": "Exercise",
-  "number": "B.2.9",
-  "title": "",
-  "body": "  Consider the function . Let be the antiderivative of with . Find .  Answer:        the antiderivative is just the term whose derivative is . That is, where is an unknown constant. Also, recall that the antiderivative of the function is the function. Applying these rules term-by-term to our function, we get:  Where is an artibrary constant. We are further told that so plugging this into the above general antiderivative, we get: So that the specific antiderivative is:      "
-},
-{
-  "id": "Library__ma122DB__set12__s5_4_26",
-  "level": "2",
-  "url": "sec-safranksi-review2.html#Library__ma122DB__set12__s5_4_26",
-  "type": "Exercise",
-  "number": "B.2.10",
-  "title": "",
-  "body": "  =        SOLUTION       "
-},
-{
-  "id": "sec-safranski-rational",
-  "level": "1",
-  "url": "sec-safranski-rational.html",
-  "type": "Section",
-  "number": "B.3",
-  "title": "Integrating Rational Functions",
-  "body": " Integrating Rational Functions   Preview Activity    For each of the indefinite integrals below, decide whether the integral can be evaluated: immediately because it's a basic integral, using -substitution, integration by parts, with multiple techniques, or if none of those will work.     ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above     Note that can be rewritten as .                            , a basic integral rule.  can be solved with u-substitution, letting so that , which turns the integral into , which we can integrate.  The substitution from the previous problem doesn't cancel out the . We could split the integral up into , and the first is u-sub, while the second is a basic integral involving OR, we could do integration by parts twice. The first time, let while , which gets us an answer involving , which can itself be done with integration by parts, letting and , giving an integral of , which is solved with u-sub.  can be solved with u-substitution, letting so that , which turns the integral into , which integrates to .  can't be done with u-sub or integration by parts, and it's not basic.         First, note that we can use algebra to combine into one fraction by finding a common denominator.   Also note that we know how to integrate   and    Which means we can integrate both sides of to get     Remember that you really should use absolute value instead of parentheses when you integrate to get . Sometimes WeBWorK doesn't care about the difference, but sometimes it does. For example, , not .                        Find the quotient and remainder using long division for  The quotient is  The remainder is                   Perform the indicated division and write the quotient and remainder in the provided blanks. Answer:                        Which of the following is the correct form of the partial fraction decomposition of                 SOLUTION  The denominator factors as . Since the denominator factors in the linear term repeated two times, and in the linear term , the correct form of the partial fraction is: Thus the correct answer is A .         Which of the following is the correct form of the partial fraction decomposition of                 SOLUTION  The denominator factors as . Since the denominator factors in the linear term , and in the irreducible quadratic , the correct form of the partial fraction is: Thus the correct answer is B .         What is the correct form of the partial fraction decomposition for the following integral?    There is no partial fraction decomposition because the denominator does not factor.    There is no partial fraction decomposition yet because long division must be done first.                   There is no partial fraction decomposition yet because there is cancellation.           What is the correct form of the partial fraction decomposition for the following integral?    There is no partial fraction decomposition yet because there is cancellation.                   There is no partial fraction decomposition because the denominator does not factor.    There is no partial fraction decomposition yet because long division must be done first.           Consider the indefinite integral  Then the integrand decomposes into the form where  =  =  =  =  Integrating term by term, we obtain that                                     Evaluate the integral for the cases where and where  Note: For the case where use only in your answer. Also, use an upper-case \"C\" for the constant of integration.  If   If                    Consider the integral Enter a T or an F in each answer space below to indicate whether or not a term of the given type occurs in the general form of the complete partial fractions decomposition of the integrand. and denote constants.  You must get all of the answers correct to receive credit.         Calculate the integral below by partial fractions and by using the indicated substitution. Be sure that you can show how the results you obtain are the same.  First, rewrite this with partial fractions:       +  .  (Note that you should not include the in your entered answer, as it has been provided at the end of the expression.)  Next, use the substitution to find the integral:        .  (For the second answer blank, give your antiderivative in terms of the variable . Again, note that you should not include the in your answer.)                                      so that Solving, we get , so that Using the substitution , we get , so we have The properties of logarithms show that the two results are the same:        "
-},
-{
-  "id": "csafranski__5-_5aPreview_prob1",
-  "level": "2",
-  "url": "sec-safranski-rational.html#csafranski__5-_5aPreview_prob1",
-  "type": "Question",
-  "number": "B.3.1",
-  "title": "",
-  "body": "  For each of the indefinite integrals below, decide whether the integral can be evaluated: immediately because it's a basic integral, using -substitution, integration by parts, with multiple techniques, or if none of those will work.     ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above       ?    Basic Integral    u-Substitution    Integration by Parts    A combination of techniques    None of the above     Note that can be rewritten as .                            , a basic integral rule.  can be solved with u-substitution, letting so that , which turns the integral into , which we can integrate.  The substitution from the previous problem doesn't cancel out the . We could split the integral up into , and the first is u-sub, while the second is a basic integral involving OR, we could do integration by parts twice. The first time, let while , which gets us an answer involving , which can itself be done with integration by parts, letting and , giving an integral of , which is solved with u-sub.  can be solved with u-substitution, letting so that , which turns the integral into , which integrates to .  can't be done with u-sub or integration by parts, and it's not basic.      "
-},
-{
-  "id": "csafranski__5-_5aPreview_prob2",
-  "level": "2",
-  "url": "sec-safranski-rational.html#csafranski__5-_5aPreview_prob2",
-  "type": "Question",
-  "number": "B.3.2",
-  "title": "",
-  "body": "  First, note that we can use algebra to combine into one fraction by finding a common denominator.   Also note that we know how to integrate   and    Which means we can integrate both sides of to get     Remember that you really should use absolute value instead of parentheses when you integrate to get . Sometimes WeBWorK doesn't care about the difference, but sometimes it does. For example, , not .                     "
-},
-{
-  "id": "csafranski__5-_5aPreview_prob3",
-  "level": "2",
-  "url": "sec-safranski-rational.html#csafranski__5-_5aPreview_prob3",
-  "type": "Question",
-  "number": "B.3.3",
-  "title": "",
-  "body": "  Find the quotient and remainder using long division for  The quotient is  The remainder is                "
-},
-{
-  "id": "csafranski__5-_5aPreview_prob4",
-  "level": "2",
-  "url": "sec-safranski-rational.html#csafranski__5-_5aPreview_prob4",
-  "type": "Question",
-  "number": "B.3.4",
-  "title": "",
-  "body": "  Perform the indicated division and write the quotient and remainder in the provided blanks. Answer:                   "
-},
-{
-  "id": "Library__UCSB__Stewart5_7_4__Stewart5_7_4_2a",
-  "level": "2",
-  "url": "sec-safranski-rational.html#Library__UCSB__Stewart5_7_4__Stewart5_7_4_2a",
-  "type": "Exercise",
-  "number": "B.3.2.1",
-  "title": "",
-  "body": "  Which of the following is the correct form of the partial fraction decomposition of                 SOLUTION  The denominator factors as . Since the denominator factors in the linear term repeated two times, and in the linear term , the correct form of the partial fraction is: Thus the correct answer is A .      "
-},
-{
-  "id": "Library__UCSB__Stewart5_7_4__Stewart5_7_4_2b",
-  "level": "2",
-  "url": "sec-safranski-rational.html#Library__UCSB__Stewart5_7_4__Stewart5_7_4_2b",
-  "type": "Exercise",
-  "number": "B.3.2.2",
-  "title": "",
-  "body": "  Which of the following is the correct form of the partial fraction decomposition of                 SOLUTION  The denominator factors as . Since the denominator factors in the linear term , and in the irreducible quadratic , the correct form of the partial fraction is: Thus the correct answer is B .      "
-},
-{
-  "id": "Library__Rochester__setIntegrals25RationalFunctions__S07-_04-_PartialFractions-_PTP15",
-  "level": "2",
-  "url": "sec-safranski-rational.html#Library__Rochester__setIntegrals25RationalFunctions__S07-_04-_PartialFractions-_PTP15",
-  "type": "Exercise",
-  "number": "B.3.2.3",
-  "title": "",
-  "body": "  What is the correct form of the partial fraction decomposition for the following integral?    There is no partial fraction decomposition because the denominator does not factor.    There is no partial fraction decomposition yet because long division must be done first.                   There is no partial fraction decomposition yet because there is cancellation.        "
-},
-{
-  "id": "Library__Rochester__setIntegrals25RationalFunctions__S07-_04-_PartialFractions-_PTP17",
-  "level": "2",
-  "url": "sec-safranski-rational.html#Library__Rochester__setIntegrals25RationalFunctions__S07-_04-_PartialFractions-_PTP17",
-  "type": "Exercise",
-  "number": "B.3.2.4",
-  "title": "",
-  "body": "  What is the correct form of the partial fraction decomposition for the following integral?    There is no partial fraction decomposition yet because there is cancellation.                   There is no partial fraction decomposition because the denominator does not factor.    There is no partial fraction decomposition yet because long division must be done first.        "
-},
-{
-  "id": "csafranski__5-_5aHW_prob5",
-  "level": "2",
-  "url": "sec-safranski-rational.html#csafranski__5-_5aHW_prob5",
-  "type": "Exercise",
-  "number": "B.3.2.5",
-  "title": "",
-  "body": "  Consider the indefinite integral  Then the integrand decomposes into the form where  =  =  =  =  Integrating term by term, we obtain that                                  "
-},
-{
-  "id": "Library__UCSB__Stewart5_7_4__Stewart5_7_4_14",
-  "level": "2",
-  "url": "sec-safranski-rational.html#Library__UCSB__Stewart5_7_4__Stewart5_7_4_14",
-  "type": "Exercise",
-  "number": "B.3.2.6",
-  "title": "",
-  "body": "  Evaluate the integral for the cases where and where  Note: For the case where use only in your answer. Also, use an upper-case \"C\" for the constant of integration.  If   If                 "
-},
-{
-  "id": "Library__Rochester__setIntegrals25RationalFunctions__osu_in_25_9a",
-  "level": "2",
-  "url": "sec-safranski-rational.html#Library__Rochester__setIntegrals25RationalFunctions__osu_in_25_9a",
-  "type": "Exercise",
-  "number": "B.3.2.7",
-  "title": "",
-  "body": "  Consider the integral Enter a T or an F in each answer space below to indicate whether or not a term of the given type occurs in the general form of the complete partial fractions decomposition of the integrand. and denote constants.  You must get all of the answers correct to receive credit.      "
-},
-{
-  "id": "Library__Michigan__Chap7Sec4__Q57-2",
-  "level": "2",
-  "url": "sec-safranski-rational.html#Library__Michigan__Chap7Sec4__Q57-2",
-  "type": "Exercise",
-  "number": "B.3.2.8",
-  "title": "",
-  "body": "  Calculate the integral below by partial fractions and by using the indicated substitution. Be sure that you can show how the results you obtain are the same.  First, rewrite this with partial fractions:       +  .  (Note that you should not include the in your entered answer, as it has been provided at the end of the expression.)  Next, use the substitution to find the integral:        .  (For the second answer blank, give your antiderivative in terms of the variable . Again, note that you should not include the in your answer.)                                      so that Solving, we get , so that Using the substitution , we get , so we have The properties of logarithms show that the two results are the same:      "
-},
-{
-  "id": "sec-safranski-trig",
-  "level": "1",
-  "url": "sec-safranski-trig.html",
-  "type": "Section",
-  "number": "B.4",
-  "title": "Integration with Trigonometric Functions",
-  "body": " Integration with Trigonometric Functions   Preview Activity    We already know we can do the following problem using u-substitution, with    We see that is solved similarly, because   the exponent of is odd.    the exponent of is odd.    None of the above    So we'll still use u-substitution with , after first rewriting and using a trig identity.  Select the trigonometric identity needed to solve this problem.                   None of the above    Finally, put it all together to calculate    The integral involves and where the exponent of is an odd, positive integer, namely, 3. So we factor out a copy of and use the identity to turn the remaining into an expression involving .  Thus the integral can be rewritten as  and we use u-substitution.  Letting so and thus .  This turns the integral into which can be multiplied out, and then each part integrated by power rule.         B   We factor out a copy of and use the identity to turn the remaining into an expression involving .  Then we use u-substitution, letting so and thus .   The correct trigonometric identity used is B.         Consider the integral .  In order to integrate, the key feature is that   the exponent of is odd.    the exponent of is odd.    the exponents of and are both even (remember that 0 is even)    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    And we use this identity to rewrite the integral as    And this can be split into two basic integrals and integrated, though I'm not asking for you to do that here.    C   The integral involves and where the exponents of both are even, non-negative integers (namely 2 for one of them and 0 for the other), and thus the answer to the first multiple choice is C. This means we use the appropriate half-angle identity, which is A.  Thus the integral can be rewritten as  And it could be calculated by continuing on:  Pulling out the constant turns the integral into two different, basic integrals.  So this integrates to         Select all the key features we could look for to evaluate trig integrals   the exponent of is odd.    the exponent of is odd.    the exponent of is even.    the exponent of is even.    the exponents of both and are even.    the exponent of is odd.    the exponent of is even.    the exponent of is odd.    the exponent of is even.    None of the above    All of the above    You should be sure to have this information written down so that you can use it to solve problems in class.         Consider the integral .  In order to integrate, the key feature is that   the exponent of is odd.    the exponent of is odd.    the exponent of is even.    the exponent of is even.    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    So to integrate, we would use u-substitution with . But first we'd have to rewrite the integral in order to have a copy of 's derivative , and use a trigonometric identity to turn the remaining even powers of into an expression of .   The integral involves and where the exponent of is odd and positive, so B. we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of , using the trig identity D.         Consider the integral .  In order to integrate, the key feature is that   the exponent of is even.    the exponent of is odd.    the exponent of is odd.    the exponent of is even.    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    So to integrate, we would use u-substitution with . But first we'd have to rewrite the integral in order to have a copy of 's derivative , and use a trigonometric identity to turn the remaining even powers of into an expression involving .   The integral involves and where the exponent of is even and positive, so A. Then to integrate, we rewrite in order to have one copy of for the derivative of . , and use a trigonometric identity, A, to turn the remaining even powers of into an expression of .           Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into  And each part can be integrated with power rule. Don't forget to plug back in what equals!        The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is E.         Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is even and positive. So we rewrite in order to have one copy of for the derivative, and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into Get it down to just 's, multiply out, integrate, and don't forget to plug back in what equals.        The integral involves and where the exponent of is even and positive. So we rewrite in order to have one copy of for the derivative, and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is A.         Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into        The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is A.         Evaluate the indefinite integral.                  Evaluate the indefinite integral.  =              Evaluate the integral:                Evaluate the integral               Evaluate the indefinite integral.                 Evaluate the indefinite integral.   Answer:               Match each of the trigonometric expressions below with the equivalent non-trigonometric function from the following list.      where    where    where    where                 None of the above           "
-},
-{
-  "id": "csafranski__5-_5bPreview_prob1",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob1",
-  "type": "Question",
-  "number": "B.4.1",
-  "title": "",
-  "body": "  We already know we can do the following problem using u-substitution, with    We see that is solved similarly, because   the exponent of is odd.    the exponent of is odd.    None of the above    So we'll still use u-substitution with , after first rewriting and using a trig identity.  Select the trigonometric identity needed to solve this problem.                   None of the above    Finally, put it all together to calculate    The integral involves and where the exponent of is an odd, positive integer, namely, 3. So we factor out a copy of and use the identity to turn the remaining into an expression involving .  Thus the integral can be rewritten as  and we use u-substitution.  Letting so and thus .  This turns the integral into which can be multiplied out, and then each part integrated by power rule.         B   We factor out a copy of and use the identity to turn the remaining into an expression involving .  Then we use u-substitution, letting so and thus .   The correct trigonometric identity used is B.      "
-},
-{
-  "id": "csafranski__5-_5bPreview_prob2",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob2",
-  "type": "Question",
-  "number": "B.4.2",
-  "title": "",
-  "body": "  Consider the integral .  In order to integrate, the key feature is that   the exponent of is odd.    the exponent of is odd.    the exponents of and are both even (remember that 0 is even)    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    And we use this identity to rewrite the integral as    And this can be split into two basic integrals and integrated, though I'm not asking for you to do that here.    C   The integral involves and where the exponents of both are even, non-negative integers (namely 2 for one of them and 0 for the other), and thus the answer to the first multiple choice is C. This means we use the appropriate half-angle identity, which is A.  Thus the integral can be rewritten as  And it could be calculated by continuing on:  Pulling out the constant turns the integral into two different, basic integrals.  So this integrates to      "
-},
-{
-  "id": "csafranski__5-_5bPreview_prob3",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob3",
-  "type": "Question",
-  "number": "B.4.3",
-  "title": "",
-  "body": "  Select all the key features we could look for to evaluate trig integrals   the exponent of is odd.    the exponent of is odd.    the exponent of is even.    the exponent of is even.    the exponents of both and are even.    the exponent of is odd.    the exponent of is even.    the exponent of is odd.    the exponent of is even.    None of the above    All of the above    You should be sure to have this information written down so that you can use it to solve problems in class.      "
-},
-{
-  "id": "csafranski__5-_5bPreview_prob4",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob4",
-  "type": "Question",
-  "number": "B.4.4",
-  "title": "",
-  "body": "  Consider the integral .  In order to integrate, the key feature is that   the exponent of is odd.    the exponent of is odd.    the exponent of is even.    the exponent of is even.    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    So to integrate, we would use u-substitution with . But first we'd have to rewrite the integral in order to have a copy of 's derivative , and use a trigonometric identity to turn the remaining even powers of into an expression of .   The integral involves and where the exponent of is odd and positive, so B. we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of , using the trig identity D.      "
-},
-{
-  "id": "csafranski__5-_5bPreview_prob5",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bPreview_prob5",
-  "type": "Question",
-  "number": "B.4.5",
-  "title": "",
-  "body": "  Consider the integral .  In order to integrate, the key feature is that   the exponent of is even.    the exponent of is odd.    the exponent of is odd.    the exponent of is even.    None of the above    Then the trigonometric identity needed to solve this problem is                   None of the above    So to integrate, we would use u-substitution with . But first we'd have to rewrite the integral in order to have a copy of 's derivative , and use a trigonometric identity to turn the remaining even powers of into an expression involving .   The integral involves and where the exponent of is even and positive, so A. Then to integrate, we rewrite in order to have one copy of for the derivative of . , and use a trigonometric identity, A, to turn the remaining even powers of into an expression of .      "
-},
-{
-  "id": "csafranski__5-_5bHW_prob1",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob1",
-  "type": "Exercise",
-  "number": "B.4.2.1",
-  "title": "",
-  "body": "  Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into  And each part can be integrated with power rule. Don't forget to plug back in what equals!        The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is E.      "
-},
-{
-  "id": "csafranski__5-_5bHW_prob2",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob2",
-  "type": "Exercise",
-  "number": "B.4.2.2",
-  "title": "",
-  "body": "  Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is even and positive. So we rewrite in order to have one copy of for the derivative, and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into Get it down to just 's, multiply out, integrate, and don't forget to plug back in what equals.        The integral involves and where the exponent of is even and positive. So we rewrite in order to have one copy of for the derivative, and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is A.      "
-},
-{
-  "id": "csafranski__5-_5bHW_prob3",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob3",
-  "type": "Exercise",
-  "number": "B.4.2.3",
-  "title": "",
-  "body": "  Evaluate the indefinite integral.    Select the trigonometric identity you used in solving this problem.                   None of the above     The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of . Then use u-substitution with .  Thus the integral can be rewritten as  Now let .  Letting means that , and thus .  So the integral turns into        The integral involves and where the exponent of is odd and positive. So we rewrite in order to have a copy of and use a trigonometric identity to turn the remaining even powers of into an expression of .  Then let , which means that , and thus .  The correct trigonometric identity used is A.      "
-},
-{
-  "id": "csafranski__5-_5bHW_prob4",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob4",
-  "type": "Exercise",
-  "number": "B.4.2.4",
-  "title": "",
-  "body": "  Evaluate the indefinite integral.               "
-},
-{
-  "id": "csafranski__5-_5bHW_prob5",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob5",
-  "type": "Exercise",
-  "number": "B.4.2.5",
-  "title": "",
-  "body": "  Evaluate the indefinite integral.  =           "
-},
-{
-  "id": "csafranski__5-_5bHW_prob6",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob6",
-  "type": "Exercise",
-  "number": "B.4.2.6",
-  "title": "",
-  "body": "  Evaluate the integral:             "
-},
-{
-  "id": "csafranski__5-_5bHW_prob7",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob7",
-  "type": "Exercise",
-  "number": "B.4.2.7",
-  "title": "",
-  "body": "  Evaluate the integral            "
-},
-{
-  "id": "csafranski__5-_5bHW_prob8",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob8",
-  "type": "Exercise",
-  "number": "B.4.2.8",
-  "title": "",
-  "body": "  Evaluate the indefinite integral.              "
-},
-{
-  "id": "Library__Rochester__setIntegrals5Trig__S07-_02-_TrigIntegrals-_PTP20",
-  "level": "2",
-  "url": "sec-safranski-trig.html#Library__Rochester__setIntegrals5Trig__S07-_02-_TrigIntegrals-_PTP20",
-  "type": "Exercise",
-  "number": "B.4.2.9",
-  "title": "",
-  "body": "  Evaluate the indefinite integral.   Answer:            "
-},
-{
-  "id": "csafranski__5-_5bHW_prob10",
-  "level": "2",
-  "url": "sec-safranski-trig.html#csafranski__5-_5bHW_prob10",
-  "type": "Exercise",
-  "number": "B.4.2.10",
-  "title": "",
-  "body": "  Match each of the trigonometric expressions below with the equivalent non-trigonometric function from the following list.      where    where    where    where                 None of the above         "
-},
-{
-  "id": "sec-safranski-parametic",
-  "level": "1",
-  "url": "sec-safranski-parametic.html",
-  "type": "Section",
-  "number": "B.5",
-  "title": "Parametric Curves",
-  "body": " Parametric Curves     Which is a parametric equation for the curve ?                 . Using the parametric representation of a circle we get .        Each set of parametric equations below describes the path of a particle that moves along the circle in some manner. Match each set of parametric equations to the path that it describes.         Consider the curve given by the parametric equations   a.) Determine the point on the curve where the tangent is horizontal.   b.) Determine the points , where the tangent is vertical and .                          Find an equation for each line that passes through the point (4, 3) and is tangent to the parametric curve If there are multiple answers then separate distinct answers with commas.              The functions and are shown below.            If the motion of a particle whose position at time is given by , , sketch a graph of the resulting motion and use your graph to answer the following questions:  (a) The slope of the graph at is  (enter undef if the slope is not defined)  (b) At this point the particle is moving   neither left nor right    to the left    to the right   and   neither up nor down    up    down   .  (c) The slope of the graph at is  (enter undef if the slope is not defined)  (d) At this point the particle is moving   neither left nor right    to the left    to the right   and   neither up nor down    up    down   .                                 that the particle starts at and moves out towards as , then moves back to . As this occurs, the graph of tells us that the vertical position of the particle starts at and increases to at , then decreases to at , then increases, etc. Thus the graph of the motion for is given as shown in the graph below, with the particle moving from at to to to . Then, for , the graph of shows us that the particle moves from back in to , while the vertical movement, which we read from , is just the same as for , repeated. Thus for the graph is Putting these two together, the graph of the particle's full path is given by         Consider the parametric curve given by  (a) Find and in terms of .  =  =  (b) Using \"less than\" and \"greater than\" notation, list the -interval where the curve is concave upward.  Use upper-case \"INF\" for positive infinity and upper-case \"NINF\" for negative infinity. If the curve is never concave upward, type an upper-case \"N\" in the answer field.  -interval:                               Calculate the length of the path over the given interval.        , hence and . By the formula for the arc length we obtain:         Find the length of the curve  Length =              Use the parametric equations of an ellipse to find the area that it encloses.  Area =              Find the area of the region enclosed by the parametric equation           and yields the same x and y coordinates, namely (0,40). These two values of t are going to be the upper and lower limits of integration. The area under a curve defined by parameters and can be expressed Plugging in the functions and the upper and lower limits of integration, we have            "
-},
-{
-  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_1_Parametric_Equations__11-_1-_27",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_1_Parametric_Equations__11-_1-_27",
-  "type": "Exercise",
-  "number": "B.5.1",
-  "title": "",
-  "body": "  Which is a parametric equation for the curve ?                 . Using the parametric representation of a circle we get .     "
-},
-{
-  "id": "csafranski__paraHW_prob2",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#csafranski__paraHW_prob2",
-  "type": "Exercise",
-  "number": "B.5.2",
-  "title": "",
-  "body": "  Each set of parametric equations below describes the path of a particle that moves along the circle in some manner. Match each set of parametric equations to the path that it describes.      "
-},
-{
-  "id": "Library__ma123DB__set8__s10_2_19",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#Library__ma123DB__set8__s10_2_19",
-  "type": "Exercise",
-  "number": "B.5.3",
-  "title": "",
-  "body": "  Consider the curve given by the parametric equations   a.) Determine the point on the curve where the tangent is horizontal.   b.) Determine the points , where the tangent is vertical and .                       "
-},
-{
-  "id": "Library__UCSB__Stewart5_10_2__Stewart5_10_2_30",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#Library__UCSB__Stewart5_10_2__Stewart5_10_2_30",
-  "type": "Exercise",
-  "number": "B.5.4",
-  "title": "",
-  "body": "  Find an equation for each line that passes through the point (4, 3) and is tangent to the parametric curve If there are multiple answers then separate distinct answers with commas.           "
-},
-{
-  "id": "Library__Michigan__Chap4Sec8__Q03",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#Library__Michigan__Chap4Sec8__Q03",
-  "type": "Exercise",
-  "number": "B.5.5",
-  "title": "",
-  "body": "  The functions and are shown below.            If the motion of a particle whose position at time is given by , , sketch a graph of the resulting motion and use your graph to answer the following questions:  (a) The slope of the graph at is  (enter undef if the slope is not defined)  (b) At this point the particle is moving   neither left nor right    to the left    to the right   and   neither up nor down    up    down   .  (c) The slope of the graph at is  (enter undef if the slope is not defined)  (d) At this point the particle is moving   neither left nor right    to the left    to the right   and   neither up nor down    up    down   .                                 that the particle starts at and moves out towards as , then moves back to . As this occurs, the graph of tells us that the vertical position of the particle starts at and increases to at , then decreases to at , then increases, etc. Thus the graph of the motion for is given as shown in the graph below, with the particle moving from at to to to . Then, for , the graph of shows us that the particle moves from back in to , while the vertical movement, which we read from , is just the same as for , repeated. Thus for the graph is Putting these two together, the graph of the particle's full path is given by      "
-},
-{
-  "id": "Library__UCSB__Stewart5_10_2__Stewart5_10_2_12",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#Library__UCSB__Stewart5_10_2__Stewart5_10_2_12",
-  "type": "Exercise",
-  "number": "B.5.6",
-  "title": "",
-  "body": "  Consider the parametric curve given by  (a) Find and in terms of .  =  =  (b) Using \"less than\" and \"greater than\" notation, list the -interval where the curve is concave upward.  Use upper-case \"INF\" for positive infinity and upper-case \"NINF\" for negative infinity. If the curve is never concave upward, type an upper-case \"N\" in the answer field.  -interval:                            "
-},
-{
-  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_2_Arc_Length_and_Speed__11-_2-_7",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_2_Arc_Length_and_Speed__11-_2-_7",
-  "type": "Exercise",
-  "number": "B.5.7",
-  "title": "",
-  "body": "  Calculate the length of the path over the given interval.        , hence and . By the formula for the arc length we obtain:      "
-},
-{
-  "id": "Library__UCSB__Stewart5_10_2__Stewart5_10_2_41",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#Library__UCSB__Stewart5_10_2__Stewart5_10_2_41",
-  "type": "Exercise",
-  "number": "B.5.8",
-  "title": "",
-  "body": "  Find the length of the curve  Length =           "
-},
-{
-  "id": "Library__UCSB__Stewart5_10_2__Stewart5_10_2_31",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#Library__UCSB__Stewart5_10_2__Stewart5_10_2_31",
-  "type": "Exercise",
-  "number": "B.5.9",
-  "title": "",
-  "body": "  Use the parametric equations of an ellipse to find the area that it encloses.  Area =           "
-},
-{
-  "id": "csafranski__paraHW_prob10",
-  "level": "2",
-  "url": "sec-safranski-parametic.html#csafranski__paraHW_prob10",
-  "type": "Exercise",
-  "number": "B.5.10",
-  "title": "",
-  "body": "  Find the area of the region enclosed by the parametric equation           and yields the same x and y coordinates, namely (0,40). These two values of t are going to be the upper and lower limits of integration. The area under a curve defined by parameters and can be expressed Plugging in the functions and the upper and lower limits of integration, we have          "
-},
-{
-  "id": "sec-safranski-polar",
-  "level": "1",
-  "url": "sec-safranski-polar.html",
-  "type": "Section",
-  "number": "B.6",
-  "title": "Calculus in Polar Coordinates",
-  "body": " Calculus in Polar Coordinates     (a) The Cartesian coordinates of a point are  (i) Find polar coordinates of the point, where and      (ii) Find polar coordinates of the point, where and      (b) The Cartesian coordinates of a point are  (i) Find polar coordinates of the point, where and      (ii) Find polar coordinates of the point, where and                                                     For each set of Polar coordinates, match the equivalent Cartesian coordinates.         Find the equation in polar coordinates of the line through the origin with slope .          makes an angle with the positive -axis. The equation of the line is , while is arbitrary.        Find the slope of the tangent line to the polar curve at the point specified by  Slope =        SOLUTION  Since when we can regard a polar equation as a parametric equation with as the parameter using and , we have (using the given polar equation ) :  So  and by multiplying the top and bottom by , this simplies to Therefore          Find the equation (in terms of and ) of the tangent line to the curve at .          and as being parametrically equations with parameter : Then we know that the slope of the tangent line is . Taking the derivatives, and . Thus We want this at , so that we get . Then, at , , and , so that the tangent line is (Note, however, that the correct answer may require more significant figures than are shown in this solution.)        Find the area of the region bounded by the polar curve , on the interval .  Answer:              Find the total area enclosed by the cardioid shown in the following figure:   Answer :        in and (cartesian, not polar, this time):  We see that as varies from to , the radius increases from to , so we get the upper half of the cardioid (the lower half is obtained as varies from to and consequently decreases from to . Since the cardioid is symmetric with respect to the -axis we may compute the upper area and double the result. Using we get         Find the area of one leaf of the \"four-petaled rose\" shown in the following figure:   With  Answer :        in cartesian coordinates: With We see that as varies from to the radius is increasing from to , and when varies from to , is decreasing back to zero. Hence, the leaf in the first quadrant is traced as varies from to . The area of the leaf (the four leaves have equal areas) is thus Using the identity we get The area of one leaf is .        Find the area lying outside and inside .  Area =        is a circle with radius 1 centered on (1,0), while is a cardioid that entirely encloses the circle. Therefore, to find the area, we subtract the area enclosed by the circle from that enclosed by the cardioid. The cardioid, , is traced out as goes from to . Thus, remembering that the area enclosed by a region lying within the polar equation is Area , The circle is traced out as goes from to , so its area is Of course, because the circle has radius 1, we know this second integral will evaluate to . We can find the area of the cardioid, numerically by using a calculator, or by parts, or using a table of integrals, to find that the area of the cardioid is . Thus, the area enclosed by the cardioid that lies outside of the circle is given by .        Find the exact length of the polar curve  Length =        SOLUTION  The arc length for a polar curve is given by .  So for on the interval , we have          Find the length of the spiraling polar curve   From 0 to .  The length is             "
-},
-{
-  "id": "Library__UCSB__Stewart5_10_3__Stewart5_10_3_5",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__UCSB__Stewart5_10_3__Stewart5_10_3_5",
-  "type": "Exercise",
-  "number": "B.6.1",
-  "title": "",
-  "body": "  (a) The Cartesian coordinates of a point are  (i) Find polar coordinates of the point, where and      (ii) Find polar coordinates of the point, where and      (b) The Cartesian coordinates of a point are  (i) Find polar coordinates of the point, where and      (ii) Find polar coordinates of the point, where and                                                  "
-},
-{
-  "id": "Library__ma123DB__set9__s10_4_3",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__ma123DB__set9__s10_4_3",
-  "type": "Exercise",
-  "number": "B.6.2",
-  "title": "",
-  "body": "  For each set of Polar coordinates, match the equivalent Cartesian coordinates.      "
-},
-{
-  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_3_Polar_Coordinates__11-_3-_8",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_3_Polar_Coordinates__11-_3-_8",
-  "type": "Exercise",
-  "number": "B.6.3",
-  "title": "",
-  "body": "  Find the equation in polar coordinates of the line through the origin with slope .          makes an angle with the positive -axis. The equation of the line is , while is arbitrary.     "
-},
-{
-  "id": "Library__UCSB__Stewart5_10_3__Stewart5_10_3_57",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__UCSB__Stewart5_10_3__Stewart5_10_3_57",
-  "type": "Exercise",
-  "number": "B.6.4",
-  "title": "",
-  "body": "  Find the slope of the tangent line to the polar curve at the point specified by  Slope =        SOLUTION  Since when we can regard a polar equation as a parametric equation with as the parameter using and , we have (using the given polar equation ) :  So  and by multiplying the top and bottom by , this simplies to Therefore       "
-},
-{
-  "id": "Library__Michigan__Chap8Sec3__Q31",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__Michigan__Chap8Sec3__Q31",
-  "type": "Exercise",
-  "number": "B.6.5",
-  "title": "",
-  "body": "  Find the equation (in terms of and ) of the tangent line to the curve at .          and as being parametrically equations with parameter : Then we know that the slope of the tangent line is . Taking the derivatives, and . Thus We want this at , so that we get . Then, at , , and , so that the tangent line is (Note, however, that the correct answer may require more significant figures than are shown in this solution.)     "
-},
-{
-  "id": "Library__ma123DB__set9__s10_5_2",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__ma123DB__set9__s10_5_2",
-  "type": "Exercise",
-  "number": "B.6.6",
-  "title": "",
-  "body": "  Find the area of the region bounded by the polar curve , on the interval .  Answer:           "
-},
-{
-  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_4_Area_and_Arc_Length_in_Polar_Coordinates__11-_4-_7",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_4_Area_and_Arc_Length_in_Polar_Coordinates__11-_4-_7",
-  "type": "Exercise",
-  "number": "B.6.7",
-  "title": "",
-  "body": "  Find the total area enclosed by the cardioid shown in the following figure:   Answer :        in and (cartesian, not polar, this time):  We see that as varies from to , the radius increases from to , so we get the upper half of the cardioid (the lower half is obtained as varies from to and consequently decreases from to . Since the cardioid is symmetric with respect to the -axis we may compute the upper area and double the result. Using we get      "
-},
-{
-  "id": "Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_4_Area_and_Arc_Length_in_Polar_Coordinates__11-_4-_9",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__WHFreeman__Rogawski_Calculus_Early_Transcendentals_Second_Edition__11_Parametric_Equations_Polar_Coordinates_and_Conic_Sections__11-_4_Area_and_Arc_Length_in_Polar_Coordinates__11-_4-_9",
-  "type": "Exercise",
-  "number": "B.6.8",
-  "title": "",
-  "body": "  Find the area of one leaf of the \"four-petaled rose\" shown in the following figure:   With  Answer :        in cartesian coordinates: With We see that as varies from to the radius is increasing from to , and when varies from to , is decreasing back to zero. Hence, the leaf in the first quadrant is traced as varies from to . The area of the leaf (the four leaves have equal areas) is thus Using the identity we get The area of one leaf is .     "
-},
-{
-  "id": "Library__Michigan__Chap8Sec3__Q27",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__Michigan__Chap8Sec3__Q27",
-  "type": "Exercise",
-  "number": "B.6.9",
-  "title": "",
-  "body": "  Find the area lying outside and inside .  Area =        is a circle with radius 1 centered on (1,0), while is a cardioid that entirely encloses the circle. Therefore, to find the area, we subtract the area enclosed by the circle from that enclosed by the cardioid. The cardioid, , is traced out as goes from to . Thus, remembering that the area enclosed by a region lying within the polar equation is Area , The circle is traced out as goes from to , so its area is Of course, because the circle has radius 1, we know this second integral will evaluate to . We can find the area of the cardioid, numerically by using a calculator, or by parts, or using a table of integrals, to find that the area of the cardioid is . Thus, the area enclosed by the cardioid that lies outside of the circle is given by .     "
-},
-{
-  "id": "csafranski__polarHW_prob10",
-  "level": "2",
-  "url": "sec-safranski-polar.html#csafranski__polarHW_prob10",
-  "type": "Exercise",
-  "number": "B.6.10",
-  "title": "",
-  "body": "  Find the exact length of the polar curve  Length =        SOLUTION  The arc length for a polar curve is given by .  So for on the interval , we have       "
-},
-{
-  "id": "Library__Rochester__setPolarCoord2Curves__ur_pc_2_10",
-  "level": "2",
-  "url": "sec-safranski-polar.html#Library__Rochester__setPolarCoord2Curves__ur_pc_2_10",
-  "type": "Exercise",
-  "number": "B.6.11",
-  "title": "",
-  "body": "  Find the length of the spiraling polar curve   From 0 to .  The length is           "
-},
-{
   "id": "activities-answers",
   "level": "1",
   "url": "activities-answers.html",
   "type": "Appendix",
-  "number": "C",
+  "number": "B",
   "title": "Answers to Activities",
   "body": " Answers to Activities   This appendix contains answers to all activities in the text. Answers for preview activities are not included.   "
 },
@@ -9428,7 +9428,7 @@ var ptx_lunr_docs = [
   "level": "1",
   "url": "exercises-answers.html",
   "type": "Appendix",
-  "number": "D",
+  "number": "C",
   "title": "Answers to Selected Exercises",
   "body": " Answers to Selected Exercises   This appendix contains answers to all non- WeBWorK exercises in the text. For WeBWorK exercises, please use the HTML version of the text for access to answers and solutions.   "
 },
