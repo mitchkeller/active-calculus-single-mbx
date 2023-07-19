@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -11,10 +11,36 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math"><div class="solution solution-like">
-<span class="process-math">\(\frac{d}{dt} (A + C e^{-kt}) = -k C e^{-kt}\text{,}\)</span> so that, plugging in, we have<div class="displaymath process-math">
+<em class="alert">(a)</em> Suppose we choose an <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(0\le x\le 20\text{.}\)</span> We approximate the density of the number of the cars between <span class="process-math">\(x\)</span> and <span class="process-math">\(x+\Delta x\)</span> miles as <span class="process-math">\(\delta(x)\)</span> cars per mile. Therefore, the number of cars between <span class="process-math">\(x\)</span> and <span class="process-math">\(x+\Delta x\)</span> is approximately <span class="process-math">\(\delta(x)\Delta x\text{.}\)</span> If we slice the 20 mile strip into <span class="process-math">\(N\)</span> slices, we get that the total number of cars is<div class="displaymath process-math">
 \begin{equation*}
--k C e^{-kt} = k(A - A + Ce^{-kt}),
+C \approx \Sigma_{i=1}^N \delta(x_i)\Delta x =
+\Sigma_{i=1}^N \left[ 700 + 350\sin(4\sqrt{x_i + 0.2})\right]\Delta x,
 \end{equation*}
-</div>a true statement, so that the correct answer is <span class="process-math">\(y = A + C e^{-kt}\text{.}\)</span>
-</div></body>
+</div>where <span class="process-math">\(\Delta x =20/N\text{.}\)</span>  This is a right-hand approximation; the corresponding left-hand approximation is <span class="process-math">\(\Sigma_{i=0}^{N-1}\delta(x_i)\Delta x\text{.}\)</span>  We can more loosely write both approximations without referring to the number of steps as<div class="displaymath process-math">
+\begin{equation*}
+C \approx \Sigma \left[ 700 + 350\sin(4\sqrt{x + 0.2})\right]\Delta x.
+\end{equation*}
+</div>
+<em class="alert">(b)</em> As <span class="process-math">\(N\to\infty,\)</span> the Riemann sum above approaches the integral<div class="displaymath process-math">
+\begin{equation*}
+C =\int_0^{20} (700 + 350\sin4\sqrt{x + 0.2})\,dx.
+\end{equation*}
+</div>If we calculate the integral numerically, we find <span class="process-math">\(C\approx 13400.8\text{.}\)</span> We can also find the integral exactly as follows:<div class="displaymath process-math">
+\begin{equation*}
+C = \int_0^{20} (700 + 350\sin4\sqrt{x +0.2})\,dx
+= \int_0^{20} 700\,dx +\int_0^{20} 350\sin4\sqrt{x + 0.2}\,dx
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+= 14000 + 350\int_0^{20}\sin4\sqrt{x +0.2}\,dx.
+\end{equation*}
+</div>Let <span class="process-math">\(w = \sqrt{x +0.2},\)</span> so <span class="process-math">\(x =w^2 -0.2\)</span> and <span class="process-math">\(dx =2w\,dw\text{.}\)</span> Then<div class="displaymath process-math">
+\begin{equation*}
+\int_{x=0}^{x=20}\sin 4\sqrt{x +0.2}\,dx
+= 2\int_{w=\sqrt{0.2}}^{w=\sqrt{20.2}} w\sin 4w\,dw,
+= 2\left[-{1\over 4}w\cos 4w +{1\over 16}\sin 4w\right]
+\bigg|_{\sqrt{0.2}}^{\sqrt{20.2}} \approx -1.597.
+\end{equation*}
+</div>(To find the integral we used the appropriate entry in a table of integrals.) Using this, we have <span class="process-math">\(C\approx 14000 + 350(-1.597) \approx 13400.8\text{,}\)</span> which matches our numerical approximation.</div></body>
 </html>

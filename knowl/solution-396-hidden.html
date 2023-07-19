@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -10,37 +10,39 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like">
-<em class="alert">(a)</em> Suppose we choose an <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(0\le x\le 20\text{.}\)</span> We approximate the density of the number of the cars between <span class="process-math">\(x\)</span> and <span class="process-math">\(x+\Delta x\)</span> miles as <span class="process-math">\(\delta(x)\)</span> cars per mile. Therefore, the number of cars between <span class="process-math">\(x\)</span> and <span class="process-math">\(x+\Delta x\)</span> is approximately <span class="process-math">\(\delta(x)\Delta x\text{.}\)</span> If we slice the 20 mile strip into <span class="process-math">\(N\)</span> slices, we get that the total number of cars is<div class="displaymath process-math">
-\begin{equation*}
-C \approx \Sigma_{i=1}^N \delta(x_i)\Delta x =
-\Sigma_{i=1}^N \left[ 500 + 250\sin(4\sqrt{x_i + 0.15})\right]\Delta x,
-\end{equation*}
-</div>where <span class="process-math">\(\Delta x =20/N\text{.}\)</span>  This is a right-hand approximation; the corresponding left-hand approximation is <span class="process-math">\(\Sigma_{i=0}^{N-1}\delta(x_i)\Delta x\text{.}\)</span>  We can more loosely write both approximations without referring to the number of steps as<div class="displaymath process-math">
-\begin{equation*}
-C \approx \Sigma \left[ 500 + 250\sin(4\sqrt{x + 0.15})\right]\Delta x.
-\end{equation*}
-</div>
-<em class="alert">(b)</em> As <span class="process-math">\(N\to\infty,\)</span> the Riemann sum above approaches the integral<div class="displaymath process-math">
-\begin{equation*}
-C =\int_0^{20} (500 + 250\sin4\sqrt{x + 0.15})\,dx.
-\end{equation*}
-</div>If we calculate the integral numerically, we find <span class="process-math">\(C\approx 9594.05\text{.}\)</span> We can also find the integral exactly as follows:<div class="displaymath process-math">
-\begin{equation*}
-C = \int_0^{20} (500 + 250\sin4\sqrt{x +0.15})\,dx
-= \int_0^{20} 500\,dx +\int_0^{20} 250\sin4\sqrt{x + 0.15}\,dx
-\end{equation*}
-</div>
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
+<li><div class="para">Because <span class="process-math">\(L_4 = 7.23 \gt 6.75 = R_4\)</span> and we know the function is always increasing or always decreasing, for the left endpoint rule to give a value greater than the right endpoint rule, <span class="process-math">\(f\)</span> must be always decreasing.</div></li>
+<li><div class="para logical">
+<div class="para">From the given data, we know that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-= 10000 + 250\int_0^{20}\sin4\sqrt{x +0.15}\,dx.
+T_4 = \frac{L_4 + R_4}{2} = \frac{7.23 + 6.75}{2} = 6.99\text{.}
 \end{equation*}
-</div>Let <span class="process-math">\(w = \sqrt{x +0.15},\)</span> so <span class="process-math">\(x =w^2 -0.15\)</span> and <span class="process-math">\(dx =2w\,dw\text{.}\)</span> Then<div class="displaymath process-math">
+</div>
+<div class="para">Since <span class="process-math">\(M_4 = 7.05\text{,}\)</span> it follows that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\int_{x=0}^{x=20}\sin 4\sqrt{x +0.15}\,dx
-= 2\int_{w=\sqrt{0.15}}^{w=\sqrt{20.15}} w\sin 4w\,dw,
-= 2\left[-{1\over 4}w\cos 4w +{1\over 16}\sin 4w\right]
-\bigg|_{\sqrt{0.15}}^{\sqrt{20.15}} \approx -1.504.
+R_4 \lt T_4 \lt M_4 \lt L_4\text{.}
 \end{equation*}
-</div>(To find the integral we used the appropriate entry in a table of integrals.) Using this, we have <span class="process-math">\(C\approx 10000 + 250(-1.504) \approx 9594.05\text{,}\)</span> which matches our numerical approximation.</div></body>
+</div>
+<div class="para">In particular, we know that the function is not only always decreasing on the interval, but it also concave down. Because the concavity is constant, it follows that if the trapezoid rule under-estimates the true value, then the midpoint rule must over-estimate the true value (or vice-versa). Since <span class="process-math">\(T_4 \lt M_4\text{,}\)</span> this means that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_4 \lt \int_3^6 f(x) \, dx \lt M_4
+\end{equation*}
+</div>
+<div class="para">and that <span class="process-math">\(f\)</span> must be concave down on the interval.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We use Simpson’s Rule to determine the best possible estimate for the definite integral. That is,</div>
+<div class="displaymath process-math">
+\begin{align*}
+\int_3^6 f(x) \, dx &amp;\approx S_8\\
+&amp;= \frac{2M_4 + T_4}{3}\\
+&amp;= \frac{2 \cdot 7.05 + 6.99}{3}\\
+&amp;=7.03\text{.}
+\end{align*}
+</div>
+</div></li>
+</ol></div></div></body>
 </html>

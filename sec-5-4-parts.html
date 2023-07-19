@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC Integration by Parts</title>
@@ -15,20 +15,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-5-3-substitution.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-5.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-5-5-other-opt.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -837,47 +824,48 @@ eBookConfig.new_server_prefix = "/ns";
 </h2>
 <article class="objectives goal-like" id="objectives-29"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-3361"><div class="para" id="p-5737">How do we evaluate indefinite integrals that involve products of basic functions such as <span class="process-math">\(\int x \sin(x) \, dx\)</span> and <span class="process-math">\(\int x e^x \, dx\text{?}\)</span>
+<li id="li-3598"><div class="para" id="p-7028">How do we evaluate indefinite integrals that involve products of basic functions such as <span class="process-math">\(\int x \sin(x) \, dx\)</span> and <span class="process-math">\(\int x e^x \, dx\text{?}\)</span>
 </div></li>
-<li id="li-3362"><div class="para" id="p-5738">What is the method of integration by parts and how can we consistently apply it to integrate products of basic functions?</div></li>
-<li id="li-3363"><div class="para" id="p-5739">How does the algebraic structure of functions guide us in identifying <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\)</span> in using integration by parts?</div></li>
-</ul></article><section class="introduction" id="introduction-29"><div class="para" id="p-5740">In <a href="sec-5-3-substitution.html" class="internal" title="Section 5.3: Integration by Substitution">Section 5.3</a>, we learned the technique of <span class="process-math">\(u\)</span>-substitution for evaluating indefinite integrals. For example, the indefinite integral <span class="process-math">\(\int x^3 \sin(x^4) \, dx\)</span> is perfectly suited to <span class="process-math">\(u\)</span>-substitution, because one factor is a composite function and the other factor is the derivative (up to a constant) of the inner function. Recognizing the algebraic structure of a function can help us to find its antiderivative.</div> <div class="para logical" id="p-5741">
+<li id="li-3599"><div class="para" id="p-7029">What is the method of integration by parts and how can we consistently apply it to integrate products of basic functions?</div></li>
+<li id="li-3600"><div class="para" id="p-7030">How does the algebraic structure of functions guide us in identifying <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\)</span> in using integration by parts?</div></li>
+</ul></article><section class="introduction" id="introduction-35"><div class="para" id="p-7031">In <a href="sec-5-3-substitution.html" class="internal" title="Section 5.3: Integration by Substitution">Section 5.3</a>, we learned the technique of <span class="process-math">\(u\)</span>-substitution for evaluating indefinite integrals. For example, the indefinite integral <span class="process-math">\(\int x^3 \sin(x^4) \, dx\)</span> is perfectly suited to <span class="process-math">\(u\)</span>-substitution, because one factor is a composite function and the other factor is the derivative (up to a constant) of the inner function. Recognizing the algebraic structure of a function can help us to find its antiderivative.</div> <div class="para logical" id="p-7032">
 <div class="para">Next we consider integrands with a different elementary algebraic structure: a product of basic functions. For instance, suppose we are interested in evaluating the indefinite integral</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int x \sin(x) \, dx\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-5742">The integrand is the product of the basic functions <span class="process-math">\(f(x) = x\)</span> and <span class="process-math">\(g(x) = \sin(x)\text{.}\)</span> We know that it is relatively complicated to compute the derivative of the product of two functions, so we should expect that antidifferentiating a product should be similarly involved. Intuitively, we expect that evaluating <span class="process-math">\(\int x \sin(x) \, dx\)</span> will involve somehow reversing the Product Rule.</div> <div class="para" id="p-5743">To that end, in <a href="" class="xref" data-knowl="./knowl/PA-5-4.html" title="Preview Activity 5.4.1">Preview Activity 5.4.1</a> we refresh our understanding of the Product Rule and then investigate some indefinite integrals that involve products of basic functions.</div> <article class="exploration project-like" id="PA-5-4"><h3 class="heading">
+</div> <div class="para" id="p-7033">The integrand is the product of the basic functions <span class="process-math">\(f(x) = x\)</span> and <span class="process-math">\(g(x) = \sin(x)\text{.}\)</span> We know that it is relatively complicated to compute the derivative of the product of two functions, so we should expect that antidifferentiating a product should be similarly involved. Intuitively, we expect that evaluating <span class="process-math">\(\int x \sin(x) \, dx\)</span> will involve somehow reversing the Product Rule.</div> <div class="para" id="p-7034">To that end, in <a href="" class="xref" data-knowl="./knowl/csafranski__5-_4Preview.html" title="Preview Activity 5.4.1">Preview Activity 5.4.1</a> we refresh our understanding of the Product Rule and then investigate some indefinite integrals that involve products of basic functions.</div> <article class="exploration project-like" id="csafranski__5-_4Preview"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span>
 </h3>
-<div id="webwork-155" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="155" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/5.4Preview.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-155-button" class="webwork-button activate" onclick="handleWW('webwork-155')" aria-labelledby="webwork-155-button-label"><span id="webwork-155-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-5744">
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__csafranski__5-_4Preview"><div id="boelkins-ACS__csafranski__5-_4Preview-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="253" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/5.4Preview.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__csafranski__5-_4Preview-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-7035">
 <div class="para">In Section 2.3, we developed the Product Rule and studied how it is employed to differentiate a product of two functions.  In particular, recall that if <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable functions of <span class="process-math">\(x\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{d}{dx} \left[ f(x) \cdot g(x)  \right] = f(x) \cdot g'(x) + g(x) \cdot f'(x).
 \end{equation*}
 </div>
-</div> <div class="para" id="p-5745">(a) For each of the following functions, use the Product Rule to find the function's derivative.  Be sure to label each derivative by name (e.g., the derivative of <span class="process-math">\(g(x)\)</span> should be labeled <span class="process-math">\(g'(x)\)</span>).</div> <div class="para" id="p-5746">(i) If <span class="process-math">\(g(x) = x\sin(x)\text{,}\)</span> then      <span class="process-math">\(g'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5747">(ii) If <span class="process-math">\(h(x) = xe^x\text{,}\)</span> then      <span class="process-math">\(h'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5748">(iii) If <span class="process-math">\(p(x) = x\ln(x)\text{,}\)</span> then         <span class="process-math">\(p'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5749">(iv.) If <span class="process-math">\(q(x) = x^2 \cos(x)\)</span> , then          <span class="process-math">\(q'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5750">(v.) If <span class="process-math">\(r(x) = e^x \sin(x)\)</span> , then         <span class="process-math">\(r'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5751">(b) Use your work in (a) to help you evaluate the following indefinite integrals. Use differentiation to check your work.</div> <div class="para" id="p-5752">(i) <span class="process-math">\(\displaystyle \int xe^x + e^x \, dx =\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5753">(ii) <span class="process-math">\(\displaystyle \int e^x(\sin(x) + \cos(x)) \, dx =\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5754">(iii) <span class="process-math">\(\displaystyle \int 2x\cos(x) - x^2 \sin(x) \, dx -\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5755">(iv) <span class="process-math">\(\displaystyle \int x\cos(x) + \sin(x) \, dx =\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5756">(v) <span class="process-math">\(\displaystyle \int 1 + \ln(x) \, dx =\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para logical" id="p-5757">
+</div> <div class="para" id="p-7036">(a) For each of the following functions, use the Product Rule to find the function’s derivative.  Be sure to label each derivative by name (e.g., the derivative of <span class="process-math">\(g(x)\)</span> should be labeled <span class="process-math">\(g'(x)\)</span>).</div> <div class="para" id="p-7037">(i) If <span class="process-math">\(g(x) = x\sin(x)\text{,}\)</span> then      <span class="process-math">\(g'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7038">(ii) If <span class="process-math">\(h(x) = xe^x\text{,}\)</span> then      <span class="process-math">\(h'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7039">(iii) If <span class="process-math">\(p(x) = x\ln(x)\text{,}\)</span> then         <span class="process-math">\(p'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7040">(iv.) If <span class="process-math">\(q(x) = x^2 \cos(x)\)</span> , then          <span class="process-math">\(q'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7041">(v.) If <span class="process-math">\(r(x) = e^x \sin(x)\)</span> , then         <span class="process-math">\(r'(x) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7042">(b) Use your work in (a) to help you evaluate the following indefinite integrals. Use differentiation to check your work.</div> <div class="para" id="p-7043">(i) <span class="process-math">\(\displaystyle \int xe^x + e^x \, dx =\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7044">(ii) <span class="process-math">\(\displaystyle \int e^x(\sin(x) + \cos(x)) \, dx =\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7045">(iii) <span class="process-math">\(\displaystyle \int 2x\cos(x) - x^2 \sin(x) \, dx -\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7046">(iv) <span class="process-math">\(\displaystyle \int x\cos(x) + \sin(x) \, dx =\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-7047">(v) <span class="process-math">\(\displaystyle \int 1 + \ln(x) \, dx =\)</span>  <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para logical" id="p-7048">
 <div class="para">(c) Observe that the examples in (b) work nicely because of the derivatives you were asked to calculate in (a).  Each integrand in (b) is precisely the result of differentiating one of the products of basic functions found in (a).  To see what happens when an integrand is still a product but not necessarily the result of differentiating an elementary product, we consider how to evaluate</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int x\cos(x) \, dx.
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-5758">
+</div> <div class="para logical" id="p-7049">
 <div class="para">(i) First, observe that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -891,28 +879,27 @@ eBookConfig.new_server_prefix = "/ns";
 \end{equation*}
 </div>
 <div class="para">In this last equation, evaluate the indefinite integral on the left side.</div>
-</div> <div class="para" id="p-5759">
+</div> <div class="para" id="p-7050">
 <span class="process-math">\(\int \left(\frac{d}{dx} \left[ x\sin(x) \right] \right) \, dx =\)</span><span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5760">In that same equation, now evaluate the indefinite integral all the way to the right side.</div> <div class="para" id="p-5761">
+</div> <div class="para" id="p-7051">In that same equation, now evaluate the indefinite integral all the way to the right side.</div> <div class="para" id="p-7052">
 <span class="process-math">\(\int \sin(x) \, dx =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-5762">(ii) Using your answers to the previous two parts, solve the resulting equation for the expression <span class="process-math">\(\int x \cos(x) \, dx\text{.}\)</span>
-</div> <div class="para" id="p-5763">
+</div> <div class="para" id="p-7053">(ii) Using your answers to the previous two parts, solve the resulting equation for the expression <span class="process-math">\(\int x \cos(x) \, dx\text{.}\)</span>
+</div> <div class="para" id="p-7054">
 <span class="process-math">\(\int x \cos(x) \, dx =\)</span><span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article></section><section class="subsection" id="subsection-91"><h3 class="heading hide-type">
+</div></div></div></article></section><section class="subsection" id="subsection-91"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.4.1</span> <span class="title">Reversing the Product Rule: Integration by Parts</span>
 </h3>
-<div class="para logical" id="p-5777">
-<div class="para">Problem (c) in <a href="" class="xref" data-knowl="./knowl/PA-5-4.html" title="Preview Activity 5.4.1">Preview Activity 5.4.1</a> provides a clue to the general technique known as Integration by Parts, which comes from reversing the Product Rule. Recall that the Product Rule states that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-5-4.html">
+<div class="para logical" id="p-7068">
+<div class="para">Problem (c) in <a href="" class="xref" data-knowl="./knowl/csafranski__5-_4Preview.html" title="Preview Activity 5.4.1">Preview Activity 5.4.1</a> provides a clue to the general technique known as Integration by Parts, which comes from reversing the Product Rule. Recall that the Product Rule states that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/csafranski__5-_4Preview.html">
 \begin{equation*}
 \frac{d}{dx} \left[ f(x) g(x) \right] = f(x) g'(x) + g(x)  f'(x)\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-5778">
+<div class="para logical" id="p-7069">
 <div class="para">Integrating both sides of this equation indefinitely with respect to <span class="process-math">\(x\text{,}\)</span> we find</div>
 <div class="displaymath process-math" id="E-intprod">
 \begin{equation}
@@ -920,7 +907,7 @@ eBookConfig.new_server_prefix = "/ns";
 \end{equation}
 </div>
 </div>
-<div class="para logical" id="p-5779">
+<div class="para logical" id="p-7070">
 <div class="para">On the left side of <a href="" class="xref" data-knowl="./knowl/E-intprod.html" title="Equation 5.4.1">Equation (5.4.1)</a>, we have the indefinite integral of the derivative of a function. Temporarily omitting the constant that may arise, we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/E-intprod.html" id="E-intprod2">
 \begin{equation}
@@ -928,7 +915,7 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 \end{equation}
 </div>
 </div>
-<div class="para logical" id="p-5780">
+<div class="para logical" id="p-7071">
 <div class="para">We solve for the first indefinite integral on the left to generate the rule</div>
 <div class="displaymath process-math" id="E-IBP1">
 \begin{equation}
@@ -936,16 +923,16 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 \end{equation}
 </div>
 </div>
-<div class="para" id="p-5781">Often we express <a href="" class="xref" data-knowl="./knowl/E-IBP1.html" title="Equation 5.4.3">Equation (5.4.3)</a> in terms of the variables <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{,}\)</span> where <span class="process-math">\(u = f(x)\)</span> and <span class="process-math">\(v = g(x)\text{.}\)</span> In differential notation, <span class="process-math">\(du = f'(x) \, dx\)</span> and <span class="process-math">\(dv = g'(x) \, dx\text{,}\)</span> so we can state the rule for Integration by Parts in its most common form as follows:</div>
-<article class="assemblage assemblage-like" id="assemblage-35"><div class="para logical" id="p-5782"><div class="displaymath process-math">
+<div class="para" id="p-7072">Often we express <a href="" class="xref" data-knowl="./knowl/E-IBP1.html" title="Equation 5.4.3">Equation (5.4.3)</a> in terms of the variables <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{,}\)</span> where <span class="process-math">\(u = f(x)\)</span> and <span class="process-math">\(v = g(x)\text{.}\)</span> In differential notation, <span class="process-math">\(du = f'(x) \, dx\)</span> and <span class="process-math">\(dv = g'(x) \, dx\text{,}\)</span> so we can state the rule for Integration by Parts in its most common form as follows:</div>
+<article class="assemblage assemblage-like" id="assemblage-35"><div class="para logical" id="p-7073"><div class="displaymath process-math">
 \begin{equation*}
 \int u \, dv  = uv -  \int v \, du\text{.}
 \end{equation*}
-</div></div></article><div class="para" id="p-5783">To apply integration by parts, we look for a product of basic functions that we can identify as <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{.}\)</span> If we can antidifferentiate <span class="process-math">\(dv\)</span> to find <span class="process-math">\(v\text{,}\)</span> and evaluating <span class="process-math">\(\int v \, du\)</span> is not more difficult than evaluating <span class="process-math">\(\int u \, dv\text{,}\)</span> then this substitution usually proves to be fruitful. To demonstrate, we consider the following example.</div>
+</div></div></article><div class="para" id="p-7074">To apply integration by parts, we look for a product of basic functions that we can identify as <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{.}\)</span> If we can antidifferentiate <span class="process-math">\(dv\)</span> to find <span class="process-math">\(v\text{,}\)</span> and evaluating <span class="process-math">\(\int v \, du\)</span> is not more difficult than evaluating <span class="process-math">\(\int u \, dv\text{,}\)</span> then this substitution usually proves to be fruitful. To demonstrate, we consider the following example.</div>
 <article class="example example-like" id="Ex-5-4-IBP"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.1</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5784">
+<div class="para logical" id="p-7075">
 <div class="para">Evaluate the indefinite integral</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -955,16 +942,16 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 <div class="para">using integration by parts.</div>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-324" id="solution-324"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-324"><div class="solution solution-like">
-<div class="para" id="p-5785">When we use integration by parts, we have a choice for <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{.}\)</span> In this problem, we can either let <span class="process-math">\(u = x\)</span> and <span class="process-math">\(dv = \cos(x) \, dx\text{,}\)</span> or let <span class="process-math">\(u = \cos(x)\)</span> and <span class="process-math">\(dv = x \, dx\text{.}\)</span> While there is not a universal rule for how to choose <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{,}\)</span> a good guideline is this: do so in a way that <span class="process-math">\(\int v \, du\)</span> is at least as simple as the original problem <span class="process-math">\(\int u \, dv\text{.}\)</span>
-</div> <div class="para logical" id="p-5786">
-<div class="para">This leads us to choose<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-93" id="fn-93"><sup> 1 </sup></a> <span class="process-math">\(u = x\)</span> and <span class="process-math">\(dv = \cos(x) \, dx\text{,}\)</span> from which it follows that <span class="process-math">\(du = 1 \, dx\)</span> and <span class="process-math">\(v = \sin(x)\text{.}\)</span> With this substitution, the rule for integration by parts tells us that</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-359" id="solution-359"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-359"><div class="solution solution-like">
+<div class="para" id="p-7076">When we use integration by parts, we have a choice for <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{.}\)</span> In this problem, we can either let <span class="process-math">\(u = x\)</span> and <span class="process-math">\(dv = \cos(x) \, dx\text{,}\)</span> or let <span class="process-math">\(u = \cos(x)\)</span> and <span class="process-math">\(dv = x \, dx\text{.}\)</span> While there is not a universal rule for how to choose <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{,}\)</span> a good guideline is this: do so in a way that <span class="process-math">\(\int v \, du\)</span> is at least as simple as the original problem <span class="process-math">\(\int u \, dv\text{.}\)</span>
+</div> <div class="para logical" id="p-7077">
+<div class="para">This leads us to choose<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-95" id="fn-95"><sup> 1 </sup></a> <span class="process-math">\(u = x\)</span> and <span class="process-math">\(dv = \cos(x) \, dx\text{,}\)</span> from which it follows that <span class="process-math">\(du = 1 \, dx\)</span> and <span class="process-math">\(v = \sin(x)\text{.}\)</span> With this substitution, the rule for integration by parts tells us that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int x \cos(x) \, dx = x \sin(x) - \int \sin(x) \cdot 1 \, dx\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-5787">
+</div> <div class="para logical" id="p-7078">
 <div class="para">All that remains to do is evaluate the (simpler) integral <span class="process-math">\(\int \sin(x) \cdot 1 \, dx\text{.}\)</span> Doing so, we find</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -975,22 +962,22 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 </div>
 </div>
 </div></div>
-</div></article><div class="para" id="p-5788">The general technique of integration by parts involves trading the problem of integrating the product of two functions for the problem of integrating the product of two related functions. That is, we convert the problem of evaluating <span class="process-math">\(\int u \, dv\)</span> to that of evaluating <span class="process-math">\(\int v \, du\text{.}\)</span> This clearly shapes our choice of <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{.}\)</span> In <a href="" class="xref" data-knowl="./knowl/Ex-5-4-IBP.html" title="Example 5.4.1">Example 5.4.1</a>, the original integral to evaluate was <span class="process-math">\(\int x \cos(x) \,dx\text{,}\)</span> and through the substitution provided by integration by parts, we were instead able to evaluate <span class="process-math">\(\int \sin(x) \cdot 1 \, dx\text{.}\)</span> Note that the original function <span class="process-math">\(x\)</span> was replaced by its derivative, while <span class="process-math">\(\cos(x)\)</span> was replaced by its antiderivative.</div>
+</div></article><div class="para" id="p-7079">The general technique of integration by parts involves trading the problem of integrating the product of two functions for the problem of integrating the product of two related functions. That is, we convert the problem of evaluating <span class="process-math">\(\int u \, dv\)</span> to that of evaluating <span class="process-math">\(\int v \, du\text{.}\)</span> This clearly shapes our choice of <span class="process-math">\(u\)</span> and <span class="process-math">\(v\text{.}\)</span> In <a href="" class="xref" data-knowl="./knowl/Ex-5-4-IBP.html" title="Example 5.4.1">Example 5.4.1</a>, the original integral to evaluate was <span class="process-math">\(\int x \cos(x) \,dx\text{,}\)</span> and through the substitution provided by integration by parts, we were instead able to evaluate <span class="process-math">\(\int \sin(x) \cdot 1 \, dx\text{.}\)</span> Note that the original function <span class="process-math">\(x\)</span> was replaced by its derivative, while <span class="process-math">\(\cos(x)\)</span> was replaced by its antiderivative.</div>
 <article class="activity project-like" id="act-5-4-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5789">
+<div class="para logical" id="p-7080">
 <div class="para">Evaluate each of the following indefinite integrals. Check each antiderivative that you find by differentiating.</div>
 <ol class="lower-alpha cols2">
-<li id="li-3364"><div class="para" id="p-5790"><span class="process-math">\(\displaystyle \int te^{-t} \, dt\)</span></div></li>
-<li id="li-3365"><div class="para" id="p-5791"><span class="process-math">\(\displaystyle \int 4x \sin(3x) \, dx\)</span></div></li>
-<li id="li-3366"><div class="para" id="p-5792"><span class="process-math">\(\displaystyle \int z \sec^2(z) \,dz\)</span></div></li>
-<li id="li-3367"><div class="para" id="p-5793"><span class="process-math">\(\displaystyle \int x \ln(x) \, dx\)</span></div></li>
+<li id="li-3601"><div class="para" id="p-7081"><span class="process-math">\(\displaystyle \int te^{-t} \, dt\)</span></div></li>
+<li id="li-3602"><div class="para" id="p-7082"><span class="process-math">\(\displaystyle \int 4x \sin(3x) \, dx\)</span></div></li>
+<li id="li-3603"><div class="para" id="p-7083"><span class="process-math">\(\displaystyle \int z \sec^2(z) \,dz\)</span></div></li>
+<li id="li-3604"><div class="para" id="p-7084"><span class="process-math">\(\displaystyle \int x \ln(x) \, dx\)</span></div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-92"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.4.2</span> <span class="title">Some Subtleties with Integration by Parts</span>
 </h3>
-<div class="para logical" id="p-5809">
+<div class="para logical" id="p-7100">
 <div class="para">Sometimes integration by parts is not an obvious choice, but the technique is appropriate nonetheless. Integration by parts allows us to replace one function in a product with its derivative while replacing the other with its antiderivative. For instance, consider evaluating</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -998,8 +985,8 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-5810">Initially, this problem seems ill-suited to integration by parts, since there does not appear to be a product of functions present. But if we note that <span class="process-math">\(\arctan(x) = \arctan(x) \cdot 1\text{,}\)</span> and realize that we know the derivative of <span class="process-math">\(\arctan(x)\)</span> as well as the antiderivative of <span class="process-math">\(1\text{,}\)</span> we see the possibility for the substitution <span class="process-math">\(u = \arctan(x)\)</span> and <span class="process-math">\(dv = 1 \, dx\text{.}\)</span> We explore this substitution further in <a href="" class="xref" data-knowl="./knowl/act-5-4-2.html" title="Activity 5.4.3">Activity 5.4.3</a>.</div>
-<div class="para logical" id="p-5811">
+<div class="para" id="p-7101">Initially, this problem seems ill-suited to integration by parts, since there does not appear to be a product of functions present. But if we note that <span class="process-math">\(\arctan(x) = \arctan(x) \cdot 1\text{,}\)</span> and realize that we know the derivative of <span class="process-math">\(\arctan(x)\)</span> as well as the antiderivative of <span class="process-math">\(1\text{,}\)</span> we see the possibility for the substitution <span class="process-math">\(u = \arctan(x)\)</span> and <span class="process-math">\(dv = 1 \, dx\text{.}\)</span> We explore this substitution further in <a href="" class="xref" data-knowl="./knowl/act-5-4-2.html" title="Activity 5.4.3">Activity 5.4.3</a>.</div>
+<div class="para logical" id="p-7102">
 <div class="para">In a related problem, consider <span class="process-math">\(\int t^3 \sin(t^2) \, dt\text{.}\)</span> Observe that there is a composite function present in <span class="process-math">\(\sin(t^2)\text{,}\)</span> but there is not an obvious function-derivative pair, as we have <span class="process-math">\(t^3\)</span> (rather than simply <span class="process-math">\(t\)</span>) multiplying <span class="process-math">\(\sin(t^2)\text{.}\)</span> In this problem we use both <span class="process-math">\(u\)</span>-substitution and integration by parts. First we write <span class="process-math">\(t^3 = t \cdot t^2\)</span> and consider the indefinite integral</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1013,48 +1000,48 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-5812">The resulting integral can be evaluated by parts. This, too, is explored further in <a href="" class="xref" data-knowl="./knowl/act-5-4-2.html" title="Activity 5.4.3">Activity 5.4.3</a>.</div>
-<div class="para" id="p-5813">These problems show that we sometimes must think creatively in choosing the variables for substitution in integration by parts, and that we may need to use substitution for an additional change of variables.</div>
+<div class="para" id="p-7103">The resulting integral can be evaluated by parts. This, too, is explored further in <a href="" class="xref" data-knowl="./knowl/act-5-4-2.html" title="Activity 5.4.3">Activity 5.4.3</a>.</div>
+<div class="para" id="p-7104">These problems show that we sometimes must think creatively in choosing the variables for substitution in integration by parts, and that we may need to use substitution for an additional change of variables.</div>
 <article class="activity project-like" id="act-5-4-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5814">
+<div class="para logical" id="p-7105">
 <div class="para">Evaluate each of the following indefinite integrals, using the provided hints.</div>
 <ol class="lower-alpha">
-<li id="li-3380"><div class="para" id="p-5815">Evaluate <span class="process-math">\(\int \arctan(x) \, dx\)</span> by using Integration by Parts with the substitution <span class="process-math">\(u = \arctan(x)\)</span> and <span class="process-math">\(dv = 1 \, dx\text{.}\)</span>
+<li id="li-3617"><div class="para" id="p-7106">Evaluate <span class="process-math">\(\int \arctan(x) \, dx\)</span> by using Integration by Parts with the substitution <span class="process-math">\(u = \arctan(x)\)</span> and <span class="process-math">\(dv = 1 \, dx\text{.}\)</span>
 </div></li>
-<li id="li-3381"><div class="para" id="p-5816">Evaluate <span class="process-math">\(\int \ln(z) \,dz\text{.}\)</span> Consider a similar substitution to the one in (a).</div></li>
-<li id="li-3382"><div class="para" id="p-5817">Use the substitution <span class="process-math">\(z = t^2\)</span> to transform the integral <span class="process-math">\(\int t^3 \sin(t^2) \, dt\)</span> to a new integral in the variable <span class="process-math">\(z\text{,}\)</span> and evaluate that new integral by parts.</div></li>
-<li id="li-3383"><div class="para" id="p-5818">Evaluate <span class="process-math">\(\int s^5 e^{s^3} \, ds\)</span> using an approach similar to that described in (c).</div></li>
-<li id="li-3384"><div class="para" id="p-5819">Evaluate <span class="process-math">\(\int e^{2t} \cos(e^t) \, dt\text{.}\)</span> You will find it helpful to note that <span class="process-math">\(e^{2t} = e^t \cdot e^t\text{.}\)</span>
+<li id="li-3618"><div class="para" id="p-7107">Evaluate <span class="process-math">\(\int \ln(z) \,dz\text{.}\)</span> Consider a similar substitution to the one in (a).</div></li>
+<li id="li-3619"><div class="para" id="p-7108">Use the substitution <span class="process-math">\(z = t^2\)</span> to transform the integral <span class="process-math">\(\int t^3 \sin(t^2) \, dt\)</span> to a new integral in the variable <span class="process-math">\(z\text{,}\)</span> and evaluate that new integral by parts.</div></li>
+<li id="li-3620"><div class="para" id="p-7109">Evaluate <span class="process-math">\(\int s^5 e^{s^3} \, ds\)</span> using an approach similar to that described in (c).</div></li>
+<li id="li-3621"><div class="para" id="p-7110">Evaluate <span class="process-math">\(\int e^{2t} \cos(e^t) \, dt\text{.}\)</span> You will find it helpful to note that <span class="process-math">\(e^{2t} = e^t \cdot e^t\text{.}\)</span>
 </div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-93"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.4.3</span> <span class="title">Using Integration by Parts Multiple Times</span>
 </h3>
-<div class="para" id="p-5832">Integration by parts is well suited to integrating the product of basic functions, allowing us to trade a given integrand for a new one where one function in the product is replaced by its derivative, and the other is replaced by its antiderivative. The goal in this trade of <span class="process-math">\(\int u \, dv\)</span> for <span class="process-math">\(\int v \, du\)</span> is that the new integral be simpler to evaluate than the original one. Sometimes it is necessary to apply integration by parts more than once in order to evaluate a given integral.</div>
+<div class="para" id="p-7123">Integration by parts is well suited to integrating the product of basic functions, allowing us to trade a given integrand for a new one where one function in the product is replaced by its derivative, and the other is replaced by its antiderivative. The goal in this trade of <span class="process-math">\(\int u \, dv\)</span> for <span class="process-math">\(\int v \, du\)</span> is that the new integral be simpler to evaluate than the original one. Sometimes it is necessary to apply integration by parts more than once in order to evaluate a given integral.</div>
 <article class="example example-like" id="example-38"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-5833">Evaluate <span class="process-math">\(\int t^2 e^t \, dt\text{.}\)</span>
+<div class="para" id="p-7124">Evaluate <span class="process-math">\(\int t^2 e^t \, dt\text{.}\)</span>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-327" id="solution-327"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-327"><div class="solution solution-like">
-<div class="para logical" id="p-5834">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-362" id="solution-362"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-362"><div class="solution solution-like">
+<div class="para logical" id="p-7125">
 <div class="para">Let <span class="process-math">\(u = t^2\)</span> and <span class="process-math">\(dv = e^t \, dt\text{.}\)</span> Then <span class="process-math">\(du = 2t \, dt\)</span> and <span class="process-math">\(v = e^t\text{,}\)</span> and thus</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int t^2 e^t \, dt = t^2 e^t - \int 2t e^t \, dt\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-5835">
+</div> <div class="para logical" id="p-7126">
 <div class="para">The integral on the right side is simpler to evaluate than the one on the left, but it still requires integration by parts. Now letting <span class="process-math">\(u = 2t\)</span> and <span class="process-math">\(dv = e^t \, dt\text{,}\)</span> we have <span class="process-math">\(du = 2\, dt\)</span> and <span class="process-math">\(v = e^t\text{,}\)</span> so that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int t^2 e^t \, dt = t^2 e^t - \left( 2t e^t - \int 2 e^t \, dt \right)\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-5836">
+</div> <div class="para logical" id="p-7127">
 <div class="para">(Note the parentheses, which remind us to distribute the minus sign to the entire value of the integral <span class="process-math">\(\int 2t e^t \, dt\text{.}\)</span>) The final integral on the right is a basic one; evaluating that integral and distributing the minus sign, we find</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1063,16 +1050,16 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 </div>
 </div>
 </div></div>
-</div></article><div class="para" id="p-5837">Of course, even more than two applications of integration by parts may be necessary. In the preceding example, if the integrand had been <span class="process-math">\(t^3e^t\text{,}\)</span> we would have had to use integration by parts three times.</div>
-<div class="para" id="p-5838">Next, we consider the slightly different scenario.</div>
+</div></article><div class="para" id="p-7128">Of course, even more than two applications of integration by parts may be necessary. In the preceding example, if the integrand had been <span class="process-math">\(t^3e^t\text{,}\)</span> we would have had to use integration by parts three times.</div>
+<div class="para" id="p-7129">Next, we consider the slightly different scenario.</div>
 <article class="example example-like" id="example-39"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-5839">Evaluate <span class="process-math">\(\int e^t \cos(t) \, dt\text{.}\)</span>
+<div class="para" id="p-7130">Evaluate <span class="process-math">\(\int e^t \cos(t) \, dt\text{.}\)</span>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-328" id="solution-328"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-328"><div class="solution solution-like">
-<div class="para logical" id="p-5840">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-363" id="solution-363"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-363"><div class="solution solution-like">
+<div class="para logical" id="p-7131">
 <div class="para">We can choose to let <span class="process-math">\(u\)</span> be either <span class="process-math">\(e^t\)</span> or <span class="process-math">\(\cos(t)\text{;}\)</span> we pick <span class="process-math">\(u = \cos(t)\text{,}\)</span> and thus <span class="process-math">\(dv = e^t \, dt\text{.}\)</span> With <span class="process-math">\(du = -\sin(t) \, dt\)</span> and <span class="process-math">\(v = e^t\text{,}\)</span> integration by parts tells us that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1085,14 +1072,14 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 \int e^t \cos(t) \, dt = e^t \cos(t) + \int e^t \sin(t) \, dt\text{.}\tag{5.4.4}
 \end{equation}
 </div>
-</div> <div class="para logical" id="p-5841">
-<div class="para">The new integral has the same algebraic structure as the original one. While the overall situation isn't necessarily better than what we started with, it hasn't gotten worse. Thus, we proceed to integrate by parts again. This time we let <span class="process-math">\(u = \sin(t)\)</span> and <span class="process-math">\(dv = e^t \, dt\text{,}\)</span> so that <span class="process-math">\(du = \cos(t) \, dt\)</span> and <span class="process-math">\(v = e^t\text{,}\)</span> which implies</div>
+</div> <div class="para logical" id="p-7132">
+<div class="para">The new integral has the same algebraic structure as the original one. While the overall situation isn’t necessarily better than what we started with, it hasn’t gotten worse. Thus, we proceed to integrate by parts again. This time we let <span class="process-math">\(u = \sin(t)\)</span> and <span class="process-math">\(dv = e^t \, dt\text{,}\)</span> so that <span class="process-math">\(du = \cos(t) \, dt\)</span> and <span class="process-math">\(v = e^t\text{,}\)</span> which implies</div>
 <div class="displaymath process-math" id="E_IBPtwice2">
 \begin{equation}
 \int e^t \cos(t) \, dt = e^t \cos(t) + \left( e^t \sin(t) - \int e^t \cos(t) \, dt \right)\text{.}\tag{5.4.5}
 \end{equation}
 </div>
-</div> <div class="para logical" id="p-5842">
+</div> <div class="para logical" id="p-7133">
 <div class="para">We seem to be back where we started, as two applications of integration by parts has led us back to the original problem, <span class="process-math">\(\int e^t \cos(t) \, dt\text{.}\)</span> But if we look closely at <a href="" class="xref" data-knowl="./knowl/E_IBPtwice2.html" title="Equation 5.4.5">Equation (5.4.5)</a>, we see that we can use algebra to solve for the value of the desired integral. Adding <span class="process-math">\(\int e^t \cos(t) \, dt\)</span> to both sides of the equation, we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/E_IBPtwice2.html">
 \begin{equation*}
@@ -1105,29 +1092,29 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 \int e^t \cos(t) \, dt = \frac{1}{2} \left( e^t \cos(t) +  e^t \sin(t) \right) + C\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-5843">Note that since we never actually encountered an integral we could evaluate directly, we didn't have the opportunity to add the integration constant <span class="process-math">\(C\)</span> until the final step.</div>
+</div> <div class="para" id="p-7134">Note that since we never actually encountered an integral we could evaluate directly, we didn’t have the opportunity to add the integration constant <span class="process-math">\(C\)</span> until the final step.</div>
 </div></div>
 </div></article><article class="activity project-like" id="act-5-4-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">5.4.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5844">
+<div class="para logical" id="p-7135">
 <div class="para">Evaluate each of the following indefinite integrals.</div>
 <ol class="lower-alpha">
-<li id="li-3395"><div class="para" id="p-5845"><span class="process-math">\(\displaystyle \int x^2 \sin(x) \, dx\)</span></div></li>
-<li id="li-3396"><div class="para" id="p-5846"><span class="process-math">\(\displaystyle \int t^3 \ln(t) \, dt\)</span></div></li>
-<li id="li-3397"><div class="para" id="p-5847"><span class="process-math">\(\displaystyle \int e^z \sin(z) \, dz\)</span></div></li>
-<li id="li-3398"><div class="para" id="p-5848"><span class="process-math">\(\displaystyle \int s^2 e^{3s} \, ds\)</span></div></li>
-<li id="li-3399"><div class="para" id="p-5849">
+<li id="li-3632"><div class="para" id="p-7136"><span class="process-math">\(\displaystyle \int x^2 \sin(x) \, dx\)</span></div></li>
+<li id="li-3633"><div class="para" id="p-7137"><span class="process-math">\(\displaystyle \int t^3 \ln(t) \, dt\)</span></div></li>
+<li id="li-3634"><div class="para" id="p-7138"><span class="process-math">\(\displaystyle \int e^z \sin(z) \, dz\)</span></div></li>
+<li id="li-3635"><div class="para" id="p-7139"><span class="process-math">\(\displaystyle \int s^2 e^{3s} \, ds\)</span></div></li>
+<li id="li-3636"><div class="para" id="p-7140">
 <span class="process-math">\(\int t \arctan(t) \,dt\)</span> (<em class="emphasis">Hint:</em> At a certain point in this problem, it is very helpful to note that <span class="process-math">\(\frac{t^2}{1+t^2} = 1 - \frac{1}{1+t^2}\text{.}\)</span>)</div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-94"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.4.4</span> <span class="title">Evaluating Definite Integrals Using Integration by Parts</span>
 </h3>
-<div class="para" id="p-5868">We can use the technique of integration by parts to evaluate a definite integral.</div>
+<div class="para" id="p-7159">We can use the technique of integration by parts to evaluate a definite integral.</div>
 <article class="example example-like" id="example-40"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">5.4.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5869">
+<div class="para logical" id="p-7160">
 <div class="para">Evaluate</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1136,8 +1123,8 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 </div>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-330" id="solution-330"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-330"><div class="solution solution-like">
-<div class="para logical" id="p-5870">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-365" id="solution-365"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-365"><div class="solution solution-like">
+<div class="para logical" id="p-7161">
 <div class="para">One option is to find an antiderivative (using indefinite integral notation) and then apply the Fundamental Theorem of Calculus to find that</div>
 <div class="displaymath process-math" id="md-153">
 \begin{align*}
@@ -1146,7 +1133,7 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 =\mathstrut \amp  1\text{.}
 \end{align*}
 </div>
-</div> <div class="para logical" id="p-5871">
+</div> <div class="para logical" id="p-7162">
 <div class="para">Alternatively, we can apply integration by parts and work with definite integrals throughout. With this method, we must remember to evaluate the product <span class="process-math">\(uv\)</span> over the given limits of integration. Using the substitution <span class="process-math">\(u = t\)</span> and <span class="process-math">\(dv = \sin(t) \, dt\text{,}\)</span> so that <span class="process-math">\(du = dt\)</span> and <span class="process-math">\(v = -\cos(t)\text{,}\)</span> we write</div>
 <div class="displaymath process-math" id="md-154">
 \begin{align*}
@@ -1158,23 +1145,23 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 </div>
 </div>
 </div></div>
-</div></article><div class="para" id="p-5872">As with any substitution technique, it is important to use notation carefully and completely, and to ensure that the end result makes sense.</div></section><section class="subsection" id="subsection-95"><h3 class="heading hide-type">
+</div></article><div class="para" id="p-7163">As with any substitution technique, it is important to use notation carefully and completely, and to ensure that the end result makes sense.</div></section><section class="subsection" id="subsection-95"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.4.5</span> <span class="title">When <span class="process-math">\(u\)</span>-substitution and Integration by Parts Fail to Help</span>
 </h3>
-<div class="para logical" id="p-5873">
+<div class="para logical" id="p-7164">
 <div class="para">Both integration techniques we have discussed apply in relatively limited circumstances. It is not hard to find examples of functions for which neither technique produces an antiderivative; indeed, there are many, many functions that appear elementary but that do not have an elementary algebraic antiderivative. For instance, neither <span class="process-math">\(u\)</span>-substitution nor integration by parts proves fruitful for the indefinite integrals</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int e^{x^2} \, dx \ \ \text{and}  \ \ \int x \tan(x) \, dx\text{.}
 \end{equation*}
 </div>
-<div class="para">While there are other integration techniques, some of which we will consider briefly, none of them enables us to find an algebraic antiderivative for <span class="process-math">\(e^{x^2}\)</span> or <span class="process-math">\(x \tan(x)\text{.}\)</span> We do know from the Second Fundamental Theorem of Calculus that we can construct an integral antiderivative for each function; <span class="process-math">\(F(x) = \int_0^x e^{t^2} \, dt\)</span> is an antiderivative of <span class="process-math">\(f(x) = e^{x^2}\text{,}\)</span> and <span class="process-math">\(G(x) = \int_0^{x} t \tan(t) \, dt\)</span> is an antiderivative of <span class="process-math">\(g(x) = x \tan(x)\text{.}\)</span> But finding an elementary algebraic formula that doesn't involve integrals for either <span class="process-math">\(F\)</span> or <span class="process-math">\(G\)</span> turns out not only to be impossible through <span class="process-math">\(u\)</span>-substitution or integration by parts, but indeed impossible altogether. Antidifferentiation is much harder in general than differentiation.</div>
+<div class="para">While there are other integration techniques, some of which we will consider briefly, none of them enables us to find an algebraic antiderivative for <span class="process-math">\(e^{x^2}\)</span> or <span class="process-math">\(x \tan(x)\text{.}\)</span> We do know from the Second Fundamental Theorem of Calculus that we can construct an integral antiderivative for each function; <span class="process-math">\(F(x) = \int_0^x e^{t^2} \, dt\)</span> is an antiderivative of <span class="process-math">\(f(x) = e^{x^2}\text{,}\)</span> and <span class="process-math">\(G(x) = \int_0^{x} t \tan(t) \, dt\)</span> is an antiderivative of <span class="process-math">\(g(x) = x \tan(x)\text{.}\)</span> But finding an elementary algebraic formula that doesn’t involve integrals for either <span class="process-math">\(F\)</span> or <span class="process-math">\(G\)</span> turns out not only to be impossible through <span class="process-math">\(u\)</span>-substitution or integration by parts, but indeed impossible altogether. Antidifferentiation is much harder in general than differentiation.</div>
 </div></section><section class="subsection" id="subsection-96"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">5.4.6</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-5874"><ul class="disc">
-<li id="li-3415"><div class="para" id="p-5875">Through the method of integration by parts, we can evaluate indefinite integrals that involve products of basic functions such as <span class="process-math">\(\int x \sin(x) \, dx\)</span> and <span class="process-math">\(\int x \ln(x) \, dx\text{.}\)</span> Using a substitution enables us to trade one of the functions in the product for its derivative, and the other for its antiderivative, in an effort to find a different product of functions that is easier to integrate.</div></li>
-<li id="li-3416"><div class="para logical" id="p-5876">
+<div class="para logical" id="p-7165"><ul class="disc">
+<li id="li-3652"><div class="para" id="p-7166">Through the method of integration by parts, we can evaluate indefinite integrals that involve products of basic functions such as <span class="process-math">\(\int x \sin(x) \, dx\)</span> and <span class="process-math">\(\int x \ln(x) \, dx\text{.}\)</span> Using a substitution enables us to trade one of the functions in the product for its derivative, and the other for its antiderivative, in an effort to find a different product of functions that is easier to integrate.</div></li>
+<li id="li-3653"><div class="para logical" id="p-7167">
 <div class="para">If the algebraic structure of an integrand is a product of basic functions in the form <span class="process-math">\(\int f(x) g'(x) \, dx\text{,}\)</span> we can use the substitution <span class="process-math">\(u = f(x)\)</span> and <span class="process-math">\(dv = g'(x) \,dx\)</span> and apply the rule</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1188,215 +1175,212 @@ f(x)  g(x) = \int f(x) g'(x) \, dx + \int g(x)  f'(x) \, dx\text{.}\tag{5.4.2}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-3417"><div class="para" id="p-5877">When deciding to integrate by parts, we have to select both <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{.}\)</span> That selection is guided by the overall principle that the new integral <span class="process-math">\(\int v \, du\)</span> not be more difficult than the original integral <span class="process-math">\(\int u \, dv\text{.}\)</span> In addition, it is often helpful to recognize if one of the functions present is much easier to differentiate than antidifferentiate (such as <span class="process-math">\(\ln(x)\)</span>), in which case that function often is best assigned the variable <span class="process-math">\(u\text{.}\)</span> In addition, <span class="process-math">\(dv\)</span> must be a function that we can antidifferentiate.</div></li>
+<li id="li-3654"><div class="para" id="p-7168">When deciding to integrate by parts, we have to select both <span class="process-math">\(u\)</span> and <span class="process-math">\(dv\text{.}\)</span> That selection is guided by the overall principle that the new integral <span class="process-math">\(\int v \, du\)</span> not be more difficult than the original integral <span class="process-math">\(\int u \, dv\text{.}\)</span> In addition, it is often helpful to recognize if one of the functions present is much easier to differentiate than antidifferentiate (such as <span class="process-math">\(\ln(x)\)</span>), in which case that function often is best assigned the variable <span class="process-math">\(u\text{.}\)</span> In addition, <span class="process-math">\(dv\)</span> must be a function that we can antidifferentiate.</div></li>
 </ul></div></section><section class="exercises" id="ez-5-4"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">5.4.7</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-243"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div id="webwork-156" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="156" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/5.4HW_prob1.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-156-button" class="webwork-button activate" onclick="handleWW('webwork-156')" aria-labelledby="webwork-156-button-label"><span id="webwork-156-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-5878">
+<article class="exercise exercise-like" id="csafranski__5-_4HW_prob1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__csafranski__5-_4HW_prob1"><div id="boelkins-ACS__csafranski__5-_4HW_prob1-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="254" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/5.4HW_prob1.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__csafranski__5-_4HW_prob1-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-7169">
 <div class="para">Calculate the following integral:</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int x \cos(4 x) \, dx
+\int x \cos(3 x) \, dx
 \end{equation*}
 </div>
-</div> <div class="para" id="p-5879">We let <span class="process-math">\(u=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(dv =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-5880">So       <span class="process-math">\(\ \ \ du=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(v =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-5881">and then use the integration-by-parts formula to find that</div> <div class="para" id="p-5882">
-<span class="process-math">\(\displaystyle  \int x \cos( 4 x) \, dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> - <span class="process-math">\(\displaystyle  \int\)</span>  <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-5883">and finally, we finish evaluating to get that <span class="process-math">\(\displaystyle  \int x \cos( 4 x) dx =\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-7170">We let <span class="process-math">\(u=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(dv =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-7171">So       <span class="process-math">\(\ \ \ du=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(v =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-7172">and then use the integration-by-parts formula to find that</div> <div class="para" id="p-7173">
+<span class="process-math">\(\displaystyle  \int x \cos( 3 x) \, dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> - <span class="process-math">\(\displaystyle  \int\)</span>  <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-7174">and finally, we finish evaluating to get that <span class="process-math">\(\displaystyle  \int x \cos( 3 x) dx =\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-244"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div id="webwork-157" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="157" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/5.4HW_prob2.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-157-button" class="webwork-button activate" onclick="handleWW('webwork-157')" aria-labelledby="webwork-157-button-label"><span id="webwork-157-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-5900">
+</div></div></div></article><article class="exercise exercise-like" id="csafranski__5-_4HW_prob2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__csafranski__5-_4HW_prob2"><div id="boelkins-ACS__csafranski__5-_4HW_prob2-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="255" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/5.4HW_prob2.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__csafranski__5-_4HW_prob2-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-7191">
 <div class="para">Calculate the following integral:</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int x \sec^{2}\!\left(5x\right)  \, dx
+\int x \sec^{2}\mathopen{}\left(-4x\right)  \, dx
 \end{equation*}
 </div>
-</div> <div class="para" id="p-5901">We let <span class="process-math">\(u=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(dv =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-5902">So       <span class="process-math">\(\ \ \ du=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(v =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-5903">and then use the integration-by-parts formula to find that</div> <div class="para" id="p-5904">
-<span class="process-math">\(\displaystyle \int \sec^{2}\!\left(5x\right) x \, dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> - <span class="process-math">\(\displaystyle  \int\)</span>  <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-5905">and finally, we finish evaluating to get that <span class="process-math">\(\displaystyle  \int \sec^{2}\!\left(5x\right) x \, dx =\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-7192">We let <span class="process-math">\(u=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(dv =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-7193">So       <span class="process-math">\(\ \ \ du=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(v =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-7194">and then use the integration-by-parts formula to find that</div> <div class="para" id="p-7195">
+<span class="process-math">\(\displaystyle \int \sec^{2}\mathopen{}\left(-4x\right) x \, dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> - <span class="process-math">\(\displaystyle  \int\)</span>  <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-7196">and finally, we finish evaluating to get that <span class="process-math">\(\displaystyle  \int \sec^{2}\mathopen{}\left(-4x\right) x \, dx =\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-245"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div id="webwork-158" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="158" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/5.4HW_prob3.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-158-button" class="webwork-button activate" onclick="handleWW('webwork-158')" aria-labelledby="webwork-158-button-label"><span id="webwork-158-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-5922">
+</div></div></div></article><article class="exercise exercise-like" id="csafranski__5-_4HW_prob3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__csafranski__5-_4HW_prob3"><div id="boelkins-ACS__csafranski__5-_4HW_prob3-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="256" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/5.4HW_prob3.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__csafranski__5-_4HW_prob3-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-7213">
 <div class="para">Calculate the following integral:</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\int x^{8} \ln\!\left(-6x\right) \, dx
+\int x^{7} \ln\mathopen{}\left(-5x\right) \, dx
 \end{equation*}
 </div>
-</div> <div class="para" id="p-5923">We let <span class="process-math">\(u=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(dv =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-5924">So       <span class="process-math">\(\ \ \ du=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(v =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-5925">and then use the integration-by-parts formula to find that</div> <div class="para" id="p-5926">
-<span class="process-math">\(\displaystyle \int x^{8} \ln\!\left(-6x\right) \, dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> - <span class="process-math">\(\displaystyle  \int\)</span>  <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-5927">and finally, we finish evaluating to get that <span class="process-math">\(\displaystyle  \int x^{8} \ln\!\left(-6x\right) \, dx =\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-7214">We let <span class="process-math">\(u=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(dv =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-7215">So       <span class="process-math">\(\ \ \ du=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> and  <span class="process-math">\(v =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-7216">and then use the integration-by-parts formula to find that</div> <div class="para" id="p-7217">
+<span class="process-math">\(\displaystyle \int x^{7} \ln\mathopen{}\left(-5x\right) \, dx =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span> - <span class="process-math">\(\displaystyle  \int\)</span>  <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-7218">and finally, we finish evaluating to get that <span class="process-math">\(\displaystyle  \int x^{7} \ln\mathopen{}\left(-5x\right) \, dx =\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-246"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div id="webwork-159" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="159" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals15ByParts/sc5_6_15.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-159-button" class="webwork-button activate" onclick="handleWW('webwork-159')" aria-labelledby="webwork-159-button-label"><span id="webwork-159-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5944">Evaluate the definite integral.</div> <div class="para" id="p-5945">
-<span class="process-math">\(\displaystyle\int_{0}^{5} t e^{-t} dt =\)</span> <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setIntegrals15ByParts__sc5_6_15"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setIntegrals15ByParts__sc5_6_15"><div id="boelkins-ACS__Library__Rochester__setIntegrals15ByParts__sc5_6_15-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="257" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals15ByParts/sc5_6_15.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setIntegrals15ByParts__sc5_6_15-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7235">Evaluate the definite integral.</div> <div class="para" id="p-7236">
+<span class="process-math">\(\displaystyle\int_{0}^{4} t e^{-t} dt =\)</span> <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-247"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div id="webwork-160" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="160" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec2/Q15.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-160-button" class="webwork-button activate" onclick="handleWW('webwork-160')" aria-labelledby="webwork-160-button-label"><span id="webwork-160-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5947">Find the integral</div> <div class="para" id="p-5948">
-<span class="process-math">\(\int\,y\root 4\of{y + 5}\,dy =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap7Sec2__Q15"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap7Sec2__Q15"><div id="boelkins-ACS__Library__Michigan__Chap7Sec2__Q15-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="258" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec2/Q15.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap7Sec2__Q15-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7238">Find the integral</div> <div class="para" id="p-7239">
+<span class="process-math">\(\int\,y\root 4\of{y + 4}\,dy =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-248"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div id="webwork-161" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="161" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec2/Q07.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-161-button" class="webwork-button activate" onclick="handleWW('webwork-161')" aria-labelledby="webwork-161-button-label"><span id="webwork-161-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5950">Find the integral</div> <div class="para" id="p-5951">
-<span class="process-math">\(\int\, \left(z+1\right)e^{7z} dz =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap7Sec2__Q07"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap7Sec2__Q07"><div id="boelkins-ACS__Library__Michigan__Chap7Sec2__Q07-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="259" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec2/Q07.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap7Sec2__Q07-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7241">Find the integral</div> <div class="para" id="p-7242">
+<span class="process-math">\(\int\, \left(z+1\right)e^{6z} dz =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-249"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div id="webwork-162" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="162" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ma123DB/set3/s7_5_48.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-162-button" class="webwork-button activate" onclick="handleWW('webwork-162')" aria-labelledby="webwork-162-button-label"><span id="webwork-162-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5953">Evaluate the indefinite integral.</div> <div class="para logical" id="p-5954"><div class="displaymath process-math">
+</div></div></div></article><article class="exercise exercise-like" id="Library__ma123DB__set3__s7_5_48"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__ma123DB__set3__s7_5_48"><div id="boelkins-ACS__Library__ma123DB__set3__s7_5_48-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="260" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ma123DB/set3/s7_5_48.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__ma123DB__set3__s7_5_48-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7244">Evaluate the indefinite integral.</div> <div class="para logical" id="p-7245"><div class="displaymath process-math">
 \begin{equation*}
-\int x^2 \arctan(7 x) dx
+\int x^2 \arctan(6 x) dx
 \end{equation*}
-</div></div> <div class="para" id="p-5955">Answer:  <span class="fillin underline" role="img" aria-label="55-character blank" style="width: 25em;"></span> <span class="process-math">\(+\)</span> <span class="process-math">\(C\)</span>
+</div></div> <div class="para" id="p-7246">Answer:  <span class="fillin underline" role="img" aria-label="55-character blank" style="width: 25em;"></span> <span class="process-math">\(+\)</span> <span class="process-math">\(C\)</span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-250"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div id="webwork-163" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="163" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec2/Q03.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-163-button" class="webwork-button activate" onclick="handleWW('webwork-163')" aria-labelledby="webwork-163-button-label"><span id="webwork-163-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5957">Find the integral</div> <div class="para" id="p-5958">
-<span class="process-math">\(\int\,5 t^2\,\sin(t)\,dt =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap7Sec2__Q03"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap7Sec2__Q03"><div id="boelkins-ACS__Library__Michigan__Chap7Sec2__Q03-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="261" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec2/Q03.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap7Sec2__Q03-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7248">Find the integral</div> <div class="para" id="p-7249">
+<span class="process-math">\(\int\,4 t^2\,e^{t}\,dt =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-251"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div id="webwork-164" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="164" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals15ByParts/sc5_6_7.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-164-button" class="webwork-button activate" onclick="handleWW('webwork-164')" aria-labelledby="webwork-164-button-label"><span id="webwork-164-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5960">Use integration by parts to evaluate the integral.</div> <div class="para" id="p-5961">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setIntegrals15ByParts__sc5_6_7"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setIntegrals15ByParts__sc5_6_7"><div id="boelkins-ACS__Library__Rochester__setIntegrals15ByParts__sc5_6_7-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="262" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals15ByParts/sc5_6_7.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setIntegrals15ByParts__sc5_6_7-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7251">Use integration by parts to evaluate the integral.</div> <div class="para" id="p-7252">
 <span class="process-math">\(\displaystyle \int (\ln (2 x))^2 dx =\)</span> <span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span>  <span class="process-math">\(+ \, C\)</span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-252"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div id="webwork-165" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="165" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UMN/calculusStewartET/s_7_1_prob07.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-165-button" class="webwork-button activate" onclick="handleWW('webwork-165')" aria-labelledby="webwork-165-button-label"><span id="webwork-165-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5963">If <span class="process-math">\(g(1)=-3,\)</span> <span class="process-math">\(g(5)=5,\)</span> and <span class="process-math">\(\displaystyle \int_1^5 \! g(x) \, dx = -7,\)</span> evaluate the integral <span class="process-math">\(\displaystyle \int_1^5 \! x g'(x)\, dx.\)</span>
-</div> <div class="para" id="p-5964">Answer: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div></div></div></article><article class="exercise exercise-like" id="Library__UMN__calculusStewartET__s_7_1_prob07"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__UMN__calculusStewartET__s_7_1_prob07"><div id="boelkins-ACS__Library__UMN__calculusStewartET__s_7_1_prob07-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="263" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UMN/calculusStewartET/s_7_1_prob07.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__UMN__calculusStewartET__s_7_1_prob07-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7254">If <span class="process-math">\(g(1)=-4,\)</span> <span class="process-math">\(g(5)=4,\)</span> and <span class="process-math">\(\displaystyle \int_1^5 \! g(x) \, dx = -8,\)</span> evaluate the integral <span class="process-math">\(\displaystyle \int_1^5 \! x g'(x)\, dx.\)</span>
+</div> <div class="para" id="p-7255">Answer: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-253"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
-<div id="webwork-166" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="166" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Union/setIntByParts/sc5_6_26.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-166-button" class="webwork-button activate" onclick="handleWW('webwork-166')" aria-labelledby="webwork-166-button-label"><span id="webwork-166-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5968">Evaluate the indefinite integral.</div> <div class="para" id="p-5969">
-<span class="process-math">\(\displaystyle\int x^{7}\cos\!\left(x^{4}\right) \, dx\)</span> = <span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span> <span class="process-math">\(+ C\text{.}\)</span>
-</div> <div class="para" id="p-5970">Hint: First make a substitution and then use integration by parts to evaluate the integral.</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Union__setIntByParts__sc5_6_26"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Union__setIntByParts__sc5_6_26"><div id="boelkins-ACS__Library__Union__setIntByParts__sc5_6_26-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="264" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Union/setIntByParts/sc5_6_26.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Union__setIntByParts__sc5_6_26-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7259">Evaluate the indefinite integral.</div> <div class="para" id="p-7260">
+<span class="process-math">\(\displaystyle\int x^{5}\cos\mathopen{}\left(x^{3}\right) \, dx\)</span> = <span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span> <span class="process-math">\(+ C\text{.}\)</span>
+</div> <div class="para" id="p-7261">Hint: First make a substitution and then use integration by parts to evaluate the integral.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-254"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
-<div id="webwork-167" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="167" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec2/Q38.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-167-button" class="webwork-button activate" onclick="handleWW('webwork-167')" aria-labelledby="webwork-167-button-label"><span id="webwork-167-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-5972">For each of the following integrals, indicate whether integration by substitution or integration by parts is more appropriate, or if neither method is appropriate.  Do not evaluate the integrals.</div> <div class="para" id="p-5973">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap7Sec2__Q38"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap7Sec2__Q38"><div id="boelkins-ACS__Library__Michigan__Chap7Sec2__Q38-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="265" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap7Sec2/Q38.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap7Sec2__Q38-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-7263">For each of the following integrals, indicate whether integration by substitution or integration by parts is more appropriate, or if neither method is appropriate.  Do not evaluate the integrals.</div> <div class="para" id="p-7264">
 <em class="alert">1.</em> <span class="process-math">\(\int\,x\sin x\,dx\)</span> <ul style="list-style:circle;">
-<li id="li-3418"><div class="para" id="p-5974">integration by parts</div></li>
-<li id="li-3419"><div class="para" id="p-5975">substitution</div></li>
-<li id="li-3420"><div class="para" id="p-5976">neither</div></li>
+<li id="li-3655"><div class="para" id="p-7265">substitution</div></li>
+<li id="li-3656"><div class="para" id="p-7266">neither</div></li>
+<li id="li-3657"><div class="para" id="p-7267">integration by parts</div></li>
 </ul>
-</div> <div class="para" id="p-5977">
-<em class="alert">2.</em> <span class="process-math">\(\int\,{x\over 1 + x^{2}}\,dx\)</span> <ul style="list-style:circle;">
-<li id="li-3421"><div class="para" id="p-5978">integration by parts</div></li>
-<li id="li-3422"><div class="para" id="p-5979">neither</div></li>
-<li id="li-3423"><div class="para" id="p-5980">substitution</div></li>
+</div> <div class="para" id="p-7268">
+<em class="alert">2.</em> <span class="process-math">\(\int\,{x^{4}\over 1 + x^{5}}\,dx\)</span> <ul style="list-style:circle;">
+<li id="li-3658"><div class="para" id="p-7269">neither</div></li>
+<li id="li-3659"><div class="para" id="p-7270">substitution</div></li>
+<li id="li-3660"><div class="para" id="p-7271">integration by parts</div></li>
 </ul>
-</div> <div class="para" id="p-5981">
-<em class="alert">3.</em> <span class="process-math">\(\int\,x e^{x^{2}}\,dx\)</span> <ul style="list-style:circle;">
-<li id="li-3424"><div class="para" id="p-5982">substitution</div></li>
-<li id="li-3425"><div class="para" id="p-5983">integration by parts</div></li>
-<li id="li-3426"><div class="para" id="p-5984">neither</div></li>
+</div> <div class="para" id="p-7272">
+<em class="alert">3.</em> <span class="process-math">\(\int\,x^{4} e^{x^{5}}\,dx\)</span> <ul style="list-style:circle;">
+<li id="li-3661"><div class="para" id="p-7273">substitution</div></li>
+<li id="li-3662"><div class="para" id="p-7274">integration by parts</div></li>
+<li id="li-3663"><div class="para" id="p-7275">neither</div></li>
 </ul>
-</div> <div class="para" id="p-5985">
-<em class="alert">4.</em> <span class="process-math">\(\int\,x \cos(x^{2})\,dx\)</span> <ul style="list-style:circle;">
-<li id="li-3427"><div class="para" id="p-5986">neither</div></li>
-<li id="li-3428"><div class="para" id="p-5987">substitution</div></li>
-<li id="li-3429"><div class="para" id="p-5988">integration by parts</div></li>
+</div> <div class="para" id="p-7276">
+<em class="alert">4.</em> <span class="process-math">\(\int\,x^{4} \cos(x^{5})\,dx\)</span> <ul style="list-style:circle;">
+<li id="li-3664"><div class="para" id="p-7277">neither</div></li>
+<li id="li-3665"><div class="para" id="p-7278">integration by parts</div></li>
+<li id="li-3666"><div class="para" id="p-7279">substitution</div></li>
 </ul>
-</div> <div class="para" id="p-5989">
-<em class="alert">5.</em> <span class="process-math">\(\int\,{1\over\sqrt{5 x + 1}}\,dx\)</span> <ul style="list-style:circle;">
-<li id="li-3430"><div class="para" id="p-5990">neither</div></li>
-<li id="li-3431"><div class="para" id="p-5991">substitution</div></li>
-<li id="li-3432"><div class="para" id="p-5992">integration by parts</div></li>
+</div> <div class="para" id="p-7280">
+<em class="alert">5.</em> <span class="process-math">\(\int\,{1\over\sqrt{4 x + 1}}\,dx\)</span> <ul style="list-style:circle;">
+<li id="li-3667"><div class="para" id="p-7281">neither</div></li>
+<li id="li-3668"><div class="para" id="p-7282">substitution</div></li>
+<li id="li-3669"><div class="para" id="p-7283">integration by parts</div></li>
 </ul>
-</div> <div class="para" id="p-5993"><em class="emphasis">(Note that because this is multiple choice, you will not be able to see which parts of the problem you got correct.)</em></div>
+</div> <div class="para" id="p-7284"><em class="emphasis">(Note that because this is multiple choice, you will not be able to see which parts of the problem you got correct.)</em></div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-255"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5994">
+</div></div></div></article><article class="exercise exercise-like" id="exercise-328"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<div class="para logical" id="p-7285">
 <div class="para">Let <span class="process-math">\(f(t) = te^{-2t}\)</span> and <span class="process-math">\(F(x) = \int_0^x f(t) \, dt\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-3433"><div class="para" id="p-5995">Determine <span class="process-math">\(F'(x)\text{.}\)</span>
+<li id="li-3670"><div class="para" id="p-7286">Determine <span class="process-math">\(F'(x)\text{.}\)</span>
 </div></li>
-<li id="li-3434"><div class="para" id="p-5996">Use the First FTC to find a formula for <span class="process-math">\(F\)</span> that does not involve an integral.</div></li>
-<li id="li-3435"><div class="para" id="p-5997">Is <span class="process-math">\(F\)</span> an increasing or decreasing function for <span class="process-math">\(x \gt 0\text{?}\)</span> Why?</div></li>
+<li id="li-3671"><div class="para" id="p-7287">Use the First FTC to find a formula for <span class="process-math">\(F\)</span> that does not involve an integral.</div></li>
+<li id="li-3672"><div class="para" id="p-7288">Is <span class="process-math">\(F\)</span> an increasing or decreasing function for <span class="process-math">\(x \gt 0\text{?}\)</span> Why?</div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-256"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6006">
+</div></article><article class="exercise exercise-like" id="exercise-329"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
+<div class="para logical" id="p-7297">
 <div class="para">Consider the indefinite integral given by <span class="process-math">\(\int e^{2x} \cos(e^x) \, dx\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-3442"><div class="para" id="p-6007">Noting that <span class="process-math">\(e^{2x} = e^x \cdot e^x\text{,}\)</span> use the substitution <span class="process-math">\(z = e^{x}\)</span> to determine a new, equivalent integral in the variable <span class="process-math">\(z\text{.}\)</span>
+<li id="li-3679"><div class="para" id="p-7298">Noting that <span class="process-math">\(e^{2x} = e^x \cdot e^x\text{,}\)</span> use the substitution <span class="process-math">\(z = e^{x}\)</span> to determine a new, equivalent integral in the variable <span class="process-math">\(z\text{.}\)</span>
 </div></li>
-<li id="li-3443"><div class="para" id="p-6008">Evaluate the integral you found in (a) using an appropriate technique.</div></li>
-<li id="li-3444"><div class="para" id="p-6009">How is the problem of evaluating <span class="process-math">\(\int e^{2x} \cos(e^{2x}) \, dx\)</span> different from evaluating the integral in (a)? Do so.</div></li>
-<li id="li-3445"><div class="para logical" id="p-6010">
+<li id="li-3680"><div class="para" id="p-7299">Evaluate the integral you found in (a) using an appropriate technique.</div></li>
+<li id="li-3681"><div class="para" id="p-7300">How is the problem of evaluating <span class="process-math">\(\int e^{2x} \cos(e^{2x}) \, dx\)</span> different from evaluating the integral in (a)? Do so.</div></li>
+<li id="li-3682"><div class="para logical" id="p-7301">
 <div class="para">Evaluate each of the following integrals as well, keeping in mind the approach(es) used earlier in this problem:</div>
 <ul class="disc">
-<li id="li-3446"><div class="para" id="p-6011"><span class="process-math">\(\displaystyle \int e^{2x} \sin(e^x) \, dx\)</span></div></li>
-<li id="li-3447"><div class="para" id="p-6012"><span class="process-math">\(\displaystyle \int e^{3x} \sin(e^{3x}) \, dx\)</span></div></li>
-<li id="li-3448"><div class="para" id="p-6013"><span class="process-math">\(\displaystyle \int xe^{x^2} \cos(e^{x^2}) \sin(e^{x^2}) \, dx\)</span></div></li>
+<li id="li-3683"><div class="para" id="p-7302"><span class="process-math">\(\displaystyle \int e^{2x} \sin(e^x) \, dx\)</span></div></li>
+<li id="li-3684"><div class="para" id="p-7303"><span class="process-math">\(\displaystyle \int e^{3x} \sin(e^{3x}) \, dx\)</span></div></li>
+<li id="li-3685"><div class="para" id="p-7304"><span class="process-math">\(\displaystyle \int xe^{x^2} \cos(e^{x^2}) \sin(e^{x^2}) \, dx\)</span></div></li>
 </ul>
 </div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-257"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
-<div class="para" id="p-6030">For each of the following indefinite integrals, determine whether you would use <span class="process-math">\(u\)</span>-substitution, integration by parts, neither*, or both to evaluate the integral. In each case, write one sentence to explain your reasoning, and include a statement of any substitutions used. (That is, if you decide in a problem to let <span class="process-math">\(u = e^{3x}\text{,}\)</span> you should state that, as well as that <span class="process-math">\(du = 3e^{3x} \, dx\text{.}\)</span>) Finally, use your chosen approach to evaluate each integral. (* one of the following problems does not have an elementary antiderivative and you are not expected to actually evaluate this integral; this will correspond with a choice of “neither” among those given.)</div> <div class="para logical" id="p-6031"><ol class="lower-alpha">
-<li id="li-3463"><div class="para" id="p-6032"><span class="process-math">\(\displaystyle \int x^2 \cos(x^3) \, dx\)</span></div></li>
-<li id="li-3464"><div class="para" id="p-6033">
+</div></article><article class="exercise exercise-like" id="exercise-330"><h4 class="heading"><span class="codenumber">15<span class="period">.</span></span></h4>
+<div class="para" id="p-7321">For each of the following indefinite integrals, determine whether you would use <span class="process-math">\(u\)</span>-substitution, integration by parts, neither*, or both to evaluate the integral. In each case, write one sentence to explain your reasoning, and include a statement of any substitutions used. (That is, if you decide in a problem to let <span class="process-math">\(u = e^{3x}\text{,}\)</span> you should state that, as well as that <span class="process-math">\(du = 3e^{3x} \, dx\text{.}\)</span>) Finally, use your chosen approach to evaluate each integral. (* one of the following problems does not have an elementary antiderivative and you are not expected to actually evaluate this integral; this will correspond with a choice of “neither” among those given.)</div> <div class="para logical" id="p-7322"><ol class="lower-alpha">
+<li id="li-3700"><div class="para" id="p-7323"><span class="process-math">\(\displaystyle \int x^2 \cos(x^3) \, dx\)</span></div></li>
+<li id="li-3701"><div class="para" id="p-7324">
 <span class="process-math">\(\int x^5 \cos(x^3) \, dx\)</span>  (Hint: <span class="process-math">\(x^5 = x^2 \cdot x^3\)</span>)</div></li>
-<li id="li-3465"><div class="para" id="p-6034"><span class="process-math">\(\displaystyle \int x\ln(x^2) \, dx\)</span></div></li>
-<li id="li-3466"><div class="para" id="p-6035"><span class="process-math">\(\displaystyle \int \sin(x^4) \, dx\)</span></div></li>
-<li id="li-3467"><div class="para" id="p-6036"><span class="process-math">\(\displaystyle \int x^3 \sin(x^4) \, dx\)</span></div></li>
-<li id="li-3468"><div class="para" id="p-6037"><span class="process-math">\(\displaystyle \int x^7 \sin(x^4) \, dx\)</span></div></li>
+<li id="li-3702"><div class="para" id="p-7325"><span class="process-math">\(\displaystyle \int x\ln(x^2) \, dx\)</span></div></li>
+<li id="li-3703"><div class="para" id="p-7326"><span class="process-math">\(\displaystyle \int \sin(x^4) \, dx\)</span></div></li>
+<li id="li-3704"><div class="para" id="p-7327"><span class="process-math">\(\displaystyle \int x^3 \sin(x^4) \, dx\)</span></div></li>
+<li id="li-3705"><div class="para" id="p-7328"><span class="process-math">\(\displaystyle \int x^7 \sin(x^4) \, dx\)</span></div></li>
 </ol></div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-93"><div class="fn">Observe that if we considered the alternate choice, and let <span class="process-math">\(u = \cos(x)\)</span> and <span class="process-math">\(dv = x \, dx\text{,}\)</span> then <span class="process-math">\(du = -\sin(x) \, dx\)</span> and <span class="process-math">\(v = \frac{1}{2}x^2\text{,}\)</span> from which we would write <span class="process-math">\(\int x\cos(x) \, dx = \frac{1}{2}x^2 \cos(x) - \int \frac{1}{2}x^2 (-\sin(x)) \, dx\text{.}\)</span> Thus we have replaced the problem of integrating <span class="process-math">\(x \cos(x)\)</span> with that of integrating <span class="process-math">\(\frac{1}{2}x^2 \sin(x)\text{;}\)</span> the latter is clearly more complicated, which shows that this alternate choice is not as helpful as the first choice.</div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-95"><div class="fn">Observe that if we considered the alternate choice, and let <span class="process-math">\(u = \cos(x)\)</span> and <span class="process-math">\(dv = x \, dx\text{,}\)</span> then <span class="process-math">\(du = -\sin(x) \, dx\)</span> and <span class="process-math">\(v = \frac{1}{2}x^2\text{,}\)</span> from which we would write <span class="process-math">\(\int x\cos(x) \, dx = \frac{1}{2}x^2 \cos(x) - \int \frac{1}{2}x^2 (-\sin(x)) \, dx\text{.}\)</span> Thus we have replaced the problem of integrating <span class="process-math">\(x \cos(x)\)</span> with that of integrating <span class="process-math">\(\frac{1}{2}x^2 \sin(x)\text{;}\)</span> the latter is clearly more complicated, which shows that this alternate choice is not as helpful as the first choice.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-5-3-substitution.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-5-5-other-opt.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

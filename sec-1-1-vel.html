@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC How do we measure velocity?</title>
@@ -15,20 +15,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="C-1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-1.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-1-2-lim.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -839,66 +826,131 @@ eBookConfig.new_server_prefix = "/ns";
 <li id="li-17"><div class="para" id="p-52">How is the average velocity of a moving object connected to the values of its position function?</div></li>
 <li id="li-18"><div class="para" id="p-53">How do we interpret the average velocity of an object geometrically on the graph of its position function?</div></li>
 <li id="li-19"><div class="para" id="p-54">How is the notion of instantaneous velocity connected to average velocity?</div></li>
-</ul></article><section class="introduction" id="introduction-1"><div class="para" id="p-55">Calculus can be viewed broadly as the study of change. A natural and important question to ask about any changing quantity is “how fast is the quantity changing?”</div> <div class="para" id="p-56">We begin with a simple problem: a ball is tossed straight up in the air. How is the ball moving? Questions like this one are central to our study of differential calculus.</div> <article class="exploration project-like" id="PA-1-1"><h3 class="heading">
+</ul></article><section class="introduction" id="introduction-1"><div class="para" id="p-55">Calculus can be viewed broadly as the study of change. A natural and important question to ask about any changing quantity is “how fast is the quantity changing?”</div> <div class="para" id="p-56">We begin with a simple problem: a ball is tossed straight up in the air. How is the ball moving? Questions like this one are central to our study of differential calculus.</div> <article class="exploration project-like" id="ACS__Preview__1-1"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">1.1.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-57">
-<div class="para">Suppose that the height <span class="process-math">\(s\)</span> of a ball at time <span class="process-math">\(t\)</span> (in seconds) is given in feet by the formula <span class="process-math">\(s(t) = 64 - 16(t-1)^2\text{.}\)</span>
-</div>
-<ol class="lower-alpha">
-<li id="li-20"><div class="para" id="p-58">Construct a graph of <span class="process-math">\(y = s(t)\)</span> on the time interval <span class="process-math">\(0 \le t \le 3\text{.}\)</span> Label at least six distinct points on the graph, including the three points showing when the ball was released, when the ball reaches its highest point, and when the ball lands.</div></li>
-<li id="li-21"><div class="para" id="p-59">Describe the behavior of the ball on the time interval <span class="process-math">\(0 \lt t \lt 1\)</span> and on time interval <span class="process-math">\(1 \lt t \lt 3\text{.}\)</span> What occurs at the instant <span class="process-math">\(t = 1\text{?}\)</span>
-</div></li>
-<li id="li-22"><div class="para logical" id="p-60">
-<div class="para">Consider the expression</div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__ACS__Preview__1-1"><div id="boelkins-ACS__ACS__Preview__1-1-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="17" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/1.1Preview_prob1.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__ACS__Preview__1-1-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="introduction" id="introduction-2">
+<div class="para" id="p-57">Suppose that the height <span class="process-math">\(s\)</span> of a ball (in feet) at time <span class="process-math">\(t\)</span> (in seconds) is given by the formula <span class="process-math">\(s(t) = 64 - 16(t - 1)^2\text{.}\)</span>  This function is graphed below on the interval <span class="process-math">\(0 \leq t \leq 3\text{.}\)</span>
+</div> <div class="image-box" style="width: 66%; margin-left: 17%; margin-right: 17%;"><img src="generated/webwork/images/webwork-17-image-1.png" class="contained"></div>
+</div> <article class="task exercise-like" id="task-1"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">Part a.</span>
+</h4>
+<div class="para" id="p-58">Which labeled point (A-G) corresponds to the release of the ball? <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div> <div class="para" id="p-59">How high (in feet) was the ball when it was released? <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-60">Which labeled point corresponds to the highest point of the ball? <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div> <div class="para" id="p-61">When (in seconds after being released) did the ball reach its highest point? <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-62">Which labeled point corresponds to the ball hitting the ground? <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div> <div class="para" id="p-63">How long (in seconds) after being released did the ball hit the ground? <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div></article> <article class="task exercise-like" id="task-2"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Part b.</span>
+</h4>
+<div class="para" id="p-70">Which option best describes the behavior of the ball on the time interval <span class="process-math">\(0 \lt  t \lt  1\text{?}\)</span> <ul style="list-style:circle;">
+<li id="li-21"><div class="para" id="p-72">The ball is rising.</div></li>
+<li id="li-22"><div class="para" id="p-73">The ball is falling.</div></li>
+<li id="li-23"><div class="para" id="p-74">The ball changes direction.</div></li>
+<li id="li-24"><div class="para" id="p-75">The ball is released.</div></li>
+<li id="li-25"><div class="para" id="p-76">The ball hits the ground.</div></li>
+</ul>
+</div> <div class="para" id="p-77">Which option best describes the behavior of the ball on the time interval <span class="process-math">\(1 \lt  t \lt  3\text{?}\)</span> <ul style="list-style:circle;">
+<li id="li-27"><div class="para" id="p-79">The ball is rising.</div></li>
+<li id="li-28"><div class="para" id="p-80">The ball is falling.</div></li>
+<li id="li-29"><div class="para" id="p-81">The ball changes direction.</div></li>
+<li id="li-30"><div class="para" id="p-82">The ball is released.</div></li>
+<li id="li-31"><div class="para" id="p-83">The ball hits the ground.</div></li>
+</ul>
+</div> <div class="para" id="p-84">What occurs at the instant <span class="process-math">\(t=1\text{?}\)</span> <ul style="list-style:circle;">
+<li id="li-33"><div class="para" id="p-86">The ball is rising.</div></li>
+<li id="li-34"><div class="para" id="p-87">The ball is falling.</div></li>
+<li id="li-35"><div class="para" id="p-88">The ball changes direction.</div></li>
+<li id="li-36"><div class="para" id="p-89">The ball is released.</div></li>
+<li id="li-37"><div class="para" id="p-90">The ball hits the ground.</div></li>
+</ul>
+</div></article> <article class="task exercise-like" id="task-3"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">Part c.</span>
+</h4>
+<div class="para logical" id="p-94">
+<div class="para">Consider the following expression.</div>
 <div class="displaymath process-math">
 \begin{equation*}
-AV_{[0.5,1]} = \frac{s(1) - s(0.5)}{1-0.5}\text{.}
+AV_{[0.5,1]} = \frac{s(1)-s(0.5)}{1-0.5}
 \end{equation*}
 </div>
-<div class="para">Compute the value of <span class="process-math">\(AV_{[0.5,1]}\text{.}\)</span> What does this value measure on the graph? What does this value tell us about the motion of the ball? In particular, what are the units on <span class="process-math">\(AV_{[0.5,1]}\text{?}\)</span>
-</div>
+</div> <div class="para" id="p-95">Compute the value of <span class="process-math">\(AV_{[0.5,1]}\text{.}\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-96">What does this value measure geometrically?</div> <div class="para logical" id="p-97"><ul class="disc">
+<li id="li-38"><div class="para" id="p-98">
+<em class="alert">slope</em>. The slope of the line between the points <span class="process-math">\((0.5, s(0.5)) \)</span> and <span class="process-math">\((1, s(1)) \text{.}\)</span>
 </div></li>
-</ol>
-</div></article></section><section class="subsection" id="subsection-1"><h3 class="heading hide-type">
+<li id="li-39"><div class="para" id="p-99">
+<em class="alert">curvature</em>. The curvature of the graph of <span class="process-math">\(s\)</span> on the interval <span class="process-math">\(0.5 \leq t \leq 1 \text{.}\)</span>
+</div></li>
+<li id="li-40"><div class="para" id="p-100">
+<em class="alert">area</em>. The area under the graph of <span class="process-math">\(s\)</span> on the interval <span class="process-math">\(0.5 \leq t \leq 1 \text{.}\)</span>
+</div></li>
+<li id="li-41"><div class="para" id="p-101">
+<em class="alert">distance</em>. The distance between the points <span class="process-math">\((0.5, s(0.5)) \)</span> and <span class="process-math">\((1, s(1)) \text{.}\)</span>
+</div></li>
+</ul></div> <div class="para" id="p-102">What does this value measure physically?</div> <div class="para logical" id="p-103"><ul class="disc">
+<li id="li-42"><div class="para" id="p-104">
+<em class="alert">average velocity</em>. The average velocity of the ball during the interval <span class="process-math">\(0.5 \leq t \leq 1 \text{.}\)</span>
+</div></li>
+<li id="li-43"><div class="para" id="p-105">
+<em class="alert">distance</em>. The distance that the ball travels during the interval <span class="process-math">\(0.5 \leq t \leq 1 \text{.}\)</span>
+</div></li>
+<li id="li-44"><div class="para" id="p-106">
+<em class="alert">acceleration</em>. The acceleration of the ball during the interval <span class="process-math">\(0.5 \leq t \leq 1 \text{.}\)</span>
+</div></li>
+</ul></div> <div class="para" id="p-107">What are the units on <span class="process-math">\(AV_{[0.5,1]}\text{?}\)</span> <ul style="list-style:circle;">
+<li id="li-46"><div class="para" id="p-109">feet per second</div></li>
+<li id="li-47"><div class="para" id="p-110">feet</div></li>
+<li id="li-48"><div class="para" id="p-111">seconds</div></li>
+<li id="li-49"><div class="para" id="p-112">feet per second squared</div></li>
+<li id="li-50"><div class="para" id="p-113">foot seconds</div></li>
+<li id="li-51"><div class="para" id="p-114">none of these</div></li>
+</ul>
+</div></article>
+</div>
+</div></div></div></article></section><section class="subsection" id="subsection-1"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.1.1</span> <span class="title">Position and average velocity</span>
 </h3>
-<div class="para" id="p-61">Any moving object has a <em class="emphasis">position</em>  that can be considered a function of <em class="emphasis">time</em>. When the motion is along a straight line, the position is given by a single variable, which we denote by <span class="process-math">\(s(t)\text{.}\)</span> For example, <span class="process-math">\(s(t)\)</span> might give the mile marker of a car traveling on a straight highway at time <span class="process-math">\(t\)</span> in hours. Similarly, the function <span class="process-math">\(s\)</span> described in <a href="" class="xref" data-knowl="./knowl/PA-1-1.html" title="Preview Activity 1.1.1">Preview Activity 1.1.1</a> is a position function, where position is measured vertically relative to the ground.</div>
-<div class="para" id="p-62">On any time interval, a moving object also has an <em class="emphasis">average velocity</em>. For example, to compute a car's average velocity we divide the number of miles traveled by the time elapsed, which gives the velocity in <em class="emphasis">miles per hour</em>. Similarly, the value of <span class="process-math">\(AV_{[0.5,1]}\)</span> in <a href="" class="xref" data-knowl="./knowl/PA-1-1.html" title="Preview Activity 1.1.1">Preview Activity 1.1.1</a> gave the average velocity of the ball on the time interval <span class="process-math">\([0.5,1]\text{,}\)</span> measured in feet per second.</div>
-<div class="para" id="p-63">In general, we make the following definition:</div>
+<div class="para" id="p-119">Any moving object has a <em class="emphasis">position</em>  that can be considered a function of <em class="emphasis">time</em>. When the motion is along a straight line, the position is given by a single variable, which we denote by <span class="process-math">\(s(t)\text{.}\)</span> For example, <span class="process-math">\(s(t)\)</span> might give the mile marker of a car traveling on a straight highway at time <span class="process-math">\(t\)</span> in hours. Similarly, the function <span class="process-math">\(s\)</span> described in <a href="" class="xref" data-knowl="./knowl/ACS__Preview__1-1.html" title="Preview Activity 1.1.1">Preview Activity 1.1.1</a> is a position function, where position is measured vertically relative to the ground.</div>
+<div class="para" id="p-120">On any time interval, a moving object also has an <em class="emphasis">average velocity</em>. For example, to compute a car’s average velocity we divide the number of miles traveled by the time elapsed, which gives the velocity in <em class="emphasis">miles per hour</em>. Similarly, the value of <span class="process-math">\(AV_{[0.5,1]}\)</span> in <a href="" class="xref" data-knowl="./knowl/ACS__Preview__1-1.html" title="Preview Activity 1.1.1">Preview Activity 1.1.1</a> gave the average velocity of the ball on the time interval <span class="process-math">\([0.5,1]\text{,}\)</span> measured in feet per second.</div>
+<div class="para" id="p-121">In general, we make the following definition:</div>
 <article class="assemblage assemblage-like" id="assemblage-1"><h4 class="heading"><span class="title">Average Velocity.</span></h4>
-<div class="para logical" id="p-64">
+<div class="para logical" id="p-122">
 <div class="para">For an object moving in a straight line with position function <span class="process-math">\(s(t)\text{,}\)</span> the  <em class="emphasis">average velocity of the object on the interval from <span class="process-math">\(t = a\)</span> to <span class="process-math">\(t = b\)</span></em>, denoted <span class="process-math">\(AV_{[a,b]}\text{,}\)</span> is given by the formula</div>
 <div class="displaymath process-math">
 \begin{equation*}
 AV_{[a,b]} = \frac{s(b)-s(a)}{b-a}\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-65">Note well: the units on <span class="process-math">\(AV_{[a,b]}\)</span> are “units of <span class="process-math">\(s\)</span> per unit of <span class="process-math">\(t\text{,}\)</span>” such as “miles per hour” or “feet per second.”</div>
+</div></article><div class="para" id="p-123">Note well: the units on <span class="process-math">\(AV_{[a,b]}\)</span> are “units of <span class="process-math">\(s\)</span> per unit of <span class="process-math">\(t\text{,}\)</span>” such as “miles per hour” or “feet per second.”</div>
 <article class="activity project-like" id="act-1-1-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-66">The following questions concern the position function given by <span class="process-math">\(s(t) = 64 - 16(t-1)^2\text{,}\)</span> considered in <a href="" class="xref" data-knowl="./knowl/PA-1-1.html" title="Preview Activity 1.1.1">Preview Activity 1.1.1</a>.</div> <div class="para logical" id="p-67"><ol class="lower-alpha">
-<li id="li-23"><div class="para" id="p-68">Compute the average velocity of the ball on each of the following time intervals: <span class="process-math">\([0.4,0.8]\text{,}\)</span> <span class="process-math">\([0.7,0.8]\text{,}\)</span> <span class="process-math">\([0.79, 0.8]\text{,}\)</span> <span class="process-math">\([0.799,0.8]\text{,}\)</span> <span class="process-math">\([0.8,1.2]\text{,}\)</span> <span class="process-math">\([0.8,0.9]\text{,}\)</span> <span class="process-math">\([0.8,0.81]\text{,}\)</span> <span class="process-math">\([0.8,0.801]\text{.}\)</span> Include units for each value.</div></li>
-<li id="li-24"><div class="para" id="p-69">On the graph provided in <a href="" class="xref" data-knowl="./knowl/F-1-1-Act1.html" title="Figure 1.1.1">Figure 1.1.1</a>, sketch the line that passes through the points <span class="process-math">\(A=(0.4, s(0.4))\)</span> and <span class="process-math">\(B=(0.8, s(0.8))\text{.}\)</span> What is the meaning of the slope of this line? In light of this meaning, what is a geometric way to interpret each of the values computed in the preceding question?</div></li>
-<li id="li-25"><div class="para" id="p-70">Use a graphing utility to plot the graph of <span class="process-math">\(s(t) = 64 - 16(t-1)^2\)</span> on an interval containing the value <span class="process-math">\(t = 0.8\text{.}\)</span> Then, zoom in repeatedly on the point <span class="process-math">\((0.8, s(0.8))\text{.}\)</span> What do you observe about how the graph appears as you view it more and more closely?</div></li>
-<li id="li-26"><div class="para" id="p-71">What do you conjecture is the velocity of the ball at the instant <span class="process-math">\(t = 0.8\text{?}\)</span> Why?</div></li>
+<div class="para" id="p-124">The following questions concern the position function given by <span class="process-math">\(s(t) = 64 - 16(t-1)^2\text{,}\)</span> considered in <a href="" class="xref" data-knowl="./knowl/ACS__Preview__1-1.html" title="Preview Activity 1.1.1">Preview Activity 1.1.1</a>.</div> <div class="para logical" id="p-125"><ol class="lower-alpha">
+<li id="li-52"><div class="para" id="p-126">Compute the average velocity of the ball on each of the following time intervals: <span class="process-math">\([0.4,0.8]\text{,}\)</span> <span class="process-math">\([0.7,0.8]\text{,}\)</span> <span class="process-math">\([0.79, 0.8]\text{,}\)</span> <span class="process-math">\([0.799,0.8]\text{,}\)</span> <span class="process-math">\([0.8,1.2]\text{,}\)</span> <span class="process-math">\([0.8,0.9]\text{,}\)</span> <span class="process-math">\([0.8,0.81]\text{,}\)</span> <span class="process-math">\([0.8,0.801]\text{.}\)</span> Include units for each value.</div></li>
+<li id="li-53"><div class="para" id="p-127">On the graph provided in <a href="" class="xref" data-knowl="./knowl/F-1-1-Act1.html" title="Figure 1.1.1">Figure 1.1.1</a>, sketch the line that passes through the points <span class="process-math">\(A=(0.4, s(0.4))\)</span> and <span class="process-math">\(B=(0.8, s(0.8))\text{.}\)</span> What is the meaning of the slope of this line? In light of this meaning, what is a geometric way to interpret each of the values computed in the preceding question?</div></li>
+<li id="li-54"><div class="para" id="p-128">Use a graphing utility to plot the graph of <span class="process-math">\(s(t) = 64 - 16(t-1)^2\)</span> on an interval containing the value <span class="process-math">\(t = 0.8\text{.}\)</span> Then, zoom in repeatedly on the point <span class="process-math">\((0.8, s(0.8))\text{.}\)</span> What do you observe about how the graph appears as you view it more and more closely?</div></li>
+<li id="li-55"><div class="para" id="p-129">What do you conjecture is the velocity of the ball at the instant <span class="process-math">\(t = 0.8\text{?}\)</span> Why?</div></li>
 </ol></div> <figure class="figure figure-like" id="F-1-1-Act1"><div class="image-box" style="width: 43%; margin-left: 28.5%; margin-right: 28.5%;"><img src="external/images/1_1_Act1.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.1<span class="period">.</span></span><span class="space"> </span>A partial plot of <span class="process-math">\(s(t) = 64 - 16(t-1)^2\text{.}\)</span></figcaption></figure></article></section><section class="subsection" id="subsection-2"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.1.2</span> <span class="title">Instantaneous Velocity</span>
 </h3>
-<div class="para" id="p-87">Whether we are driving a car, riding a bike, or throwing a ball, we have an intuitive sense that a moving object has a velocity at any given moment -- a number that measures how fast the object is moving <em class="emphasis">right now</em>. For instance, a car's speedometer tells the driver the car's velocity at any given instant. In fact, the velocity on a speedometer is really an average velocity that is computed over a very small time interval. If we let the time interval over which average velocity is computed become shorter and shorter, we can progress from average velocity to <em class="emphasis">instantaneous</em> velocity.</div>
-<div class="para" id="p-88">Informally, we define the <em class="emphasis">instantaneous velocity</em>  of a moving object at time <span class="process-math">\(t = a\)</span> to be the value that the average velocity approaches as we take smaller and smaller intervals of time containing <span class="process-math">\(t = a\text{.}\)</span> We will develop a more formal definition of instantaneous velocity soon, and this definition will be the foundation of much of our work in calculus. For now, it is fine to think of instantaneous velocity as follows: take average velocities on smaller and smaller time intervals around a specific point. If those average velocities approach a single number, then that number will be the instantaneous velocity at that point.</div>
+<div class="para" id="p-145">Whether we are driving a car, riding a bike, or throwing a ball, we have an intuitive sense that a moving object has a velocity at any given moment -- a number that measures how fast the object is moving <em class="emphasis">right now</em>. For instance, a car’s speedometer tells the driver the car’s velocity at any given instant. In fact, the velocity on a speedometer is really an average velocity that is computed over a very small time interval. If we let the time interval over which average velocity is computed become shorter and shorter, we can progress from average velocity to <em class="emphasis">instantaneous</em> velocity.</div>
+<div class="para" id="p-146">Informally, we define the <em class="emphasis">instantaneous velocity</em>  of a moving object at time <span class="process-math">\(t = a\)</span> to be the value that the average velocity approaches as we take smaller and smaller intervals of time containing <span class="process-math">\(t = a\text{.}\)</span> We will develop a more formal definition of instantaneous velocity soon, and this definition will be the foundation of much of our work in calculus. For now, it is fine to think of instantaneous velocity as follows: take average velocities on smaller and smaller time intervals around a specific point. If those average velocities approach a single number, then that number will be the instantaneous velocity at that point.</div>
 <article class="activity project-like" id="act-1-1-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.1.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-89">Each of the following questions concern <span class="process-math">\(s(t) = 64 - 16(t-1)^2\text{,}\)</span> the position function from Preview <a href="" class="xref" data-knowl="./knowl/PA-1-1.html" title="Preview Activity 1.1.1">Activity 1.1.1</a>.</div> <div class="para logical" id="p-90"><ol class="lower-alpha">
-<li id="li-39"><div class="para" id="p-91">Compute the average velocity of the ball on the time interval <span class="process-math">\([1.5,2]\text{.}\)</span> What is different between this value and the average velocity on the interval <span class="process-math">\([0,0.5]\text{?}\)</span>
+<div class="para" id="p-147">Each of the following questions concern <span class="process-math">\(s(t) = 64 - 16(t-1)^2\text{,}\)</span> the position function from Preview <a href="" class="xref" data-knowl="./knowl/ACS__Preview__1-1.html" title="Preview Activity 1.1.1">Activity 1.1.1</a>.</div> <div class="para logical" id="p-148"><ol class="lower-alpha">
+<li id="li-68"><div class="para" id="p-149">Compute the average velocity of the ball on the time interval <span class="process-math">\([1.5,2]\text{.}\)</span> What is different between this value and the average velocity on the interval <span class="process-math">\([0,0.5]\text{?}\)</span>
 </div></li>
-<li id="li-40"><div class="para" id="p-92">Use appropriate computing technology to estimate the instantaneous velocity of the ball at <span class="process-math">\(t = 1.5\text{.}\)</span> Likewise, estimate the instantaneous velocity of the ball at <span class="process-math">\(t = 2\text{.}\)</span> Which value is greater?</div></li>
-<li id="li-41"><div class="para" id="p-93">How is the sign of the instantaneous velocity of the ball related to its behavior at a given point in time? That is, what does positive instantaneous velocity tell you the ball is doing? Negative instantaneous velocity?</div></li>
-<li id="li-42"><div class="para" id="p-94">Without doing any computations, what do you expect to be the instantaneous velocity of the ball at <span class="process-math">\(t = 1\text{?}\)</span> Why?</div></li>
-</ol></div></article><div class="para logical" id="p-110">
+<li id="li-69"><div class="para" id="p-150">Use appropriate computing technology to estimate the instantaneous velocity of the ball at <span class="process-math">\(t = 1.5\text{.}\)</span> Likewise, estimate the instantaneous velocity of the ball at <span class="process-math">\(t = 2\text{.}\)</span> Which value is greater?</div></li>
+<li id="li-70"><div class="para" id="p-151">How is the sign of the instantaneous velocity of the ball related to its behavior at a given point in time? That is, what does positive instantaneous velocity tell you the ball is doing? Negative instantaneous velocity?</div></li>
+<li id="li-71"><div class="para" id="p-152">Without doing any computations, what do you expect to be the instantaneous velocity of the ball at <span class="process-math">\(t = 1\text{?}\)</span> Why?</div></li>
+</ol></div></article><div class="para logical" id="p-168">
 <div class="para"> At this point we have started to see a close connection between average velocity and instantaneous velocity. Each is connected not only to the physical behavior of the moving object but also to the geometric behavior of the graph of the position function. We are interested in computing average velocities on the interval <span class="process-math">\([a,b]\)</span> for smaller and smaller intervals. In order to make the link between average and instantaneous velocity more formal, think of the value <span class="process-math">\(b\)</span> as <span class="process-math">\(b = a + h\text{,}\)</span> where <span class="process-math">\(h\)</span> is a small (non-zero) number that is allowed to vary. Then the average velocity of the object on the interval <span class="process-math">\([a,a+h]\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -908,21 +960,21 @@ AV_{[a,a+h]} = \frac{s(a+h)-s(a)}{h}\text{,}
 <div class="para">with the denominator being simply <span class="process-math">\(h\)</span> because <span class="process-math">\((a+h) - a = h\text{.}\)</span> Note that when <span class="process-math">\(h \lt  0\text{,}\)</span> <span class="process-math">\(AV_{[a,a+h]}\)</span> measures the average velocity on the interval <span class="process-math">\([a+h,a]\text{.}\)</span>
 </div>
 </div>
-<div class="para" id="p-111">To find the instantaneous velocity at <span class="process-math">\(t = a\text{,}\)</span> we investigate what happens as the value of <span class="process-math">\(h\)</span> approaches zero.</div>
+<div class="para" id="p-169">To find the instantaneous velocity at <span class="process-math">\(t = a\text{,}\)</span> we investigate what happens as the value of <span class="process-math">\(h\)</span> approaches zero.</div>
 <article class="example example-like" id="example-1"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">Computing instantaneous velocity for a falling ball.</span>
 </h4>
-<div class="para" id="p-112">The position function for a falling ball is given by <span class="process-math">\(s(t) = 16 - 16t^2\)</span> (where <span class="process-math">\(s\)</span> is measured in feet and <span class="process-math">\(t\)</span> in seconds).</div> <div class="para logical" id="p-113"><ol class="lower-alpha">
-<li id="li-55"><div class="para" id="p-derived-li-55">Find an expression for the average velocity of the ball on a time interval of the form <span class="process-math">\([0.5, 0.5+h]\)</span> where <span class="process-math">\(-0.5 \lt h \lt 0.5\)</span> and <span class="process-math">\(h \ne 0\text{.}\)</span>
+<div class="para" id="p-170">The position function for a falling ball is given by <span class="process-math">\(s(t) = 16 - 16t^2\)</span> (where <span class="process-math">\(s\)</span> is measured in feet and <span class="process-math">\(t\)</span> in seconds).</div> <div class="para logical" id="p-171"><ol class="lower-alpha">
+<li id="li-84"><div class="para" id="p-derived-li-84">Find an expression for the average velocity of the ball on a time interval of the form <span class="process-math">\([0.5, 0.5+h]\)</span> where <span class="process-math">\(-0.5 \lt h \lt 0.5\)</span> and <span class="process-math">\(h \ne 0\text{.}\)</span>
 </div></li>
-<li id="li-56"><div class="para" id="p-derived-li-56">Use this expression to compute the average velocity on <span class="process-math">\([0.5,0.75]\)</span> and <span class="process-math">\([0.4,0.5]\text{.}\)</span>
+<li id="li-85"><div class="para" id="p-derived-li-85">Use this expression to compute the average velocity on <span class="process-math">\([0.5,0.75]\)</span> and <span class="process-math">\([0.4,0.5]\text{.}\)</span>
 </div></li>
-<li id="li-57"><div class="para" id="p-derived-li-57">Make a conjecture about the instantaneous velocity at <span class="process-math">\(t = 0.5\text{.}\)</span>
+<li id="li-86"><div class="para" id="p-derived-li-86">Make a conjecture about the instantaneous velocity at <span class="process-math">\(t = 0.5\text{.}\)</span>
 </div></li>
 </ol></div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like"><div class="para logical" id="p-114"><ol class="lower-alpha">
-<li id="li-58"><div class="para" id="p-derived-li-58">We make the assumptions that <span class="process-math">\(-0.5 \lt  h \lt  0.5\)</span> and <span class="process-math">\(h \ne 0\)</span> because <span class="process-math">\(h\)</span> cannot be zero (otherwise there is no interval on which to compute average velocity) and because the function only makes sense on the time interval <span class="process-math">\(0 \le t \le 1\text{,}\)</span> as this is the duration of time during which the ball is falling. We want to compute and simplify<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-3" id="solution-3"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-3"><div class="solution solution-like"><div class="para logical" id="p-172"><ol class="lower-alpha">
+<li id="li-87"><div class="para" id="p-derived-li-87">We make the assumptions that <span class="process-math">\(-0.5 \lt  h \lt  0.5\)</span> and <span class="process-math">\(h \ne 0\)</span> because <span class="process-math">\(h\)</span> cannot be zero (otherwise there is no interval on which to compute average velocity) and because the function only makes sense on the time interval <span class="process-math">\(0 \le t \le 1\text{,}\)</span> as this is the duration of time during which the ball is falling. We want to compute and simplify<div class="displaymath process-math">
 \begin{equation*}
 AV_{[0.5, 0.5+h]} = \frac{s(0.5+h) - s(0.5)}{(0.5+h) - 0.5}\text{.}
 \end{equation*}
@@ -946,284 +998,375 @@ AV_{[0.5, 0.5+h]} = -16 - 16h\text{.}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-59"><div class="para" id="p-derived-li-59">From this expression we can compute the average for any small positive or negative value of <span class="process-math">\(h\text{.}\)</span> For instance, to obtain the average velocity on <span class="process-math">\([0.5,0.75]\text{,}\)</span> we let <span class="process-math">\(h = 0.25\text{,}\)</span> and the average velocity is <span class="process-math">\(-16 - 16(0.25) = -20\)</span> ft/sec. To get the average velocity on <span class="process-math">\([0.4, 0.5]\text{,}\)</span> we let <span class="process-math">\(h = -0.1\text{,}\)</span> and compute the average velocity as<div class="displaymath process-math">
+<li id="li-88"><div class="para" id="p-derived-li-88">From this expression we can compute the average for any small positive or negative value of <span class="process-math">\(h\text{.}\)</span> For instance, to obtain the average velocity on <span class="process-math">\([0.5,0.75]\text{,}\)</span> we let <span class="process-math">\(h = 0.25\text{,}\)</span> and the average velocity is <span class="process-math">\(-16 - 16(0.25) = -20\)</span> ft/sec. To get the average velocity on <span class="process-math">\([0.4, 0.5]\text{,}\)</span> we let <span class="process-math">\(h = -0.1\text{,}\)</span> and compute the average velocity as<div class="displaymath process-math">
 \begin{equation*}
 -16 - 16(-0.1) = -14.4\ \text{ft/sec}\text{.}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-60"><div class="para" id="p-derived-li-60">We can even explore what happens to <span class="process-math">\(AV_{[0.5, 0.5+h]}\)</span> as <span class="process-math">\(h\)</span> gets closer and closer to zero. As <span class="process-math">\(h\)</span> approaches zero, <span class="process-math">\(-16h\)</span> will also approach zero, so it appears that the instantaneous velocity of the ball at <span class="process-math">\(t = 0.5\)</span> should be <span class="process-math">\(-16\)</span> ft/sec.</div></li>
+<li id="li-89"><div class="para" id="p-derived-li-89">We can even explore what happens to <span class="process-math">\(AV_{[0.5, 0.5+h]}\)</span> as <span class="process-math">\(h\)</span> gets closer and closer to zero. As <span class="process-math">\(h\)</span> approaches zero, <span class="process-math">\(-16h\)</span> will also approach zero, so it appears that the instantaneous velocity of the ball at <span class="process-math">\(t = 0.5\)</span> should be <span class="process-math">\(-16\)</span> ft/sec.</div></li>
 </ol></div></div></div>
 </div></article><article class="activity project-like" id="act-1-1-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">1.1.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-115">For the function given by <span class="process-math">\(s(t) = 64 - 16(t-1)^2\)</span> from <a href="" class="xref" data-knowl="./knowl/PA-1-1.html" title="Preview Activity 1.1.1">Preview Activity 1.1.1</a>, find the most simplified expression you can for the average velocity of the ball on the interval <span class="process-math">\([2, 2+h]\text{.}\)</span> Use your result to compute the average velocity on <span class="process-math">\([1.5,2]\)</span> and to estimate the instantaneous velocity at <span class="process-math">\(t = 2\text{.}\)</span> Finally, compare your earlier work in <a href="" class="xref" data-knowl="./knowl/act-1-1-2.html" title="Activity 1.1.3">Activity 1.1.3</a>.</div></article></section><section class="subsection" id="subsection-3"><h3 class="heading hide-type">
+<div class="para" id="p-173">For the function given by <span class="process-math">\(s(t) = 64 - 16(t-1)^2\)</span> from <a href="" class="xref" data-knowl="./knowl/ACS__Preview__1-1.html" title="Preview Activity 1.1.1">Preview Activity 1.1.1</a>, find the most simplified expression you can for the average velocity of the ball on the interval <span class="process-math">\([2, 2+h]\text{.}\)</span> Use your result to compute the average velocity on <span class="process-math">\([1.5,2]\)</span> and to estimate the instantaneous velocity at <span class="process-math">\(t = 2\text{.}\)</span> Finally, compare your earlier work in <a href="" class="xref" data-knowl="./knowl/act-1-1-2.html" title="Activity 1.1.3">Activity 1.1.3</a>.</div></article></section><section class="subsection" id="subsection-3"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.1.3</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-120"><ul class="disc">
-<li id="li-61"><div class="para" id="p-derived-li-61">For an object moving in a straight line with position function <span class="process-math">\(s(t)\text{,}\)</span> the  <em class="emphasis">average velocity of the object on the interval from <span class="process-math">\(t = a\)</span> to <span class="process-math">\(t = b\)</span></em>, denoted <span class="process-math">\(AV_{[a,b]}\text{,}\)</span> is given by the formula<div class="displaymath process-math">
+<div class="para logical" id="p-178"><ul class="disc">
+<li id="li-90"><div class="para" id="p-derived-li-90">For an object moving in a straight line with position function <span class="process-math">\(s(t)\text{,}\)</span> the  <em class="emphasis">average velocity of the object on the interval from <span class="process-math">\(t = a\)</span> to <span class="process-math">\(t = b\)</span></em>, denoted <span class="process-math">\(AV_{[a,b]}\text{,}\)</span> is given by the formula<div class="displaymath process-math">
 \begin{equation*}
 AV_{[a,b]} = \frac{s(b)-s(a)}{b-a}\text{.}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-62">
-<div class="para" id="p-121">The average velocity on <span class="process-math">\([a,b]\)</span> can be viewed geometrically as the slope of the line between the points <span class="process-math">\((a,s(a))\)</span> and <span class="process-math">\((b,s(b))\)</span> on the graph of <span class="process-math">\(y = s(t)\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-1-1-Summary.html" title="Figure 1.1.3">Figure 1.1.3</a>.</div>
+<li id="li-91">
+<div class="para" id="p-179">The average velocity on <span class="process-math">\([a,b]\)</span> can be viewed geometrically as the slope of the line between the points <span class="process-math">\((a,s(a))\)</span> and <span class="process-math">\((b,s(b))\)</span> on the graph of <span class="process-math">\(y = s(t)\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-1-1-Summary.html" title="Figure 1.1.3">Figure 1.1.3</a>.</div>
 <figure class="figure figure-like" id="F-1-1-Summary"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/1_1_Summary.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.3<span class="period">.</span></span><span class="space"> </span>The graph of position function <span class="process-math">\(s\)</span> together with the line through <span class="process-math">\((a,s(a))\)</span> and <span class="process-math">\((b,s(b))\)</span> whose slope is <span class="process-math">\(m = \frac{s(b)-s(a)}{b-a}\text{.}\)</span> The line's slope is the average rate of change of <span class="process-math">\(s\)</span> on the interval <span class="process-math">\([a,b]\text{.}\)</span></figcaption></figure>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.3<span class="period">.</span></span><span class="space"> </span>The graph of position function <span class="process-math">\(s\)</span> together with the line through <span class="process-math">\((a,s(a))\)</span> and <span class="process-math">\((b,s(b))\)</span> whose slope is <span class="process-math">\(m = \frac{s(b)-s(a)}{b-a}\text{.}\)</span> The line’s slope is the average rate of change of <span class="process-math">\(s\)</span> on the interval <span class="process-math">\([a,b]\text{.}\)</span></figcaption></figure>
 </li>
-<li id="li-63"><div class="para" id="p-derived-li-63">Given a moving object whose position at time <span class="process-math">\(t\)</span> is given by a function <span class="process-math">\(s\text{,}\)</span> the average velocity of the object on the time interval <span class="process-math">\([a,b]\)</span> is given by <span class="process-math">\(AV_{[a,b]} = \frac{s(b) - s(a)}{b-a}\text{.}\)</span> Viewing the interval <span class="process-math">\([a,b]\)</span> as having the form <span class="process-math">\([a,a+h]\text{,}\)</span> we equivalently compute average velocity by the formula <span class="process-math">\(AV_{[a,a+h]} = \frac{s(a+h) - s(a)}{h}\text{.}\)</span>
+<li id="li-92"><div class="para" id="p-derived-li-92">Given a moving object whose position at time <span class="process-math">\(t\)</span> is given by a function <span class="process-math">\(s\text{,}\)</span> the average velocity of the object on the time interval <span class="process-math">\([a,b]\)</span> is given by <span class="process-math">\(AV_{[a,b]} = \frac{s(b) - s(a)}{b-a}\text{.}\)</span> Viewing the interval <span class="process-math">\([a,b]\)</span> as having the form <span class="process-math">\([a,a+h]\text{,}\)</span> we equivalently compute average velocity by the formula <span class="process-math">\(AV_{[a,a+h]} = \frac{s(a+h) - s(a)}{h}\text{.}\)</span>
 </div></li>
-<li id="li-64"><div class="para" id="p-derived-li-64">The instantaneous velocity of a moving object at a fixed time is estimated by considering average velocities on shorter and shorter time intervals that contain the instant of interest.</div></li>
+<li id="li-93"><div class="para" id="p-derived-li-93">The instantaneous velocity of a moving object at a fixed time is estimated by considering average velocities on shorter and shorter time intervals that contain the instant of interest.</div></li>
 </ul></div></section><section class="exercises" id="ez-1-1"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">1.1.4</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="ez-1-1-WW1"><h4 class="heading">
-<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Average velocity from position.</span>
-</h4>
-<div id="webwork-17" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="17" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec1/Q17.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-17-button" class="webwork-button activate" onclick="handleWW('webwork-17')" aria-labelledby="webwork-17-button-label"><span id="webwork-17-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-122">Consider a car whose position, <span class="process-math">\(s\text{,}\)</span> is given by the table</div> <div class="tabular-box natural-width"><table class="tabular">
+<article class="exercise exercise-like" id="Library__LoyolaChicago__Precalc__Chap1Sec2__Q10.pg"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q10.pg"><div id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q10.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="18" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q10.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q10.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-180">The graph below shows the distance traveled, <span class="process-math">\(D\)</span> (in miles) as a function of time, <span class="process-math">\(t\)</span> (in hours).</div> <div class="image-box" style="width: 33%; margin-left: 33.5%; margin-right: 33.5%;"><img src="generated/webwork/images/webwork-18-image-1.png" class="contained"></div> <div class="para" id="p-181"><em class="emphasis">(Click on the graph to get a larger version.)</em></div> <div class="para" id="p-182">a) For each of the intervals, find the values of <span class="process-math">\(\Delta D\)</span> and  <span class="process-math">\(\Delta t\)</span> between the indicated start and end times.  Enter your answers in their respective columns in the table below.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b2 r2 l2 t2 lines">
-<span class="process-math">\(t\)</span> (s)</td>
-<td class="l m b2 r2 l0 t2 lines">0</td>
-<td class="l m b2 r2 l0 t2 lines">0.2</td>
-<td class="l m b2 r2 l0 t2 lines">0.4</td>
-<td class="l m b2 r2 l0 t2 lines">0.6</td>
-<td class="l m b2 r2 l0 t2 lines">0.8</td>
-<td class="l m b2 r2 l0 t2 lines">1</td>
+<td class="l m b2 r2 l2 t2 lines">Time Interval</td>
+<td class="l m b2 r2 l0 t2 lines"><span class="process-math">\(\Delta D\)</span></td>
+<td class="l m b2 r2 l0 t2 lines"><span class="process-math">\(\Delta t\)</span></td>
 </tr>
 <tr>
-<td class="l m b2 r2 l2 t0 lines">
-<span class="process-math">\(s\)</span> (ft)</td>
-<td class="l m b2 r2 l0 t0 lines">0</td>
-<td class="l m b2 r2 l0 t0 lines">0.5</td>
-<td class="l m b2 r2 l0 t0 lines">1.4</td>
-<td class="l m b2 r2 l0 t0 lines">3.8</td>
-<td class="l m b2 r2 l0 t0 lines">6.5</td>
-<td class="l m b2 r2 l0 t0 lines">9.6</td>
-</tr>
-</table></div> <div class="para" id="p-123">Find the average velocity over the interval <span class="process-math">\(0 \le t \le 0.2\text{.}\)</span>
-</div> <div class="para" id="p-124">average velocity = <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span>
-</div> <div class="para" id="p-125">Estimate the velocity at <span class="process-math">\(t=0.2\text{.}\)</span>
-</div> <div class="para" id="p-126">velocity = <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-1-1-WW2"><h4 class="heading">
-<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Rate of calorie consumption.</span>
-</h4>
-<div id="webwork-18" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="18" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q14.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-18-button" class="webwork-button activate" onclick="handleWW('webwork-18')" aria-labelledby="webwork-18-button-label"><span id="webwork-18-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-129">The table below shows the number of calories used per minute as a function of an individual's body weight for three sports:</div> <div class="tabular-box natural-width"><table class="tabular">
-<tr>
-<td class="l m b2 r2 l2 t2 lines">Activity</td>
-<td class="l m b2 r2 l0 t2 lines">100 lb</td>
-<td class="l m b2 r2 l0 t2 lines">120 lb</td>
-<td class="l m b2 r2 l0 t2 lines">150 lb</td>
-<td class="l m b2 r2 l0 t2 lines">170 lb</td>
-<td class="l m b2 r2 l0 t2 lines">200 lb</td>
-<td class="l m b2 r2 l0 t2 lines">220 lb</td>
+<td class="l m b2 r2 l2 t0 lines">t = 1.5 to t = 4.5</td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></td>
 </tr>
 <tr>
-<td class="l m b2 r2 l2 t0 lines">Walking</td>
-<td class="l m b2 r2 l0 t0 lines">2.7</td>
-<td class="l m b2 r2 l0 t0 lines">3.2</td>
-<td class="l m b2 r2 l0 t0 lines">4</td>
-<td class="l m b2 r2 l0 t0 lines">4.6</td>
-<td class="l m b2 r2 l0 t0 lines">5.4</td>
-<td class="l m b2 r2 l0 t0 lines">5.9</td>
+<td class="l m b2 r2 l2 t0 lines">t = 2 to t = 3.5</td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></td>
 </tr>
 <tr>
-<td class="l m b2 r2 l2 t0 lines">Bicycling</td>
-<td class="l m b2 r2 l0 t0 lines">5.4</td>
-<td class="l m b2 r2 l0 t0 lines">6.5</td>
-<td class="l m b2 r2 l0 t0 lines">8.1</td>
-<td class="l m b2 r2 l0 t0 lines">9.2</td>
-<td class="l m b2 r2 l0 t0 lines">10.8</td>
-<td class="l m b2 r2 l0 t0 lines">11.9</td>
+<td class="l m b2 r2 l2 t0 lines">t = 1 to t = 3</td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span></td>
 </tr>
-<tr>
-<td class="l m b2 r2 l2 t0 lines">Swimming</td>
-<td class="l m b2 r2 l0 t0 lines">5.8</td>
-<td class="l m b2 r2 l0 t0 lines">6.9</td>
-<td class="l m b2 r2 l0 t0 lines">8.7</td>
-<td class="l m b2 r2 l0 t0 lines">9.8</td>
-<td class="l m b2 r2 l0 t0 lines">11.6</td>
-<td class="l m b2 r2 l0 t0 lines">12.7</td>
-</tr>
-</table></div> <div class="para" id="p-130">a) Determine the number of calories that a 200 lb person uses in one half-hour of walking . <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>  calories</div> <div class="para" id="p-131">b) Who uses more calories, a 170 lb person swimming for one hour, or a 220 lb person bicycling for a half-hour? <ul style="list-style:circle;">
-<li id="li-65"><div class="para" id="p-132">The 170 lb person swimming for one hour</div></li>
-<li id="li-66"><div class="para" id="p-133">The 220 lb person bicycling for a half-hour</div></li>
-<li id="li-67"><div class="para" id="p-134">They both use the same amount of calories</div></li>
-</ul>
-</div> <div class="para" id="p-135">c) Does the number of calories of a person walking increase or decrease as weight increases? <ul style="list-style:circle;">
-<li id="li-68"><div class="para" id="p-136">Increase</div></li>
-<li id="li-69"><div class="para" id="p-137">Decrease</div></li>
+</table></div> <div class="para" id="p-183">b) Based on your results from (a) it follows that the average rate of change of <span class="process-math">\(D\)</span> is constant, it does not depend over which interval of time you choose.  What is the constant rate of change of <span class="process-math">\(D\text{?}\)</span>
+</div> <div class="para" id="p-184">
+<span class="process-math">\(\frac{ \Delta D }{ \Delta t} =\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-185">c) Which of the statements below CORRECTLY explains the significance of your answer to part (b)?  Select ALL that apply (more than one may apply). <ul style="list-style:circle;">
+<li id="li-94"><div class="para" id="p-186">It is the acceleration of the car over the five hour time interval.</div></li>
+<li id="li-95"><div class="para" id="p-187">It is the total distance the car travels in five hours.</div></li>
+<li id="li-96"><div class="para" id="p-188">It is the average velocity of the car over the first two hours.</div></li>
+<li id="li-97"><div class="para" id="p-189">It is how far the car will travel in a half-hour.</div></li>
+<li id="li-98"><div class="para" id="p-190">It represents the car’s velocity.</div></li>
+<li id="li-99"><div class="para" id="p-191">It is the slope of the line.</div></li>
+<li id="li-100"><div class="para" id="p-192">None of the above</div></li>
 </ul>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-1-1-WW3"><h4 class="heading">
-<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Average rate of change - quadratic function.</span>
-</h4>
-<div id="webwork-19" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="19" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q16.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-19-button" class="webwork-button activate" onclick="handleWW('webwork-19')" aria-labelledby="webwork-19-button-label"><span id="webwork-19-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-139">Let <span class="process-math">\(\ f(x) = 9 - x^2\text{.}\)</span>
-</div> <div class="para" id="p-140">a) Compute each of the following expressions and interpret each as an average rate of change:</div> <div class="para" id="p-141">(i) <span class="process-math">\(\ \ \  \frac{f( 1 ) - f(0)}{ 1 - 0} = \ \)</span>  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-142">(ii) <span class="process-math">\(\ \ \frac{f( 3 ) - f( 1 )}{3 - 1 } = \ \)</span>  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-143">(iii) <span class="process-math">\(\ \frac{f( 3 ) - f(0)}{3 - 0} = \ \)</span>  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-144">b) Based on the graph sketched below, match each of your answers in (i) - (iii) with one of the lines labeled A - F.  Type the corresponding letter of the line segment next to the appropriate formula.  Clearly not all letters will be used.</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-19-image-1.png" class="contained"></div> <div class="para" id="p-145">(click on image to enlarge)</div> <div class="tabular-box natural-width"><table class="tabular">
+</div></div></div></article><article class="exercise exercise-like" id="Library__ma122DB__set1__ns_2_1_5.pg"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__ma122DB__set1__ns_2_1_5.pg"><div id="boelkins-ACS__Library__ma122DB__set1__ns_2_1_5.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="19" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ma122DB/set1/ns_2_1_5.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__ma122DB__set1__ns_2_1_5.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-200">A ball is thrown into the air by a baby alien on a planet in the system of Alpha Centauri with a velocity of <span class="process-math">\(23\)</span> ft/s.  Its height in feet after <span class="process-math">\(t\)</span> seconds is given by <span class="process-math">\(y=23t-20t^{2}\text{.}\)</span>
+</div> <div class="para" id="p-201">
+<em class="alert">a.)</em>  Find the average velocity for the time period beginning when <span class="process-math">\(t_{0}=3\)</span> second and lasting for the given time.</div> <div class="para" id="p-202">
+<span class="process-math">\(t=.01\)</span> sec:<span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-203">
+<span class="process-math">\(t=.005\)</span> sec:<span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-204">
+<span class="process-math">\(t=.002\)</span> sec :<span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-205">
+<span class="process-math">\(t=.001\)</span> sec:<span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-206">
+<em class="alert">b.)</em>  Estimate the instanteneous velocity when <span class="process-math">\(t=3\text{.}\)</span>
+</div> <div class="para" id="p-207">Answer: <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-208">
+<em class="alert">NOTE:</em> For the above answers, you may have to enter 6 or 7 significant digits if you are using a calculator.</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__LoyolaChicago__Precalc__Chap1Sec2__Q16.pg"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q16.pg"><div id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q16.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="20" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q16.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q16.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-214">Let <span class="process-math">\(\ f(x) = 9 - x^2\text{.}\)</span>
+</div> <div class="para" id="p-215">a) Compute each of the following expressions and interpret each as an average rate of change:</div> <div class="para" id="p-216">(i) <span class="process-math">\(\ \ \  \frac{f( 1 ) - f(0)}{ 1 - 0} = \ \)</span>  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-217">(ii) <span class="process-math">\(\ \ \frac{f( 3 ) - f( 1 )}{3 - 1 } = \ \)</span>  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-218">(iii) <span class="process-math">\(\ \frac{f( 3 ) - f(0)}{3 - 0} = \ \)</span>  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-219">b) Based on the graph sketched below, match each of your answers in (i) - (iii) with one of the lines labeled A - F.  Type the corresponding letter of the line segment next to the appropriate formula.  Clearly not all letters will be used.</div> <div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/webwork/images/webwork-20-image-1.png" class="contained"></div> <div class="para" id="p-220">(click on image to enlarge)</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b2 r2 l2 t2 lines"></td>
+<td class="l m b2 r2 l2 t2 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
 <td class="l m b2 r2 l0 t2 lines"><span class="process-math">\(\frac{f( 1 ) - f(0)}{ 1 - 0}\)</span></td>
 </tr>
 <tr>
-<td class="l m b2 r2 l2 t0 lines"></td>
+<td class="l m b2 r2 l2 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
 <td class="l m b2 r2 l0 t0 lines"><span class="process-math">\(\frac{f( 3 ) - f( 1 )}{3 - 1 }\)</span></td>
 </tr>
 <tr>
-<td class="l m b2 r2 l2 t0 lines"></td>
+<td class="l m b2 r2 l2 t0 lines"><span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span></td>
 <td class="l m b2 r2 l0 t0 lines"><span class="process-math">\(\frac{f( 3 ) - f(0)}{3 - 0}\)</span></td>
 </tr>
 </table></div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-1-1-WW4"><h4 class="heading">
-<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Comparing average rate of change of two functions.</span>
-</h4>
-<div id="webwork-20" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="20" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q07.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-20-button" class="webwork-button activate" onclick="handleWW('webwork-20')" aria-labelledby="webwork-20-button-label"><span id="webwork-20-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-152">Consider the graphs of <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> below:</div> <div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/webwork/images/webwork-20-image-1.png" class="contained"></div> <div class="para" id="p-153">For each interval given below, decide whether the average rate of change of <span class="process-math">\(f(x)\)</span> or <span class="process-math">\(g(x)\)</span> is greater over that particular interval.</div> <div class="tabular-box natural-width"><table class="tabular">
+</div></div></div></article><article class="exercise exercise-like" id="Library__LoyolaChicago__Precalc__Chap1Sec2__Q25.pg"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q25.pg"><div id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q25.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="21" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q25.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q25.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-227">The table below gives the average temperature, <span class="process-math">\(T\text{,}\)</span> at a depth <span class="process-math">\(d\text{,}\)</span> in a borehole in Belleterre, Quebec.</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines"><span class="process-math">\(d \mbox{, depth} \  (m)\)</span></td>
+<td class="l m b2 r2 l0 t2 lines"><span class="process-math">\(T \mbox{, temp} \ \left( C^{\circ} \right)\)</span></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">25</td>
+<td class="l m b2 r2 l0 t0 lines">5.50</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">50</td>
+<td class="l m b2 r2 l0 t0 lines">5.20</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">75</td>
+<td class="l m b2 r2 l0 t0 lines">5.10</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">100</td>
+<td class="l m b2 r2 l0 t0 lines">5.10</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">125</td>
+<td class="l m b2 r2 l0 t0 lines">5.30</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">150</td>
+<td class="l m b2 r2 l0 t0 lines">5.50</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">175</td>
+<td class="l m b2 r2 l0 t0 lines">5.75</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">200</td>
+<td class="l m b2 r2 l0 t0 lines">6.00</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">225</td>
+<td class="l m b2 r2 l0 t0 lines">6.25</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">250</td>
+<td class="l m b2 r2 l0 t0 lines">6.50</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">275</td>
+<td class="l m b2 r2 l0 t0 lines">6.75</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines">300</td>
+<td class="l m b2 r2 l0 t0 lines">7.00</td>
+</tr>
+</table></div> <div class="para" id="p-228">Evaluate <span class="process-math">\(\Delta T / \Delta d\)</span>   on the following intervals</div> <div class="para" id="p-229">a) <span class="process-math">\(50 \leq d \leq 125\)</span>     <span class="process-math">\(\Delta T / \Delta d\)</span> = <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-230">b) <span class="process-math">\(125 \leq d \leq 250\)</span>     <span class="process-math">\(\Delta T / \Delta d\)</span> = <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-231">c) <span class="process-math">\(75 \leq d \leq 125\)</span>     <span class="process-math">\(\Delta T / \Delta d\)</span> = <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-232">d) Which of the statements below correctly explains the significance of your answer to part (c)?  Select all that apply (more than one may apply).</div> <div class="para" id="p-233"><ul style="list-style:circle;">
+<li id="li-101"><div class="para" id="p-234">The temperature changes by a total of 0.004 degrees Celsius when moving from a depth 75 meters to 125 meters.</div></li>
+<li id="li-102"><div class="para" id="p-235">0.004 is the slope of the graph of at <span class="process-math">\(d = 75\text{.}\)</span>
+</div></li>
+<li id="li-103"><div class="para" id="p-236">Over the interval from 75 meters to 125 meters, the temperature changes on average at a rate of 0.004 degrees Celsius per meter.</div></li>
+<li id="li-104"><div class="para" id="p-237">On average, the temperature is changing at a rate of 0.004 degrees Celsius per minute over the interval <span class="process-math">\(75 \leq d \leq 125\)</span> .</div></li>
+<li id="li-105"><div class="para" id="p-238">The temperature is changing at a rate of 0.004 degrees Celsius per minute when the depth is 75 meters.</div></li>
+<li id="li-106"><div class="para" id="p-239">None of the above</div></li>
+</ul></div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__LoyolaChicago__Precalc__Chap1Sec2__Q07.pg"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q07.pg"><div id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q07.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="22" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q07.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q07.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-243">Consider the graphs of <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> below:</div> <div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/webwork/images/webwork-22-image-1.png" class="contained"></div> <div class="para" id="p-244">For each interval given below, decide whether the average rate of change of <span class="process-math">\(f(x)\)</span> or <span class="process-math">\(g(x)\)</span> is greater over that particular interval.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b2 r2 l2 t2 lines">Interval</td>
 <td class="l m b2 r2 l0 t2 lines">Which function has GREATER average rate of change?</td>
 </tr>
 <tr>
-<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(0 \leq x \leq 4\)</span></td>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(2.2 \leq x \leq 4\)</span></td>
 <td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
-<li id="li-71"><div class="para" id="p-derived-li-71">f</div></li>
-<li id="li-72"><div class="para" id="p-derived-li-72">g</div></li>
-<li id="li-73"><div class="para" id="p-derived-li-73">both have an equal rate of change</div></li>
+<li id="li-108"><div class="para" id="p-derived-li-108">f</div></li>
+<li id="li-109"><div class="para" id="p-derived-li-109">g</div></li>
+<li id="li-110"><div class="para" id="p-derived-li-110">both have an equal rate of change</div></li>
 </ul></td>
 </tr>
 <tr>
-<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(0 \leq x \leq 8\)</span></td>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(2.2 \leq x \leq 6.9\)</span></td>
 <td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
-<li id="li-75"><div class="para" id="p-derived-li-75">f</div></li>
-<li id="li-76"><div class="para" id="p-derived-li-76">g</div></li>
-<li id="li-77"><div class="para" id="p-derived-li-77">both have an equal rate of change</div></li>
+<li id="li-112"><div class="para" id="p-derived-li-112">f</div></li>
+<li id="li-113"><div class="para" id="p-derived-li-113">g</div></li>
+<li id="li-114"><div class="para" id="p-derived-li-114">both have an equal rate of change</div></li>
+</ul></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(5.2 \leq x \leq 8\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-116"><div class="para" id="p-derived-li-116">f</div></li>
+<li id="li-117"><div class="para" id="p-derived-li-117">g</div></li>
+<li id="li-118"><div class="para" id="p-derived-li-118">both have an equal rate of change</div></li>
 </ul></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(0 \leq x \leq 2.2\)</span></td>
 <td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
-<li id="li-79"><div class="para" id="p-derived-li-79">f</div></li>
-<li id="li-80"><div class="para" id="p-derived-li-80">g</div></li>
-<li id="li-81"><div class="para" id="p-derived-li-81">both have an equal rate of change</div></li>
+<li id="li-120"><div class="para" id="p-derived-li-120">f</div></li>
+<li id="li-121"><div class="para" id="p-derived-li-121">g</div></li>
+<li id="li-122"><div class="para" id="p-derived-li-122">both have an equal rate of change</div></li>
 </ul></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(5.2 \leq x \leq 6.1\)</span></td>
 <td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
-<li id="li-83"><div class="para" id="p-derived-li-83">f</div></li>
-<li id="li-84"><div class="para" id="p-derived-li-84">g</div></li>
-<li id="li-85"><div class="para" id="p-derived-li-85">both have an equal rate of change</div></li>
+<li id="li-124"><div class="para" id="p-derived-li-124">f</div></li>
+<li id="li-125"><div class="para" id="p-derived-li-125">g</div></li>
+<li id="li-126"><div class="para" id="p-derived-li-126">both have an equal rate of change</div></li>
+</ul></td>
+</tr>
+</table></div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__LoyolaChicago__Precalc__Chap1Sec2__Q06.pg"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q06.pg"><div id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q06.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="23" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q06.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q06.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-250">Consider the graphs of <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> below:</div> <div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="generated/webwork/images/webwork-23-image-1.png" class="contained"></div> <div class="para" id="p-251">For each interval given below, decide whether the average rate of change of <span class="process-math">\(f(x)\)</span> is positive, negative, or zero over that particular interval.</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b2 r2 l2 t2 lines">Interval</td>
+<td class="l m b2 r2 l0 t2 lines">Sign of Average Rate of Change of <span class="process-math">\(f(x)\)</span>
+</td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(2.2 \leq x \leq 6.9\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-128"><div class="para" id="p-derived-li-128">positive</div></li>
+<li id="li-129"><div class="para" id="p-derived-li-129">negative</div></li>
+<li id="li-130"><div class="para" id="p-derived-li-130">zero</div></li>
+</ul></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(0 \leq x \leq 2.2\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-132"><div class="para" id="p-derived-li-132">positive</div></li>
+<li id="li-133"><div class="para" id="p-derived-li-133">negative</div></li>
+<li id="li-134"><div class="para" id="p-derived-li-134">zero</div></li>
+</ul></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(2.2 \leq x \leq 4\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-136"><div class="para" id="p-derived-li-136">positive</div></li>
+<li id="li-137"><div class="para" id="p-derived-li-137">negative</div></li>
+<li id="li-138"><div class="para" id="p-derived-li-138">zero</div></li>
 </ul></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(5.2 \leq x \leq 6.9\)</span></td>
 <td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
-<li id="li-87"><div class="para" id="p-derived-li-87">f</div></li>
-<li id="li-88"><div class="para" id="p-derived-li-88">g</div></li>
-<li id="li-89"><div class="para" id="p-derived-li-89">both have an equal rate of change</div></li>
+<li id="li-140"><div class="para" id="p-derived-li-140">positive</div></li>
+<li id="li-141"><div class="para" id="p-derived-li-141">negative</div></li>
+<li id="li-142"><div class="para" id="p-derived-li-142">zero</div></li>
+</ul></td>
+</tr>
+<tr>
+<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(5.2 \leq x \leq 6.1\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><ul style="list-style:circle;">
+<li id="li-144"><div class="para" id="p-derived-li-144">positive</div></li>
+<li id="li-145"><div class="para" id="p-derived-li-145">negative</div></li>
+<li id="li-146"><div class="para" id="p-derived-li-146">zero</div></li>
 </ul></td>
 </tr>
 </table></div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-1-1-WW5"><h4 class="heading">
-<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Matching a distance graph to velocity.</span>
-</h4>
-<div id="webwork-21" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="21" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec1/Q13.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-21-button" class="webwork-button activate" onclick="handleWW('webwork-21')" aria-labelledby="webwork-21-button-label"><span id="webwork-21-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-159">A car is driven at a constant speed, starting at noon.  Which of the following could be a graph of the distance the car has traveled as a function of time past noon?</div> <div class="tabular-box natural-width"><table class="tabular">
+</div></div></div></article><article class="exercise exercise-like" id="Library__LoyolaChicago__Precalc__Chap1Sec2__Q18.pg"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q18.pg"><div id="boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q18.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="24" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/LoyolaChicago/Precalc/Chap1Sec2/Q18.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__LoyolaChicago__Precalc__Chap1Sec2__Q18.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-257">Consider the function <span class="process-math">\(f(x) = 3 x - 8\)</span> and find the following:</div> <div class="para" id="p-258">a) The average rate of change between the points   <span class="process-math">\((-1, f(-1) )\)</span>   and   <span class="process-math">\(( 4 , f( 4 ) )\)</span> .</div> <div class="para" id="p-259">b) The average rate of change between the points   <span class="process-math">\((a, f(a) )\)</span>   and   <span class="process-math">\((b, f(b) )\)</span> .</div> <div class="para" id="p-260">c) The average rate of change between the points   <span class="process-math">\((x, f(x) )\)</span>   and   <span class="process-math">\((x+h, f(x+h) )\)</span> .</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap2Sec1__Q13.pg"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap2Sec1__Q13.pg"><div id="boelkins-ACS__Library__Michigan__Chap2Sec1__Q13.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="25" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap2Sec1/Q13.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap2Sec1__Q13.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-264">A car is driven at an increasing speed, starting at noon.  Which of the following could be a graph of the distance the car has traveled as a function of time past noon?</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b2 r2 l2 t2 lines">1.</td>
-<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-21-image-1.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 16%; margin-left: 42%; margin-right: 42%;"><img src="generated/webwork/images/webwork-25-image-1.png" class="contained"></div></td>
 <td class="l m b2 r2 l0 t2 lines">2.</td>
-<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-21-image-2.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 16%; margin-left: 42%; margin-right: 42%;"><img src="generated/webwork/images/webwork-25-image-2.png" class="contained"></div></td>
 <td class="l m b2 r2 l0 t2 lines">3.</td>
-<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-21-image-3.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 16%; margin-left: 42%; margin-right: 42%;"><img src="generated/webwork/images/webwork-25-image-3.png" class="contained"></div></td>
 <td class="l m b2 r2 l0 t2 lines">4.</td>
-<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-21-image-4.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 16%; margin-left: 42%; margin-right: 42%;"><img src="generated/webwork/images/webwork-25-image-4.png" class="contained"></div></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines">5.</td>
-<td class="l m b2 r2 l0 t0 lines"><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-21-image-5.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t0 lines"><div class="image-box" style="width: 16%; margin-left: 42%; margin-right: 42%;"><img src="generated/webwork/images/webwork-25-image-5.png" class="contained"></div></td>
 <td class="l m b2 r2 l0 t0 lines">6.</td>
-<td class="l m b2 r2 l0 t0 lines"><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-21-image-6.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t0 lines"><div class="image-box" style="width: 16%; margin-left: 42%; margin-right: 42%;"><img src="generated/webwork/images/webwork-25-image-6.png" class="contained"></div></td>
 <td class="l m b2 r2 l0 t0 lines">7.</td>
-<td class="l m b2 r2 l0 t0 lines"><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-21-image-7.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t0 lines"><div class="image-box" style="width: 16%; margin-left: 42%; margin-right: 42%;"><img src="generated/webwork/images/webwork-25-image-7.png" class="contained"></div></td>
 <td class="l m b2 r2 l0 t0 lines">8.</td>
-<td class="l m b2 r2 l0 t0 lines"><div class="image-box" style="width: 16.6666666666667%; margin-left: 41.6666666666667%; margin-right: 41.6666666666667%;"><img src="generated/webwork/images/webwork-21-image-8.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t0 lines"><div class="image-box" style="width: 16%; margin-left: 42%; margin-right: 42%;"><img src="generated/webwork/images/webwork-25-image-8.png" class="contained"></div></td>
 </tr>
-</table></div> <div class="para" id="p-160">figure <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>.</div>
+</table></div> <div class="para" id="p-265">figure <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-1-1-Bungee"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para" id="p-164">A bungee jumper dives from a tower at time <span class="process-math">\(t=0\text{.}\)</span> Her height <span class="process-math">\(h\)</span> (measured in feet) at time <span class="process-math">\(t\)</span> (in seconds) is given by the graph in <a href="" class="xref" data-knowl="./knowl/F-1-1-Ez1.html" title="Figure 1.1.4">Figure 1.1.4</a>. In this problem, you may base your answers on estimates from the graph or use the fact that the jumper's height function is given by <span class="process-math">\(s(t) = 100\cos(0.75t) \cdot e^{-0.2t}+100\text{.}\)</span>
+</div></div></div></article><article class="exercise exercise-like" id="ez-1-1-Bungee"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="para" id="p-269">A bungee jumper dives from a tower at time <span class="process-math">\(t=0\text{.}\)</span> Her height <span class="process-math">\(h\)</span> (measured in feet) at time <span class="process-math">\(t\)</span> (in seconds) is given by the graph in <a href="" class="xref" data-knowl="./knowl/F-1-1-Ez1.html" title="Figure 1.1.4">Figure 1.1.4</a>. In this problem, you may base your answers on estimates from the graph or use the fact that the jumper’s height function is given by <span class="process-math">\(s(t) = 100\cos(0.75t) \cdot e^{-0.2t}+100\text{.}\)</span>
 </div> <figure class="figure figure-like" id="F-1-1-Ez1"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="external/images/1_1_Ez1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.4<span class="period">.</span></span><span class="space"> </span>A bungee jumper's height function.</figcaption></figure> <div class="para logical" id="p-165"><ol class="lower-alpha">
-<li id="li-90"><div class="para" id="p-166">What is the change in vertical position of the bungee jumper between <span class="process-math">\(t=0\)</span> and <span class="process-math">\(t=15\text{?}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.4<span class="period">.</span></span><span class="space"> </span>A bungee jumper’s height function.</figcaption></figure> <div class="para logical" id="p-270"><ol class="lower-alpha">
+<li id="li-147"><div class="para" id="p-271">What is the change in vertical position of the bungee jumper between <span class="process-math">\(t=0\)</span> and <span class="process-math">\(t=15\text{?}\)</span>
 </div></li>
-<li id="li-91"><div class="para" id="p-167">Estimate the jumper's average velocity on each of the following time intervals: <span class="process-math">\([0,15]\text{,}\)</span> <span class="process-math">\([0,2]\text{,}\)</span> <span class="process-math">\([1,6]\text{,}\)</span> and <span class="process-math">\([8,10]\text{.}\)</span> Include units on your answers.</div></li>
-<li id="li-92"><div class="para" id="p-168">On what time interval(s) do you think the bungee jumper achieves her greatest average velocity? Why?</div></li>
-<li id="li-93"><div class="para" id="p-169">Estimate the jumper's instantaneous velocity at <span class="process-math">\(t=5\text{.}\)</span> Show your work and explain your reasoning, and include units on your answer.</div></li>
-<li id="li-94"><div class="para" id="p-170">Among the average and instantaneous velocities you computed in earlier questions, which are positive and which are negative? What does negative velocity indicate?</div></li>
-</ol></div></article><article class="exercise exercise-like" id="ez-1-1-Diver"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para" id="p-183">A diver leaps from a 3 meter springboard. His feet leave the board at time <span class="process-math">\(t=0\text{,}\)</span> he reaches his maximum height of 4.5 m at <span class="process-math">\(t = 1.1\)</span> seconds, and enters the water at <span class="process-math">\(t = 2.45\text{.}\)</span> Once in the water, the diver coasts to the bottom of the pool (depth 3.5 m), touches bottom at <span class="process-math">\(t=7\text{,}\)</span> rests for one second, and then pushes off the bottom. From there he coasts to the surface, and takes his first breath at <span class="process-math">\(t=13\text{.}\)</span>
-</div> <div class="para logical" id="p-184"><ol class="lower-alpha">
-<li id="li-105">
-<div class="para" id="p-185">Let <span class="process-math">\(s(t)\)</span> denote the function that gives the height of the diver's feet (in meters) above the water at time <span class="process-math">\(t\text{.}\)</span> (Note that the “height” of the bottom of the pool is <span class="process-math">\(-3.5\)</span> meters.) Sketch a carefully labeled graph of <span class="process-math">\(s(t)\)</span> on the provided axes in <a href="" class="xref" data-knowl="./knowl/F-1-1-Ez2a.html" title="Figure 1.1.5">Figure 1.1.5</a>. Include scale and units on the vertical axis. Be as detailed as possible.</div>
+<li id="li-148"><div class="para" id="p-272">Estimate the jumper’s average velocity on each of the following time intervals: <span class="process-math">\([0,15]\text{,}\)</span> <span class="process-math">\([0,2]\text{,}\)</span> <span class="process-math">\([1,6]\text{,}\)</span> and <span class="process-math">\([8,10]\text{.}\)</span> Include units on your answers.</div></li>
+<li id="li-149"><div class="para" id="p-273">On what time interval(s) do you think the bungee jumper achieves her greatest average velocity? Why?</div></li>
+<li id="li-150"><div class="para" id="p-274">Estimate the jumper’s instantaneous velocity at <span class="process-math">\(t=5\text{.}\)</span> Show your work and explain your reasoning, and include units on your answer.</div></li>
+<li id="li-151"><div class="para" id="p-275">Among the average and instantaneous velocities you computed in earlier questions, which are positive and which are negative? What does negative velocity indicate?</div></li>
+</ol></div></article><article class="exercise exercise-like" id="ez-1-1-Diver"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="para" id="p-288">A diver leaps from a 3 meter springboard. His feet leave the board at time <span class="process-math">\(t=0\text{,}\)</span> he reaches his maximum height of 4.5 m at <span class="process-math">\(t = 1.1\)</span> seconds, and enters the water at <span class="process-math">\(t = 2.45\text{.}\)</span> Once in the water, the diver coasts to the bottom of the pool (depth 3.5 m), touches bottom at <span class="process-math">\(t=7\text{,}\)</span> rests for one second, and then pushes off the bottom. From there he coasts to the surface, and takes his first breath at <span class="process-math">\(t=13\text{.}\)</span>
+</div> <div class="para logical" id="p-289"><ol class="lower-alpha">
+<li id="li-162">
+<div class="para" id="p-290">Let <span class="process-math">\(s(t)\)</span> denote the function that gives the height of the diver’s feet (in meters) above the water at time <span class="process-math">\(t\text{.}\)</span> (Note that the “height” of the bottom of the pool is <span class="process-math">\(-3.5\)</span> meters.) Sketch a carefully labeled graph of <span class="process-math">\(s(t)\)</span> on the provided axes in <a href="" class="xref" data-knowl="./knowl/F-1-1-Ez2a.html" title="Figure 1.1.5">Figure 1.1.5</a>. Include scale and units on the vertical axis. Be as detailed as possible.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="F-1-1-Ez2a"><img src="external/images/1_1_Ez2a.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.5<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(s(t)\)</span> in part (a).</figcaption></figure></div>
 <div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="F-1-1-Ez2c"><img src="external/images/1_1_Ez2b.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.1.6<span class="period">.</span></span><span class="space"> </span>Axes for plotting <span class="process-math">\(v(t)\)</span> in part (c).</figcaption></figure></div>
 </div></div>
 </li>
-<li id="li-106"><div class="para" id="p-186">Based on your graph in (a), what is the average velocity of the diver between <span class="process-math">\(t = 2.45\)</span> and <span class="process-math">\(t=7\text{?}\)</span> Is his average velocity the same on every time interval within <span class="process-math">\([2.45,7]\text{?}\)</span>
+<li id="li-163"><div class="para" id="p-291">Based on your graph in (a), what is the average velocity of the diver between <span class="process-math">\(t = 2.45\)</span> and <span class="process-math">\(t=7\text{?}\)</span> Is his average velocity the same on every time interval within <span class="process-math">\([2.45,7]\text{?}\)</span>
 </div></li>
-<li id="li-107"><div class="para" id="p-187">Let the function <span class="process-math">\(v(t)\)</span> represent the <em class="emphasis">instantaneous vertical velocity</em> of the diver at time <span class="process-math">\(t\)</span> (i.e. the speed at which the height function <span class="process-math">\(s(t)\)</span> is changing; note that velocity in the upward direction is positive, while the velocity of a falling object is negative). Based on your understanding of the diver's behavior, as well as your graph of the position function, sketch a carefully labeled graph of <span class="process-math">\(v(t)\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-1-1-Ez2c.html" title="Figure 1.1.6">Figure 1.1.6</a>. Include scale and units on the vertical axis. Write several sentences that explain how you constructed your graph, discussing when you expect <span class="process-math">\(v(t)\)</span> to be zero, positive, negative, relatively large, and relatively small.</div></li>
-<li id="li-108"><div class="para" id="p-188">Is there a connection between the two graphs that you can describe? What can you say about the velocity graph when the height function is increasing? decreasing? Make as many observations as you can.</div></li>
-</ol></div></article><article class="exercise exercise-like" id="exercise-8"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para" id="p-199">According to the U.S. census, the population of the city of Grand Rapids, MI, was 181,843 in 1980; 189,126 in 1990; and 197,800 in 2000.</div> <div class="para logical" id="p-200"><ol class="lower-alpha">
-<li id="li-117"><div class="para" id="p-derived-li-117">Between 1980 and 2000, by how many people did the population of Grand Rapids grow?</div></li>
-<li id="li-118"><div class="para" id="p-derived-li-118">In an average year between 1980 and 2000, by how many people did the population of Grand Rapids grow?</div></li>
-<li id="li-119"><div class="para" id="p-derived-li-119">Just like we can find the average velocity of a moving body by computing change in position over change in time, we can compute the average rate of change of any function <span class="process-math">\(f\text{.}\)</span> In particular, the <em class="emphasis">average rate of change</em> of a function <span class="process-math">\(f\)</span> over an interval <span class="process-math">\([a,b]\)</span> is the quotient<div class="displaymath process-math">
+<li id="li-164"><div class="para" id="p-292">Let the function <span class="process-math">\(v(t)\)</span> represent the <em class="emphasis">instantaneous vertical velocity</em> of the diver at time <span class="process-math">\(t\)</span> (i.e. the speed at which the height function <span class="process-math">\(s(t)\)</span> is changing; note that velocity in the upward direction is positive, while the velocity of a falling object is negative). Based on your understanding of the diver’s behavior, as well as your graph of the position function, sketch a carefully labeled graph of <span class="process-math">\(v(t)\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-1-1-Ez2c.html" title="Figure 1.1.6">Figure 1.1.6</a>. Include scale and units on the vertical axis. Write several sentences that explain how you constructed your graph, discussing when you expect <span class="process-math">\(v(t)\)</span> to be zero, positive, negative, relatively large, and relatively small.</div></li>
+<li id="li-165"><div class="para" id="p-293">Is there a connection between the two graphs that you can describe? What can you say about the velocity graph when the height function is increasing? decreasing? Make as many observations as you can.</div></li>
+</ol></div></article><article class="exercise exercise-like" id="exercise-11"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div class="para" id="p-304">According to the U.S. census, the population of the city of Grand Rapids, MI, was 181,843 in 1980; 189,126 in 1990; and 197,800 in 2000.</div> <div class="para logical" id="p-305"><ol class="lower-alpha">
+<li id="li-174"><div class="para" id="p-derived-li-174">Between 1980 and 2000, by how many people did the population of Grand Rapids grow?</div></li>
+<li id="li-175"><div class="para" id="p-derived-li-175">In an average year between 1980 and 2000, by how many people did the population of Grand Rapids grow?</div></li>
+<li id="li-176"><div class="para" id="p-derived-li-176">Just like we can find the average velocity of a moving body by computing change in position over change in time, we can compute the average rate of change of any function <span class="process-math">\(f\text{.}\)</span> In particular, the <em class="emphasis">average rate of change</em> of a function <span class="process-math">\(f\)</span> over an interval <span class="process-math">\([a,b]\)</span> is the quotient<div class="displaymath process-math">
 \begin{equation*}
 \frac{f(b)-f(a)}{b-a}\text{.}
 \end{equation*}
 </div>What does the quantity <span class="process-math">\(\frac{f(b)-f(a)}{b-a}\)</span> measure on the graph of <span class="process-math">\(y = f(x)\)</span> over the interval <span class="process-math">\([a,b]\text{?}\)</span>
 </div></li>
-<li id="li-120"><div class="para" id="p-derived-li-120">Let <span class="process-math">\(P(t)\)</span> represent the population of Grand Rapids at time <span class="process-math">\(t\text{,}\)</span> where <span class="process-math">\(t\)</span> is measured in years from January 1, 1980. What is the average rate of change of <span class="process-math">\(P\)</span> on the interval <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 20\text{?}\)</span> What are the units on this quantity?</div></li>
-<li id="li-121"><div class="para" id="p-derived-li-121">If we assume the population of Grand Rapids is growing at a rate of approximately 4% per decade, we can model the population function with the formula<div class="displaymath process-math">
+<li id="li-177"><div class="para" id="p-derived-li-177">Let <span class="process-math">\(P(t)\)</span> represent the population of Grand Rapids at time <span class="process-math">\(t\text{,}\)</span> where <span class="process-math">\(t\)</span> is measured in years from January 1, 1980. What is the average rate of change of <span class="process-math">\(P\)</span> on the interval <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 20\text{?}\)</span> What are the units on this quantity?</div></li>
+<li id="li-178"><div class="para" id="p-derived-li-178">If we assume the population of Grand Rapids is growing at a rate of approximately 4% per decade, we can model the population function with the formula<div class="displaymath process-math">
 \begin{equation*}
 P(t) = 181843 (1.04)^{t/10}\text{.}
 \end{equation*}
 </div>Use this formula to compute the average rate of change of the population on the intervals <span class="process-math">\([5,10]\text{,}\)</span> <span class="process-math">\([5,9]\text{,}\)</span> <span class="process-math">\([5,8]\text{,}\)</span> <span class="process-math">\([5,7]\text{,}\)</span> and <span class="process-math">\([5,6]\text{.}\)</span>
 </div></li>
-<li id="li-122"><div class="para" id="p-derived-li-122">How fast do you think the population of Grand Rapids was changing on January 1, 1985? Said differently, at what rate do you think people were being added to the population of Grand Rapids as of January 1, 1985? How many additional people should the city have expected in the following year? Why?</div></li>
+<li id="li-179"><div class="para" id="p-derived-li-179">How fast do you think the population of Grand Rapids was changing on January 1, 1985? Said differently, at what rate do you think people were being added to the population of Grand Rapids as of January 1, 1985? How many additional people should the city have expected in the following year? Why?</div></li>
 </ol></div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
 </div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="C-1.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-1-2-lim.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

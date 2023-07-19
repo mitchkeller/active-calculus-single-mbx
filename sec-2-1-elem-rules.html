@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC Elementary derivative rules</title>
@@ -15,20 +15,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="C-2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-2.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-2-2-sin-cos.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -837,52 +824,57 @@ eBookConfig.new_server_prefix = "/ns";
 </h2>
 <article class="objectives goal-like" id="objectives-9"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-1155"><div class="para" id="p-1657">What are alternate notations for the derivative?</div></li>
-<li id="li-1156"><div class="para" id="p-1658">How can we use the algebraic structure of a function <span class="process-math">\(f(x)\)</span> to compute a formula for <span class="process-math">\(f'(x)\text{?}\)</span>
+<li id="li-1338"><div class="para" id="p-2193">What are alternate notations for the derivative?</div></li>
+<li id="li-1339"><div class="para" id="p-2194">How can we use the algebraic structure of a function <span class="process-math">\(f(x)\)</span> to compute a formula for <span class="process-math">\(f'(x)\text{?}\)</span>
 </div></li>
-<li id="li-1157"><div class="para" id="p-1659">What is the derivative of a power function of the form <span class="process-math">\(f(x) = x^n\text{?}\)</span> What is the derivative of an exponential function of form <span class="process-math">\(f(x) = a^x\text{?}\)</span>
+<li id="li-1340"><div class="para" id="p-2195">What is the derivative of a power function of the form <span class="process-math">\(f(x) = x^n\text{?}\)</span> What is the derivative of an exponential function of form <span class="process-math">\(f(x) = a^x\text{?}\)</span>
 </div></li>
-<li id="li-1158"><div class="para" id="p-1660">If we know the derivative of <span class="process-math">\(y = f(x)\text{,}\)</span> what is the derivative of <span class="process-math">\(y = k f(x)\text{,}\)</span> where <span class="process-math">\(k\)</span> is a constant?</div></li>
-<li id="li-1159"><div class="para" id="p-1661">If we know the derivatives of <span class="process-math">\(y = f(x)\)</span> and <span class="process-math">\(y = g(x)\text{,}\)</span> how do we compute the derivative of <span class="process-math">\(y = f(x) + g(x)\text{?}\)</span>
+<li id="li-1341"><div class="para" id="p-2196">If we know the derivative of <span class="process-math">\(y = f(x)\text{,}\)</span> what is the derivative of <span class="process-math">\(y = k f(x)\text{,}\)</span> where <span class="process-math">\(k\)</span> is a constant?</div></li>
+<li id="li-1342"><div class="para" id="p-2197">If we know the derivatives of <span class="process-math">\(y = f(x)\)</span> and <span class="process-math">\(y = g(x)\text{,}\)</span> how do we compute the derivative of <span class="process-math">\(y = f(x) + g(x)\text{?}\)</span>
 </div></li>
-</ul></article><section class="introduction" id="introduction-9"><div class="para logical" id="p-1662">
+</ul></article><section class="introduction" id="introduction-14"><div class="para logical" id="p-2198">
 <div class="para">In <a href="C-1.html" class="internal" title="Chapter 1: Understanding the Derivative">Chapter 1</a>, we developed the concept of the derivative of a function. We now know that the derivative <span class="process-math">\(f'\)</span> of a function <span class="process-math">\(f\)</span> measures the instantaneous rate of change of <span class="process-math">\(f\)</span> with respect to <span class="process-math">\(x\text{.}\)</span> The derivative also tells us the slope of the tangent line to <span class="process-math">\(y=f(x)\)</span> at any given value of <span class="process-math">\(x\text{.}\)</span> So far, we have focused on interpreting the derivative graphically or, in the context of a physical setting, as a meaningful rate of change. To calculate the value of the derivative at a specific point, we have relied on the limit definition of the derivative,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/C-1.html">
 \begin{equation*}
 f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-1663">In this chapter, we investigate how the limit definition of the derivative leads to interesting patterns and rules that enable us to find a formula for <span class="process-math">\(f'(x)\)</span> quickly, <em class="emphasis">without</em> using the limit definition directly. For example, we would like to apply shortcuts to differentiate a function such as <span class="process-math">\(g(x) = 4x^7 - \sin(x) + 3e^x\)</span>
-</div> <article class="exploration project-like" id="PA-2-1"><h3 class="heading">
+</div> <div class="para" id="p-2199">In this chapter, we investigate how the limit definition of the derivative leads to interesting patterns and rules that enable us to find a formula for <span class="process-math">\(f'(x)\)</span> quickly, <em class="emphasis">without</em> using the limit definition directly. For example, we would like to apply shortcuts to differentiate a function such as <span class="process-math">\(g(x) = 4x^7 - \sin(x) + 3e^x\)</span>
+</div> <article class="exploration project-like" id="ACS__Preview__2-1"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-1664">
-<div class="para">Functions of the form <span class="process-math">\(f(x) = x^n\text{,}\)</span> where <span class="process-math">\(n = 1, 2, 3, \ldots\text{,}\)</span> are often called <dfn class="terminology">power functions</dfn>. The first two questions below revisit work we did earlier in <a href="C-1.html" class="internal" title="Chapter 1: Understanding the Derivative">Chapter 1</a>, and the following questions extend those ideas to higher powers of <span class="process-math">\(x\text{.}\)</span>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__ACS__Preview__2-1"><div id="boelkins-ACS__ACS__Preview__2-1-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="84" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Westmont/ActiveCalculus/Preview_2_1/preview_2_1_abcde.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__ACS__Preview__2-1-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-2200">Functions of the form <span class="process-math">\(f(x) = x^n\text{,}\)</span> where <span class="process-math">\(n = 1, 2, 3, \ldots\text{,}\)</span> are often called <em class="emphasis">power functions.</em>
+</div> <div class="para" id="p-2201">(a) Use the limit definition of the derivative to find <span class="process-math">\(f'(x)\)</span> for <span class="process-math">\(f(x)=x^2\text{.}\)</span>
+</div> <div class="para" id="p-2202">
+<span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-2203">(b) Use the limit definition of the derivative to find <span class="process-math">\(f'(x)\)</span> for <span class="process-math">\(f(x)=x^3\text{.}\)</span>
+</div> <div class="para" id="p-2204">
+<span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-2205">(c) Use the limit definition of the derivative to find <span class="process-math">\(f'(x)\)</span> for <span class="process-math">\(f(x)=x^4\text{.}\)</span> (Hint: <span class="process-math">\((a + b)^4 = a^4 + 4a^3 b + 6a^2 b^2 + 4ab^3 + b^4\text{.}\)</span> Apply this rule to <span class="process-math">\((x + h)^4\)</span> within the limit definition.)</div> <div class="para" id="p-2206">
+<span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-2207">(d) Based on your work in (a), (b), and (c), what do you conjecture is the derivative of <span class="process-math">\(f(x) = x^5\text{?}\)</span>  <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-2208">Of <span class="process-math">\(f(x) = x^{13}\text{?}\)</span>  <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-2209">(e) Conjecture a formula for the derivative of <span class="process-math">\(f(x) = x^n\)</span> that holds for any positive integer <span class="process-math">\(n\text{.}\)</span> That is, given <span class="process-math">\(f(x) = x^n\)</span> where <span class="process-math">\(n\)</span> is a positive integer, what do you think is the formula for <span class="process-math">\(f'(x)\text{?}\)</span>
+</div> <div class="para" id="p-2210">
+<span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
 </div>
-<ol class="lower-alpha">
-<li id="li-1160"><div class="para" id="p-1665">Use the limit definition of the derivative to find <span class="process-math">\(f'(x)\)</span> for <span class="process-math">\(f(x) = x^2\text{.}\)</span>
-</div></li>
-<li id="li-1161"><div class="para" id="p-1666">Use the limit definition of the derivative to find <span class="process-math">\(f'(x)\)</span> for <span class="process-math">\(f(x) = x^3\text{.}\)</span>
-</div></li>
-<li id="li-1162"><div class="para" id="p-1667">Use the limit definition of the derivative to find <span class="process-math">\(f'(x)\)</span> for <span class="process-math">\(f(x) = x^4\text{.}\)</span> (Hint: <span class="process-math">\((a+b)^4 = a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4\text{.}\)</span> Apply this rule to <span class="process-math">\((x+h)^4\)</span> within the limit definition.)</div></li>
-<li id="li-1163"><div class="para" id="p-1668">Based on your work in (a), (b), and (c), what do you conjecture is the derivative of <span class="process-math">\(f(x) = x^5\text{?}\)</span> Of <span class="process-math">\(f(x) = x^{13}\text{?}\)</span>
-</div></li>
-<li id="li-1164"><div class="para" id="p-1669">Conjecture a formula for the derivative of <span class="process-math">\(f(x) = x^n\)</span> that holds for any positive integer <span class="process-math">\(n\text{.}\)</span> That is, given <span class="process-math">\(f(x) = x^n\)</span> where <span class="process-math">\(n\)</span> is a positive integer, what do you think is the formula for <span class="process-math">\(f'(x)\text{?}\)</span>
-</div></li>
-</ol>
-</div></article></section><section class="subsection" id="subsection-25"><h3 class="heading hide-type">
+</div>
+</div></div></div></article></section><section class="subsection" id="subsection-25"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.1</span> <span class="title">Some Key Notation</span>
 </h3>
-<div class="para logical" id="p-1670">
+<div class="para logical" id="p-2217">
 <div class="para">In addition to our usual <span class="process-math">\(f'\)</span> notation, there are other ways to denote the derivative of a function, as well as the instruction to take the derivative. If we are thinking about the relationship between <span class="process-math">\(y\)</span> and <span class="process-math">\(x\text{,}\)</span> we sometimes denote the derivative of <span class="process-math">\(y\)</span> with respect to <span class="process-math">\(x\)</span> by the symbol</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{dy}{dx}
 \end{equation*}
 </div>
-<div class="para">which we read “dee-y dee-x.” For example, if <span class="process-math">\(y = x^2\text{,}\)</span> we'll write that the derivative is <span class="process-math">\(\frac{dy}{dx} = 2x\text{.}\)</span> This notation comes from the fact that the derivative is related to the slope of a line, and slope is measured by <span class="process-math">\(\frac{\Delta y}{\Delta x}\text{.}\)</span> Note that while we read <span class="process-math">\(\frac{\Delta y}{\Delta x}\)</span> as “change in <span class="process-math">\(y\)</span> over change in <span class="process-math">\(x\text{,}\)</span>” we view <span class="process-math">\(\frac{dy}{dx}\)</span> as a single symbol, not a quotient of two quantities.</div>
+<div class="para">which we read “dee-y dee-x.” For example, if <span class="process-math">\(y = x^2\text{,}\)</span> we’ll write that the derivative is <span class="process-math">\(\frac{dy}{dx} = 2x\text{.}\)</span> This notation comes from the fact that the derivative is related to the slope of a line, and slope is measured by <span class="process-math">\(\frac{\Delta y}{\Delta x}\text{.}\)</span> Note that while we read <span class="process-math">\(\frac{\Delta y}{\Delta x}\)</span> as “change in <span class="process-math">\(y\)</span> over change in <span class="process-math">\(x\text{,}\)</span>” we view <span class="process-math">\(\frac{dy}{dx}\)</span> as a single symbol, not a quotient of two quantities.</div>
 </div>
-<div class="para logical" id="p-1671">
+<div class="para logical" id="p-2218">
 <div class="para">We use a variant of this notation as the instruction to take the derivative. In particular,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -892,32 +884,32 @@ f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{.}
 <div class="para">means “take the derivative of the quantity in <span class="process-math">\(\Box\)</span> with respect to <span class="process-math">\(x\text{.}\)</span>” For example, we may write <span class="process-math">\(\frac{d}{dx}[x^2] = 2x\text{.}\)</span>
 </div>
 </div>
-<div class="para" id="p-1672">It is important to note that the independent variable can be different from <span class="process-math">\(x\text{.}\)</span> If we have <span class="process-math">\(f(z) = z^2\text{,}\)</span> we then write <span class="process-math">\(f'(z) = 2z\text{.}\)</span> Similarly, if <span class="process-math">\(y = t^2\text{,}\)</span> we say <span class="process-math">\(\frac{dy}{dt} = 2t\text{.}\)</span> And it is also true that <span class="process-math">\(\frac{d}{dq}[q^2] = 2q\text{.}\)</span> This notation may also be used for second derivatives: <span class="process-math">\(f''(z) = \frac{d}{dz}\left[\frac{df}{dz}\right] = \frac{d^2 f}{dz^2}\text{.}\)</span>
+<div class="para" id="p-2219">It is important to note that the independent variable can be different from <span class="process-math">\(x\text{.}\)</span> If we have <span class="process-math">\(f(z) = z^2\text{,}\)</span> we then write <span class="process-math">\(f'(z) = 2z\text{.}\)</span> Similarly, if <span class="process-math">\(y = t^2\text{,}\)</span> we say <span class="process-math">\(\frac{dy}{dt} = 2t\text{.}\)</span> And it is also true that <span class="process-math">\(\frac{d}{dq}[q^2] = 2q\text{.}\)</span> This notation may also be used for second derivatives: <span class="process-math">\(f''(z) = \frac{d}{dz}\left[\frac{df}{dz}\right] = \frac{d^2 f}{dz^2}\text{.}\)</span>
 </div>
-<div class="para" id="p-1673">In what follows, we'll build a repertoire of functions for which we can quickly compute the derivative.</div></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
+<div class="para" id="p-2220">In what follows, we’ll build a repertoire of functions for which we can quickly compute the derivative.</div></section><section class="subsection" id="subsection-26"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.2</span> <span class="title">Constant, Power, and Exponential Functions</span>
 </h3>
-<div class="para" id="p-1674">So far, we know the derivative formula for two important classes of functions: constant functions and power functions. If <span class="process-math">\(f(x) = c\)</span> is a constant function, its graph is a horizontal line with slope zero at every point. Thus, <span class="process-math">\(\frac{d}{dx}[c] = 0\text{.}\)</span> We summarize this with the following rule.</div>
+<div class="para" id="p-2221">So far, we know the derivative formula for two important classes of functions: constant functions and power functions. If <span class="process-math">\(f(x) = c\)</span> is a constant function, its graph is a horizontal line with slope zero at every point. Thus, <span class="process-math">\(\frac{d}{dx}[c] = 0\text{.}\)</span> We summarize this with the following rule.</div>
 <article class="assemblage assemblage-like" id="const-fxns"><h4 class="heading"><span class="title">Constant Functions.</span></h4>
-<div class="para" id="p-1675"> For any real number <span class="process-math">\(c\text{,}\)</span> if <span class="process-math">\(f(x) = c\text{,}\)</span> then <span class="process-math">\(f'(x) = 0\text{.}\)</span>
+<div class="para" id="p-2222"> For any real number <span class="process-math">\(c\text{,}\)</span> if <span class="process-math">\(f(x) = c\text{,}\)</span> then <span class="process-math">\(f'(x) = 0\text{.}\)</span>
 </div></article><article class="example example-like" id="example-7"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-1676">If <span class="process-math">\(f(x) = 7\text{,}\)</span> then <span class="process-math">\(f'(x) = 0\text{.}\)</span> Similarly, <span class="process-math">\(\frac{d}{dx} [\sqrt{3}] = 0\text{.}\)</span>
-</div></article><div class="para" id="p-1677">In your work in <a href="" class="xref" data-knowl="./knowl/PA-2-1.html" title="Preview Activity 2.1.1">Preview Activity 2.1.1</a>, you conjectured that for any positive integer <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(f(x) = x^n\text{,}\)</span> then <span class="process-math">\(f'(x) = nx^{n-1}\text{.}\)</span> This rule can be formally proved for any positive integer <span class="process-math">\(n\text{,}\)</span> and also for any nonzero real number (positive or negative).</div>
+<div class="para" id="p-2223">If <span class="process-math">\(f(x) = 7\text{,}\)</span> then <span class="process-math">\(f'(x) = 0\text{.}\)</span> Similarly, <span class="process-math">\(\frac{d}{dx} [\sqrt{3}] = 0\text{.}\)</span>
+</div></article><div class="para" id="p-2224">In your work in <a href="" class="xref" data-knowl="./knowl/ACS__Preview__2-1.html" title="Preview Activity 2.1.1">Preview Activity 2.1.1</a>, you conjectured that for any positive integer <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(f(x) = x^n\text{,}\)</span> then <span class="process-math">\(f'(x) = nx^{n-1}\text{.}\)</span> This rule can be formally proved for any positive integer <span class="process-math">\(n\text{,}\)</span> and also for any nonzero real number (positive or negative).</div>
 <article class="assemblage assemblage-like" id="power-fxns"><h4 class="heading"><span class="title">Power Functions.</span></h4>
-<div class="para" id="p-1678"> For any nonzero real number <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(f(x) = x^n\text{,}\)</span> then <span class="process-math">\(f'(x) = nx^{n-1}\text{.}\)</span>
+<div class="para" id="p-2225"> For any nonzero real number <span class="process-math">\(n\text{,}\)</span> if <span class="process-math">\(f(x) = x^n\text{,}\)</span> then <span class="process-math">\(f'(x) = nx^{n-1}\text{.}\)</span>
 </div></article><article class="example example-like" id="example-8"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-1679">Using the rule for power functions, we can compute the following derivatives. If <span class="process-math">\(g(z) = z^{-3}\text{,}\)</span> then <span class="process-math">\(g'(z) = -3z^{-4}\text{.}\)</span> Similarly, if <span class="process-math">\(h(t) = t^{7/5}\text{,}\)</span> then <span class="process-math">\(\frac{dh}{dt} = \frac{7}{5}t^{2/5}\text{,}\)</span> and <span class="process-math">\(\frac{d}{dq} [q^{\pi}] = \pi q^{\pi - 1}\text{.}\)</span>
-</div></article><div class="para" id="p-1680">It will be instructive to have a derivative formula for one more type of basic function. For now, we simply state this rule without explanation or justification; we will explore why this rule is true in one of the exercises. And we will encounter graphical reasoning for why the rule is plausible in <a href="" class="xref" data-knowl="./knowl/PA-2-2.html" title="Preview Activity 2.2.1">Preview Activity 2.2.1</a>.</div>
+<div class="para" id="p-2226">Using the rule for power functions, we can compute the following derivatives. If <span class="process-math">\(g(z) = z^{-3}\text{,}\)</span> then <span class="process-math">\(g'(z) = -3z^{-4}\text{.}\)</span> Similarly, if <span class="process-math">\(h(t) = t^{7/5}\text{,}\)</span> then <span class="process-math">\(\frac{dh}{dt} = \frac{7}{5}t^{2/5}\text{,}\)</span> and <span class="process-math">\(\frac{d}{dq} [q^{\pi}] = \pi q^{\pi - 1}\text{.}\)</span>
+</div></article><div class="para" id="p-2227">It will be instructive to have a derivative formula for one more type of basic function. For now, we simply state this rule without explanation or justification; we will explore why this rule is true in one of the exercises. And we will encounter graphical reasoning for why the rule is plausible in <a href="" class="xref" data-knowl="./knowl/ACS__Preview__2-2.html" title="Preview Activity 2.2.1">Preview Activity 2.2.1</a>.</div>
 <article class="assemblage assemblage-like" id="exp-fxns"><h4 class="heading"><span class="title">Exponential Functions.</span></h4>
-<div class="para" id="p-1681"> For any positive real number <span class="process-math">\(a\text{,}\)</span> if <span class="process-math">\(f(x) = a^x\text{,}\)</span> then <span class="process-math">\(f'(x) = a^x \ln(a)\text{.}\)</span>
+<div class="para" id="p-2228"> For any positive real number <span class="process-math">\(a\text{,}\)</span> if <span class="process-math">\(f(x) = a^x\text{,}\)</span> then <span class="process-math">\(f'(x) = a^x \ln(a)\text{.}\)</span>
 </div></article><article class="example example-like" id="example-9"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1682">
+<div class="para logical" id="p-2229">
 <div class="para">If <span class="process-math">\(f(x) = 2^x\text{,}\)</span> then <span class="process-math">\(f'(x) = 2^x \ln(2)\text{.}\)</span> Similarly, for <span class="process-math">\(p(t) = 10^t\text{,}\)</span> <span class="process-math">\(p'(t) = 10^t \ln(10)\text{.}\)</span> It is especially important to note that when <span class="process-math">\(a = e\text{,}\)</span> where <span class="process-math">\(e\)</span> is the base of the natural logarithm function, we have that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -925,26 +917,26 @@ f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{.}
 \end{equation*}
 </div>
 <div class="para">since <span class="process-math">\(\ln(e) = 1\text{.}\)</span> This is an extremely important property of the function <span class="process-math">\(e^x\text{:}\)</span> its derivative function is itself!</div>
-</div></article><div class="para" id="p-1683">Note carefully the distinction between power functions and exponential functions: in power functions, the variable is in the base, as in <span class="process-math">\(x^2\text{,}\)</span> while in exponential functions, the variable is in the power, as in <span class="process-math">\(2^x\text{.}\)</span> As we can see from the rules, this makes a big difference in the form of the derivative.</div>
+</div></article><div class="para" id="p-2230">Note carefully the distinction between power functions and exponential functions: in power functions, the variable is in the base, as in <span class="process-math">\(x^2\text{,}\)</span> while in exponential functions, the variable is in the power, as in <span class="process-math">\(2^x\text{.}\)</span> As we can see from the rules, this makes a big difference in the form of the derivative.</div>
 <article class="activity project-like" id="act-2-1-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1684">
+<div class="para logical" id="p-2231">
 <div class="para">Use the three rules above to determine the derivative of each of the following functions. For each, state your answer using full and proper notation, labeling the derivative with its name. For example, if you are given a function <span class="process-math">\(h(z)\text{,}\)</span> you should write “<span class="process-math">\(h'(z) =\)</span>” or “<span class="process-math">\(\frac{dh}{dz} =\)</span>” as part of your response.</div>
 <ol class="lower-alpha cols3">
-<li id="li-1165"><div class="para" id="p-1685"><span class="process-math">\(\displaystyle f(t) = \pi\)</span></div></li>
-<li id="li-1166"><div class="para" id="p-1686"><span class="process-math">\(\displaystyle g(z) = 7^z\)</span></div></li>
-<li id="li-1167"><div class="para" id="p-1687"><span class="process-math">\(\displaystyle h(w) = w^{3/4}\)</span></div></li>
-<li id="li-1168"><div class="para" id="p-1688"><span class="process-math">\(\displaystyle p(x) = 3^{1/2}\)</span></div></li>
-<li id="li-1169"><div class="para" id="p-1689"><span class="process-math">\(\displaystyle r(t) = (\sqrt{2})^t\)</span></div></li>
-<li id="li-1170"><div class="para" id="p-1690"><span class="process-math">\(\displaystyle s(q) = q^{-1}\)</span></div></li>
-<li id="li-1171"><div class="para" id="p-1691"><span class="process-math">\(\displaystyle m(t) = \frac{1}{t^3}\)</span></div></li>
+<li id="li-1343"><div class="para" id="p-2232"><span class="process-math">\(\displaystyle f(t) = \pi\)</span></div></li>
+<li id="li-1344"><div class="para" id="p-2233"><span class="process-math">\(\displaystyle g(z) = 7^z\)</span></div></li>
+<li id="li-1345"><div class="para" id="p-2234"><span class="process-math">\(\displaystyle h(w) = w^{3/4}\)</span></div></li>
+<li id="li-1346"><div class="para" id="p-2235"><span class="process-math">\(\displaystyle p(x) = 3^{1/2}\)</span></div></li>
+<li id="li-1347"><div class="para" id="p-2236"><span class="process-math">\(\displaystyle r(t) = (\sqrt{2})^t\)</span></div></li>
+<li id="li-1348"><div class="para" id="p-2237"><span class="process-math">\(\displaystyle s(q) = q^{-1}\)</span></div></li>
+<li id="li-1349"><div class="para" id="p-2238"><span class="process-math">\(\displaystyle m(t) = \frac{1}{t^3}\)</span></div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-27"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.3</span> <span class="title">Constant Multiples and Sums of Functions</span>
 </h3>
-<div class="para logical" id="p-1716">
-<div class="para">Next we will learn how to compute the derivative of a function constructed as an algebraic combination of basic functions. For instance, we'd like to be able to take the derivative of a polynomial function such as</div>
+<div class="para logical" id="p-2263">
+<div class="para">Next we will learn how to compute the derivative of a function constructed as an algebraic combination of basic functions. For instance, we’d like to be able to take the derivative of a polynomial function such as</div>
 <div class="displaymath process-math">
 \begin{equation*}
 p(t) = 3t^5 - 7t^4 + t^2 - 9\text{,}
@@ -952,71 +944,71 @@ p(t) = 3t^5 - 7t^4 + t^2 - 9\text{,}
 </div>
 <div class="para">which is a sum of constant multiples of powers of <span class="process-math">\(t\text{.}\)</span> To that end, we develop two new rules: the Constant Multiple Rule and the Sum Rule.</div>
 </div>
-<div class="para" id="p-1717">How is the derivative of <span class="process-math">\(y = kf(x)\)</span> related to the derivative of <span class="process-math">\(y = f(x)\text{?}\)</span> Recall that when we multiply a function by a constant <span class="process-math">\(k\text{,}\)</span> we vertically stretch the graph by a factor of <span class="process-math">\(|k|\)</span> (and reflect the graph across <span class="process-math">\(y = 0\)</span> if <span class="process-math">\(k \lt 0\)</span>). This vertical stretch affects the slope of the graph, so the slope of the function <span class="process-math">\(y = kf(x)\)</span> is <span class="process-math">\(k\)</span> times as steep as the slope of <span class="process-math">\(y = f(x)\text{.}\)</span> Thus, when we multiply a function by a factor of <span class="process-math">\(k\text{,}\)</span> we change the value of its derivative by a factor of <span class="process-math">\(k\)</span> as well.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-43" id="fn-43"><sup> 1 </sup></a>,</div>
+<div class="para" id="p-2264">How is the derivative of <span class="process-math">\(y = kf(x)\)</span> related to the derivative of <span class="process-math">\(y = f(x)\text{?}\)</span> Recall that when we multiply a function by a constant <span class="process-math">\(k\text{,}\)</span> we vertically stretch the graph by a factor of <span class="process-math">\(|k|\)</span> (and reflect the graph across <span class="process-math">\(y = 0\)</span> if <span class="process-math">\(k \lt 0\)</span>). This vertical stretch affects the slope of the graph, so the slope of the function <span class="process-math">\(y = kf(x)\)</span> is <span class="process-math">\(k\)</span> times as steep as the slope of <span class="process-math">\(y = f(x)\text{.}\)</span> Thus, when we multiply a function by a factor of <span class="process-math">\(k\text{,}\)</span> we change the value of its derivative by a factor of <span class="process-math">\(k\)</span> as well.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-45" id="fn-45"><sup> 1 </sup></a>,</div>
 <article class="assemblage assemblage-like" id="const-mult-rule"><h4 class="heading"><span class="title">The Constant Multiple Rule.</span></h4>
-<div class="para" id="p-1718"> For any real number <span class="process-math">\(k\text{,}\)</span> if <span class="process-math">\(f(x)\)</span> is a differentiable function with derivative <span class="process-math">\(f'(x)\text{,}\)</span> then <span class="process-math">\(\frac{d}{dx}[k f(x)] = k f'(x)\text{.}\)</span>
-</div></article><div class="para" id="p-1719">In words, this rule says that “the derivative of a constant times a function is the constant times the derivative of the function.”</div>
+<div class="para" id="p-2265"> For any real number <span class="process-math">\(k\text{,}\)</span> if <span class="process-math">\(f(x)\)</span> is a differentiable function with derivative <span class="process-math">\(f'(x)\text{,}\)</span> then <span class="process-math">\(\frac{d}{dx}[k f(x)] = k f'(x)\text{.}\)</span>
+</div></article><div class="para" id="p-2266">In words, this rule says that “the derivative of a constant times a function is the constant times the derivative of the function.”</div>
 <article class="example example-like" id="example-10"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-1720">If <span class="process-math">\(g(t) = 3 \cdot 5^t\text{,}\)</span> we have <span class="process-math">\(g'(t) = 3 \cdot 5^t \ln(5)\text{.}\)</span> Similarly, <span class="process-math">\(\frac{d}{dz} [5z^{-2}] = 5 (-2z^{-3})\text{.}\)</span>
-</div></article><div class="para" id="p-1721">Next we examine a sum of two functions. If we have <span class="process-math">\(y = f(x)\)</span> and <span class="process-math">\(y = g(x)\text{,}\)</span> we can compute a new function <span class="process-math">\(y = (f+g)(x)\)</span> by adding the outputs of the two functions: <span class="process-math">\((f+g)(x) = f(x) + g(x)\text{.}\)</span> Not only is the value of the new function the sum of the values of the two known functions, but the slope of the new function is the sum of the slopes of the known functions. Therefore<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-44" id="fn-44"><sup> 2 </sup></a>, we arrive at the following Sum Rule for derivatives:</div>
+<div class="para" id="p-2267">If <span class="process-math">\(g(t) = 3 \cdot 5^t\text{,}\)</span> we have <span class="process-math">\(g'(t) = 3 \cdot 5^t \ln(5)\text{.}\)</span> Similarly, <span class="process-math">\(\frac{d}{dz} [5z^{-2}] = 5 (-2z^{-3})\text{.}\)</span>
+</div></article><div class="para" id="p-2268">Next we examine a sum of two functions. If we have <span class="process-math">\(y = f(x)\)</span> and <span class="process-math">\(y = g(x)\text{,}\)</span> we can compute a new function <span class="process-math">\(y = (f+g)(x)\)</span> by adding the outputs of the two functions: <span class="process-math">\((f+g)(x) = f(x) + g(x)\text{.}\)</span> Not only is the value of the new function the sum of the values of the two known functions, but the slope of the new function is the sum of the slopes of the known functions. Therefore<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-46" id="fn-46"><sup> 2 </sup></a>, we arrive at the following Sum Rule for derivatives:</div>
 <article class="assemblage assemblage-like" id="sum-rule"><h4 class="heading"><span class="title">The Sum Rule.</span></h4>
-<div class="para" id="p-1722"> If <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> are differentiable functions with derivatives <span class="process-math">\(f'(x)\)</span> and <span class="process-math">\(g'(x)\)</span> respectively, then <span class="process-math">\(\frac{d}{dx}[f(x) + g(x)] = f'(x) + g'(x)\text{.}\)</span>
-</div></article><div class="para" id="p-1723">In words, the Sum Rule tells us that “the derivative of a sum is the sum of the derivatives.” It also tells us that a sum of two differentiable functions is also differentiable. Furthermore, because we can view the difference function <span class="process-math">\(y = (f-g)(x) = f(x) - g(x)\)</span> as <span class="process-math">\(y = f(x) + (-1 \cdot g(x))\text{,}\)</span> the Sum Rule and Constant Multiple Rules together tell us that <span class="process-math">\(\frac{d}{dx}[f(x) + (-1 \cdot g(x))] = f'(x) - g'(x)\text{,}\)</span> or that “the derivative of a difference is the difference of the derivatives.” We can now compute derivatives of sums and differences of elementary functions.</div>
+<div class="para" id="p-2269"> If <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> are differentiable functions with derivatives <span class="process-math">\(f'(x)\)</span> and <span class="process-math">\(g'(x)\)</span> respectively, then <span class="process-math">\(\frac{d}{dx}[f(x) + g(x)] = f'(x) + g'(x)\text{.}\)</span>
+</div></article><div class="para" id="p-2270">In words, the Sum Rule tells us that “the derivative of a sum is the sum of the derivatives.” It also tells us that a sum of two differentiable functions is also differentiable. Furthermore, because we can view the difference function <span class="process-math">\(y = (f-g)(x) = f(x) - g(x)\)</span> as <span class="process-math">\(y = f(x) + (-1 \cdot g(x))\text{,}\)</span> the Sum Rule and Constant Multiple Rules together tell us that <span class="process-math">\(\frac{d}{dx}[f(x) + (-1 \cdot g(x))] = f'(x) - g'(x)\text{,}\)</span> or that “the derivative of a difference is the difference of the derivatives.” We can now compute derivatives of sums and differences of elementary functions.</div>
 <article class="example example-like" id="example-11"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-1724">Using the sum rule, <span class="process-math">\(\frac{d}{dw} (2^w + w^2) = 2^w \ln(2) + 2w\text{.}\)</span> Using both the sum and constant multiple rules, if <span class="process-math">\(h(q) = 3q^6 - 4q^{-3}\text{,}\)</span> then <span class="process-math">\(h'(q) = 3 (6q^5) - 4(-3q^{-4}) = 18q^5 + 12q^{-4}\text{.}\)</span>
+<div class="para" id="p-2271">Using the sum rule, <span class="process-math">\(\frac{d}{dw} (2^w + w^2) = 2^w \ln(2) + 2w\text{.}\)</span> Using both the sum and constant multiple rules, if <span class="process-math">\(h(q) = 3q^6 - 4q^{-3}\text{,}\)</span> then <span class="process-math">\(h'(q) = 3 (6q^5) - 4(-3q^{-4}) = 18q^5 + 12q^{-4}\text{.}\)</span>
 </div></article><article class="activity project-like" id="act-2-1-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1725">
+<div class="para logical" id="p-2272">
 <div class="para">Use only the rules for constant, power, and exponential functions, together with the Constant Multiple and Sum Rules, to compute the derivative of each function below with respect to the given independent variable. Note well that we do not yet know any rules for how to differentiate the product or quotient of functions. This means that you may have to do some algebra first on the functions below before you can actually use existing rules to compute the desired derivative formula. In each case, label the derivative you calculate with its name using proper notation such as <span class="process-math">\(f'(x)\text{,}\)</span> <span class="process-math">\(h'(z)\text{,}\)</span> <span class="process-math">\(dr/dt\text{,}\)</span> etc.</div>
 <ol class="lower-alpha cols2">
-<li id="li-1193"><div class="para" id="p-1726"><span class="process-math">\(\displaystyle f(x) = x^{5/3} - x^4 + 2^x\)</span></div></li>
-<li id="li-1194"><div class="para" id="p-1727"><span class="process-math">\(\displaystyle g(x) = 14e^x + 3x^5 - x\)</span></div></li>
-<li id="li-1195"><div class="para" id="p-1728"><span class="process-math">\(\displaystyle h(z) = \sqrt{z} + \frac{1}{z^4} + 5^z\)</span></div></li>
-<li id="li-1196"><div class="para" id="p-1729"><span class="process-math">\(\displaystyle r(t) = \sqrt{53} \, t^7 - \pi e^t + e^4\)</span></div></li>
-<li id="li-1197"><div class="para" id="p-1730"><span class="process-math">\(\displaystyle s(y) = (y^2 + 1)(y^2 - 1)\)</span></div></li>
-<li id="li-1198"><div class="para" id="p-1731"><span class="process-math">\(\displaystyle q(x) = \frac{x^3 - x + 2}{x}\)</span></div></li>
-<li id="li-1199"><div class="para" id="p-1732"><span class="process-math">\(\displaystyle p(a) = 3a^4 - 2a^3 + 7a^2 - a + 12\)</span></div></li>
+<li id="li-1371"><div class="para" id="p-2273"><span class="process-math">\(\displaystyle f(x) = x^{5/3} - x^4 + 2^x\)</span></div></li>
+<li id="li-1372"><div class="para" id="p-2274"><span class="process-math">\(\displaystyle g(x) = 14e^x + 3x^5 - x\)</span></div></li>
+<li id="li-1373"><div class="para" id="p-2275"><span class="process-math">\(\displaystyle h(z) = \sqrt{z} + \frac{1}{z^4} + 5^z\)</span></div></li>
+<li id="li-1374"><div class="para" id="p-2276"><span class="process-math">\(\displaystyle r(t) = \sqrt{53} \, t^7 - \pi e^t + e^4\)</span></div></li>
+<li id="li-1375"><div class="para" id="p-2277"><span class="process-math">\(\displaystyle s(y) = (y^2 + 1)(y^2 - 1)\)</span></div></li>
+<li id="li-1376"><div class="para" id="p-2278"><span class="process-math">\(\displaystyle q(x) = \frac{x^3 - x + 2}{x}\)</span></div></li>
+<li id="li-1377"><div class="para" id="p-2279"><span class="process-math">\(\displaystyle p(a) = 3a^4 - 2a^3 + 7a^2 - a + 12\)</span></div></li>
 </ol>
-</div></article><div class="para" id="p-1757">In the same way that we have shortcut rules to help us find derivatives, we introduce some language that is simpler and shorter. Often, rather than say “take the derivative of <span class="process-math">\(f\text{,}\)</span>” we'll instead say simply “differentiate <span class="process-math">\(f\text{.}\)</span>” Similarly, if the derivative exists at a point, we say “<span class="process-math">\(f\)</span> is differentiable at that point,” or that <span class="process-math">\(f\)</span> can be differentiated.</div>
-<div class="para logical" id="p-1758">
+</div></article><div class="para" id="p-2304">In the same way that we have shortcut rules to help us find derivatives, we introduce some language that is simpler and shorter. Often, rather than say “take the derivative of <span class="process-math">\(f\text{,}\)</span>” we’ll instead say simply “differentiate <span class="process-math">\(f\text{.}\)</span>” Similarly, if the derivative exists at a point, we say “<span class="process-math">\(f\)</span> is differentiable at that point,” or that <span class="process-math">\(f\)</span> can be differentiated.</div>
+<div class="para logical" id="p-2305">
 <div class="para">As we work with the algebraic structure of functions, it is important to develop a big picture view of what we are doing. Here, we make several general observations based on the rules we have so far.</div>
 <ul class="disc">
-<li id="li-1221"><div class="para" id="p-derived-li-1221">The derivative of any polynomial function will be another polynomial function, and that the degree of the derivative is one less than the degree of the original function. For instance, if <span class="process-math">\(p(t) = 7t^5 - 4t^3 + 8t\text{,}\)</span> <span class="process-math">\(p\)</span> is a degree 5 polynomial, and its derivative, <span class="process-math">\(p'(t) = 35t^4 - 12t^2 + 8\text{,}\)</span> is a degree 4 polynomial.</div></li>
-<li id="li-1222"><div class="para" id="p-derived-li-1222">The derivative of any exponential function is another exponential function: for example, if <span class="process-math">\(g(z) = 7 \cdot 2^z\text{,}\)</span> then <span class="process-math">\(g'(z) = 7 \cdot 2^z \ln(2)\text{,}\)</span> which is also exponential.</div></li>
-<li id="li-1223"><div class="para" id="p-derived-li-1223">We should not lose sight of the fact that all of the meaning of the derivative that we developed in <a href="C-1.html" class="internal" title="Chapter 1: Understanding the Derivative">Chapter 1</a> still holds. The derivative measures the instantaneous rate of change of the original function, as well as the slope of the tangent line at any selected point on the curve.</div></li>
+<li id="li-1399"><div class="para" id="p-derived-li-1399">The derivative of any polynomial function will be another polynomial function, and that the degree of the derivative is one less than the degree of the original function. For instance, if <span class="process-math">\(p(t) = 7t^5 - 4t^3 + 8t\text{,}\)</span> <span class="process-math">\(p\)</span> is a degree 5 polynomial, and its derivative, <span class="process-math">\(p'(t) = 35t^4 - 12t^2 + 8\text{,}\)</span> is a degree 4 polynomial.</div></li>
+<li id="li-1400"><div class="para" id="p-derived-li-1400">The derivative of any exponential function is another exponential function: for example, if <span class="process-math">\(g(z) = 7 \cdot 2^z\text{,}\)</span> then <span class="process-math">\(g'(z) = 7 \cdot 2^z \ln(2)\text{,}\)</span> which is also exponential.</div></li>
+<li id="li-1401"><div class="para" id="p-derived-li-1401">We should not lose sight of the fact that all of the meaning of the derivative that we developed in <a href="C-1.html" class="internal" title="Chapter 1: Understanding the Derivative">Chapter 1</a> still holds. The derivative measures the instantaneous rate of change of the original function, as well as the slope of the tangent line at any selected point on the curve.</div></li>
 </ul>
 </div>
 <article class="activity project-like" id="act-2-1-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-1759">Each of the following questions asks you to use derivatives to answer key questions about functions. Be sure to think carefully about each question and to use proper notation in your responses.</div> <div class="para logical" id="p-1760"><ol class="lower-alpha">
-<li id="li-1224"><div class="para" id="p-1761">Find the slope of the tangent line to <span class="process-math">\(h(z) = \sqrt{z} + \frac{1}{z}\)</span> at the point where <span class="process-math">\(z = 4\text{.}\)</span>
+<div class="para" id="p-2306">Each of the following questions asks you to use derivatives to answer key questions about functions. Be sure to think carefully about each question and to use proper notation in your responses.</div> <div class="para logical" id="p-2307"><ol class="lower-alpha">
+<li id="li-1402"><div class="para" id="p-2308">Find the slope of the tangent line to <span class="process-math">\(h(z) = \sqrt{z} + \frac{1}{z}\)</span> at the point where <span class="process-math">\(z = 4\text{.}\)</span>
 </div></li>
-<li id="li-1225">
-<div class="para" id="p-1762">A population of cells is growing in such a way that its total number in millions is given by the function <span class="process-math">\(P(t) = 2(1.37)^t + 32\text{,}\)</span> where <span class="process-math">\(t\)</span> is measured in days.</div>
-<div class="para logical" id="p-1763"><ol class="lower-roman">
-<li id="li-1226"><div class="para" id="p-1764">Determine the instantaneous rate at which the population is growing on day 4, and include units on your answer.</div></li>
-<li id="li-1227"><div class="para" id="p-1765">Is the population growing at an increasing rate or growing at a decreasing rate on day 4? Explain.</div></li>
+<li id="li-1403">
+<div class="para" id="p-2309">A population of cells is growing in such a way that its total number in millions is given by the function <span class="process-math">\(P(t) = 2(1.37)^t + 32\text{,}\)</span> where <span class="process-math">\(t\)</span> is measured in days.</div>
+<div class="para logical" id="p-2310"><ol class="lower-roman">
+<li id="li-1404"><div class="para" id="p-2311">Determine the instantaneous rate at which the population is growing on day 4, and include units on your answer.</div></li>
+<li id="li-1405"><div class="para" id="p-2312">Is the population growing at an increasing rate or growing at a decreasing rate on day 4? Explain.</div></li>
 </ol></div>
 </li>
-<li id="li-1228"><div class="para" id="p-1766">Find an equation for the tangent line to the curve <span class="process-math">\(p(a) = 3a^4 - 2a^3 + 7a^2 - a + 12\)</span> at the point where <span class="process-math">\(a=-1\text{.}\)</span>
+<li id="li-1406"><div class="para" id="p-2313">Find an equation for the tangent line to the curve <span class="process-math">\(p(a) = 3a^4 - 2a^3 + 7a^2 - a + 12\)</span> at the point where <span class="process-math">\(a=-1\text{.}\)</span>
 </div></li>
-<li id="li-1229"><div class="para" id="p-1767">What is the difference between being asked to find the <em class="emphasis">slope</em> of the tangent line (asked in (a)) and the <em class="emphasis">equation</em> of the tangent line (asked in (c))?</div></li>
+<li id="li-1407"><div class="para" id="p-2314">What is the difference between being asked to find the <em class="emphasis">slope</em> of the tangent line (asked in (a)) and the <em class="emphasis">equation</em> of the tangent line (asked in (c))?</div></li>
 </ol></div></article></section><section class="subsection" id="subsection-28"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.1.4</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-1783"><ul class="disc">
-<li id="li-1242"><div class="para" id="p-1784">Given a differentiable function <span class="process-math">\(y = f(x)\text{,}\)</span> we can express the derivative of <span class="process-math">\(f\)</span> in several different notations: <span class="process-math">\(f'(x)\text{,}\)</span> <span class="process-math">\(\frac{df}{dx}\text{,}\)</span> <span class="process-math">\(\frac{dy}{dx}\text{,}\)</span> and <span class="process-math">\(\frac{d}{dx}[f(x)]\text{.}\)</span>
+<div class="para logical" id="p-2330"><ul class="disc">
+<li id="li-1420"><div class="para" id="p-2331">Given a differentiable function <span class="process-math">\(y = f(x)\text{,}\)</span> we can express the derivative of <span class="process-math">\(f\)</span> in several different notations: <span class="process-math">\(f'(x)\text{,}\)</span> <span class="process-math">\(\frac{df}{dx}\text{,}\)</span> <span class="process-math">\(\frac{dy}{dx}\text{,}\)</span> and <span class="process-math">\(\frac{d}{dx}[f(x)]\text{.}\)</span>
 </div></li>
-<li id="li-1243"><div class="para" id="p-1785">The limit definition of the derivative leads to patterns among certain families of functions that enable us to compute derivative formulas without resorting directly to the limit definition. For example, if <span class="process-math">\(f\)</span> is a power function of the form <span class="process-math">\(f(x) = x^n\text{,}\)</span> then <span class="process-math">\(f'(x) = nx^{n-1}\)</span> for any real number <span class="process-math">\(n\)</span> other than 0. This is called the Rule for Power Functions.</div></li>
-<li id="li-1244"><div class="para" id="p-1786">We have stated a rule for derivatives of exponential functions in the same spirit as the rule for power functions: for any positive real number <span class="process-math">\(a\text{,}\)</span> if <span class="process-math">\(f(x) = a^x\text{,}\)</span> then <span class="process-math">\(f'(x) = a^x \ln(a)\text{.}\)</span>
+<li id="li-1421"><div class="para" id="p-2332">The limit definition of the derivative leads to patterns among certain families of functions that enable us to compute derivative formulas without resorting directly to the limit definition. For example, if <span class="process-math">\(f\)</span> is a power function of the form <span class="process-math">\(f(x) = x^n\text{,}\)</span> then <span class="process-math">\(f'(x) = nx^{n-1}\)</span> for any real number <span class="process-math">\(n\)</span> other than 0. This is called the Rule for Power Functions.</div></li>
+<li id="li-1422"><div class="para" id="p-2333">We have stated a rule for derivatives of exponential functions in the same spirit as the rule for power functions: for any positive real number <span class="process-math">\(a\text{,}\)</span> if <span class="process-math">\(f(x) = a^x\text{,}\)</span> then <span class="process-math">\(f'(x) = a^x \ln(a)\text{.}\)</span>
 </div></li>
-<li id="li-1245"><div class="para logical" id="p-1787">
+<li id="li-1423"><div class="para logical" id="p-2334">
 <div class="para">If we are given a constant multiple of a function whose derivative we know, or a sum of functions whose derivatives we know, the Constant Multiple and Sum Rules make it straightforward to compute the derivative of the overall function. More formally, if <span class="process-math">\(f(x)\)</span> and <span class="process-math">\(g(x)\)</span> are differentiable with derivatives <span class="process-math">\(f'(x)\)</span> and <span class="process-math">\(g'(x)\)</span> and <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are constants, then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1027,141 +1019,109 @@ p(t) = 3t^5 - 7t^4 + t^2 - 9\text{,}
 </ul></div></section><section class="exercises" id="ez-2-1"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">2.1.5</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="ez-2-1-WW1"><h4 class="heading">
-<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Derivative of a power function.</span>
-</h4>
-<div id="webwork-53" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="53" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q09.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-53-button" class="webwork-button activate" onclick="handleWW('webwork-53')" aria-labelledby="webwork-53-button-label"><span id="webwork-53-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1788">Find the derivative of <span class="process-math">\(y=x^{15/16}\text{.}\)</span>
-</div> <div class="para" id="p-1789">
+<article class="exercise exercise-like" id="Library__Michigan__Chap3Sec1__Q15.pg"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec1__Q15.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec1__Q15.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="85" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q15.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec1__Q15.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-2335">Find the derivative of</div> <div class="para" id="p-2336"><span class="process-math">\(y = \root 5 \of{x}\text{.}\)</span></div> <div class="para" id="p-2337">
 <span class="process-math">\({dy\over dx} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-1-WW2"><h4 class="heading">
-<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Derivative of a rational function.</span>
-</h4>
-<div id="webwork-54" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="54" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q11.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-54-button" class="webwork-button activate" onclick="handleWW('webwork-54')" aria-labelledby="webwork-54-button-label"><span id="webwork-54-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1791">Find the derivative of <span class="process-math">\(\displaystyle{f(x)=\frac{1}{x^{19}} }\text{.}\)</span>
-</div> <div class="para" id="p-1792">
-<span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-1-WW3"><h4 class="heading">
-<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Derivative of a root function.</span>
-</h4>
-<div id="webwork-55" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="55" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q15.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-55-button" class="webwork-button activate" onclick="handleWW('webwork-55')" aria-labelledby="webwork-55-button-label"><span id="webwork-55-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1794">Find the derivative of</div> <div class="para" id="p-1795"><span class="process-math">\(y = \sqrt{x}\text{.}\)</span></div> <div class="para" id="p-1796">
-<span class="process-math">\({dy\over dx} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-1-WW4"><h4 class="heading">
-<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Derivative of a quadratic.</span>
-</h4>
-<div id="webwork-56" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="56" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q21.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-56-button" class="webwork-button activate" onclick="handleWW('webwork-56')" aria-labelledby="webwork-56-button-label"><span id="webwork-56-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1798">Find the derivative of <span class="process-math">\(f(t)=3 t^2 - 7 t + 2\text{.}\)</span>
-</div> <div class="para" id="p-1799">
-<span class="process-math">\(f'(t) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-1-WW5"><h4 class="heading">
-<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Derivative of a sum of power functions.</span>
-</h4>
-<div id="webwork-57" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="57" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q27.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-57-button" class="webwork-button activate" onclick="handleWW('webwork-57')" aria-labelledby="webwork-57-button-label"><span id="webwork-57-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1801">Find the derivative of <span class="process-math">\(y = 6 t^{6} - 9 \sqrt{t} + \frac{7}{t}\text{.}\)</span>
-</div> <div class="para" id="p-1802">
-<span class="process-math">\({dy\over dt} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-1-WW6"><h4 class="heading">
-<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Simplifying a product before differentiating.</span>
-</h4>
-<div id="webwork-58" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="58" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q29.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-58-button" class="webwork-button activate" onclick="handleWW('webwork-58')" aria-labelledby="webwork-58-button-label"><span id="webwork-58-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1804">Find the derivative of <span class="process-math">\(y=\sqrt{x}(x^{3} + 9)\text{.}\)</span>
-</div> <div class="para" id="p-1805">
-<span class="process-math">\({dy\over dx} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-1-WW7"><h4 class="heading">
-<span class="codenumber">7<span class="period">.</span></span><span class="space"> </span><span class="title">Simplifying a quotient before differentiating.</span>
-</h4>
-<div id="webwork-59" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="59" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q33.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-59-button" class="webwork-button activate" onclick="handleWW('webwork-59')" aria-labelledby="webwork-59-button-label"><span id="webwork-59-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1807">Find the derivative of <span class="process-math">\(\displaystyle y = \frac{x^{6}+9}{x}\text{.}\)</span>
-</div> <div class="para" id="p-1808">
-<span class="process-math">\(\displaystyle {dy\over dx} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-1-WW8"><h4 class="heading">
-<span class="codenumber">8<span class="period">.</span></span><span class="space"> </span><span class="title">Finding a tangent line equation.</span>
-</h4>
-<div id="webwork-60" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="60" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q53.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-60-button" class="webwork-button activate" onclick="handleWW('webwork-60')" aria-labelledby="webwork-60-button-label"><span id="webwork-60-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1810">Find an equation for the line tangent to the graph of <span class="process-math">\(f\)</span> at <span class="process-math">\((3,76)\text{,}\)</span> where <span class="process-math">\(f\)</span> is given by <span class="process-math">\(f(x)= 4x^{3}-4x^{2}+4\text{.}\)</span>
-</div> <div class="para" id="p-1811">
-<span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-1-WW9"><h4 class="heading">
-<span class="codenumber">9<span class="period">.</span></span><span class="space"> </span><span class="title">Determining where <span class="process-math">\(f'(x) = 0\)</span>.</span>
-</h4>
-<div id="webwork-61" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="61" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q59.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-61-button" class="webwork-button activate" onclick="handleWW('webwork-61')" aria-labelledby="webwork-61-button-label"><span id="webwork-61-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-1813">If <span class="process-math">\(f(x) = x^3 + 6 x^2 - 288 x + 5\text{,}\)</span> find analytically all values of <span class="process-math">\(x\)</span> for which <span class="process-math">\(f'(x) = 0\text{.}\)</span>  (Enter your answer as a comma separated list of numbers, e.g., -1,0,2)</div> <div class="para" id="p-1814">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap3Sec1__Q59.pg"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec1__Q59.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec1__Q59.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="86" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q59.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec1__Q59.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-2339">If <span class="process-math">\(f(x) = x^3 + 3 x^2 - 144 x + 16\text{,}\)</span> find analytically all values of <span class="process-math">\(x\)</span> for which <span class="process-math">\(f'(x) = 0\text{.}\)</span>  (Enter your answer as a comma separated list of numbers, e.g., -1,0,2)</div> <div class="para" id="p-2340">
 <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-77"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para logical" id="p-1816">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap3Sec1__Q35.pg"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec1__Q35.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec1__Q35.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="87" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q35.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec1__Q35.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-2342">Find the derivative of <span class="process-math">\(\displaystyle f(t) = \frac{t^{5}+t^{6}-1}{t^{7}}\text{.}\)</span>
+</div> <div class="para" id="p-2343">
+<span class="process-math">\(f'(t) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap3Sec1__Q53.pg"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec1__Q53.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec1__Q53.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="88" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec1/Q53.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec1__Q53.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-2345">Find an equation for the line tangent to the graph of <span class="process-math">\(f\)</span> at <span class="process-math">\((2,24)\text{,}\)</span> where <span class="process-math">\(f\)</span> is given by <span class="process-math">\(f(x)= 4x^{3}-4x^{2}+8\text{.}\)</span>
+</div> <div class="para" id="p-2346">
+<span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap3Sec2__Q39.pg"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec2__Q39.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec2__Q39.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="89" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec2/Q39.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec2__Q39.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-2348">
+<div class="para">Certain pieces of antique furniture increased very rapidly in price in the 1970s and 1980s.  For example, the value of a particular rocking chair is well approximated by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V = 135 (1.3)^t,
+\end{equation*}
+</div>
+<div class="para">where  <span class="process-math">\(V\)</span>  is in dollars and  <span class="process-math">\(t\)</span> is the number of years since 1975.  Find the rate, in dollars per year, at which the price is increasing.</div>
+</div> <div class="para" id="p-2349">rate = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> dollars/yr</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap3Sec2__Q01.pg"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec2__Q01.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec2__Q01.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="90" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec2/Q01.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec2__Q01.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-2351">Find the derivative of <span class="process-math">\(f(x)=15 e^x+x^{8}\text{.}\)</span>
+</div> <div class="para" id="p-2352">
+<span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap3Sec2__Q25.pg"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec2__Q25.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec2__Q25.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="91" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec2/Q25.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec2__Q25.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-2354">Find the derivative of the function <span class="process-math">\(y(x) = a^x + x^a\text{.}\)</span> Assume that <span class="process-math">\(a\)</span> is a positive constant.</div> <div class="para" id="p-2355">
+<span class="process-math">\(y'(x) =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="exercise-98"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para logical" id="p-2357">
 <div class="para">Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be differentiable functions for which the following information is known: <span class="process-math">\(f(2) = 5\text{,}\)</span> <span class="process-math">\(g(2) = -3\text{,}\)</span> <span class="process-math">\(f'(2) = -1/2\text{,}\)</span> <span class="process-math">\(g'(2) = 2\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-1246"><div class="para" id="p-1817">Let <span class="process-math">\(h\)</span> be the new function defined by the rule <span class="process-math">\(h(x) = 3f(x) - 4g(x)\text{.}\)</span> Determine <span class="process-math">\(h(2)\)</span> and <span class="process-math">\(h'(2)\text{.}\)</span>
+<li id="li-1424"><div class="para" id="p-2358">Let <span class="process-math">\(h\)</span> be the new function defined by the rule <span class="process-math">\(h(x) = 3f(x) - 4g(x)\text{.}\)</span> Determine <span class="process-math">\(h(2)\)</span> and <span class="process-math">\(h'(2)\text{.}\)</span>
 </div></li>
-<li id="li-1247"><div class="para" id="p-1818">Find an equation for the tangent line to <span class="process-math">\(y = h(x)\)</span> at the point <span class="process-math">\((2,h(2))\text{.}\)</span>
+<li id="li-1425"><div class="para" id="p-2359">Find an equation for the tangent line to <span class="process-math">\(y = h(x)\)</span> at the point <span class="process-math">\((2,h(2))\text{.}\)</span>
 </div></li>
-<li id="li-1248"><div class="para" id="p-1819">Let <span class="process-math">\(p\)</span> be the function defined by the rule <span class="process-math">\(p(x) = -2f(x) + \frac{1}{2}g(x)\text{.}\)</span> Is <span class="process-math">\(p\)</span> increasing, decreasing, or neither at <span class="process-math">\(a = 2\text{?}\)</span> Why?</div></li>
-<li id="li-1249"><div class="para" id="p-1820">Estimate the value of <span class="process-math">\(p(2.03)\)</span> by using the local linearization of <span class="process-math">\(p\)</span> at the point <span class="process-math">\((2,p(2))\text{.}\)</span>
+<li id="li-1426"><div class="para" id="p-2360">Let <span class="process-math">\(p\)</span> be the function defined by the rule <span class="process-math">\(p(x) = -2f(x) + \frac{1}{2}g(x)\text{.}\)</span> Is <span class="process-math">\(p\)</span> increasing, decreasing, or neither at <span class="process-math">\(a = 2\text{?}\)</span> Why?</div></li>
+<li id="li-1427"><div class="para" id="p-2361">Estimate the value of <span class="process-math">\(p(2.03)\)</span> by using the local linearization of <span class="process-math">\(p\)</span> at the point <span class="process-math">\((2,p(2))\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-78"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
-<div class="para" id="p-1831">Let functions <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> be the piecewise linear functions given by their respective graphs in <a href="" class="xref" data-knowl="./knowl/F-2-1-Ez3.html" title="Figure 2.1.6">Figure 2.1.6</a>. Use the graphs to answer the following questions.</div> <figure class="figure figure-like" id="F-2-1-Ez3"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/2_1_Ez3.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.6<span class="period">.</span></span><span class="space"> </span>The graphs of <span class="process-math">\(p\)</span> (in blue) and <span class="process-math">\(q\)</span> (in green).</figcaption></figure> <div class="para logical" id="p-1832"><ol class="lower-alpha">
-<li id="li-1258"><div class="para" id="p-1833">At what values of <span class="process-math">\(x\)</span> is <span class="process-math">\(p\)</span> not differentiable? At what values of <span class="process-math">\(x\)</span> is <span class="process-math">\(q\)</span> not differentiable? Why?</div></li>
-<li id="li-1259"><div class="para" id="p-1834">Let <span class="process-math">\(r(x) = p(x) + 2q(x)\text{.}\)</span> At what values of <span class="process-math">\(x\)</span> is <span class="process-math">\(r\)</span> not differentiable? Why?</div></li>
-<li id="li-1260"><div class="para" id="p-1835">Determine <span class="process-math">\(r'(-2)\)</span> and <span class="process-math">\(r'(0)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-99"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="para" id="p-2372">Let functions <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> be the piecewise linear functions given by their respective graphs in <a href="" class="xref" data-knowl="./knowl/F-2-1-Ez3.html" title="Figure 2.1.6">Figure 2.1.6</a>. Use the graphs to answer the following questions.</div> <figure class="figure figure-like" id="F-2-1-Ez3"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/2_1_Ez3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.6<span class="period">.</span></span><span class="space"> </span>The graphs of <span class="process-math">\(p\)</span> (in blue) and <span class="process-math">\(q\)</span> (in green).</figcaption></figure> <div class="para logical" id="p-2373"><ol class="lower-alpha">
+<li id="li-1436"><div class="para" id="p-2374">At what values of <span class="process-math">\(x\)</span> is <span class="process-math">\(p\)</span> not differentiable? At what values of <span class="process-math">\(x\)</span> is <span class="process-math">\(q\)</span> not differentiable? Why?</div></li>
+<li id="li-1437"><div class="para" id="p-2375">Let <span class="process-math">\(r(x) = p(x) + 2q(x)\text{.}\)</span> At what values of <span class="process-math">\(x\)</span> is <span class="process-math">\(r\)</span> not differentiable? Why?</div></li>
+<li id="li-1438"><div class="para" id="p-2376">Determine <span class="process-math">\(r'(-2)\)</span> and <span class="process-math">\(r'(0)\text{.}\)</span>
 </div></li>
-<li id="li-1261"><div class="para" id="p-1836">Find an equation for the tangent line to <span class="process-math">\(y = r(x)\)</span> at the point <span class="process-math">\((2,r(2))\text{.}\)</span>
+<li id="li-1439"><div class="para" id="p-2377">Find an equation for the tangent line to <span class="process-math">\(y = r(x)\)</span> at the point <span class="process-math">\((2,r(2))\text{.}\)</span>
 </div></li>
-</ol></div></article><article class="exercise exercise-like" id="exercise-79"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
-<div class="para logical" id="p-1847">
+</ol></div></article><article class="exercise exercise-like" id="exercise-100"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="para logical" id="p-2388">
 <div class="para">Consider the functions <span class="process-math">\(r(t) = t^t\)</span> and <span class="process-math">\(s(t) = \arccos(t)\text{,}\)</span> for which you are given the facts that <span class="process-math">\(r'(t) = t^t(\ln(t) + 1)\)</span> and <span class="process-math">\(s'(t) = -\frac{1}{\sqrt{1-t^2}}\text{.}\)</span> Do not be concerned with where these derivative formulas come from. We restrict our interest in both functions to the domain <span class="process-math">\(0 \lt t \lt 1\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-1270"><div class="para" id="p-1848">Let <span class="process-math">\(w(t) = 3t^t - 2\arccos(t)\text{.}\)</span> Determine <span class="process-math">\(w'(t)\text{.}\)</span>
+<li id="li-1448"><div class="para" id="p-2389">Let <span class="process-math">\(w(t) = 3t^t - 2\arccos(t)\text{.}\)</span> Determine <span class="process-math">\(w'(t)\text{.}\)</span>
 </div></li>
-<li id="li-1271"><div class="para" id="p-1849">Find an equation for the tangent line to <span class="process-math">\(y = w(t)\)</span> at the point <span class="process-math">\((\frac{1}{2}, w(\frac{1}{2}))\text{.}\)</span>
+<li id="li-1449"><div class="para" id="p-2390">Find an equation for the tangent line to <span class="process-math">\(y = w(t)\)</span> at the point <span class="process-math">\((\frac{1}{2}, w(\frac{1}{2}))\text{.}\)</span>
 </div></li>
-<li id="li-1272"><div class="para" id="p-1850">Let <span class="process-math">\(v(t) = t^t + \arccos(t)\text{.}\)</span> Is <span class="process-math">\(v\)</span> increasing or decreasing at the instant <span class="process-math">\(t = \frac{1}{2}\text{?}\)</span> Why?</div></li>
+<li id="li-1450"><div class="para" id="p-2391">Let <span class="process-math">\(v(t) = t^t + \arccos(t)\text{.}\)</span> Is <span class="process-math">\(v\)</span> increasing or decreasing at the instant <span class="process-math">\(t = \frac{1}{2}\text{?}\)</span> Why?</div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-80"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
-<div class="para logical" id="p-1859">
+</div></article><article class="exercise exercise-like" id="exercise-101"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div class="para logical" id="p-2400">
 <div class="para">Let <span class="process-math">\(f(x) = a^x\text{.}\)</span> The goal of this problem is to explore how the value of <span class="process-math">\(a\)</span> affects the derivative of <span class="process-math">\(f(x)\text{,}\)</span> without assuming we know the rule for <span class="process-math">\(\frac{d}{dx}[a^x]\)</span> that we have stated and used in earlier work in this section.</div>
 <ol class="lower-alpha">
-<li id="li-1279"><div class="para logical" id="p-1860">
+<li id="li-1457"><div class="para logical" id="p-2401">
 <div class="para">Use the limit definition of the derivative to show that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1169,7 +1129,7 @@ f'(x) = \lim_{h \to 0} \frac{a^x \cdot a^h - a^x}{h}\text{.}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-1280"><div class="para logical" id="p-1861">
+<li id="li-1458"><div class="para logical" id="p-2402">
 <div class="para">Explain why it is also true that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1177,7 +1137,7 @@ f'(x) = a^x \cdot \lim_{h \to 0} \frac{a^h - 1}{h}\text{.}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-1281"><div class="para logical" id="p-1862">
+<li id="li-1459"><div class="para logical" id="p-2403">
 <div class="para">Use computing technology and small values of <span class="process-math">\(h\)</span> to estimate the value of</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1187,7 +1147,7 @@ L = \lim_{h \to 0} \frac{a^h - 1}{h}
 <div class="para">when <span class="process-math">\(a = 2\text{.}\)</span> Do likewise when <span class="process-math">\(a = 3\text{.}\)</span>
 </div>
 </div></li>
-<li id="li-1282"><div class="para logical" id="p-1863">
+<li id="li-1460"><div class="para logical" id="p-2404">
 <div class="para">Note that it would be ideal if the value of the limit <span class="process-math">\(L\)</span> was <span class="process-math">\(1\text{,}\)</span> for then <span class="process-math">\(f\)</span> would be a particularly special function: its derivative would be simply <span class="process-math">\(a^x\text{,}\)</span> which would mean that its derivative is itself. By experimenting with different values of <span class="process-math">\(a\)</span> between <span class="process-math">\(2\)</span> and <span class="process-math">\(3\text{,}\)</span> try to find a value for <span class="process-math">\(a\)</span> for which</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1195,23 +1155,20 @@ L = \lim_{h \to 0} \frac{a^h - 1}{h} = 1\text{.}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-1283"><div class="para" id="p-1864">Compute <span class="process-math">\(\ln(2)\)</span> and <span class="process-math">\(\ln(3)\text{.}\)</span> What does your work in (b) and (c) suggest is true about <span class="process-math">\(\frac{d}{dx}[2^x]\)</span> and <span class="process-math">\(\frac{d}{dx}[3^x]\text{?}\)</span>
+<li id="li-1461"><div class="para" id="p-2405">Compute <span class="process-math">\(\ln(2)\)</span> and <span class="process-math">\(\ln(3)\text{.}\)</span> What does your work in (b) and (c) suggest is true about <span class="process-math">\(\frac{d}{dx}[2^x]\)</span> and <span class="process-math">\(\frac{d}{dx}[3^x]\text{?}\)</span>
 </div></li>
-<li id="li-1284"><div class="para" id="p-1865">How do your investigations in (d) lead to a particularly important fact about the function <span class="process-math">\(f(x) = e^x\text{?}\)</span>
+<li id="li-1462"><div class="para" id="p-2406">How do your investigations in (d) lead to a particularly important fact about the function <span class="process-math">\(f(x) = e^x\text{?}\)</span>
 </div></li>
 </ol>
 </div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-43"><div class="fn">The Constant Multiple Rule can be formally proved as a consequence of properties of limits, using the limit definition of the derivative.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-44"><div class="fn">Like the Constant Multiple Rule, the Sum Rule can be formally proved as a consequence of properties of limits, using the limit definition of the derivative.</div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-45"><div class="fn">The Constant Multiple Rule can be formally proved as a consequence of properties of limits, using the limit definition of the derivative.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-46"><div class="fn">Like the Constant Multiple Rule, the Sum Rule can be formally proved as a consequence of properties of limits, using the limit definition of the derivative.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="C-2.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-2-2-sin-cos.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC Separable differential equations</title>
@@ -15,20 +15,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-7-3-euler.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-7.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-7-5-modeling.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -837,25 +824,25 @@ eBookConfig.new_server_prefix = "/ns";
 </h2>
 <article class="objectives goal-like" id="objectives-40"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-4650"><div class="para" id="p-8338">What is a separable differential equation?</div></li>
-<li id="li-4651"><div class="para" id="p-8339">How can we find solutions to a separable differential equation?</div></li>
-<li id="li-4652"><div class="para" id="p-8340">Are some of the differential equations that arise in applications separable?</div></li>
-</ul></article><section class="introduction" id="introduction-41"><div class="para" id="p-8341">In <a href="sec-7-2-qualitative.html" class="internal" title="Section 7.2: Qualitative behavior of solutions to DEs">Sections 7.2</a> and <a href="sec-7-3-euler.html" class="internal" title="Section 7.3: Euler's method">7.3</a>, we have seen several ways to approximate the solution to an initial value problem. Given the frequency with which differential equations arise in the world around us, we would like to have some techniques for finding explicit algebraic solutions of certain initial value problems. In this section, we focus on a particular class of differential equations (called <em class="emphasis">separable</em>) and develop a method for finding algebraic formulas for their solutions.</div> <div class="para logical" id="p-8342">
+<li id="li-4973"><div class="para" id="p-9773">What is a separable differential equation?</div></li>
+<li id="li-4974"><div class="para" id="p-9774">How can we find solutions to a separable differential equation?</div></li>
+<li id="li-4975"><div class="para" id="p-9775">Are some of the differential equations that arise in applications separable?</div></li>
+</ul></article><section class="introduction" id="introduction-46"><div class="para" id="p-9776">In <a href="sec-7-2-qualitative.html" class="internal" title="Section 7.2: Qualitative behavior of solutions to DEs">Sections 7.2</a> and <a href="sec-7-3-euler.html" class="internal" title="Section 7.3: Euler’s method">7.3</a>, we have seen several ways to approximate the solution to an initial value problem. Given the frequency with which differential equations arise in the world around us, we would like to have some techniques for finding explicit algebraic solutions of certain initial value problems. In this section, we focus on a particular class of differential equations (called <em class="emphasis">separable</em>) and develop a method for finding algebraic formulas for their solutions.</div> <div class="para logical" id="p-9777">
 <div class="para">A <em class="emphasis">separable differential equation</em>  is a differential equation whose algebraic structure allows the variables to be separated in a particular way. For instance, consider the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{dy}{dt} = ty\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8343">
+</div> <div class="para logical" id="p-9778">
 <div class="para">We would like to separate the variables <span class="process-math">\(t\)</span> and <span class="process-math">\(y\)</span> so that all occurrences of <span class="process-math">\(t\)</span> appear on the right-hand side, and all occurrences of <span class="process-math">\(y\)</span> appear on the left, multiplied by <span class="process-math">\(dy/dt\text{.}\)</span> For this example, we divide both sides by <span class="process-math">\(y\)</span> so that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac1y \frac{dy}{dt} = t\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-8344">Note that when we attempt to separate the variables in a differential equation, we require that one side is a product in which the derivative <span class="process-math">\(dy/dt\)</span> is one factor and the other factor is solely an expression involving <span class="process-math">\(y\text{.}\)</span>
-</div> <div class="para logical" id="p-8345">
+</div> <div class="para" id="p-9779">Note that when we attempt to separate the variables in a differential equation, we require that one side is a product in which the derivative <span class="process-math">\(dy/dt\)</span> is one factor and the other factor is solely an expression involving <span class="process-math">\(y\text{.}\)</span>
+</div> <div class="para logical" id="p-9780">
 <div class="para">Not every differential equation is separable. For example, if we consider the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -868,46 +855,46 @@ eBookConfig.new_server_prefix = "/ns";
 y + \frac{dy}{dt} = t\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-8346">As we will see, this will not be helpful, since the left-hand side is not a product of a function of <span class="process-math">\(y\)</span> with <span class="process-math">\(\frac{dy}{dt}\text{.}\)</span>
-</div> <article class="exploration project-like" id="PA-7-4"><h3 class="heading">
+</div> <div class="para" id="p-9781">As we will see, this will not be helpful, since the left-hand side is not a product of a function of <span class="process-math">\(y\)</span> with <span class="process-math">\(\frac{dy}{dt}\text{.}\)</span>
+</div> <article class="exploration project-like" id="Library__Westmont__ActiveCalculus__Preview_7_4__preview_7_4_all"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span>
 </h3>
-<div id="webwork-238" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="238" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Westmont/ActiveCalculus/Preview_7_4/preview_7_4_all.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-238-button" class="webwork-button activate" onclick="handleWW('webwork-238')" aria-labelledby="webwork-238-button-label"><span id="webwork-238-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-8347">Which of the following differential equations are separable? (Select all that apply.)</div> <div class="para" id="p-8348"><ul style="list-style:circle;">
-<li id="li-4653"><div class="para" id="p-8349"><span class="process-math">\(\displaystyle \displaystyle{\frac{dy}{dt} = t^2 - y^2 }\)</span></div></li>
-<li id="li-4654"><div class="para" id="p-8350"><span class="process-math">\(\displaystyle \displaystyle{\frac{dy}{dt} = -3y }\)</span></div></li>
-<li id="li-4655"><div class="para" id="p-8351"><span class="process-math">\(\displaystyle \displaystyle{\frac{dy}{dt} = ty-y }\)</span></div></li>
-<li id="li-4656"><div class="para" id="p-8352"><span class="process-math">\(\displaystyle \displaystyle{\frac{dy}{dt} = t + 1 }\)</span></div></li>
-<li id="li-4657"><div class="para" id="p-8353">None of the above</div></li>
-</ul></div> <div class="para logical" id="p-8354">
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Westmont__ActiveCalculus__Preview_7_4__preview_7_4_all"><div id="boelkins-ACS__Library__Westmont__ActiveCalculus__Preview_7_4__preview_7_4_all-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="335" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Westmont/ActiveCalculus/Preview_7_4/preview_7_4_all.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Westmont__ActiveCalculus__Preview_7_4__preview_7_4_all-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-9782">Which of the following differential equations are separable? (Select all that apply.)</div> <div class="para" id="p-9783"><ul style="list-style:circle;">
+<li id="li-4976"><div class="para" id="p-9784"><span class="process-math">\(\displaystyle \displaystyle{\frac{dy}{dt} = t + 1 }\)</span></div></li>
+<li id="li-4977"><div class="para" id="p-9785"><span class="process-math">\(\displaystyle \displaystyle{\frac{dy}{dt} = -3y }\)</span></div></li>
+<li id="li-4978"><div class="para" id="p-9786"><span class="process-math">\(\displaystyle \displaystyle{\frac{dy}{dt} = t^2 - y^2 }\)</span></div></li>
+<li id="li-4979"><div class="para" id="p-9787"><span class="process-math">\(\displaystyle \displaystyle{\frac{dy}{dt} = ty-y }\)</span></div></li>
+<li id="li-4980"><div class="para" id="p-9788">None of the above</div></li>
+</ul></div> <div class="para logical" id="p-9789">
 <div class="para">Now consider the following equation.</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int f'(x) \, dx = \int x \, dx
 \end{equation*}
 </div>
-</div> <div class="para" id="p-8355">Which of the following functions <span class="process-math">\(f(x)\)</span> satisfy this equation? (Select all that apply.)</div> <div class="para" id="p-8356"><ul style="list-style:circle;">
-<li id="li-4658"><div class="para" id="p-8357"><span class="process-math">\(\displaystyle f(x)= \frac{1}{2}x^2 - 7\)</span></div></li>
-<li id="li-4659"><div class="para" id="p-8358"><span class="process-math">\(\displaystyle f(x) = x - 7\)</span></div></li>
-<li id="li-4660"><div class="para" id="p-8359"><span class="process-math">\(\displaystyle f(x) = \frac{1}{2}x^2\)</span></div></li>
-<li id="li-4661"><div class="para" id="p-8360"><span class="process-math">\(\displaystyle f(x) = 7x^2\)</span></div></li>
-<li id="li-4662"><div class="para" id="p-8361"><span class="process-math">\(\displaystyle f(x) = x +7\)</span></div></li>
-<li id="li-4663"><div class="para" id="p-8362"><span class="process-math">\(\displaystyle f(x) = 7x\)</span></div></li>
-<li id="li-4664"><div class="para" id="p-8363"><span class="process-math">\(\displaystyle f(x)= \frac{1}{2}x^2 + 7\)</span></div></li>
-<li id="li-4665"><div class="para" id="p-8364"><span class="process-math">\(\displaystyle f(x) = x\)</span></div></li>
-<li id="li-4666"><div class="para" id="p-8365">None of the above</div></li>
+</div> <div class="para" id="p-9790">Which of the following functions <span class="process-math">\(f(x)\)</span> satisfy this equation? (Select all that apply.)</div> <div class="para" id="p-9791"><ul style="list-style:circle;">
+<li id="li-4981"><div class="para" id="p-9792"><span class="process-math">\(\displaystyle f(x) = x - 7\)</span></div></li>
+<li id="li-4982"><div class="para" id="p-9793"><span class="process-math">\(\displaystyle f(x) = \frac{1}{2}x^2\)</span></div></li>
+<li id="li-4983"><div class="para" id="p-9794"><span class="process-math">\(\displaystyle f(x) = x +7\)</span></div></li>
+<li id="li-4984"><div class="para" id="p-9795"><span class="process-math">\(\displaystyle f(x)= \frac{1}{2}x^2 + 7\)</span></div></li>
+<li id="li-4985"><div class="para" id="p-9796"><span class="process-math">\(\displaystyle f(x)= \frac{1}{2}x^2 - 7\)</span></div></li>
+<li id="li-4986"><div class="para" id="p-9797"><span class="process-math">\(\displaystyle f(x) = 7x\)</span></div></li>
+<li id="li-4987"><div class="para" id="p-9798"><span class="process-math">\(\displaystyle f(x) = x\)</span></div></li>
+<li id="li-4988"><div class="para" id="p-9799"><span class="process-math">\(\displaystyle f(x) = 7x^2\)</span></div></li>
+<li id="li-4989"><div class="para" id="p-9800">None of the above</div></li>
 </ul></div>
 </div>
-<div class="problem-buttons"></div>
-</div></article></section><section class="subsection" id="subsection-136"><h3 class="heading hide-type">
+</div></div></div></article></section><section class="subsection" id="subsection-136"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">7.4.1</span> <span class="title">Solving separable differential equations</span>
 </h3>
-<div class="para" id="p-8366">Before we discuss a general approach to solving a separable differential equation, it is instructive to consider an example.</div>
+<div class="para" id="p-9801">Before we discuss a general approach to solving a separable differential equation, it is instructive to consider an example.</div>
 <article class="example example-like" id="Ex-7-4-1"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-8367">
+<div class="para logical" id="p-9802">
 <div class="para">Find all functions <span class="process-math">\(y\)</span> that are solutions to the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -916,43 +903,43 @@ y + \frac{dy}{dt} = t\text{.}
 </div>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-455" id="solution-455"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-455"><div class="solution solution-like">
-<div class="para logical" id="p-8368">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-488" id="solution-488"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-488"><div class="solution solution-like">
+<div class="para logical" id="p-9803">
 <div class="para">We begin by separating the variables and writing</div>
 <div class="displaymath process-math">
 \begin{equation*}
 y^2\frac{dy}{dt} = t\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8369">
+</div> <div class="para logical" id="p-9804">
 <div class="para">Integrating both sides of the equation with respect to the independent variable <span class="process-math">\(t\)</span> shows that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int y^2\frac{dy}{dt}~dt = \int t~dt\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8370">
-<div class="para">Next, we notice that the left-hand side allows us to change the variable of antidifferentiation<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-119" id="fn-119"><sup> 1 </sup></a> from <span class="process-math">\(t\)</span> to <span class="process-math">\(y\text{.}\)</span> In particular, <span class="process-math">\(dy = \frac{dy}{dt}~dt\text{,}\)</span> so we now have</div>
+</div> <div class="para logical" id="p-9805">
+<div class="para">Next, we notice that the left-hand side allows us to change the variable of antidifferentiation<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-121" id="fn-121"><sup> 1 </sup></a> from <span class="process-math">\(t\)</span> to <span class="process-math">\(y\text{.}\)</span> In particular, <span class="process-math">\(dy = \frac{dy}{dt}~dt\text{,}\)</span> so we now have</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \int y^2 ~dy = \int t~dt\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8371">
+</div> <div class="para logical" id="p-9806">
 <div class="para">This equation says that two families of antiderivatives are equal to each other. Therefore, when we find representative antiderivatives of both sides, we know they must differ by an arbitrary constant <span class="process-math">\(C\text{.}\)</span> Antidifferentiating and including the integration constant <span class="process-math">\(C\)</span> on the right, we find that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{y^3}{3} = \frac{t^2}{2} + C\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-8372">It is not necessary to include an arbitrary constant on both sides of the equation; we know that <span class="process-math">\(y^3/3\)</span> and <span class="process-math">\(t^2/2\)</span> are in the same family of antiderivatives and must therefore differ by a single constant.</div> <div class="para logical" id="p-8373">
+</div> <div class="para" id="p-9807">It is not necessary to include an arbitrary constant on both sides of the equation; we know that <span class="process-math">\(y^3/3\)</span> and <span class="process-math">\(t^2/2\)</span> are in the same family of antiderivatives and must therefore differ by a single constant.</div> <div class="para logical" id="p-9808">
 <div class="para">Finally, we solve the last equation above for <span class="process-math">\(y\)</span> as a function of <span class="process-math">\(t\text{,}\)</span> which gives</div>
 <div class="displaymath process-math">
 \begin{equation*}
 y(t) = \sqrt[3]{\frac 32 \, t^2 + 3C}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8374">
+</div> <div class="para logical" id="p-9809">
 <div class="para">Of course, the term <span class="process-math">\(3C\)</span> on the right-hand side represents 3 times an unknown constant. It is, therefore, still an unknown constant, which we will rewrite as <span class="process-math">\(C\text{.}\)</span> We thus conclude that the funtion</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -961,7 +948,7 @@ y(t) = \sqrt[3]{\frac 32 \, t^2 + C}
 </div>
 <div class="para">is a solution to the original differential equation for any value of <span class="process-math">\(C\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-8375">Notice that because this solution depends on the arbitrary constant <span class="process-math">\(C\text{,}\)</span> we have found an infinite family of solutions. This makes sense because we expect to find a unique solution that corresponds to any given initial value.</div> <div class="para logical" id="p-8376">
+</div> <div class="para" id="p-9810">Notice that because this solution depends on the arbitrary constant <span class="process-math">\(C\text{,}\)</span> we have found an infinite family of solutions. This makes sense because we expect to find a unique solution that corresponds to any given initial value.</div> <div class="para logical" id="p-9811">
 <div class="para">For example, if we want to solve the initial value problem</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -984,7 +971,7 @@ y(t) = \sqrt[3]{\frac32\, t^2+8}\text{.}
 </div>
 </div>
 </div></div>
-</div></article><div class="para logical" id="p-8377">
+</div></article><div class="para logical" id="p-9812">
 <div class="para">The strategy of <a href="" class="xref" data-knowl="./knowl/Ex-7-4-1.html" title="Example 7.4.1">Example 7.4.1</a> may be applied to any differential equation of the form <span class="process-math">\(\frac{dy}{dt} = g(y) \cdot h(t)\text{,}\)</span> and any differential equation of this form is said to be <em class="emphasis">separable</em>. We work to solve a separable differential equation by writing</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-7-4-1.html">
 \begin{equation*}
@@ -997,7 +984,7 @@ y(t) = \sqrt[3]{\frac32\, t^2+8}\text{.}
 <article class="example example-like" id="Ex-7-4-2"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-8378">
+<div class="para logical" id="p-9813">
 <div class="para">Solve the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1006,15 +993,15 @@ y(t) = \sqrt[3]{\frac32\, t^2+8}\text{.}
 </div>
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-456" id="solution-456"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-456"><div class="solution solution-like">
-<div class="para logical" id="p-8379">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-489" id="solution-489"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-489"><div class="solution solution-like">
+<div class="para logical" id="p-9814">
 <div class="para">Following the same strategy as in <a href="" class="xref" data-knowl="./knowl/Ex-7-4-1.html" title="Example 7.4.1">Example 7.4.1</a>, we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/Ex-7-4-1.html">
 \begin{equation*}
 \frac 1y \frac{dy}{dt} = 3\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8380">
+</div> <div class="para logical" id="p-9815">
 <div class="para">Integrating both sides with respect to <span class="process-math">\(t\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1028,21 +1015,21 @@ y(t) = \sqrt[3]{\frac32\, t^2+8}\text{.}
 \int \frac 1y~dy =  \int 3~dt\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8381">
+</div> <div class="para logical" id="p-9816">
 <div class="para">Antidifferentiating and including the integration constant, we find that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \ln|y| = 3t + C\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8382">
+</div> <div class="para logical" id="p-9817">
 <div class="para">Finally, we need to solve for <span class="process-math">\(y\text{.}\)</span> Here, one point deserves careful attention. By the definition of the natural logarithm function, it follows that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 |y| = e^{3t+C} = e^{3t}e^C\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8383">
+</div> <div class="para logical" id="p-9818">
 <div class="para">Since <span class="process-math">\(C\)</span> is an unknown constant, <span class="process-math">\(e^C\)</span> is as well, though we do know that it is positive (because <span class="process-math">\(e^x\)</span> is positive for any <span class="process-math">\(x\)</span>). When we remove the absolute value in order to solve for <span class="process-math">\(y\text{,}\)</span> however, this constant may be either positive or negative. To account for a possible <span class="process-math">\(+\)</span> or <span class="process-math">\(-\text{,}\)</span> we denote this updated constant by <span class="process-math">\(C\)</span> to obtain</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1051,26 +1038,26 @@ y(t) = Ce^{3t}\text{.}
 </div>
 </div>
 </div></div>
-</div></article><div class="para" id="p-8384">There is one more technical point to make. Notice that <span class="process-math">\(y=0\)</span> is an equilibrium solution to this differential equation. In solving the equation above, we begin by dividing both sides by <span class="process-math">\(y\text{,}\)</span> which is not allowed if <span class="process-math">\(y=0\text{.}\)</span> To be perfectly careful, therefore, we should consider the equilibrium solutions separately. In this case, notice that the final form of our solution captures the equilibrium solution by allowing <span class="process-math">\(C=0\text{.}\)</span>
+</div></article><div class="para" id="p-9819">There is one more technical point to make. Notice that <span class="process-math">\(y=0\)</span> is an equilibrium solution to this differential equation. In solving the equation above, we begin by dividing both sides by <span class="process-math">\(y\text{,}\)</span> which is not allowed if <span class="process-math">\(y=0\text{.}\)</span> To be perfectly careful, therefore, we should consider the equilibrium solutions separately. In this case, notice that the final form of our solution captures the equilibrium solution by allowing <span class="process-math">\(C=0\text{.}\)</span>
 </div>
 <article class="activity project-like" id="act-7-4-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-8385">
+<div class="para logical" id="p-9820">
 <div class="para">Suppose that the population of a town is growing continuously at an annual rate of 3% per year.</div>
 <ol class="lower-alpha">
-<li id="li-4667"><div class="para" id="p-8386">Let <span class="process-math">\(P(t)\)</span> be the population of the town in year <span class="process-math">\(t\text{.}\)</span> Write a differential equation that describes the annual growth rate.</div></li>
-<li id="li-4668"><div class="para" id="p-8387">Find the solutions of this differential equation.</div></li>
-<li id="li-4669"><div class="para" id="p-8388">If you know that the town's population in year 0 is 10,000, find the population <span class="process-math">\(P(t)\text{.}\)</span>
+<li id="li-4990"><div class="para" id="p-9821">Let <span class="process-math">\(P(t)\)</span> be the population of the town in year <span class="process-math">\(t\text{.}\)</span> Write a differential equation that describes the annual growth rate.</div></li>
+<li id="li-4991"><div class="para" id="p-9822">Find the solutions of this differential equation.</div></li>
+<li id="li-4992"><div class="para" id="p-9823">If you know that the town’s population in year 0 is 10,000, find the population <span class="process-math">\(P(t)\text{.}\)</span>
 </div></li>
-<li id="li-4670"><div class="para" id="p-8389">How long does it take for the population to double? This time is called the <em class="emphasis">doubling time</em>.</div></li>
-<li id="li-4671"><div class="para" id="p-8390">Working more generally, find the doubling time if the annual growth rate is <span class="process-math">\(k\)</span> times the population.</div></li>
+<li id="li-4993"><div class="para" id="p-9824">How long does it take for the population to double? This time is called the <em class="emphasis">doubling time</em>.</div></li>
+<li id="li-4994"><div class="para" id="p-9825">Working more generally, find the doubling time if the annual growth rate is <span class="process-math">\(k\)</span> times the population.</div></li>
 </ol>
 </div></article><article class="activity project-like" id="act-7-4-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-8405">
-<div class="para">Suppose that a cup of coffee is initially at a temperature of <span class="process-math">\(105^\circ\)</span> F and is placed in a <span class="process-math">\(75^\circ\)</span> F room. If <span class="process-math">\(T\)</span> is the temperature of the coffee in degrees Fahrenheit at time <span class="process-math">\(t\)</span> in minutes, Newton's law of cooling says that</div>
+<div class="para logical" id="p-9840">
+<div class="para">Suppose that a cup of coffee is initially at a temperature of <span class="process-math">\(105^\circ\)</span> F and is placed in a <span class="process-math">\(75^\circ\)</span> F room. If <span class="process-math">\(T\)</span> is the temperature of the coffee in degrees Fahrenheit at time <span class="process-math">\(t\)</span> in minutes, Newton’s law of cooling says that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{dT}{dt} = -k(T-75)\text{,}
@@ -1078,156 +1065,161 @@ y(t) = Ce^{3t}\text{.}
 </div>
 <div class="para">where <span class="process-math">\(k\)</span> is a constant of proportionality.</div>
 <ol class="lower-alpha">
-<li id="li-4683"><div class="para" id="p-8406">Suppose you measure that the coffee is cooling at one degree per minute at the time the coffee is brought into the room. Use the differential equation to determine the value of the constant <span class="process-math">\(k\text{.}\)</span>
+<li id="li-5006"><div class="para" id="p-9841">Suppose you measure that the coffee is cooling at one degree per minute at the time the coffee is brought into the room. Use the differential equation to determine the value of the constant <span class="process-math">\(k\text{.}\)</span>
 </div></li>
-<li id="li-4684"><div class="para" id="p-8407">Find all the solutions of this differential equation.</div></li>
-<li id="li-4685"><div class="para" id="p-8408">What happens to all the solutions as <span class="process-math">\(t\to\infty\text{?}\)</span> Explain how this agrees with your intuition.</div></li>
-<li id="li-4686"><div class="para" id="p-8409">What is the temperature of the cup of coffee after 20 minutes?</div></li>
-<li id="li-4687"><div class="para" id="p-8410">How long does it take for the coffee to cool to <span class="process-math">\(80^\circ\text{?}\)</span>
+<li id="li-5007"><div class="para" id="p-9842">Find all the solutions of this differential equation.</div></li>
+<li id="li-5008"><div class="para" id="p-9843">What happens to all the solutions as <span class="process-math">\(t\to\infty\text{?}\)</span> Explain how this agrees with your intuition.</div></li>
+<li id="li-5009"><div class="para" id="p-9844">What is the temperature of the cup of coffee after 20 minutes?</div></li>
+<li id="li-5010"><div class="para" id="p-9845">How long does it take for the coffee to cool to <span class="process-math">\(80^\circ\text{?}\)</span>
 </div></li>
 </ol>
 </div></article><article class="activity project-like" id="act-7-4-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-8425">
+<div class="para logical" id="p-9860">
 <div class="para">Solve each of the following differential equations or initial value problems.</div>
 <ol class="lower-alpha">
-<li id="li-4699"><div class="para" id="p-8426"><span class="process-math">\(\displaystyle \frac{dy}{dt} - (2-t) y = 2-t\)</span></div></li>
-<li id="li-4700"><div class="para" id="p-8427"><span class="process-math">\(\displaystyle \frac{1}{t}\frac{dy}{dt} = e^{t^2-2y}\)</span></div></li>
-<li id="li-4701"><div class="para" id="p-8428">
+<li id="li-5022"><div class="para" id="p-9861"><span class="process-math">\(\displaystyle \frac{dy}{dt} - (2-t) y = 2-t\)</span></div></li>
+<li id="li-5023"><div class="para" id="p-9862"><span class="process-math">\(\displaystyle \frac{1}{t}\frac{dy}{dt} = e^{t^2-2y}\)</span></div></li>
+<li id="li-5024"><div class="para" id="p-9863">
 <span class="process-math">\(y' = 2y+2\text{,}\)</span>  <span class="process-math">\(y(0)=2\)</span>
 </div></li>
-<li id="li-4702"><div class="para" id="p-8429">
+<li id="li-5025"><div class="para" id="p-9864">
 <span class="process-math">\(y' = 2y^2\text{,}\)</span>  <span class="process-math">\(y(-1) = 2\)</span>
 </div></li>
-<li id="li-4703"><div class="para" id="p-8430">
+<li id="li-5026"><div class="para" id="p-9865">
 <span class="process-math">\(\frac{dy}{dt} = \frac{-2ty}{t^2 + 1}\text{,}\)</span>   <span class="process-math">\(y(0) = 4\)</span>
 </div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-137"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">7.4.2</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-8445"><ul class="disc">
-<li id="li-4715"><div class="para" id="p-8446">A separable differential equation is one that may be rewritten with all occurrences of the dependent variable multiplying the derivative and all occurrences of the independent variable on the other side of the equation.</div></li>
-<li id="li-4716"><div class="para" id="p-8447">We may find the solutions to certain separable differential equations by separating variables, integrating with respect to <span class="process-math">\(t\text{,}\)</span> and ultimately solving the resulting algebraic equation for <span class="process-math">\(y\text{.}\)</span>
+<div class="para logical" id="p-9880"><ul class="disc">
+<li id="li-5038"><div class="para" id="p-9881">A separable differential equation is one that may be rewritten with all occurrences of the dependent variable multiplying the derivative and all occurrences of the independent variable on the other side of the equation.</div></li>
+<li id="li-5039"><div class="para" id="p-9882">We may find the solutions to certain separable differential equations by separating variables, integrating with respect to <span class="process-math">\(t\text{,}\)</span> and ultimately solving the resulting algebraic equation for <span class="process-math">\(y\text{.}\)</span>
 </div></li>
-<li id="li-4717"><div class="para" id="p-8448">This technique allows us to solve many important differential equations that arise in the world around us. For instance, questions of growth and decay and Newton's Law of Cooling give rise to separable differential equations. Later, we will learn in <a href="sec-7-6-logistic.html" class="internal" title="Section 7.6: Population Growth and the Logistic Equation">Section 7.6</a> that the important logistic differential equation is also separable.</div></li>
+<li id="li-5040"><div class="para" id="p-9883">This technique allows us to solve many important differential equations that arise in the world around us. For instance, questions of growth and decay and Newton’s Law of Cooling give rise to separable differential equations. Later, we will learn in <a href="sec-7-6-logistic.html" class="internal" title="Section 7.6: Population Growth and the Logistic Equation">Section 7.6</a> that the important logistic differential equation is also separable.</div></li>
 </ul></div></section><section class="exercises" id="ez-7-4"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">7.4.3</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-348"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div id="webwork-239" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="239" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/FortLewis/DiffEq/1-First-order/03-Separable/Lebl-1-3-02.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-239-button" class="webwork-button activate" onclick="handleWW('webwork-239')" aria-labelledby="webwork-239-button-label"><span id="webwork-239-button-label" hidden="hidden">Activate</span></button><div class="problem-contents"><div class="para" id="p-8449">Find the equation of the solution to <span class="process-math">\(\displaystyle \frac{dy}{dx} = x^{2} y\)</span> through the point <span class="process-math">\((x,y) = (1,3)\text{.}\)</span>
-</div></div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-349"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div id="webwork-240" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="240" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="local/Library/FortLewis/DiffEq/1-First-order/03-Separable/Lebl-1-3-01.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-240-button" class="webwork-button activate" onclick="handleWW('webwork-240')" aria-labelledby="webwork-240-button-label"><span id="webwork-240-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8451">
+<article class="exercise exercise-like" id="Library__FortLewis__DiffEq__1-First-order__03-Separable__Lebl-1-3-02"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__FortLewis__DiffEq__1-First-order__03-Separable__Lebl-1-3-02"><div id="boelkins-ACS__Library__FortLewis__DiffEq__1-First-order__03-Separable__Lebl-1-3-02-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="336" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/FortLewis/DiffEq/1-First-order/03-Separable/Lebl-1-3-02.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__FortLewis__DiffEq__1-First-order__03-Separable__Lebl-1-3-02-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-9884">Find the equation of the solution to <span class="process-math">\(\displaystyle \frac{dy}{dx} = x^{4} y\)</span> through the point <span class="process-math">\((x,y) = (1,2)\text{.}\)</span>
+</div> <div class="para" id="p-9885">
+<span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span> <a class="external" href="/pg_files/helpFiles/Entering-Equations.html" target="_blank">help (equations)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-122" id="fn-122"><sup> 2 </sup></a>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="csafranski__7-_4HW_prob2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__csafranski__7-_4HW_prob2"><div id="boelkins-ACS__csafranski__7-_4HW_prob2-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="337" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/7.4HW_prob2.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__csafranski__7-_4HW_prob2-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9887">
 <div class="para">Solve the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dy}{dx} = \frac{x}{25 y}.
+\frac{dy}{dx} = \frac{x}{9 y}.
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-8452"><ol class="lower-alpha">
-<li id="li-4718"><div class="para" id="p-8453">Find an implicit solution and put your answer in the following form: <span class="fillin underline" role="img" aria-label="21-character blank" style="width: 9.545454545454545em;"></span> = constant.</div></li>
-<li id="li-4719"><div class="para" id="p-8454">Find the equation of the solution through the point <span class="process-math">\((x,y) = (5,1)\text{.}\)</span>  Your equation must describe a single curve <span class="process-math">\(y=f(x)\)</span> with the domain of <span class="process-math">\(f\)</span> as large as possible. <span class="fillin underline" role="img" aria-label="21-character blank" style="width: 9.545454545454545em;"></span>
+</div> <div class="para logical" id="p-9888"><ol class="lower-alpha">
+<li id="li-5041"><div class="para" id="p-9889">Find an implicit solution and put your answer in the following form: <span class="fillin underline" role="img" aria-label="21-character blank" style="width: 9.545454545454545em;"></span> = constant.</div></li>
+<li id="li-5042"><div class="para" id="p-9890">Find the equation of the solution through the point <span class="process-math">\((x,y) = (3,1)\text{.}\)</span>  Your equation must describe a single curve <span class="process-math">\(y=f(x)\)</span> with the domain of <span class="process-math">\(f\)</span> as large as possible. <span class="fillin underline" role="img" aria-label="21-character blank" style="width: 9.545454545454545em;"></span>
 </div></li>
-<li id="li-4720"><div class="para" id="p-8455">Find the equation of the solution through the point <span class="process-math">\((x,y) = (0,-3)\text{.}\)</span>  Your answer should be of the form <span class="process-math">\(y = f(x)\text{.}\)</span> <span class="fillin underline" role="img" aria-label="21-character blank" style="width: 9.545454545454545em;"></span>
+<li id="li-5043"><div class="para" id="p-9891">Find the equation of the solution through the point <span class="process-math">\((x,y) = (0,-6)\text{.}\)</span>  Your answer should be of the form <span class="process-math">\(y = f(x)\text{.}\)</span> <span class="fillin underline" role="img" aria-label="21-character blank" style="width: 9.545454545454545em;"></span>
 </div></li>
 </ol></div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-350"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div id="webwork-241" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="241" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec4/Q13.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-241-button" class="webwork-button activate" onclick="handleWW('webwork-241')" aria-labelledby="webwork-241-button-label"><span id="webwork-241-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8459">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap11Sec4__Q13"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap11Sec4__Q13"><div id="boelkins-ACS__Library__Michigan__Chap11Sec4__Q13-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="338" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec4/Q13.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap11Sec4__Q13-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9895">
 <div class="para">Find the solution to the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dy}{dt} = 0.7 (y - 150)
+\frac{dy}{dt} = 0.4 (y - 250)
 \end{equation*}
 </div>
-<div class="para">if <span class="process-math">\(y=35\)</span> when <span class="process-math">\(t=0\text{.}\)</span>
+<div class="para">if <span class="process-math">\(y=60\)</span> when <span class="process-math">\(t=0\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-8460">
+</div> <div class="para" id="p-9896">
 <span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-351"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div id="webwork-242" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="242" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec4/Q23.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-242-button" class="webwork-button activate" onclick="handleWW('webwork-242')" aria-labelledby="webwork-242-button-label"><span id="webwork-242-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8462">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap11Sec4__Q23"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap11Sec4__Q23"><div id="boelkins-ACS__Library__Michigan__Chap11Sec4__Q23-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="339" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec4/Q23.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap11Sec4__Q23-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9898">
 <div class="para">Find the solution to the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dy}{dt} = y^2(7 + t),
+\frac{dy}{dt} = y^2(5 + t),
 \end{equation*}
 </div>
 <div class="para">
-<span class="process-math">\(y=8\)</span> when <span class="process-math">\(t=1\text{.}\)</span>
+<span class="process-math">\(y=3\)</span> when <span class="process-math">\(t=1\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-8463">
+</div> <div class="para" id="p-9899">
 <span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-352"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div id="webwork-243" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="243" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ3Separable/jas7_4_5a.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-243-button" class="webwork-button activate" onclick="handleWW('webwork-243')" aria-labelledby="webwork-243-button-label"><span id="webwork-243-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8465">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setDiffEQ3Separable__jas7_4_5a"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setDiffEQ3Separable__jas7_4_5a"><div id="boelkins-ACS__Library__Rochester__setDiffEQ3Separable__jas7_4_5a-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="340" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ3Separable/jas7_4_5a.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setDiffEQ3Separable__jas7_4_5a-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9901">
 <div class="para">Solve the separable differential equation for <span class="process-math">\(u\)</span>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{du}{dt} = e^{5 u + 10 t}.
+\frac{du}{dt} = e^{6 u + 7 t}.
 \end{equation*}
 </div>
-<div class="para">Use the following initial condition: <span class="process-math">\(u(0) = 3.\)</span>
+<div class="para">Use the following initial condition: <span class="process-math">\(u(0) = 10.\)</span>
 </div>
-</div> <div class="para" id="p-8466">
+</div> <div class="para" id="p-9902">
 <span class="process-math">\(u =\)</span> <span class="fillin underline" role="img" aria-label="45-character blank" style="width: 20.4545454545455em;"></span>.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-353"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div id="webwork-244" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="244" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ3Separable/ns7_4_13a.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-244-button" class="webwork-button activate" onclick="handleWW('webwork-244')" aria-labelledby="webwork-244-button-label"><span id="webwork-244-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8468">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setDiffEQ3Separable__ns7_4_13a"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setDiffEQ3Separable__ns7_4_13a"><div id="boelkins-ACS__Library__Rochester__setDiffEQ3Separable__ns7_4_13a-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="341" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ3Separable/ns7_4_13a.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setDiffEQ3Separable__ns7_4_13a-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9904">
 <div class="para">Find an equation of the curve that satisfies</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dy}{dx} = 20 yx^{9}
+\frac{dy}{dx} = 136 yx^{16}
 \end{equation*}
 </div>
-<div class="para">and whose <span class="process-math">\(y\)</span>-intercept is <span class="process-math">\(3\text{.}\)</span>
+<div class="para">and whose <span class="process-math">\(y\)</span>-intercept is <span class="process-math">\(4\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-8469">
+</div> <div class="para" id="p-9905">
 <span class="process-math">\(y(x) =\)</span> <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span>.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-354"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div id="webwork-245" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="245" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Utah/Calculus_II/set11_Conics_and_Polar_Coordinates/set11_pr7.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-245-button" class="webwork-button activate" onclick="handleWW('webwork-245')" aria-labelledby="webwork-245-button-label"><span id="webwork-245-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8471">
-<div class="para">Suppose that we use Euler's method to approximate the solution to the differential equation</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Utah__Calculus_II__set11_Conics_and_Polar_Coordinates__set11_pr7"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Utah__Calculus_II__set11_Conics_and_Polar_Coordinates__set11_pr7"><div id="boelkins-ACS__Library__Utah__Calculus_II__set11_Conics_and_Polar_Coordinates__set11_pr7-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="342" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Utah/Calculus_II/set11_Conics_and_Polar_Coordinates/set11_pr7.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Utah__Calculus_II__set11_Conics_and_Polar_Coordinates__set11_pr7-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9907">
+<div class="para">Suppose that we use Euler’s method to approximate the solution to the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dy}{dx}= \frac{x^5}{y};\qquad y( 0) = 9.
+\frac{dy}{dx}= \frac{x^2}{y};\qquad y( 0.5) = 2.
 \end{equation*}
 </div>
-<div class="para">Let <span class="process-math">\(f(x,y) = x^5/y.\)</span>
+<div class="para">Let <span class="process-math">\(f(x,y) = x^2/y.\)</span>
 </div>
-</div> <div class="para" id="p-8472">We let <span class="process-math">\(x_0 = 0\)</span> and <span class="process-math">\(y_0 = 9\)</span> and pick a step size <span class="process-math">\(h=0.2 .\)</span>
-</div> <div class="para logical" id="p-8473">
-<div class="para">Euler's method is the the following algorithm. From <span class="process-math">\(x_n\)</span> and <span class="process-math">\(y_n ,\)</span> our approximations to the solution of the differential equation at the nth stage, we find the next stage by computing</div>
+</div> <div class="para" id="p-9908">We let <span class="process-math">\(x_0 = 0.5\)</span> and <span class="process-math">\(y_0 = 2\)</span> and pick a step size <span class="process-math">\(h=0.2 .\)</span>
+</div> <div class="para logical" id="p-9909">
+<div class="para">Euler’s method is the the following algorithm. From <span class="process-math">\(x_n\)</span> and <span class="process-math">\(y_n ,\)</span> our approximations to the solution of the differential equation at the nth stage, we find the next stage by computing</div>
 <div class="displaymath process-math">
 \begin{equation*}
 x_{n+1} = x_n +h,\qquad y_{n+1} = y_n + h\cdot f(x_n,y_n).
 \end{equation*}
 </div>
-</div> <div class="para" id="p-8474">Complete the following table.  Your answers should be accurate to at least seven decimal places.</div> <div class="tabular-box natural-width"><table class="tabular">
+</div> <div class="para" id="p-9910">Complete the following table.  Your answers should be accurate to at least seven decimal places.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b2 r2 l2 t2 lines"><span class="process-math">\(n\)</span></td>
 <td class="l m b2 r2 l0 t2 lines"><span class="process-math">\(x_n\)</span></td>
@@ -1235,55 +1227,54 @@ x_{n+1} = x_n +h,\qquad y_{n+1} = y_n + h\cdot f(x_n,y_n).
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(0\)</span></td>
-<td class="l m b2 r2 l0 t0 lines"><span class="process-math">\(0\)</span></td>
-<td class="l m b2 r2 l0 t0 lines"><span class="process-math">\(9\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="process-math">\(0.5\)</span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="process-math">\(2\)</span></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(1\)</span></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(2\)</span></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(3\)</span></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(4\)</span></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(5\)</span></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span></td>
 </tr>
-</table></div> <div class="para" id="p-8475">The exact solution can also be found using separation of variables. It is</div> <div class="para" id="p-8476">
+</table></div> <div class="para" id="p-9911">The exact solution can also be found using separation of variables. It is</div> <div class="para" id="p-9912">
 <span class="process-math">\(y(x)=\)</span> <span class="fillin underline" role="img" aria-label="60-character blank" style="width: 27.2727272727273em;"></span>
-</div> <div class="para" id="p-8477">Thus the actual value of the function at the point <span class="process-math">\(x=1\)</span>
-</div> <div class="para" id="p-8478">
-<span class="process-math">\(y(1 ) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</div>
+</div> <div class="para" id="p-9913">Thus the actual value of the function at the point <span class="process-math">\(x=1.5\)</span>
+</div> <div class="para" id="p-9914">
+<span class="process-math">\(y(1.5 ) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-355"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8491">
+</div></div></div></article><article class="exercise exercise-like" id="exercise-426"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para logical" id="p-9927">
 <div class="para">The mass of a radioactive sample decays at a rate that is proportional to its mass.</div>
 <ol class="lower-alpha">
-<li id="li-4721"><div class="para" id="p-8492">Express this fact as a differential equation for the mass <span class="process-math">\(M(t)\)</span> using <span class="process-math">\(k\)</span> for the constant of proportionality.</div></li>
-<li id="li-4722"><div class="para" id="p-8493">If the initial mass is <span class="process-math">\(M_0\text{,}\)</span> find an expression for the mass <span class="process-math">\(M(t)\text{.}\)</span>
+<li id="li-5044"><div class="para" id="p-9928">Express this fact as a differential equation for the mass <span class="process-math">\(M(t)\)</span> using <span class="process-math">\(k\)</span> for the constant of proportionality.</div></li>
+<li id="li-5045"><div class="para" id="p-9929">If the initial mass is <span class="process-math">\(M_0\text{,}\)</span> find an expression for the mass <span class="process-math">\(M(t)\text{.}\)</span>
 </div></li>
-<li id="li-4723"><div class="para" id="p-8494">The <em class="emphasis">half-life</em> of the sample is the amount of time required for half of the mass to decay. Knowing that the half-life of Carbon-14 is 5730 years, find the value of <span class="process-math">\(k\)</span> for a sample of Carbon-14.</div></li>
-<li id="li-4724"><div class="para" id="p-8495">How long does it take for a sample of Carbon-14 to be reduced to one-quarter its original mass?</div></li>
-<li id="li-4725"><div class="para" id="p-8496">Carbon-14 naturally occurs in our environment; any living organism takes in Carbon-14 when it eats and breathes. Upon dying, however, the organism no longer takes in Carbon-14. Suppose that you find remnants of a pre-historic firepit. By analyzing the charred wood in the pit, you determine that the amount of Carbon-14 is only 30% of the amount in living trees. Estimate the age of the firepit.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-120" id="fn-120"><sup> 2 </sup></a>
+<li id="li-5046"><div class="para" id="p-9930">The <em class="emphasis">half-life</em> of the sample is the amount of time required for half of the mass to decay. Knowing that the half-life of Carbon-14 is 5730 years, find the value of <span class="process-math">\(k\)</span> for a sample of Carbon-14.</div></li>
+<li id="li-5047"><div class="para" id="p-9931">How long does it take for a sample of Carbon-14 to be reduced to one-quarter its original mass?</div></li>
+<li id="li-5048"><div class="para" id="p-9932">Carbon-14 naturally occurs in our environment; any living organism takes in Carbon-14 when it eats and breathes. Upon dying, however, the organism no longer takes in Carbon-14. Suppose that you find remnants of a pre-historic firepit. By analyzing the charred wood in the pit, you determine that the amount of Carbon-14 is only 30% of the amount in living trees. Estimate the age of the firepit.<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-123" id="fn-123"><sup> 3 </sup></a>
 </div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-356"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8509">
+</div></article><article class="exercise exercise-like" id="exercise-427"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="para logical" id="p-9945">
 <div class="para">Consider the initial value problem</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1291,25 +1282,25 @@ x_{n+1} = x_n +h,\qquad y_{n+1} = y_n + h\cdot f(x_n,y_n).
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4736"><div class="para" id="p-8510">Find the solution of the initial value problem and sketch its graph.</div></li>
-<li id="li-4737"><div class="para" id="p-8511">For what values of <span class="process-math">\(t\)</span> is the solution defined?</div></li>
-<li id="li-4738"><div class="para" id="p-8512">What is the value of <span class="process-math">\(y\)</span> at the last time that the solution is defined?</div></li>
-<li id="li-4739"><div class="para" id="p-8513">By looking at the differential equation, explain why we should not expect to find solutions with the value of <span class="process-math">\(y\)</span> you noted in (c).</div></li>
+<li id="li-5059"><div class="para" id="p-9946">Find the solution of the initial value problem and sketch its graph.</div></li>
+<li id="li-5060"><div class="para" id="p-9947">For what values of <span class="process-math">\(t\)</span> is the solution defined?</div></li>
+<li id="li-5061"><div class="para" id="p-9948">What is the value of <span class="process-math">\(y\)</span> at the last time that the solution is defined?</div></li>
+<li id="li-5062"><div class="para" id="p-9949">By looking at the differential equation, explain why we should not expect to find solutions with the value of <span class="process-math">\(y\)</span> you noted in (c).</div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-357"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8524">
-<div class="para">Suppose that a cylindrical water tank with a hole in the bottom is filled with water. The water, of course, will leak out and the height of the water will decrease. Let <span class="process-math">\(h(t)\)</span> denote the height of the water. A physical principle called <em class="emphasis">Torricelli's Law</em> implies that the height decreases at a rate proportional to the square root of the height.</div>
+</div></article><article class="exercise exercise-like" id="exercise-428"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="para logical" id="p-9960">
+<div class="para">Suppose that a cylindrical water tank with a hole in the bottom is filled with water. The water, of course, will leak out and the height of the water will decrease. Let <span class="process-math">\(h(t)\)</span> denote the height of the water. A physical principle called <em class="emphasis">Torricelli’s Law</em> implies that the height decreases at a rate proportional to the square root of the height.</div>
 <ol class="lower-alpha">
-<li id="li-4748"><div class="para" id="p-8525">Express this fact using <span class="process-math">\(k\)</span> as the constant of proportionality.</div></li>
-<li id="li-4749"><div class="para" id="p-8526">Suppose you have two tanks, one with <span class="process-math">\(k=-1\)</span> and another with <span class="process-math">\(k=-10\text{.}\)</span> What physical differences would you expect to find?</div></li>
-<li id="li-4750"><div class="para" id="p-8527">Suppose you have a tank for which the height decreases at <span class="process-math">\(20\)</span> inches per minute when the water is filled to a depth of <span class="process-math">\(100\)</span> inches. Find the value of <span class="process-math">\(k\text{.}\)</span>
+<li id="li-5071"><div class="para" id="p-9961">Express this fact using <span class="process-math">\(k\)</span> as the constant of proportionality.</div></li>
+<li id="li-5072"><div class="para" id="p-9962">Suppose you have two tanks, one with <span class="process-math">\(k=-1\)</span> and another with <span class="process-math">\(k=-10\text{.}\)</span> What physical differences would you expect to find?</div></li>
+<li id="li-5073"><div class="para" id="p-9963">Suppose you have a tank for which the height decreases at <span class="process-math">\(20\)</span> inches per minute when the water is filled to a depth of <span class="process-math">\(100\)</span> inches. Find the value of <span class="process-math">\(k\text{.}\)</span>
 </div></li>
-<li id="li-4751"><div class="para" id="p-8528">Solve the initial value problem for the tank in part (c), and graph the solution you determine.</div></li>
-<li id="li-4752"><div class="para" id="p-8529">How long does it take for the water to run out of the tank?</div></li>
-<li id="li-4753"><div class="para" id="p-8530">Is the solution that you found valid for all time <span class="process-math">\(t\text{?}\)</span> If so, explain how you know this. If not, explain why not.</div></li>
+<li id="li-5074"><div class="para" id="p-9964">Solve the initial value problem for the tank in part (c), and graph the solution you determine.</div></li>
+<li id="li-5075"><div class="para" id="p-9965">How long does it take for the water to run out of the tank?</div></li>
+<li id="li-5076"><div class="para" id="p-9966">Is the solution that you found valid for all time <span class="process-math">\(t\text{?}\)</span> If so, explain how you know this. If not, explain why not.</div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-358"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8545">
+</div></article><article class="exercise exercise-like" id="exercise-429"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div class="para logical" id="p-9981">
 <div class="para">The <em class="emphasis">Gompertz equation</em> is a model that is used to describe the growth of certain populations. Suppose that <span class="process-math">\(P(t)\)</span> is the population of some organism and that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1317,25 +1308,23 @@ x_{n+1} = x_n +h,\qquad y_{n+1} = y_n + h\cdot f(x_n,y_n).
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4766"><div class="para" id="p-8546">Sketch a slope field for <span class="process-math">\(P(t)\)</span> over the range <span class="process-math">\(0\leq P\leq 6\text{.}\)</span>
+<li id="li-5089"><div class="para" id="p-9982">Sketch a slope field for <span class="process-math">\(P(t)\)</span> over the range <span class="process-math">\(0\leq P\leq 6\text{.}\)</span>
 </div></li>
-<li id="li-4767"><div class="para" id="p-8547">Identify any equilibrium solutions and determine whether they are stable or unstable.</div></li>
-<li id="li-4768"><div class="para" id="p-8548">Find the population <span class="process-math">\(P(t)\)</span> assuming that <span class="process-math">\(P(0) = 1\)</span> and sketch its graph. What happens to <span class="process-math">\(P(t)\)</span> after a very long time?</div></li>
-<li id="li-4769"><div class="para" id="p-8549">Find the population <span class="process-math">\(P(t)\)</span> assuming that <span class="process-math">\(P(0) = 6\)</span> and sketch its graph. What happens to <span class="process-math">\(P(t)\)</span> after a very long time?</div></li>
-<li id="li-4770"><div class="para" id="p-8550">Verify that the long-term behavior of your solutions agrees with what you predicted by looking at the slope field.</div></li>
+<li id="li-5090"><div class="para" id="p-9983">Identify any equilibrium solutions and determine whether they are stable or unstable.</div></li>
+<li id="li-5091"><div class="para" id="p-9984">Find the population <span class="process-math">\(P(t)\)</span> assuming that <span class="process-math">\(P(0) = 1\)</span> and sketch its graph. What happens to <span class="process-math">\(P(t)\)</span> after a very long time?</div></li>
+<li id="li-5092"><div class="para" id="p-9985">Find the population <span class="process-math">\(P(t)\)</span> assuming that <span class="process-math">\(P(0) = 6\)</span> and sketch its graph. What happens to <span class="process-math">\(P(t)\)</span> after a very long time?</div></li>
+<li id="li-5093"><div class="para" id="p-9986">Verify that the long-term behavior of your solutions agrees with what you predicted by looking at the slope field.</div></li>
 </ol>
 </div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-119"><div class="fn">This is why we required that the left-hand side be written as a product in which <span class="process-math">\(dy/dt\)</span> is one of the terms.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-120"><div class="fn">This approach is the basic idea behind radiocarbon dating.</div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-121"><div class="fn">This is why we required that the left-hand side be written as a product in which <span class="process-math">\(dy/dt\)</span> is one of the terms.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-122"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/Entering-Equations.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-123"><div class="fn">This approach is the basic idea behind radiocarbon dating.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-7-3-euler.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-7-5-modeling.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

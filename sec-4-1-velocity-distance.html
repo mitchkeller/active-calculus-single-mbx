@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC Determining distance traveled from velocity</title>
@@ -15,20 +15,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="C-4.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-4.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-4-2-Riemann.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -837,76 +824,79 @@ eBookConfig.new_server_prefix = "/ns";
 </h2>
 <article class="objectives goal-like" id="objectives-22"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-2526"><div class="para" id="p-4053">If we know the velocity of a moving body at every point in a given interval, can we determine the distance the object has traveled on the time interval?</div></li>
-<li id="li-2527"><div class="para" id="p-4054">How is the problem of finding distance traveled related to finding the area under a certain curve?</div></li>
-<li id="li-2528"><div class="para" id="p-4055">What does it mean to antidifferentiate a function and why is this process relevant to finding distance traveled?</div></li>
-<li id="li-2529"><div class="para" id="p-4056">If velocity is negative, how does this impact the problem of finding distance traveled?</div></li>
-</ul></article><section class="introduction" id="introduction-22"><div class="para logical" id="p-4057">
+<li id="li-2754"><div class="para" id="p-5210">If we know the velocity of a moving body at every point in a given interval, can we determine the distance the object has traveled on the time interval?</div></li>
+<li id="li-2755"><div class="para" id="p-5211">How is the problem of finding distance traveled related to finding the area under a certain curve?</div></li>
+<li id="li-2756"><div class="para" id="p-5212">What does it mean to antidifferentiate a function and why is this process relevant to finding distance traveled?</div></li>
+<li id="li-2757"><div class="para" id="p-5213">If velocity is negative, how does this impact the problem of finding distance traveled?</div></li>
+</ul></article><section class="introduction" id="introduction-28"><div class="para logical" id="p-5214">
 <div class="para">In the first section of the text, we considered a moving object with known position at time <span class="process-math">\(t\text{,}\)</span> namely, a tennis ball tossed into the air with height <span class="process-math">\(s\)</span> (in feet) at time <span class="process-math">\(t\)</span> (in seconds) given by <span class="process-math">\(s(t) = 64 - 16(t-1)^2\text{.}\)</span> We investigated the average velocity of the ball on an interval <span class="process-math">\([a,b]\text{,}\)</span> computed by the difference quotient <span class="process-math">\(\frac{s(b)-s(a)}{b-a}\text{.}\)</span> We found that we could determine the instantaneous velocity of the ball at time <span class="process-math">\(t\)</span> by taking the derivative of the position function,</div>
 <div class="displaymath process-math">
 \begin{equation*}
 s'(t) = \lim_{h \to 0} \frac{s(t+h)-s(t)}{h}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-4058">Thus, if its position function is differentiable, we can find the velocity of a moving object at any point in time.</div> <div class="para" id="p-4059">From this study of position and velocity we have learned a great deal. We can use the derivative to find a function's instantaneous rate of change at any point in the domain, to find where the function is increasing or decreasing, where it is concave up or concave down, and to locate relative extremes. The vast majority of the problems and applications we have considered have involved the situation where a particular function is known and we seek information that relies on knowing the function's instantaneous rate of change. For all these tasks, we proceed from a function <span class="process-math">\(f\)</span> to its derivative, <span class="process-math">\(f'\text{,}\)</span> and use the meaning of the derivative to help us answer important questions.</div> <div class="para" id="p-4060">We have also encountered the reverse situation, where we know the derivative of a function, <span class="process-math">\(f'\text{,}\)</span> and try to deduce information about <span class="process-math">\(f\text{.}\)</span> We will focus our attention in <a href="C-4.html" class="internal" title="Chapter 4: The Definite Integral">Chapter 4</a> on this problem: if we know the instantaneous rate of change of a function, can we find the function itself? We start with a more specific question: if we know the instantaneous velocity of an object moving along a straight line path, can we find its corresponding position function?</div> <article class="exploration project-like" id="PA-4-1"><h3 class="heading">
+</div> <div class="para" id="p-5215">Thus, if its position function is differentiable, we can find the velocity of a moving object at any point in time.</div> <div class="para" id="p-5216">From this study of position and velocity we have learned a great deal. We can use the derivative to find a function’s instantaneous rate of change at any point in the domain, to find where the function is increasing or decreasing, where it is concave up or concave down, and to locate relative extremes. The vast majority of the problems and applications we have considered have involved the situation where a particular function is known and we seek information that relies on knowing the function’s instantaneous rate of change. For all these tasks, we proceed from a function <span class="process-math">\(f\)</span> to its derivative, <span class="process-math">\(f'\text{,}\)</span> and use the meaning of the derivative to help us answer important questions.</div> <div class="para" id="p-5217">We have also encountered the reverse situation, where we know the derivative of a function, <span class="process-math">\(f'\text{,}\)</span> and try to deduce information about <span class="process-math">\(f\text{.}\)</span> We will focus our attention in <a href="C-4.html" class="internal" title="Chapter 4: The Definite Integral">Chapter 4</a> on this problem: if we know the instantaneous rate of change of a function, can we find the function itself? We start with a more specific question: if we know the instantaneous velocity of an object moving along a straight line path, can we find its corresponding position function?</div> <article class="exploration project-like" id="ACS__Preview__4-1"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-4061">
-<div class="para">Suppose that a person is taking a walk along a long straight path and walks at a constant rate of 3 miles per hour.</div>
-<ol class="lower-alpha">
-<li id="li-2530">
-<div class="para" id="p-4062">On the left-hand axes provided in <a href="" class="xref" data-knowl="./knowl/F-4-1-PA1.html" title="Figure 4.1.1">Figure 4.1.1</a>, sketch a labeled graph of the velocity function <span class="process-math">\(v(t) = 3\text{.}\)</span>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__ACS__Preview__4-1"><div id="boelkins-ACS__ACS__Preview__4-1-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="197" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/4.1Preview_prob1.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__ACS__Preview__4-1-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-5218">Suppose that a person is taking a walk along a long straight path and walks at a constant rate of 3 miles per hour. Below is a graph of the velocity function <span class="process-math">\(v(t)=3\text{.}\)</span>
+</div> <div class="image-box" style="width: 33%; margin-left: 33.5%; margin-right: 33.5%;"><img src="generated/webwork/images/webwork-197-image-1.png" class="contained"></div> <div class="para" id="p-5219">How far did the person travel in the first 2 hours?</div> <div class="para" id="p-5220">Distance: <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> miles</div> <div class="para" id="p-5221">This distance is the area under the velocity graph and above the <span class="process-math">\(x-\)</span>axis between <ul style="list-style:circle;">
+<li id="li-2758"><div class="para" id="p-5222">x=0 and x=1</div></li>
+<li id="li-2759"><div class="para" id="p-5223">x=0 and x=2</div></li>
+<li id="li-2760"><div class="para" id="p-5224">x=1 and x=2</div></li>
+</ul>
+</div> <div class="para" id="p-5225">Find an algebraic formula <span class="process-math">\(s(t)\)</span> for the position of the person at time <span class="process-math">\(t\text{,}\)</span> assuming that <span class="process-math">\(s(0)=0\text{.}\)</span>
+</div> <div class="para" id="p-5226">
+<span class="process-math">\(s(t) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-5227">Note that because the velocity graph is above the <span class="process-math">\(x-\)</span>axis, we know that the position function <span class="process-math">\(s\)</span> is <ul style="list-style:circle;">
+<li id="li-2761"><div class="para" id="p-5228">Decreasing</div></li>
+<li id="li-2762"><div class="para" id="p-5229">Increasing</div></li>
+<li id="li-2763"><div class="para" id="p-5230">Sometimes increasing and sometimes decreasing</div></li>
+<li id="li-2764"><div class="para" id="p-5231">Can’t tell</div></li>
+</ul>
 </div>
-<figure class="figure figure-like" id="F-4-1-PA1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_1_PA1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.1<span class="period">.</span></span><span class="space"> </span>At left, axes for plotting <span class="process-math">\(y = v(t)\text{;}\)</span> at right, for plotting <span class="process-math">\(y = s(t)\text{.}\)</span></figcaption></figure><div class="para" id="p-4063">Note that while the scale on the two sets of axes is the same, the units on the right-hand axes differ from those on the left. The right-hand axes will be used in question (d).</div>
-</li>
-<li id="li-2531"><div class="para" id="p-4064">How far did the person travel during the two hours? How is this distance related to the area of a certain region under the graph of <span class="process-math">\(y = v(t)\text{?}\)</span>
-</div></li>
-<li id="li-2532"><div class="para" id="p-4065">Find an algebraic formula, <span class="process-math">\(s(t)\text{,}\)</span> for the position of the person at time <span class="process-math">\(t\text{,}\)</span> assuming that <span class="process-math">\(s(0) = 0\text{.}\)</span> Explain your thinking.</div></li>
-<li id="li-2533"><div class="para" id="p-4066">On the right-hand axes provided in <a href="" class="xref" data-knowl="./knowl/F-4-1-PA1.html" title="Figure 4.1.1">Figure 4.1.1</a>, sketch a labeled graph of the position function <span class="process-math">\(y = s(t)\text{.}\)</span>
-</div></li>
-<li id="li-2534"><div class="para" id="p-4067">For what values of <span class="process-math">\(t\)</span> is the position function <span class="process-math">\(s\)</span> increasing? Explain why this is the case using relevant information about the velocity function <span class="process-math">\(v\text{.}\)</span>
-</div></li>
-</ol>
-</div></article></section><section class="subsection" id="subsection-63"><h3 class="heading hide-type">
+</div>
+</div></div></div></article></section><section class="subsection" id="subsection-63"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.1</span> <span class="title">Area under the graph of the velocity function</span>
 </h3>
-<div class="para" id="p-4068">In <a href="" class="xref" data-knowl="./knowl/PA-4-1.html" title="Preview Activity 4.1.1">Preview Activity 4.1.1</a>, we learned that when the velocity of a moving object's velocity is constant (and positive), the area under the velocity curve over an interval of time tells us the distance the object traveled.</div>
+<div class="para" id="p-5236">In <a href="" class="xref" data-knowl="./knowl/ACS__Preview__4-1.html" title="Preview Activity 4.1.1">Preview Activity 4.1.1</a>, we learned that when the velocity of a moving object’s velocity is constant (and positive), the area under the velocity curve over an interval of time tells us the distance the object traveled.</div>
 <figure class="figure figure-like" id="F-4-1-VelArea"><div class="image-box" style="width: 74%; margin-left: 13%; margin-right: 13%;"><img src="external/images/4_1_VelArea.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.2<span class="period">.</span></span><span class="space"> </span>At left, a constant velocity function; at right, a non-constant velocity function.</figcaption></figure><div class="para logical" id="p-4069">
-<div class="para">The left-hand graph of <a href="" class="xref" data-knowl="./knowl/F-4-1-VelArea.html" title="Figure 4.1.2">Figure 4.1.2</a> shows the velocity of an object moving at 2 miles per hour over the time interval <span class="process-math">\([1,1.5]\text{.}\)</span> The area <span class="process-math">\(A_1\)</span> of the shaded region under <span class="process-math">\(y = v(t)\)</span> on <span class="process-math">\([1,1.5]\)</span> is</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.1<span class="period">.</span></span><span class="space"> </span>At left, a constant velocity function; at right, a non-constant velocity function.</figcaption></figure><div class="para logical" id="p-5237">
+<div class="para">The left-hand graph of <a href="" class="xref" data-knowl="./knowl/F-4-1-VelArea.html" title="Figure 4.1.1">Figure 4.1.1</a> shows the velocity of an object moving at 2 miles per hour over the time interval <span class="process-math">\([1,1.5]\text{.}\)</span> The area <span class="process-math">\(A_1\)</span> of the shaded region under <span class="process-math">\(y = v(t)\)</span> on <span class="process-math">\([1,1.5]\)</span> is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-1-VelArea.html">
 \begin{equation*}
 A_1= 2 \, \frac{\text{miles} }{\text{hour} } \cdot \frac{1}{2} \, \text{hours}  = 1 \, \text{mile}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-4070">
+<div class="para logical" id="p-5238">
 <div class="para">This result is simply the fact that distance equals rate times time, provided the rate is constant. Thus, if <span class="process-math">\(v(t)\)</span> is constant on the interval <span class="process-math">\([a,b]\text{,}\)</span> the distance traveled on <span class="process-math">\([a,b]\)</span> is equal to the area <span class="process-math">\(A\)</span> given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 A = v(a) (b-a) = v(a) \Delta t\text{,}
 \end{equation*}
 </div>
-<div class="para">where <span class="process-math">\(\Delta t\)</span> is the change in <span class="process-math">\(t\)</span> over the interval. (Since the velocity is constant, we can use any value of <span class="process-math">\(v(t)\)</span> on the interval <span class="process-math">\([a,b]\text{,}\)</span> we simply chose <span class="process-math">\(v(a)\text{,}\)</span> the value at the interval's left endpoint.) For several examples where the velocity function is piecewise constant, see <a class="external" href="https://gvsu.edu/s/9T" target="_blank">this applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-69" id="fn-69"><sup> 1 </sup></a>.</div>
+<div class="para">where <span class="process-math">\(\Delta t\)</span> is the change in <span class="process-math">\(t\)</span> over the interval. (Since the velocity is constant, we can use any value of <span class="process-math">\(v(t)\)</span> on the interval <span class="process-math">\([a,b]\text{,}\)</span> we simply chose <span class="process-math">\(v(a)\text{,}\)</span> the value at the interval’s left endpoint.) For several examples where the velocity function is piecewise constant, see <a class="external" href="https://gvsu.edu/s/9T" target="_blank">this applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-73" id="fn-73"><sup> 1 </sup></a>.</div>
 </div>
-<div class="para logical" id="p-4071">
-<div class="para">The situation is more complicated when the velocity function is not constant. But on relatively small intervals where <span class="process-math">\(v(t)\)</span> does not vary much, we can use the area principle to estimate the distance traveled. The graph at right in <a href="" class="xref" data-knowl="./knowl/F-4-1-VelArea.html" title="Figure 4.1.2">Figure 4.1.2</a> shows a non-constant velocity function. On the interval <span class="process-math">\([1,1.5]\text{,}\)</span> the velocity varies from <span class="process-math">\(v(1) = 2.5\)</span> down to <span class="process-math">\(v(1.5) \approx 2.1\text{.}\)</span> One estimate for the distance traveled is the area of the pictured rectangle,</div>
+<div class="para logical" id="p-5239">
+<div class="para">The situation is more complicated when the velocity function is not constant. But on relatively small intervals where <span class="process-math">\(v(t)\)</span> does not vary much, we can use the area principle to estimate the distance traveled. The graph at right in <a href="" class="xref" data-knowl="./knowl/F-4-1-VelArea.html" title="Figure 4.1.1">Figure 4.1.1</a> shows a non-constant velocity function. On the interval <span class="process-math">\([1,1.5]\text{,}\)</span> the velocity varies from <span class="process-math">\(v(1) = 2.5\)</span> down to <span class="process-math">\(v(1.5) \approx 2.1\text{.}\)</span> One estimate for the distance traveled is the area of the pictured rectangle,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-1-VelArea.html">
 \begin{equation*}
 A_2 = v(1) \Delta t = 2.5 \, \frac{\text{miles} }{\text{hour} } \cdot \frac{1}{2} \, \text{hours}  = 1.25 \, \text{miles}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-4072">Note that because <span class="process-math">\(v\)</span> is decreasing on <span class="process-math">\([1,1.5]\text{,}\)</span> <span class="process-math">\(A_2 = 1.25\)</span> is an over-estimate of the actual distance traveled.</div>
-<div class="para" id="p-4073">To estimate the area under this non-constant velocity function on a wider interval, say <span class="process-math">\([0,3]\text{,}\)</span> one rectangle will not give a good approximation. Instead, we could use the six rectangles pictured in <a href="" class="xref" data-knowl="./knowl/F-4-1-VelArea2.html" title="Figure 4.1.3">Figure 4.1.3</a>, find the area of each rectangle, and add up the total. Obviously there are choices to make and issues to understand: How many rectangles should we use? Where should we evaluate the function to decide the rectangle's height? What happens if the velocity is sometimes negative? Can we find the exact area under any non-constant curve?</div>
+<div class="para" id="p-5240">Note that because <span class="process-math">\(v\)</span> is decreasing on <span class="process-math">\([1,1.5]\text{,}\)</span> <span class="process-math">\(A_2 = 1.25\)</span> is an over-estimate of the actual distance traveled.</div>
+<div class="para" id="p-5241">To estimate the area under this non-constant velocity function on a wider interval, say <span class="process-math">\([0,3]\text{,}\)</span> one rectangle will not give a good approximation. Instead, we could use the six rectangles pictured in <a href="" class="xref" data-knowl="./knowl/F-4-1-VelArea2.html" title="Figure 4.1.2">Figure 4.1.2</a>, find the area of each rectangle, and add up the total. Obviously there are choices to make and issues to understand: How many rectangles should we use? Where should we evaluate the function to decide the rectangle’s height? What happens if the velocity is sometimes negative? Can we find the exact area under any non-constant curve?</div>
 <figure class="figure figure-like" id="F-4-1-VelArea2"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_1_VelArea2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.3<span class="period">.</span></span><span class="space"> </span>Using six rectangles to estimate the area under <span class="process-math">\(y = v(t)\)</span> on <span class="process-math">\([0,3]\text{.}\)</span></figcaption></figure><div class="para" id="p-4074">We will study these questions and more in what follows; for now it suffices to observe that the simple idea of the area of a rectangle gives us a powerful tool for estimating distance traveled from a velocity function, as well as for estimating the area under an arbitrary curve. To explore the use of multiple rectangles to approximate area under a non-constant velocity function, see <a class="external" href="https://gvsu.edu/s/9U" target="_blank">this applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-70" id="fn-70"><sup> 2 </sup></a>.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.2<span class="period">.</span></span><span class="space"> </span>Using six rectangles to estimate the area under <span class="process-math">\(y = v(t)\)</span> on <span class="process-math">\([0,3]\text{.}\)</span></figcaption></figure><div class="para" id="p-5242">We will study these questions and more in what follows; for now it suffices to observe that the simple idea of the area of a rectangle gives us a powerful tool for estimating distance traveled from a velocity function, as well as for estimating the area under an arbitrary curve. To explore the use of multiple rectangles to approximate area under a non-constant velocity function, see <a class="external" href="https://gvsu.edu/s/9U" target="_blank">this applet</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-74" id="fn-74"><sup> 2 </sup></a>.</div>
 <article class="activity project-like" id="act-4-1-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-4075">Suppose that a person is walking in such a way that her velocity varies slightly according to the information given in <a href="" class="xref" data-knowl="./knowl/T-4-1-Act1.html" title="Table 4.1.4: Velocity data for the person walking.">Table 4.1.4</a> and graph given in <a href="" class="xref" data-knowl="./knowl/F-4-1-Act1.html" title="Figure 4.1.5">Figure 4.1.5</a>.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;">
-<div class="sbspanel fixed-width middle" style="width:48.4536082474227%;"><figure class="table table-like" id="T-4-1-Act1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.1.4<span class="period">.</span></span><span class="space"> </span>Velocity data for the person walking.</figcaption><table class="tabular" id="HLD">
+<div class="para" id="p-5243">Suppose that a person is walking in such a way that her velocity varies slightly according to the information given in <a href="" class="xref" data-knowl="./knowl/T-4-1-Act1.html" title="Table 4.1.3: Velocity data for the person walking.">Table 4.1.3</a> and graph given in <a href="" class="xref" data-knowl="./knowl/F-4-1-Act1.html" title="Figure 4.1.4">Figure 4.1.4</a>.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:1.5%;margin-right:1.5%;">
+<div class="sbspanel fixed-width middle" style="width:48.4536082474227%;"><figure class="table table-like" id="T-4-1-Act1"><table class="tabular" id="HLD">
 <tr>
 <td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(t\)</span></td>
 <td class="c m b1 r0 l0 t0 lines"><span class="process-math">\(v(t)\)</span></td>
@@ -947,68 +937,69 @@ A_2 = v(1) \Delta t = 2.5 \, \frac{\text{miles} }{\text{hour} } \cdot \frac{1}{2
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.00\)</span></td>
 <td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(2.500\)</span></td>
 </tr>
-</table></figure></div>
-<div class="sbspanel middle" style="width:48.4536082474227%;"><figure class="figure figure-like" id="F-4-1-Act1"><img src="external/images/4_1_Act1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.5<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = v(t)\text{.}\)</span></figcaption></figure></div>
-</div></div> <div class="para logical" id="p-4076"><ol class="lower-alpha">
-<li id="li-2535"><div class="para" id="p-4077">Using the grid, graph, and given data appropriately, estimate the distance traveled by the walker during the two hour interval from <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 2\text{.}\)</span> You should use time intervals of width <span class="process-math">\(\Delta t = 0.5\text{,}\)</span> choosing a way to use the function consistently to determine the height of each rectangle in order to approximate distance traveled.</div></li>
-<li id="li-2536"><div class="para" id="p-4078">How could you get a better approximation of the distance traveled on <span class="process-math">\([0,2]\text{?}\)</span> Explain, and then find this new estimate.</div></li>
-<li id="li-2537"><div class="para" id="p-4079">Now suppose that you know that <span class="process-math">\(v\)</span> is given by <span class="process-math">\(v(t) = 0.5t^3-1.5t^2+1.5t+1.5\text{.}\)</span> Remember that <span class="process-math">\(v\)</span> is the derivative of the walker's position function, <span class="process-math">\(s\text{.}\)</span> Find a formula for <span class="process-math">\(s\)</span> so that <span class="process-math">\(s' = v\text{.}\)</span>
+</table>
+<figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.1.3<span class="period">.</span></span><span class="space"> </span>Velocity data for the person walking.</figcaption></figure></div>
+<div class="sbspanel middle" style="width:48.4536082474227%;"><figure class="figure figure-like" id="F-4-1-Act1"><img src="external/images/4_1_Act1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.4<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = v(t)\text{.}\)</span></figcaption></figure></div>
+</div></div> <div class="para logical" id="p-5244"><ol class="lower-alpha">
+<li id="li-2765"><div class="para" id="p-5245">Using the grid, graph, and given data appropriately, estimate the distance traveled by the walker during the two hour interval from <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 2\text{.}\)</span> You should use time intervals of width <span class="process-math">\(\Delta t = 0.5\text{,}\)</span> choosing a way to use the function consistently to determine the height of each rectangle in order to approximate distance traveled.</div></li>
+<li id="li-2766"><div class="para" id="p-5246">How could you get a better approximation of the distance traveled on <span class="process-math">\([0,2]\text{?}\)</span> Explain, and then find this new estimate.</div></li>
+<li id="li-2767"><div class="para" id="p-5247">Now suppose that you know that <span class="process-math">\(v\)</span> is given by <span class="process-math">\(v(t) = 0.5t^3-1.5t^2+1.5t+1.5\text{.}\)</span> Remember that <span class="process-math">\(v\)</span> is the derivative of the walker’s position function, <span class="process-math">\(s\text{.}\)</span> Find a formula for <span class="process-math">\(s\)</span> so that <span class="process-math">\(s' = v\text{.}\)</span>
 </div></li>
-<li id="li-2538"><div class="para" id="p-4080">Based on your work in (c), what is the value of <span class="process-math">\(s(2) - s(0)\text{?}\)</span> What is the meaning of this quantity?</div></li>
+<li id="li-2768"><div class="para" id="p-5248">Based on your work in (c), what is the value of <span class="process-math">\(s(2) - s(0)\text{?}\)</span> What is the meaning of this quantity?</div></li>
 </ol></div></article></section><section class="subsection" id="subsection-64"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.2</span> <span class="title">Two approaches: area and antidifferentiation</span>
 </h3>
-<div class="para" id="p-4096">When the velocity of a moving object is positive, the object's position is always increasing. (We will soon consider situations where velocity is negative; for now, we focus on the situation where velocity is always positive.) We have established that whenever <span class="process-math">\(v\)</span> is constant on an interval, the exact distance traveled is the area under the velocity curve. When <span class="process-math">\(v\)</span> is not constant, we can estimate the total distance traveled by finding the areas of rectangles that approximate the area under the velocity curve.</div>
-<div class="para" id="p-4097">Thus, we see that finding the area between a curve and the horizontal axis is an important exercise: besides being an interesting geometric question, if the curve gives the velocity of a moving object, the area under the curve tells us the exact distance traveled on an interval. We can estimate this area if we have a graph or a table of values for the velocity function.</div>
-<div class="para" id="p-4098">In <a href="" class="xref" data-knowl="./knowl/act-4-1-1.html" title="Activity 4.1.2">Activity 4.1.2</a>, we encountered an alternate approach to finding the distance traveled. If <span class="process-math">\(y = v(t)\)</span> is a formula for the instantaneous velocity of a moving object, then <span class="process-math">\(v\)</span> must be the derivative of the object's position function, <span class="process-math">\(s\text{.}\)</span> If we can find a formula for <span class="process-math">\(s(t)\)</span> from the formula for <span class="process-math">\(v(t)\text{,}\)</span> we will know the position of the object at time <span class="process-math">\(t\text{,}\)</span> and the change in position over a particular time interval tells us the distance traveled on that interval.</div>
-<div class="para" id="p-4099">For a simple example, consider the situation from <a href="" class="xref" data-knowl="./knowl/PA-4-1.html" title="Preview Activity 4.1.1">Preview Activity 4.1.1</a>, where a person is walking along a straight line with velocity function <span class="process-math">\(v(t) = 3\)</span> mph.</div>
+<div class="para" id="p-5264">When the velocity of a moving object is positive, the object’s position is always increasing. (We will soon consider situations where velocity is negative; for now, we focus on the situation where velocity is always positive.) We have established that whenever <span class="process-math">\(v\)</span> is constant on an interval, the exact distance traveled is the area under the velocity curve. When <span class="process-math">\(v\)</span> is not constant, we can estimate the total distance traveled by finding the areas of rectangles that approximate the area under the velocity curve.</div>
+<div class="para" id="p-5265">Thus, we see that finding the area between a curve and the horizontal axis is an important exercise: besides being an interesting geometric question, if the curve gives the velocity of a moving object, the area under the curve tells us the exact distance traveled on an interval. We can estimate this area if we have a graph or a table of values for the velocity function.</div>
+<div class="para" id="p-5266">In <a href="" class="xref" data-knowl="./knowl/act-4-1-1.html" title="Activity 4.1.2">Activity 4.1.2</a>, we encountered an alternate approach to finding the distance traveled. If <span class="process-math">\(y = v(t)\)</span> is a formula for the instantaneous velocity of a moving object, then <span class="process-math">\(v\)</span> must be the derivative of the object’s position function, <span class="process-math">\(s\text{.}\)</span> If we can find a formula for <span class="process-math">\(s(t)\)</span> from the formula for <span class="process-math">\(v(t)\text{,}\)</span> we will know the position of the object at time <span class="process-math">\(t\text{,}\)</span> and the change in position over a particular time interval tells us the distance traveled on that interval.</div>
+<div class="para" id="p-5267">For a simple example, consider the situation from <a href="" class="xref" data-knowl="./knowl/ACS__Preview__4-1.html" title="Preview Activity 4.1.1">Preview Activity 4.1.1</a>, where a person is walking along a straight line with velocity function <span class="process-math">\(v(t) = 3\)</span> mph.</div>
 <figure class="figure figure-like" id="F-4-1-PA1Soln"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_1_PA1Soln.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.6<span class="period">.</span></span><span class="space"> </span>The velocity function <span class="process-math">\(v(t) = 3\)</span> and corresponding position function <span class="process-math">\(s(t) = 3t\text{.}\)</span></figcaption></figure><div class="para logical" id="p-4100">
-<div class="para">On the left-hand graph of the velocity function in <a href="" class="xref" data-knowl="./knowl/F-4-1-PA1Soln.html" title="Figure 4.1.6">Figure 4.1.6</a>, we see the relationship between area and distance traveled,</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.5<span class="period">.</span></span><span class="space"> </span>The velocity function <span class="process-math">\(v(t) = 3\)</span> and corresponding position function <span class="process-math">\(s(t) = 3t\text{.}\)</span></figcaption></figure><div class="para logical" id="p-5268">
+<div class="para">On the left-hand graph of the velocity function in <a href="" class="xref" data-knowl="./knowl/F-4-1-PA1Soln.html" title="Figure 4.1.5">Figure 4.1.5</a>, we see the relationship between area and distance traveled,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-1-PA1Soln.html">
 \begin{equation*}
 A= 3 \, \frac{\text{miles} }{\text{hour} } \cdot 1.25 \, \text{hours}  = 3.75 \, \text{miles}\text{.}
 \end{equation*}
 </div>
-<div class="para">In addition, we observe<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-71" id="fn-71"><sup> 3 </sup></a> that if <span class="process-math">\(s(t) = 3t\text{,}\)</span> then <span class="process-math">\(s'(t) = 3\text{,}\)</span> so <span class="process-math">\(s(t) = 3t\)</span> is the position function whose derivative is the given velocity function, <span class="process-math">\(v(t) = 3\text{.}\)</span> The respective locations of the person at times <span class="process-math">\(t = 0.25\)</span> and <span class="process-math">\(t = 1.5\)</span> are <span class="process-math">\(s(1.5) = 4.5\)</span> and <span class="process-math">\(s(0.25) = 0.75\text{,}\)</span> and therefore</div>
+<div class="para">In addition, we observe<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-75" id="fn-75"><sup> 3 </sup></a> that if <span class="process-math">\(s(t) = 3t\text{,}\)</span> then <span class="process-math">\(s'(t) = 3\text{,}\)</span> so <span class="process-math">\(s(t) = 3t\)</span> is the position function whose derivative is the given velocity function, <span class="process-math">\(v(t) = 3\text{.}\)</span> The respective locations of the person at times <span class="process-math">\(t = 0.25\)</span> and <span class="process-math">\(t = 1.5\)</span> are <span class="process-math">\(s(1.5) = 4.5\)</span> and <span class="process-math">\(s(0.25) = 0.75\text{,}\)</span> and therefore</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-4-1-PA1Soln.html">
 \begin{equation*}
 s(1.5) - s(0.25) = 4.5 - 0.75 = 3.75 \ \text{miles}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-4101">This is the person's change in position on <span class="process-math">\([0.25,1.5]\text{,}\)</span> which is precisely the distance traveled. In this example there are profound ideas and connections that we will study throughout <a href="C-4.html" class="internal" title="Chapter 4: The Definite Integral">Chapter 4</a>.</div>
-<div class="para" id="p-4102">For now, observe that if we know a formula for a velocity function <span class="process-math">\(v\text{,}\)</span> it can be very helpful to find a function <span class="process-math">\(s\)</span> that satisfies <span class="process-math">\(s' = v\text{.}\)</span> We say that <span class="process-math">\(s\)</span> is an <em class="emphasis">antiderivative</em> of <span class="process-math">\(v\text{.}\)</span> More generally, we have the following formal definition.</div>
+<div class="para" id="p-5269">This is the person’s change in position on <span class="process-math">\([0.25,1.5]\text{,}\)</span> which is precisely the distance traveled. In this example there are profound ideas and connections that we will study throughout <a href="C-4.html" class="internal" title="Chapter 4: The Definite Integral">Chapter 4</a>.</div>
+<div class="para" id="p-5270">For now, observe that if we know a formula for a velocity function <span class="process-math">\(v\text{,}\)</span> it can be very helpful to find a function <span class="process-math">\(s\)</span> that satisfies <span class="process-math">\(s' = v\text{.}\)</span> We say that <span class="process-math">\(s\)</span> is an <em class="emphasis">antiderivative</em> of <span class="process-math">\(v\text{.}\)</span> More generally, we have the following formal definition.</div>
 <article class="definition definition-like" id="definition-14"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-4103">If <span class="process-math">\(g\)</span> and <span class="process-math">\(G\)</span> are functions such that <span class="process-math">\(G' = g\text{,}\)</span> we say that <span class="process-math">\(G\)</span> is an <dfn class="terminology">antiderivative</dfn>  of <span class="process-math">\(g\text{.}\)</span>
-</div></article><div class="para" id="p-4104">For example, if <span class="process-math">\(g(x) = 3x^2 + 2x\text{,}\)</span> <span class="process-math">\(G(x) = x^3 + x^2\)</span> is an antiderivative of <span class="process-math">\(g\text{,}\)</span> because <span class="process-math">\(G'(x) = g(x)\text{.}\)</span> Note that we say “an” antiderivative of <span class="process-math">\(g\)</span> rather than “the” antiderivative of <span class="process-math">\(g\text{,}\)</span> because <span class="process-math">\(H(x) = x^3 + x^2 + 5\)</span> is also a function whose derivative is <span class="process-math">\(g\text{,}\)</span> and thus <span class="process-math">\(H\)</span> is another antiderivative of <span class="process-math">\(g\text{.}\)</span>
+<div class="para" id="p-5271">If <span class="process-math">\(g\)</span> and <span class="process-math">\(G\)</span> are functions such that <span class="process-math">\(G' = g\text{,}\)</span> we say that <span class="process-math">\(G\)</span> is an <dfn class="terminology">antiderivative</dfn>  of <span class="process-math">\(g\text{.}\)</span>
+</div></article><div class="para" id="p-5272">For example, if <span class="process-math">\(g(x) = 3x^2 + 2x\text{,}\)</span> <span class="process-math">\(G(x) = x^3 + x^2\)</span> is an antiderivative of <span class="process-math">\(g\text{,}\)</span> because <span class="process-math">\(G'(x) = g(x)\text{.}\)</span> Note that we say “an” antiderivative of <span class="process-math">\(g\)</span> rather than “the” antiderivative of <span class="process-math">\(g\text{,}\)</span> because <span class="process-math">\(H(x) = x^3 + x^2 + 5\)</span> is also a function whose derivative is <span class="process-math">\(g\text{,}\)</span> and thus <span class="process-math">\(H\)</span> is another antiderivative of <span class="process-math">\(g\text{.}\)</span>
 </div>
 <article class="activity project-like" id="act-4-1-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-4105">A ball is tossed vertically in such a way that its velocity function is given by <span class="process-math">\(v(t) = 32 - 32t\text{,}\)</span> where <span class="process-math">\(t\)</span> is measured in seconds and <span class="process-math">\(v\)</span> in feet per second. Assume that this function is valid for <span class="process-math">\(0 \le t \le 2\text{.}\)</span>
-</div> <div class="para logical" id="p-4106"><ol class="lower-alpha">
-<li id="li-2551"><div class="para" id="p-4107">For what values of <span class="process-math">\(t\)</span> is the velocity of the ball positive? What does this tell you about the motion of the ball on this interval of time values?</div></li>
-<li id="li-2552"><div class="para" id="p-4108">Find an antiderivative, <span class="process-math">\(s\text{,}\)</span> of <span class="process-math">\(v\)</span> that satisfies <span class="process-math">\(s(0) = 0\text{.}\)</span>
+<div class="para" id="p-5273">A ball is tossed vertically in such a way that its velocity function is given by <span class="process-math">\(v(t) = 32 - 32t\text{,}\)</span> where <span class="process-math">\(t\)</span> is measured in seconds and <span class="process-math">\(v\)</span> in feet per second. Assume that this function is valid for <span class="process-math">\(0 \le t \le 2\text{.}\)</span>
+</div> <div class="para logical" id="p-5274"><ol class="lower-alpha">
+<li id="li-2781"><div class="para" id="p-5275">For what values of <span class="process-math">\(t\)</span> is the velocity of the ball positive? What does this tell you about the motion of the ball on this interval of time values?</div></li>
+<li id="li-2782"><div class="para" id="p-5276">Find an antiderivative, <span class="process-math">\(s\text{,}\)</span> of <span class="process-math">\(v\)</span> that satisfies <span class="process-math">\(s(0) = 0\text{.}\)</span>
 </div></li>
-<li id="li-2553"><div class="para" id="p-4109">Compute the value of <span class="process-math">\(s(1) - s(\frac{1}{2})\text{.}\)</span> What is the meaning of the value you find?</div></li>
-<li id="li-2554">
-<div class="para" id="p-4110">Using the graph of <span class="process-math">\(y = v(t)\)</span> provided in <a href="" class="xref" data-knowl="./knowl/F-4-1-Act2.html" title="Figure 4.1.8">Figure 4.1.8</a>, find the exact area of the region between the velocity curve and the <span class="process-math">\(t\)</span>-axis between <span class="process-math">\(t = \frac{1}{2}\)</span> and <span class="process-math">\(t = 1\text{.}\)</span> What is the meaning of the value you find?</div>
+<li id="li-2783"><div class="para" id="p-5277">Compute the value of <span class="process-math">\(s(1) - s(\frac{1}{2})\text{.}\)</span> What is the meaning of the value you find?</div></li>
+<li id="li-2784">
+<div class="para" id="p-5278">Using the graph of <span class="process-math">\(y = v(t)\)</span> provided in <a href="" class="xref" data-knowl="./knowl/F-4-1-Act2.html" title="Figure 4.1.7">Figure 4.1.7</a>, find the exact area of the region between the velocity curve and the <span class="process-math">\(t\)</span>-axis between <span class="process-math">\(t = \frac{1}{2}\)</span> and <span class="process-math">\(t = 1\text{.}\)</span> What is the meaning of the value you find?</div>
 <figure class="figure figure-like" id="F-4-1-Act2"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/4_1_Act2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.8<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = v(t)\text{.}\)</span></figcaption></figure>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.7<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = v(t)\text{.}\)</span></figcaption></figure>
 </li>
-<li id="li-2555"><div class="para" id="p-4111">Answer the same questions as in (c) and (d) but instead using the interval <span class="process-math">\([0,1]\text{.}\)</span>
+<li id="li-2785"><div class="para" id="p-5279">Answer the same questions as in (c) and (d) but instead using the interval <span class="process-math">\([0,1]\text{.}\)</span>
 </div></li>
-<li id="li-2556"><div class="para" id="p-4112">What is the value of <span class="process-math">\(s(2) - s(0)\text{?}\)</span> What does this result tell you about the flight of the ball? How is this value connected to the provided graph of <span class="process-math">\(y = v(t)\text{?}\)</span> Explain.</div></li>
+<li id="li-2786"><div class="para" id="p-5280">What is the value of <span class="process-math">\(s(2) - s(0)\text{?}\)</span> What does this result tell you about the flight of the ball? How is this value connected to the provided graph of <span class="process-math">\(y = v(t)\text{?}\)</span> Explain.</div></li>
 </ol></div></article></section><section class="subsection" id="subsection-65"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.3</span> <span class="title">When velocity is negative</span>
 </h3>
-<div class="para" id="p-4134">The assumption that the velocity is positive on a given interval guarantees that the movement of an object is always in a single direction, and hence ensures that its change in position is the same as the distance it travels. As we saw in <a href="" class="xref" data-knowl="./knowl/act-4-1-2.html" title="Activity 4.1.3">Activity 4.1.3</a>, there are natural settings in which an object's velocity is negative, and we would like to understand this scenario as well.</div>
-<div class="para" id="p-4135">Consider a simple example where a woman goes for a walk on the beach along a stretch of very straight shoreline that runs east-west. We assume that her initial position is <span class="process-math">\(s(0) = 0\text{,}\)</span> and that her position function increases as she moves east from her starting location. For instance, <span class="process-math">\(s = 1\)</span> mile represents one mile east of the start location, while <span class="process-math">\(s = -1\)</span> tells us she is one mile west of where she began walking on the beach.</div>
-<div class="para" id="p-4136">Now suppose she walks in the following manner. From the outset at <span class="process-math">\(t = 0\text{,}\)</span> she walks due east at a constant rate of <span class="process-math">\(3\)</span> mph for 1.5 hours. After 1.5 hours, she stops abruptly and begins walking due west at a constant rate of <span class="process-math">\(4\)</span> mph and does so for 0.5 hours. Then, after another abrupt stop and start, she resumes walking at a constant rate of <span class="process-math">\(3\)</span> mph to the east for one more hour. What is the total distance she traveled on the time interval from <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 3\text{?}\)</span> What is the total change in her position over that time?</div>
-<div class="para logical" id="p-4137">
+<div class="para" id="p-5302">The assumption that the velocity is positive on a given interval guarantees that the movement of an object is always in a single direction, and hence ensures that its change in position is the same as the distance it travels. As we saw in <a href="" class="xref" data-knowl="./knowl/act-4-1-2.html" title="Activity 4.1.3">Activity 4.1.3</a>, there are natural settings in which an object’s velocity is negative, and we would like to understand this scenario as well.</div>
+<div class="para" id="p-5303">Consider a simple example where a woman goes for a walk on the beach along a stretch of very straight shoreline that runs east-west. We assume that her initial position is <span class="process-math">\(s(0) = 0\text{,}\)</span> and that her position function increases as she moves east from her starting location. For instance, <span class="process-math">\(s = 1\)</span> mile represents one mile east of the start location, while <span class="process-math">\(s = -1\)</span> tells us she is one mile west of where she began walking on the beach.</div>
+<div class="para" id="p-5304">Now suppose she walks in the following manner. From the outset at <span class="process-math">\(t = 0\text{,}\)</span> she walks due east at a constant rate of <span class="process-math">\(3\)</span> mph for 1.5 hours. After 1.5 hours, she stops abruptly and begins walking due west at a constant rate of <span class="process-math">\(4\)</span> mph and does so for 0.5 hours. Then, after another abrupt stop and start, she resumes walking at a constant rate of <span class="process-math">\(3\)</span> mph to the east for one more hour. What is the total distance she traveled on the time interval from <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 3\text{?}\)</span> What is the total change in her position over that time?</div>
+<div class="para logical" id="p-5305">
 <div class="para">These questions are possible to answer without calculus because the velocity is constant on each interval. From <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 1.5\text{,}\)</span> she traveled</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1016,7 +1007,7 @@ D_{[0,1.5]} = 3 \ \text{miles per hour}  \cdot 1.5 \ \text{hours}  = 4.5 \ \text
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-4138">
+<div class="para logical" id="p-5306">
 <div class="para">On <span class="process-math">\(t = 1.5\)</span> to <span class="process-math">\(t = 2\text{,}\)</span> the distance traveled is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1024,7 +1015,7 @@ D_{[1.5,2]} = 4 \ \text{miles per hour}  \cdot 0.5 \ \text{hours}  = 2 \ \text{m
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-4139">
+<div class="para logical" id="p-5307">
 <div class="para">Finally, in the last hour she walked</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1038,7 +1029,7 @@ D = D_{[0,1.5]} + D_{[1.5,2]} + D_{[2,3]} = 4.5 + 2 + 3 = 9.5 \ \text{miles}\tex
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-4140">
+<div class="para logical" id="p-5308">
 <div class="para">Since the velocity for <span class="process-math">\(1.5 \lt  t \lt  2\)</span> is <span class="process-math">\(v = -4\text{,}\)</span> indicating motion in the westward direction, the woman first walked 4.5 miles east, then 2 miles west, followed by 3 more miles east. Thus, the total change in her position is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1046,10 +1037,10 @@ D = D_{[0,1.5]} + D_{[1.5,2]} + D_{[2,3]} = 4.5 + 2 + 3 = 9.5 \ \text{miles}\tex
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-4141">We have been able to answer these questions fairly easily, and if we think about the problem graphically, we can generalize our solution to the more complicated setting when velocity is not constant, and possibly negative.</div>
+<div class="para" id="p-5309">We have been able to answer these questions fairly easily, and if we think about the problem graphically, we can generalize our solution to the more complicated setting when velocity is not constant, and possibly negative.</div>
 <figure class="figure figure-like" id="F-4-1-NegVel"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_1_NegVel.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.9<span class="period">.</span></span><span class="space"> </span>At left, the velocity function of the person walking; at right, the corresponding position function.</figcaption></figure><div class="para" id="p-4142">In <a href="" class="xref" data-knowl="./knowl/F-4-1-NegVel.html" title="Figure 4.1.9">Figure 4.1.9</a>, we see how the distances we computed can be viewed as areas: <span class="process-math">\(A_1 = 4.5\)</span> comes from multiplying rate times time (<span class="process-math">\(3 \cdot 1.5\)</span>), as do <span class="process-math">\(A_2\)</span> and <span class="process-math">\(A_3\text{.}\)</span> But while <span class="process-math">\(A_2\)</span> is an area (and is therefore positive), because the velocity function is negative for <span class="process-math">\(1.5 \lt t \lt 2\text{,}\)</span> this area has a negative sign associated with it. The negative area distinguishes between distance traveled and change in position.</div>
-<div class="para logical" id="p-4143">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.8<span class="period">.</span></span><span class="space"> </span>At left, the velocity function of the person walking; at right, the corresponding position function.</figcaption></figure><div class="para" id="p-5310">In <a href="" class="xref" data-knowl="./knowl/F-4-1-NegVel.html" title="Figure 4.1.8">Figure 4.1.8</a>, we see how the distances we computed can be viewed as areas: <span class="process-math">\(A_1 = 4.5\)</span> comes from multiplying rate times time (<span class="process-math">\(3 \cdot 1.5\)</span>), as do <span class="process-math">\(A_2\)</span> and <span class="process-math">\(A_3\text{.}\)</span> But while <span class="process-math">\(A_2\)</span> is an area (and is therefore positive), because the velocity function is negative for <span class="process-math">\(1.5 \lt t \lt 2\text{,}\)</span> this area has a negative sign associated with it. The negative area distinguishes between distance traveled and change in position.</div>
+<div class="para logical" id="p-5311">
 <div class="para">The distance traveled is the sum of the areas,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1057,8 +1048,8 @@ D = A_1 + A_2 + A_3 = 4.5 + 2 + 3 = 9.5 \ \text{miles}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-4144">
-<div class="para">But the change in position has to account for travel in the negative direction. An area above the <span class="process-math">\(t\)</span>-axis is considered positive because it represents distance traveled in the positive direction, while one below the <span class="process-math">\(t\)</span>-axis is viewed as negative because it represents travel in thenegative direction. Thus, the change in the woman's position is</div>
+<div class="para logical" id="p-5312">
+<div class="para">But the change in position has to account for travel in the negative direction. An area above the <span class="process-math">\(t\)</span>-axis is considered positive because it represents distance traveled in the positive direction, while one below the <span class="process-math">\(t\)</span>-axis is viewed as negative because it represents travel in thenegative direction. Thus, the change in the woman’s position is</div>
 <div class="displaymath process-math">
 \begin{equation*}
 s(3) - s(0) = (+4.5) + (-2) + (+3) = 5.5 \ \text{miles}\text{.}
@@ -1066,41 +1057,40 @@ s(3) - s(0) = (+4.5) + (-2) + (+3) = 5.5 \ \text{miles}\text{.}
 </div>
 <div class="para">In other words, the woman walks 4.5 miles in the positive direction, followed by two miles in the negative direction, and then 3 more miles in the positive direction.</div>
 </div>
-<div class="para" id="p-4145">Negative velocity is also seen in the graph of the position function <span class="process-math">\(y=s(t)\text{.}\)</span> Its slope is negative (specifically, <span class="process-math">\(-4\)</span>) on the interval <span class="process-math">\(1.5\lt t\lt 2\)</span> because the velocity is <span class="process-math">\(-4\)</span> on that interval. The negative slope shows the position function is decreasing because the woman is walking east, rather than west.</div>
-<div class="para" id="p-4146">To summarize, we see that if velocity is sometimes negative, a moving object's change in position is different from its distance traveled. If we compute separately the distance traveled on each interval where velocity is positive or negative, we can calculate either the total distance traveled or the total change in position. We assign a negative value to distances traveled in the negative direction when we calculate change in position, but a positive value when we calculate the total distance traveled.</div>
+<div class="para" id="p-5313">Negative velocity is also seen in the graph of the position function <span class="process-math">\(y=s(t)\text{.}\)</span> Its slope is negative (specifically, <span class="process-math">\(-4\)</span>) on the interval <span class="process-math">\(1.5\lt t\lt 2\)</span> because the velocity is <span class="process-math">\(-4\)</span> on that interval. The negative slope shows the position function is decreasing because the woman is walking east, rather than west.</div>
+<div class="para" id="p-5314">To summarize, we see that if velocity is sometimes negative, a moving object’s change in position is different from its distance traveled. If we compute separately the distance traveled on each interval where velocity is positive or negative, we can calculate either the total distance traveled or the total change in position. We assign a negative value to distances traveled in the negative direction when we calculate change in position, but a positive value when we calculate the total distance traveled.</div>
 <article class="activity project-like" id="act-4-1-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-4147">Suppose that an object moving along a straight line path has its velocity <span class="process-math">\(v\)</span> (in meters per second) at time <span class="process-math">\(t\)</span> (in seconds) given by the piecewise linear function whose graph is pictured at left in <a href="" class="xref" data-knowl="./knowl/F-4-1-Act3.html" title="Figure 4.1.10">Figure 4.1.10</a>. We view movement to the right as being in the positive direction (with positive velocity), while movement to the left is in the negative direction.</div> <figure class="figure figure-like" id="F-4-1-Act3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_1_Act3.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.10<span class="period">.</span></span><span class="space"> </span>The velocity function of a moving object.</figcaption></figure> <div class="para logical" id="p-4148">
-<div class="para">Suppose further that the object's initial position at time <span class="process-math">\(t = 0\)</span> is <span class="process-math">\(s(0) = 1\text{.}\)</span>
+<div class="para" id="p-5315">Suppose that an object moving along a straight line path has its velocity <span class="process-math">\(v\)</span> (in meters per second) at time <span class="process-math">\(t\)</span> (in seconds) given by the piecewise linear function whose graph is pictured at left in <a href="" class="xref" data-knowl="./knowl/F-4-1-Act3.html" title="Figure 4.1.9">Figure 4.1.9</a>. We view movement to the right as being in the positive direction (with positive velocity), while movement to the left is in the negative direction.</div> <figure class="figure figure-like" id="F-4-1-Act3"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/4_1_Act3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.9<span class="period">.</span></span><span class="space"> </span>The velocity function of a moving object.</figcaption></figure> <div class="para logical" id="p-5316">
+<div class="para">Suppose further that the object’s initial position at time <span class="process-math">\(t = 0\)</span> is <span class="process-math">\(s(0) = 1\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-2575"><div class="para" id="p-4149">Determine the total distance traveled and the total change in position on the time interval <span class="process-math">\(0 \le t \le 2\text{.}\)</span> What is the object's position at <span class="process-math">\(t = 2\text{?}\)</span>
+<li id="li-2805"><div class="para" id="p-5317">Determine the total distance traveled and the total change in position on the time interval <span class="process-math">\(0 \le t \le 2\text{.}\)</span> What is the object’s position at <span class="process-math">\(t = 2\text{?}\)</span>
 </div></li>
-<li id="li-2576"><div class="para" id="p-4150">On what time intervals is the moving object's position function increasing? Why? On what intervals is the object's position decreasing? Why?</div></li>
-<li id="li-2577"><div class="para" id="p-4151">What is the object's position at <span class="process-math">\(t = 8\text{?}\)</span> How many total meters has it traveled to get to this point (including distance in both directions)? Is this different from the object's total change in position on <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 8\text{?}\)</span>
+<li id="li-2806"><div class="para" id="p-5318">On what time intervals is the moving object’s position function increasing? Why? On what intervals is the object’s position decreasing? Why?</div></li>
+<li id="li-2807"><div class="para" id="p-5319">What is the object’s position at <span class="process-math">\(t = 8\text{?}\)</span> How many total meters has it traveled to get to this point (including distance in both directions)? Is this different from the object’s total change in position on <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 8\text{?}\)</span>
 </div></li>
-<li id="li-2578"><div class="para" id="p-4152">Find the exact position of the object at <span class="process-math">\(t = 1, 2, 3, \ldots, 8\)</span> and use this data to sketch an accurate graph of <span class="process-math">\(y = s(t)\)</span> on the axes provided at right in <a href="" class="xref" data-knowl="./knowl/F-4-1-Act3.html" title="Figure 4.1.10">Figure 4.1.10</a>. How can you use the provided information about <span class="process-math">\(y = v(t)\)</span> to determine the concavity of <span class="process-math">\(s\)</span> on each relevant interval?</div></li>
+<li id="li-2808"><div class="para" id="p-5320">Find the exact position of the object at <span class="process-math">\(t = 1, 2, 3, \ldots, 8\)</span> and use this data to sketch an accurate graph of <span class="process-math">\(y = s(t)\)</span> on the axes provided at right in <a href="" class="xref" data-knowl="./knowl/F-4-1-Act3.html" title="Figure 4.1.9">Figure 4.1.9</a>. How can you use the provided information about <span class="process-math">\(y = v(t)\)</span> to determine the concavity of <span class="process-math">\(s\)</span> on each relevant interval?</div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-66"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.4</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-4168"><ul class="disc">
-<li id="li-2591"><div class="para" id="p-4169">If we know the velocity of a moving body at every point in a given interval and the velocity is positive throughout, we can estimate the object's distance traveled and in some circumstances determine this value exactly.</div></li>
-<li id="li-2592"><div class="para" id="p-4170">In particular, when velocity is positive on an interval, we can find the total distance traveled by finding the area under the velocity curve and above the <span class="process-math">\(t\)</span>-axis on the given time interval. We may only be able to estimate this area, depending on the shape of the velocity curve.</div></li>
-<li id="li-2593"><div class="para" id="p-4171">An antiderivative of a function <span class="process-math">\(f\)</span> is a new function <span class="process-math">\(F\)</span> whose derivative is <span class="process-math">\(f\text{.}\)</span> That is, <span class="process-math">\(F\)</span> is an antiderivative of <span class="process-math">\(f\)</span> provided that <span class="process-math">\(F' = f\text{.}\)</span> In the context of velocity and position, if we know a velocity function <span class="process-math">\(v\text{,}\)</span> an antiderivative of <span class="process-math">\(v\)</span> is a position function <span class="process-math">\(s\)</span> that satisfies <span class="process-math">\(s' = v\text{.}\)</span> If <span class="process-math">\(v\)</span> is positive on a given interval, say <span class="process-math">\([a,b]\text{,}\)</span> then the change in position, <span class="process-math">\(s(b) - s(a)\text{,}\)</span> measures the distance the moving object traveled on <span class="process-math">\([a,b]\text{.}\)</span>
+<div class="para logical" id="p-5336"><ul class="disc">
+<li id="li-2821"><div class="para" id="p-5337">If we know the velocity of a moving body at every point in a given interval and the velocity is positive throughout, we can estimate the object’s distance traveled and in some circumstances determine this value exactly.</div></li>
+<li id="li-2822"><div class="para" id="p-5338">In particular, when velocity is positive on an interval, we can find the total distance traveled by finding the area under the velocity curve and above the <span class="process-math">\(t\)</span>-axis on the given time interval. We may only be able to estimate this area, depending on the shape of the velocity curve.</div></li>
+<li id="li-2823"><div class="para" id="p-5339">An antiderivative of a function <span class="process-math">\(f\)</span> is a new function <span class="process-math">\(F\)</span> whose derivative is <span class="process-math">\(f\text{.}\)</span> That is, <span class="process-math">\(F\)</span> is an antiderivative of <span class="process-math">\(f\)</span> provided that <span class="process-math">\(F' = f\text{.}\)</span> In the context of velocity and position, if we know a velocity function <span class="process-math">\(v\text{,}\)</span> an antiderivative of <span class="process-math">\(v\)</span> is a position function <span class="process-math">\(s\)</span> that satisfies <span class="process-math">\(s' = v\text{.}\)</span> If <span class="process-math">\(v\)</span> is positive on a given interval, say <span class="process-math">\([a,b]\text{,}\)</span> then the change in position, <span class="process-math">\(s(b) - s(a)\text{,}\)</span> measures the distance the moving object traveled on <span class="process-math">\([a,b]\text{.}\)</span>
 </div></li>
-<li id="li-2594"><div class="para" id="p-4172">If its velocity is sometimes negative, a moving object is sometimes traveling in the opposite direction or backtracking. To determine distance traveled, we have to compute the distance separately on intervals where velocity is positive or negative, and account for the change in position on each such interval.</div></li>
+<li id="li-2824"><div class="para" id="p-5340">If its velocity is sometimes negative, a moving object is sometimes traveling in the opposite direction or backtracking. To determine distance traveled, we have to compute the distance separately on intervals where velocity is positive or negative, and account for the change in position on each such interval.</div></li>
 </ul></div></section><section class="exercises" id="ez-4-1"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">4.1.5</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="ez-4-1-WW1"><h4 class="heading">
-<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Estimating distance traveled from velocity data.</span>
-</h4>
-<div id="webwork-113" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="113" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec1/Q01.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-113-button" class="webwork-button activate" onclick="handleWW('webwork-113')" aria-labelledby="webwork-113-button-label"><span id="webwork-113-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-4173">A car comes to a stop six seconds after the driver applies the brakes. While the brakes are on, the following velocities are recorded:</div> <div class="tabular-box natural-width"><table class="tabular">
+<article class="exercise exercise-like" id="Library__Michigan__Chap5Sec1__Q01.pg"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap5Sec1__Q01.pg"><div id="boelkins-ACS__Library__Michigan__Chap5Sec1__Q01.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="198" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec1/Q01.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap5Sec1__Q01.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-5341">A car comes to a stop six seconds after the driver applies the brakes. While the brakes are on, the following velocities are recorded:</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b2 r2 l2 t2 lines">Time since brakes applied (sec)</td>
 <td class="l m b2 r2 l0 t2 lines">0</td>
@@ -1110,123 +1100,82 @@ s(3) - s(0) = (+4.5) + (-2) + (+3) = 5.5 \ \text{miles}\text{.}
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines">Velocity (ft/s)</td>
-<td class="l m b2 r2 l0 t0 lines">90</td>
-<td class="l m b2 r2 l0 t0 lines">46</td>
-<td class="l m b2 r2 l0 t0 lines">17</td>
+<td class="l m b2 r2 l0 t0 lines">99</td>
+<td class="l m b2 r2 l0 t0 lines">50</td>
+<td class="l m b2 r2 l0 t0 lines">18</td>
 <td class="l m b2 r2 l0 t0 lines">0</td>
 </tr>
-</table></div> <div class="para" id="p-4174">Give lower and upper estimates (using all of the available data) for the distance the car traveled after the brakes were applied.</div> <div class="para" id="p-4175">lower: <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-4176">upper: <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-4177">(for each, include <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-72" id="fn-72"><sup> 4 </sup></a>)</div> <div class="para" id="p-4178">
+</table></div> <div class="para" id="p-5342">Give lower and upper estimates (using all of the available data) for the distance the car traveled after the brakes were applied.</div> <div class="para" id="p-5343">lower: <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-5344">upper: <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-5345">(for each, include <a class="external" href="/pg_files/helpFiles/Units.html" target="_blank">help (units)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-76" id="fn-76"><sup> 4 </sup></a>)</div> <div class="para" id="p-5346">
 <em class="emphasis">On a sketch of velocity against time, show the lower and upper estimates you found above.</em>.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-4-1-WW2"><h4 class="heading">
-<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Distance from a linear velocity function.</span>
-</h4>
-<div id="webwork-114" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="114" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec1/Q09.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-114-button" class="webwork-button activate" onclick="handleWW('webwork-114')" aria-labelledby="webwork-114-button-label"><span id="webwork-114-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-4185">The velocity of a car is <span class="process-math">\(f(t) = 11 t\)</span> meters/second.  Use a graph of <span class="process-math">\(f(t)\)</span> to find the exact distance traveled by the car, in meters, from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=10\)</span> seconds.</div> <div class="para" id="p-4186">distance = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> (include <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-73" id="fn-73"><sup> 5 </sup></a>)</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap5Sec1__Q09.pg"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap5Sec1__Q09.pg"><div id="boelkins-ACS__Library__Michigan__Chap5Sec1__Q09.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="199" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec1/Q09.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap5Sec1__Q09.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-5353">The velocity of a car is <span class="process-math">\(f(t) = 3 t\)</span> meters/second.  Use a graph of <span class="process-math">\(f(t)\)</span> to find the exact distance traveled by the car, in meters, from <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=10\)</span> seconds.</div> <div class="para" id="p-5354">distance = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> (include <a class="external" href="/pg_files/helpFiles/Units.html" target="_blank">help (units)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-77" id="fn-77"><sup> 5 </sup></a>)</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-4-1-WW3"><h4 class="heading">
-<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Change in position from a linear velocity function.</span>
-</h4>
-<div id="webwork-115" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="115" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec1/Q21.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-115-button" class="webwork-button activate" onclick="handleWW('webwork-115')" aria-labelledby="webwork-115-button-label"><span id="webwork-115-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-4192">The velocity of a particle moving along the <span class="process-math">\(x\)</span>-axis is given by <span class="process-math">\(f(t)
-= 12 - 4 t\)</span> cm/sec.  Use a graph of <span class="process-math">\(f(t)\)</span> to find the exact change in position of the particle from time <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=4\)</span> seconds.</div> <div class="para" id="p-4193">change in position = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> (include <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-74" id="fn-74"><sup> 6 </sup></a>)</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap5Sec1__Q21.pg"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap5Sec1__Q21.pg"><div id="boelkins-ACS__Library__Michigan__Chap5Sec1__Q21.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="200" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec1/Q21.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap5Sec1__Q21.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-5360">The velocity of a particle moving along the <span class="process-math">\(x\)</span>-axis is given by <span class="process-math">\(f(t)
+= 6 - 2 t\)</span> cm/sec.  Use a graph of <span class="process-math">\(f(t)\)</span> to find the exact change in position of the particle from time <span class="process-math">\(t=0\)</span> to <span class="process-math">\(t=4\)</span> seconds.</div> <div class="para" id="p-5361">change in position = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> (include <a class="external" href="/pg_files/helpFiles/Units.html" target="_blank">help (units)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-78" id="fn-78"><sup> 6 </sup></a>)</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-4-1-WW4"><h4 class="heading">
-<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Comparing distance traveled from velocity graphs.</span>
-</h4>
-<div id="webwork-116" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="116" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec1/Q25.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-116-button" class="webwork-button activate" onclick="handleWW('webwork-116')" aria-labelledby="webwork-116-button-label"><span id="webwork-116-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-4199">Two cars start at the same time and travel in the same direction along a straight road.  The figure below gives the velocity, <span class="process-math">\(v\)</span> (in km/hr), of each car as a function of time (in hr).</div> <div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/webwork/images/webwork-116-image-1.png" class="contained"></div> <div class="para" id="p-4200">The velocity of car A is given by the solid, blue curve, and the velocity of car B by dashed, red curve.</div> <div class="para" id="p-4201"><em class="alert">(a)</em></div> <div class="para" id="p-4202">Which car attains the larger maximum velocity? <ul style="list-style:circle;">
-<li id="li-2595"><div class="para" id="p-4203">A</div></li>
-<li id="li-2596"><div class="para" id="p-4204">B</div></li>
-</ul>
-</div> <div class="para" id="p-4205"><em class="alert">(b)</em></div> <div class="para" id="p-4206">Which stops first? <ul style="list-style:circle;">
-<li id="li-2597"><div class="para" id="p-4207">A</div></li>
-<li id="li-2598"><div class="para" id="p-4208">B</div></li>
-</ul>
-</div> <div class="para" id="p-4209"><em class="alert">(c)</em></div> <div class="para" id="p-4210">Which travels farther? <ul style="list-style:circle;">
-<li id="li-2599"><div class="para" id="p-4211">A</div></li>
-<li id="li-2600"><div class="para" id="p-4212">B</div></li>
-</ul>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setIntegrals3Definite__osu_in_3_1a_mo.pg"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setIntegrals3Definite__osu_in_3_1a_mo.pg"><div id="boelkins-ACS__Library__Rochester__setIntegrals3Definite__osu_in_3_1a_mo.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="201" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals3Definite/osu_in_3_1a_mo.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setIntegrals3Definite__osu_in_3_1a_mo.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-5367">The velocity function is <span class="process-math">\(v(t) =  t^2 - 3 t + 2\)</span> for a particle moving along a line.  Find the displacement (net distance covered) of the particle during the time interval <span class="process-math">\([-2,5]\text{.}\)</span>
+</div> <div class="para" id="p-5368">displacement = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-4-1-WW5"><h4 class="heading">
-<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Finding average acceleration from velocity data.</span>
-</h4>
-<div id="webwork-117" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="117" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap5Sec2/Q15.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-117-button" class="webwork-button activate" onclick="handleWW('webwork-117')" aria-labelledby="webwork-117-button-label"><span id="webwork-117-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-4220">Suppose that an accelerating car goes from 0 mph to 68.2 mph in five seconds.  Its velocity is given in the following table, converted from miles per hour to feet per second, so that all time measurements are in seconds.  (Note: 1 mph is 22/15 feet per sec = 22/15 ft/s.) Find the average acceleration of the car over each of the first two seconds.</div> <div class="tabular-box natural-width"><table class="tabular">
-<tr>
-<td class="l m b2 r2 l2 t2 lines"><span class="process-math">\(t\)</span></td>
-<td class="l m b2 r2 l0 t2 lines">0</td>
-<td class="l m b2 r2 l0 t2 lines">1</td>
-<td class="l m b2 r2 l0 t2 lines">2</td>
-<td class="l m b2 r2 l0 t2 lines">3</td>
-<td class="l m b2 r2 l0 t2 lines">4</td>
-<td class="l m b2 r2 l0 t2 lines">5</td>
-</tr>
-<tr>
-<td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(v(t)\)</span></td>
-<td class="l m b2 r2 l0 t0 lines">0.00</td>
-<td class="l m b2 r2 l0 t0 lines">34.09</td>
-<td class="l m b2 r2 l0 t0 lines">59.09</td>
-<td class="l m b2 r2 l0 t0 lines">77.27</td>
-<td class="l m b2 r2 l0 t0 lines">90.91</td>
-<td class="l m b2 r2 l0 t0 lines">100.00</td>
-</tr>
-</table></div> <div class="para" id="p-4221">average acceleration over the first second = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> (include <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-75" id="fn-75"><sup> 7 </sup></a>)</div> <div class="para" id="p-4222">average aceleration over the second second = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> (include <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-76" id="fn-76"><sup> 8 </sup></a>)</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setIntegrals0Theory__S05.01.AreaDistance.PTP07.pg"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setIntegrals0Theory__S05.01.AreaDistance.PTP07.pg"><div id="boelkins-ACS__Library__Rochester__setIntegrals0Theory__S05.01.AreaDistance.PTP07.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="202" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/4.1HW_prob5.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setIntegrals0Theory__S05.01.AreaDistance.PTP07.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-5370">A car traveling at <span class="process-math">\(40\)</span> ft/sec decelerates at a constant <span class="process-math">\(8\)</span> feet per second squared.  How many feet does the car travel before coming to a complete stop?</div> <div class="para" id="p-5371">
+<span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</div> <div class="para" id="p-5372">Don’t forget to enter the correct <a class="external" href="/pg_files/helpFiles/Units.html" target="_blank">help (units)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-79" id="fn-79"><sup> 7 </sup></a>.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-4-1-WW6"><h4 class="heading">
-<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Change in position from a quadratic velocity function.</span>
-</h4>
-<div id="webwork-118" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="118" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setIntegrals3Definite/osu_in_3_1a_mo.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-118-button" class="webwork-button activate" onclick="handleWW('webwork-118')" aria-labelledby="webwork-118-button-label"><span id="webwork-118-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-4227">The velocity function is <span class="process-math">\(v(t) =  t^2 - 3 t + 2\)</span> for a particle moving along a line.  Find the displacement (net distance covered) of the particle during the time interval <span class="process-math">\([-2,5]\text{.}\)</span>
-</div> <div class="para" id="p-4228">displacement = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setIntegrals0Theory__S05.01.AreaDistance.PTP04.pg"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setIntegrals0Theory__S05.01.AreaDistance.PTP04.pg"><div id="boelkins-ACS__Library__Rochester__setIntegrals0Theory__S05.01.AreaDistance.PTP04.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="203" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/4.1HW_prob6.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setIntegrals0Theory__S05.01.AreaDistance.PTP04.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-5374">A stone is thrown straight up from the edge of a roof, 800   feet above the ground, at a speed of 16 feet per second.</div> <div class="para" id="p-5375">A.  Remembering that the acceleration due to gravity is  -32  feet per second squared, how high is the stone 3 seconds later?  <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>.</div> <div class="para" id="p-5376">Don’t forget to enter the correct <a class="external" href="/pg_files/helpFiles/Units.html" target="_blank">help (units)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-80" id="fn-80"><sup> 8 </sup></a>.</div>
 </div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-183"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para" id="p-4230">Along the eastern shore of Lake Michigan from Lake Macatawa (near Holland) to Grand Haven, there is a bike path that runs almost directly north-south. For the purposes of this problem, assume the road is completely straight, and that the function <span class="process-math">\(s(t)\)</span> tracks the position of the biker along this path in miles north of Pigeon Lake, which lies roughly halfway between the ends of the bike path.</div> <div class="para" id="p-4231">Suppose that the biker's velocity function is given by the graph in <a href="" class="xref" data-knowl="./knowl/F-4-1-Ez1.html" title="Figure 4.1.11">Figure 4.1.11</a> on the time interval <span class="process-math">\(0 \le t \le 4\)</span> (where <span class="process-math">\(t\)</span> is measured in hours), and that <span class="process-math">\(s(0) = 1\text{.}\)</span>
+</div></div></div></article><article class="exercise exercise-like" id="exercise-246"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para" id="p-5380">Along the eastern shore of Lake Michigan from Lake Macatawa (near Holland) to Grand Haven, there is a bike path that runs almost directly north-south. For the purposes of this problem, assume the road is completely straight, and that the function <span class="process-math">\(s(t)\)</span> tracks the position of the biker along this path in miles north of Pigeon Lake, which lies roughly halfway between the ends of the bike path.</div> <div class="para" id="p-5381">Suppose that the biker’s velocity function is given by the graph in <a href="" class="xref" data-knowl="./knowl/F-4-1-Ez1.html" title="Figure 4.1.10">Figure 4.1.10</a> on the time interval <span class="process-math">\(0 \le t \le 4\)</span> (where <span class="process-math">\(t\)</span> is measured in hours), and that <span class="process-math">\(s(0) = 1\text{.}\)</span>
 </div> <figure class="figure figure-like" id="F-4-1-Ez1"><div class="image-box" style="width: 80%; margin-left: 10%; margin-right: 10%;"><img src="external/images/4_1_Ez1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.11<span class="period">.</span></span><span class="space"> </span>The graph of the biker's velocity, <span class="process-math">\(y = v(t)\text{,}\)</span> at left.  At right, axes to plot an approximate sketch of <span class="process-math">\(y = s(t)\text{.}\)</span></figcaption></figure> <div class="para logical" id="p-4232"><ol class="lower-alpha">
-<li id="li-2601"><div class="para" id="p-4233">Approximately how far north of Pigeon Lake was the cyclist when she was the greatest distance away from Pigeon Lake? At what time did this occur?</div></li>
-<li id="li-2602"><div class="para" id="p-4234">What is the cyclist's total change in position on the time interval <span class="process-math">\(0 \le t \le 2\text{?}\)</span> At <span class="process-math">\(t = 2\text{,}\)</span> was she north or south of Pigeon Lake?</div></li>
-<li id="li-2603"><div class="para" id="p-4235">What is the total distance the biker traveled on <span class="process-math">\(0 \le t \le 4\text{?}\)</span> At the end of the ride, how close was she to the point at which she started?</div></li>
-<li id="li-2604"><div class="para" id="p-4236">Sketch an approximate graph of <span class="process-math">\(y = s(t)\text{,}\)</span> the position function of the cyclist, on the interval <span class="process-math">\(0 \le t \le 4\text{.}\)</span> Label at least four important points on the graph of <span class="process-math">\(s\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.10<span class="period">.</span></span><span class="space"> </span>The graph of the biker’s velocity, <span class="process-math">\(y = v(t)\text{,}\)</span> at left.  At right, axes to plot an approximate sketch of <span class="process-math">\(y = s(t)\text{.}\)</span></figcaption></figure> <div class="para logical" id="p-5382"><ol class="lower-alpha">
+<li id="li-2825"><div class="para" id="p-5383">Approximately how far north of Pigeon Lake was the cyclist when she was the greatest distance away from Pigeon Lake? At what time did this occur?</div></li>
+<li id="li-2826"><div class="para" id="p-5384">What is the cyclist’s total change in position on the time interval <span class="process-math">\(0 \le t \le 2\text{?}\)</span> At <span class="process-math">\(t = 2\text{,}\)</span> was she north or south of Pigeon Lake?</div></li>
+<li id="li-2827"><div class="para" id="p-5385">What is the total distance the biker traveled on <span class="process-math">\(0 \le t \le 4\text{?}\)</span> At the end of the ride, how close was she to the point at which she started?</div></li>
+<li id="li-2828"><div class="para" id="p-5386">Sketch an approximate graph of <span class="process-math">\(y = s(t)\text{,}\)</span> the position function of the cyclist, on the interval <span class="process-math">\(0 \le t \le 4\text{.}\)</span> Label at least four important points on the graph of <span class="process-math">\(s\text{.}\)</span>
 </div></li>
-</ol></div></article><article class="exercise exercise-like" id="exercise-184"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-4248">
-<div class="para">A toy rocket is launched vertically from the ground on a day with no wind. The rocket's vertical velocity at time <span class="process-math">\(t\)</span> (in seconds) is given by <span class="process-math">\(v(t)= 500-32t\)</span> feet/sec.</div>
+</ol></div></article><article class="exercise exercise-like" id="exercise-247"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para logical" id="p-5398">
+<div class="para">A toy rocket is launched vertically from the ground on a day with no wind. The rocket’s vertical velocity at time <span class="process-math">\(t\)</span> (in seconds) is given by <span class="process-math">\(v(t)= 500-32t\)</span> feet/sec.</div>
 <ol class="lower-alpha">
-<li id="li-2613"><div class="para" id="p-4249">At what time after the rocket is launched does the rocket's velocity equal zero? Call this time value <span class="process-math">\(a\text{.}\)</span> What happens to the rocket at <span class="process-math">\(t = a\text{?}\)</span>
+<li id="li-2837"><div class="para" id="p-5399">At what time after the rocket is launched does the rocket’s velocity equal zero? Call this time value <span class="process-math">\(a\text{.}\)</span> What happens to the rocket at <span class="process-math">\(t = a\text{?}\)</span>
 </div></li>
-<li id="li-2614"><div class="para" id="p-4250">Find the value of the total area enclosed by <span class="process-math">\(y = v(t)\)</span> and the <span class="process-math">\(t\)</span>-axis on the interval <span class="process-math">\(0 \le t \le a\text{.}\)</span> What does this area represent in terms of the physical setting of the problem?</div></li>
-<li id="li-2615"><div class="para" id="p-4251">Find an antiderivative <span class="process-math">\(s\)</span> of the function <span class="process-math">\(v\text{.}\)</span> That is, find a function <span class="process-math">\(s\)</span> such that <span class="process-math">\(s'(t) = v(t)\text{.}\)</span>
+<li id="li-2838"><div class="para" id="p-5400">Find the value of the total area enclosed by <span class="process-math">\(y = v(t)\)</span> and the <span class="process-math">\(t\)</span>-axis on the interval <span class="process-math">\(0 \le t \le a\text{.}\)</span> What does this area represent in terms of the physical setting of the problem?</div></li>
+<li id="li-2839"><div class="para" id="p-5401">Find an antiderivative <span class="process-math">\(s\)</span> of the function <span class="process-math">\(v\text{.}\)</span> That is, find a function <span class="process-math">\(s\)</span> such that <span class="process-math">\(s'(t) = v(t)\text{.}\)</span>
 </div></li>
-<li id="li-2616"><div class="para" id="p-4252">Compute the value of <span class="process-math">\(s(a) - s(0)\text{.}\)</span> What does this number represent in terms of the physical setting of the problem?</div></li>
-<li id="li-2617"><div class="para" id="p-4253">Compute <span class="process-math">\(s(5) - s(1)\text{.}\)</span> What does this number tell you about the rocket's flight?</div></li>
+<li id="li-2840"><div class="para" id="p-5402">Compute the value of <span class="process-math">\(s(a) - s(0)\text{.}\)</span> What does this number represent in terms of the physical setting of the problem?</div></li>
+<li id="li-2841"><div class="para" id="p-5403">Compute <span class="process-math">\(s(5) - s(1)\text{.}\)</span> What does this number tell you about the rocket’s flight?</div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-185"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para" id="p-4266">An object moving along a horizontal axis has its instantaneous velocity at time <span class="process-math">\(t\)</span> in seconds given by the function <span class="process-math">\(v\)</span> pictured in <a href="" class="xref" data-knowl="./knowl/F-4-1-Ez3.html" title="Figure 4.1.12">Figure 4.1.12</a>, where <span class="process-math">\(v\)</span> is measured in feet/sec. Assume that the curves that make up the parts of the graph of <span class="process-math">\(y=v(t)\)</span> are either portions of straight lines or portions of circles.</div> <figure class="figure figure-like" id="F-4-1-Ez3"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/images/4_1_Ez3.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.12<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = v(t)\text{,}\)</span> the velocity function of a moving object.</figcaption></figure> <div class="para logical" id="p-4267"><ol class="lower-alpha">
-<li id="li-2628"><div class="para" id="p-4268">Determine the exact total distance the object traveled on <span class="process-math">\(0 \le t \le 2\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-248"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="para" id="p-5416">An object moving along a horizontal axis has its instantaneous velocity at time <span class="process-math">\(t\)</span> in seconds given by the function <span class="process-math">\(v\)</span> pictured in <a href="" class="xref" data-knowl="./knowl/F-4-1-Ez3.html" title="Figure 4.1.11">Figure 4.1.11</a>, where <span class="process-math">\(v\)</span> is measured in feet/sec. Assume that the curves that make up the parts of the graph of <span class="process-math">\(y=v(t)\)</span> are either portions of straight lines or portions of circles.</div> <figure class="figure figure-like" id="F-4-1-Ez3"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="external/images/4_1_Ez3.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.11<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(y = v(t)\text{,}\)</span> the velocity function of a moving object.</figcaption></figure> <div class="para logical" id="p-5417"><ol class="lower-alpha">
+<li id="li-2852"><div class="para" id="p-5418">Determine the exact total distance the object traveled on <span class="process-math">\(0 \le t \le 2\text{.}\)</span>
 </div></li>
-<li id="li-2629"><div class="para" id="p-4269">What is the value and meaning of <span class="process-math">\(s(5) - s(2)\text{,}\)</span> where <span class="process-math">\(y = s(t)\)</span> is the position function of the moving object?</div></li>
-<li id="li-2630"><div class="para" id="p-4270">On which time interval did the object travel the greatest distance: <span class="process-math">\([0,2]\text{,}\)</span> <span class="process-math">\([2,4]\text{,}\)</span> or <span class="process-math">\([5,7]\text{?}\)</span>
+<li id="li-2853"><div class="para" id="p-5419">What is the value and meaning of <span class="process-math">\(s(5) - s(2)\text{,}\)</span> where <span class="process-math">\(y = s(t)\)</span> is the position function of the moving object?</div></li>
+<li id="li-2854"><div class="para" id="p-5420">On which time interval did the object travel the greatest distance: <span class="process-math">\([0,2]\text{,}\)</span> <span class="process-math">\([2,4]\text{,}\)</span> or <span class="process-math">\([5,7]\text{?}\)</span>
 </div></li>
-<li id="li-2631"><div class="para" id="p-4271">On which time interval(s) is the position function <span class="process-math">\(s\)</span> increasing? At which point(s) does <span class="process-math">\(s\)</span> achieve a relative maximum?</div></li>
-</ol></div></article><article class="exercise exercise-like" id="exercise-186"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para" id="p-4282">Filters at a water treatment plant become dirtier over time and thus become less effective; they are replaced every 30 days. During one 30-day period, the rate at which pollution passes through the filters into a nearby lake (in units of particulate matter per day) is measured every 6 days and is given in the following table. The time <span class="process-math">\(t\)</span> is measured in days since the filters were replaced.</div> <figure class="table table-like" id="table-12"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.1.13<span class="period">.</span></span><span class="space"> </span>Pollution data for the water filters.</figcaption><div class="tabular-box natural-width"><table class="tabular" id="ETo">
+<li id="li-2855"><div class="para" id="p-5421">On which time interval(s) is the position function <span class="process-math">\(s\)</span> increasing? At which point(s) does <span class="process-math">\(s\)</span> achieve a relative maximum?</div></li>
+</ol></div></article><article class="exercise exercise-like" id="exercise-249"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="para" id="p-5432">Filters at a water treatment plant become dirtier over time and thus become less effective; they are replaced every 30 days. During one 30-day period, the rate at which pollution passes through the filters into a nearby lake (in units of particulate matter per day) is measured every 6 days and is given in the following table. The time <span class="process-math">\(t\)</span> is measured in days since the filters were replaced.</div> <figure class="table table-like" id="table-12"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">4.1.12<span class="period">.</span></span><span class="space"> </span>Pollution data for the water filters.</figcaption><div class="tabular-box natural-width"><table class="tabular" id="ETo">
 <tr>
 <td class="l m b1 r0 l0 t1 lines">Day, <span class="process-math">\(t\)</span>
 </td>
@@ -1247,29 +1196,26 @@ s(3) - s(0) = (+4.5) + (-2) + (+3) = 5.5 \ \text{miles}\text{.}
 <td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(18\)</span></td>
 <td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(35\)</span></td>
 </tr>
-</table></div></figure> <div class="para logical" id="p-4283"><ol class="lower-alpha">
-<li id="li-2640"><div class="para" id="p-4284">Plot the given data on a set of axes with time on the horizontal axis and the rate of pollution on the vertical axis.</div></li>
-<li id="li-2641"><div class="para" id="p-4285">Explain why the amount of pollution that entered the lake during this 30-day period would be given exactly by the area bounded by <span class="process-math">\(y = p(t)\)</span> and the <span class="process-math">\(t\)</span>-axis on the time interval <span class="process-math">\([0,30]\text{.}\)</span>
+</table></div></figure> <div class="para logical" id="p-5433"><ol class="lower-alpha">
+<li id="li-2864"><div class="para" id="p-5434">Plot the given data on a set of axes with time on the horizontal axis and the rate of pollution on the vertical axis.</div></li>
+<li id="li-2865"><div class="para" id="p-5435">Explain why the amount of pollution that entered the lake during this 30-day period would be given exactly by the area bounded by <span class="process-math">\(y = p(t)\)</span> and the <span class="process-math">\(t\)</span>-axis on the time interval <span class="process-math">\([0,30]\text{.}\)</span>
 </div></li>
-<li id="li-2642"><div class="para" id="p-4286">Estimate the total amount of pollution entering the lake during this 30-day period. Carefully explain how you determined your estimate.</div></li>
+<li id="li-2866"><div class="para" id="p-5436">Estimate the total amount of pollution entering the lake during this 30-day period. Carefully explain how you determined your estimate.</div></li>
 </ol></div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-69"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/9T</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-70"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/9U</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-71"><div class="fn">Here we are making the implicit assumption that <span class="process-math">\(s(0) = 0\text{;}\)</span> we will discuss different possibilities for values of <span class="process-math">\(s(0)\)</span> in subsequent study.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-72"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-73"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-74"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-75"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-76"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-73"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/9T</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-74"><div class="fn"><code class="code-inline tex2jax_ignore">gvsu.edu/s/9U</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-75"><div class="fn">Here we are making the implicit assumption that <span class="process-math">\(s(0) = 0\text{;}\)</span> we will discuss different possibilities for values of <span class="process-math">\(s(0)\)</span> in subsequent study.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-76"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/Units.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-77"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/Units.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-78"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/Units.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-79"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/Units.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-80"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/Units.html</code></div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="C-4.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-4-2-Riemann.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

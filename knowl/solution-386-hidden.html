@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -10,24 +10,121 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like">
-<span class="process-math">\(\Delta x\text{,}\)</span> outer radius <span class="process-math">\(y=1\)</span> and inner radius <span class="process-math">\(y=x^{6}\text{.}\)</span>  Therefore,<div class="displaymath process-math">
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">For <span class="process-math">\(\int \frac{1}{x \sqrt{9x^2 + 25}} \, dx\text{,}\)</span> we let <span class="process-math">\(u = 3x\)</span> so <span class="process-math">\(du = 3 \, dx\)</span> and <span class="process-math">\(x = \frac{1}{3} u\text{.}\)</span> Applying this substitution,</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\hbox{Volume of slice }\approx \pi 1^2\Delta x-\pi y^2\Delta x = 
-\pi(1-x^{12})\, \Delta x.
+\int \frac{1}{x \sqrt{9x^2 + 25}} \, dx = \int \frac{3}{u \sqrt{u^2 + 25}} \cdot \frac{1}{3} \, du = \int \frac{1}{u \sqrt{u^2 + 25}} \, du\text{.}
 \end{equation*}
-</div>Therefore,<div class="displaymath process-math">
-\begin{equation*}
-\hbox{Volume of solid } = 
-\lim_{\Delta x\to0} \Sigma \pi(1-x^{12})\,\Delta x =
-\int_0^1\pi(1-x^{12})\, dx
-\end{equation*}
+</div>
+<div class="para">Now, using Rule (e) from the appendix with <span class="process-math">\(a = 5\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
 \begin{equation*}
-=\pi\left(x-\frac{x^{13}}{13}\right)\Bigg|_0^1 =
-\pi(1 - {1\over 13}) = {12\over13} \pi.
+\int \frac{1}{u \sqrt{u^2 + 25}} \, du = -\frac{1}{5} \ln \left| \frac{5+\sqrt{u^2 + 5^2}}{u} \right| + C
 \end{equation*}
 </div>
-</div></body>
+<div class="para">Substituting back to <span class="process-math">\(x\text{,}\)</span> we’ve shown that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{x \sqrt{9x^2 + 25}} \, dx = -\frac{1}{5} \ln \left| \frac{5+\sqrt{9x^2 + 5^2}}{3x} \right| + C\text{.}
+\end{equation*}
+</div>
+<div class="para">Asking WolframAlpha to evaluate the same original integral, the program reports that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{x \sqrt{9x^2 + 25}} \, dx = \frac{1}{5} \left( \log(x) - \log\left( \sqrt{9x^2 + 25} + 5\right) \right) + C\text{.}
+\end{equation*}
+</div>
+<div class="para">These two results are in fact the same (the program uses “<span class="process-math">\(\log\)</span>” where we use “<span class="process-math">\(\ln\)</span>”), though it takes some work with logarithm properties to show this. Using the rule <span class="process-math">\(\ln(\frac{u}{v}) = \ln (u) - \ln (v)\)</span> and <span class="process-math">\(\ln(3x) = \ln(3) + \ln(x)\)</span> and including the value <span class="process-math">\(\ln(3)\)</span> in the arbitrary constant of integration, it follows that the two results match.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">For <span class="process-math">\(\int x \sqrt{1 + x^4} \, dx\text{,}\)</span> we first recognize that <span class="process-math">\(x^4 = (x^2)^2\text{,}\)</span> and that with <span class="process-math">\(u = x^2\)</span> we have a function-derivative pair present with <span class="process-math">\(du = 2x \, dx\text{.}\)</span> Applying this substitution,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int x \sqrt{1 + x^4} \, dx = \int \frac{1}{2} \sqrt{1+u^2} \, du\text{.}
+\end{equation*}
+</div>
+<div class="para">Next, we use Rule (c) with “<span class="process-math">\(+\)</span>” and “<span class="process-math">\(a = 1\)</span>” to find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{2} \sqrt{1+u^2} \, du = \frac{1}{2} \left( \frac{u}{2}\sqrt{u^2 + 1} + \frac{1}{2}\ln|u + \sqrt{u^2 + 1}| \right) + C
+\end{equation*}
+</div>
+<div class="para">Returning to the original variable, <span class="process-math">\(x\text{,}\)</span> we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int x \sqrt{1 + x^4} \, dx = \frac{1}{2} \left( \frac{x^2}{2}\sqrt{x^4 + 1} + \frac{1}{2}\ln|x^2 + \sqrt{x^4 + 1}| \right) + C
+\end{equation*}
+</div>
+<div class="para">WolframAlpha’s first response when asked to evaluate this integral is to give a result that involves the hyperbolic sine function (<span class="process-math">\(\sinh^{-1}(x^2)\)</span>); if we scroll down to “alternate results”, we find one that matches what we’ve found above.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">For <span class="process-math">\(\int e^x \sqrt{4 + e^{2x}} \, dx\text{,}\)</span> we first observe that <span class="process-math">\(e^{2x} = (e^x)^2\text{.}\)</span> If we use the substitution <span class="process-math">\(u = e^x\text{,}\)</span> the resulting integral is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int e^x \sqrt{4 + e^{2x}} \, dx = \int \sqrt{4 + u^2} \, du\text{,}
+\end{equation*}
+</div>
+<div class="para">which can be evaluated by the same approach as in part (b) with Rule (c) from the Appendix, this time with <span class="process-math">\(a = 2\text{.}\)</span> Thus,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \sqrt{4 + u^2} \, du = \frac{u}{2}\sqrt{u^2 + 4} + \frac{2^2}{2}\ln|u + \sqrt{u^2 + 4}|
+\end{equation*}
+</div>
+<div class="para">Substituting back,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int e^x \sqrt{4 + e^{2x}} \, dx = \frac{e^x}{2}\sqrt{e^{2x} + 4} + 2\ln|e^x + \sqrt{e^{2x} + 4}|  + C
+\end{equation*}
+</div>
+<div class="para">As in part (b), we need to scroll down in WolframAlpha’s results to find one close to what we have here. The alternate result almost matches, but the program writes</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\log\left( \sqrt{\frac{e^{2x}}{4} + 1 } + \frac{e^{x}}{2} \right)
+\end{equation*}
+</div>
+<div class="para">where we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\ln|e^x + \sqrt{e^{2x} + 4}.|
+\end{equation*}
+</div>
+<div class="para">This discrepancy can be explained using properties of the logarithm function and the presence of the arbitrary constant. If we write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\log(\left( \sqrt{\frac{e^{2x}}{4} + 1 } + \frac{e^{x}}{2} \right) = \log(\left( \sqrt{\frac{e^{2x} + 4}{4}} + \frac{e^{x}}{2} \right) = \log(\left( \frac{ \sqrt{e^{2x} + 4} + e^{x}}{2} \right)
+\end{equation*}
+</div>
+<div class="para">and then recall that <span class="process-math">\(\log \left( \frac{z}{2} \right) = \log(z) - \log(2)\text{,}\)</span> we see that the <span class="process-math">\(\log(2)\)</span> can be included in the arbitray constant, and the two different results actually match.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">To evaluate the integral <span class="process-math">\(\int \frac{\tan(x)}{\sqrt{9 - \cos^2(x)}} \, dx\text{,}\)</span> we first write <span class="process-math">\(\tan(x) = \frac{\sin(x)}{\cos(x)}\)</span> to have the integral in the form</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{\tan(x)}{\sqrt{9 - \cos^2(x)}} \, dx = \int \frac{\sin(x)}{\cos(x) \sqrt{9 - \cos^2(x)}} \, dx\text{.}
+\end{equation*}
+</div>
+<div class="para">Next, letting <span class="process-math">\(u = \cos(x)\text{,}\)</span> it follows <span class="process-math">\(du = -\sin(x) \, dx\text{,}\)</span> and therefore</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{\tan(x)}{\sqrt{9 - \cos^2(x)}} \, dx = \int \frac{-1}{u \sqrt{9 - u^2}} \, du\text{.}
+\end{equation*}
+</div>
+<div class="para">By Rule (j) in the appendix, we know that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{u \sqrt{9 - u^2}} \, du = -\frac{1}{3} \ln \left| \frac{3 + \sqrt{9 - u^2}}{u} \right| + C\text{.}
+\end{equation*}
+</div>
+<div class="para">Connecting the above chain of equalities and substituting back to <span class="process-math">\(x\text{,}\)</span> we have shown that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{\tan(x)}{\sqrt{9 - \cos^2(x)}} \, dx = \frac{1}{3} \ln \left| \frac{3 + \sqrt{9 - \cos^2(x)}}{\cos(x)} \right| + C\text{.}
+\end{equation*}
+</div>
+<div class="para">When WolframAlpha is asked to evaluate the original integral, its first result involves the inverse hyperbolic tangent function, and the alternate forms are equally complicated. It seems that the technology is unable to evaluate this integral in the most straightforward way.</div>
+</div></li>
+</ol></div></div></body>
 </html>

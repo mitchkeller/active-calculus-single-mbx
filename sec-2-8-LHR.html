@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC Using Derivatives to Evaluate Limits</title>
@@ -15,20 +15,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-2-7-implicit.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-2.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="C-3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -836,55 +823,99 @@ eBookConfig.new_server_prefix = "/ns";
 </h2>
 <article class="objectives goal-like" id="objectives-16"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-1935"><div class="para" id="p-2992">How can derivatives be used to help us evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\text{?}\)</span>
+<li id="li-2161"><div class="para" id="p-3850">How can derivatives be used to help us evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\text{?}\)</span>
 </div></li>
-<li id="li-1936"><div class="para" id="p-2993">What does it mean to say that <span class="process-math">\(\lim_{x \to \infty} f(x) = L\)</span> and <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{?}\)</span>
+<li id="li-2162"><div class="para" id="p-3851">What does it mean to say that <span class="process-math">\(\lim_{x \to \infty} f(x) = L\)</span> and <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{?}\)</span>
 </div></li>
-<li id="li-1937"><div class="para" id="p-2994">How can derivatives assist us in evaluating indeterminate limits of the form <span class="process-math">\(\frac{\infty}{\infty}\text{?}\)</span>
+<li id="li-2163"><div class="para" id="p-3852">How can derivatives assist us in evaluating indeterminate limits of the form <span class="process-math">\(\frac{\infty}{\infty}\text{?}\)</span>
 </div></li>
-</ul></article><section class="introduction" id="introduction-16"><div class="para logical" id="p-2995">
+</ul></article><section class="introduction" id="introduction-21"><div class="para logical" id="p-3853">
 <div class="para">Because differential calculus is based on the definition of the derivative, and the definition of the derivative involves a limit, there is a sense in which all of calculus rests on limits. In addition, the limit involved in the definition of the derivative always generates the indeterminate form <span class="process-math">\(\frac{0}{0}\text{.}\)</span> If <span class="process-math">\(f\)</span> is a differentiable function, then in the definition</div>
 <div class="displaymath process-math">
 \begin{equation*}
 f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}
 \end{equation*}
 </div>
-<div class="para">not only does <span class="process-math">\(h \to 0\)</span> in the denominator, but also <span class="process-math">\((f(x+h)-f(x)) \to 0\)</span> in the numerator, since <span class="process-math">\(f\)</span> is continuous. Remember, saying that a limit has an indeterminate form only means that we don't yet know its value and have more work to do: indeed, limits of the form <span class="process-math">\(\frac{0}{0}\)</span> can take on any value, as is evidenced by evaluating <span class="process-math">\(f'(x)\)</span> for varying values of <span class="process-math">\(x\)</span> for a function such as <span class="process-math">\(f'(x) = x^2\text{.}\)</span>
+<div class="para">not only does <span class="process-math">\(h \to 0\)</span> in the denominator, but also <span class="process-math">\((f(x+h)-f(x)) \to 0\)</span> in the numerator, since <span class="process-math">\(f\)</span> is continuous. Remember, saying that a limit has an indeterminate form only means that we don’t yet know its value and have more work to do: indeed, limits of the form <span class="process-math">\(\frac{0}{0}\)</span> can take on any value, as is evidenced by evaluating <span class="process-math">\(f'(x)\)</span> for varying values of <span class="process-math">\(x\)</span> for a function such as <span class="process-math">\(f'(x) = x^2\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-2996">We have learned many techniques for evaluating the limits that result from the derivative definition, including a large number of shortcut rules. In this section, we turn the situation upside-down: instead of using limits to evaluate derivatives, we explore how to use derivatives to evaluate certain limits.</div> <article class="exploration project-like" id="PA-2-8"><h3 class="heading">
+</div> <div class="para" id="p-3854">We have learned many techniques for evaluating the limits that result from the derivative definition, including a large number of shortcut rules. In this section, we turn the situation upside-down: instead of using limits to evaluate derivatives, we explore how to use derivatives to evaluate certain limits.</div> <article class="exploration project-like" id="ACS__Preview__2-8"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">2.8.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-2997">
-<div class="para">Let <span class="process-math">\(h\)</span> be the function given by <span class="process-math">\(h(x) = \frac{x^5 + x - 2}{x^2 - 1}\text{.}\)</span>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__ACS__Preview__2-8"><div id="boelkins-ACS__ACS__Preview__2-8-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="146" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/2.8Preview_prob1.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__ACS__Preview__2-8-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="introduction" id="introduction-22"><div class="para" id="p-3855">Let <span class="process-math">\(h\)</span> be the function given by <span class="process-math">\(h(x) = \displaystyle{\frac{x^{5}+x-2}{x^{2}-1}}\text{.}\)</span>
+</div></div> <article class="task exercise-like" id="task-24"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space"> </span><span class="title">Parts a and b.</span>
+</h4>
+<div class="para" id="p-3856">What is the domain of <span class="process-math">\(h\text{?}\)</span>
+</div> <div class="para logical" id="p-3857"><ul class="disc">
+<li id="li-2164"><div class="para" id="p-3858">
+<em class="alert">A</em>. All real numbers except <span class="process-math">\(1\)</span> and <span class="process-math">\(-1\)</span>
+</div></li>
+<li id="li-2165"><div class="para" id="p-3859">
+<em class="alert">B</em>. All real numbers except <span class="process-math">\(0\)</span>
+</div></li>
+<li id="li-2166"><div class="para" id="p-3860">
+<em class="alert">C</em>. All real numbers except <span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> and <span class="process-math">\(-1\)</span>
+</div></li>
+<li id="li-2167"><div class="para" id="p-3861">
+<em class="alert">D</em>. All real numbers</div></li>
+<li id="li-2168"><div class="para" id="p-3862">
+<em class="alert">E</em>. All real numbers except <span class="process-math">\(0\)</span> and <span class="process-math">\(1\)</span>
+</div></li>
+<li id="li-2169"><div class="para" id="p-3863">
+<em class="alert">F</em>. All real numbers except <span class="process-math">\(1\)</span>
+</div></li>
+<li id="li-2170"><div class="para" id="p-3864">
+<em class="alert">G</em>. None of these</div></li>
+</ul></div> <div class="para" id="p-3865">Choose the reason why <span class="process-math">\(\displaystyle{\lim_{x\rightarrow 1} \frac{x^{5}+x-2}{x^{2}-1} }\)</span> results in an indeterminate form.</div> <div class="para logical" id="p-3866"><ul class="disc">
+<li id="li-2171"><div class="para" id="p-3867">
+<em class="alert">A</em>. The denominator approaches <span class="process-math">\(0\)</span> as <span class="process-math">\(x\to 1\text{.}\)</span>
+</div></li>
+<li id="li-2172"><div class="para" id="p-3868">
+<em class="alert">B</em>. The limit is <span class="process-math">\(0\text{.}\)</span>
+</div></li>
+<li id="li-2173"><div class="para" id="p-3869">
+<em class="alert">C</em>. We can’t evaluate the limit.</div></li>
+<li id="li-2174"><div class="para" id="p-3870">
+<em class="alert">D</em>. The numerator approaches <span class="process-math">\(0\)</span> as <span class="process-math">\(x\to 1\text{.}\)</span>
+</div></li>
+<li id="li-2175"><div class="para" id="p-3871">
+<em class="alert">E</em>. The limit does not exist.</div></li>
+<li id="li-2176"><div class="para" id="p-3872">
+<em class="alert">F</em>. Both the numerator and denominator approach <span class="process-math">\(0\)</span> as <span class="process-math">\(x\to 1\text{.}\)</span>
+</div></li>
+<li id="li-2177"><div class="para" id="p-3873">
+<em class="alert">G</em>. None of these.</div></li>
+</ul></div></article> <article class="task exercise-like" id="task-25"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space"> </span><span class="title">Parts c and d.</span>
+</h4>
+<div class="para" id="p-3876">Next, we will investigate the behavior of both the numerator and denominator of <span class="process-math">\(h(x)\)</span> near the point where <span class="process-math">\(x=1\text{.}\)</span> Let <span class="process-math">\(f(x) = x^{5}+x-2\)</span> and <span class="process-math">\(g(x)=x^{2}-1\text{.}\)</span>
+</div> <div class="para" id="p-3877">Find the local linearizations (or tangent line approximations) of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(a = 1\text{,}\)</span> and call these functions <span class="process-math">\(L_f(x)\)</span> and <span class="process-math">\(L_g(x)\text{,}\)</span> respectively.</div> <div class="para" id="p-3878">
+<span class="process-math">\(L_f(x) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-3879">
+<span class="process-math">\(L_g(x) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-3880">Because the local linearizations approximate the functions near <span class="process-math">\(a=1\text{,}\)</span> it makes sense that <span class="process-math">\(h(x) \approx \displaystyle{\frac{L_f(x)}{L_g(x)}}\)</span> for <span class="process-math">\(x\)</span> near <span class="process-math">\(a=1\text{.}\)</span>
+</div></article> <article class="task exercise-like" id="task-26"><h4 class="heading">
+<span class="codenumber">(c)</span><span class="space"> </span><span class="title">Parts e and f.</span>
+</h4>
+<div class="para" id="p-3883">Evaluate the limit:</div> <div class="para" id="p-3884">
+<span class="process-math">\(\displaystyle{\lim_{x\rightarrow 1}\frac{L_f(x)}{L_g(x)}} =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-3885">We investigate the function <span class="process-math">\(h(x)\)</span> numerically near <span class="process-math">\(a=1\)</span> and compare to what we got for <span class="process-math">\(\displaystyle{\lim_{x\rightarrow 1}\frac{L_f(x)}{L_g(x)}}\)</span> above.</div> <div class="para" id="p-3886">Calculate <span class="process-math">\(h(1.1) =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div> <div class="para" id="p-3887">Calculate <span class="process-math">\(h(1.01) =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div> <div class="para" id="p-3888">Calculate <span class="process-math">\(h(0.99) =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div> <div class="para" id="p-3889">Calculate <span class="process-math">\(h(0.9) =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div></article>
 </div>
-<ol class="lower-alpha">
-<li id="li-1938"><div class="para" id="p-2998">What is the domain of <span class="process-math">\(h\text{?}\)</span>
-</div></li>
-<li id="li-1939"><div class="para" id="p-2999">Explain why <span class="process-math">\(\displaystyle\lim_{x \to 1} \frac{x^5 + x - 2}{x^2 - 1}\)</span> results in an indeterminate form.</div></li>
-<li id="li-1940"><div class="para" id="p-3000">Next we will investigate the behavior of both the numerator and denominator of <span class="process-math">\(h\)</span> near the point where <span class="process-math">\(x = 1\text{.}\)</span> Let <span class="process-math">\(f(x) = x^5 + x - 2\)</span> and <span class="process-math">\(g(x) = x^2 - 1\text{.}\)</span> Find the local linearizations of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(a = 1\text{,}\)</span> and call these functions <span class="process-math">\(L_f(x)\)</span> and <span class="process-math">\(L_g(x)\text{,}\)</span> respectively.</div></li>
-<li id="li-1941"><div class="para" id="p-3001">Explain why <span class="process-math">\(h(x) \approx \frac{L_f(x)}{L_g(x)}\)</span> for <span class="process-math">\(x\)</span> near <span class="process-math">\(a = 1\text{.}\)</span>
-</div></li>
-<li id="li-1942"><div class="para logical" id="p-3002">
-<div class="para">Using your work from (c) and (d), evaluate</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\lim_{x \to 1} \frac{L_f(x)}{L_g(x)}\text{.}
-\end{equation*}
-</div>
-<div class="para">What do you think your result tells us about <span class="process-math">\(\lim_{x \to 1} h(x)\text{?}\)</span>
-</div>
-</div></li>
-<li id="li-1943"><div class="para" id="p-3003">Investigate the function <span class="process-math">\(h(x)\)</span> graphically and numerically near <span class="process-math">\(x = 1\text{.}\)</span> What do you think is the value of <span class="process-math">\(\lim_{x \to 1} h(x)\text{?}\)</span>
-</div></li>
-</ol>
-</div></article></section><section class="subsection" id="subsection-48"><h3 class="heading hide-type">
+</div></div></div></article></section><section class="subsection" id="subsection-48"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.8.1</span> <span class="title">Using derivatives to evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\text{.}\)</span></span>
 </h3>
 <figure class="figure figure-like" id="F-2-8-LHR"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_LHR.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.1<span class="period">.</span></span><span class="space"> </span>At left, the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> near the value <span class="process-math">\(a\text{,}\)</span> along with their tangent line approximations <span class="process-math">\(L_f\)</span> and <span class="process-math">\(L_g\)</span> at <span class="process-math">\(x = a\text{.}\)</span>  At right, zooming in on the point <span class="process-math">\(a\)</span> and the four graphs.</figcaption></figure><div class="para" id="p-3004">The idea demonstrated in <a href="" class="xref" data-knowl="./knowl/PA-2-8.html" title="Preview Activity 2.8.1">Preview Activity 2.8.1</a> — that we can evaluate an indeterminate limit of the form <span class="process-math">\(\frac{0}{0}\)</span> by replacing each of the numerator and denominator with their local linearizations at the point of interest — can be generalized in a way that enables us to evaluate a wide range of limits. We have a function <span class="process-math">\(h(x)\)</span> that can be written as a quotient <span class="process-math">\(h(x) = \frac{f(x)}{g(x)}\text{,}\)</span> where <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are both differentiable at <span class="process-math">\(x=a\)</span> and for which <span class="process-math">\(f(a) = g(a) = 0\text{.}\)</span> We would like to evaluate the indeterminate limit given by <span class="process-math">\(\lim_{x \to a} h(x)\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/F-2-8-LHR.html" title="Figure 2.8.1">Figure 2.8.1</a> illustrates the situation. We see that both <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have an <span class="process-math">\(x\)</span>-intercept at <span class="process-math">\(x = a\text{.}\)</span> Their respective tangent line approximations <span class="process-math">\(L_f\)</span> and <span class="process-math">\(L_g\)</span> at <span class="process-math">\(x = a\)</span> are also shown in the figure. We can take advantage of the fact that a function and its tangent line approximation become indistinguishable as <span class="process-math">\(x \to a\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.1<span class="period">.</span></span><span class="space"> </span>At left, the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> near the value <span class="process-math">\(a\text{,}\)</span> along with their tangent line approximations <span class="process-math">\(L_f\)</span> and <span class="process-math">\(L_g\)</span> at <span class="process-math">\(x = a\text{.}\)</span>  At right, zooming in on the point <span class="process-math">\(a\)</span> and the four graphs.</figcaption></figure><div class="para" id="p-3895">The idea demonstrated in <a href="" class="xref" data-knowl="./knowl/ACS__Preview__2-8.html" title="Preview Activity 2.8.1">Preview Activity 2.8.1</a> — that we can evaluate an indeterminate limit of the form <span class="process-math">\(\frac{0}{0}\)</span> by replacing each of the numerator and denominator with their local linearizations at the point of interest — can be generalized in a way that enables us to evaluate a wide range of limits. We have a function <span class="process-math">\(h(x)\)</span> that can be written as a quotient <span class="process-math">\(h(x) = \frac{f(x)}{g(x)}\text{,}\)</span> where <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are both differentiable at <span class="process-math">\(x=a\)</span> and for which <span class="process-math">\(f(a) = g(a) = 0\text{.}\)</span> We would like to evaluate the indeterminate limit given by <span class="process-math">\(\lim_{x \to a} h(x)\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/F-2-8-LHR.html" title="Figure 2.8.1">Figure 2.8.1</a> illustrates the situation. We see that both <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> have an <span class="process-math">\(x\)</span>-intercept at <span class="process-math">\(x = a\text{.}\)</span> Their respective tangent line approximations <span class="process-math">\(L_f\)</span> and <span class="process-math">\(L_g\)</span> at <span class="process-math">\(x = a\)</span> are also shown in the figure. We can take advantage of the fact that a function and its tangent line approximation become indistinguishable as <span class="process-math">\(x \to a\text{.}\)</span>
 </div>
-<div class="para logical" id="p-3005">
-<div class="para">First, let's recall that <span class="process-math">\(L_f(x) = f'(a)(x-a) + f(a)\)</span> and <span class="process-math">\(L_g(x) = g'(a)(x-a) +g(a)\text{.}\)</span> Because <span class="process-math">\(x\)</span> is getting arbitrarily close to <span class="process-math">\(a\)</span> when we take the limit, we can replace <span class="process-math">\(f\)</span> with <span class="process-math">\(L_f\)</span> and replace <span class="process-math">\(g\)</span> with <span class="process-math">\(L_g\text{,}\)</span> and thus we observe that</div>
+<div class="para logical" id="p-3896">
+<div class="para">First, let’s recall that <span class="process-math">\(L_f(x) = f'(a)(x-a) + f(a)\)</span> and <span class="process-math">\(L_g(x) = g'(a)(x-a) +g(a)\text{.}\)</span> Because <span class="process-math">\(x\)</span> is getting arbitrarily close to <span class="process-math">\(a\)</span> when we take the limit, we can replace <span class="process-math">\(f\)</span> with <span class="process-math">\(L_f\)</span> and replace <span class="process-math">\(g\)</span> with <span class="process-math">\(L_g\text{,}\)</span> and thus we observe that</div>
 <div class="displaymath process-math" id="md-69">
 \begin{align*}
 \lim_{x \to a} \frac{f(x)}{g(x)} =\mathstrut \amp  \lim_{x \to a} \frac{L_f(x)}{L_g(x)}\\
@@ -892,7 +923,7 @@ f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}
 \end{align*}
 </div>
 </div>
-<div class="para logical" id="p-3006">
+<div class="para logical" id="p-3897">
 <div class="para">Next, we remember that both <span class="process-math">\(f(a) = 0\)</span> and <span class="process-math">\(g(a) = 0\text{,}\)</span> which is precisely what makes the original limit indeterminate. Substituting these values for <span class="process-math">\(f(a)\)</span> and <span class="process-math">\(g(a)\)</span> in the limit above, we now have</div>
 <div class="displaymath process-math" id="md-70">
 \begin{align*}
@@ -907,76 +938,76 @@ f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-3007">This result holds as long as <span class="process-math">\(g'(a)\)</span> is not equal to zero. The formal name of the result is L'Hôpital's Rule.</div>
-<article class="assemblage assemblage-like" id="assemblage-18"><h4 class="heading"><span class="title">L'Hôpital's Rule.</span></h4>
-<div class="para" id="p-3008">Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be differentiable at <span class="process-math">\(x=a\text{,}\)</span> and suppose that <span class="process-math">\(f(a) = g(a) = 0\)</span> and that <span class="process-math">\(g'(a) \neq 0\text{.}\)</span> Then <span class="process-math">\(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)}\text{.}\)</span>
-</div></article><div class="para logical" id="p-3009">
-<div class="para">In practice, we typically work with a slightly more general version of L'Hôpital's Rule, which states that (under the identical assumptions as the boxed rule above and the extra assumption that <span class="process-math">\(g'\)</span> is continuous at <span class="process-math">\(x=a\)</span>)</div>
+<div class="para" id="p-3898">This result holds as long as <span class="process-math">\(g'(a)\)</span> is not equal to zero. The formal name of the result is L’Hôpital’s Rule.</div>
+<article class="assemblage assemblage-like" id="assemblage-18"><h4 class="heading"><span class="title">L’Hôpital’s Rule.</span></h4>
+<div class="para" id="p-3899">Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be differentiable at <span class="process-math">\(x=a\text{,}\)</span> and suppose that <span class="process-math">\(f(a) = g(a) = 0\)</span> and that <span class="process-math">\(g'(a) \neq 0\text{.}\)</span> Then <span class="process-math">\(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)}\text{.}\)</span>
+</div></article><div class="para logical" id="p-3900">
+<div class="para">In practice, we typically work with a slightly more general version of L’Hôpital’s Rule, which states that (under the identical assumptions as the boxed rule above and the extra assumption that <span class="process-math">\(g'\)</span> is continuous at <span class="process-math">\(x=a\)</span>)</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}\text{,}
 \end{equation*}
 </div>
-<div class="para">provided the righthand limit exists. This form reflects the basic idea of L'Hôpital's Rule: if <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> produces an indeterminate limit of form <span class="process-math">\(\frac{0}{0}\)</span> as <span class="process-math">\(x \to a\text{,}\)</span> that limit is equivalent to the limit of the quotient of the two functions' derivatives, <span class="process-math">\(\frac{f'(x)}{g'(x)}\text{.}\)</span>
+<div class="para">provided the righthand limit exists. This form reflects the basic idea of L’Hôpital’s Rule: if <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> produces an indeterminate limit of form <span class="process-math">\(\frac{0}{0}\)</span> as <span class="process-math">\(x \to a\text{,}\)</span> that limit is equivalent to the limit of the quotient of the two functions’ derivatives, <span class="process-math">\(\frac{f'(x)}{g'(x)}\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-3010">
-<div class="para">For example, if we consider the limit from <a href="" class="xref" data-knowl="./knowl/PA-2-8.html" title="Preview Activity 2.8.1">Preview Activity 2.8.1</a>,</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-2-8.html">
+<div class="para logical" id="p-3901">
+<div class="para">For example, if we consider the limit from <a href="" class="xref" data-knowl="./knowl/ACS__Preview__2-8.html" title="Preview Activity 2.8.1">Preview Activity 2.8.1</a>,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ACS__Preview__2-8.html">
 \begin{equation*}
 \lim_{x \to 1} \frac{x^5 + x - 2}{x^2 - 1}\text{,}
 \end{equation*}
 </div>
-<div class="para">by L'Hôpital's Rule we have that</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/PA-2-8.html">
+<div class="para">by L’Hôpital’s Rule we have that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/ACS__Preview__2-8.html">
 \begin{equation*}
 \lim_{x \to 1} \frac{x^5 + x - 2}{x^2 - 1} = \lim_{x \to 1} \frac{5x^4 + 1}{2x} = \frac{6}{2} = 3. \\
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-3011">By replacing the numerator and denominator with their respective derivatives, we often replace an indeterminate limit with one whose value we can easily determine.</div>
+<div class="para" id="p-3902">By replacing the numerator and denominator with their respective derivatives, we often replace an indeterminate limit with one whose value we can easily determine.</div>
 <article class="activity project-like" id="act-2-8-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.8.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-3012">
-<div class="para">Evaluate each of the following limits. If you use L'Hôpital's Rule, indicate where it was used, and be certain its hypotheses are met before you apply it.</div>
+<div class="para logical" id="p-3903">
+<div class="para">Evaluate each of the following limits. If you use L’Hôpital’s Rule, indicate where it was used, and be certain its hypotheses are met before you apply it.</div>
 <ol class="lower-alpha cols2">
-<li id="li-1944"><div class="para" id="p-3013"><span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{\ln(1 + x)}{x}\)</span></div></li>
-<li id="li-1945"><div class="para" id="p-3014"><span class="process-math">\(\displaystyle \lim_{x \to \pi} \frac{\cos(x)}{x}\)</span></div></li>
-<li id="li-1946"><div class="para" id="p-3015"><span class="process-math">\(\displaystyle \lim_{x \to 1} \frac{2 \ln(x)}{1-e^{x-1}}\)</span></div></li>
-<li id="li-1947"><div class="para" id="p-3016"><span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{\sin(x) - x}{\cos(2x)-1}\)</span></div></li>
+<li id="li-2178"><div class="para" id="p-3904"><span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{\ln(1 + x)}{x}\)</span></div></li>
+<li id="li-2179"><div class="para" id="p-3905"><span class="process-math">\(\displaystyle \lim_{x \to \pi} \frac{\cos(x)}{x}\)</span></div></li>
+<li id="li-2180"><div class="para" id="p-3906"><span class="process-math">\(\displaystyle \lim_{x \to 1} \frac{2 \ln(x)}{1-e^{x-1}}\)</span></div></li>
+<li id="li-2181"><div class="para" id="p-3907"><span class="process-math">\(\displaystyle \lim_{x \to 0} \frac{\sin(x) - x}{\cos(2x)-1}\)</span></div></li>
 </ol>
-</div></article><div class="para" id="p-3032">While L'Hôpital's Rule can be applied in an entirely algebraic way, it is important to remember that the justification of the rule is graphical: the main idea is that the slopes of the tangent lines to <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(x = a\)</span> determine the value of the limit of <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> as <span class="process-math">\(x \to a\text{.}\)</span>
+</div></article><div class="para" id="p-3923">While L’Hôpital’s Rule can be applied in an entirely algebraic way, it is important to remember that the justification of the rule is graphical: the main idea is that the slopes of the tangent lines to <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(x = a\)</span> determine the value of the limit of <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> as <span class="process-math">\(x \to a\text{.}\)</span>
 </div>
 <figure class="figure figure-like" id="F-2-8-LHR2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_LHR2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.2<span class="period">.</span></span><span class="space"> </span>Two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> that satisfy L'Hôpital's Rule.</figcaption></figure><div class="para logical" id="p-3033">
-<div class="para">We see this in <a href="" class="xref" data-knowl="./knowl/F-2-8-LHR2.html" title="Figure 2.8.2">Figure 2.8.2</a>, where we can see from the grid that <span class="process-math">\(f'(a) = 2\)</span> and <span class="process-math">\(g'(a) = -1\text{,}\)</span> hence by L'Hôpital's Rule,</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.2<span class="period">.</span></span><span class="space"> </span>Two functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> that satisfy L’Hôpital’s Rule.</figcaption></figure><div class="para logical" id="p-3924">
+<div class="para">We see this in <a href="" class="xref" data-knowl="./knowl/F-2-8-LHR2.html" title="Figure 2.8.2">Figure 2.8.2</a>, where we can see from the grid that <span class="process-math">\(f'(a) = 2\)</span> and <span class="process-math">\(g'(a) = -1\text{,}\)</span> hence by L’Hôpital’s Rule,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-8-LHR2.html">
 \begin{equation*}
 \lim_{x \to a}\frac{f(x)}{g(x)} = \frac{f'(a)}{g'(a)} = \frac{2}{-1} = -2\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-3034">It's not the fact that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> both approach zero that matters most, but rather the <em class="emphasis">rate</em> at which each approaches zero that determines the value of the limit. This is a good way to remember what L'Hôpital's Rule says: if <span class="process-math">\(f(a) = g(a) = 0\text{,}\)</span> the the limit of <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> as <span class="process-math">\(x \to a\)</span> is given by the ratio of the slopes of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(x = a\text{.}\)</span>
+<div class="para" id="p-3925">It’s not the fact that <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> both approach zero that matters most, but rather the <em class="emphasis">rate</em> at which each approaches zero that determines the value of the limit. This is a good way to remember what L’Hôpital’s Rule says: if <span class="process-math">\(f(a) = g(a) = 0\text{,}\)</span> the the limit of <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> as <span class="process-math">\(x \to a\)</span> is given by the ratio of the slopes of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> at <span class="process-math">\(x = a\text{.}\)</span>
 </div>
 <article class="activity project-like" id="act-2-8-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.8.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-3035">In this activity, we reason graphically from the following figure to evaluate limits of ratios of functions about which some information is known.</div> <figure class="figure figure-like" id="F-2-8-Act2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_Act2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.3<span class="period">.</span></span><span class="space"> </span>Three graphs referenced in the questions of <a href="" class="xref" data-knowl="./knowl/act-2-8-2.html" title="Activity 2.8.3">Activity 2.8.3</a>.</figcaption></figure> <div class="para logical" id="p-3036"><ol class="lower-alpha">
-<li id="li-1960"><div class="para" id="p-3037">Use the left-hand graph to determine the values of <span class="process-math">\(f(2)\text{,}\)</span> <span class="process-math">\(f'(2)\text{,}\)</span> <span class="process-math">\(g(2)\text{,}\)</span> and <span class="process-math">\(g'(2)\text{.}\)</span> Then, evaluate <span class="process-math">\(\lim\limits_{x \to 2} \frac{f(x)}{g(x)}\text{.}\)</span>
+<div class="para" id="p-3926">In this activity, we reason graphically from the following figure to evaluate limits of ratios of functions about which some information is known.</div> <figure class="figure figure-like" id="F-2-8-Act2"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_Act2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.3<span class="period">.</span></span><span class="space"> </span>Three graphs referenced in the questions of <a href="" class="xref" data-knowl="./knowl/act-2-8-2.html" title="Activity 2.8.3">Activity 2.8.3</a>.</figcaption></figure> <div class="para logical" id="p-3927"><ol class="lower-alpha">
+<li id="li-2194"><div class="para" id="p-3928">Use the left-hand graph to determine the values of <span class="process-math">\(f(2)\text{,}\)</span> <span class="process-math">\(f'(2)\text{,}\)</span> <span class="process-math">\(g(2)\text{,}\)</span> and <span class="process-math">\(g'(2)\text{.}\)</span> Then, evaluate <span class="process-math">\(\lim\limits_{x \to 2} \frac{f(x)}{g(x)}\text{.}\)</span>
 </div></li>
-<li id="li-1961"><div class="para" id="p-3038">Use the middle graph to find <span class="process-math">\(p(2)\text{,}\)</span> <span class="process-math">\(p'(2)\text{,}\)</span> <span class="process-math">\(q(2)\text{,}\)</span> and <span class="process-math">\(q'(2)\text{.}\)</span> Then, determine the value of <span class="process-math">\(\lim\limits_{x \to 2} \frac{p(x)}{q(x)}\text{.}\)</span>
+<li id="li-2195"><div class="para" id="p-3929">Use the middle graph to find <span class="process-math">\(p(2)\text{,}\)</span> <span class="process-math">\(p'(2)\text{,}\)</span> <span class="process-math">\(q(2)\text{,}\)</span> and <span class="process-math">\(q'(2)\text{.}\)</span> Then, determine the value of <span class="process-math">\(\lim\limits_{x \to 2} \frac{p(x)}{q(x)}\text{.}\)</span>
 </div></li>
-<li id="li-1962"><div class="para" id="p-3039">Assume that <span class="process-math">\(r\)</span> and <span class="process-math">\(s\)</span> are functions whose for which <span class="process-math">\(r''(2) \ne 0\)</span> and <span class="process-math">\(s''(2) \ne 0\)</span> Use the right-hand graph to compute <span class="process-math">\(r(2)\text{,}\)</span> <span class="process-math">\(r'(2)\text{,}\)</span> <span class="process-math">\(s(2)\text{,}\)</span> <span class="process-math">\(s'(2)\text{.}\)</span> Explain why you cannot determine the exact value of <span class="process-math">\(\lim\limits_{x \to 2} \frac{r(x)}{s(x)}\)</span> without further information being provided, but that you can determine the sign of <span class="process-math">\(\lim\limits_{x \to 2} \frac{r(x)}{s(x)}\text{.}\)</span> In addition, state what the sign of the limit will be, with justification.</div></li>
+<li id="li-2196"><div class="para" id="p-3930">Assume that <span class="process-math">\(r\)</span> and <span class="process-math">\(s\)</span> are functions whose for which <span class="process-math">\(r''(2) \ne 0\)</span> and <span class="process-math">\(s''(2) \ne 0\)</span> Use the right-hand graph to compute <span class="process-math">\(r(2)\text{,}\)</span> <span class="process-math">\(r'(2)\text{,}\)</span> <span class="process-math">\(s(2)\text{,}\)</span> <span class="process-math">\(s'(2)\text{.}\)</span> Explain why you cannot determine the exact value of <span class="process-math">\(\lim\limits_{x \to 2} \frac{r(x)}{s(x)}\)</span> without further information being provided, but that you can determine the sign of <span class="process-math">\(\lim\limits_{x \to 2} \frac{r(x)}{s(x)}\text{.}\)</span> In addition, state what the sign of the limit will be, with justification.</div></li>
 </ol></div></article></section><section class="subsection" id="subsection-49"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.8.2</span> <span class="title">Limits involving <span class="process-math">\(\infty\)</span></span>
 </h3>
-<div class="para" id="p-3052">The concept of infinity,  denoted <span class="process-math">\(\infty\text{,}\)</span> arises naturally in calculus, as it does in much of mathematics. It is important to note from the outset that <span class="process-math">\(\infty\)</span> is a concept, but not a number itself. Indeed, the notion of <span class="process-math">\(\infty\)</span> naturally invokes the idea of limits. Consider, for example, the function <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> whose graph is pictured in <a href="" class="xref" data-knowl="./knowl/F-2-8-Infty.html" title="Figure 2.8.4">Figure 2.8.4</a>.</div>
-<div class="para" id="p-3053">We note that <span class="process-math">\(x = 0\)</span> is not in the domain of <span class="process-math">\(f\text{,}\)</span> so we may naturally wonder what happens as <span class="process-math">\(x \to 0\text{.}\)</span> As <span class="process-math">\(x \to 0^+\text{,}\)</span> we observe that <span class="process-math">\(f(x)\)</span> <em class="emphasis">increases without bound</em>. That is, we can make the value of <span class="process-math">\(f(x)\)</span> as large as we like by taking <span class="process-math">\(x\)</span> closer and closer (but not equal) to 0, while keeping <span class="process-math">\(x \gt 0\text{.}\)</span> This is a good way to think about what infinity represents: a quantity is tending to infinity if there is no single number that the quantity is always less than.</div>
+<div class="para" id="p-3943">The concept of infinity,  denoted <span class="process-math">\(\infty\text{,}\)</span> arises naturally in calculus, as it does in much of mathematics. It is important to note from the outset that <span class="process-math">\(\infty\)</span> is a concept, but not a number itself. Indeed, the notion of <span class="process-math">\(\infty\)</span> naturally invokes the idea of limits. Consider, for example, the function <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> whose graph is pictured in <a href="" class="xref" data-knowl="./knowl/F-2-8-Infty.html" title="Figure 2.8.4">Figure 2.8.4</a>.</div>
+<div class="para" id="p-3944">We note that <span class="process-math">\(x = 0\)</span> is not in the domain of <span class="process-math">\(f\text{,}\)</span> so we may naturally wonder what happens as <span class="process-math">\(x \to 0\text{.}\)</span> As <span class="process-math">\(x \to 0^+\text{,}\)</span> we observe that <span class="process-math">\(f(x)\)</span> <em class="emphasis">increases without bound</em>. That is, we can make the value of <span class="process-math">\(f(x)\)</span> as large as we like by taking <span class="process-math">\(x\)</span> closer and closer (but not equal) to 0, while keeping <span class="process-math">\(x \gt 0\text{.}\)</span> This is a good way to think about what infinity represents: a quantity is tending to infinity if there is no single number that the quantity is always less than.</div>
 <figure class="figure figure-like" id="F-2-8-Infty"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/2_8_Infty.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.4<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(f(x) = \frac{1}{x}\text{.}\)</span></figcaption></figure><div class="para logical" id="p-3054">
-<div class="para">Recall that the statement <span class="process-math">\(\lim_{x \to a} f(x) = L\text{,}\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we'd like by taking <span class="process-math">\(x\)</span> sufficiently close (but not equal) to <span class="process-math">\(a\text{.}\)</span> We now expand this notation and language to include the possibility that either <span class="process-math">\(L\)</span> or <span class="process-math">\(a\)</span> can be <span class="process-math">\(\infty\text{.}\)</span> For instance, for <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> we now write</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.4<span class="period">.</span></span><span class="space"> </span>The graph of <span class="process-math">\(f(x) = \frac{1}{x}\text{.}\)</span></figcaption></figure><div class="para logical" id="p-3945">
+<div class="para">Recall that the statement <span class="process-math">\(\lim_{x \to a} f(x) = L\text{,}\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we’d like by taking <span class="process-math">\(x\)</span> sufficiently close (but not equal) to <span class="process-math">\(a\text{.}\)</span> We now expand this notation and language to include the possibility that either <span class="process-math">\(L\)</span> or <span class="process-math">\(a\)</span> can be <span class="process-math">\(\infty\text{.}\)</span> For instance, for <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> we now write</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to 0^+} \frac{1}{x} = \infty\text{,}
@@ -988,9 +1019,9 @@ f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}
 \lim_{x \to \infty} \frac{1}{x} = 0\text{,}
 \end{equation*}
 </div>
-<div class="para">since we can make <span class="process-math">\(\frac{1}{x}\)</span> as close to 0 as we'd like by taking <span class="process-math">\(x\)</span> sufficiently large (i.e., by letting <span class="process-math">\(x\)</span> increase without bound).</div>
+<div class="para">since we can make <span class="process-math">\(\frac{1}{x}\)</span> as close to 0 as we’d like by taking <span class="process-math">\(x\)</span> sufficiently large (i.e., by letting <span class="process-math">\(x\)</span> increase without bound).</div>
 </div>
-<div class="para logical" id="p-3055">
+<div class="para logical" id="p-3946">
 <div class="para">In general, the notation <span class="process-math">\(\lim_{x \to a} f(x) = \infty\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as large as we like by taking <span class="process-math">\(x\)</span> sufficiently close (but not equal) to <span class="process-math">\(a\text{,}\)</span> and the notation <span class="process-math">\(\lim_{x \to \infty} f(x) = L\)</span>  means that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we like by taking <span class="process-math">\(x\)</span> sufficiently large. This notation also applies to left- and right-hand limits, and to limits involving <span class="process-math">\(-\infty\text{.}\)</span> For example, returning to <a href="" class="xref" data-knowl="./knowl/F-2-8-Infty.html" title="Figure 2.8.4">Figure 2.8.4</a> and <span class="process-math">\(f(x) = \frac{1}{x}\text{,}\)</span> we can say that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-8-Infty.html">
 \begin{equation*}
@@ -998,27 +1029,27 @@ f'(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}\text{,}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-3056">
+<div class="para logical" id="p-3947">
 <div class="para">Finally, we write</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to \infty} f(x) = \infty
 \end{equation*}
 </div>
-<div class="para">if we can make the value of <span class="process-math">\(f(x)\)</span> as large as we'd like by taking <span class="process-math">\(x\)</span> sufficiently large. For example,</div>
+<div class="para">if we can make the value of <span class="process-math">\(f(x)\)</span> as large as we’d like by taking <span class="process-math">\(x\)</span> sufficiently large. For example,</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to \infty} x^2 = \infty\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-3057">Limits involving infinity identify <em class="emphasis">vertical</em> and <em class="emphasis">horizontal asymptotes</em>  of a function. If <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{,}\)</span> then <span class="process-math">\(x = a\)</span> is a vertical asymptote of <span class="process-math">\(f\text{,}\)</span> while if <span class="process-math">\(\lim_{x \to \infty} f(x) = L\text{,}\)</span> then <span class="process-math">\(y = L\)</span> is a horizontal asymptote of <span class="process-math">\(f\text{.}\)</span> Similar statements can be made using <span class="process-math">\(-\infty\text{,}\)</span> and with left- and right-hand limits as <span class="process-math">\(x \to a^-\)</span> or <span class="process-math">\(x \to a^+\text{.}\)</span>
+<div class="para" id="p-3948">Limits involving infinity identify <em class="emphasis">vertical</em> and <em class="emphasis">horizontal asymptotes</em>  of a function. If <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{,}\)</span> then <span class="process-math">\(x = a\)</span> is a vertical asymptote of <span class="process-math">\(f\text{,}\)</span> while if <span class="process-math">\(\lim_{x \to \infty} f(x) = L\text{,}\)</span> then <span class="process-math">\(y = L\)</span> is a horizontal asymptote of <span class="process-math">\(f\text{.}\)</span> Similar statements can be made using <span class="process-math">\(-\infty\text{,}\)</span> and with left- and right-hand limits as <span class="process-math">\(x \to a^-\)</span> or <span class="process-math">\(x \to a^+\text{.}\)</span>
 </div>
-<div class="para" id="p-3058">In precalculus classes, it is common to study the <em class="emphasis">end behavior</em> of certain families of functions, by which we mean the behavior of a function as <span class="process-math">\(x \to \infty\)</span> and as <span class="process-math">\(x \to -\infty\text{.}\)</span> Here we briefly examine some familiar functions and note the values of several limits involving <span class="process-math">\(\infty\text{.}\)</span>
+<div class="para" id="p-3949">In precalculus classes, it is common to study the <em class="emphasis">end behavior</em> of certain families of functions, by which we mean the behavior of a function as <span class="process-math">\(x \to \infty\)</span> and as <span class="process-math">\(x \to -\infty\text{.}\)</span> Here we briefly examine some familiar functions and note the values of several limits involving <span class="process-math">\(\infty\text{.}\)</span>
 </div>
 <figure class="figure figure-like" id="F-2-8-InftyLib"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/2_8_InftyLib.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.5<span class="period">.</span></span><span class="space"> </span>Graphs of some familiar functions whose end behavior as <span class="process-math">\(x \to \pm \infty\)</span> is known.  In the middle graph, <span class="process-math">\(f(x) = x^3 - 16x\)</span> and <span class="process-math">\(g(x) = x^4 - 16x^2 - 8\text{.}\)</span></figcaption></figure><div class="para" id="p-3059">For the natural exponential function <span class="process-math">\(e^x\text{,}\)</span> we note that <span class="process-math">\(\lim_{x \to \infty} e^x = \infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} e^x = 0\text{.}\)</span> For the exponential decay function <span class="process-math">\(e^{-x}\text{,}\)</span> these limits are reversed, with <span class="process-math">\(\lim_{x \to \infty} e^{-x} = 0\)</span> and <span class="process-math">\(\lim_{x \to -\infty} e^{-x} = \infty\text{.}\)</span> Turning to the natural logarithm function, we have <span class="process-math">\(\lim_{x \to 0^+} \ln(x) = -\infty\)</span> and <span class="process-math">\(\lim_{x \to \infty} \ln(x) = \infty\text{.}\)</span> While both <span class="process-math">\(e^x\)</span> and <span class="process-math">\(\ln(x)\)</span> grow without bound as <span class="process-math">\(x \to \infty\text{,}\)</span> the exponential function does so much more quickly than the logarithm function does. We'll soon use limits to quantify what we mean by “quickly.”</div>
-<div class="para logical" id="p-3060">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.8.5<span class="period">.</span></span><span class="space"> </span>Graphs of some familiar functions whose end behavior as <span class="process-math">\(x \to \pm \infty\)</span> is known.  In the middle graph, <span class="process-math">\(f(x) = x^3 - 16x\)</span> and <span class="process-math">\(g(x) = x^4 - 16x^2 - 8\text{.}\)</span></figcaption></figure><div class="para" id="p-3950">For the natural exponential function <span class="process-math">\(e^x\text{,}\)</span> we note that <span class="process-math">\(\lim_{x \to \infty} e^x = \infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} e^x = 0\text{.}\)</span> For the exponential decay function <span class="process-math">\(e^{-x}\text{,}\)</span> these limits are reversed, with <span class="process-math">\(\lim_{x \to \infty} e^{-x} = 0\)</span> and <span class="process-math">\(\lim_{x \to -\infty} e^{-x} = \infty\text{.}\)</span> Turning to the natural logarithm function, we have <span class="process-math">\(\lim_{x \to 0^+} \ln(x) = -\infty\)</span> and <span class="process-math">\(\lim_{x \to \infty} \ln(x) = \infty\text{.}\)</span> While both <span class="process-math">\(e^x\)</span> and <span class="process-math">\(\ln(x)\)</span> grow without bound as <span class="process-math">\(x \to \infty\text{,}\)</span> the exponential function does so much more quickly than the logarithm function does. We’ll soon use limits to quantify what we mean by “quickly.”</div>
+<div class="para logical" id="p-3951">
 <div class="para">For polynomial functions of the form</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-8-InftyLib.html ./knowl/F-2-8-InftyLib.html">
 \begin{equation*}
@@ -1027,13 +1058,13 @@ p(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots a_1 x + a_0\text{,}
 </div>
 <div class="para">the end behavior depends on the sign of <span class="process-math">\(a_n\)</span> and whether the highest power <span class="process-math">\(n\)</span> is even or odd. If <span class="process-math">\(n\)</span> is even and <span class="process-math">\(a_n\)</span> is positive, then <span class="process-math">\(\lim_{x \to \infty} p(x) = \infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} p(x) = \infty\text{,}\)</span> as in the plot of <span class="process-math">\(g\)</span> in <a href="" class="xref" data-knowl="./knowl/F-2-8-InftyLib.html" title="Figure 2.8.5">Figure 2.8.5</a>. If instead <span class="process-math">\(a_n\)</span> is negative, then <span class="process-math">\(\lim_{x \to \infty} p(x) = -\infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} p(x) = -\infty\text{.}\)</span> In the situation where <span class="process-math">\(n\)</span> is odd, then either <span class="process-math">\(\lim_{x \to \infty} p(x) = \infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} p(x) = -\infty\)</span> (which occurs when <span class="process-math">\(a_n\)</span> is positive, as in the graph of <span class="process-math">\(f\)</span> in <a href="" class="xref" data-knowl="./knowl/F-2-8-InftyLib.html" title="Figure 2.8.5">Figure 2.8.5</a>), or <span class="process-math">\(\lim_{x \to \infty} p(x) = -\infty\)</span> and <span class="process-math">\(\lim_{x \to -\infty} p(x) = \infty\)</span> (when <span class="process-math">\(a_n\)</span> is negative).</div>
 </div>
-<div class="para" id="p-3061">A function can fail to have a limit as <span class="process-math">\(x \to \infty\text{.}\)</span> For example, consider the plot of the sine function at right in <a href="" class="xref" data-knowl="./knowl/F-2-8-InftyLib.html" title="Figure 2.8.5">Figure 2.8.5</a>. Because the function continues oscillating between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\)</span> as <span class="process-math">\(x \to \infty\text{,}\)</span> we say that <span class="process-math">\(\lim_{x \to \infty} \sin(x)\)</span> does not exist.</div>
-<div class="para" id="p-3062">Finally, it is straightforward to analyze the behavior of any rational function as <span class="process-math">\(x \to \infty\text{.}\)</span>
+<div class="para" id="p-3952">A function can fail to have a limit as <span class="process-math">\(x \to \infty\text{.}\)</span> For example, consider the plot of the sine function at right in <a href="" class="xref" data-knowl="./knowl/F-2-8-InftyLib.html" title="Figure 2.8.5">Figure 2.8.5</a>. Because the function continues oscillating between <span class="process-math">\(-1\)</span> and <span class="process-math">\(1\)</span> as <span class="process-math">\(x \to \infty\text{,}\)</span> we say that <span class="process-math">\(\lim_{x \to \infty} \sin(x)\)</span> does not exist.</div>
+<div class="para" id="p-3953">Finally, it is straightforward to analyze the behavior of any rational function as <span class="process-math">\(x \to \infty\text{.}\)</span>
 </div>
 <article class="example example-like" id="example-25"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.8.6</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-3063">
+<div class="para logical" id="p-3954">
 <div class="para">Determine the limit of the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1042,7 +1073,7 @@ q(x) =  \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10}
 </div>
 <div class="para">as <span class="process-math">\(x \to \infty\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-3064">
+</div> <div class="para logical" id="p-3955">
 <div class="para">Note that both <span class="process-math">\((3x^2 - 4x + 5) \to \infty\)</span> as <span class="process-math">\(x \to \infty\)</span> and <span class="process-math">\((7x^2 + 9x - 10) \to \infty\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span> Here we say that <span class="process-math">\(\lim_{x \to \infty} q(x)\)</span> has indeterminate form <span class="process-math">\(\frac{\infty}{\infty}\text{.}\)</span> We can determine the value of this limit through a standard algebraic approach. Multiplying the numerator and denominator each by <span class="process-math">\(\frac{1}{x^2}\text{,}\)</span> we find that</div>
 <div class="displaymath process-math" id="md-71">
 \begin{align*}
@@ -1052,7 +1083,7 @@ q(x) =  \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10}
 </div>
 <div class="para">since <span class="process-math">\(\frac{1}{x^2} \to 0\)</span> and <span class="process-math">\(\frac{1}{x} \to 0\)</span> as <span class="process-math">\(x \to \infty\text{.}\)</span> This shows that the rational function <span class="process-math">\(q\)</span> has a horizontal asymptote at <span class="process-math">\(y = \frac{3}{7}\text{.}\)</span> A similar approach can be used to determine the limit of any rational function as <span class="process-math">\(x \to \infty\text{.}\)</span>
 </div>
-</div></article><div class="para logical" id="p-3065">
+</div></article><div class="para logical" id="p-3956">
 <div class="para">But how should we handle a limit such as</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1060,9 +1091,9 @@ q(x) =  \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-3066">Here, both <span class="process-math">\(x^2 \to \infty\)</span> and <span class="process-math">\(e^x \to \infty\text{,}\)</span> but there is not an obvious algebraic approach that enables us to find the limit's value. Fortunately, it turns out that L'Hôpital's Rule extends to cases involving infinity.</div>
-<article class="assemblage assemblage-like" id="assemblage-19"><h4 class="heading"><span class="title">L'Hôpital's Rule (<span class="process-math">\(\infty\)</span>).</span></h4>
-<div class="para logical" id="p-3067">
+<div class="para" id="p-3957">Here, both <span class="process-math">\(x^2 \to \infty\)</span> and <span class="process-math">\(e^x \to \infty\text{,}\)</span> but there is not an obvious algebraic approach that enables us to find the limit’s value. Fortunately, it turns out that L’Hôpital’s Rule extends to cases involving infinity.</div>
+<article class="assemblage assemblage-like" id="assemblage-19"><h4 class="heading"><span class="title">L’Hôpital’s Rule (<span class="process-math">\(\infty\)</span>).</span></h4>
+<div class="para logical" id="p-3958">
 <div class="para">If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable and both approach zero or both approach <span class="process-math">\(\pm \infty\)</span> as <span class="process-math">\(x \to a\)</span> (where <span class="process-math">\(a\)</span> is allowed to be <span class="process-math">\(\infty\)</span>) , then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1070,24 +1101,24 @@ q(x) =  \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10}
 \end{equation*}
 </div>
 <div class="para">provided the righthand limit exists.</div>
-</div></article><div class="para" id="p-3068">(To be technically correct, we need to add the additional hypothesis that <span class="process-math">\(g'(x) \ne 0\)</span> on an open interval that contains <span class="process-math">\(a\)</span> or in every neighborhood of infinity if <span class="process-math">\(a\)</span> is <span class="process-math">\(\infty\text{;}\)</span> this is almost always met in practice.)</div>
-<div class="para logical" id="p-3069">
-<div class="para">To evaluate <span class="process-math">\(\lim_{x \to \infty} \frac{x^2}{e^x}\text{,}\)</span> we can apply L'Hôpital's Rule, since both <span class="process-math">\(x^2 \to \infty\)</span> and <span class="process-math">\(e^x \to \infty\text{.}\)</span> Doing so, it follows that</div>
+</div></article><div class="para" id="p-3959">(To be technically correct, we need to add the additional hypothesis that <span class="process-math">\(g'(x) \ne 0\)</span> on an open interval that contains <span class="process-math">\(a\)</span> or in every neighborhood of infinity if <span class="process-math">\(a\)</span> is <span class="process-math">\(\infty\text{;}\)</span> this is almost always met in practice.)</div>
+<div class="para logical" id="p-3960">
+<div class="para">To evaluate <span class="process-math">\(\lim_{x \to \infty} \frac{x^2}{e^x}\text{,}\)</span> we can apply L’Hôpital’s Rule, since both <span class="process-math">\(x^2 \to \infty\)</span> and <span class="process-math">\(e^x \to \infty\text{.}\)</span> Doing so, it follows that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to \infty} \frac{x^2}{e^x} = \lim_{x \to \infty} \frac{2x}{e^x}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-3070">
-<div class="para">This updated limit is still indeterminate and of the form <span class="process-math">\(\frac{\infty}{\infty}\text{,}\)</span> but it is simpler since <span class="process-math">\(2x\)</span> has replaced <span class="process-math">\(x^2\text{.}\)</span> Hence, we can apply L'Hôpital's Rule again, and find that</div>
+<div class="para logical" id="p-3961">
+<div class="para">This updated limit is still indeterminate and of the form <span class="process-math">\(\frac{\infty}{\infty}\text{,}\)</span> but it is simpler since <span class="process-math">\(2x\)</span> has replaced <span class="process-math">\(x^2\text{.}\)</span> Hence, we can apply L’Hôpital’s Rule again, and find that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to \infty} \frac{x^2}{e^x} = \lim_{x \to \infty} \frac{2x}{e^x} = \lim_{x \to \infty} \frac{2}{e^x}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-3071">
+<div class="para logical" id="p-3962">
 <div class="para">Now, since <span class="process-math">\(2\)</span> is constant and <span class="process-math">\(e^x \to \infty\)</span> as <span class="process-math">\(x \to \infty\text{,}\)</span> it follows that <span class="process-math">\(\frac{2}{e^x} \to 0\)</span> as <span class="process-math">\(x \to \infty\text{,}\)</span> which shows that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1098,16 +1129,16 @@ q(x) =  \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10}
 <article class="activity project-like" id="act-2-8-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.8.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-3072">
-<div class="para">Evaluate each of the following limits. If you use L'Hôpital's Rule, indicate where it was used, and be certain its hypotheses are met before you apply it.</div>
+<div class="para logical" id="p-3963">
+<div class="para">Evaluate each of the following limits. If you use L’Hôpital’s Rule, indicate where it was used, and be certain its hypotheses are met before you apply it.</div>
 <ol class="lower-alpha cols2">
-<li id="li-1972"><div class="para" id="p-3073"><span class="process-math">\(\displaystyle \lim_{x \to \infty} \frac{x}{\ln(x)}\)</span></div></li>
-<li id="li-1973"><div class="para" id="p-3074"><span class="process-math">\(\displaystyle \lim_{x \to \infty} \frac{e^{x} + x}{2e^{x} + x^2}\)</span></div></li>
-<li id="li-1974"><div class="para" id="p-3075"><span class="process-math">\(\displaystyle \lim_{x \to 0^+} \frac{\ln(x)}{\frac{1}{x}}\)</span></div></li>
-<li id="li-1975"><div class="para" id="p-3076"><span class="process-math">\(\displaystyle \lim_{x \to \frac{\pi}{2}^-} \frac{\tan(x)}{x-\frac{\pi}{2}}\)</span></div></li>
-<li id="li-1976"><div class="para" id="p-3077"><span class="process-math">\(\displaystyle \lim_{x \to \infty} xe^{-x}\)</span></div></li>
+<li id="li-2206"><div class="para" id="p-3964"><span class="process-math">\(\displaystyle \lim_{x \to \infty} \frac{x}{\ln(x)}\)</span></div></li>
+<li id="li-2207"><div class="para" id="p-3965"><span class="process-math">\(\displaystyle \lim_{x \to \infty} \frac{e^{x} + x}{2e^{x} + x^2}\)</span></div></li>
+<li id="li-2208"><div class="para" id="p-3966"><span class="process-math">\(\displaystyle \lim_{x \to 0^+} \frac{\ln(x)}{\frac{1}{x}}\)</span></div></li>
+<li id="li-2209"><div class="para" id="p-3967"><span class="process-math">\(\displaystyle \lim_{x \to \frac{\pi}{2}^-} \frac{\tan(x)}{x-\frac{\pi}{2}}\)</span></div></li>
+<li id="li-2210"><div class="para" id="p-3968"><span class="process-math">\(\displaystyle \lim_{x \to \infty} xe^{-x}\)</span></div></li>
 </ol>
-</div></article><div class="para logical" id="p-3096">
+</div></article><div class="para logical" id="p-3987">
 <div class="para">To evaluate the limit of a quotient of two functions <span class="process-math">\(\frac{f(x)}{g(x)}\)</span> that results in an indeterminate form of <span class="process-math">\(\frac{\infty}{\infty}\text{,}\)</span> in essence we are asking which function is growing faster without bound. We say that the function <span class="process-math">\(g\)</span> <em class="emphasis">dominates</em> the function <span class="process-math">\(f\)</span> as <span class="process-math">\(x \to \infty\)</span> provided that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1118,19 +1149,19 @@ q(x) =  \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10}
 </div></section><section class="subsection" id="subsection-50"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.8.3</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-3097"><ul class="disc">
-<li id="li-1992"><div class="para logical" id="p-3098">
-<div class="para">Derivatives can be used to help us evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\)</span> through L'Hôpital's Rule, by replacing the functions in the numerator and denominator with their tangent line approximations. In particular, if <span class="process-math">\(f(a) = g(a) = 0\)</span> and <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable at <span class="process-math">\(a\text{,}\)</span> L'Hôpital's Rule tells us that</div>
+<div class="para logical" id="p-3988"><ul class="disc">
+<li id="li-2226"><div class="para logical" id="p-3989">
+<div class="para">Derivatives can be used to help us evaluate indeterminate limits of the form <span class="process-math">\(\frac{0}{0}\)</span> through L’Hôpital’s Rule, by replacing the functions in the numerator and denominator with their tangent line approximations. In particular, if <span class="process-math">\(f(a) = g(a) = 0\)</span> and <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable at <span class="process-math">\(a\text{,}\)</span> L’Hôpital’s Rule tells us that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to a}\frac{f(x)}{g(x)} = \lim_{x \to a}\frac{f'(x)}{g'(x)}\text{.}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-1993"><div class="para" id="p-3099">When we write <span class="process-math">\(x \to \infty\text{,}\)</span> this means that <span class="process-math">\(x\)</span> is increasing without bound. Thus, <span class="process-math">\(\lim_{x \to \infty} f(x) = L\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we like by choosing <span class="process-math">\(x\)</span> to be sufficiently large. Similarly, <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{,}\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as large as we like by choosing <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(a\text{.}\)</span>
+<li id="li-2227"><div class="para" id="p-3990">When we write <span class="process-math">\(x \to \infty\text{,}\)</span> this means that <span class="process-math">\(x\)</span> is increasing without bound. Thus, <span class="process-math">\(\lim_{x \to \infty} f(x) = L\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as close to <span class="process-math">\(L\)</span> as we like by choosing <span class="process-math">\(x\)</span> to be sufficiently large. Similarly, <span class="process-math">\(\lim_{x \to a} f(x) = \infty\text{,}\)</span> means that we can make <span class="process-math">\(f(x)\)</span> as large as we like by choosing <span class="process-math">\(x\)</span> sufficiently close to <span class="process-math">\(a\text{.}\)</span>
 </div></li>
-<li id="li-1994"><div class="para logical" id="p-3100">
-<div class="para">A version of L'Hôpital's Rule also helps us evaluate indeterminate limits of the form <span class="process-math">\(\frac{\infty}{\infty}\text{.}\)</span> If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable and both approach zero or both approach <span class="process-math">\(\pm \infty\)</span> as <span class="process-math">\(x \to a\)</span> (where <span class="process-math">\(a\)</span> is allowed to be <span class="process-math">\(\infty\)</span>), then</div>
+<li id="li-2228"><div class="para logical" id="p-3991">
+<div class="para">A version of L’Hôpital’s Rule also helps us evaluate indeterminate limits of the form <span class="process-math">\(\frac{\infty}{\infty}\text{.}\)</span> If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable and both approach zero or both approach <span class="process-math">\(\pm \infty\)</span> as <span class="process-math">\(x \to a\)</span> (where <span class="process-math">\(a\)</span> is allowed to be <span class="process-math">\(\infty\)</span>), then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to a} \frac{f(x)}{g(x)} = \lim_{x \to a} \frac{f'(x)}{g'(x)}\text{.}
@@ -1140,79 +1171,156 @@ q(x) =  \frac{3x^2 - 4x + 5}{7x^2 + 9x - 10}
 </ul></div></section><section class="exercises" id="ez-2-8"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">2.8.4</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="ez-2-8-WW1"><h4 class="heading">
-<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">L'Hôpital's Rule with graphs.</span>
-</h4>
-<div id="webwork-96" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="96" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec7/Q01.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-96-button" class="webwork-button activate" onclick="handleWW('webwork-96')" aria-labelledby="webwork-96-button-label"><span id="webwork-96-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-3101">For the figures below, determine the nature of <span class="process-math">\(\displaystyle \lim_{x\to a}\,\frac{f(x)}{g(x)}\text{,}\)</span> if <span class="process-math">\(f(x)\)</span> is shown as the blue curve and <span class="process-math">\(g(x)\)</span> as the black curve.</div> <div class="tabular-box natural-width"><table class="tabular">
+<article class="exercise exercise-like" id="Library__Michigan__Chap4Sec7__Q07.pg"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap4Sec7__Q07.pg"><div id="boelkins-ACS__Library__Michigan__Chap4Sec7__Q07.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="147" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec7/Q07.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap4Sec7__Q07.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-3992">Based on your knowledge of the behavior of the numerator and denominator, predict the value of the limit <span class="process-math">\(\displaystyle\lim_{x\to0^+}\frac{\sin x}{x^{1/3}}\)</span>
+</div> <div class="para" id="p-3993">the limit is <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-3994">Find the limit using l’Hopital’s rule:</div> <div class="para" id="p-3995">
+<span class="process-math">\(\displaystyle\lim_{x\to0^{+}}\frac{\sin x}{x^{1/3}} =
+\displaystyle\lim_{x\to0^{+}}\)</span> [ <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> / <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> ] = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__ma122DB__set8__s4_4_13.pg"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__ma122DB__set8__s4_4_13.pg"><div id="boelkins-ACS__Library__ma122DB__set8__s4_4_13.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="148" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ma122DB/set8/s4_4_13.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__ma122DB__set8__s4_4_13.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-4000">Evaluate the following limit using L’Hospital’s rule where appropriate.</div> <div class="para logical" id="p-4001"><div class="displaymath process-math">
+\begin{equation*}
+\lim_{ x \rightarrow 0 } \frac{\sin(7 x)}{\tan
+(11 x)}
+\end{equation*}
+</div></div> <div class="para" id="p-4002">Answer: <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__UMN__calculusStewartCCC__s_4_5_28.pg"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_28.pg"><div id="boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_28.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="149" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UMN/calculusStewartCCC/s_4_5_28.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_28.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-4004">
+<div class="para">Find the limit.  Use l’Hospital’s Rule where appropriate.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x \to -\infty} x^{2} e^{x}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-4005">Limit: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__UMN__calculusStewartCCC__s_4_5_14.pg"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_14.pg"><div id="boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_14.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="150" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UMN/calculusStewartCCC/s_4_5_14.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_14.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-4007">
+<div class="para">Find the limit.  Use l’Hospital’s Rule where appropriate.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x \to \infty} \frac{8(\ln x)^3}{x}
+\end{equation*}
+</div>
+</div> <div class="para" id="p-4008">Limit: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__UMN__calculusStewartCCC__s_4_5_73.pg"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_73.pg"><div id="boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_73.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="151" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UMN/calculusStewartCCC/s_4_5_73.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__UMN__calculusStewartCCC__s_4_5_73.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-4010">
+<div class="para">If <span class="process-math">\(f'\)</span> is continuous, <span class="process-math">\(f(7)=0,\)</span> and <span class="process-math">\(f'(7)=13,\)</span> evaluate</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x \to 0} \frac{f( 7 + 3 x)+f( 7 + 5 x)}{x}.
+\end{equation*}
+</div>
+</div> <div class="para" id="p-4011">Limit: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__UVA-Stew5e__setUVA-Stew5e-C02S06-InfLimits__2-6-17.pg"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__UVA-Stew5e__setUVA-Stew5e-C02S06-InfLimits__2-6-17.pg"><div id="boelkins-ACS__Library__UVA-Stew5e__setUVA-Stew5e-C02S06-InfLimits__2-6-17.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="152" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/2.8HW_prob6.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__UVA-Stew5e__setUVA-Stew5e-C02S06-InfLimits__2-6-17.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-4013">Evaluate the limit</div> <div class="para logical" id="p-4014">
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{ x \rightarrow \infty } \frac {\sqrt{ 10 + 4 x^2 }  }{( 3 + 2 x ) }
+\end{equation*}
+</div>
+<div class="para">Enter <em class="alert">I</em> for <span class="process-math">\(\infty\text{,}\)</span> <em class="alert">-I</em> for <span class="process-math">\(-\infty\text{,}\)</span> and <em class="alert">DNE</em> if the limit does not exist.</div>
+</div> <div class="para" id="p-4015">Limit = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__UCSB__Stewart5_2_6__Stewart5_2_6_54.pg"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__UCSB__Stewart5_2_6__Stewart5_2_6_54.pg"><div id="boelkins-ACS__Library__UCSB__Stewart5_2_6__Stewart5_2_6_54.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="153" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UCSB/Stewart5_2_6/Stewart5_2_6_54.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__UCSB__Stewart5_2_6__Stewart5_2_6_54.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-4017">A tank contains <span class="process-math">\(5000\)</span> L of pure water. Brine that contains <span class="process-math">\(30\)</span> g of salt per liter of water is pumped into the tank at a rate of <span class="process-math">\(25\)</span> L/min. The concentration of salt after <span class="process-math">\(t\)</span> minutes can be shown to be given by:</div> <div class="para logical" id="p-4018"><div class="displaymath process-math">
+\begin{equation*}
+C(t)=\displaystyle \frac{30t}{200+t}
+\end{equation*}
+</div></div> <div class="para" id="p-4019">What happens to the concentration as <span class="process-math">\(t \to \infty\text{?}\)</span>
+</div> <div class="para" id="p-4020">
+<span class="process-math">\(\displaystyle \lim_{ t \to \infty} C(t)=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> g/L</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__ma122DB__set2__s2_6_21.pg"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__ma122DB__set2__s2_6_21.pg"><div id="boelkins-ACS__Library__ma122DB__set2__s2_6_21.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="154" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ma122DB/set2/s2_6_21.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__ma122DB__set2__s2_6_21.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-4022">Evaluate the limit</div> <div class="para logical" id="p-4023"><div class="displaymath process-math">
+\begin{equation*}
+\lim_{ x \rightarrow \infty } \left(\sqrt{ x^2+2 } - \sqrt{x^2-7}\right)
+\end{equation*}
+</div></div> <div class="para" id="p-4024">Answer: <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap4Sec7__Q15.pg"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap4Sec7__Q15.pg"><div id="boelkins-ACS__Library__Michigan__Chap4Sec7__Q15.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="155" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec7/Q15.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap4Sec7__Q15.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-4028">The functions <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> and their tangent lines at <span class="process-math">\((4,0)\)</span> are shown in the figure below.</div> <div class="image-box" style="width: 58%; margin-left: 21%; margin-right: 21%;"><img src="generated/webwork/images/webwork-155-image-1.png" class="contained"></div> <div class="para" id="p-4029">
+<span class="process-math">\(f\)</span> is shown in blue, <span class="process-math">\(g\)</span> in black, and the tangent line to <span class="process-math">\(f\)</span> is <span class="process-math">\(y = 0.8 (x - 4)\text{,}\)</span> and is graphed in red, and the tangent line to <span class="process-math">\(g\)</span> is <span class="process-math">\(y = -0.4 (x - 4)\text{,}\)</span> and is graphed in green.</div> <div class="para" id="p-4030">Find the limit</div> <div class="para" id="p-4031">
+<span class="process-math">\(\displaystyle\lim_{x\to 4} \frac{f(x)}{g(x)} =\)</span> <span class="fillin underline" role="img" aria-label="5-character blank" style="width: 2.272727272727273em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap4Sec7__Q01.pg"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap4Sec7__Q01.pg"><div id="boelkins-ACS__Library__Michigan__Chap4Sec7__Q01.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="156" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec7/Q01.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap4Sec7__Q01.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-4033">For the figures below, determine the nature of <span class="process-math">\(\displaystyle \lim_{x\to a}\,\frac{f(x)}{g(x)}\text{,}\)</span> if <span class="process-math">\(f(x)\)</span> is shown as the blue curve and <span class="process-math">\(g(x)\)</span> as the black curve.</div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
-<td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-96-image-1.png" class="contained"></div></td>
-<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 41.6666666666667%; margin-left: 29.1666666666667%; margin-right: 29.1666666666667%;"><img src="generated/webwork/images/webwork-96-image-2.png" class="contained"></div></td>
+<td class="l m b2 r2 l2 t2 lines"><div class="image-box" style="width: 41%; margin-left: 29.5%; margin-right: 29.5%;"><img src="generated/webwork/images/webwork-156-image-1.png" class="contained"></div></td>
+<td class="l m b2 r2 l0 t2 lines"><div class="image-box" style="width: 41%; margin-left: 29.5%; margin-right: 29.5%;"><img src="generated/webwork/images/webwork-156-image-2.png" class="contained"></div></td>
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines">
 <span class="process-math">\(\displaystyle \lim_{x\to a}\,\frac{f(x)}{g(x)} =\)</span><ul style="list-style:circle;">
-<li id="li-1996"><div class="para" id="p-derived-li-1996">positive</div></li>
-<li id="li-1997"><div class="para" id="p-derived-li-1997">negative</div></li>
-<li id="li-1998"><div class="para" id="p-derived-li-1998">zero</div></li>
-<li id="li-1999"><div class="para" id="p-derived-li-1999">undefined</div></li>
+<li id="li-2230"><div class="para" id="p-derived-li-2230">positive</div></li>
+<li id="li-2231"><div class="para" id="p-derived-li-2231">negative</div></li>
+<li id="li-2232"><div class="para" id="p-derived-li-2232">zero</div></li>
+<li id="li-2233"><div class="para" id="p-derived-li-2233">undefined</div></li>
 </ul>
 </td>
 <td class="l m b2 r2 l0 t0 lines">
 <span class="process-math">\(\displaystyle \lim_{x\to a}\,\frac{f(x)}{g(x)} =\)</span><ul style="list-style:circle;">
-<li id="li-2001"><div class="para" id="p-derived-li-2001">positive</div></li>
-<li id="li-2002"><div class="para" id="p-derived-li-2002">negative</div></li>
-<li id="li-2003"><div class="para" id="p-derived-li-2003">zero</div></li>
-<li id="li-2004"><div class="para" id="p-derived-li-2004">undefined</div></li>
+<li id="li-2235"><div class="para" id="p-derived-li-2235">positive</div></li>
+<li id="li-2236"><div class="para" id="p-derived-li-2236">negative</div></li>
+<li id="li-2237"><div class="para" id="p-derived-li-2237">zero</div></li>
+<li id="li-2238"><div class="para" id="p-derived-li-2238">undefined</div></li>
 </ul>
 </td>
 </tr>
 </table></div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-8-WW2"><h4 class="heading">
-<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">L'Hôpital's Rule to evaluate a limit.</span>
-</h4>
-<div id="webwork-97" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="97" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec7/Q17.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-97-button" class="webwork-button activate" onclick="handleWW('webwork-97')" aria-labelledby="webwork-97-button-label"><span id="webwork-97-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-3104">Find the limit: <span class="process-math">\(\displaystyle \lim_{x \rightarrow 4}\frac{\ln(x/4)}{x^2 - 16} =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div> <div class="para" id="p-3105"><em class="emphasis">(Enter <em class="alert">undefined</em> if the limit does not exist.)</em></div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-8-WW3"><h4 class="heading">
-<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Determining if L'Hôpital's Rule applies.</span>
-</h4>
-<div id="webwork-98" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="98" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives21LHospital/osu_dr_21_2.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-98-button" class="webwork-button activate" onclick="handleWW('webwork-98')" aria-labelledby="webwork-98-button-label"><span id="webwork-98-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-3107">Compute the following limits using l'H\^opital's rule if appropriate. Use INF to denote <span class="process-math">\(\infty\)</span> and MINF to denote <span class="process-math">\(-\infty\text{.}\)</span>
-</div> <div class="para" id="p-3108">
-<span class="process-math">\(\displaystyle \lim_{x\to 0} \frac{1-\cos(7 x)}{1-\cos(3 x)}\)</span> =  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-3109">
-<span class="process-math">\(\displaystyle \lim_{x\to 1} \frac{4^x-3^x -1}{x^2-1}\)</span> =  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-8-WW6"><h4 class="heading">
-<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Using L'Hôpital's Rule multiple times.</span>
-</h4>
-<div id="webwork-99" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="99" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives21LHospital/ur_dr_21_1.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-99-button" class="webwork-button activate" onclick="handleWW('webwork-99')" aria-labelledby="webwork-99-button-label"><span id="webwork-99-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-3112">Evaluate the limit using L'Hopital's rule.</div> <div class="para" id="p-3113">
-<span class="process-math">\(\displaystyle \lim_{ x \rightarrow \infty } \frac{15 x^3}{e^{2 x}} =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-141"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3115">
+</div></div></div></article><article class="exercise exercise-like" id="exercise-182"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
+<div class="para logical" id="p-4036">
 <div class="para">Let <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> be differentiable functions about which the following information is known: <span class="process-math">\(f(3) = g(3) = 0\text{,}\)</span> <span class="process-math">\(f'(3) = g'(3) = 0\text{,}\)</span> <span class="process-math">\(f''(3) = -2\text{,}\)</span> and <span class="process-math">\(g''(3) = 1\text{.}\)</span> Let a new function <span class="process-math">\(h\)</span> be given by the rule <span class="process-math">\(h(x) = \frac{f(x)}{g(x)}\text{.}\)</span> On the same set of axes, sketch possible graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> near <span class="process-math">\(x = 3\text{,}\)</span> and use the provided information to determine the value of</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \lim_{x \to 3} h(x)\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-3116">Provide explanation to support your conclusion.</div></article><article class="exercise exercise-like" id="exercise-142"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3119">
+</div> <div class="para" id="p-4037">Provide explanation to support your conclusion.</div></article><article class="exercise exercise-like" id="exercise-183"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
+<div class="para logical" id="p-4040">
 <div class="para">Find all vertical and horizontal asymptotes of the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1221,31 +1329,31 @@ R(x) = \frac{3(x-a)(x-b)}{5(x-a)(x-c)}\text{,}
 </div>
 <div class="para">where <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\)</span> are distinct, arbitrary constants. In addition, state all values of <span class="process-math">\(x\)</span> for which <span class="process-math">\(R\)</span> is not continuous. Sketch a possible graph of <span class="process-math">\(R\text{,}\)</span> clearly labeling the values of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> and <span class="process-math">\(c\text{.}\)</span>
 </div>
-</div></article><article class="exercise exercise-like" id="exercise-143"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3125">
+</div></article><article class="exercise exercise-like" id="exercise-184"><h4 class="heading"><span class="codenumber">13<span class="period">.</span></span></h4>
+<div class="para logical" id="p-4046">
 <div class="para">Consider the function <span class="process-math">\(g(x) = x^{2x}\text{,}\)</span> which is defined for all <span class="process-math">\(x \gt 0\text{.}\)</span> Observe that <span class="process-math">\(\lim_{x \to 0^+} g(x)\)</span> is indeterminate due to its form of <span class="process-math">\(0^0\text{.}\)</span> (Think about how we know that <span class="process-math">\(0^k = 0\)</span> for all <span class="process-math">\(k \gt 0\text{,}\)</span> while <span class="process-math">\(b^0 = 1\)</span> for all <span class="process-math">\(b \ne 0\text{,}\)</span> but that neither rule can apply to <span class="process-math">\(0^0\text{.}\)</span>)</div>
 <ol class="lower-alpha">
-<li id="li-2005"><div class="para" id="p-3126">Let <span class="process-math">\(h(x) = \ln(g(x))\text{.}\)</span> Explain why <span class="process-math">\(h(x) = 2x \ln(x)\text{.}\)</span>
+<li id="li-2239"><div class="para" id="p-4047">Let <span class="process-math">\(h(x) = \ln(g(x))\text{.}\)</span> Explain why <span class="process-math">\(h(x) = 2x \ln(x)\text{.}\)</span>
 </div></li>
-<li id="li-2006"><div class="para" id="p-3127">Next, explain why it is equivalent to write <span class="process-math">\(h(x) = \frac{2\ln(x)}{\frac{1}{x}}\text{.}\)</span>
+<li id="li-2240"><div class="para" id="p-4048">Next, explain why it is equivalent to write <span class="process-math">\(h(x) = \frac{2\ln(x)}{\frac{1}{x}}\text{.}\)</span>
 </div></li>
-<li id="li-2007"><div class="para" id="p-3128">Use L'Hôpital's Rule and your work in (b) to compute <span class="process-math">\(\lim_{x \to 0^+} h(x)\text{.}\)</span>
+<li id="li-2241"><div class="para" id="p-4049">Use L’Hôpital’s Rule and your work in (b) to compute <span class="process-math">\(\lim_{x \to 0^+} h(x)\text{.}\)</span>
 </div></li>
-<li id="li-2008"><div class="para" id="p-3129">Based on the value of <span class="process-math">\(\lim_{x \to 0^+} h(x)\text{,}\)</span> determine <span class="process-math">\(\lim_{x \to 0^+} g(x)\text{.}\)</span>
+<li id="li-2242"><div class="para" id="p-4050">Based on the value of <span class="process-math">\(\lim_{x \to 0^+} h(x)\text{,}\)</span> determine <span class="process-math">\(\lim_{x \to 0^+} g(x)\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-144"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3140">
+</div></article><article class="exercise exercise-like" id="exercise-185"><h4 class="heading"><span class="codenumber">14<span class="period">.</span></span></h4>
+<div class="para logical" id="p-4061">
 <div class="para">Recall we say that function <span class="process-math">\(g\)</span> <dfn class="terminology">dominates</dfn>  function <span class="process-math">\(f\)</span> provided that <span class="process-math">\(\lim_{x \to \infty} f(x) = \infty\text{,}\)</span> <span class="process-math">\(\lim_{x \to \infty} g(x) = \infty\text{,}\)</span> and <span class="process-math">\(\lim_{x \to \infty} \frac{f(x)}{g(x)} = 0\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-2017"><div class="para" id="p-3141">Which function dominates the other: <span class="process-math">\(\ln(x)\)</span> or <span class="process-math">\(\sqrt{x}\text{?}\)</span>
+<li id="li-2251"><div class="para" id="p-4062">Which function dominates the other: <span class="process-math">\(\ln(x)\)</span> or <span class="process-math">\(\sqrt{x}\text{?}\)</span>
 </div></li>
-<li id="li-2018"><div class="para" id="p-3142">Which function dominates the other: <span class="process-math">\(\ln(x)\)</span> or <span class="process-math">\(\sqrt[n]{x}\text{?}\)</span> (<span class="process-math">\(n\)</span> can be any positive integer)</div></li>
-<li id="li-2019"><div class="para" id="p-3143">Explain why <span class="process-math">\(e^x\)</span> will dominate any polynomial function.</div></li>
-<li id="li-2020"><div class="para" id="p-3144">Explain why <span class="process-math">\(x^n\)</span> will dominate <span class="process-math">\(\ln(x)\)</span> for any positive integer <span class="process-math">\(n\text{.}\)</span>
+<li id="li-2252"><div class="para" id="p-4063">Which function dominates the other: <span class="process-math">\(\ln(x)\)</span> or <span class="process-math">\(\sqrt[n]{x}\text{?}\)</span> (<span class="process-math">\(n\)</span> can be any positive integer)</div></li>
+<li id="li-2253"><div class="para" id="p-4064">Explain why <span class="process-math">\(e^x\)</span> will dominate any polynomial function.</div></li>
+<li id="li-2254"><div class="para" id="p-4065">Explain why <span class="process-math">\(x^n\)</span> will dominate <span class="process-math">\(\ln(x)\)</span> for any positive integer <span class="process-math">\(n\text{.}\)</span>
 </div></li>
-<li id="li-2021"><div class="para" id="p-3145">Give any example of two nonlinear functions such that neither dominates the other.</div></li>
+<li id="li-2255"><div class="para" id="p-4066">Give any example of two nonlinear functions such that neither dominates the other.</div></li>
 </ol>
 </div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
 </div></section></div>
@@ -1253,10 +1361,7 @@ R(x) = \frac{3(x-a)(x-b)}{5(x-a)(x-c)}\text{,}
 <a class="previous-button button" href="sec-2-7-implicit.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="C-3.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

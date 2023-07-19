@@ -5,30 +5,48 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AC Euler's method</title>
+<title>AC Euler’s method</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://runestone.academy/ns/books/published/boelkins-ACS/sec-7-3-euler.html">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-7-2-qualitative.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-7.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-7-4-separable.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li class="active">
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -833,47 +820,47 @@ eBookConfig.new_server_prefix = "/ns";
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="sec-7-3-euler"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">7.3</span> <span class="title">Euler's method</span>
+<span class="type">Section</span> <span class="codenumber">7.3</span> <span class="title">Euler’s method</span>
 </h2>
 <article class="objectives goal-like" id="objectives-39"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-4582"><div class="para" id="p-8161">What is Euler's method and how can we use it to approximate the solution to an initial value problem?</div></li>
-<li id="li-4583"><div class="para" id="p-8162">How accurate is Euler's method?</div></li>
-</ul></article><section class="introduction" id="introduction-40"><div class="para" id="p-8163">In <a href="sec-7-2-qualitative.html" class="internal" title="Section 7.2: Qualitative behavior of solutions to DEs">Section 7.2</a>, we saw how a slope field can be used to sketch solutions to a differential equation. In particular, the slope field is a plot of a large collection of tangent lines to a large number of solutions of the differential equation, and we sketch a single solution by simply following these tangent lines. With a little more thought, we can use this same idea to approximate numerically the solutions of a differential equation.</div> <article class="exploration project-like" id="PA-7-3"><h3 class="heading">
+<li id="li-4905"><div class="para" id="p-9596">What is Euler’s method and how can we use it to approximate the solution to an initial value problem?</div></li>
+<li id="li-4906"><div class="para" id="p-9597">How accurate is Euler’s method?</div></li>
+</ul></article><section class="introduction" id="introduction-45"><div class="para" id="p-9598">In <a href="sec-7-2-qualitative.html" class="internal" title="Section 7.2: Qualitative behavior of solutions to DEs">Section 7.2</a>, we saw how a slope field can be used to sketch solutions to a differential equation. In particular, the slope field is a plot of a large collection of tangent lines to a large number of solutions of the differential equation, and we sketch a single solution by simply following these tangent lines. With a little more thought, we can use this same idea to approximate numerically the solutions of a differential equation.</div> <article class="exploration project-like" id="Library__Westmont__ActiveCalculus__Preview_7_3__preview_7_3_all"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">7.3.1</span><span class="period">.</span>
 </h3>
-<div id="webwork-232" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="232" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Westmont/ActiveCalculus/Preview_7_3/preview_7_3_all.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-232-button" class="webwork-button activate" onclick="handleWW('webwork-232')" aria-labelledby="webwork-232-button-label"><span id="webwork-232-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-8164">Consider the initial value problem <span class="process-math">\(\displaystyle{\frac{dy}{dt} = \frac{1}{2}(y+1)}\text{,}\)</span> where <span class="process-math">\(y(0)=0\text{.}\)</span>
-</div> <div class="para" id="p-8165">Use the differential equation to find the slope of the tangent line to the solution curve <span class="process-math">\(y=y(t)\)</span> at <span class="process-math">\(t = 0\text{.}\)</span>
-</div> <div class="para" id="p-8166">Slope = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-8167">Use the given initial value to find the equation of the tangent line to the solution curve at <span class="process-math">\(t = 0\text{.}\)</span>
-</div> <div class="para" id="p-8168">
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Westmont__ActiveCalculus__Preview_7_3__preview_7_3_all"><div id="boelkins-ACS__Library__Westmont__ActiveCalculus__Preview_7_3__preview_7_3_all-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="329" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Westmont/ActiveCalculus/Preview_7_3/preview_7_3_all.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Westmont__ActiveCalculus__Preview_7_3__preview_7_3_all-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-9599">Consider the initial value problem <span class="process-math">\(\displaystyle{\frac{dy}{dt} = \frac{1}{2}(y+1)}\text{,}\)</span> where <span class="process-math">\(y(0)=0\text{.}\)</span>
+</div> <div class="para" id="p-9600">Use the differential equation to find the slope of the tangent line to the solution curve <span class="process-math">\(y=y(t)\)</span> at <span class="process-math">\(t = 0\text{.}\)</span>
+</div> <div class="para" id="p-9601">Slope = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-9602">Use the given initial value to find the equation of the tangent line to the solution curve at <span class="process-math">\(t = 0\text{.}\)</span>
+</div> <div class="para" id="p-9603">
 <span class="process-math">\(y  =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-8169">Use the equation of the tangent line that you just found to approximate <span class="process-math">\(y(2)\text{,}\)</span> the value of the solution at <span class="process-math">\(t=2\text{.}\)</span>
-</div> <div class="para" id="p-8170">
+</div> <div class="para" id="p-9604">Use the equation of the tangent line that you just found to approximate <span class="process-math">\(y(2)\text{,}\)</span> the value of the solution at <span class="process-math">\(t=2\text{.}\)</span>
+</div> <div class="para" id="p-9605">
 <span class="process-math">\(y(2) \approx\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-8171">Assuming that your approximation for <span class="process-math">\(y(2)\)</span> is the actual value of <span class="process-math">\(y(2)\text{,}\)</span> use the differential equation to find the slope of the tangent line to <span class="process-math">\(y=y(t)\)</span> at <span class="process-math">\(t = 2\text{.}\)</span>
-</div> <div class="para" id="p-8172">Slope = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-8173">Use the slope that you just found to find an approximate equation of the tangent line to the solution curve at <span class="process-math">\(t = 2\text{.}\)</span>
-</div> <div class="para" id="p-8174">
+</div> <div class="para" id="p-9606">Assuming that your approximation for <span class="process-math">\(y(2)\)</span> is the actual value of <span class="process-math">\(y(2)\text{,}\)</span> use the differential equation to find the slope of the tangent line to <span class="process-math">\(y=y(t)\)</span> at <span class="process-math">\(t = 2\text{.}\)</span>
+</div> <div class="para" id="p-9607">Slope = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-9608">Use the slope that you just found to find an approximate equation of the tangent line to the solution curve at <span class="process-math">\(t = 2\text{.}\)</span>
+</div> <div class="para" id="p-9609">
 <span class="process-math">\(y  \approx\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-8175">Use the equation of the tangent line that you just found to approximate <span class="process-math">\(y(4)\text{,}\)</span> the value of the solution at <span class="process-math">\(t=4\text{.}\)</span>
-</div> <div class="para" id="p-8176">
+</div> <div class="para" id="p-9610">Use the equation of the tangent line that you just found to approximate <span class="process-math">\(y(4)\text{,}\)</span> the value of the solution at <span class="process-math">\(t=4\text{.}\)</span>
+</div> <div class="para" id="p-9611">
 <span class="process-math">\(y(4) \approx\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article></section><section class="subsection" id="subsection-133"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span>
+</div></div></div></article></section><section class="subsection" id="subsection-133"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span>
 </h3>
-<div class="para" id="p-8183">
-<a href="" class="xref" data-knowl="./knowl/PA-7-3.html" title="Preview Activity 7.3.1">Preview Activity 7.3.1</a> demonstrates an algorithm known as Euler's<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-118" id="fn-118"><sup> 1 </sup></a> Method, which generates a numerical approximation to the solution of an initial value problem. In this algorithm, we will approximate the solution by taking horizontal steps of a fixed size that we denote by <span class="process-math">\(\Delta t\text{.}\)</span>
+<div class="para" id="p-9618">
+<a href="" class="xref" data-knowl="./knowl/Library__Westmont__ActiveCalculus__Preview_7_3__preview_7_3_all.html" title="Preview Activity 7.3.1">Preview Activity 7.3.1</a> demonstrates an algorithm known as Euler’s<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-120" id="fn-120"><sup> 1 </sup></a> Method, which generates a numerical approximation to the solution of an initial value problem. In this algorithm, we will approximate the solution by taking horizontal steps of a fixed size that we denote by <span class="process-math">\(\Delta t\text{.}\)</span>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel top" style="width:47%;">
-<div class="para" id="p-8184">Before explaining the algorithm in detail, let's remember how we compute the slope of a line: the slope is the ratio of the vertical change to the horizontal change, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-3-slope.html" title="Figure 7.3.1">Figure 7.3.1</a>.</div>
-<div class="para logical" id="p-8185">
+<div class="para" id="p-9619">Before explaining the algorithm in detail, let’s remember how we compute the slope of a line: the slope is the ratio of the vertical change to the horizontal change, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-3-slope.html" title="Figure 7.3.1">Figure 7.3.1</a>.</div>
+<div class="para logical" id="p-9620">
 <div class="para">In other words, <span class="process-math">\(m = \frac{\Delta y}{\Delta t}\text{.}\)</span> Solving for <span class="process-math">\(\Delta y\text{,}\)</span> we see that the vertical change is the product of the slope and the horizontal change, or</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -882,9 +869,9 @@ eBookConfig.new_server_prefix = "/ns";
 </div>
 </div>
 </div>
-<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-7-3-slope"><img src="external/images/7_3_slope.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.1<span class="period">.</span></span><span class="space"> </span>The role of slope in Euler's Method.</figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-7-3-slope"><img src="external/images/7_3_slope.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.1<span class="period">.</span></span><span class="space"> </span>The role of slope in Euler’s Method.</figcaption></figure></div>
 </div></div>
-<div class="para logical" id="p-8186">
+<div class="para logical" id="p-9621">
 <div class="para">Now, suppose that we would like to solve the initial value problem</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -892,9 +879,9 @@ eBookConfig.new_server_prefix = "/ns";
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-8187">There is an algorithm by which we can find an algebraic formula for the solution to this initial value problem, and we can check that this solution is <span class="process-math">\(y(t) = t -1 + 2e^{-t}\text{.}\)</span> But we are instead interested in generating an approximate solution by creating a sequence of points <span class="process-math">\((t_i, y_i)\text{,}\)</span> where <span class="process-math">\(y_i\approx y(t_i)\text{.}\)</span> For this first example, we choose <span class="process-math">\(\Delta t = 0.2\text{.}\)</span>
+<div class="para" id="p-9622">There is an algorithm by which we can find an algebraic formula for the solution to this initial value problem, and we can check that this solution is <span class="process-math">\(y(t) = t -1 + 2e^{-t}\text{.}\)</span> But we are instead interested in generating an approximate solution by creating a sequence of points <span class="process-math">\((t_i, y_i)\text{,}\)</span> where <span class="process-math">\(y_i\approx y(t_i)\text{.}\)</span> For this first example, we choose <span class="process-math">\(\Delta t = 0.2\text{.}\)</span>
 </div>
-<div class="para logical" id="p-8188">
+<div class="para logical" id="p-9623">
 <div class="para">Since we know that <span class="process-math">\(y(0) = 1\text{,}\)</span> we will take the initial point to be <span class="process-math">\((t_0,y_0) = (0,1)\)</span> and move horizontally by <span class="process-math">\(\Delta t = 0.2\)</span> to the point <span class="process-math">\((t_1,y_1)\text{.}\)</span> Thus, <span class="process-math">\(t_1=t_0+\Delta t = 0.2\text{.}\)</span> Now, the differential equation tells us that the slope of the tangent line at this point is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -903,18 +890,18 @@ m=\frac{dy}{dt}\bigg\vert_{(0,1)} = 0-1 = -1\text{,}
 </div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><div class="para logical" id="p-8189">
+<div class="sbspanel top" style="width:50%;"><div class="para logical" id="p-9624">
 <div class="para">so to move along the tangent line by taking a horizontal step of size <span class="process-math">\(\Delta t=0.2\text{,}\)</span> we must also move vertically by</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-7-3-euler-points-1.html">
 \begin{equation*}
 \Delta y = m\Delta t = -1\cdot 0.2 = -0.2\text{.}
 \end{equation*}
 </div>
-<div class="para">We then have the approximation <span class="process-math">\(y(0.2) \approx y_1= y_0 + \Delta y = 1 - 0.2 = 0.8\text{.}\)</span> At this point, we have executed one step of Euler's method, as seen graphically in <a href="" class="xref" data-knowl="./knowl/F-7-3-euler-points-1.html" title="Figure 7.3.2">Figure 7.3.2</a>.</div>
+<div class="para">We then have the approximation <span class="process-math">\(y(0.2) \approx y_1= y_0 + \Delta y = 1 - 0.2 = 0.8\text{.}\)</span> At this point, we have executed one step of Euler’s method, as seen graphically in <a href="" class="xref" data-knowl="./knowl/F-7-3-euler-points-1.html" title="Figure 7.3.2">Figure 7.3.2</a>.</div>
 </div></div>
-<div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="F-7-3-euler-points-1"><img src="external/images/7_3_euler_points_1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.2<span class="period">.</span></span><span class="space"> </span>One step of Euler's method.</figcaption></figure></div>
+<div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="F-7-3-euler-points-1"><img src="external/images/7_3_euler_points_1.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.2<span class="period">.</span></span><span class="space"> </span>One step of Euler’s method.</figcaption></figure></div>
 </div></div>
-<div class="para logical" id="p-8190">
+<div class="para logical" id="p-9625">
 <div class="para">Now we repeat this process: at <span class="process-math">\((t_1,y_1) = (0.2,0.8)\text{,}\)</span> the differential equation tells us that the slope is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -923,23 +910,23 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 </div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><div class="para logical" id="p-8191">
+<div class="sbspanel top" style="width:50%;"><div class="para logical" id="p-9626">
 <div class="para">If we move forward horizontally by <span class="process-math">\(\Delta t\)</span> to <span class="process-math">\(t_2=t_1+\Delta = 0.4\text{,}\)</span> we must move vertically by</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-7-3-euler-points-2.html">
 \begin{equation*}
 \Delta y = -0.6\cdot0.2 = -0.12\text{.}
 \end{equation*}
 </div>
-<div class="para">We consequently arrive at <span class="process-math">\(y_2=y_1+\Delta y = 0.8-0.12 = 0.68\text{,}\)</span> which gives <span class="process-math">\(y(0.2)\approx 0.68\text{.}\)</span> Now we have completed the second step of Euler's method, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-3-euler-points-2.html" title="Figure 7.3.3">Figure 7.3.3</a>.</div>
+<div class="para">We consequently arrive at <span class="process-math">\(y_2=y_1+\Delta y = 0.8-0.12 = 0.68\text{,}\)</span> which gives <span class="process-math">\(y(0.2)\approx 0.68\text{.}\)</span> Now we have completed the second step of Euler’s method, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-3-euler-points-2.html" title="Figure 7.3.3">Figure 7.3.3</a>.</div>
 </div></div>
-<div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="F-7-3-euler-points-2"><img src="external/images/7_3_euler_points_2.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.3<span class="period">.</span></span><span class="space"> </span>Two steps of Euler's method.</figcaption></figure></div>
+<div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="F-7-3-euler-points-2"><img src="external/images/7_3_euler_points_2.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.3<span class="period">.</span></span><span class="space"> </span>Two steps of Euler’s method.</figcaption></figure></div>
 </div></div>
-<div class="para" id="p-8192">If we continue in this way, we may generate the points <span class="process-math">\((t_i, y_i)\)</span> shown in <a href="" class="xref" data-knowl="./knowl/F-7-3-Euler-Pts-a.html" title="Figure 7.3.4">Figure 7.3.4</a>. Because we can find a formula for the actual solution <span class="process-math">\(y(t)\)</span> to this differential equation, we can graph <span class="process-math">\(y(t)\)</span> and compare it to the points generated by Euler's method, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-3-Euler-Pts-b.html" title="Figure 7.3.5">Figure 7.3.5</a>.</div>
+<div class="para" id="p-9627">If we continue in this way, we may generate the points <span class="process-math">\((t_i, y_i)\)</span> shown in <a href="" class="xref" data-knowl="./knowl/F-7-3-Euler-Pts-a.html" title="Figure 7.3.4">Figure 7.3.4</a>. Because we can find a formula for the actual solution <span class="process-math">\(y(t)\)</span> to this differential equation, we can graph <span class="process-math">\(y(t)\)</span> and compare it to the points generated by Euler’s method, as shown in <a href="" class="xref" data-knowl="./knowl/F-7-3-Euler-Pts-b.html" title="Figure 7.3.5">Figure 7.3.5</a>.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-7-3-Euler-Pts-a"><img src="external/images/7_3_euler_points_6.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.4<span class="period">.</span></span><span class="space"> </span>The points and piecewise linear approximate solution generated by Euler's method.</figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-7-3-Euler-Pts-a"><img src="external/images/7_3_euler_points_6.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.4<span class="period">.</span></span><span class="space"> </span>The points and piecewise linear approximate solution generated by Euler’s method.</figcaption></figure></div>
 <div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-7-3-Euler-Pts-b"><img src="external/images/7_3_euler.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.5<span class="period">.</span></span><span class="space"> </span>The approximate solution compared to the exact solution (shown in blue).</figcaption></figure></div>
 </div></div>
-<div class="para" id="p-8193">Because we need to generate a large number of points <span class="process-math">\((t_i,y_i)\text{,}\)</span> it is convenient to organize the implementation of Euler's method in a table as shown. We begin with the given initial data.</div>
+<div class="para" id="p-9628">Because we need to generate a large number of points <span class="process-math">\((t_i,y_i)\text{,}\)</span> it is convenient to organize the implementation of Euler’s method in a table as shown. We begin with the given initial data.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="dlH">
 <tr>
 <td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(t_i\)</span></td>
@@ -954,7 +941,7 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 <td class="l m b1 r0 l0 t0 lines"></td>
 </tr>
 </table></div></div></div>
-<div class="para" id="p-8194">From here, we compute the slope of the tangent line <span class="process-math">\(m=dy/dt\)</span> using the formula for <span class="process-math">\(dy/dt\)</span> from the differential equation, and then we find <span class="process-math">\(\Delta y\text{,}\)</span> the change in <span class="process-math">\(y\text{,}\)</span> using the rule <span class="process-math">\(\Delta y = m\Delta t\text{.}\)</span>
+<div class="para" id="p-9629">From here, we compute the slope of the tangent line <span class="process-math">\(m=dy/dt\)</span> using the formula for <span class="process-math">\(dy/dt\)</span> from the differential equation, and then we find <span class="process-math">\(\Delta y\text{,}\)</span> the change in <span class="process-math">\(y\text{,}\)</span> using the rule <span class="process-math">\(\Delta y = m\Delta t\text{.}\)</span>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="JsQ">
 <tr>
@@ -970,7 +957,7 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 <td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(-0.2000\)</span></td>
 </tr>
 </table></div></div></div>
-<div class="para" id="p-8195">Next, we increase <span class="process-math">\(t_i\)</span> by <span class="process-math">\(\Delta t\)</span> and <span class="process-math">\(y_i\)</span> by <span class="process-math">\(\Delta y\)</span> to get</div>
+<div class="para" id="p-9630">Next, we increase <span class="process-math">\(t_i\)</span> by <span class="process-math">\(\Delta t\)</span> and <span class="process-math">\(y_i\)</span> by <span class="process-math">\(\Delta y\)</span> to get</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;"><div class="sbspanel fixed-width top" style="width:100%;"><table class="tabular" id="pzZ">
 <tr>
 <td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(t_i\)</span></td>
@@ -991,8 +978,8 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 <td class="l m b1 r0 l0 t0 lines"></td>
 </tr>
 </table></div></div></div>
-<div class="para" id="p-8196">We continue the process for however many steps we decide, eventually generating a table like <a href="" class="xref" data-knowl="./knowl/T-7-3-Example.html" title="Table 7.3.6: Euler's method for 6 steps with \Delta t = 0.2">Table 7.3.6</a>.</div>
-<figure class="table table-like" id="T-7-3-Example"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.6<span class="period">.</span></span><span class="space"> </span>Euler's method for 6 steps with <span class="process-math">\(\Delta t = 0.2\text{.}\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular" id="ujS">
+<div class="para" id="p-9631">We continue the process for however many steps we decide, eventually generating a table like <a href="" class="xref" data-knowl="./knowl/T-7-3-Example.html" title="Table 7.3.6: Euler’s method for 6 steps with \Delta t = 0.2">Table 7.3.6</a>.</div>
+<figure class="table table-like" id="T-7-3-Example"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.6<span class="period">.</span></span><span class="space"> </span>Euler’s method for 6 steps with <span class="process-math">\(\Delta t = 0.2\text{.}\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular" id="ujS">
 <tr>
 <td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(t_i\)</span></td>
 <td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(y_i\)</span></td>
@@ -1044,7 +1031,7 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 </table></div></figure><article class="activity project-like" id="act-7-3-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.3.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-8197">
+<div class="para logical" id="p-9632">
 <div class="para">Consider the initial value problem</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1052,10 +1039,10 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4584">
-<div class="para" id="p-8198">Use Euler's method with <span class="process-math">\(\Delta t = 0.2\)</span> to approximate the solution at <span class="process-math">\(t_i = 0.2, 0.4, 0.6, 0.8\text{,}\)</span> and <span class="process-math">\(1.0\text{.}\)</span> Record your work in the following table, and sketch the points <span class="process-math">\((t_i, y_i)\)</span> on the axes provided.</div>
+<li id="li-4907">
+<div class="para" id="p-9633">Use Euler’s method with <span class="process-math">\(\Delta t = 0.2\)</span> to approximate the solution at <span class="process-math">\(t_i = 0.2, 0.4, 0.6, 0.8\text{,}\)</span> and <span class="process-math">\(1.0\text{.}\)</span> Record your work in the following table, and sketch the points <span class="process-math">\((t_i, y_i)\)</span> on the axes provided.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel fixed-width top" style="width:47%;"><figure class="table table-like" id="T-act-7-3-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.7<span class="period">.</span></span><span class="space"> </span>Table for recording results of Euler's method.</figcaption><table class="tabular" id="fdD">
+<div class="sbspanel fixed-width top" style="width:47%;"><figure class="table table-like" id="T-act-7-3-1"><table class="tabular" id="fdD">
 <tr>
 <td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(t_i\)</span></td>
 <td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(y_i\)</span></td>
@@ -1098,35 +1085,36 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 <td class="l m b1 r0 l0 t0 lines"></td>
 <td class="l m b1 r0 l0 t0 lines"></td>
 </tr>
-</table></figure></div>
-<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-act-7-3-1-grid"><img src="external/images/7_3_euler_empty.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.8<span class="period">.</span></span><span class="space"> </span>Grid for plotting points generated by Euler's method.</figcaption></figure></div>
+</table>
+<figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.7<span class="period">.</span></span><span class="space"> </span>Table for recording results of Euler’s method.</figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-act-7-3-1-grid"><img src="external/images/7_3_euler_empty.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.8<span class="period">.</span></span><span class="space"> </span>Grid for plotting points generated by Euler’s method.</figcaption></figure></div>
 </div></div>
 </li>
-<li id="li-4585"><div class="para" id="p-8199">Find the exact solution to the original initial value problem and use this function to find the error in your approximation at each one of the points <span class="process-math">\(t_i\text{.}\)</span>
+<li id="li-4908"><div class="para" id="p-9634">Find the exact solution to the original initial value problem and use this function to find the error in your approximation at each one of the points <span class="process-math">\(t_i\text{.}\)</span>
 </div></li>
-<li id="li-4586"><div class="para" id="p-8200">Explain why the value <span class="process-math">\(y_5\)</span> generated by Euler's method for this initial value problem produces the same value as a left Riemann sum for the definite integral <span class="process-math">\(\int_0^1 (2t-1)~dt\text{.}\)</span>
+<li id="li-4909"><div class="para" id="p-9635">Explain why the value <span class="process-math">\(y_5\)</span> generated by Euler’s method for this initial value problem produces the same value as a left Riemann sum for the definite integral <span class="process-math">\(\int_0^1 (2t-1)~dt\text{.}\)</span>
 </div></li>
-<li id="li-4587"><div class="para" id="p-8201">How would your computations differ if the initial value was <span class="process-math">\(y(0) = 1\text{?}\)</span> What does this mean about different solutions to this differential equation?</div></li>
+<li id="li-4910"><div class="para" id="p-9636">How would your computations differ if the initial value was <span class="process-math">\(y(0) = 1\text{?}\)</span> What does this mean about different solutions to this differential equation?</div></li>
 </ol>
 </div></article><article class="activity project-like" id="act-7-3-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.3.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-8213">
+<div class="para logical" id="p-9648">
 <div class="para">Consider the differential equation <span class="process-math">\(\frac{dy}{dt} = 6y-y^2\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4597">
-<div class="para" id="p-8214">Sketch the slope field for this differential equation on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-3-act-2-grid.html" title="Figure 7.3.9">Figure 7.3.9</a>.</div>
+<li id="li-4920">
+<div class="para" id="p-9649">Sketch the slope field for this differential equation on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-3-act-2-grid.html" title="Figure 7.3.9">Figure 7.3.9</a>.</div>
 <figure class="figure figure-like" id="F-7-3-act-2-grid"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/7_3_slopefield.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.9<span class="period">.</span></span><span class="space"> </span>Grid for plotting the slope field of the given differential equation.</figcaption></figure>
 </li>
-<li id="li-4598"><div class="para" id="p-8215">Identify any equilibrium solutions and determine whether they are stable or unstable.</div></li>
-<li id="li-4599"><div class="para" id="p-8216">What is the long-term behavior of the solution that satisfies the initial value <span class="process-math">\(y(0) = 1\text{?}\)</span>
+<li id="li-4921"><div class="para" id="p-9650">Identify any equilibrium solutions and determine whether they are stable or unstable.</div></li>
+<li id="li-4922"><div class="para" id="p-9651">What is the long-term behavior of the solution that satisfies the initial value <span class="process-math">\(y(0) = 1\text{?}\)</span>
 </div></li>
-<li id="li-4600">
-<div class="para" id="p-8217">Using the initial value <span class="process-math">\(y(0) = 1\text{,}\)</span> use Euler's method with <span class="process-math">\(\Delta t = 0.2\)</span> to approximate the solution at <span class="process-math">\(t_i = 0.2, 0.4, 0.6, 0.8\text{,}\)</span> and <span class="process-math">\(1.0\text{.}\)</span> Record your results in <a href="" class="xref" data-knowl="./knowl/T-7-3-act-2.html" title="Table 7.3.10: Table for recording results of Euler's method with \Delta t = 0.2">Table 7.3.10</a> and sketch the corresponding points <span class="process-math">\((t_i, y_i)\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-3-act-2.html" title="Figure 7.3.11">Figure 7.3.11</a>. Note the different horizontal scale on the axes in <a href="" class="xref" data-knowl="./knowl/F-7-3-act-2.html" title="Figure 7.3.11">Figure 7.3.11</a> compared to <a href="" class="xref" data-knowl="./knowl/F-7-3-act-2-grid.html" title="Figure 7.3.9">Figure 7.3.9</a>.</div>
+<li id="li-4923">
+<div class="para" id="p-9652">Using the initial value <span class="process-math">\(y(0) = 1\text{,}\)</span> use Euler’s method with <span class="process-math">\(\Delta t = 0.2\)</span> to approximate the solution at <span class="process-math">\(t_i = 0.2, 0.4, 0.6, 0.8\text{,}\)</span> and <span class="process-math">\(1.0\text{.}\)</span> Record your results in <a href="" class="xref" data-knowl="./knowl/T-7-3-act-2.html" title="Table 7.3.10: Table for recording results of Euler’s method with \Delta t = 0.2">Table 7.3.10</a> and sketch the corresponding points <span class="process-math">\((t_i, y_i)\)</span> on the axes provided in <a href="" class="xref" data-knowl="./knowl/F-7-3-act-2.html" title="Figure 7.3.11">Figure 7.3.11</a>. Note the different horizontal scale on the axes in <a href="" class="xref" data-knowl="./knowl/F-7-3-act-2.html" title="Figure 7.3.11">Figure 7.3.11</a> compared to <a href="" class="xref" data-knowl="./knowl/F-7-3-act-2-grid.html" title="Figure 7.3.9">Figure 7.3.9</a>.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel fixed-width top" style="width:47%;"><figure class="table table-like" id="T-7-3-act-2"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.10<span class="period">.</span></span><span class="space"> </span>Table for recording results of Euler's method with <span class="process-math">\(\Delta t = 0.2\text{.}\)</span></figcaption><table class="tabular" id="ZYl">
+<div class="sbspanel fixed-width top" style="width:47%;"><figure class="table table-like" id="T-7-3-act-2"><table class="tabular" id="ZYl">
 <tr>
 <td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(t_i\)</span></td>
 <td class="l m b2 r0 l0 t1 lines"><span class="process-math">\(y_i\)</span></td>
@@ -1169,17 +1157,18 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 <td class="l m b1 r0 l0 t0 lines"></td>
 <td class="l m b1 r0 l0 t0 lines"></td>
 </tr>
-</table></figure></div>
-<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-7-3-act-2"><img src="external/images/7_3_euler_empty_2.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.11<span class="period">.</span></span><span class="space"> </span>Axes for plotting the results of Euler's method.</figcaption></figure></div>
+</table>
+<figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.10<span class="period">.</span></span><span class="space"> </span>Table for recording results of Euler’s method with <span class="process-math">\(\Delta t = 0.2\text{.}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-7-3-act-2"><img src="external/images/7_3_euler_empty_2.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.11<span class="period">.</span></span><span class="space"> </span>Axes for plotting the results of Euler’s method.</figcaption></figure></div>
 </div></div>
 </li>
-<li id="li-4601"><div class="para" id="p-8218">What happens if we apply Euler's method to approximate the solution with <span class="process-math">\(y(0) = 6\text{?}\)</span>
+<li id="li-4924"><div class="para" id="p-9653">What happens if we apply Euler’s method to approximate the solution with <span class="process-math">\(y(0) = 6\text{?}\)</span>
 </div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-134"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span>
+<span class="type">Subsection</span> <span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span>
 </h3>
-<div class="para logical" id="p-8231">
+<div class="para logical" id="p-9666">
 <div class="para">Since we are approximating the solutions to an initial value problem using tangent lines, we should expect that the error in the approximation will be smaller when the step size is smaller. Consider the initial value problem</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1188,9 +1177,9 @@ m=\frac{dy}{dt}\bigg\vert_{(0.2,0.8)} = 0.2-0.8 = -0.6\text{.}
 </div>
 <div class="para">whose solution we can easily find.</div>
 </div>
-<div class="para" id="p-8232">The question posed by this initial value problem is “what function do we know that is the same as its own derivative and has value 1 when <span class="process-math">\(t=0\text{?}\)</span>” It is not hard to see that the solution is <span class="process-math">\(y(t) = e^t\text{.}\)</span> We now apply Euler's method to approximate <span class="process-math">\(y(1) = e\)</span> using several values of <span class="process-math">\(\Delta t\text{.}\)</span> These approximations will be denoted by <span class="process-math">\(E_{\Delta t}\text{,}\)</span> and we'll use them to see how accurate Euler's Method is.</div>
-<div class="para logical" id="p-8233">
-<div class="para">To begin, we apply Euler's method with a step size of <span class="process-math">\(\Delta t =
+<div class="para" id="p-9667">The question posed by this initial value problem is “what function do we know that is the same as its own derivative and has value 1 when <span class="process-math">\(t=0\text{?}\)</span>” It is not hard to see that the solution is <span class="process-math">\(y(t) = e^t\text{.}\)</span> We now apply Euler’s method to approximate <span class="process-math">\(y(1) = e\)</span> using several values of <span class="process-math">\(\Delta t\text{.}\)</span> These approximations will be denoted by <span class="process-math">\(E_{\Delta t}\text{,}\)</span> and we’ll use them to see how accurate Euler’s Method is.</div>
+<div class="para logical" id="p-9668">
+<div class="para">To begin, we apply Euler’s method with a step size of <span class="process-math">\(\Delta t =
 0.2\text{.}\)</span> In that case, we find that <span class="process-math">\(y(1) \approx E_{0.2} = 2.4883\text{.}\)</span> The error is therefore</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1198,9 +1187,9 @@ y(1) - E_{0.2} = e - 2.4883 \approx 0.2300\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-8234">Repeatedly halving <span class="process-math">\(\Delta t\)</span> gives the following results, expressed in both tabular and graphical form.</div>
+<div class="para" id="p-9669">Repeatedly halving <span class="process-math">\(\Delta t\)</span> gives the following results, expressed in both tabular and graphical form.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel fixed-width top" style="width:47%;"><figure class="table table-like" id="table-31"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.12<span class="period">.</span></span><span class="space"> </span>Errors that correspond to different <span class="process-math">\(\Delta t\)</span> values.</figcaption><table class="tabular" id="BOr">
+<div class="sbspanel fixed-width top" style="width:47%;"><figure class="table table-like" id="table-31"><table class="tabular" id="BOr">
 <tr>
 <td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(\Delta t\)</span></td>
 <td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(E_{\Delta t}\)</span></td>
@@ -1226,12 +1215,13 @@ y(1) - E_{0.2} = e - 2.4883 \approx 0.2300\text{.}
 <td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(2.6851\)</span></td>
 <td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(0.0332\)</span></td>
 </tr>
-</table></figure></div>
-<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="figure-199"><img src="external/images/7_3_error.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.13<span class="period">.</span></span><span class="space"> </span>A plot of the error as a function of <span class="process-math">\(\Delta t\text{.}\)</span></figcaption></figure></div>
+</table>
+<figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.12<span class="period">.</span></span><span class="space"> </span>Errors that correspond to different <span class="process-math">\(\Delta t\)</span> values.</figcaption></figure></div>
+<div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="figure-185"><img src="external/images/7_3_error.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.13<span class="period">.</span></span><span class="space"> </span>A plot of the error as a function of <span class="process-math">\(\Delta t\text{.}\)</span></figcaption></figure></div>
 </div></div>
-<div class="para" id="p-8235">Notice, both numerically and graphically, that the error is roughly halved when <span class="process-math">\(\Delta t\)</span> is halved. This example illustrates the following general principle.</div>
-<div class="para logical" id="p-8236">
-<div class="para">If Euler's method is used to approximate the solution to an initial value problem at a point <span class="process-math">\(\overline{t}\text{,}\)</span> then the error is proportional to <span class="process-math">\(\Delta t\text{.}\)</span> That is,</div>
+<div class="para" id="p-9670">Notice, both numerically and graphically, that the error is roughly halved when <span class="process-math">\(\Delta t\)</span> is halved. This example illustrates the following general principle.</div>
+<div class="para logical" id="p-9671">
+<div class="para">If Euler’s method is used to approximate the solution to an initial value problem at a point <span class="process-math">\(\overline{t}\text{,}\)</span> then the error is proportional to <span class="process-math">\(\Delta t\text{.}\)</span> That is,</div>
 <div class="displaymath process-math">
 \begin{equation*}
 y(\overline{t}) - E_{\Delta t} \approx K\Delta t
@@ -1242,20 +1232,21 @@ y(\overline{t}) - E_{\Delta t} \approx K\Delta t
 </div></section><section class="subsection" id="subsection-135"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">7.3.3</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-8237"><ul class="disc">
-<li id="li-4613"><div class="para" id="p-8238">Euler's method is an algorithm for approximating the solution to an initial value problem by following the tangent lines while we take horizontal steps across the <span class="process-math">\(t\)</span>-axis.</div></li>
-<li id="li-4614"><div class="para" id="p-8239">If we wish to approximate <span class="process-math">\(y(\overline{t})\)</span> for some fixed <span class="process-math">\(\overline{t}\)</span> by taking horizontal steps of size <span class="process-math">\(\Delta t\text{,}\)</span> then the error in our approximation is proportional to <span class="process-math">\(\Delta t\text{.}\)</span>
+<div class="para logical" id="p-9672"><ul class="disc">
+<li id="li-4936"><div class="para" id="p-9673">Euler’s method is an algorithm for approximating the solution to an initial value problem by following the tangent lines while we take horizontal steps across the <span class="process-math">\(t\)</span>-axis.</div></li>
+<li id="li-4937"><div class="para" id="p-9674">If we wish to approximate <span class="process-math">\(y(\overline{t})\)</span> for some fixed <span class="process-math">\(\overline{t}\)</span> by taking horizontal steps of size <span class="process-math">\(\Delta t\text{,}\)</span> then the error in our approximation is proportional to <span class="process-math">\(\Delta t\text{.}\)</span>
 </div></li>
 </ul></div></section><section class="exercises" id="ez-7-3"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">7.3.4</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-340"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div id="webwork-233" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="233" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec3/Q03.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-233-button" class="webwork-button activate" onclick="handleWW('webwork-233')" aria-labelledby="webwork-233-button-label"><span id="webwork-233-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-8240">Consider the solution of the differential equation <span class="process-math">\(y' = 3 y\)</span> passing through <span class="process-math">\(y(0) = 0.5\text{.}\)</span>
-</div> <div class="para" id="p-8241">
-<em class="alert">A.</em> Sketch the slope field for this differential equation, and sketch the solution passing through the point (0,0.5).</div> <div class="para" id="p-8242">
-<em class="alert">B.</em> Use Euler's method with step size <span class="process-math">\(\Delta x=0.2\)</span> to estimate the solution at <span class="process-math">\(x=0.2,0.4,\ldots,1\text{,}\)</span> using these to fill in the following table.  <em class="emphasis">(Be sure <em class="alert">not</em> to round your answers at each step!)</em>
+<article class="exercise exercise-like" id="Library__Michigan__Chap11Sec3__Q03"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap11Sec3__Q03"><div id="boelkins-ACS__Library__Michigan__Chap11Sec3__Q03-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="330" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec3/Q03.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap11Sec3__Q03-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-9675">Consider the solution of the differential equation <span class="process-math">\(y' = - y\)</span> passing through <span class="process-math">\(y(0) = 1\text{.}\)</span>
+</div> <div class="para" id="p-9676">
+<em class="alert">A.</em> Sketch the slope field for this differential equation, and sketch the solution passing through the point (0,1).</div> <div class="para" id="p-9677">
+<em class="alert">B.</em> Use Euler’s method with step size <span class="process-math">\(\Delta x=0.2\)</span> to estimate the solution at <span class="process-math">\(x=0.2,0.4,\ldots,1\text{,}\)</span> using these to fill in the following table.  <em class="emphasis">(Be sure <em class="alert">not</em> to round your answers at each step!)</em>
 </div> <div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b2 r2 l2 t2 lines"><span class="process-math">\(x =\)</span></td>
@@ -1268,100 +1259,99 @@ y(\overline{t}) - E_{\Delta t} \approx K\Delta t
 </tr>
 <tr>
 <td class="l m b2 r2 l2 t0 lines"><span class="process-math">\(y\approx\)</span></td>
-<td class="l m b2 r2 l0 t0 lines">0.5</td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
-<td class="l m b2 r2 l0 t0 lines"></td>
+<td class="l m b2 r2 l0 t0 lines">1</td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></td>
+<td class="l m b2 r2 l0 t0 lines"><span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span></td>
 </tr>
-</table></div> <div class="para" id="p-8243">
+</table></div> <div class="para" id="p-9678">
 <em class="alert">C.</em> Plot your estimated solution on your slope field.  Compare the solution and the slope field. Is the estimated solution an over or under estimate for the actual solution? <ul style="list-style:circle;">
-<li id="li-4615"><div class="para" id="p-8244">over</div></li>
-<li id="li-4616"><div class="para" id="p-8245">under</div></li>
+<li id="li-4938"><div class="para" id="p-9679">over</div></li>
+<li id="li-4939"><div class="para" id="p-9680">under</div></li>
 </ul>
-</div> <div class="para" id="p-8246">
-<em class="alert">D.</em> Check that <span class="process-math">\(y = 0.5 e^{3 x}\)</span> is a solution to <span class="process-math">\(y' = 3 y\)</span> with <span class="process-math">\(y(0) = 0.5\text{.}\)</span>
+</div> <div class="para" id="p-9681">
+<em class="alert">D.</em> Check that <span class="process-math">\(y =  e^{-1 x}\)</span> is a solution to <span class="process-math">\(y' = - y\)</span> with <span class="process-math">\(y(0) = 1\text{.}\)</span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-341"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div id="webwork-234" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="234" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec3/Q09.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-234-button" class="webwork-button activate" onclick="handleWW('webwork-234')" aria-labelledby="webwork-234-button-label"><span id="webwork-234-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8252">
-<div class="para">Use Euler's method to solve</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap11Sec3__Q09"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap11Sec3__Q09"><div id="boelkins-ACS__Library__Michigan__Chap11Sec3__Q09-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="331" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec3/Q09.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap11Sec3__Q09-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9687">
+<div class="para">Use Euler’s method to solve</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dB}{dt}= 0.08 B
+\frac{dB}{dt}= 0.06 B
 \end{equation*}
 </div>
-<div class="para">with initial value <span class="process-math">\(B=1400\)</span> when  <span class="process-math">\(t=0\)</span> .</div>
-</div> <div class="para" id="p-8253">
+<div class="para">with initial value <span class="process-math">\(B=800\)</span> when  <span class="process-math">\(t=0\)</span> .</div>
+</div> <div class="para" id="p-9688">
 <em class="alert">A.</em> <span class="process-math">\(\Delta t = 1\)</span> and 1 step: <span class="process-math">\(B(1) \approx\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-8254">
+</div> <div class="para" id="p-9689">
 <em class="alert">B.</em> <span class="process-math">\(\Delta t = 0.5\)</span> and 2 steps: <span class="process-math">\(B(1) \approx\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-8255">
+</div> <div class="para" id="p-9690">
 <em class="alert">C.</em> <span class="process-math">\(\Delta t = 0.25\)</span> and 4 steps: <span class="process-math">\(B(1) \approx\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-8256">
+</div> <div class="para" id="p-9691">
 <em class="alert">D.</em> Suppose  <span class="process-math">\(B\)</span> is the balance in a bank account earning interest. Be sure that you can explain why the result of your calculation in part (a) is equivalent to compounding the interest once a year instead of continuously.  Then interpret the result of your calculations in parts (b) and (c) in terms of compound interest.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-342"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div id="webwork-235" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="235" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec3/Q05.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-235-button" class="webwork-button activate" onclick="handleWW('webwork-235')" aria-labelledby="webwork-235-button-label"><span id="webwork-235-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8260">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap11Sec3__Q05"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap11Sec3__Q05"><div id="boelkins-ACS__Library__Michigan__Chap11Sec3__Q05-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="332" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec3/Q05.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap11Sec3__Q05-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9695">
 <div class="para">Consider the differential equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\frac{dy}{dx} = 2 x,
+\frac{dy}{dx} = 6 x,
 \end{equation*}
 </div>
-<div class="para">with initial condition <span class="process-math">\(y(0) = 3\text{.}\)</span>
+<div class="para">with initial condition <span class="process-math">\(y(0) = 4\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-8261">
-<em class="alert">A.</em> Use Euler's method with two steps to estimate  <span class="process-math">\(y\)</span>  when  <span class="process-math">\(x=1\text{:}\)</span>
-</div> <div class="para" id="p-8262">
+</div> <div class="para" id="p-9696">
+<em class="alert">A.</em> Use Euler’s method with two steps to estimate  <span class="process-math">\(y\)</span>  when  <span class="process-math">\(x=1\text{:}\)</span>
+</div> <div class="para" id="p-9697">
 <span class="process-math">\(y(1) \approx\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-8263"><em class="emphasis">(Be sure <em class="alert">not</em> to round your calculations at each step!)</em></div> <div class="para" id="p-8264">Now use four steps:</div> <div class="para" id="p-8265">
+</div> <div class="para" id="p-9698"><em class="emphasis">(Be sure <em class="alert">not</em> to round your calculations at each step!)</em></div> <div class="para" id="p-9699">Now use four steps:</div> <div class="para" id="p-9700">
 <span class="process-math">\(y(1) \approx\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-8266"><em class="emphasis">(Be sure <em class="alert">not</em> to round your calculations at each step!)</em></div> <div class="para" id="p-8267">
-<em class="alert">B.</em> What is the solution to this differential equation (with the given initial condition)?</div> <div class="para" id="p-8268">
+</div> <div class="para" id="p-9701"><em class="emphasis">(Be sure <em class="alert">not</em> to round your calculations at each step!)</em></div> <div class="para" id="p-9702">
+<em class="alert">B.</em> What is the solution to this differential equation (with the given initial condition)?</div> <div class="para" id="p-9703">
 <span class="process-math">\(y =\)</span> <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div> <div class="para" id="p-8269">
-<em class="alert">C.</em> What is the magnitude of the error in the two Euler approximations you found?</div> <div class="para" id="p-8270">Magnitude of error in Euler with 2 steps = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-8271">Magnitude of error in Euler with 4 steps = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-8272">
-<em class="alert">D.</em> By what factor should the error in these approximations change (that is, the error with two steps should be what number times the error with four)?</div> <div class="para" id="p-8273">factor = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-8274"><em class="emphasis">(How close to this is the result you obtained above?)</em></div>
+</div> <div class="para" id="p-9704">
+<em class="alert">C.</em> What is the magnitude of the error in the two Euler approximations you found?</div> <div class="para" id="p-9705">Magnitude of error in Euler with 2 steps = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-9706">Magnitude of error in Euler with 4 steps = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-9707">
+<em class="alert">D.</em> By what factor should the error in these approximations change (that is, the error with two steps should be what number times the error with four)?</div> <div class="para" id="p-9708">factor = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-9709"><em class="emphasis">(How close to this is the result you obtained above?)</em></div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-343"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div id="webwork-236" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="236" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec3/Q01.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-236-button" class="webwork-button activate" onclick="handleWW('webwork-236')" aria-labelledby="webwork-236-button-label"><span id="webwork-236-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-8281">Consider the differential equation <span class="process-math">\(y'=-x-y\text{.}\)</span>
-</div> <div class="para" id="p-8282">Use Euler's method with <span class="process-math">\(\Delta x=0.1\)</span> to estimate <span class="process-math">\(y\)</span> when <span class="process-math">\(x=1.4\)</span> for the solution curve satisfying</div> <div class="para" id="p-8283">
-<span class="process-math">\(y(1)=1\)</span> : Euler's approximation gives <span class="process-math">\(y(1.4)\approx\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span>
-</div> <div class="para" id="p-8284">Use Euler's method with <span class="process-math">\(\Delta x=0.1\)</span> to estimate <span class="process-math">\(y\)</span> when <span class="process-math">\(x=2.4\)</span> for the solution curve satisfying <span class="process-math">\(y(1) = 0\)</span> : Euler's approximation gives <span class="process-math">\(y(2.4)\approx\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap11Sec3__Q01"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap11Sec3__Q01"><div id="boelkins-ACS__Library__Michigan__Chap11Sec3__Q01-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="333" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap11Sec3/Q01.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap11Sec3__Q01-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-9716">Consider the differential equation <span class="process-math">\(y'=-x-y\text{.}\)</span>
+</div> <div class="para" id="p-9717">Use Euler’s method with <span class="process-math">\(\Delta x=0.1\)</span> to estimate <span class="process-math">\(y\)</span> when <span class="process-math">\(x=1.4\)</span> for the solution curve satisfying</div> <div class="para" id="p-9718">
+<span class="process-math">\(y(1)=1\)</span> : Euler’s approximation gives <span class="process-math">\(y(1.4)\approx\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span>
+</div> <div class="para" id="p-9719">Use Euler’s method with <span class="process-math">\(\Delta x=0.1\)</span> to estimate <span class="process-math">\(y\)</span> when <span class="process-math">\(x=2.4\)</span> for the solution curve satisfying <span class="process-math">\(y(1) = 0\)</span> : Euler’s approximation gives <span class="process-math">\(y(2.4)\approx\)</span> <span class="fillin underline" role="img" aria-label="8-character blank" style="width: 3.636363636363636em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-344"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div id="webwork-237" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="237" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ2DirectionFields/ur_de_2_6.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-237-button" class="webwork-button activate" onclick="handleWW('webwork-237')" aria-labelledby="webwork-237-button-label"><span id="webwork-237-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-8287">
-<div class="para">Use Euler's method with step size <span class="process-math">\(0.3\)</span> to estimate <span class="process-math">\(y(1.5)\text{,}\)</span> where <span class="process-math">\(y(x)\)</span> is the solution of the initial-value problem</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setDiffEQ2DirectionFields__ur_de_2_6"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setDiffEQ2DirectionFields__ur_de_2_6"><div id="boelkins-ACS__Library__Rochester__setDiffEQ2DirectionFields__ur_de_2_6-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="334" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDiffEQ2DirectionFields/ur_de_2_6.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setDiffEQ2DirectionFields__ur_de_2_6-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-9722">
+<div class="para">Use Euler’s method with step size <span class="process-math">\(0.1\)</span> to estimate <span class="process-math">\(y(0.5)\text{,}\)</span> where <span class="process-math">\(y(x)\)</span> is the solution of the initial-value problem</div>
 <div class="displaymath process-math">
 \begin{equation*}
-y' = 2 x + y^2, \ \ \ y(0)=0.
+y' = 5 x + y^2, \ \ \ y(0)=0.
 \end{equation*}
 </div>
-</div> <div class="para" id="p-8288">
-<span class="process-math">\(y(1.5)=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</div>
+</div> <div class="para" id="p-9723">
+<span class="process-math">\(y(0.5)=\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>.</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-345"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8290">
-<div class="para">Newton's Law of Cooling says that the rate at which an object, such as a cup of coffee, cools is proportional to the difference in the object's temperature and room temperature. If <span class="process-math">\(T(t)\)</span> is the object's temperature and <span class="process-math">\(T_r\)</span> is room temperature, this law is expressed at</div>
+</div></div></div></article><article class="exercise exercise-like" id="exercise-416"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para logical" id="p-9725">
+<div class="para">Newton’s Law of Cooling says that the rate at which an object, such as a cup of coffee, cools is proportional to the difference in the object’s temperature and room temperature. If <span class="process-math">\(T(t)\)</span> is the object’s temperature and <span class="process-math">\(T_r\)</span> is room temperature, this law is expressed at</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{dT}{dt} = -k(T-T_r)\text{,}
@@ -1369,24 +1359,24 @@ y' = 2 x + y^2, \ \ \ y(0)=0.
 </div>
 <div class="para">where <span class="process-math">\(k\)</span> is a constant of proportionality. In this problem, temperature is measured in degrees Fahrenheit and time in minutes.</div>
 <ol class="lower-alpha">
-<li id="li-4617"><div class="para" id="p-8291">Two calculus students, Alice and Bob, enter a 70<span class="process-math">\(^\circ\)</span> classroom at the same time. Each has a cup of coffee that is 100<span class="process-math">\(^\circ\text{.}\)</span> The differential equation for Alice has a constant of proportionality <span class="process-math">\(k=0.5\text{,}\)</span> while the constant of proportionality for Bob is <span class="process-math">\(k=0.1\text{.}\)</span> What is the initial rate of change for Alice's coffee? What is the initial rate of change for Bob's coffee?</div></li>
-<li id="li-4618"><div class="para" id="p-8292">What feature of Alice's and Bob's cups of coffee could explain this difference?</div></li>
-<li id="li-4619"><div class="para logical" id="p-8293">
+<li id="li-4940"><div class="para" id="p-9726">Two calculus students, Alice and Bob, enter a 70<span class="process-math">\(^\circ\)</span> classroom at the same time. Each has a cup of coffee that is 100<span class="process-math">\(^\circ\text{.}\)</span> The differential equation for Alice has a constant of proportionality <span class="process-math">\(k=0.5\text{,}\)</span> while the constant of proportionality for Bob is <span class="process-math">\(k=0.1\text{.}\)</span> What is the initial rate of change for Alice’s coffee? What is the initial rate of change for Bob’s coffee?</div></li>
+<li id="li-4941"><div class="para" id="p-9727">What feature of Alice’s and Bob’s cups of coffee could explain this difference?</div></li>
+<li id="li-4942"><div class="para logical" id="p-9728">
 <div class="para">As the heating unit turns on and off in the room, the temperature in the room is</div>
 <div class="displaymath process-math">
 \begin{equation*}
 T_r=70+10\sin t\text{.}
 \end{equation*}
 </div>
-<div class="para">Implement Euler's method with a step size of <span class="process-math">\(\Delta t = 0.1\)</span> to approximate the temperature of Alice's coffee over the time interval <span class="process-math">\(0\leq t\leq
+<div class="para">Implement Euler’s method with a step size of <span class="process-math">\(\Delta t = 0.1\)</span> to approximate the temperature of Alice’s coffee over the time interval <span class="process-math">\(0\leq t\leq
 50\text{.}\)</span> This will most easily be performed using a spreadsheet such as <em class="emphasis">Excel</em>. Graph the temperature of her coffee and room temperature over this interval.</div>
 </div></li>
-<li id="li-4620"><div class="para" id="p-8294">In the same way, implement Euler's method to approximate the temperature of Bob's coffee over the same time interval. Graph the temperature of his coffee and room temperature over the interval.</div></li>
-<li id="li-4621"><div class="para" id="p-8295">Explain the similarities and differences that you see in the behavior of Alice's and Bob's cups of coffee.</div></li>
+<li id="li-4943"><div class="para" id="p-9729">In the same way, implement Euler’s method to approximate the temperature of Bob’s coffee over the same time interval. Graph the temperature of his coffee and room temperature over the interval.</div></li>
+<li id="li-4944"><div class="para" id="p-9730">Explain the similarities and differences that you see in the behavior of Alice’s and Bob’s cups of coffee.</div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-346"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8308">
-<div class="para">We have seen that the error in approximating the solution to an initial value problem is proportional to <span class="process-math">\(\Delta t\text{.}\)</span> That is, if <span class="process-math">\(E_{\Delta t}\)</span> is the Euler's method approximation to the solution to an initial value problem at <span class="process-math">\(\overline{t}\text{,}\)</span> then</div>
+</div></article><article class="exercise exercise-like" id="exercise-417"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para logical" id="p-9743">
+<div class="para">We have seen that the error in approximating the solution to an initial value problem is proportional to <span class="process-math">\(\Delta t\text{.}\)</span> That is, if <span class="process-math">\(E_{\Delta t}\)</span> is the Euler’s method approximation to the solution to an initial value problem at <span class="process-math">\(\overline{t}\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 y(\overline{t})-E_{\Delta t} \approx K\Delta t
@@ -1394,10 +1384,10 @@ y(\overline{t})-E_{\Delta t} \approx K\Delta t
 </div>
 <div class="para">for some constant of proportionality <span class="process-math">\(K\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-8309">
+</div> <div class="para logical" id="p-9744">
 <div class="para">In this problem, we will see how to use this fact to improve our estimates, using an idea called <em class="emphasis">accelerated convergence</em>.</div>
 <ol class="lower-alpha">
-<li id="li-4632"><div class="para logical" id="p-8310">
+<li id="li-4955"><div class="para logical" id="p-9745">
 <div class="para">We will create a new approximation by assuming the error is <em class="emphasis">exactly</em> proportional to <span class="process-math">\(\Delta t\text{,}\)</span> according to the formula</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1414,23 +1404,23 @@ y(1) - 2.5937 =\mathstrut \amp  0.1K\text{.}
 <div class="para">This is a system of two linear equations in the unknowns <span class="process-math">\(y(1)\)</span> and <span class="process-math">\(K\text{.}\)</span> Solve this system to find a new approximation for <span class="process-math">\(y(1)\text{.}\)</span>  (You may remember that the exact value is <span class="process-math">\(y(1) = e =
 2.71828\ldots\text{.}\)</span>)</div>
 </div></li>
-<li id="li-4633"><div class="para" id="p-8311">Use the other data, <span class="process-math">\(E_{0.05} = 2.6533\)</span> and <span class="process-math">\(E_{0.025} = 2.6851\)</span> to do similar work as in (a) to obtain another approximation. Which gives the better approximation? Why do you think this is?</div></li>
-<li id="li-4634"><div class="para logical" id="p-8312">
-<div class="para">Let's now study the initial value problem</div>
+<li id="li-4956"><div class="para" id="p-9746">Use the other data, <span class="process-math">\(E_{0.05} = 2.6533\)</span> and <span class="process-math">\(E_{0.025} = 2.6851\)</span> to do similar work as in (a) to obtain another approximation. Which gives the better approximation? Why do you think this is?</div></li>
+<li id="li-4957"><div class="para logical" id="p-9747">
+<div class="para">Let’s now study the initial value problem</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{dy}{dt} = t-y, \ y(0) = 0\text{.}
 \end{equation*}
 </div>
-<div class="para">Approximate <span class="process-math">\(y(0.3)\)</span> by applying Euler's method to find approximations <span class="process-math">\(E_{0.1}\)</span> and <span class="process-math">\(E_{0.05}\text{.}\)</span> Now use the idea of accelerated convergence to obtain a better approximation.  (For the sake of comparison, you want to  note that the actual value is <span class="process-math">\(y(0.3) =
+<div class="para">Approximate <span class="process-math">\(y(0.3)\)</span> by applying Euler’s method to find approximations <span class="process-math">\(E_{0.1}\)</span> and <span class="process-math">\(E_{0.05}\text{.}\)</span> Now use the idea of accelerated convergence to obtain a better approximation.  (For the sake of comparison, you want to  note that the actual value is <span class="process-math">\(y(0.3) =
 0.0408\text{.}\)</span>)</div>
 </div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-347"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para" id="p-8321">In this problem, we'll modify Euler's method to obtain better approximations to solutions of initial value problems. This method is called the <em class="emphasis">Improved Euler's method.</em>
-</div> <div class="para" id="p-8322">In Euler's method, we walk across an interval of width <span class="process-math">\(\Delta t\)</span> using the slope obtained from the differential equation at the left endpoint of the interval. Of course, the slope of the solution will most likely change over this interval. We can improve our approximation by trying to incorporate the change in the slope over the interval.</div> <div class="para" id="p-8323">Let's again consider the initial value problem <span class="process-math">\(dy/dt = y\)</span> and <span class="process-math">\(y(0) = 1\text{,}\)</span> which we will approximate using steps of width <span class="process-math">\(\Delta t = 0.2\text{.}\)</span> Our first interval is therefore <span class="process-math">\(0\leq t \leq 0.2\text{.}\)</span> At <span class="process-math">\(t=0\text{,}\)</span> the differential equation tells us that the slope is 1, and the approximation we obtain from Euler's method is that <span class="process-math">\(y(0.2)\approx y_1= 1+ 1(0.2)= 1.2\text{.}\)</span>
-</div> <div class="para" id="p-8324">This gives us some idea for how the slope has changed over the interval <span class="process-math">\(0\leq t\leq 0.2\text{.}\)</span> We know the slope at <span class="process-math">\(t=0\)</span> is 1, while the slope at <span class="process-math">\(t=0.2\)</span> is 1.2, trusting in the Euler's method approximation. We will therefore refine our estimate of the initial slope to be the average of these two slopes; that is, we will estimate the slope to be <span class="process-math">\((1+1.2)/2 = 1.1\text{.}\)</span> This gives the new approximation <span class="process-math">\(y(1) = y_1 = 1 + 1.1(0.2) = 1.22\text{.}\)</span>
-</div> <div class="para" id="p-8325">The first few steps look like what is found in <a href="" class="xref" data-knowl="./knowl/T-7-3-ez-3.html" title="Table 7.3.14: The first several steps of the improved Euler's method">Table 7.3.14</a>.</div> <figure class="table table-like" id="T-7-3-ez-3"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.14<span class="period">.</span></span><span class="space"> </span>The first several steps of the improved Euler's method</figcaption><div class="tabular-box natural-width"><table class="tabular" id="PWJ">
+</div></article><article class="exercise exercise-like" id="exercise-418"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para" id="p-9756">In this problem, we’ll modify Euler’s method to obtain better approximations to solutions of initial value problems. This method is called the <em class="emphasis">Improved Euler’s method.</em>
+</div> <div class="para" id="p-9757">In Euler’s method, we walk across an interval of width <span class="process-math">\(\Delta t\)</span> using the slope obtained from the differential equation at the left endpoint of the interval. Of course, the slope of the solution will most likely change over this interval. We can improve our approximation by trying to incorporate the change in the slope over the interval.</div> <div class="para" id="p-9758">Let’s again consider the initial value problem <span class="process-math">\(dy/dt = y\)</span> and <span class="process-math">\(y(0) = 1\text{,}\)</span> which we will approximate using steps of width <span class="process-math">\(\Delta t = 0.2\text{.}\)</span> Our first interval is therefore <span class="process-math">\(0\leq t \leq 0.2\text{.}\)</span> At <span class="process-math">\(t=0\text{,}\)</span> the differential equation tells us that the slope is 1, and the approximation we obtain from Euler’s method is that <span class="process-math">\(y(0.2)\approx y_1= 1+ 1(0.2)= 1.2\text{.}\)</span>
+</div> <div class="para" id="p-9759">This gives us some idea for how the slope has changed over the interval <span class="process-math">\(0\leq t\leq 0.2\text{.}\)</span> We know the slope at <span class="process-math">\(t=0\)</span> is 1, while the slope at <span class="process-math">\(t=0.2\)</span> is 1.2, trusting in the Euler’s method approximation. We will therefore refine our estimate of the initial slope to be the average of these two slopes; that is, we will estimate the slope to be <span class="process-math">\((1+1.2)/2 = 1.1\text{.}\)</span> This gives the new approximation <span class="process-math">\(y(1) = y_1 = 1 + 1.1(0.2) = 1.22\text{.}\)</span>
+</div> <div class="para" id="p-9760">The first few steps look like what is found in <a href="" class="xref" data-knowl="./knowl/T-7-3-ez-3.html" title="Table 7.3.14: The first several steps of the improved Euler’s method">Table 7.3.14</a>.</div> <figure class="table table-like" id="T-7-3-ez-3"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.3.14<span class="period">.</span></span><span class="space"> </span>The first several steps of the improved Euler’s method</figcaption><div class="tabular-box natural-width"><table class="tabular" id="PWJ">
 <tr>
 <td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(t_i\)</span></td>
 <td class="l m b1 r0 l0 t1 lines"><span class="process-math">\(y_i\)</span></td>
@@ -1462,23 +1452,20 @@ y(1) - 2.5937 =\mathstrut \amp  0.1K\text{.}
 <td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
 <td class="l m b1 r0 l0 t0 lines"><span class="process-math">\(\vdots\)</span></td>
 </tr>
-</table></div></figure> <div class="para logical" id="p-8326"><ol class="lower-alpha">
-<li id="li-4641"><div class="para" id="p-8327">Continue with this method to obtain an approximation for <span class="process-math">\(y(1) = e\text{.}\)</span>
+</table></div></figure> <div class="para logical" id="p-9761"><ol class="lower-alpha">
+<li id="li-4964"><div class="para" id="p-9762">Continue with this method to obtain an approximation for <span class="process-math">\(y(1) = e\text{.}\)</span>
 </div></li>
-<li id="li-4642"><div class="para" id="p-8328">Repeat this method with <span class="process-math">\(\Delta t = 0.1\)</span> to obtain a better approximation for <span class="process-math">\(y(1)\text{.}\)</span>
+<li id="li-4965"><div class="para" id="p-9763">Repeat this method with <span class="process-math">\(\Delta t = 0.1\)</span> to obtain a better approximation for <span class="process-math">\(y(1)\text{.}\)</span>
 </div></li>
-<li id="li-4643"><div class="para" id="p-8329">We saw that the error in Euler's method is proportional to <span class="process-math">\(\Delta t\text{.}\)</span> Using your results from parts (a) and (b), what power of <span class="process-math">\(\Delta t\)</span> appears to be proportional to the error in the Improved Euler's Method?</div></li>
+<li id="li-4966"><div class="para" id="p-9764">We saw that the error in Euler’s method is proportional to <span class="process-math">\(\Delta t\text{.}\)</span> Using your results from parts (a) and (b), what power of <span class="process-math">\(\Delta t\)</span> appears to be proportional to the error in the Improved Euler’s Method?</div></li>
 </ol></div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-118"><div class="fn">“Euler” is pronounced “Oy-ler.” Among other things, Euler is the mathematician credited with the famous number <span class="process-math">\(e\text{;}\)</span> if you incorrectly pronounce his name “You-ler,” you fail to appreciate his genius and legacy.</div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-120"><div class="fn">“Euler” is pronounced “Oy-ler.” Among other things, Euler is the mathematician credited with the famous number <span class="process-math">\(e\text{;}\)</span> if you incorrectly pronounce his name “You-ler,” you fail to appreciate his genius and legacy.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-7-2-qualitative.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-7-4-separable.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

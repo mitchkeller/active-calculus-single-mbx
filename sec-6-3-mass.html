@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC Density, Mass, and Center of Mass</title>
@@ -15,20 +15,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-6-2-volume.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-6.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-6-4-physics.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -837,10 +824,10 @@ eBookConfig.new_server_prefix = "/ns";
 </h2>
 <article class="objectives goal-like" id="objectives-34"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-3894"><div class="para" id="p-6979">How are mass, density, and volume related?</div></li>
-<li id="li-3895"><div class="para" id="p-6980">How is the mass of an object with varying density computed?</div></li>
-<li id="li-3896"><div class="para" id="p-6981">What is is the center of mass of an object, and how are definite integrals used to compute it?</div></li>
-</ul></article><section class="introduction" id="introduction-35"><div class="para logical" id="p-6982">
+<li id="li-4199"><div class="para" id="p-8380">How are mass, density, and volume related?</div></li>
+<li id="li-4200"><div class="para" id="p-8381">How is the mass of an object with varying density computed?</div></li>
+<li id="li-4201"><div class="para" id="p-8382">What is is the center of mass of an object, and how are definite integrals used to compute it?</div></li>
+</ul></article><section class="introduction" id="introduction-40"><div class="para logical" id="p-8383">
 <div class="para">Studying the units on the integrand and variable of integration helps us understand the meaning of a definite integral. For instance, if <span class="process-math">\(v(t)\)</span> is the velocity of an object moving along an axis, measured in feet per second, and <span class="process-math">\(t\)</span> measures time in seconds, then both the definite integral and its Riemann sum approximation,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -855,23 +842,24 @@ eBookConfig.new_server_prefix = "/ns";
 \end{equation*}
 </div>
 <div class="para">Thus, <span class="process-math">\(\int_a^b v(t) \, dt\)</span> measures the total change in position of the moving object in feet.</div>
-</div> <div class="para" id="p-6983">Unit analysis will be particularly helpful to us in what follows.</div> <article class="exploration project-like" id="PA-6-3"><h3 class="heading">
+</div> <div class="para" id="p-8384">Unit analysis will be particularly helpful to us in what follows.</div> <article class="exploration project-like" id="ACS__Preview__6-3"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">6.3.1</span><span class="period">.</span>
 </h3>
-<div id="webwork-197" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="197" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Westmont/ActiveCalculus/Preview_6_3/preview_6_3_a.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-197-button" class="webwork-button activate" onclick="handleWW('webwork-197')" aria-labelledby="webwork-197-button-label"><span id="webwork-197-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-6984"><em class="alert">Scenario A</em></div> <div class="para" id="p-6985">In the following scenario, we consider the distribution of a quantity along an axis.</div> <div class="para" id="p-6986">Suppose that the function <span class="process-math">\(c(x) = 200 + 100 e^{-0.1x}\)</span> models the density of traffic on a straight road, measured in cars per mile, where <span class="process-math">\(x\)</span> is number of miles east of a major interchange, and consider the definite integral <span class="process-math">\(\int_0^2 (200 + 100 e^{-0.1x}) \, dx\text{.}\)</span>
-</div> <div class="para" id="p-6987">
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__ACS__Preview__6-3"><div id="boelkins-ACS__ACS__Preview__6-3-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="294" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/6.3Preview.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__ACS__Preview__6-3-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-8385">In each of the following scenarios, we consider the distribution of a quantity along an axis.</div> <div class="para" id="p-8386"><em class="alert">Part a</em></div> <div class="para" id="p-8387">Suppose that the function <span class="process-math">\(c(x) = 200 + 100 e^{-0.1x}\)</span> models the density of traffic on a straight road, measured in cars per mile, where <span class="process-math">\(x\)</span> is number of miles east of a major interchange, and consider the definite integral <span class="process-math">\(\int_0^2 (200 + 100 e^{-0.1x}) \, dx\text{.}\)</span>
+</div> <div class="para" id="p-8388">
 <em class="alert">(i)</em> What are the units on the product <span class="process-math">\(c(x) \cdot \triangle x\text{?}\)</span>
-</div> <div class="para" id="p-6988">Units: <ul style="list-style:circle;">
-<li id="li-3898"><div class="para" id="p-6990">cars</div></li>
-<li id="li-3899"><div class="para" id="p-6991">miles</div></li>
-<li id="li-3900"><div class="para" id="p-6992">cars/mile</div></li>
-<li id="li-3901"><div class="para" id="p-6993">miles/car</div></li>
-<li id="li-3902"><div class="para" id="p-6994">cars*cars</div></li>
-<li id="li-3903"><div class="para" id="p-6995">miles*miles</div></li>
+</div> <div class="para" id="p-8389">Units: <ul style="list-style:circle;">
+<li id="li-4203"><div class="para" id="p-8391">cars</div></li>
+<li id="li-4204"><div class="para" id="p-8392">miles</div></li>
+<li id="li-4205"><div class="para" id="p-8393">cars/mile</div></li>
+<li id="li-4206"><div class="para" id="p-8394">miles/car</div></li>
+<li id="li-4207"><div class="para" id="p-8395">cars*cars</div></li>
+<li id="li-4208"><div class="para" id="p-8396">miles*miles</div></li>
 </ul>
-</div> <div class="para logical" id="p-6996">
+</div> <div class="para logical" id="p-8397">
 <div class="para">
 <em class="alert">(ii)</em> What are the units on the definite integral and its Riemann sum approximation given by</div>
 <div class="displaymath process-math">
@@ -880,25 +868,34 @@ eBookConfig.new_server_prefix = "/ns";
 \end{equation*}
 </div>
 <div class="para">Units: <ul style="list-style:circle;">
-<li id="li-3905"><div class="para" id="p-6998">cars</div></li>
-<li id="li-3906"><div class="para" id="p-6999">miles</div></li>
-<li id="li-3907"><div class="para" id="p-7000">cars/mile</div></li>
-<li id="li-3908"><div class="para" id="p-7001">miles/car</div></li>
-<li id="li-3909"><div class="para" id="p-7002">cars*cars</div></li>
-<li id="li-3910"><div class="para" id="p-7003">miles*miles</div></li>
+<li id="li-4210"><div class="para" id="p-8399">cars</div></li>
+<li id="li-4211"><div class="para" id="p-8400">miles</div></li>
+<li id="li-4212"><div class="para" id="p-8401">cars/mile</div></li>
+<li id="li-4213"><div class="para" id="p-8402">miles/car</div></li>
+<li id="li-4214"><div class="para" id="p-8403">cars*cars</div></li>
+<li id="li-4215"><div class="para" id="p-8404">miles*miles</div></li>
 </ul>
 </div>
-</div> <div class="para" id="p-7004">(iii) Evaluate the definite integral <span class="process-math">\(\int_0^2 c(x) \, dx = \int_0^2 (200 + 100 e^{-0.1x}) \, dx\)</span> and write one sentence to explain the meaning of the value you find.</div> <div class="para" id="p-7005"><em class="alert">Scenario B</em></div> <div class="para" id="p-7006">In the following scenario, we consider the distribution of a quantity along an axis.</div> <div class="para" id="p-7007">On a 6 foot long shelf filled with books, the function <span class="process-math">\(B\)</span> models the distribution of the weight of the books, measured in pounds per inch, where <span class="process-math">\(x\)</span> is the number of inches from the left end of the bookshelf.  Let <span class="process-math">\(B(x)\)</span> be given by the rule <span class="process-math">\(\displaystyle B(x) = 0.5 + \frac{1}{(x+1)^2}\text{.}\)</span>
-</div> <div class="para" id="p-7008">(i) What are the units on the product <span class="process-math">\(B(x) \cdot \triangle x\text{?}\)</span>
-</div> <div class="para" id="p-7009">Units: <ul style="list-style:circle;">
-<li id="li-3912"><div class="para" id="p-7011">pounds</div></li>
-<li id="li-3913"><div class="para" id="p-7012">inches</div></li>
-<li id="li-3914"><div class="para" id="p-7013">pound/inch</div></li>
-<li id="li-3915"><div class="para" id="p-7014">inch/pound</div></li>
-<li id="li-3916"><div class="para" id="p-7015">pound*pound</div></li>
-<li id="li-3917"><div class="para" id="p-7016">inch*inch</div></li>
+</div> <div class="para" id="p-8405">(iii) Evaluate the definite integral <span class="process-math">\(\int_0^2 c(x) \, dx = \int_0^2 (200 + 100 e^{-0.1x}) \, dx =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-8406">What does the answer to the definite integral <span class="process-math">\(\int_0^2 c(x) \, dx\)</span> mean? <ul style="list-style:circle;">
+<li id="li-4217"><div class="para" id="p-8408">The number of cars in the first two miles.</div></li>
+<li id="li-4218"><div class="para" id="p-8409">The number of cars at mile 2.</div></li>
+<li id="li-4219"><div class="para" id="p-8410">The density of cars in the first two miles.</div></li>
+<li id="li-4220"><div class="para" id="p-8411">The density of cars at mile 2.</div></li>
+<li id="li-4221"><div class="para" id="p-8412">The area the cars occupy in the first two miles.</div></li>
+<li id="li-4222"><div class="para" id="p-8413">The area the cars occupy at mile 2.</div></li>
 </ul>
-</div> <div class="para logical" id="p-7017">
+</div> <div class="para" id="p-8414"><em class="alert">Part b</em></div> <div class="para" id="p-8415">On a 6 foot long shelf filled with books, the function <span class="process-math">\(B\)</span> models the distribution of the weight of the books, measured in pounds per inch, where <span class="process-math">\(x\)</span> is the number of inches from the left end of the bookshelf.  Let <span class="process-math">\(B(x)\)</span> be given by the rule <span class="process-math">\(\displaystyle B(x) = 0.5 + \frac{1}{(x+1)^2}\text{.}\)</span>
+</div> <div class="para" id="p-8416">(i) What are the units on the product <span class="process-math">\(B(x) \cdot \triangle x\text{?}\)</span>
+</div> <div class="para" id="p-8417">Units: <ul style="list-style:circle;">
+<li id="li-4224"><div class="para" id="p-8419">pounds</div></li>
+<li id="li-4225"><div class="para" id="p-8420">inches</div></li>
+<li id="li-4226"><div class="para" id="p-8421">pound/inch</div></li>
+<li id="li-4227"><div class="para" id="p-8422">inch/pound</div></li>
+<li id="li-4228"><div class="para" id="p-8423">pound*pound</div></li>
+<li id="li-4229"><div class="para" id="p-8424">inch*inch</div></li>
+</ul>
+</div> <div class="para logical" id="p-8425">
 <div class="para">(ii) What are the units on the definite integral and its Riemann sum approximation given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -906,21 +903,29 @@ eBookConfig.new_server_prefix = "/ns";
 \end{equation*}
 </div>
 <div class="para">Units: <ul style="list-style:circle;">
-<li id="li-3919"><div class="para" id="p-7019">pounds</div></li>
-<li id="li-3920"><div class="para" id="p-7020">inches</div></li>
-<li id="li-3921"><div class="para" id="p-7021">pound/inch</div></li>
-<li id="li-3922"><div class="para" id="p-7022">inch/pound</div></li>
-<li id="li-3923"><div class="para" id="p-7023">pound*pound</div></li>
-<li id="li-3924"><div class="para" id="p-7024">inch*inch</div></li>
+<li id="li-4231"><div class="para" id="p-8427">pounds</div></li>
+<li id="li-4232"><div class="para" id="p-8428">inches</div></li>
+<li id="li-4233"><div class="para" id="p-8429">pound/inch</div></li>
+<li id="li-4234"><div class="para" id="p-8430">inch/pound</div></li>
+<li id="li-4235"><div class="para" id="p-8431">pound*pound</div></li>
+<li id="li-4236"><div class="para" id="p-8432">inch*inch</div></li>
 </ul>
 </div>
-</div> <div class="para" id="p-7025">(iii) Evaluate the definite integral <span class="process-math">\(\displaystyle \int_{0}^{72} B(x) \, dx = \int_0^{72} (0.5 + \frac{1}{(x+1)^2}) \, dx\)</span> and write one sentence to explain the meaning of the value you find.</div>
+</div> <div class="para" id="p-8433">(iii) Evaluate the definite integral <span class="process-math">\(\displaystyle \int_{0}^{72} B(x) \, dx = \int_0^{72} (0.5 + \frac{1}{(x+1)^2}) \, dx=\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-8434">What does the answer to the definite integral <span class="process-math">\(\int_0^{72} B(x) \, dx\)</span> mean? <ul style="list-style:circle;">
+<li id="li-4238"><div class="para" id="p-8436">The total weight of the books on the entire shelf.</div></li>
+<li id="li-4239"><div class="para" id="p-8437">The total weight of the books at the end of the shelf.</div></li>
+<li id="li-4240"><div class="para" id="p-8438">The distribution of the weight of the books on the entire shelf.</div></li>
+<li id="li-4241"><div class="para" id="p-8439">The distribution of the weight of the books at the end of the shelf.</div></li>
+<li id="li-4242"><div class="para" id="p-8440">The area the books occupy on the entire shelf.</div></li>
+<li id="li-4243"><div class="para" id="p-8441">The area the books occupy at the end of the shelf.</div></li>
+</ul>
 </div>
-<div class="problem-buttons"></div>
-</div></article></section><section class="subsection" id="subsection-114"><h3 class="heading hide-type">
+</div>
+</div></div></div></article></section><section class="subsection" id="subsection-114"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.3.1</span> <span class="title">Density</span>
 </h3>
-<div class="para logical" id="p-7030">
+<div class="para logical" id="p-8450">
 <div class="para">The <em class="emphasis">mass</em>  of a quantity, typically measured in metric units such as grams or kilograms, is a measure of the amount of the quantity. In a corresponding way, the <em class="emphasis">density</em> of an object measures the distribution of mass per unit volume. For instance, if a brick has mass 3 kg and volume 0.002 m<span class="process-math">\(^3\text{,}\)</span> then the density of the brick is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -928,8 +933,8 @@ eBookConfig.new_server_prefix = "/ns";
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-7031">As another example, the mass density of water is 1000 kg/m<span class="process-math">\(^3\text{.}\)</span> Each of these relationships demonstrate the following general principle.</div>
-<article class="assemblage assemblage-like" id="assemblage-42"><div class="para logical" id="p-7032">
+<div class="para" id="p-8451">As another example, the mass density of water is 1000 kg/m<span class="process-math">\(^3\text{.}\)</span> Each of these relationships demonstrate the following general principle.</div>
+<article class="assemblage assemblage-like" id="assemblage-42"><div class="para logical" id="p-8452">
 <div class="para">For an object of constant density <span class="process-math">\(d\text{,}\)</span> with mass <span class="process-math">\(m\)</span> and volume <span class="process-math">\(V\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -937,15 +942,15 @@ eBookConfig.new_server_prefix = "/ns";
 d = \frac{m}{V}, \ \text{or}  \ m = d \cdot V\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-7033">But what happens when the density is not constant?</div>
-<div class="para" id="p-7034">The formula <span class="process-math">\(m = d \cdot V\)</span> is reminiscent of two other equations that we have used in our work: for a body moving in a fixed direction, distance = rate <span class="process-math">\(\cdot\)</span> time, and, for a rectangle, its area is given by <span class="process-math">\(A = l \cdot w\text{.}\)</span> These formulas hold when the principal quantities involved, such as the rate the body moves and the height of the rectangle, are <em class="emphasis">constant</em>. When these quantities are not constant, we have turned to the definite integral for assistance. By working with small slices on which the quantity of interest (such as velocity) is approximately constant, we can use a definite integral to add up the values on the pieces.</div>
-<div class="para" id="p-7035">For example, if we have a nonnegative velocity function that is not constant, over a short time interval <span class="process-math">\(\Delta t\)</span> we know that the distance traveled is approximately <span class="process-math">\(v(t) \Delta t\text{,}\)</span> since <span class="process-math">\(v(t)\)</span> is almost constant on a small interval. Similarly, if we are thinking about the area under a nonnegative function <span class="process-math">\(f\)</span> whose value is changing, on a short interval <span class="process-math">\(\Delta x\)</span> the area under the curve is approximately the area of the rectangle whose height is <span class="process-math">\(f(x)\)</span> and whose width is <span class="process-math">\(\Delta x\text{:}\)</span> <span class="process-math">\(f(x) \Delta x\text{.}\)</span> Both of these principles are represented visually in <a href="" class="xref" data-knowl="./knowl/F-6-3-VelArea.html" title="Figure 6.3.1">Figure 6.3.1</a>.</div>
+</div></article><div class="para" id="p-8453">But what happens when the density is not constant?</div>
+<div class="para" id="p-8454">The formula <span class="process-math">\(m = d \cdot V\)</span> is reminiscent of two other equations that we have used in our work: for a body moving in a fixed direction, distance = rate <span class="process-math">\(\cdot\)</span> time, and, for a rectangle, its area is given by <span class="process-math">\(A = l \cdot w\text{.}\)</span> These formulas hold when the principal quantities involved, such as the rate the body moves and the height of the rectangle, are <em class="emphasis">constant</em>. When these quantities are not constant, we have turned to the definite integral for assistance. By working with small slices on which the quantity of interest (such as velocity) is approximately constant, we can use a definite integral to add up the values on the pieces.</div>
+<div class="para" id="p-8455">For example, if we have a nonnegative velocity function that is not constant, over a short time interval <span class="process-math">\(\Delta t\)</span> we know that the distance traveled is approximately <span class="process-math">\(v(t) \Delta t\text{,}\)</span> since <span class="process-math">\(v(t)\)</span> is almost constant on a small interval. Similarly, if we are thinking about the area under a nonnegative function <span class="process-math">\(f\)</span> whose value is changing, on a short interval <span class="process-math">\(\Delta x\)</span> the area under the curve is approximately the area of the rectangle whose height is <span class="process-math">\(f(x)\)</span> and whose width is <span class="process-math">\(\Delta x\text{:}\)</span> <span class="process-math">\(f(x) \Delta x\text{.}\)</span> Both of these principles are represented visually in <a href="" class="xref" data-knowl="./knowl/F-6-3-VelArea.html" title="Figure 6.3.1">Figure 6.3.1</a>.</div>
 <figure class="figure figure-like" id="F-6-3-VelArea"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/6_3_VelArea.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.1<span class="period">.</span></span><span class="space"> </span>At left, estimating a small amount of distance traveled, <span class="process-math">\(v(t) \Delta t\text{,}\)</span> and at right, a small amount of area under the curve, <span class="process-math">\(f(x) \Delta x\text{.}\)</span></figcaption></figure><div class="para" id="p-7036">In a similar way, if the density of some object is not constant, we can use a definite integral to compute the overall mass of the object. We will focus on problems where the density varies in only one dimension, say along a single axis.</div>
-<div class="para" id="p-7037">Let's consider a thin bar of length <span class="process-math">\(b\)</span> whose left end is at the origin, where <span class="process-math">\(x = 0\text{,}\)</span> and assume that the bar has constant cross-sectional area of 1 cm<span class="process-math">\(^2\text{.}\)</span> We let <span class="process-math">\(\rho(x)\)</span> represent the mass density function of the bar, measured in grams per cubic centimeter. That is, given a location <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\rho(x)\)</span> tells us approximately how much mass will be found in a one-centimeter wide slice of the bar at <span class="process-math">\(x\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.1<span class="period">.</span></span><span class="space"> </span>At left, estimating a small amount of distance traveled, <span class="process-math">\(v(t) \Delta t\text{,}\)</span> and at right, a small amount of area under the curve, <span class="process-math">\(f(x) \Delta x\text{.}\)</span></figcaption></figure><div class="para" id="p-8456">In a similar way, if the density of some object is not constant, we can use a definite integral to compute the overall mass of the object. We will focus on problems where the density varies in only one dimension, say along a single axis.</div>
+<div class="para" id="p-8457">Let’s consider a thin bar of length <span class="process-math">\(b\)</span> whose left end is at the origin, where <span class="process-math">\(x = 0\text{,}\)</span> and assume that the bar has constant cross-sectional area of 1 cm<span class="process-math">\(^2\text{.}\)</span> We let <span class="process-math">\(\rho(x)\)</span> represent the mass density function of the bar, measured in grams per cubic centimeter. That is, given a location <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\rho(x)\)</span> tells us approximately how much mass will be found in a one-centimeter wide slice of the bar at <span class="process-math">\(x\text{.}\)</span>
 </div>
 <figure class="figure figure-like" id="F-6-3-Bar"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/6_3_Bar.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.2<span class="period">.</span></span><span class="space"> </span>A thin bar of constant cross-sectional area 1 cm<span class="process-math">\(^2\)</span> with density function <span class="process-math">\(\rho(x)\)</span> g/cm<span class="process-math">\(^3\text{.}\)</span></figcaption></figure><div class="para logical" id="p-7038">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.2<span class="period">.</span></span><span class="space"> </span>A thin bar of constant cross-sectional area 1 cm<span class="process-math">\(^2\)</span> with density function <span class="process-math">\(\rho(x)\)</span> g/cm<span class="process-math">\(^3\text{.}\)</span></figcaption></figure><div class="para logical" id="p-8458">
 <div class="para">The volume of a thin slice of the bar of width <span class="process-math">\(\Delta x\text{,}\)</span> as pictured in <a href="" class="xref" data-knowl="./knowl/F-6-3-Bar.html" title="Figure 6.3.2">Figure 6.3.2</a>, is the cross-sectional area times <span class="process-math">\(\Delta x\text{.}\)</span> Since the cross-sections each have constant area 1 cm<span class="process-math">\(^2\text{,}\)</span> it follows that the volume of the slice is <span class="process-math">\(1 \Delta x\)</span> cm<span class="process-math">\(^3\text{.}\)</span> And because mass is the product of density and volume, we see that the mass of this slice is approximately</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-6-3-Bar.html">
 \begin{equation*}
@@ -953,7 +958,7 @@ d = \frac{m}{V}, \ \text{or}  \ m = d \cdot V\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-7039">
+<div class="para logical" id="p-8459">
 <div class="para">The corresponding Riemann sum (and the integral that it approximates),</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -962,8 +967,8 @@ d = \frac{m}{V}, \ \text{or}  \ m = d \cdot V\text{.}
 </div>
 <div class="para">therefore measure the mass of the bar between <span class="process-math">\(0\)</span> and <span class="process-math">\(b\text{.}\)</span> (The Riemann sum is an approximation, while the integral will be the exact mass.)</div>
 </div>
-<div class="para" id="p-7040">For objects whose cross-sectional area is constant and whose mass is distributed relative to horizontal location, <span class="process-math">\(x\text{,}\)</span> it makes sense to think of the density function <span class="process-math">\(\rho(x)\)</span> with units “mass per unit length,” such as g/cm. Thus, when we compute <span class="process-math">\(\rho(x) \cdot \Delta x\)</span> on a small slice <span class="process-math">\(\Delta x\text{,}\)</span> the resulting units are g/cm <span class="process-math">\(\cdot\)</span> cm = g, which thus measures the mass of the slice. The general principle follows.</div>
-<article class="assemblage assemblage-like" id="assemblage-43"><div class="para logical" id="p-7041">
+<div class="para" id="p-8460">For objects whose cross-sectional area is constant and whose mass is distributed relative to horizontal location, <span class="process-math">\(x\text{,}\)</span> it makes sense to think of the density function <span class="process-math">\(\rho(x)\)</span> with units “mass per unit length,” such as g/cm. Thus, when we compute <span class="process-math">\(\rho(x) \cdot \Delta x\)</span> on a small slice <span class="process-math">\(\Delta x\text{,}\)</span> the resulting units are g/cm <span class="process-math">\(\cdot\)</span> cm = g, which thus measures the mass of the slice. The general principle follows.</div>
+<article class="assemblage assemblage-like" id="assemblage-43"><div class="para logical" id="p-8461">
 <div class="para">For an object of constant cross-sectional area whose mass is distributed along a single axis according to the function <span class="process-math">\(\rho(x)\)</span> (whose units are units of mass per unit of length), the total mass, <span class="process-math">\(M\text{,}\)</span> of the object between <span class="process-math">\(x = a\)</span> and <span class="process-math">\(x = b\)</span> is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -973,24 +978,24 @@ M = \int_a^b \rho(x) \, dx\text{.}
 </div></article><article class="activity project-like" id="act-6-3-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.3.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7042">
+<div class="para logical" id="p-8462">
 <div class="para">Consider the following situations in which mass is distributed in a non-constant manner.</div>
 <ol class="lower-alpha">
-<li id="li-3925"><div class="para" id="p-7043">Suppose that a thin rod with constant cross-sectional area of 1 cm<span class="process-math">\(^2\)</span> has its mass distributed according to the density function <span class="process-math">\(\rho(x) = 2e^{-0.2x}\text{,}\)</span> where <span class="process-math">\(x\)</span> is the distance in cm from the left end of the rod, and the units on <span class="process-math">\(\rho(x)\)</span> are g/cm. If the rod is 10 cm long, determine the exact mass of the rod.</div></li>
-<li id="li-3926"><div class="para logical" id="p-7044">
+<li id="li-4244"><div class="para" id="p-8463">Suppose that a thin rod with constant cross-sectional area of 1 cm<span class="process-math">\(^2\)</span> has its mass distributed according to the density function <span class="process-math">\(\rho(x) = 2e^{-0.2x}\text{,}\)</span> where <span class="process-math">\(x\)</span> is the distance in cm from the left end of the rod, and the units on <span class="process-math">\(\rho(x)\)</span> are g/cm. If the rod is 10 cm long, determine the exact mass of the rod.</div></li>
+<li id="li-4245"><div class="para logical" id="p-8464">
 <div class="para">Consider the cone that has a base of radius 4 m and a height of 5 m. Picture the cone lying horizontally with the center of its base at the origin and think of the cone as a solid of revolution.</div>
 <ol class="lower-roman">
-<li id="li-3927"><div class="para" id="p-7045">Write and evaluate a definite integral whose value is the volume of the cone.</div></li>
-<li id="li-3928"><div class="para" id="p-7046">Next, suppose that the cone has uniform density of 800 kg/m<span class="process-math">\(^3\text{.}\)</span> What is the mass of the solid cone?</div></li>
-<li id="li-3929"><div class="para" id="p-7047">Now suppose that the cone's density is not uniform, but rather that the cone is most dense at its base. In particular, assume that the density of the cone is uniform across cross sections parallel to its base, but that in each such cross section that is a distance <span class="process-math">\(x\)</span> units from the origin, the density of the cross section is given by the function <span class="process-math">\(\rho(x) = 400 + \frac{200}{1+x^2}\text{,}\)</span> measured in kg/m<span class="process-math">\(^3\text{.}\)</span> Determine and evaluate a definite integral whose value is the mass of this cone of non-uniform density. Do so by first thinking about the mass of a given slice of the cone <span class="process-math">\(x\)</span> units away from the base; remember that in such a slice, the density will be <em class="emphasis">essentially constant</em>.</div></li>
+<li id="li-4246"><div class="para" id="p-8465">Write and evaluate a definite integral whose value is the volume of the cone.</div></li>
+<li id="li-4247"><div class="para" id="p-8466">Next, suppose that the cone has uniform density of 800 kg/m<span class="process-math">\(^3\text{.}\)</span> What is the mass of the solid cone?</div></li>
+<li id="li-4248"><div class="para" id="p-8467">Now suppose that the cone’s density is not uniform, but rather that the cone is most dense at its base. In particular, assume that the density of the cone is uniform across cross sections parallel to its base, but that in each such cross section that is a distance <span class="process-math">\(x\)</span> units from the origin, the density of the cross section is given by the function <span class="process-math">\(\rho(x) = 400 + \frac{200}{1+x^2}\text{,}\)</span> measured in kg/m<span class="process-math">\(^3\text{.}\)</span> Determine and evaluate a definite integral whose value is the mass of this cone of non-uniform density. Do so by first thinking about the mass of a given slice of the cone <span class="process-math">\(x\)</span> units away from the base; remember that in such a slice, the density will be <em class="emphasis">essentially constant</em>.</div></li>
 </ol>
 </div></li>
-<li id="li-3930"><div class="para" id="p-7048">Let a thin rod of constant cross-sectional area 1 cm<span class="process-math">\(^2\)</span> and length 12 cm have its mass be distributed according to the density function <span class="process-math">\(\rho(x) = \frac{1}{25}(x-15)^2\text{,}\)</span> measured in g/cm. Find the exact location <span class="process-math">\(z\)</span> at which to cut the bar so that the two pieces will each have identical mass.</div></li>
+<li id="li-4249"><div class="para" id="p-8468">Let a thin rod of constant cross-sectional area 1 cm<span class="process-math">\(^2\)</span> and length 12 cm have its mass be distributed according to the density function <span class="process-math">\(\rho(x) = \frac{1}{25}(x-15)^2\text{,}\)</span> measured in g/cm. Find the exact location <span class="process-math">\(z\)</span> at which to cut the bar so that the two pieces will each have identical mass.</div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-115"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.3.2</span> <span class="title">Weighted Averages</span>
 </h3>
-<div class="para logical" id="p-7069">
+<div class="para logical" id="p-8489">
 <div class="para">The concept of an average is a natural one, and one that we have used repeatedly as part of our understanding of the meaning of the definite integral. If we have <span class="process-math">\(n\)</span> values <span class="process-math">\(a_1\text{,}\)</span> <span class="process-math">\(a_2\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_n\text{,}\)</span> we know that their average is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1004,10 +1009,10 @@ M = \int_a^b \rho(x) \, dx\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-7070">As we continue to think about problems involving the distribution of mass, it is natural to consider the idea of a <em class="emphasis">weighted</em> average,  where certain quantities involved are counted more in the average.</div>
+<div class="para" id="p-8490">As we continue to think about problems involving the distribution of mass, it is natural to consider the idea of a <em class="emphasis">weighted</em> average,  where certain quantities involved are counted more in the average.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:41%;"><div class="para" id="p-7071">A common use of weighted averages is in the computation of a student's GPA, where grades are weighted according to credit hours. Let's consider the scenario in <a href="" class="xref" data-knowl="./knowl/T-6-3-grades.html" title="Table 6.3.3: A college student's semester grades.">Table 6.3.3</a>.</div></div>
-<div class="sbspanel fixed-width top" style="width:53%;"><figure class="table table-like" id="T-6-3-grades"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">6.3.3<span class="period">.</span></span><span class="space"> </span>A college student's semester grades.</figcaption><table class="tabular" id="Ygc">
+<div class="sbspanel top" style="width:41%;"><div class="para" id="p-8491">A common use of weighted averages is in the computation of a student’s GPA, where grades are weighted according to credit hours. Let’s consider the scenario in <a href="" class="xref" data-knowl="./knowl/T-6-3-grades.html" title="Table 6.3.3: A college student’s semester grades.">Table 6.3.3</a>.</div></div>
+<div class="sbspanel fixed-width top" style="width:53%;"><figure class="table table-like" id="T-6-3-grades"><table class="tabular" id="Ygc">
 <tr>
 <td class="l m b1 r0 l0 t1 lines">class</td>
 <td class="c m b1 r0 l0 t1 lines">grade</td>
@@ -1038,17 +1043,18 @@ M = \int_a^b \rho(x) \, dx\text{.}
 <td class="c m b1 r0 l0 t0 lines">2.7</td>
 <td class="c m b1 r0 l0 t0 lines">3</td>
 </tr>
-</table></figure></div>
+</table>
+<figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">6.3.3<span class="period">.</span></span><span class="space"> </span>A college student’s semester grades.</figcaption></figure></div>
 </div></div>
-<div class="para logical" id="p-7072">
-<div class="para">If all of the classes were of the same weight (i.e., the same number of credits), the student's GPA would simply be calculated by taking the average</div>
+<div class="para logical" id="p-8492">
+<div class="para">If all of the classes were of the same weight (i.e., the same number of credits), the student’s GPA would simply be calculated by taking the average</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{3.3 + 3.7 + 2.7 + 2.7}{4} = 3.1\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-7073">
+<div class="para logical" id="p-8493">
 <div class="para">But since the chemistry and calculus courses have higher weights (of 5 and 4 credits respectively), we actually compute the GPA according to the weighted average</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1056,39 +1062,39 @@ M = \int_a^b \rho(x) \, dx\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-7074">The weighted average reflects the fact that chemistry and calculus, as courses with higher credits, have a greater impact on the students' grade point average. Note particularly that in the weighted average, each grade gets multiplied by its weight, and we divide by the sum of the weights.</div>
-<div class="para" id="p-7075">In the following activity, we explore further how weighted averages can be used to find the balancing point of a physical system.</div>
+<div class="para" id="p-8494">The weighted average reflects the fact that chemistry and calculus, as courses with higher credits, have a greater impact on the students’ grade point average. Note particularly that in the weighted average, each grade gets multiplied by its weight, and we divide by the sum of the weights.</div>
+<div class="para" id="p-8495">In the following activity, we explore further how weighted averages can be used to find the balancing point of a physical system.</div>
 <article class="activity project-like" id="act-6-3-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.3.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7076">
+<div class="para logical" id="p-8496">
 <div class="para">For quantities of equal weight, such as two children on a teeter-totter, the balancing point is found by taking the average of their locations. When the weights of the quantities differ, we use a weighted average of their respective locations to find the balancing point.</div>
 <ol class="lower-alpha">
-<li id="li-3946"><div class="para" id="p-7077">Suppose that a shelf is 6 feet long, with its left end situated at <span class="process-math">\(x = 0\text{.}\)</span> If one book of weight 1 lb is placed at <span class="process-math">\(x_1 = 0\text{,}\)</span> and another book of weight 1 lb is placed at <span class="process-math">\(x_2 = 6\text{,}\)</span> what is the location of <span class="process-math">\(\overline{x}\text{,}\)</span> the point at which the shelf would (theoretically) balance on a fulcrum?</div></li>
-<li id="li-3947"><div class="para" id="p-7078">Now, say that we place four books on the shelf, each weighing 1 lb: at <span class="process-math">\(x_1 = 0\text{,}\)</span> at <span class="process-math">\(x_2 = 2\text{,}\)</span> at <span class="process-math">\(x_3 = 4\text{,}\)</span> and at <span class="process-math">\(x_4 = 6\text{.}\)</span> Find <span class="process-math">\(\overline{x}\text{,}\)</span> the balancing point of the shelf.</div></li>
-<li id="li-3948"><div class="para" id="p-7079">How does <span class="process-math">\(\overline{x}\)</span> change if we change the location of the third book? Say the locations of the 1-lb books are <span class="process-math">\(x_1 = 0\text{,}\)</span> <span class="process-math">\(x_2 = 2\text{,}\)</span> <span class="process-math">\(x_3 = 3\text{,}\)</span> and <span class="process-math">\(x_4 = 6\text{.}\)</span>
+<li id="li-4265"><div class="para" id="p-8497">Suppose that a shelf is 6 feet long, with its left end situated at <span class="process-math">\(x = 0\text{.}\)</span> If one book of weight 1 lb is placed at <span class="process-math">\(x_1 = 0\text{,}\)</span> and another book of weight 1 lb is placed at <span class="process-math">\(x_2 = 6\text{,}\)</span> what is the location of <span class="process-math">\(\overline{x}\text{,}\)</span> the point at which the shelf would (theoretically) balance on a fulcrum?</div></li>
+<li id="li-4266"><div class="para" id="p-8498">Now, say that we place four books on the shelf, each weighing 1 lb: at <span class="process-math">\(x_1 = 0\text{,}\)</span> at <span class="process-math">\(x_2 = 2\text{,}\)</span> at <span class="process-math">\(x_3 = 4\text{,}\)</span> and at <span class="process-math">\(x_4 = 6\text{.}\)</span> Find <span class="process-math">\(\overline{x}\text{,}\)</span> the balancing point of the shelf.</div></li>
+<li id="li-4267"><div class="para" id="p-8499">How does <span class="process-math">\(\overline{x}\)</span> change if we change the location of the third book? Say the locations of the 1-lb books are <span class="process-math">\(x_1 = 0\text{,}\)</span> <span class="process-math">\(x_2 = 2\text{,}\)</span> <span class="process-math">\(x_3 = 3\text{,}\)</span> and <span class="process-math">\(x_4 = 6\text{.}\)</span>
 </div></li>
-<li id="li-3949"><div class="para" id="p-7080">Next, suppose that we place four books on the shelf, but of varying weights: at <span class="process-math">\(x_1 = 0\)</span> a 2-lb book, at <span class="process-math">\(x_2 = 2\)</span> a 3-lb book, at <span class="process-math">\(x_3 = 4\)</span> a 1-lb book, and at <span class="process-math">\(x_4 = 6\)</span> a 1-lb book. Use a weighted average of the locations to find <span class="process-math">\(\overline{x}\text{,}\)</span> the balancing point of the shelf. How does the balancing point in this scenario compare to that found in (b)?</div></li>
-<li id="li-3950"><div class="para" id="p-7081">What happens if we change the location of one of the books? Say that we keep everything the same in (d), except that <span class="process-math">\(x_3 = 5\text{.}\)</span> How does <span class="process-math">\(\overline{x}\)</span> change?</div></li>
-<li id="li-3951"><div class="para" id="p-7082">What happens if we change the weight of one of the books? Say that we keep everything the same in (d), except that the book at <span class="process-math">\(x_3 = 4\)</span> now weighs 2 lbs. How does <span class="process-math">\(\overline{x}\)</span> change?</div></li>
-<li id="li-3952"><div class="para" id="p-7083">Experiment with a couple of different scenarios of your choosing where you move one of the books to the left, or you decrease the weight of one of the books.</div></li>
-<li id="li-3953"><div class="para" id="p-7084">Write a couple of sentences to explain how adjusting the location of one of the books or the weight of one of the books affects the location of the balancing point of the shelf. Think carefully here about how your changes should be considered relative to the location of the balancing point <span class="process-math">\(\overline{x}\)</span> of the current scenario.</div></li>
+<li id="li-4268"><div class="para" id="p-8500">Next, suppose that we place four books on the shelf, but of varying weights: at <span class="process-math">\(x_1 = 0\)</span> a 2-lb book, at <span class="process-math">\(x_2 = 2\)</span> a 3-lb book, at <span class="process-math">\(x_3 = 4\)</span> a 1-lb book, and at <span class="process-math">\(x_4 = 6\)</span> a 1-lb book. Use a weighted average of the locations to find <span class="process-math">\(\overline{x}\text{,}\)</span> the balancing point of the shelf. How does the balancing point in this scenario compare to that found in (b)?</div></li>
+<li id="li-4269"><div class="para" id="p-8501">What happens if we change the location of one of the books? Say that we keep everything the same in (d), except that <span class="process-math">\(x_3 = 5\text{.}\)</span> How does <span class="process-math">\(\overline{x}\)</span> change?</div></li>
+<li id="li-4270"><div class="para" id="p-8502">What happens if we change the weight of one of the books? Say that we keep everything the same in (d), except that the book at <span class="process-math">\(x_3 = 4\)</span> now weighs 2 lbs. How does <span class="process-math">\(\overline{x}\)</span> change?</div></li>
+<li id="li-4271"><div class="para" id="p-8503">Experiment with a couple of different scenarios of your choosing where you move one of the books to the left, or you decrease the weight of one of the books.</div></li>
+<li id="li-4272"><div class="para" id="p-8504">Write a couple of sentences to explain how adjusting the location of one of the books or the weight of one of the books affects the location of the balancing point of the shelf. Think carefully here about how your changes should be considered relative to the location of the balancing point <span class="process-math">\(\overline{x}\)</span> of the current scenario.</div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-116"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.3.3</span> <span class="title">Center of Mass</span>
 </h3>
-<div class="para" id="p-7112">In <a href="" class="xref" data-knowl="./knowl/act-6-3-2.html" title="Activity 6.3.3">Activity 6.3.3</a>, we saw that the balancing point of a system of point-masses<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-103" id="fn-103"><sup> 1 </sup></a> (such as books on a shelf) is found by taking a weighted average of their respective locations. In the activity, we were computing the <em class="emphasis">center of mass</em> of a system of masses distributed along an axis, which is the balancing point of the axis on which the masses rest.</div>
+<div class="para" id="p-8532">In <a href="" class="xref" data-knowl="./knowl/act-6-3-2.html" title="Activity 6.3.3">Activity 6.3.3</a>, we saw that the balancing point of a system of point-masses<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-105" id="fn-105"><sup> 1 </sup></a> (such as books on a shelf) is found by taking a weighted average of their respective locations. In the activity, we were computing the <em class="emphasis">center of mass</em> of a system of masses distributed along an axis, which is the balancing point of the axis on which the masses rest.</div>
 <article class="assemblage assemblage-like" id="assemblage-44"><h4 class="heading"><span class="title">Center of Mass (point-masses).</span></h4>
-<div class="para logical" id="p-7113">
+<div class="para logical" id="p-8533">
 <div class="para">For a collection of <span class="process-math">\(n\)</span> masses <span class="process-math">\(m_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(m_n\)</span> that are distributed along a single axis at the locations <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_n\text{,}\)</span> the center of mass  is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \overline{x} = \frac{x_1 m_1  + x_2 m_2 + \cdots + x_n m_n}{m_1 + m_2 + \cdots + m_n}\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-7114">Now consider a thin bar over which density is distributed continuously. If the density is constant, it is obvious that the balancing point of the bar is its midpoint. But if density is not constant, we must compute a weighted average. Let's say that the function <span class="process-math">\(\rho(x)\)</span> tells us the density distribution along the bar, measured in g/cm. If we slice the bar into small sections, we can think of the bar as holding a collection of adjacent point-masses. The mass <span class="process-math">\(m_i\)</span> of a slice of thickness <span class="process-math">\(\Delta x\)</span> at location <span class="process-math">\(x_i\text{,}\)</span> is <span class="process-math">\(m_i \approx \rho(x_i) \Delta x\text{.}\)</span>
+</div></article><div class="para" id="p-8534">Now consider a thin bar over which density is distributed continuously. If the density is constant, it is obvious that the balancing point of the bar is its midpoint. But if density is not constant, we must compute a weighted average. Let’s say that the function <span class="process-math">\(\rho(x)\)</span> tells us the density distribution along the bar, measured in g/cm. If we slice the bar into small sections, we can think of the bar as holding a collection of adjacent point-masses. The mass <span class="process-math">\(m_i\)</span> of a slice of thickness <span class="process-math">\(\Delta x\)</span> at location <span class="process-math">\(x_i\text{,}\)</span> is <span class="process-math">\(m_i \approx \rho(x_i) \Delta x\text{.}\)</span>
 </div>
-<div class="para logical" id="p-7115">
+<div class="para logical" id="p-8535">
 <div class="para">If we slice the bar into <span class="process-math">\(n\)</span> pieces, we can approximate its center of mass by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1102,36 +1108,36 @@ M = \int_a^b \rho(x) \, dx\text{.}
 \end{equation}
 </div>
 </div>
-<div class="para" id="p-7116">The greater the number of slices, the more accurate our estimate of the balancing point will be. The sums in <a href="" class="xref" data-knowl="./knowl/E-CtrOfM.html" title="Equation 6.3.1">Equation (6.3.1)</a> can be viewed as Riemann sums, so in the limit as <span class="process-math">\(n \to \infty\text{,}\)</span> we find that the center of mass is given by the quotient of two integrals.</div>
+<div class="para" id="p-8536">The greater the number of slices, the more accurate our estimate of the balancing point will be. The sums in <a href="" class="xref" data-knowl="./knowl/E-CtrOfM.html" title="Equation 6.3.1">Equation (6.3.1)</a> can be viewed as Riemann sums, so in the limit as <span class="process-math">\(n \to \infty\text{,}\)</span> we find that the center of mass is given by the quotient of two integrals.</div>
 <article class="assemblage assemblage-like" id="assemblage-45"><h4 class="heading"><span class="title">Center of Mass (continuous mass distribution).</span></h4>
-<div class="para logical" id="p-7117">
+<div class="para logical" id="p-8537">
 <div class="para">For a thin rod of density <span class="process-math">\(\rho(x)\)</span> distributed along an axis from <span class="process-math">\(x = a\)</span> to <span class="process-math">\(x = b\text{,}\)</span> the center of mass  of the rod is given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \overline{x} = \frac{\int_a^b x \rho(x) \, dx}{\int_a^b \rho(x) \, dx}\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-7118">Note that the denominator of <span class="process-math">\(\overline{x}\)</span> is the mass of the bar, and that this quotient of integrals is simply the continuous version of the weighted average of locations, <span class="process-math">\(x\text{,}\)</span> along the bar.</div>
+</div></article><div class="para" id="p-8538">Note that the denominator of <span class="process-math">\(\overline{x}\)</span> is the mass of the bar, and that this quotient of integrals is simply the continuous version of the weighted average of locations, <span class="process-math">\(x\text{,}\)</span> along the bar.</div>
 <article class="activity project-like" id="act-6-3-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.3.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7119">
+<div class="para logical" id="p-8539">
 <div class="para">Consider a thin bar of length 20 cm whose density is distributed according to the function <span class="process-math">\(\rho(x) = 4 + 0.1x\text{,}\)</span> where <span class="process-math">\(x = 0\)</span> represents the left end of the bar. Assume that <span class="process-math">\(\rho\)</span> is measured in g/cm and <span class="process-math">\(x\)</span> is measured in cm.</div>
 <ol class="lower-alpha">
-<li id="li-3978"><div class="para" id="p-7120">Find the total mass, <span class="process-math">\(M\text{,}\)</span> of the bar.</div></li>
-<li id="li-3979"><div class="para" id="p-7121">Without doing any calculations, do you expect the center of mass of the bar to be equal to 10, less than 10, or greater than 10? Why?</div></li>
-<li id="li-3980"><div class="para" id="p-7122">Compute <span class="process-math">\(\overline{x}\text{,}\)</span> the exact center of mass of the bar.</div></li>
-<li id="li-3981"><div class="para" id="p-7123">What is the average density of the bar?</div></li>
-<li id="li-3982"><div class="para" id="p-7124">Now consider a different density function, given by <span class="process-math">\(p(x) = 4e^{0.020732x}\text{,}\)</span> also for a bar of length 20 cm whose left end is at <span class="process-math">\(x = 0\text{.}\)</span> Plot both <span class="process-math">\(\rho(x)\)</span> and <span class="process-math">\(p(x)\)</span> on the same axes. Without doing any calculations, which bar do you expect to have the greater center of mass? Why?</div></li>
-<li id="li-3983"><div class="para" id="p-7125">Compute the exact center of mass of the bar described in (e) whose density function is <span class="process-math">\(p(x) = 4e^{0.020732x}\text{.}\)</span> Check the result against the prediction you made in (e).</div></li>
+<li id="li-4297"><div class="para" id="p-8540">Find the total mass, <span class="process-math">\(M\text{,}\)</span> of the bar.</div></li>
+<li id="li-4298"><div class="para" id="p-8541">Without doing any calculations, do you expect the center of mass of the bar to be equal to 10, less than 10, or greater than 10? Why?</div></li>
+<li id="li-4299"><div class="para" id="p-8542">Compute <span class="process-math">\(\overline{x}\text{,}\)</span> the exact center of mass of the bar.</div></li>
+<li id="li-4300"><div class="para" id="p-8543">What is the average density of the bar?</div></li>
+<li id="li-4301"><div class="para" id="p-8544">Now consider a different density function, given by <span class="process-math">\(p(x) = 4e^{0.020732x}\text{,}\)</span> also for a bar of length 20 cm whose left end is at <span class="process-math">\(x = 0\text{.}\)</span> Plot both <span class="process-math">\(\rho(x)\)</span> and <span class="process-math">\(p(x)\)</span> on the same axes. Without doing any calculations, which bar do you expect to have the greater center of mass? Why?</div></li>
+<li id="li-4302"><div class="para" id="p-8545">Compute the exact center of mass of the bar described in (e) whose density function is <span class="process-math">\(p(x) = 4e^{0.020732x}\text{.}\)</span> Check the result against the prediction you made in (e).</div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-117"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.3.4</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-7147"><ul class="disc">
-<li id="li-4002"><div class="para" id="p-7148">For an object of constant density <span class="process-math">\(D\text{,}\)</span> with volume <span class="process-math">\(V\)</span> and mass <span class="process-math">\(m\text{,}\)</span> we know that <span class="process-math">\(m = D \cdot V\text{.}\)</span>
+<div class="para logical" id="p-8567"><ul class="disc">
+<li id="li-4321"><div class="para" id="p-8568">For an object of constant density <span class="process-math">\(D\text{,}\)</span> with volume <span class="process-math">\(V\)</span> and mass <span class="process-math">\(m\text{,}\)</span> we know that <span class="process-math">\(m = D \cdot V\text{.}\)</span>
 </div></li>
-<li id="li-4003"><div class="para logical" id="p-7149">
+<li id="li-4322"><div class="para logical" id="p-8569">
 <div class="para">If an object with constant cross-sectional area (such as a thin bar) has its density distributed along an axis according to the function <span class="process-math">\(\rho(x)\text{,}\)</span> then we can find the mass of the object between <span class="process-math">\(x = a\)</span> and <span class="process-math">\(x = b\)</span> by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1139,7 +1145,7 @@ m = \int_a^b \rho(x) \, dx\text{.}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-4004"><div class="para logical" id="p-7150">
+<li id="li-4323"><div class="para logical" id="p-8570">
 <div class="para">For a system of point-masses distributed along an axis, say <span class="process-math">\(m_1, \ldots,
 m_n\)</span> at locations <span class="process-math">\(x_1, \ldots,
 x_n\text{,}\)</span> the center of mass, <span class="process-math">\(\overline{x}\text{,}\)</span> is given by the weighted average</div>
@@ -1159,103 +1165,100 @@ x_n\text{,}\)</span> the center of mass, <span class="process-math">\(\overline{
 </ul></div></section><section class="exercises" id="ez-0-0-0"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">6.3.5</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="ez-6-3-WW1"><h4 class="heading">
+<article class="exercise exercise-like" id="Library__Michigan__Chap8Sec4__Q03"><h4 class="heading">
 <span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Center of mass for a linear density function.</span>
 </h4>
-<div id="webwork-198" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="198" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap8Sec4/Q03.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-198-button" class="webwork-button activate" onclick="handleWW('webwork-198')" aria-labelledby="webwork-198-button-label"><span id="webwork-198-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-7151">A rod has length 3 meters. At a distance <span class="process-math">\(x\)</span> meters from its left end, the density of the rod is given by <span class="process-math">\(\delta(x)=5 + 3 x\)</span> g/m.</div> <div class="para" id="p-7152">
-<em class="alert">(a)</em> Complete the Riemann sum for the total mass of the rod (use <span class="process-math">\(Dx\)</span> in place of <span class="process-math">\(\Delta x\)</span>):</div> <div class="para" id="p-7153">mass = <span class="process-math">\(\Sigma\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-7154">
-<em class="alert">(b)</em> Convert the Riemann sum to an integral and find the exact mass.</div> <div class="para" id="p-7155">mass = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
-</div> <div class="para" id="p-7156">(include <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-104" id="fn-104"><sup> 2 </sup></a>)</div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap8Sec4__Q03"><div id="boelkins-ACS__Library__Michigan__Chap8Sec4__Q03-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="295" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap8Sec4/Q03.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap8Sec4__Q03-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-8571">A rod has length 4 meters. At a distance <span class="process-math">\(x\)</span> meters from its left end, the density of the rod is given by <span class="process-math">\(\delta(x)=4 + 5 x\)</span> g/m.</div> <div class="para" id="p-8572">
+<em class="alert">(a)</em> Complete the Riemann sum for the total mass of the rod (use <span class="process-math">\(Dx\)</span> in place of <span class="process-math">\(\Delta x\)</span>):</div> <div class="para" id="p-8573">mass = <span class="process-math">\(\Sigma\)</span> <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-8574">
+<em class="alert">(b)</em> Convert the Riemann sum to an integral and find the exact mass.</div> <div class="para" id="p-8575">mass = <span class="fillin underline" role="img" aria-label="15-character blank" style="width: 6.818181818181818em;"></span>
+</div> <div class="para" id="p-8576">(include <a class="external" href="/pg_files/helpFiles/Units.html" target="_blank">help (units)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-106" id="fn-106"><sup> 2 </sup></a>)</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-6-3-WW2"><h4 class="heading">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap8Sec4__Q19"><h4 class="heading">
 <span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Center of mass for a nonlinear density function.</span>
 </h4>
-<div id="webwork-199" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="199" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap8Sec4/Q19.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-199-button" class="webwork-button activate" onclick="handleWW('webwork-199')" aria-labelledby="webwork-199-button-label"><span id="webwork-199-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-7159">A rod with uniform density (mass/unit length) <span class="process-math">\(\delta(x) = 2+\sin\!\left(x\right)\)</span> lies on the <span class="process-math">\(x\)</span>-axis between <span class="process-math">\(x= 0\)</span> and <span class="process-math">\(x= \pi.\)</span>  Find the mass and center of mass of the rod.</div> <div class="para" id="p-7160">mass = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div> <div class="para" id="p-7161">center of mass = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap8Sec4__Q19"><div id="boelkins-ACS__Library__Michigan__Chap8Sec4__Q19-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="296" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap8Sec4/Q19.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap8Sec4__Q19-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-8579">A rod with uniform density (mass/unit length) <span class="process-math">\(\delta(x) = 7+\sin\mathopen{}\left(x\right)\)</span> lies on the <span class="process-math">\(x\)</span>-axis between <span class="process-math">\(x= 0\)</span> and <span class="process-math">\(x= \pi.\)</span>  Find the mass and center of mass of the rod.</div> <div class="para" id="p-8580">mass = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div> <div class="para" id="p-8581">center of mass = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-6-3-WW3"><h4 class="heading">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap8Sec4__Q05"><h4 class="heading">
 <span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Interpreting the density of cars on a road.</span>
 </h4>
-<div id="webwork-200" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="200" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap8Sec4/Q05.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-200-button" class="webwork-button activate" onclick="handleWW('webwork-200')" aria-labelledby="webwork-200-button-label"><span id="webwork-200-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-7164">Suppose that the density of cars (in cars per mile) down a 20-mile stretch of the Pennsylvania Turnpike is approximated by <span class="process-math">\(\delta(x) = 250 \left(2+\sin\left(4\sqrt{x + 0.15}\right)\right),\)</span> at a distance <span class="process-math">\(x\)</span> miles from the Breezewood toll plaza. Sketch a graph of this function for  <span class="process-math">\(0\leq x\leq 20\text{.}\)</span>
-</div> <div class="para" id="p-7165">
-<em class="alert">(a)</em> Complete the Riemann sum that approximates the total number of cars on this 20-mile stretch (use <span class="process-math">\(Dx\)</span> instead of <span class="process-math">\(\Delta x\)</span>):</div> <div class="para" id="p-7166">Number = <span class="process-math">\(\Sigma\)</span><span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
-</div> <div class="para" id="p-7167">
-<em class="alert">(b)</em> Find the total number of cars on the 20-mile stretch.</div> <div class="para" id="p-7168">Number = <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap8Sec4__Q05"><div id="boelkins-ACS__Library__Michigan__Chap8Sec4__Q05-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="297" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap8Sec4/Q05.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap8Sec4__Q05-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-8584">Suppose that the density of cars (in cars per mile) down a 20-mile stretch of the Pennsylvania Turnpike is approximated by <span class="process-math">\(\delta(x) = 350 \left(2+\sin\left(4\sqrt{x + 0.2}\right)\right),\)</span> at a distance <span class="process-math">\(x\)</span> miles from the Breezewood toll plaza. Sketch a graph of this function for  <span class="process-math">\(0\leq x\leq 20\text{.}\)</span>
+</div> <div class="para" id="p-8585">
+<em class="alert">(a)</em> Complete the Riemann sum that approximates the total number of cars on this 20-mile stretch (use <span class="process-math">\(Dx\)</span> instead of <span class="process-math">\(\Delta x\)</span>):</div> <div class="para" id="p-8586">Number = <span class="process-math">\(\Sigma\)</span><span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span>
+</div> <div class="para" id="p-8587">
+<em class="alert">(b)</em> Find the total number of cars on the 20-mile stretch.</div> <div class="para" id="p-8588">Number = <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-6-3-WW4"><h4 class="heading">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap8Sec4__Q07"><h4 class="heading">
 <span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Center of mass in a point-mass system.</span>
 </h4>
-<div id="webwork-201" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="201" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap8Sec4/Q07.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-201-button" class="webwork-button activate" onclick="handleWW('webwork-201')" aria-labelledby="webwork-201-button-label"><span id="webwork-201-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-7171">A point mass of 2 grams located 5 centimeters to the left of the origin and a point mass of 3 grams located 7 centimeters to the right of the origin are connected by a thin, light rod.  Find the center of mass of the system.</div> <div class="para" id="p-7172">Center of Mass = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> <ul style="list-style:circle;">
-<li id="li-4006"><div class="para" id="p-7174">to the left of the origin</div></li>
-<li id="li-4007"><div class="para" id="p-7175">to the right of the origin</div></li>
-<li id="li-4008"><div class="para" id="p-7176">(at the origin)</div></li>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap8Sec4__Q07"><div id="boelkins-ACS__Library__Michigan__Chap8Sec4__Q07-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="298" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap8Sec4/Q07.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap8Sec4__Q07-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-8591">A point mass of 5 grams located 7 centimeters to the left of the origin and a point mass of 7 grams located 9 centimeters to the right of the origin are connected by a thin, light rod.  Find the center of mass of the system.</div> <div class="para" id="p-8592">Center of Mass = <span class="fillin underline" role="img" aria-label="35-character blank" style="width: 15.9090909090909em;"></span> <ul style="list-style:circle;">
+<li id="li-4325"><div class="para" id="p-8594">to the left of the origin</div></li>
+<li id="li-4326"><div class="para" id="p-8595">to the right of the origin</div></li>
+<li id="li-4327"><div class="para" id="p-8596">(at the origin)</div></li>
 </ul>
-</div> <div class="para" id="p-7177">(include <a class="external" href="/webwork2_files/helpFiles/Units.html" target="_blank">units</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-105" id="fn-105"><sup> 3 </sup></a> in your center of mass)</div>
+</div> <div class="para" id="p-8597">(include <a class="external" href="/pg_files/helpFiles/Units.html" target="_blank">help (units)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-107" id="fn-107"><sup> 3 </sup></a> in your center of mass)</div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-300"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-7180">
+</div></div></div></article><article class="exercise exercise-like" id="exercise-371"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para logical" id="p-8600">
 <div class="para">Let a thin rod of length <span class="process-math">\(a\)</span> have density distribution function <span class="process-math">\(\rho(x) = 10e^{-0.1x}\text{,}\)</span> where <span class="process-math">\(x\)</span> is measured in cm and <span class="process-math">\(\rho\)</span> in grams per centimeter.</div>
 <ol class="lower-alpha">
-<li id="li-4009"><div class="para" id="p-7181">If the mass of the rod is 30 g, what is the value of <span class="process-math">\(a\text{?}\)</span>
+<li id="li-4328"><div class="para" id="p-8601">If the mass of the rod is 30 g, what is the value of <span class="process-math">\(a\text{?}\)</span>
 </div></li>
-<li id="li-4010"><div class="para" id="p-7182">For the 30g rod, will the center of mass lie at its midpoint, to the left of the midpoint, or to the right of the midpoint? Why?</div></li>
-<li id="li-4011"><div class="para" id="p-7183">For the 30g rod, find the center of mass, and compare your prediction in (b).</div></li>
-<li id="li-4012"><div class="para" id="p-7184">At what value of <span class="process-math">\(x\)</span> should the 30g rod be cut in order to form two pieces of equal mass?</div></li>
+<li id="li-4329"><div class="para" id="p-8602">For the 30g rod, will the center of mass lie at its midpoint, to the left of the midpoint, or to the right of the midpoint? Why?</div></li>
+<li id="li-4330"><div class="para" id="p-8603">For the 30g rod, find the center of mass, and compare your prediction in (b).</div></li>
+<li id="li-4331"><div class="para" id="p-8604">At what value of <span class="process-math">\(x\)</span> should the 30g rod be cut in order to form two pieces of equal mass?</div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-301"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para" id="p-7195">Consider two thin bars of constant cross-sectional area, each of length 10 cm, with respective mass density functions <span class="process-math">\(\rho(x) = \frac{1}{1+x^2}\)</span> and <span class="process-math">\(p(x) = e^{-0.1x}\text{.}\)</span>
-</div> <div class="para logical" id="p-7196"><ol class="lower-alpha">
-<li id="li-4021"><div class="para" id="p-7197">Find the mass of each bar.</div></li>
-<li id="li-4022"><div class="para" id="p-7198">Find the center of mass of each bar.</div></li>
-<li id="li-4023">
-<div class="para" id="p-7199">Now consider a new 10 cm bar whose mass density function is <span class="process-math">\(f(x) = \rho(x) + p(x)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exercise-372"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="para" id="p-8615">Consider two thin bars of constant cross-sectional area, each of length 10 cm, with respective mass density functions <span class="process-math">\(\rho(x) = \frac{1}{1+x^2}\)</span> and <span class="process-math">\(p(x) = e^{-0.1x}\text{.}\)</span>
+</div> <div class="para logical" id="p-8616"><ol class="lower-alpha">
+<li id="li-4340"><div class="para" id="p-8617">Find the mass of each bar.</div></li>
+<li id="li-4341"><div class="para" id="p-8618">Find the center of mass of each bar.</div></li>
+<li id="li-4342">
+<div class="para" id="p-8619">Now consider a new 10 cm bar whose mass density function is <span class="process-math">\(f(x) = \rho(x) + p(x)\text{.}\)</span>
 </div>
-<div class="para logical" id="p-7200"><ol class="lower-roman">
-<li id="li-4024"><div class="para" id="p-7201">Explain how you can easily find the mass of this new bar with little to no additional work.</div></li>
-<li id="li-4025"><div class="para" id="p-7202">Similarly, compute <span class="process-math">\(\int_0^{10} xf(x) \, dx\)</span> as simply as possible, in light of earlier computations.</div></li>
-<li id="li-4026"><div class="para" id="p-7203">True or false: the center of mass of this new bar is the average of the centers of mass of the two earlier bars. Write at least one sentence to say why your conclusion makes sense.</div></li>
+<div class="para logical" id="p-8620"><ol class="lower-roman">
+<li id="li-4343"><div class="para" id="p-8621">Explain how you can easily find the mass of this new bar with little to no additional work.</div></li>
+<li id="li-4344"><div class="para" id="p-8622">Similarly, compute <span class="process-math">\(\int_0^{10} xf(x) \, dx\)</span> as simply as possible, in light of earlier computations.</div></li>
+<li id="li-4345"><div class="para" id="p-8623">True or false: the center of mass of this new bar is the average of the centers of mass of the two earlier bars. Write at least one sentence to say why your conclusion makes sense.</div></li>
 </ol></div>
 </li>
-</ol></div></article><article class="exercise exercise-like" id="exercise-302"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-7220">
+</ol></div></article><article class="exercise exercise-like" id="exercise-373"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para logical" id="p-8640">
 <div class="para">Consider the curve given by <span class="process-math">\(y = f(x) = 2xe^{-1.25x} + (30-x) e^{-0.25(30-x)}\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4039"><div class="para" id="p-7221">Plot this curve in the window <span class="process-math">\(x = 0 \ldots 30\text{,}\)</span> <span class="process-math">\(y = 0 \ldots 3\)</span> (with constrained scaling so the units on the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> axis are equal), and use it to generate a solid of revolution about the <span class="process-math">\(x\)</span>-axis. Explain why this curve could generate a reasonable model of a baseball bat.</div></li>
-<li id="li-4040"><div class="para" id="p-7222">Let <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> be measured in inches. Find the total volume of the baseball bat generated by revolving the given curve about the <span class="process-math">\(x\)</span>-axis. Include units on your answer.</div></li>
-<li id="li-4041"><div class="para" id="p-7223">Suppose that the baseball bat has constant weight density, and that the weight density is <span class="process-math">\(0.6\)</span> ounces per cubic inch. Find the total weight of the bat whose volume you found in (b).</div></li>
-<li id="li-4042"><div class="para" id="p-7224">Because the baseball bat does not have constant cross-sectional area, we see that the amount of weight concentrated at a location <span class="process-math">\(x\)</span> along the bat is determined by the volume of a slice at location <span class="process-math">\(x\text{.}\)</span> Explain why we can think about the function <span class="process-math">\(\rho(x) = 0.6 \pi f(x)^2\)</span> (where <span class="process-math">\(f\)</span> is the function given at the start of the problem) as being the weight density function for how the weight of the baseball bat is distributed from <span class="process-math">\(x = 0\)</span> to <span class="process-math">\(x = 30\text{.}\)</span>
+<li id="li-4358"><div class="para" id="p-8641">Plot this curve in the window <span class="process-math">\(x = 0 \ldots 30\text{,}\)</span> <span class="process-math">\(y = 0 \ldots 3\)</span> (with constrained scaling so the units on the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> axis are equal), and use it to generate a solid of revolution about the <span class="process-math">\(x\)</span>-axis. Explain why this curve could generate a reasonable model of a baseball bat.</div></li>
+<li id="li-4359"><div class="para" id="p-8642">Let <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> be measured in inches. Find the total volume of the baseball bat generated by revolving the given curve about the <span class="process-math">\(x\)</span>-axis. Include units on your answer.</div></li>
+<li id="li-4360"><div class="para" id="p-8643">Suppose that the baseball bat has constant weight density, and that the weight density is <span class="process-math">\(0.6\)</span> ounces per cubic inch. Find the total weight of the bat whose volume you found in (b).</div></li>
+<li id="li-4361"><div class="para" id="p-8644">Because the baseball bat does not have constant cross-sectional area, we see that the amount of weight concentrated at a location <span class="process-math">\(x\)</span> along the bat is determined by the volume of a slice at location <span class="process-math">\(x\text{.}\)</span> Explain why we can think about the function <span class="process-math">\(\rho(x) = 0.6 \pi f(x)^2\)</span> (where <span class="process-math">\(f\)</span> is the function given at the start of the problem) as being the weight density function for how the weight of the baseball bat is distributed from <span class="process-math">\(x = 0\)</span> to <span class="process-math">\(x = 30\text{.}\)</span>
 </div></li>
-<li id="li-4043"><div class="para" id="p-7225">Compute the center of mass of the baseball bat.</div></li>
+<li id="li-4362"><div class="para" id="p-8645">Compute the center of mass of the baseball bat.</div></li>
 </ol>
 </div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-103"><div class="fn">In the activity, we actually used <em class="emphasis">weight</em> rather than <em class="emphasis">mass</em>. Since weight is proportional to mass, the computations for the balancing point result in the same location regardless of whether we use weight or mass. The gravitational constant is present in both the numerator and denominator of the weighted average.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-104"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-105"><div class="fn"><code class="code-inline tex2jax_ignore">/webwork2_files/helpFiles/Units.html</code></div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-105"><div class="fn">In the activity, we actually used <em class="emphasis">weight</em> rather than <em class="emphasis">mass</em>. Since weight is proportional to mass, the computations for the balancing point result in the same location regardless of whether we use weight or mass. The gravitational constant is present in both the numerator and denominator of the weighted average.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-106"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/Units.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-107"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/Units.html</code></div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-6-2-volume.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-6-4-physics.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

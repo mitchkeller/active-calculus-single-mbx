@@ -5,7 +5,7 @@
 <!--*         https://pretextbook.org          *-->
 <!--*                                          *-->
 <!--********************************************-->
-<html lang="en-US">
+<html lang="en-US" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC Derivatives of Inverse Functions</title>
@@ -15,20 +15,38 @@
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
-<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+<script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
 window.MathJax = {
-  tex: {
-    inlineMath: [['\\(','\\)']],
-    tags: "none",
-    tagSide: "right",
-    tagIndent: ".8em",
-    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
   },
-  options: {
-    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
-    processHtmlClass: "process-math",
-    renderActions: {
-        findScript: [10, function (doc) {
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
             document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
                 var display = !!node.type.match(/; *mode=display/);
                 var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
@@ -38,45 +56,56 @@ window.MathJax = {
                 math.end = {node: text, delim: '', n: 0};
                 doc.math.push(math);
             });
-        }, '']
-    },
+        },
+        ""
+      ]
+    }
   },
-  chtml: {
-    scale: 0.98,
-    mtextInheritFont: true
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
   },
-  loader: {
-    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
-    paths: {pretext: "https://pretextbook.org/js/lib"},
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "https://pretextbook.org/js/lib"
+    }
   },
-  startup: {
+  "startup": {
     pageReady() {
       return MathJax.startup.defaultPageReady().then(function () {
       console.log("in ready function");
       rsMathReady();
       }
     )}
-  },
+  }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-hosting.runestone.academy/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
-<script src="https://pretextbook.org/js/0.2/pretext-webwork/2.17/pretext-webwork.js"></script><script src="https://webwork-hosting.runestone.academy/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="_static/lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
-<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://webwork-dev.uleth.ca/webwork2_files/js/apps/MathView/mathview.css" rel="stylesheet">
+<script src="https://pretextbook.org/js/0.3/pretext-webwork/2.18/pretext-webwork.js"></script><script src="https://webwork-dev.uleth.ca/webwork2_files/node_modules/iframe-resizer/js/iframeResizer.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="https://pretextbook.org/js/0.3/pretext_search.js"></script><link href="https://pretextbook.org/css/0.7/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.3</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.3/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.3/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.3/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
-<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
-<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/colors_blue_grey.css" rel="stylesheet" type="text/css">
-<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/colors_blue_grey.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.7/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
 eBookConfig = {};
 eBookConfig.useRunestoneServices = true;
@@ -97,71 +126,25 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '7.0.5';
 </script>
-
-{% if serve_ad and settings.adsenseid %}
-<script data-ad-client="~._ settings.adsenseid _.~" async="" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-{% endif %}
-<style>.dropdown {
-    position: relative;
-    display: inline-block;
-    height: 39px;
-    width: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 7px;
-    text-align: center;
-    background-color: #eeeeee;
-    border: 1px solid;
-    border-color: #aaaaaa;
- }
- .dropdown-content {
-    position: absolute;
-    display: none;
-    left: 300px;
-    text-align: left;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica';
-}
-.dropdown:hover {
-    background-color: #ddd;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-    position: fixed;
-}
-.dropdown-content {
-    background-color: white;
-    z-index: 1800;
-    min-width: 100px;
-    padding: 5px;
-}
-.dropdown-content a {
-    display: block;
-    text-decoration: none;
-    color: #662211;
-}
-.dropdown-content a:hover {
-    background-color: #671d12;
-    color: #ffffff;
-}
-</style>
-<!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/runtime.2c74140d066431c0.bundle.js"></script><script type="text/javascript" src="_static/637.d54be67956c5c660.bundle.js"></script><script type="text/javascript" src="_static/runestone.f66e52256b52cb37.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/637.0fa6cababf056764.css">
-<link rel="stylesheet" type="text/css" href="_static/runestone.93e720e6c6581fb5.css">
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
 <body id="boelkins-ACS" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
 <p class="byline">Matthew Boelkins</p>
 </div>
-<div id="searchresultsplaceholder" style="display: none">
-<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms"></span>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" class="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Search Results: <span id="searchterms" class="searchterms"></span>
 </h2>
-<div id="searchempty"><span>No results.</span></div>
-<ol id="searchresults"></ol>
+<div id="searchempty" class="searchempty"><span>No results.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
 </div>
-</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar ptx-runestone-container"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Contents</span></button><a class="index-button button" href="index-1.html" title="Index"><span class="name">Index</span></a><div class="dropdown">👤<div class="dropdown-content">
 {% if settings.academy_mode: %}
 <a href="/runestone/assignments/chooseAssignment">Assignments</a><a href="/runestone/assignments/practice">Practice</a><hr>
 <a id="inst_peer_link" href="/%7Bappname%7D/peer/instructor.html">Peer Instruction (Instructor)</a><a href="/%7Bappname%7D/peer/student.html">Peer Instruction (Student)</a><hr>
@@ -176,7 +159,7 @@ eBookConfig.new_server_prefix = "/ns";
 {% endif %}
 </div>
 </div>
-<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<a href="javascript:runestoneComponents.popupScratchAC()" class="activecode-toggle" title="Scratch ActiveCode"><span class="icon">✏</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="avatarbutton" class="avatarbutton name">You!</span><div id="preferences_menu_holder" class="preferences_menu_holder hidden"><ol id="preferences_menu" class="preferences_menu" style="font-family: 'Roboto Serif', serif;">
 <li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
 <ol class="hidden avatar">
 <li data-val="You!" tabindex="-1">
@@ -279,7 +262,7 @@ eBookConfig.new_server_prefix = "/ns";
 </ol>
 </li>
 </ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-2-5-chain.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="up-button button" href="C-2.html" title="Up"><span class="icon">^</span><span class="name">Up</span></a><a class="next-button button" href="sec-2-7-implicit.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
-<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+<input id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" class="searchbutton" type="button" onclick="doSearch()">🔍</button>
 </div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -291,7 +274,7 @@ eBookConfig.new_server_prefix = "/ns";
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural">
 <li>
 <div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
 <ul class="structural">
@@ -538,7 +521,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-71" class="internal"><span class="codenumber">4.3.1</span> <span class="title">The definition of the definite integral</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-72" class="internal"><span class="codenumber">4.3.2</span> <span class="title">Some properties of the definite integral</span></a></div></li>
-<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function's average value</span></a></div></li>
+<li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-73" class="internal"><span class="codenumber">4.3.3</span> <span class="title">How the definite integral is connected to a function’s average value</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#subsection-74" class="internal"><span class="codenumber">4.3.4</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-4-3-definite-integral.html#ez-4-3" class="internal"><span class="codenumber">4.3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -615,7 +598,7 @@ eBookConfig.new_server_prefix = "/ns";
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-101" class="internal"><span class="codenumber">5.6.1</span> <span class="title">The Trapezoid Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-102" class="internal"><span class="codenumber">5.6.2</span> <span class="title">Comparing the Midpoint and Trapezoid Rules</span></a></div></li>
-<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson's Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-103" class="internal"><span class="codenumber">5.6.3</span> <span class="title">Simpson’s Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-104" class="internal"><span class="codenumber">5.6.4</span> <span class="title">Overall observations regarding <span class="process-math">\(L_n\text{,}\)</span> <span class="process-math">\(R_n\text{,}\)</span> <span class="process-math">\(T_n\text{,}\)</span> <span class="process-math">\(M_n\text{,}\)</span> and <span class="process-math">\(S_{2n}\text{.}\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#subsection-105" class="internal"><span class="codenumber">5.6.5</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-5-6-num-int.html#ez-5-6" class="internal"><span class="codenumber">5.6.6</span> <span class="title">Exercises</span></a></div></li>
@@ -701,10 +684,10 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler's method</span></a></div>
+<div class="toc-item"><a href="sec-7-3-euler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Euler’s method</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler's Method</span></a></div></li>
-<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler's method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-133" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Euler’s Method</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-134" class="internal"><span class="codenumber">7.3.2</span> <span class="title">The error in Euler’s method</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#subsection-135" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-3-euler.html#ez-7-3" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Exercises</span></a></div></li>
 </ul>
@@ -728,7 +711,7 @@ eBookConfig.new_server_prefix = "/ns";
 <li>
 <div class="toc-item"><a href="sec-7-6-logistic.html" class="internal"><span class="codenumber">7.6</span> <span class="title">Population Growth and the Logistic Equation</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth's population</span></a></div></li>
+<li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-140" class="internal"><span class="codenumber">7.6.1</span> <span class="title">The earth’s population</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-141" class="internal"><span class="codenumber">7.6.2</span> <span class="title">Solving the logistic differential equation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#subsection-142" class="internal"><span class="codenumber">7.6.3</span> <span class="title">Summary</span></a></div></li>
 <li><div class="toc-item"><a href="sec-7-6-logistic.html#ez-7-6" class="internal"><span class="codenumber">7.6.4</span> <span class="title">Exercises</span></a></div></li>
@@ -790,42 +773,46 @@ eBookConfig.new_server_prefix = "/ns";
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
-<ul class="structural">
-<li>
-<div class="toc-item"><a href="sec-safranksi-review.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review.html#ez-safranski-review" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Integrating Rational Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">9.2.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">9.2.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
-<ul class="structural">
-<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">9.3.1</span> <span class="title">Preview Activity</span></a></div></li>
-<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">9.3.2</span> <span class="title">Exercises</span></a></div></li>
-</ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">9.4</span> <span class="title">Parametric Curves</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">9.4</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-<li>
-<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">9.5</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">9.5</span> <span class="title">Exercises</span></a></div></li></ul>
-</li>
-</ul>
-</li>
-<li>
 <div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Back Matter</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="integral-table.html" class="internal"><span class="codenumber">A</span> <span class="title">A Short Table of Integrals</span></a></div></li>
-<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">B</span> <span class="title">Answers to Activities</span></a></div></li>
-<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
+<li>
+<div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">B</span> <span class="title">Supplementary material</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">B.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">B.1</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">B.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">B.2</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">B.3</span> <span class="title">Integrating Rational Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-rational.html#PA-safranski-rational" class="internal"><span class="codenumber">B.3.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-rational.html#ez-safranski-rational" class="internal"><span class="codenumber">B.3.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-trig.html" class="internal"><span class="codenumber">B.4</span> <span class="title">Integration with Trigonometric Functions</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-safranski-trig.html#PA-safranski-trig" class="internal"><span class="codenumber">B.4.1</span> <span class="title">Preview Activity</span></a></div></li>
+<li><div class="toc-item"><a href="sec-safranski-trig.html#ez-safranski-trig" class="internal"><span class="codenumber">B.4.2</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-parametic.html" class="internal"><span class="codenumber">B.5</span> <span class="title">Parametric Curves</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-parametic.html#ez-safranski-parametric" class="internal"><span class="codenumber">B.5</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-safranski-polar.html" class="internal"><span class="codenumber">B.6</span> <span class="title">Calculus in Polar Coordinates</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-polar.html#ez-safranski-polar" class="internal"><span class="codenumber">B.6</span> <span class="title">Exercises</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="activities-answers.html" class="internal"><span class="codenumber">C</span> <span class="title">Answers to Activities</span></a></div></li>
+<li><div class="toc-item"><a href="exercises-answers.html" class="internal"><span class="codenumber">D</span> <span class="title">Answers to Selected Exercises</span></a></div></li>
 <li><div class="toc-item"><a href="index-1.html" class="internal"><span class="title">Index</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-2.html" class="internal"><span class="title">Colophon</span></a></div></li>
 </ul>
@@ -837,30 +824,51 @@ eBookConfig.new_server_prefix = "/ns";
 </h2>
 <article class="objectives goal-like" id="objectives-14"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-1753"><div class="para" id="p-2629">What is the derivative of the natural logarithm function?</div></li>
-<li id="li-1754"><div class="para" id="p-2630">What are the derivatives of the inverse trigonometric functions <span class="process-math">\(\arcsin(x)\)</span> and <span class="process-math">\(\arctan(x)\text{?}\)</span>
+<li id="li-1975"><div class="para" id="p-3426">What is the derivative of the natural logarithm function?</div></li>
+<li id="li-1976"><div class="para" id="p-3427">What are the derivatives of the inverse trigonometric functions <span class="process-math">\(\arcsin(x)\)</span> and <span class="process-math">\(\arctan(x)\text{?}\)</span>
 </div></li>
-<li id="li-1755"><div class="para" id="p-2631">If <span class="process-math">\(g\)</span> is the inverse of a differentiable function <span class="process-math">\(f\text{,}\)</span> how is <span class="process-math">\(g'\)</span> computed in terms of <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(f'\text{,}\)</span> and <span class="process-math">\(g\text{?}\)</span>
+<li id="li-1977"><div class="para" id="p-3428">If <span class="process-math">\(g\)</span> is the inverse of a differentiable function <span class="process-math">\(f\text{,}\)</span> how is <span class="process-math">\(g'\)</span> computed in terms of <span class="process-math">\(f\text{,}\)</span> <span class="process-math">\(f'\text{,}\)</span> and <span class="process-math">\(g\text{?}\)</span>
 </div></li>
-</ul></article><section class="introduction" id="introduction-14"><div class="para" id="p-2632">Much of mathematics centers on the notion of function. Indeed, throughout our study of calculus, we are investigating the behavior of functions, with particular emphasis on how fast the output of the function changes in response to changes in the input. Because each function represents a process, a natural question to ask is whether or not the particular process can be reversed. That is, if we know the output that results from the function, can we determine the input that led to it? And if we know how fast a particular process is changing, can we determine how fast the inverse process is changing?</div> <div class="para" id="p-2633">One of the most important functions in all of mathematics is the natural exponential function <span class="process-math">\(f(x) = e^x\text{.}\)</span> Its inverse, the natural logarithm, <span class="process-math">\(g(x) = \ln(x)\text{,}\)</span> is similarly important. One of our goals in this section is to learn how to differentiate the logarithm function. First, we review some of the basic concepts surrounding functions and their inverses.</div> <article class="exploration project-like" id="PA-2-6"><h3 class="heading">
+</ul></article><section class="introduction" id="introduction-19"><div class="para" id="p-3429">Much of mathematics centers on the notion of function. Indeed, throughout our study of calculus, we are investigating the behavior of functions, with particular emphasis on how fast the output of the function changes in response to changes in the input. Because each function represents a process, a natural question to ask is whether or not the particular process can be reversed. That is, if we know the output that results from the function, can we determine the input that led to it? And if we know how fast a particular process is changing, can we determine how fast the inverse process is changing?</div> <div class="para" id="p-3430">One of the most important functions in all of mathematics is the natural exponential function <span class="process-math">\(f(x) = e^x\text{.}\)</span> Its inverse, the natural logarithm, <span class="process-math">\(g(x) = \ln(x)\text{,}\)</span> is similarly important. One of our goals in this section is to learn how to differentiate the logarithm function. First, we review some of the basic concepts surrounding functions and their inverses.</div> <article class="exploration project-like" id="ACS__Preview__2-6"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-2634">
-<div class="para">The equation <span class="process-math">\(y = \frac{5}{9}(x-32)\)</span> relates a temperature given in <span class="process-math">\(x\)</span> degrees Fahrenheit to the corresponding temperature <span class="process-math">\(y\)</span> measured in degrees Celsius.</div>
-<ol class="lower-alpha">
-<li id="li-1756"><div class="para" id="p-2635">Solve the equation <span class="process-math">\(y = \frac{5}{9}(x-32)\)</span> for <span class="process-math">\(x\)</span> to write <span class="process-math">\(x\)</span> (Fahrenheit temperature) in terms of <span class="process-math">\(y\)</span> (Celsius temperature).</div></li>
-<li id="li-1757"><div class="para" id="p-2636">Let <span class="process-math">\(C(x) = \frac{5}{9}(x-32)\)</span> be the function that takes a Fahrenheit temperature as input and produces the Celsius temperature as output. In addition, let <span class="process-math">\(F(y)\)</span> be the function that converts a temperature given in <span class="process-math">\(y\)</span> degrees Celsius to the temperature <span class="process-math">\(F(y)\)</span> measured in degrees Fahrenheit. Use your work in (a) to write a formula for <span class="process-math">\(F(y)\text{.}\)</span>
-</div></li>
-<li id="li-1758"><div class="para" id="p-2637">Next consider the new function defined by <span class="process-math">\(p(x) = F(C(x))\text{.}\)</span> Use the formulas for <span class="process-math">\(F\)</span> and <span class="process-math">\(C\)</span> to determine an expression for <span class="process-math">\(p(x)\)</span> and simplify this expression as much as possible. What do you observe?</div></li>
-<li id="li-1759"><div class="para" id="p-2638">Now, let <span class="process-math">\(r(y) = C(F(y))\text{.}\)</span> Use the formulas for <span class="process-math">\(F\)</span> and <span class="process-math">\(C\)</span> to determine an expression for <span class="process-math">\(r(y)\)</span> and simplify this expression as much as possible. What do you observe?</div></li>
-<li id="li-1760"><div class="para" id="p-2639">What is the value of <span class="process-math">\(C'(x)\text{?}\)</span> of <span class="process-math">\(F'(y)\text{?}\)</span> How do these values appear to be related?</div></li>
-</ol>
-</div></article></section><section class="subsection" id="subsection-41"><h3 class="heading hide-type">
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__ACS__Preview__2-6"><div id="boelkins-ACS__ACS__Preview__2-6-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="127" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/2.6Preview_prob1.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__ACS__Preview__2-6-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-3431">The equation <span class="process-math">\(y = \frac{5}{9}(x - 32)\)</span>  relates a temperature given in <span class="process-math">\(x\)</span> degrees Fahrenheit to the corresponding temperature <span class="process-math">\(y\)</span> measured in degrees Celcius.</div> <div class="para" id="p-3432">a. Solve the equation <span class="process-math">\(y = \frac{5}{9} (x - 32)\)</span> for <span class="process-math">\(x\)</span> to write <span class="process-math">\(x\)</span> (Fahrenheit temperature) in terms of <span class="process-math">\(y\)</span> (Celcius temperature).</div> <div class="para" id="p-3433">
+<span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</div> <div class="para" id="p-3434">b. Now let <span class="process-math">\(C(x) = \frac{5}{9} (x - 32)\)</span> be the function that takes a Fahrenheit temperature as input and produces the Celcius temperature as output. In addition, let <span class="process-math">\(F(y)\)</span> be the function that converts a temperature given in <span class="process-math">\(y\)</span> degrees Celcius to the temperature <span class="process-math">\(F(y)\)</span> measured in degrees Fahrenheit. Use your work above to write a formula for <span class="process-math">\(F(y)\text{.}\)</span>
+</div> <div class="para" id="p-3435">
+<span class="process-math">\(F(y) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>.</div> <div class="para" id="p-3436">c. Next consider the new function defined by <span class="process-math">\(p(x) = F(C(x))\text{.}\)</span> Use the formulas for <span class="process-math">\(F\)</span> and <span class="process-math">\(C\)</span> to determine an expression for <span class="process-math">\(p(x)\)</span> and simplify this expression as much as possible. What do you observe?</div> <div class="para logical" id="p-3437"><ul class="disc">
+<li id="li-1978"><div class="para" id="p-3438"><span class="process-math">\(\displaystyle p(x)=x\)</span></div></li>
+<li id="li-1979"><div class="para" id="p-3439"><span class="process-math">\(\displaystyle p(x)=0\)</span></div></li>
+<li id="li-1980"><div class="para" id="p-3440"><span class="process-math">\(\displaystyle p(x)=1\)</span></div></li>
+<li id="li-1981"><div class="para" id="p-3441"><span class="process-math">\(\displaystyle p(x)=5x+9\)</span></div></li>
+<li id="li-1982"><div class="para" id="p-3442"><span class="process-math">\(\displaystyle p(x)=9x+5\)</span></div></li>
+</ul></div> <div class="para" id="p-3443">d. Now, let <span class="process-math">\(r(y) = C(F(y))\text{.}\)</span> Use the formulas for <span class="process-math">\(F\)</span> and <span class="process-math">\(C\)</span> to determine an expression for <span class="process-math">\(r(y)\)</span> and simplify this expression as much as possible. What do you observe?</div> <div class="para logical" id="p-3444"><ul class="disc">
+<li id="li-1983"><div class="para" id="p-3445"><span class="process-math">\(\displaystyle r(y)=y\)</span></div></li>
+<li id="li-1984"><div class="para" id="p-3446"><span class="process-math">\(\displaystyle r(y)=1\)</span></div></li>
+<li id="li-1985"><div class="para" id="p-3447"><span class="process-math">\(\displaystyle r(y)=9y+5\)</span></div></li>
+<li id="li-1986"><div class="para" id="p-3448"><span class="process-math">\(\displaystyle r(y)=5y+9\)</span></div></li>
+<li id="li-1987"><div class="para" id="p-3449"><span class="process-math">\(\displaystyle r(y)=0\)</span></div></li>
+</ul></div> <div class="para" id="p-3450">e. What is the value of <span class="process-math">\(C'(x)\text{?}\)</span>
+</div> <div class="para" id="p-3451">
+<span class="process-math">\(C'(x) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-3452">What is the value of <span class="process-math">\(F'(y)\text{?}\)</span>
+</div> <div class="para" id="p-3453">
+<span class="process-math">\(F'(y) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-3454">How do <span class="process-math">\(C'(x)\)</span> and <span class="process-math">\(F'(y)\)</span> appear to be related?</div> <div class="para logical" id="p-3455"><ul class="disc">
+<li id="li-1988"><div class="para" id="p-3456">They add up to 1</div></li>
+<li id="li-1989"><div class="para" id="p-3457">They are equal</div></li>
+<li id="li-1990"><div class="para" id="p-3458">They are reciprocals</div></li>
+<li id="li-1991"><div class="para" id="p-3459">They are opposites</div></li>
+</ul></div>
+</div>
+</div></div></div></article></section><section class="subsection" id="subsection-41"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.6.1</span> <span class="title">Basic facts about inverse functions</span>
 </h3>
-<div class="para" id="p-2640">A function  <span class="process-math">\(f : A \to B\)</span> is a rule that associates each element in the set <span class="process-math">\(A\)</span> to one and only one element in the set <span class="process-math">\(B\text{.}\)</span> We call <span class="process-math">\(A\)</span> the <em class="emphasis">domain</em>  of <span class="process-math">\(f\)</span> and <span class="process-math">\(B\)</span> the <em class="emphasis">codomain</em>  of <span class="process-math">\(f\text{.}\)</span> If there exists a function <span class="process-math">\(g : B \to A\)</span> such that <span class="process-math">\(g(f(a)) = a\)</span> for every possible choice of <span class="process-math">\(a\)</span> in the set <span class="process-math">\(A\)</span> and <span class="process-math">\(f(g(b)) = b\)</span> for every <span class="process-math">\(b\)</span> in the set <span class="process-math">\(B\text{,}\)</span> then we say that <span class="process-math">\(g\)</span> is the <em class="emphasis">inverse</em> of <span class="process-math">\(f\text{.}\)</span>
+<div class="para" id="p-3467">A function  <span class="process-math">\(f : A \to B\)</span> is a rule that associates each element in the set <span class="process-math">\(A\)</span> to one and only one element in the set <span class="process-math">\(B\text{.}\)</span> We call <span class="process-math">\(A\)</span> the <em class="emphasis">domain</em>  of <span class="process-math">\(f\)</span> and <span class="process-math">\(B\)</span> the <em class="emphasis">codomain</em>  of <span class="process-math">\(f\text{.}\)</span> If there exists a function <span class="process-math">\(g : B \to A\)</span> such that <span class="process-math">\(g(f(a)) = a\)</span> for every possible choice of <span class="process-math">\(a\)</span> in the set <span class="process-math">\(A\)</span> and <span class="process-math">\(f(g(b)) = b\)</span> for every <span class="process-math">\(b\)</span> in the set <span class="process-math">\(B\text{,}\)</span> then we say that <span class="process-math">\(g\)</span> is the <em class="emphasis">inverse</em> of <span class="process-math">\(f\text{.}\)</span>
 </div>
-<div class="para logical" id="p-2641">
+<div class="para logical" id="p-3468">
 <div class="para">We often use the notation <span class="process-math">\(f^{-1}\)</span> (read “<span class="process-math">\(f\)</span>-inverse”) to denote the inverse of <span class="process-math">\(f\text{.}\)</span> The inverse function undoes the work of <span class="process-math">\(f\text{.}\)</span> Indeed, if <span class="process-math">\(y = f(x)\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -870,33 +878,33 @@ f^{-1}(y) = f^{-1}(f(x)) = x\text{.}
 <div class="para">Thus, the equations <span class="process-math">\(y = f(x)\)</span> and <span class="process-math">\(x = f^{-1}(y)\)</span> say the same thing. The only difference between the two equations is one of perspective — one is solved for <span class="process-math">\(x\text{,}\)</span> while the other is solved for <span class="process-math">\(y\text{.}\)</span>
 </div>
 </div>
-<div class="para" id="p-2642">Here we briefly remind ourselves of some key facts about inverse functions.</div>
+<div class="para" id="p-3469">Here we briefly remind ourselves of some key facts about inverse functions.</div>
 <article class="note remark-like" id="note-3"><h4 class="heading">
 <span class="type">Note</span><span class="space"> </span><span class="codenumber">2.6.1</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-2643">
+<div class="para logical" id="p-3470">
 <div class="para">For a function <span class="process-math">\(f : A \to B\text{,}\)</span>
 </div>
 <ul class="disc">
-<li id="li-1761"><div class="para" id="p-2644">
-<span class="process-math">\(f\)</span> has an inverse if and only if <span class="process-math">\(f\)</span> is one-to-one <a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-49" id="fn-49"><sup> 1 </sup></a> and onto <a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-50" id="fn-50"><sup> 2 </sup></a>;</div></li>
-<li id="li-1762"><div class="para" id="p-2645">provided <span class="process-math">\(f^{-1}\)</span> exists, the domain of <span class="process-math">\(f^{-1}\)</span> is the codomain of <span class="process-math">\(f\text{,}\)</span> and the codomain of <span class="process-math">\(f^{-1}\)</span> is the domain of <span class="process-math">\(f\text{;}\)</span>
+<li id="li-1992"><div class="para" id="p-3471">
+<span class="process-math">\(f\)</span> has an inverse if and only if <span class="process-math">\(f\)</span> is one-to-one <a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-51" id="fn-51"><sup> 1 </sup></a> and onto <a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-52" id="fn-52"><sup> 2 </sup></a>;</div></li>
+<li id="li-1993"><div class="para" id="p-3472">provided <span class="process-math">\(f^{-1}\)</span> exists, the domain of <span class="process-math">\(f^{-1}\)</span> is the codomain of <span class="process-math">\(f\text{,}\)</span> and the codomain of <span class="process-math">\(f^{-1}\)</span> is the domain of <span class="process-math">\(f\text{;}\)</span>
 </div></li>
-<li id="li-1763"><div class="para" id="p-2646">
+<li id="li-1994"><div class="para" id="p-3473">
 <span class="process-math">\(f^{-1}(f(x)) = x\)</span> for every <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\)</span> and <span class="process-math">\(f(f^{-1}(y)) = y\)</span> for every <span class="process-math">\(y\)</span> in the codomain of <span class="process-math">\(f\text{;}\)</span>
 </div></li>
-<li id="li-1764"><div class="para" id="p-2647">
+<li id="li-1995"><div class="para" id="p-3474">
 <span class="process-math">\(y = f(x)\)</span> if and only if <span class="process-math">\(x = f^{-1}(y)\text{.}\)</span>
 </div></li>
 </ul>
-</div></article><div class="para" id="p-2648">The last fact reveals a special relationship between the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(f^{-1}\text{.}\)</span> If a point <span class="process-math">\((x,y)\)</span> that lies on the graph of <span class="process-math">\(y = f(x)\text{,}\)</span> then it is also true that <span class="process-math">\(x = f^{-1}(y)\text{,}\)</span> which means that the point <span class="process-math">\((y,x)\)</span> lies on the graph of <span class="process-math">\(f^{-1}\text{.}\)</span> This shows us that the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(f^{-1}\)</span> are the reflections of each other across the line <span class="process-math">\(y = x\text{,}\)</span> because this reflection is precisely the geometric action that swaps the coordinates in an ordered pair. In <a href="" class="xref" data-knowl="./knowl/F-2-6-Inverse-Plot.html" title="Figure 2.6.2">Figure 2.6.2</a>, we see this illustrated by the function <span class="process-math">\(y = f(x) = 2^x\)</span> and its inverse, with the points <span class="process-math">\((-1,\frac{1}{2})\)</span> and <span class="process-math">\((\frac{1}{2},-1)\)</span> highlighting the reflection of the curves across <span class="process-math">\(y = x\text{.}\)</span>
+</div></article><div class="para" id="p-3475">The last fact reveals a special relationship between the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(f^{-1}\text{.}\)</span> If a point <span class="process-math">\((x,y)\)</span> that lies on the graph of <span class="process-math">\(y = f(x)\text{,}\)</span> then it is also true that <span class="process-math">\(x = f^{-1}(y)\text{,}\)</span> which means that the point <span class="process-math">\((y,x)\)</span> lies on the graph of <span class="process-math">\(f^{-1}\text{.}\)</span> This shows us that the graphs of <span class="process-math">\(f\)</span> and <span class="process-math">\(f^{-1}\)</span> are the reflections of each other across the line <span class="process-math">\(y = x\text{,}\)</span> because this reflection is precisely the geometric action that swaps the coordinates in an ordered pair. In <a href="" class="xref" data-knowl="./knowl/F-2-6-Inverse-Plot.html" title="Figure 2.6.2">Figure 2.6.2</a>, we see this illustrated by the function <span class="process-math">\(y = f(x) = 2^x\)</span> and its inverse, with the points <span class="process-math">\((-1,\frac{1}{2})\)</span> and <span class="process-math">\((\frac{1}{2},-1)\)</span> highlighting the reflection of the curves across <span class="process-math">\(y = x\text{.}\)</span>
 </div>
 <figure class="figure figure-like" id="F-2-6-Inverse-Plot"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/2_6_InversePlot.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.2<span class="period">.</span></span><span class="space"> </span>A graph of a function <span class="process-math">\(y = f(x)\)</span> along with its inverse, <span class="process-math">\(y = f^{-1}(x)\text{.}\)</span></figcaption></figure><div class="para" id="p-2649">To close our review of important facts about inverses, we recall that the natural exponential function <span class="process-math">\(y = f(x) = e^x\)</span> has an inverse function, namely the natural logarithm, <span class="process-math">\(x = f^{-1}(y) = \ln(y)\text{.}\)</span> Thus, writing <span class="process-math">\(y = e^x\)</span> is interchangeable with <span class="process-math">\(x = \ln(y)\text{,}\)</span> plus <span class="process-math">\(\ln(e^x) = x\)</span> for every real number <span class="process-math">\(x\)</span> and <span class="process-math">\(e^{\ln(y)} = y\)</span> for every positive real number <span class="process-math">\(y\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.2<span class="period">.</span></span><span class="space"> </span>A graph of a function <span class="process-math">\(y = f(x)\)</span> along with its inverse, <span class="process-math">\(y = f^{-1}(x)\text{.}\)</span></figcaption></figure><div class="para" id="p-3476">To close our review of important facts about inverses, we recall that the natural exponential function <span class="process-math">\(y = f(x) = e^x\)</span> has an inverse function, namely the natural logarithm, <span class="process-math">\(x = f^{-1}(y) = \ln(y)\text{.}\)</span> Thus, writing <span class="process-math">\(y = e^x\)</span> is interchangeable with <span class="process-math">\(x = \ln(y)\text{,}\)</span> plus <span class="process-math">\(\ln(e^x) = x\)</span> for every real number <span class="process-math">\(x\)</span> and <span class="process-math">\(e^{\ln(y)} = y\)</span> for every positive real number <span class="process-math">\(y\text{.}\)</span>
 </div></section><section class="subsection" id="subsection-42"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.6.2</span> <span class="title">The derivative of the natural logarithm function</span>
 </h3>
-<div class="para logical" id="p-2650">
+<div class="para logical" id="p-3477">
 <div class="para">In what follows, we find a formula for the derivative of <span class="process-math">\(g(x) = \ln(x)\text{.}\)</span> To do so, we take advantage of the fact that we know the derivative of the natural exponential function, the inverse of <span class="process-math">\(g\text{.}\)</span> In particular, we know that writing <span class="process-math">\(g(x) = \ln(x)\)</span> is equivalent to writing <span class="process-math">\(e^{g(x)} = x\text{.}\)</span> Now we differentiate both sides of this equation and observe that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -904,7 +912,7 @@ f^{-1}(y) = f^{-1}(f(x)) = x\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-2651">
+<div class="para logical" id="p-3478">
 <div class="para">The righthand side is simply <span class="process-math">\(1\text{;}\)</span> by applying the chain rule to the left side, we find that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -912,7 +920,7 @@ e^{g(x)} g'(x) = 1\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-2652">
+<div class="para logical" id="p-3479">
 <div class="para">Next we solve for <span class="process-math">\(g'(x)\text{,}\)</span> to get</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -920,7 +928,7 @@ g'(x) = \frac{1}{e^{g(x)}}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-2653">
+<div class="para logical" id="p-3480">
 <div class="para">Finally, we recall that <span class="process-math">\(g(x) = \ln(x)\text{,}\)</span> so <span class="process-math">\(e^{g(x)} = e^{\ln(x)} = x\text{,}\)</span> and thus</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -929,38 +937,38 @@ g'(x) = \frac{1}{x}\text{.}
 </div>
 </div>
 <article class="assemblage assemblage-like" id="natural-log"><h4 class="heading"><span class="title">Natural Logarithm.</span></h4>
-<div class="para" id="p-2654"> For all positive real numbers <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[\ln(x)] = \frac{1}{x}\text{.}\)</span>
-</div></article><div class="para" id="p-2655">This rule for the natural logarithm function now joins our list of basic derivative rules. Note that this rule applies only to positive values of <span class="process-math">\(x\text{,}\)</span> as these are the only values for which <span class="process-math">\(\ln(x)\)</span> is defined.</div>
-<div class="para" id="p-2656">Also notice that for the first time in our work, differentiating a basic function of a particular type has led to a function of a very different nature: the derivative of the natural logarithm is not another logarithm, nor even an exponential function, but rather a rational one.</div>
-<div class="para" id="p-2657">Derivatives of logarithms may now be computed in concert with all of the rules known to date. For instance, if <span class="process-math">\(f(t) = \ln(t^2 + 1)\text{,}\)</span> then by the chain rule, <span class="process-math">\(f'(t) = \frac{1}{t^2 + 1} \cdot 2t\text{.}\)</span>
+<div class="para" id="p-3481"> For all positive real numbers <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[\ln(x)] = \frac{1}{x}\text{.}\)</span>
+</div></article><div class="para" id="p-3482">This rule for the natural logarithm function now joins our list of basic derivative rules. Note that this rule applies only to positive values of <span class="process-math">\(x\text{,}\)</span> as these are the only values for which <span class="process-math">\(\ln(x)\)</span> is defined.</div>
+<div class="para" id="p-3483">Also notice that for the first time in our work, differentiating a basic function of a particular type has led to a function of a very different nature: the derivative of the natural logarithm is not another logarithm, nor even an exponential function, but rather a rational one.</div>
+<div class="para" id="p-3484">Derivatives of logarithms may now be computed in concert with all of the rules known to date. For instance, if <span class="process-math">\(f(t) = \ln(t^2 + 1)\text{,}\)</span> then by the chain rule, <span class="process-math">\(f'(t) = \frac{1}{t^2 + 1} \cdot 2t\text{.}\)</span>
 </div>
-<div class="para" id="p-2658">There are interesting connections between the graphs of <span class="process-math">\(f(x) = e^x\)</span> and <span class="process-math">\(f^{-1}(x) = \ln(x)\text{.}\)</span>
+<div class="para" id="p-3485">There are interesting connections between the graphs of <span class="process-math">\(f(x) = e^x\)</span> and <span class="process-math">\(f^{-1}(x) = \ln(x)\text{.}\)</span>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:44%;"><div class="para" id="p-2659">In <a href="" class="xref" data-knowl="./knowl/F-2-6-Log-Exp.html" title="Figure 2.6.3">Figure 2.6.3</a>, we are reminded that since the natural exponential function has the property that its derivative is itself, the slope of the tangent to <span class="process-math">\(y = e^x\)</span> is equal to the height of the curve at that point. For instance, at the point <span class="process-math">\(A = (\ln(0.5), 0.5)\text{,}\)</span> the slope of the tangent line is <span class="process-math">\(m_A = 0.5\text{,}\)</span> and at <span class="process-math">\(B = (\ln(5), 5)\text{,}\)</span> the tangent line's slope is <span class="process-math">\(m_B = 5\text{.}\)</span>
+<div class="sbspanel top" style="width:44%;"><div class="para" id="p-3486">In <a href="" class="xref" data-knowl="./knowl/F-2-6-Log-Exp.html" title="Figure 2.6.3">Figure 2.6.3</a>, we are reminded that since the natural exponential function has the property that its derivative is itself, the slope of the tangent to <span class="process-math">\(y = e^x\)</span> is equal to the height of the curve at that point. For instance, at the point <span class="process-math">\(A = (\ln(0.5), 0.5)\text{,}\)</span> the slope of the tangent line is <span class="process-math">\(m_A = 0.5\text{,}\)</span> and at <span class="process-math">\(B = (\ln(5), 5)\text{,}\)</span> the tangent line’s slope is <span class="process-math">\(m_B = 5\text{.}\)</span>
 </div></div>
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="F-2-6-Log-Exp"><img src="external/images/2_6_LogExp.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.3<span class="period">.</span></span><span class="space"> </span>A graph of the function <span class="process-math">\(y = e^x\)</span> along with its inverse, <span class="process-math">\(y = \ln(x)\text{,}\)</span> where both functions are viewed using the input variable <span class="process-math">\(x\text{.}\)</span></figcaption></figure></div>
 </div></div>
-<div class="para" id="p-2660">At the corresponding points <span class="process-math">\(A'\)</span> and <span class="process-math">\(B'\)</span> on the graph of the natural logarithm function (which come from reflecting <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> across the line <span class="process-math">\(y = x\)</span>), we know that the slope of the tangent line is the reciprocal of the <span class="process-math">\(x\)</span>-coordinate of the point (since <span class="process-math">\(\frac{d}{dx}[\ln(x)] = \frac{1}{x}\)</span>). Thus, at <span class="process-math">\(A' = (0.5, \ln(0.5))\text{,}\)</span> we have <span class="process-math">\(m_{A'} = \frac{1}{0.5} = 2\text{,}\)</span> and at <span class="process-math">\(B' = (5, \ln(5))\text{,}\)</span> <span class="process-math">\(m_{B'} = \frac{1}{5}\text{.}\)</span>
+<div class="para" id="p-3487">At the corresponding points <span class="process-math">\(A'\)</span> and <span class="process-math">\(B'\)</span> on the graph of the natural logarithm function (which come from reflecting <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> across the line <span class="process-math">\(y = x\)</span>), we know that the slope of the tangent line is the reciprocal of the <span class="process-math">\(x\)</span>-coordinate of the point (since <span class="process-math">\(\frac{d}{dx}[\ln(x)] = \frac{1}{x}\)</span>). Thus, at <span class="process-math">\(A' = (0.5, \ln(0.5))\text{,}\)</span> we have <span class="process-math">\(m_{A'} = \frac{1}{0.5} = 2\text{,}\)</span> and at <span class="process-math">\(B' = (5, \ln(5))\text{,}\)</span> <span class="process-math">\(m_{B'} = \frac{1}{5}\text{.}\)</span>
 </div>
-<div class="para" id="p-2661">In particular, we observe that <span class="process-math">\(m_{A'} = \frac{1}{m_A}\)</span> and <span class="process-math">\(m_{B'} = \frac{1}{m_B}\text{.}\)</span> This is not a coincidence, but in fact holds for any curve <span class="process-math">\(y = f(x)\)</span> and its inverse, provided the inverse exists. This is due to the reflection across <span class="process-math">\(y = x\text{.}\)</span> It changes the roles of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> thus reversing the rise and run, so the slope of the inverse function at the reflected point is the reciprocal of the slope of the original function.</div>
+<div class="para" id="p-3488">In particular, we observe that <span class="process-math">\(m_{A'} = \frac{1}{m_A}\)</span> and <span class="process-math">\(m_{B'} = \frac{1}{m_B}\text{.}\)</span> This is not a coincidence, but in fact holds for any curve <span class="process-math">\(y = f(x)\)</span> and its inverse, provided the inverse exists. This is due to the reflection across <span class="process-math">\(y = x\text{.}\)</span> It changes the roles of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> thus reversing the rise and run, so the slope of the inverse function at the reflected point is the reciprocal of the slope of the original function.</div>
 <article class="activity project-like" id="act-2-6-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.6.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-2662">
+<div class="para logical" id="p-3489">
 <div class="para">For each function given below, find its derivative.</div>
 <ol class="lower-alpha cols2">
-<li id="li-1765"><div class="para" id="p-2663"><span class="process-math">\(\displaystyle h(x) = x^2\ln(x)\)</span></div></li>
-<li id="li-1766"><div class="para" id="p-2664"><span class="process-math">\(\displaystyle p(t) = \frac{\ln(t)}{e^t + 1}\)</span></div></li>
-<li id="li-1767"><div class="para" id="p-2665"><span class="process-math">\(\displaystyle s(y) = \ln(\cos(y) + 2)\)</span></div></li>
-<li id="li-1768"><div class="para" id="p-2666"><span class="process-math">\(\displaystyle z(x) = \tan(\ln(x))\)</span></div></li>
-<li id="li-1769"><div class="para" id="p-2667"><span class="process-math">\(\displaystyle m(z) = \ln(\ln(z))\)</span></div></li>
+<li id="li-1996"><div class="para" id="p-3490"><span class="process-math">\(\displaystyle h(x) = x^2\ln(x)\)</span></div></li>
+<li id="li-1997"><div class="para" id="p-3491"><span class="process-math">\(\displaystyle p(t) = \frac{\ln(t)}{e^t + 1}\)</span></div></li>
+<li id="li-1998"><div class="para" id="p-3492"><span class="process-math">\(\displaystyle s(y) = \ln(\cos(y) + 2)\)</span></div></li>
+<li id="li-1999"><div class="para" id="p-3493"><span class="process-math">\(\displaystyle z(x) = \tan(\ln(x))\)</span></div></li>
+<li id="li-2000"><div class="para" id="p-3494"><span class="process-math">\(\displaystyle m(z) = \ln(\ln(z))\)</span></div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-43"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.6.3</span> <span class="title">Inverse trigonometric functions and their derivatives</span>
 </h3>
-<div class="para" id="p-2686">Trigonometric functions are periodic, so they fail to be one-to-one, and thus do not have inverse functions. However, we can restrict the domain of each trigonometric function so that it is one-to-one on that domain.</div>
-<div class="para logical" id="p-2687">
+<div class="para" id="p-3513">Trigonometric functions are periodic, so they fail to be one-to-one, and thus do not have inverse functions. However, we can restrict the domain of each trigonometric function so that it is one-to-one on that domain.</div>
+<div class="para logical" id="p-3514">
 <div class="para">For instance, consider the sine function on the domain <span class="process-math">\([-\frac{\pi}{2}, \frac{\pi}{2}]\text{.}\)</span> Because no output of the sine function is repeated on this interval, the function is one-to-one and thus has an inverse. Thus, the function <span class="process-math">\(f(x) = \sin(x)\)</span> with <span class="process-math">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span> and codomain <span class="process-math">\([-1,1]\)</span> has an inverse function <span class="process-math">\(f^{-1}\)</span> such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -969,7 +977,7 @@ f^{-1} : [-1,1] \to [-\frac{\pi}{2}, \frac{\pi}{2}]\text{.}
 </div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:47%;"><div class="para logical" id="p-2688">
+<div class="sbspanel top" style="width:47%;"><div class="para logical" id="p-3515">
 <div class="para">We call <span class="process-math">\(f^{-1}\)</span> the <em class="emphasis">arcsine</em>  (or inverse sine) function and write <span class="process-math">\(f^{-1}(y) = \arcsin(y)\text{.}\)</span> It is especially important to remember that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -981,7 +989,7 @@ y = \sin(x) \ \ \text{and}  \ \ x = \arcsin(y)
 </div></div>
 <div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-2-6-arcsine"><img src="external/images/2_6_arcsine.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.4<span class="period">.</span></span><span class="space"> </span>A graph of <span class="process-math">\(f(x) = \sin(x)\)</span> (in blue), restricted to the domain <span class="process-math">\([-\frac{\pi}{2}, \frac{\pi}{2}]\text{,}\)</span> along with its inverse, <span class="process-math">\(f^{-1}(x) = \arcsin(x)\)</span> (in magenta).</figcaption></figure></div>
 </div></div>
-<div class="para logical" id="p-2689">
+<div class="para logical" id="p-3516">
 <div class="para">Next, we determine the derivative of the arcsine function. Letting <span class="process-math">\(h(x) = \arcsin(x)\text{,}\)</span> our goal is to find <span class="process-math">\(h'(x)\text{.}\)</span> Since <span class="process-math">\(h(x)\)</span> is the angle whose sine is <span class="process-math">\(x\text{,}\)</span> it is equivalent to write</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -989,7 +997,7 @@ y = \sin(x) \ \ \text{and}  \ \ x = \arcsin(y)
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-2690">
+<div class="para logical" id="p-3517">
 <div class="para">Differentiating both sides of the previous equation, we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1003,7 +1011,7 @@ y = \sin(x) \ \ \text{and}  \ \ x = \arcsin(y)
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-2691">
+<div class="para logical" id="p-3518">
 <div class="para">Solving for <span class="process-math">\(h'(x)\text{,}\)</span> it follows that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1011,14 +1019,14 @@ h'(x) = \frac{1}{\cos(h(x))}\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-2692">Finally, we recall that <span class="process-math">\(h(x) = \arcsin(x)\text{,}\)</span> so the denominator of <span class="process-math">\(h'(x)\)</span> is the function <span class="process-math">\(\cos(\arcsin(x))\text{,}\)</span> or in other words, “the cosine of the angle whose sine is <span class="process-math">\(x\text{.}\)</span>” A bit of right triangle trigonometry allows us to simplify this expression considerably.</div>
+<div class="para" id="p-3519">Finally, we recall that <span class="process-math">\(h(x) = \arcsin(x)\text{,}\)</span> so the denominator of <span class="process-math">\(h'(x)\)</span> is the function <span class="process-math">\(\cos(\arcsin(x))\text{,}\)</span> or in other words, “the cosine of the angle whose sine is <span class="process-math">\(x\text{.}\)</span>” A bit of right triangle trigonometry allows us to simplify this expression considerably.</div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:47%;"><div class="para" id="p-2693">Let's say that <span class="process-math">\(\theta = \arcsin(x)\text{,}\)</span> so that <span class="process-math">\(\theta\)</span> is the angle whose sine is <span class="process-math">\(x\text{.}\)</span> We can picture <span class="process-math">\(\theta\)</span> as an angle in a right triangle with hypotenuse <span class="process-math">\(1\)</span> and a vertical leg of length <span class="process-math">\(x\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-2-6-cosarcsin.html" title="Figure 2.6.5">Figure 2.6.5</a>. The horizontal leg must be <span class="process-math">\(\sqrt{1-x^2}\text{,}\)</span> by the Pythagorean Theorem.</div></div>
+<div class="sbspanel top" style="width:47%;"><div class="para" id="p-3520">Let’s say that <span class="process-math">\(\theta = \arcsin(x)\text{,}\)</span> so that <span class="process-math">\(\theta\)</span> is the angle whose sine is <span class="process-math">\(x\text{.}\)</span> We can picture <span class="process-math">\(\theta\)</span> as an angle in a right triangle with hypotenuse <span class="process-math">\(1\)</span> and a vertical leg of length <span class="process-math">\(x\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-2-6-cosarcsin.html" title="Figure 2.6.5">Figure 2.6.5</a>. The horizontal leg must be <span class="process-math">\(\sqrt{1-x^2}\text{,}\)</span> by the Pythagorean Theorem.</div></div>
 <div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-2-6-cosarcsin"><img src="external/images/2_6_cosarcsin.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.5<span class="period">.</span></span><span class="space"> </span>The right triangle that corresponds to the angle <span class="process-math">\(\theta = \arcsin(x)\text{.}\)</span></figcaption></figure></div>
 </div></div>
-<div class="para" id="p-2694">Now, because <span class="process-math">\(\theta = \arcsin(x)\text{,}\)</span> the expression for <span class="process-math">\(\cos(\arcsin(x))\)</span> is equivalent to <span class="process-math">\(\cos(\theta)\text{.}\)</span> From the figure, <span class="process-math">\(\cos(\arcsin(x)) = \cos(\theta) = \sqrt{1-x^2}\text{.}\)</span>
+<div class="para" id="p-3521">Now, because <span class="process-math">\(\theta = \arcsin(x)\text{,}\)</span> the expression for <span class="process-math">\(\cos(\arcsin(x))\)</span> is equivalent to <span class="process-math">\(\cos(\theta)\text{.}\)</span> From the figure, <span class="process-math">\(\cos(\arcsin(x)) = \cos(\theta) = \sqrt{1-x^2}\text{.}\)</span>
 </div>
-<div class="para logical" id="p-2695">
+<div class="para logical" id="p-3522">
 <div class="para">Substituting this expression into our formula, <span class="process-math">\(h'(x) = \frac{1}{\cos(\arcsin(x))}\text{,}\)</span> we have now shown that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1027,7 +1035,7 @@ h'(x) = \frac{1}{\sqrt{1-x^2}}\text{.}
 </div>
 </div>
 <article class="assemblage assemblage-like" id="inverse-sine"><h4 class="heading"><span class="title">Inverse sine.</span></h4>
-<div class="para logical" id="p-2696">
+<div class="para logical" id="p-3523">
 <div class="para"> For all real numbers <span class="process-math">\(x\)</span> such that <span class="process-math">\(-1 \lt  x \lt  1\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1038,40 +1046,40 @@ h'(x) = \frac{1}{\sqrt{1-x^2}}\text{.}
 </div></article><article class="activity project-like" id="act-2-6-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.6.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-2697">
+<div class="para logical" id="p-3524">
 <div class="para">The following prompts in this activity will lead you to develop the derivative of the inverse tangent function.</div>
 <ol class="lower-alpha">
-<li id="li-1785"><div class="para" id="p-2698">Let <span class="process-math">\(r(x) = \arctan(x)\text{.}\)</span> Use the relationship between the arctangent and tangent functions to rewrite this equation using only the tangent function.</div></li>
-<li id="li-1786"><div class="para" id="p-2699">Differentiate both sides of the equation you found in (a). Solve the resulting equation for <span class="process-math">\(r'(x)\text{,}\)</span> writing <span class="process-math">\(r'(x)\)</span> as simply as possible in terms of a trigonometric function evaluated at <span class="process-math">\(r(x)\text{.}\)</span>
+<li id="li-2016"><div class="para" id="p-3525">Let <span class="process-math">\(r(x) = \arctan(x)\text{.}\)</span> Use the relationship between the arctangent and tangent functions to rewrite this equation using only the tangent function.</div></li>
+<li id="li-2017"><div class="para" id="p-3526">Differentiate both sides of the equation you found in (a). Solve the resulting equation for <span class="process-math">\(r'(x)\text{,}\)</span> writing <span class="process-math">\(r'(x)\)</span> as simply as possible in terms of a trigonometric function evaluated at <span class="process-math">\(r(x)\text{.}\)</span>
 </div></li>
-<li id="li-1787"><div class="para" id="p-2700">Recall that <span class="process-math">\(r(x) = \arctan(x)\text{.}\)</span> Update your expression for <span class="process-math">\(r'(x)\)</span> so that it only involves trigonometric functions and the independent variable <span class="process-math">\(x\text{.}\)</span>
+<li id="li-2018"><div class="para" id="p-3527">Recall that <span class="process-math">\(r(x) = \arctan(x)\text{.}\)</span> Update your expression for <span class="process-math">\(r'(x)\)</span> so that it only involves trigonometric functions and the independent variable <span class="process-math">\(x\text{.}\)</span>
 </div></li>
-<li id="li-1788"><div class="para" id="p-2701">Introduce a right triangle with angle <span class="process-math">\(\theta\)</span> so that <span class="process-math">\(\theta = \arctan(x)\text{.}\)</span> What are the three sides of the triangle?</div></li>
-<li id="li-1789"><div class="para" id="p-2702">In terms of only <span class="process-math">\(x\)</span> and <span class="process-math">\(1\text{,}\)</span> what is the value of <span class="process-math">\(\cos(\arctan(x))\text{?}\)</span>
+<li id="li-2019"><div class="para" id="p-3528">Introduce a right triangle with angle <span class="process-math">\(\theta\)</span> so that <span class="process-math">\(\theta = \arctan(x)\text{.}\)</span> What are the three sides of the triangle?</div></li>
+<li id="li-2020"><div class="para" id="p-3529">In terms of only <span class="process-math">\(x\)</span> and <span class="process-math">\(1\text{,}\)</span> what is the value of <span class="process-math">\(\cos(\arctan(x))\text{?}\)</span>
 </div></li>
-<li id="li-1790"><div class="para" id="p-2703">Use the results of your work above to find an expression involving only <span class="process-math">\(1\)</span> and <span class="process-math">\(x\)</span> for <span class="process-math">\(r'(x)\text{.}\)</span>
+<li id="li-2021"><div class="para" id="p-3530">Use the results of your work above to find an expression involving only <span class="process-math">\(1\)</span> and <span class="process-math">\(x\)</span> for <span class="process-math">\(r'(x)\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-2725">While derivatives for other inverse trigonometric functions can be established similarly, for now we limit ourselves to the arcsine and arctangent functions.</div>
+</div></article><div class="para" id="p-3552">While derivatives for other inverse trigonometric functions can be established similarly, for now we limit ourselves to the arcsine and arctangent functions.</div>
 <article class="activity project-like" id="act-2-6-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.6.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-2726">
+<div class="para logical" id="p-3553">
 <div class="para">Determine the derivative of each of the following functions.</div>
 <ol class="lower-alpha">
-<li id="li-1809"><div class="para" id="p-2727"><span class="process-math">\(\displaystyle \displaystyle f(x) = x^3 \arctan(x) + e^x \ln(x)\)</span></div></li>
-<li id="li-1810"><div class="para" id="p-2728"><span class="process-math">\(\displaystyle \displaystyle p(t) = 2^{t\arcsin(t)}\)</span></div></li>
-<li id="li-1811"><div class="para" id="p-2729"><span class="process-math">\(\displaystyle \displaystyle h(z) = (\arcsin(5z) + \arctan(4-z))^{27}\)</span></div></li>
-<li id="li-1812"><div class="para" id="p-2730"><span class="process-math">\(\displaystyle \displaystyle s(y) = \cot(\arctan(y))\)</span></div></li>
-<li id="li-1813"><div class="para" id="p-2731"><span class="process-math">\(\displaystyle \displaystyle m(v) = \ln(\sin^2(v)+1)\)</span></div></li>
-<li id="li-1814"><div class="para" id="p-2732"><span class="process-math">\(\displaystyle \displaystyle g(w) = \arctan\left( \frac{\ln(w)}{1+w^2} \right)\)</span></div></li>
+<li id="li-2040"><div class="para" id="p-3554"><span class="process-math">\(\displaystyle \displaystyle f(x) = x^3 \arctan(x) + e^x \ln(x)\)</span></div></li>
+<li id="li-2041"><div class="para" id="p-3555"><span class="process-math">\(\displaystyle \displaystyle p(t) = 2^{t\arcsin(t)}\)</span></div></li>
+<li id="li-2042"><div class="para" id="p-3556"><span class="process-math">\(\displaystyle \displaystyle h(z) = (\arcsin(5z) + \arctan(4-z))^{27}\)</span></div></li>
+<li id="li-2043"><div class="para" id="p-3557"><span class="process-math">\(\displaystyle \displaystyle s(y) = \cot(\arctan(y))\)</span></div></li>
+<li id="li-2044"><div class="para" id="p-3558"><span class="process-math">\(\displaystyle \displaystyle m(v) = \ln(\sin^2(v)+1)\)</span></div></li>
+<li id="li-2045"><div class="para" id="p-3559"><span class="process-math">\(\displaystyle \displaystyle g(w) = \arctan\left( \frac{\ln(w)}{1+w^2} \right)\)</span></div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-44"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.6.4</span> <span class="title">The link between the derivative of a function and the derivative of its inverse</span>
 </h3>
-<div class="para" id="p-2754">In <a href="" class="xref" data-knowl="./knowl/F-2-6-Log-Exp.html" title="Figure 2.6.3">Figure 2.6.3</a>, we saw an interesting relationship between the slopes of tangent lines to the natural exponential and natural logarithm functions at points reflected across the line <span class="process-math">\(y = x\text{.}\)</span> In particular, we observed that at the point <span class="process-math">\((\ln(2), 2)\)</span> on the graph of <span class="process-math">\(f(x) = e^x\text{,}\)</span> the slope of the tangent line is <span class="process-math">\(f'(\ln(2)) = 2\text{,}\)</span> while at the corresponding point <span class="process-math">\((2, \ln(2))\)</span> on the graph of <span class="process-math">\(f^{-1}(x) = \ln(x)\text{,}\)</span> the slope of the tangent line is <span class="process-math">\((f^{-1})'(2) = \frac{1}{2}\text{,}\)</span> which is the reciprocal of <span class="process-math">\(f'(\ln(2))\text{.}\)</span>
+<div class="para" id="p-3581">In <a href="" class="xref" data-knowl="./knowl/F-2-6-Log-Exp.html" title="Figure 2.6.3">Figure 2.6.3</a>, we saw an interesting relationship between the slopes of tangent lines to the natural exponential and natural logarithm functions at points reflected across the line <span class="process-math">\(y = x\text{.}\)</span> In particular, we observed that at the point <span class="process-math">\((\ln(2), 2)\)</span> on the graph of <span class="process-math">\(f(x) = e^x\text{,}\)</span> the slope of the tangent line is <span class="process-math">\(f'(\ln(2)) = 2\text{,}\)</span> while at the corresponding point <span class="process-math">\((2, \ln(2))\)</span> on the graph of <span class="process-math">\(f^{-1}(x) = \ln(x)\text{,}\)</span> the slope of the tangent line is <span class="process-math">\((f^{-1})'(2) = \frac{1}{2}\text{,}\)</span> which is the reciprocal of <span class="process-math">\(f'(\ln(2))\text{.}\)</span>
 </div>
-<div class="para logical" id="p-2755">
+<div class="para logical" id="p-3582">
 <div class="para">That the two corresponding tangent lines have reciprocal slopes is not a coincidence. If <span class="process-math">\(f\)</span> and <span class="process-math">\(g\)</span> are differentiable inverse functions, then <span class="process-math">\(y = f(x)\)</span> if and only if <span class="process-math">\(x = g(y)\text{,}\)</span> then<span class="process-math">\(f(g(x)) = x\)</span> for every <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f^{-1}\text{.}\)</span> Differentiating both sides of this equation, we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1085,10 +1093,10 @@ f'(g(x)) g'(x) = 1\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-2756">Solving for <span class="process-math">\(g'(x)\text{,}\)</span> we have <span class="process-math">\(g'(x) = \frac{1}{f'(g(x))}\text{.}\)</span> Here we see that the slope of the tangent line to the inverse function <span class="process-math">\(g\)</span> at the point <span class="process-math">\((x,g(x))\)</span> is precisely the reciprocal of the slope of the tangent line to the original function <span class="process-math">\(f\)</span> at the point <span class="process-math">\((g(x),f(g(x))) = (g(x),x)\text{.}\)</span>
+<div class="para" id="p-3583">Solving for <span class="process-math">\(g'(x)\text{,}\)</span> we have <span class="process-math">\(g'(x) = \frac{1}{f'(g(x))}\text{.}\)</span> Here we see that the slope of the tangent line to the inverse function <span class="process-math">\(g\)</span> at the point <span class="process-math">\((x,g(x))\)</span> is precisely the reciprocal of the slope of the tangent line to the original function <span class="process-math">\(f\)</span> at the point <span class="process-math">\((g(x),f(g(x))) = (g(x),x)\text{.}\)</span>
 </div>
 <figure class="figure figure-like" id="F-2-6-Gen-Inv"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/images/2_6_GenInv.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.6<span class="period">.</span></span><span class="space"> </span>A graph of function <span class="process-math">\(y = f(x)\)</span> along with its inverse, <span class="process-math">\(y = g(x) = f^{-1}(x)\text{.}\)</span>  Observe that the slopes of the two tangent lines are reciprocals of one another.</figcaption></figure><div class="para logical" id="p-2757">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.6<span class="period">.</span></span><span class="space"> </span>A graph of function <span class="process-math">\(y = f(x)\)</span> along with its inverse, <span class="process-math">\(y = g(x) = f^{-1}(x)\text{.}\)</span>  Observe that the slopes of the two tangent lines are reciprocals of one another.</figcaption></figure><div class="para logical" id="p-3584">
 <div class="para">To see this more clearly, consider the graph of the function <span class="process-math">\(y = f(x)\)</span> shown in <a href="" class="xref" data-knowl="./knowl/F-2-6-Gen-Inv.html" title="Figure 2.6.6">Figure 2.6.6</a>, along with its inverse <span class="process-math">\(y = g(x)\text{.}\)</span> Given a point <span class="process-math">\((a,b)\)</span> that lies on the graph of <span class="process-math">\(f\text{,}\)</span> we know that <span class="process-math">\((b,a)\)</span> lies on the graph of <span class="process-math">\(g\text{;}\)</span> because <span class="process-math">\(f(a) = b\)</span> and <span class="process-math">\(g(b) = a\text{.}\)</span> Now, applying the rule that <span class="process-math">\(g'(x) = 1/f'(g(x))\)</span> to the value <span class="process-math">\(x = b\text{,}\)</span> we have</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-2-6-Gen-Inv.html">
 \begin{equation*}
@@ -1099,16 +1107,16 @@ g'(b) = \frac{1}{f'(g(b))} = \frac{1}{f'(a)}\text{,}
 </div>
 </div>
 <article class="assemblage assemblage-like" id="inverse-function"><h4 class="heading"><span class="title">Derivative of an inverse function.</span></h4>
-<div class="para logical" id="p-2758">
+<div class="para logical" id="p-3585">
 <div class="para"> Suppose that <span class="process-math">\(f\)</span> is a differentiable function with inverse <span class="process-math">\(g\)</span> and that <span class="process-math">\((a,b)\)</span> is a point that lies on the graph of <span class="process-math">\(f\)</span> at which <span class="process-math">\(f'(a) \ne 0\text{.}\)</span> Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 g'(b) = \frac{1}{f'(a)}\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-2759">More generally, for any <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(g'\text{,}\)</span> we have <span class="process-math">\(g'(x) = 1/f'(g(x))\text{.}\)</span>
+</div></article><div class="para" id="p-3586">More generally, for any <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(g'\text{,}\)</span> we have <span class="process-math">\(g'(x) = 1/f'(g(x))\text{.}\)</span>
 </div>
-<div class="para logical" id="p-2760">
+<div class="para logical" id="p-3587">
 <div class="para">The rules we derived for <span class="process-math">\(\ln(x)\text{,}\)</span> <span class="process-math">\(\arcsin(x)\text{,}\)</span> and <span class="process-math">\(\arctan(x)\)</span> are all just specific examples of this general property of the derivative of an inverse function. For example, with <span class="process-math">\(g(x) = \ln(x)\)</span> and <span class="process-math">\(f(x) = e^x\text{,}\)</span> it follows that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1118,161 +1126,142 @@ g'(x) = \frac{1}{f'(g(x))} = \frac{1}{e^{\ln(x)}} = \frac{1}{x}\text{.}
 </div></section><section class="subsection" id="subsection-45"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.6.5</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-2761"><ul class="disc">
-<li id="li-1833"><div class="para" id="p-2762">For all positive real numbers <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[\ln(x)] = \frac{1}{x}\text{.}\)</span>
+<div class="para logical" id="p-3588"><ul class="disc">
+<li id="li-2064"><div class="para" id="p-3589">For all positive real numbers <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[\ln(x)] = \frac{1}{x}\text{.}\)</span>
 </div></li>
-<li id="li-1834"><div class="para" id="p-2763">For all real numbers <span class="process-math">\(x\)</span> such that <span class="process-math">\(-1 \lt x \lt 1\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[\arcsin(x)] = \frac{1}{\sqrt{1-x^2}}\text{.}\)</span> In addition, for all real numbers <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[\arctan(x)] = \frac{1}{1+x^2}\text{.}\)</span>
+<li id="li-2065"><div class="para" id="p-3590">For all real numbers <span class="process-math">\(x\)</span> such that <span class="process-math">\(-1 \lt x \lt 1\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[\arcsin(x)] = \frac{1}{\sqrt{1-x^2}}\text{.}\)</span> In addition, for all real numbers <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(\frac{d}{dx}[\arctan(x)] = \frac{1}{1+x^2}\text{.}\)</span>
 </div></li>
-<li id="li-1835"><div class="para" id="p-2764">If <span class="process-math">\(g\)</span> is the inverse of a differentiable function <span class="process-math">\(f\text{,}\)</span> then for any point <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(g'\text{,}\)</span> <span class="process-math">\(g'(x) = \frac{1}{f'(g(x))}\text{.}\)</span>
+<li id="li-2066"><div class="para" id="p-3591">If <span class="process-math">\(g\)</span> is the inverse of a differentiable function <span class="process-math">\(f\text{,}\)</span> then for any point <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(g'\text{,}\)</span> <span class="process-math">\(g'(x) = \frac{1}{f'(g(x))}\text{.}\)</span>
 </div></li>
 </ul></div></section><section class="exercises" id="ez-2-6"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">2.6.6</span> <span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="ez-2-6-WW1"><h4 class="heading">
-<span class="codenumber">1<span class="period">.</span></span><span class="space"> </span><span class="title">Composite function involving logarithms and polynomials.</span>
-</h4>
-<div id="webwork-83" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="83" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec6/Q01.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-83-button" class="webwork-button activate" onclick="handleWW('webwork-83')" aria-labelledby="webwork-83-button-label"><span id="webwork-83-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-2765">Find the derivative of the function <span class="process-math">\(f(t)\text{,}\)</span> below.</div> <div class="para" id="p-2766"><span class="process-math">\(f(t)=\ln(t^{3}+3)\)</span></div> <div class="para" id="p-2767">
+<article class="exercise exercise-like" id="Library__Michigan__Chap3Sec6__Q51.pg"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec6__Q51.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec6__Q51.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="128" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec6/Q51.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec6__Q51.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-3592">Let <span class="process-math">\((x_0, y_0) = (1, 5)\)</span> and <span class="process-math">\((x_1, y_1) = (1.1, 5.4)\text{.}\)</span> Use the following graph of the function <span class="process-math">\(f\)</span> to find the indicated derivatives.</div> <div class="image-box" style="width: 58%; margin-left: 21%; margin-right: 21%;"><img src="generated/webwork/images/webwork-128-image-1.png" class="contained"></div> <div class="para" id="p-3593">If <span class="process-math">\(h(x)=(f(x))^{2}\text{,}\)</span> then</div> <div class="para" id="p-3594">
+<span class="process-math">\(h'(1) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-3595">If <span class="process-math">\(g(x)=f^{-1}(x)\text{,}\)</span> then</div> <div class="para" id="p-3596">
+<span class="process-math">\(g'(5) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap3Sec6__Q01.pg"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap3Sec6__Q01.pg"><div id="boelkins-ACS__Library__Michigan__Chap3Sec6__Q01.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="129" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec6/Q01.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap3Sec6__Q01.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-3599">Find the derivative of the function <span class="process-math">\(f(t)\text{,}\)</span> below.</div> <div class="para" id="p-3600"><span class="process-math">\(f(t)=\ln(t^{4}+3)\)</span></div> <div class="para" id="p-3601">
 <span class="process-math">\(f'(t) =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-6-WW2"><h4 class="heading">
-<span class="codenumber">2<span class="period">.</span></span><span class="space"> </span><span class="title">Composite function involving trigonometric functions and logarithms.</span>
-</h4>
-<div id="webwork-84" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="84" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec6/Q19.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-84-button" class="webwork-button activate" onclick="handleWW('webwork-84')" aria-labelledby="webwork-84-button-label"><span id="webwork-84-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-2770">Find the derivative of the function <span class="process-math">\(g(t)\text{,}\)</span> below.  It may be to your advantage to simplify before differentiating.</div> <div class="para" id="p-2771"><span class="process-math">\(g(t) = \cos(\ln(t))\)</span></div> <div class="para" id="p-2772">
-<span class="process-math">\(g'(t) =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-6-WW3"><h4 class="heading">
-<span class="codenumber">3<span class="period">.</span></span><span class="space"> </span><span class="title">Product involving <span class="process-math">\(\arcsin(w)\)</span>.</span>
-</h4>
-<div id="webwork-85" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="85" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec6/Q21.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-85-button" class="webwork-button activate" onclick="handleWW('webwork-85')" aria-labelledby="webwork-85-button-label"><span id="webwork-85-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-2775">Find the derivative of the function <span class="process-math">\(h(w)\text{,}\)</span> below.  It may be to your advantage to simplify before differentiating.</div> <div class="para" id="p-2776"><span class="process-math">\(h(w) = 5 w \arcsin w\)</span></div> <div class="para" id="p-2777">
-<span class="process-math">\(h'(w) =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-6-WW4"><h4 class="heading">
-<span class="codenumber">4<span class="period">.</span></span><span class="space"> </span><span class="title">Derivative involving <span class="process-math">\(\arctan(x)\)</span>.</span>
-</h4>
-<div id="webwork-86" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="86" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec6/Q45.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-86-button" class="webwork-button activate" onclick="handleWW('webwork-86')" aria-labelledby="webwork-86-button-label"><span id="webwork-86-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-2779">For <span class="process-math">\(x&gt;0\text{,}\)</span> find <em class="alert">and simplify</em> the derivative of <span class="process-math">\(f(x) = \arctan x + \arctan(1/x)\text{.}\)</span>
-</div> <div class="para" id="p-2780">
-<span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="65-character blank" style="width: 29.5454545454545em;"></span>
-</div> <div class="para" id="p-2781">(What does your result tell you about <span class="process-math">\(f\)</span>)?</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-6-WW5"><h4 class="heading">
-<span class="codenumber">5<span class="period">.</span></span><span class="space"> </span><span class="title">Composite function from a graph.</span>
-</h4>
-<div id="webwork-87" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="87" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap3Sec6/Q51.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-87-button" class="webwork-button activate" onclick="handleWW('webwork-87')" aria-labelledby="webwork-87-button-label"><span id="webwork-87-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-2783">Let <span class="process-math">\((x_0, y_0) = (2, 6)\)</span> and <span class="process-math">\((x_1, y_1) = (2.1, 6.2)\text{.}\)</span> Use the following graph of the function <span class="process-math">\(f\)</span> to find the indicated derivatives.</div> <div class="image-box" style="width: 58.3333333333333%; margin-left: 20.8333333333333%; margin-right: 20.8333333333333%;"><img src="generated/webwork/images/webwork-87-image-1.png" class="contained"></div> <div class="para" id="p-2784">If <span class="process-math">\(h(x)=(f(x))^{5}\text{,}\)</span> then</div> <div class="para" id="p-2785">
-<span class="process-math">\(h'(2) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-2786">If <span class="process-math">\(g(x)=f^{-1}(x)\text{,}\)</span> then</div> <div class="para" id="p-2787">
-<span class="process-math">\(g'(6) =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div>
-</div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-6-WW6"><h4 class="heading">
-<span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Composite function involving an inverse trigonometric function.</span>
-</h4>
-<div id="webwork-88" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="88" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives6InverseTrig/sc3_6_25.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-88-button" class="webwork-button activate" onclick="handleWW('webwork-88')" aria-labelledby="webwork-88-button-label"><span id="webwork-88-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para logical" id="p-2790">
+</div></div></div></article><article class="exercise exercise-like" id="csafranski__2.6HW_prob3.pg"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__csafranski__2.6HW_prob3.pg"><div id="boelkins-ACS__csafranski__2.6HW_prob3.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="130" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/2.6HW_prob3.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__csafranski__2.6HW_prob3.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-3604">
 <div class="para">Let</div>
 <div class="displaymath process-math">
 \begin{equation*}
-f(x) = 7\sin^{-1}\!\left(x^{3}\right)
+f(x) = 4\sin^{-1}\mathopen{}\left(x^{4}\right)
 \end{equation*}
 </div>
-</div> <div class="para" id="p-2791">
+</div> <div class="para" id="p-3605">
 <span class="process-math">\(f'( x ) =\)</span> <span class="fillin underline" role="img" aria-label="40-character blank" style="width: 18.1818181818182em;"></span>
-</div> <div class="para" id="p-2792">NOTE:  The webwork system will accept <span class="process-math">\(\arcsin(x)\)</span> or <span class="process-math">\(\sin^{-1}(x)\)</span>  as the inverse of <span class="process-math">\(\sin (x)\text{.}\)</span>
+</div> <div class="para" id="p-3606">NOTE:  The webwork system will accept <span class="process-math">\(\arcsin(x)\)</span> or <span class="process-math">\(\sin^{-1}(x)\)</span>  as the inverse of <span class="process-math">\(\sin (x)\text{.}\)</span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-6-WW7"><h4 class="heading">
-<span class="codenumber">7<span class="period">.</span></span><span class="space"> </span><span class="title">Mixing rules: product, chain, and inverse trig.</span>
-</h4>
-<div id="webwork-89" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="89" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives6InverseTrig/sc3_6_26.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-89-button" class="webwork-button activate" onclick="handleWW('webwork-89')" aria-labelledby="webwork-89-button-label"><span id="webwork-89-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-2794">If <span class="process-math">\(f(x) = 8 x^{4}\arctan(3 x^{3})\text{,}\)</span> find <span class="process-math">\(f' ( x ).\)</span>
-</div> <div class="para" id="p-2795">
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setDerivatives6InverseTrig__sc3_6_26.pg"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setDerivatives6InverseTrig__sc3_6_26.pg"><div id="boelkins-ACS__Library__Rochester__setDerivatives6InverseTrig__sc3_6_26.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="131" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives6InverseTrig/sc3_6_26.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setDerivatives6InverseTrig__sc3_6_26.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-3608">If <span class="process-math">\(f(x) = 6 x^{3}\arctan(6 x^{4})\text{,}\)</span> find <span class="process-math">\(f' ( x ).\)</span>
+</div> <div class="para" id="p-3609">
 <span class="process-math">\(f' (x)\)</span> = <span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="ez-2-6-WW8"><h4 class="heading">
-<span class="codenumber">8<span class="period">.</span></span><span class="space"> </span><span class="title">Mixing rules: product and inverse trig.</span>
-</h4>
-<div id="webwork-90" class="exercise-wrapper" data-domain="https://webwork-hosting.runestone.academy" data-seed="90" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives6InverseTrig/sc3_6_32a.pg" data-courseID="franciscan-safranski-daemon" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<button id="webwork-90-button" class="webwork-button activate" onclick="handleWW('webwork-90')" aria-labelledby="webwork-90-button-label"><span id="webwork-90-button-label" hidden="hidden">Activate</span></button><div class="problem-contents">
-<div class="para" id="p-2799">Let <span class="process-math">\(f(x) = \displaystyle 8\cos\!\left(x\right)\sin^{-1}\!\left(x\right)\text{.}\)</span>  Find <span class="process-math">\(f'(x)\text{.}\)</span>
-</div> <div class="para" id="p-2800">
-<span class="process-math">\(f'(x) =\)</span> <span class="fillin underline" role="img" aria-label="50-character blank" style="width: 22.7272727272727em;"></span>
+</div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setDerivatives1__osu_dr_1_11.pg"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setDerivatives1__osu_dr_1_11.pg"><div id="boelkins-ACS__Library__Rochester__setDerivatives1__osu_dr_1_11.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="132" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setDerivatives1/osu_dr_1_11.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setDerivatives1__osu_dr_1_11.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para" id="p-3613">For each of the given functions <span class="process-math">\(f(x)\text{,}\)</span> find the derivative <span class="process-math">\(\left(f^{-1}\right)'(c)\)</span> at the given point <span class="process-math">\(c\text{,}\)</span> first finding <span class="process-math">\(a=f^{-1}(c)\text{.}\)</span>
+</div> <div class="para" id="p-3614">a) <span class="process-math">\(f(x)= 5 x + 7 x^{21}\text{;}\)</span> <span class="process-math">\(c = -12\)</span>
+</div> <div class="para" id="p-3615">
+<span class="process-math">\(a\)</span> =  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-3616">
+<span class="process-math">\(\left(f^{-1}\right)'(c)\)</span> = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-3617">b) <span class="process-math">\(f(x)= x^2 - 12 x + 51\)</span> on the interval <span class="process-math">\([6,\infty)\text{;}\)</span> <span class="process-math">\(c = 16\)</span>
+</div> <div class="para" id="p-3618">
+<span class="process-math">\(a\)</span> =  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-3619">
+<span class="process-math">\(\left(f^{-1}\right)'(c)\)</span> = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
 </div>
 </div>
-<div class="problem-buttons"></div>
-</div></article><article class="exercise exercise-like" id="exercise-125"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-2802">
+</div></div></div></article><article class="exercise exercise-like" id="Library__UCSB__Stewart5_3_6__Stewart5_3_6_68.pg"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__UCSB__Stewart5_3_6__Stewart5_3_6_68.pg"><div id="boelkins-ACS__Library__UCSB__Stewart5_3_6__Stewart5_3_6_68.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="133" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/UCSB/Stewart5_3_6/Stewart5_3_6_68.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__UCSB__Stewart5_3_6__Stewart5_3_6_68.pg-ww-rs')">Activate</button></div>
+<div class="problem-contents">
+<div class="para logical" id="p-3624">
+<div class="para">Given that <span class="process-math">\(f(x)=2x+\cos(x)\)</span> is one-to-one, use the formula</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\displaystyle (f^{-1})'(x)=\frac{1}{f'(f^{-1}(x))}
+\end{equation*}
+</div>
+<div class="para">to find <span class="process-math">\((f^{-1})'(1)\text{.}\)</span>
+</div>
+</div> <div class="para" id="p-3625">
+<span class="process-math">\((f^{-1})'(1) =\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div>
+</div>
+</div></div></div></article><article class="exercise exercise-like" id="exercise-154"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para logical" id="p-3627">
 <div class="para">Determine the derivative of each of the following functions. Use proper notation and clearly identify the derivative rules you use.</div>
 <ol class="lower-alpha">
-<li id="li-1836"><div class="para" id="p-2803"><span class="process-math">\(\displaystyle f(x) = \ln(2\arctan(x) + 3\arcsin(x) + 5)\)</span></div></li>
-<li id="li-1837"><div class="para" id="p-2804"><span class="process-math">\(\displaystyle r(z) = \arctan(\ln(\arcsin(z)))\)</span></div></li>
-<li id="li-1838"><div class="para" id="p-2805"><span class="process-math">\(\displaystyle q(t) = \arctan^2(3t) \arcsin^4(7t)\)</span></div></li>
-<li id="li-1839"><div class="para" id="p-2806"><span class="process-math">\(\displaystyle g(v) = \ln\left( \frac{\arctan(v)}{\arcsin(v) + v^2} \right)\)</span></div></li>
+<li id="li-2067"><div class="para" id="p-3628"><span class="process-math">\(\displaystyle f(x) = \ln(2\arctan(x) + 3\arcsin(x) + 5)\)</span></div></li>
+<li id="li-2068"><div class="para" id="p-3629"><span class="process-math">\(\displaystyle r(z) = \arctan(\ln(\arcsin(z)))\)</span></div></li>
+<li id="li-2069"><div class="para" id="p-3630"><span class="process-math">\(\displaystyle q(t) = \arctan^2(3t) \arcsin^4(7t)\)</span></div></li>
+<li id="li-2070"><div class="para" id="p-3631"><span class="process-math">\(\displaystyle g(v) = \ln\left( \frac{\arctan(v)}{\arcsin(v) + v^2} \right)\)</span></div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="ez-2-6-Ez4"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para" id="p-2817">Consider the graph of <span class="process-math">\(y = f(x)\)</span> provided in <a href="" class="xref" data-knowl="./knowl/F-2-6-Ez4.html" title="Figure 2.6.7">Figure 2.6.7</a> and use it to answer the following questions.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:47%;"><div class="para logical" id="p-2818"><ol class="lower-alpha">
-<li id="li-1848"><div class="para" id="p-2819">Use the provided graph to estimate the value of <span class="process-math">\(f'(1)\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="ez-2-6-Ez4"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="para" id="p-3642">Consider the graph of <span class="process-math">\(y = f(x)\)</span> provided in <a href="" class="xref" data-knowl="./knowl/F-2-6-Ez4.html" title="Figure 2.6.7">Figure 2.6.7</a> and use it to answer the following questions.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:47%;"><div class="para logical" id="p-3643"><ol class="lower-alpha">
+<li id="li-2079"><div class="para" id="p-3644">Use the provided graph to estimate the value of <span class="process-math">\(f'(1)\text{.}\)</span>
 </div></li>
-<li id="li-1849"><div class="para" id="p-2820">Sketch an approximate graph of <span class="process-math">\(y = f^{-1}(x)\text{.}\)</span> Label at least three distinct points on the graph that correspond to three points on the graph of <span class="process-math">\(f\text{.}\)</span>
+<li id="li-2080"><div class="para" id="p-3645">Sketch an approximate graph of <span class="process-math">\(y = f^{-1}(x)\text{.}\)</span> Label at least three distinct points on the graph that correspond to three points on the graph of <span class="process-math">\(f\text{.}\)</span>
 </div></li>
-<li id="li-1850"><div class="para" id="p-2821">Based on your work in (a), what is the value of <span class="process-math">\((f^{-1})'(-1)\text{?}\)</span> Why?</div></li>
+<li id="li-2081"><div class="para" id="p-3646">Based on your work in (a), what is the value of <span class="process-math">\((f^{-1})'(-1)\text{?}\)</span> Why?</div></li>
 </ol></div></div>
 <div class="sbspanel top" style="width:47%;"><figure class="figure figure-like" id="F-2-6-Ez4"><img src="external/images/2_6_Ez4.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.6.7<span class="period">.</span></span><span class="space"> </span>A function <span class="process-math">\(y = f(x)\)</span></figcaption></figure></div>
-</div></div></article><article class="exercise exercise-like" id="exercise-127"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
-<div class="para logical" id="p-2829">
+</div></div></article><article class="exercise exercise-like" id="exercise-156"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="para logical" id="p-3654">
 <div class="para">Let <span class="process-math">\(f(x) = \frac{1}{4}x^3 + 4\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-1857"><div class="para" id="p-2830">Sketch a graph of <span class="process-math">\(y = f(x)\)</span> and explain why <span class="process-math">\(f\)</span> is an invertible function.</div></li>
-<li id="li-1858"><div class="para" id="p-2831">Let <span class="process-math">\(g\)</span> be the inverse of <span class="process-math">\(f\)</span> and determine a formula for <span class="process-math">\(g\text{.}\)</span>
+<li id="li-2088"><div class="para" id="p-3655">Sketch a graph of <span class="process-math">\(y = f(x)\)</span> and explain why <span class="process-math">\(f\)</span> is an invertible function.</div></li>
+<li id="li-2089"><div class="para" id="p-3656">Let <span class="process-math">\(g\)</span> be the inverse of <span class="process-math">\(f\)</span> and determine a formula for <span class="process-math">\(g\text{.}\)</span>
 </div></li>
-<li id="li-1859"><div class="para" id="p-2832">Compute <span class="process-math">\(f'(x)\text{,}\)</span> <span class="process-math">\(g'(x)\text{,}\)</span> <span class="process-math">\(f'(2)\text{,}\)</span> and <span class="process-math">\(g'(6)\text{.}\)</span> What is the special relationship between <span class="process-math">\(f'(2)\)</span> and <span class="process-math">\(g'(6)\text{?}\)</span> Why?</div></li>
+<li id="li-2090"><div class="para" id="p-3657">Compute <span class="process-math">\(f'(x)\text{,}\)</span> <span class="process-math">\(g'(x)\text{,}\)</span> <span class="process-math">\(f'(2)\text{,}\)</span> and <span class="process-math">\(g'(6)\text{.}\)</span> What is the special relationship between <span class="process-math">\(f'(2)\)</span> and <span class="process-math">\(g'(6)\text{?}\)</span> Why?</div></li>
 </ol>
-</div></article><article class="exercise exercise-like" id="exercise-128"><h4 class="heading"><span class="codenumber">12<span class="period">.</span></span></h4>
-<div class="para logical" id="p-2841">
+</div></article><article class="exercise exercise-like" id="exercise-157"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
+<div class="para logical" id="p-3666">
 <div class="para">Let <span class="process-math">\(h(x) = x + \sin(x)\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-1866"><div class="para" id="p-2842">Sketch a graph of <span class="process-math">\(y = h(x)\)</span> and explain why <span class="process-math">\(h\)</span> must be invertible.</div></li>
-<li id="li-1867"><div class="para" id="p-2843">Explain why it does not appear to be algebraically possible to determine a formula for <span class="process-math">\(h^{-1}\text{.}\)</span>
+<li id="li-2097"><div class="para" id="p-3667">Sketch a graph of <span class="process-math">\(y = h(x)\)</span> and explain why <span class="process-math">\(h\)</span> must be invertible.</div></li>
+<li id="li-2098"><div class="para" id="p-3668">Explain why it does not appear to be algebraically possible to determine a formula for <span class="process-math">\(h^{-1}\text{.}\)</span>
 </div></li>
-<li id="li-1868"><div class="para" id="p-2844">Observe that the point <span class="process-math">\((\frac{\pi}{2}, \frac{\pi}{2} + 1)\)</span> lies on the graph of <span class="process-math">\(y = h(x)\text{.}\)</span> Determine the value of <span class="process-math">\((h^{-1})'(\frac{\pi}{2} + 1)\text{.}\)</span>
+<li id="li-2099"><div class="para" id="p-3669">Observe that the point <span class="process-math">\((\frac{\pi}{2}, \frac{\pi}{2} + 1)\)</span> lies on the graph of <span class="process-math">\(y = h(x)\text{.}\)</span> Determine the value of <span class="process-math">\((h^{-1})'(\frac{\pi}{2} + 1)\text{.}\)</span>
 </div></li>
 </ol>
 </div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-49"><div class="fn">A function <span class="process-math">\(f\)</span> is <em class="emphasis">one-to-one</em> provided that no two distinct inputs lead to the same output.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-50"><div class="fn">A function <span class="process-math">\(f\)</span> is <em class="emphasis">onto</em> provided that every possible element of the codomain can be realized as an output of the function for some choice of input from the domain.</div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-51"><div class="fn">A function <span class="process-math">\(f\)</span> is <em class="emphasis">one-to-one</em> provided that no two distinct inputs lead to the same output.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-52"><div class="fn">A function <span class="process-math">\(f\)</span> is <em class="emphasis">onto</em> provided that every possible element of the codomain can be realized as an output of the function for some choice of input from the domain.</div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-2-5-chain.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-2-7-implicit.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>
 </div>
-<div class="ptx-page-footer">
-<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org"><div class="name">Authored in PreTeXt</div>
-<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Hosted on Runestone</div>
-<img class="logo" title="Hosted on Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Hosted on Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
-</div>
-</body>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>
