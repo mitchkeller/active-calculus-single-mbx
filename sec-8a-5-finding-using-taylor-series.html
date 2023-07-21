@@ -11,7 +11,7 @@
 <title>AC Finding and Using Taylor Series</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://runestone.academy/ns/books/published/boelkins-ACS/sec-8a-5-finding-using-taylor-series.html">
+<link rel="canonical" href="https://runestone.academy/ns/books/published/ac-single/sec-8a-5-finding-using-taylor-series.html">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
@@ -126,13 +126,13 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
-eBookConfig.runestone_version = '7.0.5';
+eBookConfig.runestone_version = '7.0.7';
 </script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<script type="text/javascript" src="_static/prefix-runtime.fd9ce61c3c71cb22.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
-<body id="boelkins-ACS" class="pretext book ignore-math">
+<body id="ac-single" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
 <a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
@@ -776,12 +776,12 @@ eBookConfig.runestone_version = '7.0.5';
 <div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
 <ul class="structural">
 <li>
-<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+<div class="toc-item"><a href="sec-safranski-review1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">9.2</span> <span class="title">Exercises</span></a></div></li></ul>
+<div class="toc-item"><a href="sec-safranski-review2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">9.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integrating Rational Functions</span></a></div>
@@ -824,68 +824,68 @@ eBookConfig.runestone_version = '7.0.5';
 </h2>
 <article class="objectives goal-like" id="objectives-47"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-5572"><div class="para" id="p-11178">Is it possible to find the Taylor series expansion for a given function <span class="process-math">\(f\)</span> without computing and evaluating various derivatives of <span class="process-math">\(f\text{?}\)</span>
+<li id="li-5491"><div class="para" id="p-11220">Is it possible to find the Taylor series expansion for a given function <span class="process-math">\(f\)</span> without computing and evaluating various derivatives of <span class="process-math">\(f\text{?}\)</span>
 </div></li>
-<li id="li-5573"><div class="para" id="p-11179">Can we differentiate or integrate a Taylor series similar to how we differentiate or integrate a polynomial?  If so, how does doing so affect the values of <span class="process-math">\(x\)</span> for which the Taylor series converges?</div></li>
-<li id="li-5574"><div class="para" id="p-11180">What is an alternating series and how can we determine whether or not it converges?  How do the partial sums of a converging alternating series accurately estimate its exact sum?</div></li>
-</ul></article><section class="introduction" id="introduction-57"><div class="para" id="p-11181">So far, we have focused our attention on a collection of five basic functions functions — <span class="process-math">\(\frac{1}{1-x}\text{,}\)</span> <span class="process-math">\(\ln(1+x)\text{,}\)</span> <span class="process-math">\(\sin(x)\text{,}\)</span> <span class="process-math">\(\cos(x)\text{,}\)</span> and <span class="process-math">\(e^x\)</span> — and their Taylor series centered at <span class="process-math">\(a = 0\text{.}\)</span>  One of the reasons we were able to find these Taylor series is the patterns that arise in the derivatives of each of these functions.  While we can always use <a href="" class="xref" data-knowl="./knowl/D-8a-4-Taylor-series.html" title="Definition 8.4.1">Definition 8.4.1</a> to find the first few terms of the Taylor series, for most functions it is challenging to find a pattern among the various derivatives that allows us to state the general <span class="process-math">\(n\)</span>th term of the series.</div> <div class="para" id="p-11182">In <a href="" class="xref" data-knowl="./knowl/ajordan_8a-_5_Preview_taylor_series_by_substitution.html" title="Preview Activity 8.5.1">Preview Activity 8.5.1</a>, we explore this issue and investigate a different approach to finding the Taylor series of a given function.</div> <article class="exploration project-like" id="ajordan_8a-_5_Preview_taylor_series_by_substitution"><h3 class="heading">
+<li id="li-5492"><div class="para" id="p-11221">Can we differentiate or integrate a Taylor series similar to how we differentiate or integrate a polynomial?  If so, how does doing so affect the values of <span class="process-math">\(x\)</span> for which the Taylor series converges?</div></li>
+<li id="li-5493"><div class="para" id="p-11222">What is an alternating series and how can we determine whether or not it converges?  How do the partial sums of a converging alternating series accurately estimate its exact sum?</div></li>
+</ul></article><section class="introduction" id="introduction-57"><div class="para" id="p-11223">So far, we have focused our attention on a collection of five basic functions functions — <span class="process-math">\(\frac{1}{1-x}\text{,}\)</span> <span class="process-math">\(\ln(1+x)\text{,}\)</span> <span class="process-math">\(\sin(x)\text{,}\)</span> <span class="process-math">\(\cos(x)\text{,}\)</span> and <span class="process-math">\(e^x\)</span> — and their Taylor series centered at <span class="process-math">\(a = 0\text{.}\)</span>  One of the reasons we were able to find these Taylor series is the patterns that arise in the derivatives of each of these functions.  While we can always use <a href="" class="xref" data-knowl="./knowl/D-8a-4-Taylor-series.html" title="Definition 8.4.1">Definition 8.4.1</a> to find the first few terms of the Taylor series, for most functions it is challenging to find a pattern among the various derivatives that allows us to state the general <span class="process-math">\(n\)</span>th term of the series.</div> <div class="para" id="p-11224">In <a href="" class="xref" data-knowl="./knowl/ajordan_8a-_5_Preview_taylor_series_by_substitution.html" title="Preview Activity 8.5.1">Preview Activity 8.5.1</a>, we explore this issue and investigate a different approach to finding the Taylor series of a given function.</div> <article class="exploration project-like" id="ajordan_8a-_5_Preview_taylor_series_by_substitution"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">8.5.1</span><span class="period">.</span>
 </h3>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__ajordan_8a-_5_Preview_taylor_series_by_substitution"><div id="boelkins-ACS__ajordan_8a-_5_Preview_taylor_series_by_substitution-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="379" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJzY2FmZm9sZC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJwYXJzZXJDaGVja2JveExpc3QucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxEZWNsYXJlTWF0aE9wZXJhdG9ye1xlcmZ9e2VyZn1cRGVjbGFyZU1hdGhPcGVyYXRvcntcYXJjdGFuaH17YXJjdGFuaH1cRGVjbGFyZU1hdGhPcGVyYXRvcntcYXJjc2VjfXthcmNzZWN9XG5ld2NvbW1hbmR7XGx0fXs8fVwpPC9kaXY+JykpOwpDb250ZXh0KCdOdW1lcmljJyk7ICAgICAkbWMgPSBDaGVja2JveExpc3QoCiAgICAgWwogICAgICAgWyJDb25zdGFudCBNdWx0aXBsZSRCUiIsCiAgICAgICAgIlN1bSBvciBEaWZmZXJlbmNlJEJSIiwKICAgICAgICAiUXVvdGllbnQkQlIiLAogICAgICAgICJDaGFpbiRCUiIsCiAgICAgICAgIlBvd2VyJEJSIiwKICAgICAgICAiUHJvZHVjdCRCUiIsCiAgICAgICAgIkV4cG9uZW50aWFsJEJSIiwKXSwKIkFsbCBvZiB0aGUgYWJvdmUiCiAgICAgXSwKWzAuLjRdCiAgICAgKTsKCkJFR0lOX1BHTUwKTGV0CgpbYGBgCiAgICAgICAgICBnKHgpID0gXGZyYWN7MX17MSArIHheMn0KICAgICAgICBcdGV4dHsufWBgYF0KCgoKCkVORF9QR01MClNjYWZmb2xkOjpCZWdpbihudW1iZXJlZCA9PiAxLGlzX29wZW4gPT4gImNvcnJlY3Rfb3JfZmlyc3RfaW5jb3JyZWN0IixjYW5fb3BlbiA9PiBhbHdheXMsKTtTZWN0aW9uOjpCZWdpbigiIik7CkJFR0lOX1BHTUwKV2Uga25vdyB0aGUgY29lZmZpY2llbnRzIG9mIHRoZSBUYXlsb3Igc2VyaWVzIGZvciBbYGcoeClgXSBjZW50ZXJlZCBhdCBbYGE9MGBdIGFyZSBnaXZlbiBieSBbYFxmcmFje2deeyhrKX0oMCl9e2shfVx0ZXh0eyx9YF0gc28gd2Ugc3RhcnQgY2FsY3VsYXRpbmcgc29tZSBkZXJpdmF0aXZlcy4gIE5vdGUgdGhhdCB3ZSBjYW4gd3JpdGUgW2BnKHgpPSgxK3heMileey0xfVx0ZXh0ey59YF0gQ2FsY3VsYXRlIFtgZycoeClcdGV4dHssfWBdIGFuZCBbYGcnJyh4KVx0ZXh0ey59YF0KCltgZycoeCk9e31gXVtfXXsnLTJ4KDEreF4yKV4oLTIpJ317MjB9IGFuZCBbYGcnJyh4KT17fWBdW19deycyKDN4XjItMSkoMSt4XjIpXigtMyknfXsyMH0KCgpFTkRfUEdNTApTZWN0aW9uOjpFbmQoKTtTZWN0aW9uOjpCZWdpbigiIik7CkJFR0lOX1BHTUwKSWYgeW91IHNpbXBsaWZ5IFtgZycnKHgpXHRleHR7LH1gXSB0YWtlIHRoZSBkZXJpdmF0aXZlIGFnYWluLCBhbmQgc2ltcGxpZnkgdGhlIHJlc3VsdCwgeW91J2QgZmluZCB0aGF0CgpbYGBgCiAgICAgICAgICAgIGcnJycoeCkgPSBcZnJhY3syNHggLSAyNHheM317KDEreF4yKV40fQogICAgICAgICAgXHRleHR7Ln1gYGBdCgpJZiB3ZSBkb24ndCByZXdyaXRlIFtgZycnJyh4KWBdIGZyb20gdGhlIGZvcm0gc2hvd24gYWJvdmUsIHdoYXQgZGVyaXZhdGl2ZSBydWxlcyB3b3VsZCBiZSBuZWVkZWQgdG8gY2FsY3VsYXRlIFtgZ157KDQpfSh4KVx0ZXh0ez99YF0gIFNlbGVjdCBhbGwgdGhhdCBhcHBseS4KCltfXXskbWN9ezV9CgoKRU5EX1BHTUwKU2VjdGlvbjo6RW5kKCk7U2VjdGlvbjo6QmVnaW4oIiIpOwpCRUdJTl9QR01MCkZpbmQgW2BnKDApXHRleHR7LH1gXSBbYGcnKDApXHRleHR7LH1gXSBbYGcnJygwKVx0ZXh0eyx9YF0gYW5kIFtgZycnJygwKVx0ZXh0ey59YF0KCltfXXsnMSd9ezV9CgpbX117JzAnfXs1fQoKW19deyctMid9ezV9CgpbX117JzAnfXs1fQoKVXNlIHRoZSByZXN1bHRzIHRvIGRldGVybWluZSBbYFRfMyh4KVx0ZXh0ey59YF0KCltfXXsnMS14XjInfXs1fQoKCkVORF9QR01MClNlY3Rpb246OkVuZCgpO1NlY3Rpb246OkJlZ2luKCIiKTsKQkVHSU5fUEdNTApTaW5jZSB0aGUgZGVyaXZhdGl2ZXMgb2YgW2BnYF0gYmVjb21lIHNvIGNvbXBsaWNhdGVkLCB3ZSBjb25zaWRlciBhIGRpZmZlcmVudCBhcHByb2FjaCB0byBmaW5kaW5nIHRoZSBUYXlsb3Igc2VyaWVzIGNlbnRlcmVkIGF0IFtgYT0wYF0gZm9yIFtgZyh4KT1cZnJhY3sxfXsxK3heMn1cdGV4dHsufWBdIFdlIHRha2UgYWR2YW50YWdlIG9mIHRoZSBmYWN0IHRoYXQgW2BmKHgpPVxmcmFjezF9ezEteH1gXSBoYXMgYSBUYXlsb3Igc2VyaWVzIGV4cGFuc2lvbiB3ZSBhbHJlYWR5IGtub3csIGFuZCBvYnNlcnZlIHRoYXQgW2BmYF0gaGFzIGFuIGFsZ2VicmFpYyBzdHJ1Y3R1cmUgc2ltaWxhciB0byBbYGdcdGV4dHsufWBdCgpXZSBpbnRyb2R1Y2UgYSBuZXcgdmFyaWFibGUsIFtgdVx0ZXh0eyx9YF0gYW5kIHJlY2FsbCB0aGF0CgpbYGBgCiAgICAgICAgICAgIGYodSkgPSBcZGZyYWN7MX17MSAtIHV9ID0gMSArIHUgKyB1XjIgKyB1XjMgKyBcY2RvdHMgKyB1Xm4gKyBcY2RvdHMKICAgICAgICAgIGBgYF0KCmZvciBbYFxsdmVydCB1XHJ2ZXJ0IFxsdCAxXHRleHR7Ln1gXQoKTGV0IFtgdT0teF4yXHRleHR7Ln1gXSBXaGF0IGVxdWF0aW9uIHJlc3VsdHMgZnJvbSBldmFsdWF0aW5nIFtgZigteF4yKWBdIGluIHRoZSBlcXVhdGlvbiBnaXZlbiBhYm92ZSBmb3IgW2BmKHUpXHRleHR7P31gXQoKW0BLZXlib2FyZEluc3RydWN0aW9ucygnRW50ZXIgdGhlIGZpcnN0IDQgbm9uemVybyB0ZXJtcyBpbiB0aGUgc3VtIG9uIHRoZSByaWdodC1oYW5kLXNpZGUgb2YgdGhlIHJlc3VsdGluZyBlcXVhdGlvbi4nKUBdKioKCltgZlxtYXRob3Blbnt9XGxlZnQoLXheMlxyaWdodClcbWF0aGNsb3Nle30gPSBcZnJhY3sxfXsxLVxsZWZ0KC14XjJccmlnaHQpfSA9IHt9YF1bX117JzEgLSB4XjIgKyB4XjQgLSB4XjYnfXszMH1bYHt9ICsgXGNkb3RzYF0KCkhvdyBkb2VzIHRoZSBhbnN3ZXIgaGVyZSBjb21wYXJlIHRvIHRoZSBmb3JtdWxhIHlvdSBmb3VuZCBmb3IgW2BUXzMoeClgXSBpbiAoYyk/CgoKRU5EX1BHTUwKU2VjdGlvbjo6RW5kKCk7U2VjdGlvbjo6QmVnaW4oIiIpOwpCRUdJTl9QR01MCk5vdGUgdGhhdCBbYDEgLSBcbGVmdCgteF4yXHJpZ2h0KSA9IDEgKyB4XjJcdGV4dHssfWBdIHNvIHdlIGp1c3QgZm91bmQgYW4gaW5maW5pdGUgc2VyaWVzIHJlcHJlc2VudGF0aW9uIGZvciBbYGcoeCkgPSBcZnJhY3sxfXsxICsgeF4yfWBdIHdpdGhvdXQgY2FsY3VsYXRpbmcgZGVyaXZhdGl2ZXMgb2YgW2BnKHgpXHRleHR7LH1gXSBieSB1c2luZyB0aGUgc2VyaWVzIHdlIGhhZCBhbHJlYWR5IGNhbGN1bGF0ZWQgZm9yIFtgZih1KSA9IFxmcmFjezF9ezEgLSB1fVx0ZXh0ey59YF0gRm9yIHdoYXQgdmFsdWVzIG9mIFtgeGBdIGRvIHlvdSBleHBlY3QgdGhpcyBzZXJpZXMgZm9yIFtgZyh4KWBdIHdpbGwgY29udmVyZ2U/CgpbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdVc2UgaW50ZXJ2YWwgbm90YXRpb24uJylAXSoqCgpbX117SW50ZXJ2YWwoLTEsMSl9ezEwfQoKX0hpbnRfOiBUaGluayBhYm91dCB3aGF0IHlvdSBrbm93IGFib3V0IHRoZSB2YWx1ZXMgb2YgW2B1YF0gZm9yIHdoaWNoIHRoZSBzZXJpZXMgZm9yIFtgZih1KWBdIHdpbGwgY29udmVyZ2UuCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfSElOVApUaGluayBhYm91dCB3aGF0IHlvdSBrbm93IGFib3V0IHRoZSB2YWx1ZXMgb2YgW2B1YF0gZm9yIHdoaWNoIHRoZSBzZXJpZXMgZm9yIFtgZih1KWBdIHdpbGwgY29udmVyZ2UuCgoKRU5EX1BHTUxfSElOVApTZWN0aW9uOjpFbmQoKTtTY2FmZm9sZDo6RW5kKCk7CkVORERPQ1VNRU5UKCk7" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__ajordan_8a-_5_Preview_taylor_series_by_substitution-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__ajordan_8a-_5_Preview_taylor_series_by_substitution"><div id="ac-single__ajordan_8a-_5_Preview_taylor_series_by_substitution-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="379" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIlBHTUwucGwiLCJzY2FmZm9sZC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQQ0NtYWNyb3MucGwiLCJwYXJzZXJDaGVja2JveExpc3QucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxEZWNsYXJlTWF0aE9wZXJhdG9ye1xlcmZ9e2VyZn1cRGVjbGFyZU1hdGhPcGVyYXRvcntcYXJjdGFuaH17YXJjdGFuaH1cRGVjbGFyZU1hdGhPcGVyYXRvcntcYXJjc2VjfXthcmNzZWN9XG5ld2NvbW1hbmR7XGx0fXs8fVwpPC9kaXY+JykpOwpDb250ZXh0KCdOdW1lcmljJyk7ICAgICAkbWMgPSBDaGVja2JveExpc3QoCiAgICAgWwogICAgICAgWyJDb25zdGFudCBNdWx0aXBsZSRCUiIsCiAgICAgICAgIlN1bSBvciBEaWZmZXJlbmNlJEJSIiwKICAgICAgICAiUXVvdGllbnQkQlIiLAogICAgICAgICJDaGFpbiRCUiIsCiAgICAgICAgIlBvd2VyJEJSIiwKICAgICAgICAiUHJvZHVjdCRCUiIsCiAgICAgICAgIkV4cG9uZW50aWFsJEJSIiwKXSwKIkFsbCBvZiB0aGUgYWJvdmUiCiAgICAgXSwKWzAuLjRdCiAgICAgKTsKCkJFR0lOX1BHTUwKTGV0CgpbYGBgCiAgICAgICAgICBnKHgpID0gXGZyYWN7MX17MSArIHheMn0KICAgICAgICBcdGV4dHsufWBgYF0KCgoKCkVORF9QR01MClNjYWZmb2xkOjpCZWdpbihudW1iZXJlZCA9PiAxLGlzX29wZW4gPT4gImNvcnJlY3Rfb3JfZmlyc3RfaW5jb3JyZWN0IixjYW5fb3BlbiA9PiBhbHdheXMsKTtTZWN0aW9uOjpCZWdpbigiIik7CkJFR0lOX1BHTUwKV2Uga25vdyB0aGUgY29lZmZpY2llbnRzIG9mIHRoZSBUYXlsb3Igc2VyaWVzIGZvciBbYGcoeClgXSBjZW50ZXJlZCBhdCBbYGE9MGBdIGFyZSBnaXZlbiBieSBbYFxmcmFje2deeyhrKX0oMCl9e2shfVx0ZXh0eyx9YF0gc28gd2Ugc3RhcnQgY2FsY3VsYXRpbmcgc29tZSBkZXJpdmF0aXZlcy4gIE5vdGUgdGhhdCB3ZSBjYW4gd3JpdGUgW2BnKHgpPSgxK3heMileey0xfVx0ZXh0ey59YF0gQ2FsY3VsYXRlIFtgZycoeClcdGV4dHssfWBdIGFuZCBbYGcnJyh4KVx0ZXh0ey59YF0KCltgZycoeCk9e31gXVtfXXsnLTJ4KDEreF4yKV4oLTIpJ317MjB9IGFuZCBbYGcnJyh4KT17fWBdW19deycyKDN4XjItMSkoMSt4XjIpXigtMyknfXsyMH0KCgpFTkRfUEdNTApTZWN0aW9uOjpFbmQoKTtTZWN0aW9uOjpCZWdpbigiIik7CkJFR0lOX1BHTUwKSWYgeW91IHNpbXBsaWZ5IFtgZycnKHgpXHRleHR7LH1gXSB0YWtlIHRoZSBkZXJpdmF0aXZlIGFnYWluLCBhbmQgc2ltcGxpZnkgdGhlIHJlc3VsdCwgeW91J2QgZmluZCB0aGF0CgpbYGBgCiAgICAgICAgICAgIGcnJycoeCkgPSBcZnJhY3syNHggLSAyNHheM317KDEreF4yKV40fQogICAgICAgICAgXHRleHR7Ln1gYGBdCgpJZiB3ZSBkb24ndCByZXdyaXRlIFtgZycnJyh4KWBdIGZyb20gdGhlIGZvcm0gc2hvd24gYWJvdmUsIHdoYXQgZGVyaXZhdGl2ZSBydWxlcyB3b3VsZCBiZSBuZWVkZWQgdG8gY2FsY3VsYXRlIFtgZ157KDQpfSh4KVx0ZXh0ez99YF0gIFNlbGVjdCBhbGwgdGhhdCBhcHBseS4KCltfXXskbWN9ezV9CgoKRU5EX1BHTUwKU2VjdGlvbjo6RW5kKCk7U2VjdGlvbjo6QmVnaW4oIiIpOwpCRUdJTl9QR01MCkZpbmQgW2BnKDApXHRleHR7LH1gXSBbYGcnKDApXHRleHR7LH1gXSBbYGcnJygwKVx0ZXh0eyx9YF0gYW5kIFtgZycnJygwKVx0ZXh0ey59YF0KCltfXXsnMSd9ezV9CgpbX117JzAnfXs1fQoKW19deyctMid9ezV9CgpbX117JzAnfXs1fQoKVXNlIHRoZSByZXN1bHRzIHRvIGRldGVybWluZSBbYFRfMyh4KVx0ZXh0ey59YF0KCltfXXsnMS14XjInfXs1fQoKCkVORF9QR01MClNlY3Rpb246OkVuZCgpO1NlY3Rpb246OkJlZ2luKCIiKTsKQkVHSU5fUEdNTApTaW5jZSB0aGUgZGVyaXZhdGl2ZXMgb2YgW2BnYF0gYmVjb21lIHNvIGNvbXBsaWNhdGVkLCB3ZSBjb25zaWRlciBhIGRpZmZlcmVudCBhcHByb2FjaCB0byBmaW5kaW5nIHRoZSBUYXlsb3Igc2VyaWVzIGNlbnRlcmVkIGF0IFtgYT0wYF0gZm9yIFtgZyh4KT1cZnJhY3sxfXsxK3heMn1cdGV4dHsufWBdIFdlIHRha2UgYWR2YW50YWdlIG9mIHRoZSBmYWN0IHRoYXQgW2BmKHgpPVxmcmFjezF9ezEteH1gXSBoYXMgYSBUYXlsb3Igc2VyaWVzIGV4cGFuc2lvbiB3ZSBhbHJlYWR5IGtub3csIGFuZCBvYnNlcnZlIHRoYXQgW2BmYF0gaGFzIGFuIGFsZ2VicmFpYyBzdHJ1Y3R1cmUgc2ltaWxhciB0byBbYGdcdGV4dHsufWBdCgpXZSBpbnRyb2R1Y2UgYSBuZXcgdmFyaWFibGUsIFtgdVx0ZXh0eyx9YF0gYW5kIHJlY2FsbCB0aGF0CgpbYGBgCiAgICAgICAgICAgIGYodSkgPSBcZGZyYWN7MX17MSAtIHV9ID0gMSArIHUgKyB1XjIgKyB1XjMgKyBcY2RvdHMgKyB1Xm4gKyBcY2RvdHMKICAgICAgICAgIGBgYF0KCmZvciBbYFxsdmVydCB1XHJ2ZXJ0IFxsdCAxXHRleHR7Ln1gXQoKTGV0IFtgdT0teF4yXHRleHR7Ln1gXSBXaGF0IGVxdWF0aW9uIHJlc3VsdHMgZnJvbSBldmFsdWF0aW5nIFtgZigteF4yKWBdIGluIHRoZSBlcXVhdGlvbiBnaXZlbiBhYm92ZSBmb3IgW2BmKHUpXHRleHR7P31gXQoKW0BLZXlib2FyZEluc3RydWN0aW9ucygnRW50ZXIgdGhlIGZpcnN0IDQgbm9uemVybyB0ZXJtcyBpbiB0aGUgc3VtIG9uIHRoZSByaWdodC1oYW5kLXNpZGUgb2YgdGhlIHJlc3VsdGluZyBlcXVhdGlvbi4nKUBdKioKCltgZlxtYXRob3Blbnt9XGxlZnQoLXheMlxyaWdodClcbWF0aGNsb3Nle30gPSBcZnJhY3sxfXsxLVxsZWZ0KC14XjJccmlnaHQpfSA9IHt9YF1bX117JzEgLSB4XjIgKyB4XjQgLSB4XjYnfXszMH1bYHt9ICsgXGNkb3RzYF0KCkhvdyBkb2VzIHRoZSBhbnN3ZXIgaGVyZSBjb21wYXJlIHRvIHRoZSBmb3JtdWxhIHlvdSBmb3VuZCBmb3IgW2BUXzMoeClgXSBpbiAoYyk/CgoKRU5EX1BHTUwKU2VjdGlvbjo6RW5kKCk7U2VjdGlvbjo6QmVnaW4oIiIpOwpCRUdJTl9QR01MCk5vdGUgdGhhdCBbYDEgLSBcbGVmdCgteF4yXHJpZ2h0KSA9IDEgKyB4XjJcdGV4dHssfWBdIHNvIHdlIGp1c3QgZm91bmQgYW4gaW5maW5pdGUgc2VyaWVzIHJlcHJlc2VudGF0aW9uIGZvciBbYGcoeCkgPSBcZnJhY3sxfXsxICsgeF4yfWBdIHdpdGhvdXQgY2FsY3VsYXRpbmcgZGVyaXZhdGl2ZXMgb2YgW2BnKHgpXHRleHR7LH1gXSBieSB1c2luZyB0aGUgc2VyaWVzIHdlIGhhZCBhbHJlYWR5IGNhbGN1bGF0ZWQgZm9yIFtgZih1KSA9IFxmcmFjezF9ezEgLSB1fVx0ZXh0ey59YF0gRm9yIHdoYXQgdmFsdWVzIG9mIFtgeGBdIGRvIHlvdSBleHBlY3QgdGhpcyBzZXJpZXMgZm9yIFtgZyh4KWBdIHdpbGwgY29udmVyZ2U/CgpbQEtleWJvYXJkSW5zdHJ1Y3Rpb25zKCdVc2UgaW50ZXJ2YWwgbm90YXRpb24uJylAXSoqCgpbX117SW50ZXJ2YWwoLTEsMSl9ezEwfQoKX0hpbnRfOiBUaGluayBhYm91dCB3aGF0IHlvdSBrbm93IGFib3V0IHRoZSB2YWx1ZXMgb2YgW2B1YF0gZm9yIHdoaWNoIHRoZSBzZXJpZXMgZm9yIFtgZih1KWBdIHdpbGwgY29udmVyZ2UuCgoKRU5EX1BHTUwKCkJFR0lOX1BHTUxfSElOVApUaGluayBhYm91dCB3aGF0IHlvdSBrbm93IGFib3V0IHRoZSB2YWx1ZXMgb2YgW2B1YF0gZm9yIHdoaWNoIHRoZSBzZXJpZXMgZm9yIFtgZih1KWBdIHdpbGwgY29udmVyZ2UuCgoKRU5EX1BHTUxfSElOVApTZWN0aW9uOjpFbmQoKTtTY2FmZm9sZDo6RW5kKCk7CkVORERPQ1VNRU5UKCk7" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__ajordan_8a-_5_Preview_taylor_series_by_substitution-ww-rs')">Activate</button></div>
 <div class="problem-contents">
 <div class="introduction" id="introduction-58">
-<div class="para" id="p-11183">Let</div> <div class="para logical" id="p-11184"><div class="displaymath process-math">
+<div class="para" id="p-11225">Let</div> <div class="para logical" id="p-11226"><div class="displaymath process-math">
 \begin{equation*}
 g(x) = \frac{1}{1 + x^2}
 \text{.}
 \end{equation*}
 </div></div>
 </div> <article class="task exercise-like" id="task-45"><h4 class="heading"><span class="codenumber">(a)</span></h4>
-<div class="para" id="p-11185">We know the coefficients of the Taylor series for <span class="process-math">\(g(x)\)</span> centered at <span class="process-math">\(a=0\)</span> are given by <span class="process-math">\(\frac{g^{(k)}(0)}{k!}\text{,}\)</span> so we start calculating some derivatives.  Note that we can write <span class="process-math">\(g(x)=(1+x^2)^{-1}\text{.}\)</span> Calculate <span class="process-math">\(g'(x)\text{,}\)</span> and <span class="process-math">\(g''(x)\text{.}\)</span>
-</div> <div class="para" id="p-11186">
+<div class="para" id="p-11227">We know the coefficients of the Taylor series for <span class="process-math">\(g(x)\)</span> centered at <span class="process-math">\(a=0\)</span> are given by <span class="process-math">\(\frac{g^{(k)}(0)}{k!}\text{,}\)</span> so we start calculating some derivatives.  Note that we can write <span class="process-math">\(g(x)=(1+x^2)^{-1}\text{.}\)</span> Calculate <span class="process-math">\(g'(x)\text{,}\)</span> and <span class="process-math">\(g''(x)\text{.}\)</span>
+</div> <div class="para" id="p-11228">
 <span class="process-math">\(g'(x)={}\)</span><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> and <span class="process-math">\(g''(x)={}\)</span><span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
 </div></article> <article class="task exercise-like" id="task-46"><h4 class="heading"><span class="codenumber">(b)</span></h4>
-<div class="para" id="p-11189">If you simplify <span class="process-math">\(g''(x)\text{,}\)</span> take the derivative again, and simplify the result, you’d find that</div> <div class="para logical" id="p-11190"><div class="displaymath process-math">
+<div class="para" id="p-11231">If you simplify <span class="process-math">\(g''(x)\text{,}\)</span> take the derivative again, and simplify the result, you’d find that</div> <div class="para logical" id="p-11232"><div class="displaymath process-math">
 \begin{equation*}
 g'''(x) = \frac{24x - 24x^3}{(1+x^2)^4}
 \text{.}
 \end{equation*}
-</div></div> <div class="para" id="p-11191">If we don’t rewrite <span class="process-math">\(g'''(x)\)</span> from the form shown above, what derivative rules would be needed to calculate <span class="process-math">\(g^{(4)}(x)\text{?}\)</span>  Select all that apply.</div> <div class="para logical" id="p-11192"><ul class="disc">
-<li id="li-5575"><div class="para" id="p-11193">Exponential</div></li>
-<li id="li-5576"><div class="para" id="p-11194">Quotient</div></li>
-<li id="li-5577"><div class="para" id="p-11195">Power</div></li>
-<li id="li-5578"><div class="para" id="p-11196">Constant Multiple</div></li>
-<li id="li-5579"><div class="para" id="p-11197">Product</div></li>
-<li id="li-5580"><div class="para" id="p-11198">Sum or Difference</div></li>
-<li id="li-5581"><div class="para" id="p-11199">Chain</div></li>
-<li id="li-5582"><div class="para" id="p-11200">All of the above</div></li>
+</div></div> <div class="para" id="p-11233">If we don’t rewrite <span class="process-math">\(g'''(x)\)</span> from the form shown above, what derivative rules would be needed to calculate <span class="process-math">\(g^{(4)}(x)\text{?}\)</span>  Select all that apply.</div> <div class="para logical" id="p-11234"><ul class="disc">
+<li id="li-5494"><div class="para" id="p-11235">Exponential</div></li>
+<li id="li-5495"><div class="para" id="p-11236">Quotient</div></li>
+<li id="li-5496"><div class="para" id="p-11237">Power</div></li>
+<li id="li-5497"><div class="para" id="p-11238">Constant Multiple</div></li>
+<li id="li-5498"><div class="para" id="p-11239">Product</div></li>
+<li id="li-5499"><div class="para" id="p-11240">Sum or Difference</div></li>
+<li id="li-5500"><div class="para" id="p-11241">Chain</div></li>
+<li id="li-5501"><div class="para" id="p-11242">All of the above</div></li>
 </ul></div></article> <article class="task exercise-like" id="task-47"><h4 class="heading"><span class="codenumber">(c)</span></h4>
-<div class="para" id="p-11202">Find <span class="process-math">\(g(0)\text{,}\)</span> <span class="process-math">\(g'(0)\text{,}\)</span> <span class="process-math">\(g''(0)\text{,}\)</span> and <span class="process-math">\(g'''(0)\text{.}\)</span>
-</div> <div class="para" id="p-11203">Use the results to determine <span class="process-math">\(T_3(x)\text{.}\)</span>
+<div class="para" id="p-11244">Find <span class="process-math">\(g(0)\text{,}\)</span> <span class="process-math">\(g'(0)\text{,}\)</span> <span class="process-math">\(g''(0)\text{,}\)</span> and <span class="process-math">\(g'''(0)\text{.}\)</span>
+</div> <div class="para" id="p-11245">Use the results to determine <span class="process-math">\(T_3(x)\text{.}\)</span>
 </div></article> <article class="task exercise-like" id="task-48"><h4 class="heading"><span class="codenumber">(d)</span></h4>
-<div class="para" id="p-11209">Since the derivatives of <span class="process-math">\(g\)</span> become so complicated, we consider a different approach to finding the Taylor series centered at <span class="process-math">\(a=0\)</span> for <span class="process-math">\(g(x)=\frac{1}{1+x^2}\text{.}\)</span> We take advantage of the fact that <span class="process-math">\(f(x)=\frac{1}{1-x}\)</span> has a Taylor series expansion we already know, and observe that <span class="process-math">\(f\)</span> has an algebraic structure similar to <span class="process-math">\(g\text{.}\)</span>
-</div> <div class="para" id="p-11210">We introduce a new variable, <span class="process-math">\(u\text{,}\)</span> and recall that</div> <div class="para logical" id="p-11211"><div class="displaymath process-math">
+<div class="para" id="p-11251">Since the derivatives of <span class="process-math">\(g\)</span> become so complicated, we consider a different approach to finding the Taylor series centered at <span class="process-math">\(a=0\)</span> for <span class="process-math">\(g(x)=\frac{1}{1+x^2}\text{.}\)</span> We take advantage of the fact that <span class="process-math">\(f(x)=\frac{1}{1-x}\)</span> has a Taylor series expansion we already know, and observe that <span class="process-math">\(f\)</span> has an algebraic structure similar to <span class="process-math">\(g\text{.}\)</span>
+</div> <div class="para" id="p-11252">We introduce a new variable, <span class="process-math">\(u\text{,}\)</span> and recall that</div> <div class="para logical" id="p-11253"><div class="displaymath process-math">
 \begin{equation*}
 f(u) = \dfrac{1}{1 - u} = 1 + u + u^2 + u^3 + \cdots + u^n + \cdots
 \end{equation*}
-</div></div> <div class="para" id="p-11212">for <span class="process-math">\(\lvert u\rvert \lt 1\text{.}\)</span>
-</div> <div class="para" id="p-11213">Let <span class="process-math">\(u=-x^2\text{.}\)</span> What equation results from evaluating <span class="process-math">\(f(-x^2)\)</span> in the equation given above for <span class="process-math">\(f(u)\text{?}\)</span>
-</div> <div class="para" id="p-11214">
+</div></div> <div class="para" id="p-11254">for <span class="process-math">\(\lvert u\rvert \lt 1\text{.}\)</span>
+</div> <div class="para" id="p-11255">Let <span class="process-math">\(u=-x^2\text{.}\)</span> What equation results from evaluating <span class="process-math">\(f(-x^2)\)</span> in the equation given above for <span class="process-math">\(f(u)\text{?}\)</span>
+</div> <div class="para" id="p-11256">
 <span class="process-math">\(f\mathopen{}\left(-x^2\right)\mathclose{} = \frac{1}{1-\left(-x^2\right)} = {}\)</span><span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span><span class="process-math">\({} + \cdots\)</span>
-</div> <div class="para" id="p-11215">How does the answer here compare to the formula you found for <span class="process-math">\(T_3(x)\)</span> in (c)?</div></article> <article class="task exercise-like" id="task-49"><h4 class="heading"><span class="codenumber">(e)</span></h4>
-<div class="para" id="p-11217">Note that <span class="process-math">\(1 - \left(-x^2\right) = 1 + x^2\text{,}\)</span> so we just found an infinite series representation for <span class="process-math">\(g(x) = \frac{1}{1 + x^2}\)</span> without calculating derivatives of <span class="process-math">\(g(x)\text{,}\)</span> by using the series we had already calculated for <span class="process-math">\(f(u) = \frac{1}{1 - u}\text{.}\)</span> For what values of <span class="process-math">\(x\)</span> do you expect this series for <span class="process-math">\(g(x)\)</span> will converge?</div> <div class="para" id="p-11218">
+</div> <div class="para" id="p-11257">How does the answer here compare to the formula you found for <span class="process-math">\(T_3(x)\)</span> in (c)?</div></article> <article class="task exercise-like" id="task-49"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="p-11259">Note that <span class="process-math">\(1 - \left(-x^2\right) = 1 + x^2\text{,}\)</span> so we just found an infinite series representation for <span class="process-math">\(g(x) = \frac{1}{1 + x^2}\)</span> without calculating derivatives of <span class="process-math">\(g(x)\text{,}\)</span> by using the series we had already calculated for <span class="process-math">\(f(u) = \frac{1}{1 - u}\text{.}\)</span> For what values of <span class="process-math">\(x\)</span> do you expect this series for <span class="process-math">\(g(x)\)</span> will converge?</div> <div class="para" id="p-11260">
 <em class="emphasis">Hint</em>: Think about what you know about the values of <span class="process-math">\(u\)</span> for which the series for <span class="process-math">\(f(u)\)</span> will converge.</div></article>
 </div>
 </div></div></div></article></section><section class="subsection" id="subsection-157"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.5.1</span> <span class="title">Using substitution and algebra to find new Taylor series expressions</span>
 </h3>
-<div class="para" id="p-11221">The substitution technique we used in <a href="" class="xref" data-knowl="./knowl/ajordan_8a-_5_Preview_taylor_series_by_substitution.html" title="Preview Activity 8.5.1">Preview Activity 8.5.1</a> can be used to find the Taylor series for any function whose structure is similar to that of a Taylor series we already know.</div>
+<div class="para" id="p-11263">The substitution technique we used in <a href="" class="xref" data-knowl="./knowl/ajordan_8a-_5_Preview_taylor_series_by_substitution.html" title="Preview Activity 8.5.1">Preview Activity 8.5.1</a> can be used to find the Taylor series for any function whose structure is similar to that of a Taylor series we already know.</div>
 <article class="example example-like" id="ex-8a-5-cosx3"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.5.1</span><span class="period">.</span>
 </h4>Find the Taylor series expansion for <span class="process-math">\(g(x) = x^4 \cos(x^3)\)</span> and determine the <span class="process-math">\(x\)</span>-values for which the series converges.<div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-563" id="solution-563"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-563"><div class="solution solution-like">
-<div class="para logical" id="p-11222">
+<div class="para logical" id="p-11264">
 <div class="para">Because <span class="process-math">\(\cos(x^3)\)</span> is part of the function whose Taylor series we seek, we start with the familiar series for <span class="process-math">\(\cos(x)\text{.}\)</span>  We know that</div>
 <div class="displaymath process-math" id="eq-8a-5-cosu">
 \begin{equation}
@@ -894,7 +894,7 @@ f(u) = \cos(u) = 1 - \frac{1}{2!}u^2 + \frac{1}{4!}u^4 - \cdots + (-1)^n \frac{1
 </div>
 <div class="para">for all real numbers <span class="process-math">\(u\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-11223">
+</div> <div class="para logical" id="p-11265">
 <div class="para">By letting <span class="process-math">\(u = x^3\)</span> in <a href="" class="xref" data-knowl="./knowl/eq-8a-5-cosu.html" title="Equation 8.5.1">Equation (8.5.1)</a>, it follows that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-8a-5-cosu.html ./knowl/eq-8a-5-cosx3.html ./knowl/eq-8a-5-cosu.html ./knowl/eq-8a-5-cosx3.html">
 \begin{equation*}
@@ -917,8 +917,8 @@ g(x) = x^4 \cos(x^3) = x^4 - \frac{1}{2!}x^{10} + \frac{1}{4!}x^{16} - \cdots + 
 </div>
 </div>
 </div></div>
-</div></article><div class="para" id="p-11224">Because the approaches in <a href="" class="xref" data-knowl="./knowl/ajordan_8a-_5_Preview_taylor_series_by_substitution.html" title="Preview Activity 8.5.1">Preview Activity 8.5.1</a> and <a href="" class="xref" data-knowl="./knowl/ex-8a-5-cosx3.html" title="Example 8.5.1">Example 8.5.1</a> each require us to use a known Taylor series, we restate the Taylor series we’ve established so far for <span class="process-math">\(5\)</span> important functions in <a href="" class="xref" data-knowl="./knowl/T-8a-5-big-5-redux.html" title="Table 8.5.2: Taylor series and the x-values where they converge for 5 important functions.">Table 8.5.2</a>. <article class="assemblage assemblage-like" id="assemblage-56"><h4 class="heading"><span class="title">Important Taylor series representations.</span></h4>
-<div class="para" id="p-11225"><figure class="table table-like" id="T-8a-5-big-5-redux"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">8.5.2<span class="period">.</span></span><span class="space"> </span>Taylor series and the <span class="process-math">\(x\)</span>-values where they converge for <span class="process-math">\(5\)</span> important functions.</figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div></article><div class="para" id="p-11266">Because the approaches in <a href="" class="xref" data-knowl="./knowl/ajordan_8a-_5_Preview_taylor_series_by_substitution.html" title="Preview Activity 8.5.1">Preview Activity 8.5.1</a> and <a href="" class="xref" data-knowl="./knowl/ex-8a-5-cosx3.html" title="Example 8.5.1">Example 8.5.1</a> each require us to use a known Taylor series, we restate the Taylor series we’ve established so far for <span class="process-math">\(5\)</span> important functions in <a href="" class="xref" data-knowl="./knowl/T-8a-5-big-5-redux.html" title="Table 8.5.2: Taylor series and the x-values where they converge for 5 important functions.">Table 8.5.2</a>. <article class="assemblage assemblage-like" id="assemblage-56"><h4 class="heading"><span class="title">Important Taylor series representations.</span></h4>
+<div class="para" id="p-11267"><figure class="table table-like" id="T-8a-5-big-5-redux"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">8.5.2<span class="period">.</span></span><span class="space"> </span>Taylor series and the <span class="process-math">\(x\)</span>-values where they converge for <span class="process-math">\(5\)</span> important functions.</figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="r m b1 r0 l0 t1 lines">function <span class="process-math">\(f(x)\)</span>
 </td>
@@ -958,20 +958,20 @@ g(x) = x^4 \cos(x^3) = x^4 - \frac{1}{2!}x^{10} + \frac{1}{4!}x^{16} - \cdots + 
 </tr>
 </table></div></figure></div></article>
 </div>
-<div class="para" id="p-11226">In <a href="" class="xref" data-knowl="./knowl/act-8a-5-1.html" title="Activity 8.5.2">Activity 8.5.2</a>, we find several Taylor series using substitution and algebraic techniques.</div>
+<div class="para" id="p-11268">In <a href="" class="xref" data-knowl="./knowl/act-8a-5-1.html" title="Activity 8.5.2">Activity 8.5.2</a>, we find several Taylor series using substitution and algebraic techniques.</div>
 <article class="activity project-like" id="act-8a-5-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.5.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-11227">Use known Taylor series and substitution and algebraic techniques to find a Taylor series representation for each of the following functions.  In addition, state the interval of <span class="process-math">\(x\)</span>-values for which you expect each Taylor series to converge.</div> <div class="para logical" id="p-11228"><ol class="lower-alpha">
-<li id="li-5583"><div class="para" id="p-11229"><span class="process-math">\(\displaystyle g(x) = x^3 \sin(x^2)\)</span></div></li>
-<li id="li-5584"><div class="para" id="p-11230"><span class="process-math">\(\displaystyle h(x) = e^{-x^4}\)</span></div></li>
-<li id="li-5585"><div class="para" id="p-11231"><span class="process-math">\(\displaystyle p(x) = \frac{1}{1+5x}\)</span></div></li>
-<li id="li-5586"><div class="para" id="p-11232"><span class="process-math">\(\displaystyle q(x) = x^2\ln(1+x^4)\)</span></div></li>
-<li id="li-5587"><div class="para" id="p-11233"><span class="process-math">\(\displaystyle r(x) = \frac{e^{3x}-1}{3x}\)</span></div></li>
+<div class="para" id="p-11269">Use known Taylor series and substitution and algebraic techniques to find a Taylor series representation for each of the following functions.  In addition, state the interval of <span class="process-math">\(x\)</span>-values for which you expect each Taylor series to converge.</div> <div class="para logical" id="p-11270"><ol class="lower-alpha">
+<li id="li-5502"><div class="para" id="p-11271"><span class="process-math">\(\displaystyle g(x) = x^3 \sin(x^2)\)</span></div></li>
+<li id="li-5503"><div class="para" id="p-11272"><span class="process-math">\(\displaystyle h(x) = e^{-x^4}\)</span></div></li>
+<li id="li-5504"><div class="para" id="p-11273"><span class="process-math">\(\displaystyle p(x) = \frac{1}{1+5x}\)</span></div></li>
+<li id="li-5505"><div class="para" id="p-11274"><span class="process-math">\(\displaystyle q(x) = x^2\ln(1+x^4)\)</span></div></li>
+<li id="li-5506"><div class="para" id="p-11275"><span class="process-math">\(\displaystyle r(x) = \frac{e^{3x}-1}{3x}\)</span></div></li>
 </ol></div></article></section><section class="subsection" id="subsection-158"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.5.2</span> <span class="title">Differentiating and integrating Taylor series</span>
 </h3>
-<div class="para logical" id="p-11239">
+<div class="para logical" id="p-11281">
 <div class="para">In <a href="C-5.html" class="internal" title="Chapter 5: Evaluating Integrals">Chapter 5</a>, we discussed the challenge posed by definite integrals such as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/C-5.html ./knowl/sec-5-2-FTC2.html">
 \begin{equation*}
@@ -985,7 +985,7 @@ F(x) = \int_0^x \sin(u^2) \, du\text{.}
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-11240">
+<div class="para logical" id="p-11282">
 <div class="para">Our recent work with Taylor series now suggests another way to find an antiderivative <span class="process-math">\(F(x)\)</span> for <span class="process-math">\(f(x) = \sin(x^2)\text{,}\)</span> and this approach also provides new options for finding additional Taylor series.  In <a href="" class="xref" data-knowl="./knowl/act-8a-5-1.html" title="Activity 8.5.2">Activity 8.5.2</a>, as part of our work in finding a Taylor series for <span class="process-math">\(x^3 \sin(x^2)\)</span> we found that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/act-8a-5-1.html ./knowl/eq-8a-5-ex2.html" id="eq-8a-5-ex2">
 \begin{equation}
@@ -1003,7 +1003,7 @@ F(x) =\mathstrut \amp \int_0^x \sin(u^2) \, du\\
 \end{align*}
 </div>
 </div>
-<div class="para logical" id="p-11241">
+<div class="para logical" id="p-11283">
 <div class="para">Hence we have found that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1013,9 +1013,9 @@ F(x) = \frac{1}{3}x^3 - \frac{1}{7 \cdot 3!} x^7 + \frac{1}{11 \cdot 5!}x^{11} +
 <div class="para">is an antiderivative of <span class="process-math">\(f(x) = \sin(x^2)\text{.}\)</span>
 </div>
 </div>
-<div class="para" id="p-11242">While it is natural to wonder how integrating a Taylor series might change the values of <span class="process-math">\(x\)</span> for which the series converges, it turns out that integrating a Taylor series has almost no effect<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-135" id="fn-135"><sup> 1 </sup></a> on where the series converges (nor does differentiating such a series).  This fact is stated formally in a result called The Power Series Differentiation and Integration Theorem.  (A <dfn class="terminology">power series</dfn> is any series of the form <span class="process-math">\(f(x) = \sum_{k=0}^{\infty} c_k (x-a)^k\text{;}\)</span> every Taylor series is a power series, and a famous result called Borel’s Theorem tells us that every power series is in fact that Taylor series of a related function.)</div>
+<div class="para" id="p-11284">While it is natural to wonder how integrating a Taylor series might change the values of <span class="process-math">\(x\)</span> for which the series converges, it turns out that integrating a Taylor series has almost no effect<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-118" id="fn-118"><sup> 1 </sup></a> on where the series converges (nor does differentiating such a series).  This fact is stated formally in a result called The Power Series Differentiation and Integration Theorem.  (A <dfn class="terminology">power series</dfn> is any series of the form <span class="process-math">\(f(x) = \sum_{k=0}^{\infty} c_k (x-a)^k\text{;}\)</span> every Taylor series is a power series, and a famous result called Borel’s Theorem tells us that every power series is in fact that Taylor series of a related function.)</div>
 <article class="assemblage assemblage-like" id="assemblage-57"><h4 class="heading"><span class="title">The Power Series Differentiation and Integration Theorem.</span></h4>
-<div class="para logical" id="p-11243">
+<div class="para logical" id="p-11285">
 <div class="para">If <span class="process-math">\(f(x) = \sum_{k=0}^{\infty} c_k (x-a)^k\)</span> converges for <span class="process-math">\(|x-a| \lt R\)</span> for a positive real number <span class="process-math">\(R\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1030,19 +1030,19 @@ f'(x) = \sum_{k=1}^{\infty} k \cdot c_k (x-a)^{k-1}
 </div>
 <div class="para">and both of these series converge if <span class="process-math">\(|x-a| \lt R\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-11244">Stated more informally, the Power Series Differentiation and Integration Theorem tells us that when it comes to differentiating or integrating a Taylor series, we can do so just as if they were finite polynomials:  we can differentiate or integrate the Taylor series term-wise following the Power Rule for differentiating or integrating <span class="process-math">\(x^n\text{.}\)</span>  Moreover, doing so doesn’t change the interval on which the Taylor series converges<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-136" id="fn-136"><sup> 2 </sup></a>.  Since polynomials are the easiest of all functions to differentiate and integrate, we can now find many more Taylor series of interesting functions.</div>
+</div></article><div class="para" id="p-11286">Stated more informally, the Power Series Differentiation and Integration Theorem tells us that when it comes to differentiating or integrating a Taylor series, we can do so just as if they were finite polynomials:  we can differentiate or integrate the Taylor series term-wise following the Power Rule for differentiating or integrating <span class="process-math">\(x^n\text{.}\)</span>  Moreover, doing so doesn’t change the interval on which the Taylor series converges<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-119" id="fn-119"><sup> 2 </sup></a>.  Since polynomials are the easiest of all functions to differentiate and integrate, we can now find many more Taylor series of interesting functions.</div>
 <article class="activity project-like" id="act-8a-5-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.5.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-11245">In this activity we will determine the Taylor series expansion for <span class="process-math">\(\arctan(x)\text{,}\)</span> plus we’ll explore a different way to find the Taylor series for <span class="process-math">\(\ln(1+x)\text{.}\)</span>
-</div> <div class="para logical" id="p-11246"><ol class="lower-alpha">
-<li id="li-5592">
-<div class="para" id="p-11247">We begin with the function <span class="process-math">\(g(x) = \arctan(x)\text{.}\)</span>
+<div class="para" id="p-11287">In this activity we will determine the Taylor series expansion for <span class="process-math">\(\arctan(x)\text{,}\)</span> plus we’ll explore a different way to find the Taylor series for <span class="process-math">\(\ln(1+x)\text{.}\)</span>
+</div> <div class="para logical" id="p-11288"><ol class="lower-alpha">
+<li id="li-5511">
+<div class="para" id="p-11289">We begin with the function <span class="process-math">\(g(x) = \arctan(x)\text{.}\)</span>
 </div>
 <ol class="lower-roman">
-<li id="li-5593"><div class="para" id="p-11248">What is <span class="process-math">\(g'(x)\text{?}\)</span>
+<li id="li-5512"><div class="para" id="p-11290">What is <span class="process-math">\(g'(x)\text{?}\)</span>
 </div></li>
-<li id="li-5594"><div class="para logical" id="p-11249">
+<li id="li-5513"><div class="para logical" id="p-11291">
 <div class="para">Recall that in <a href="" class="xref" data-knowl="./knowl/ajordan_8a-_5_Preview_taylor_series_by_substitution.html" title="Preview Activity 8.5.1">Preview Activity 8.5.1</a>, we found the Taylor series expansion for</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/ajordan_8a-_5_Preview_taylor_series_by_substitution.html">
 \begin{equation*}
@@ -1051,7 +1051,7 @@ f(x) = \frac{1}{1+x^2}\text{.}
 </div>
 <div class="para">State the Taylor series for <span class="process-math">\(f(x)\)</span> that you found in the preview activity.</div>
 </div></li>
-<li id="li-5595"><div class="para logical" id="p-11250">
+<li id="li-5514"><div class="para logical" id="p-11292">
 <div class="para">Explain why we can think of <span class="process-math">\(g(x)\)</span> as being given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1061,17 +1061,17 @@ g(x) = \int_0^x f(u) \, du\text{.}
 <div class="para">Use this relationship to find a power series expansion for <span class="process-math">\(g(x)\text{.}\)</span>
 </div>
 </div></li>
-<li id="li-5596"><div class="para" id="p-11251">For what interval of <span class="process-math">\(x\)</span>-values is the Taylor series for <span class="process-math">\(g(x) = \arctan(x)\)</span> guaranteed to converge?</div></li>
+<li id="li-5515"><div class="para" id="p-11293">For what interval of <span class="process-math">\(x\)</span>-values is the Taylor series for <span class="process-math">\(g(x) = \arctan(x)\)</span> guaranteed to converge?</div></li>
 </ol>
 </li>
-<li id="li-5597">
-<div class="para" id="p-11252">In <a href="sec-8a-4-taylor-series.html" class="internal" title="Section 8.4: Taylor Series">Section 8.4</a>, we used <a href="" class="xref" data-knowl="./knowl/D-8a-4-Taylor-series.html" title="Definition 8.4.1">Definition 8.4.1</a> to find the Taylor series expansion for <span class="process-math">\(h(x) = \ln(1+x)\text{.}\)</span>  Here we use substitution and integration to develop the Taylor series of <span class="process-math">\(h(x)\)</span> in a different way.</div>
+<li id="li-5516">
+<div class="para" id="p-11294">In <a href="sec-8a-4-taylor-series.html" class="internal" title="Section 8.4: Taylor Series">Section 8.4</a>, we used <a href="" class="xref" data-knowl="./knowl/D-8a-4-Taylor-series.html" title="Definition 8.4.1">Definition 8.4.1</a> to find the Taylor series expansion for <span class="process-math">\(h(x) = \ln(1+x)\text{.}\)</span>  Here we use substitution and integration to develop the Taylor series of <span class="process-math">\(h(x)\)</span> in a different way.</div>
 <ol class="lower-roman">
-<li id="li-5598"><div class="para" id="p-11253">State the Taylor series expansion for <span class="process-math">\(p(u) = \frac{1}{1-u}\text{.}\)</span>
+<li id="li-5517"><div class="para" id="p-11295">State the Taylor series expansion for <span class="process-math">\(p(u) = \frac{1}{1-u}\text{.}\)</span>
 </div></li>
-<li id="li-5599"><div class="para" id="p-11254">Let <span class="process-math">\(u = -x\)</span> and use the series in (i) to find the Taylor series expansion for <span class="process-math">\(r(x) = \frac{1}{1+x}\text{.}\)</span>
+<li id="li-5518"><div class="para" id="p-11296">Let <span class="process-math">\(u = -x\)</span> and use the series in (i) to find the Taylor series expansion for <span class="process-math">\(r(x) = \frac{1}{1+x}\text{.}\)</span>
 </div></li>
-<li id="li-5600"><div class="para logical" id="p-11255">
+<li id="li-5519"><div class="para logical" id="p-11297">
 <div class="para">Recall that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1086,23 +1086,23 @@ g(x) = \int_0^x f(u) \, du\text{.}
 </ol></div></article><article class="activity project-like" id="act-8a-5-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.5.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-11266">
+<div class="para logical" id="p-11308">
 <div class="para">In this activity we will determine the Taylor series expansion for the famous <em class="emphasis">error function</em>,</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \erf(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} \, dt\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-11267"><ol class="lower-alpha">
-<li id="li-5610"><div class="para" id="p-11268">Use the Taylor series for <span class="process-math">\(e^{x}\)</span> to find the Taylor series for <span class="process-math">\(e^{-t^2}\text{.}\)</span>
+</div> <div class="para logical" id="p-11309"><ol class="lower-alpha">
+<li id="li-5529"><div class="para" id="p-11310">Use the Taylor series for <span class="process-math">\(e^{x}\)</span> to find the Taylor series for <span class="process-math">\(e^{-t^2}\text{.}\)</span>
 </div></li>
-<li id="li-5611"><div class="para" id="p-11269">Next, evaluate the integral <span class="process-math">\(\int_0^x e^{-t^2} \, dt\)</span> by replacing <span class="process-math">\(e^{-t^2}\)</span> with its Taylor series.</div></li>
-<li id="li-5612"><div class="para" id="p-11270">Use your work in (b) to state the Taylor series for <span class="process-math">\(\erf(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} \, dt\)</span>
+<li id="li-5530"><div class="para" id="p-11311">Next, evaluate the integral <span class="process-math">\(\int_0^x e^{-t^2} \, dt\)</span> by replacing <span class="process-math">\(e^{-t^2}\)</span> with its Taylor series.</div></li>
+<li id="li-5531"><div class="para" id="p-11312">Use your work in (b) to state the Taylor series for <span class="process-math">\(\erf(x) = \frac{2}{\sqrt{\pi}} \int_0^x e^{-t^2} \, dt\)</span>
 </div></li>
-<li id="li-5613"><div class="para" id="p-11271">For what interval of <span class="process-math">\(x\)</span>-values will the Taylor series for <span class="process-math">\(\erf(x)\)</span> converge?  Why?</div></li>
-<li id="li-5614"><div class="para" id="p-11272">In probability theory, <span class="process-math">\(\erf(x)\)</span> is important because of its connection to the <em class="emphasis">normal distribution</em>, which is represented by a bell curve.  Indeed, <span class="process-math">\(\erf(x)\)</span> represents the fraction of a normally distributed characteristic in a population that lies between <span class="process-math">\(0\)</span> and <span class="process-math">\(x\text{.}\)</span>  How can you use your result in (c) to estimate <span class="process-math">\(\erf(2)\text{?}\)</span>
+<li id="li-5532"><div class="para" id="p-11313">For what interval of <span class="process-math">\(x\)</span>-values will the Taylor series for <span class="process-math">\(\erf(x)\)</span> converge?  Why?</div></li>
+<li id="li-5533"><div class="para" id="p-11314">In probability theory, <span class="process-math">\(\erf(x)\)</span> is important because of its connection to the <em class="emphasis">normal distribution</em>, which is represented by a bell curve.  Indeed, <span class="process-math">\(\erf(x)\)</span> represents the fraction of a normally distributed characteristic in a population that lies between <span class="process-math">\(0\)</span> and <span class="process-math">\(x\text{.}\)</span>  How can you use your result in (c) to estimate <span class="process-math">\(\erf(2)\text{?}\)</span>
 </div></li>
-</ol></div></article><div class="para logical" id="p-11280">
+</ol></div></article><div class="para logical" id="p-11322">
 <div class="para">Near the end of <a href="sec-8a-4-taylor-series.html" class="internal" title="Section 8.4: Taylor Series">Section 8.4</a>, we noted the important big-picture perspective that for familiar basic functions that are infinitely differentiable, such as <span class="process-math">\(f(x) = \sin(x)\text{,}\)</span> not only can we find the function’s Taylor series and determine the <span class="process-math">\(x\)</span>-values for which the Taylor series converges, but <em class="emphasis">the Taylor series converges to the function itself</em>.  Furthermore, we noted that these representations play a key role in how computers provide decimal approxations to quantities such as <span class="process-math">\(\sin(1)\text{,}\)</span> which can be represented as</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-8a-4-taylor-series.html">
 \begin{equation*}
@@ -1113,7 +1113,7 @@ g(x) = \int_0^x f(u) \, du\text{.}
 </div></section><section class="subsection" id="subsection-159"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.5.3</span> <span class="title">Alternating series of real numbers</span>
 </h3>
-<div class="para logical" id="p-11281">
+<div class="para logical" id="p-11323">
 <div class="para">Let’s now consider the definite integral</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-8a-5-alt-sum-ex2.html">
 \begin{equation*}
@@ -1140,7 +1140,7 @@ e^{-x^2} = 1 - x^2 + \frac{1}{2!}x^4 - \frac{1}{3!}x^6 + \cdots + (-1)^n \frac{1
 <article class="definition definition-like" id="definition-20"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">8.5.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-11282">
+<div class="para logical" id="p-11324">
 <div class="para">An alternating series is a series of the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1149,14 +1149,14 @@ e^{-x^2} = 1 - x^2 + \frac{1}{2!}x^4 - \frac{1}{3!}x^6 + \cdots + (-1)^n \frac{1
 </div>
 <div class="para">where <span class="process-math">\(a_k \gt 0\)</span> for each <span class="process-math">\(k\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-11283">We will only consider alternating series for which the sequence of positive numbers <span class="process-math">\(a_k\)</span> decreases to <span class="process-math">\(0\text{.}\)</span>  The following example illustrates two general results that hold for any alternating series whose terms <span class="process-math">\(a_k\)</span> decrease to <span class="process-math">\(0\text{.}\)</span>  We use a geometric series so that we can know its exact sum and compare certain computations to that sum.</div>
+</div></article><div class="para" id="p-11325">We will only consider alternating series for which the sequence of positive numbers <span class="process-math">\(a_k\)</span> decreases to <span class="process-math">\(0\text{.}\)</span>  The following example illustrates two general results that hold for any alternating series whose terms <span class="process-math">\(a_k\)</span> decrease to <span class="process-math">\(0\text{.}\)</span>  We use a geometric series so that we can know its exact sum and compare certain computations to that sum.</div>
 <article class="example example-like" id="ex-8a-5-alt-geom"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.5.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-11284">Investigate the partial sums of the alternating geometric series <span class="process-math">\(S = \sum_{k=0}^{\infty} (-1)^k \left( \frac{4}{5} \right)^k\text{.}\)</span>  How do the partial sums compare to the exact sum of the series, and how can partial sums accurately estimate the value of the sum?</div>
+<div class="para" id="p-11326">Investigate the partial sums of the alternating geometric series <span class="process-math">\(S = \sum_{k=0}^{\infty} (-1)^k \left( \frac{4}{5} \right)^k\text{.}\)</span>  How do the partial sums compare to the exact sum of the series, and how can partial sums accurately estimate the value of the sum?</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image has-tabular" data-refid="hk-solution-567" id="solution-567"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-567"><div class="solution solution-like">
-<div class="para logical" id="p-11285">
+<div class="para logical" id="p-11327">
 <div class="para">First, recall that the <span class="process-math">\(n\)</span>th partial sum is the sum of the first <span class="process-math">\(n\)</span> terms, so</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/T-8a-5-ExGeom.html ./knowl/F-8a-5-ExGeom.html">
 \begin{equation*}
@@ -1213,7 +1213,7 @@ S_n = \sum_{k=0}^{n-1} (-1)^k \left( \frac{4}{5} \right)^k = 1 - \frac{4}{5} + \
 </table>
 <figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">8.5.5<span class="period">.</span></span><span class="space"> </span>Partial sums of the alternating series</figcaption></figure></div>
 <div class="sbspanel top" style="width:66.6666666666667%;"><figure class="figure figure-like" id="F-8a-5-ExGeom"><img src="external/images/8a_5_partial_sum.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">8.5.6<span class="period">.</span></span><span class="space"> </span>Partial sums of the alternating series and the horizontal line <span class="process-math">\(y = \frac{5}{9}\text{.}\)</span></figcaption></figure></div>
-</div></div> <div class="para logical" id="p-11286">
+</div></div> <div class="para logical" id="p-11328">
 <div class="para">Because the given series <span class="process-math">\(S = \sum_{k=0}^{\infty} (-1)^k \left( \frac{4}{5} \right)^k\)</span> is geometric with <span class="process-math">\(a = 1\)</span> and <span class="process-math">\(r = -\frac{4}{5}\text{,}\)</span> we know the series converges and its sum is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1221,7 +1221,7 @@ S = \frac{a}{1-r} = \frac{1}{1+\frac{4}{5}} = \frac{1}{\frac{9}{5}} = \frac{5}{9
 \end{equation*}
 </div>
 <div class="para">Knowing this value helps us better understand the behavior of the partial sums.</div>
-</div> <div class="para logical" id="p-11287">
+</div> <div class="para logical" id="p-11329">
 <div class="para">In both the table and the figure, we see how consecutive partial sums move back and forth above and below the exact sum of the infinite series, <span class="process-math">\(\frac{5}{9}\text{,}\)</span> and moreover how the amount the next partial sum lies above or below <span class="process-math">\(\frac{5}{9}\)</span> is less than the amount by which the previous partial sum deviated.  For instance,</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/F-8a-5-ExGeom.html">
 \begin{equation*}
@@ -1244,9 +1244,9 @@ S = \frac{a}{1-r} = \frac{1}{1+\frac{4}{5}} = \frac{1}{\frac{9}{5}} = \frac{5}{9
 </div>
 </div>
 </div></div>
-</div></article><div class="para" id="p-11288">The arguments <a href="" class="xref" data-knowl="./knowl/eq-8a-5-alt-sum-ex2.html" title="Equation 8.5.4">Example (8.5.4)</a> can be made for any alternating series whose terms go to zero.  This leads us to state two important results.</div>
+</div></article><div class="para" id="p-11330">The arguments <a href="" class="xref" data-knowl="./knowl/eq-8a-5-alt-sum-ex2.html" title="Equation 8.5.4">Example (8.5.4)</a> can be made for any alternating series whose terms go to zero.  This leads us to state two important results.</div>
 <article class="assemblage assemblage-like" id="assemblage-58"><h4 class="heading"><span class="title">The Alternating Series Test.</span></h4>
-<div class="para logical" id="p-11289">
+<div class="para logical" id="p-11331">
 <div class="para">Given an alternating series</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1254,20 +1254,20 @@ S = \frac{a}{1-r} = \frac{1}{1+\frac{4}{5}} = \frac{1}{\frac{9}{5}} = \frac{5}{9
 \end{equation*}
 </div>
 <div class="para">if the positive terms <span class="process-math">\(a_k\)</span> decrease to 0 as <span class="process-math">\(k \to \infty\text{,}\)</span> then the alternating series converges.</div>
-</div></article><div class="para" id="p-11290">If we were to compute the partial sums <span class="process-math">\(S_n\)</span> of any alternating series whose terms decrease to zero and plot the points <span class="process-math">\((n,S_n)\)</span> as we did in <a href="" class="xref" data-knowl="./knowl/F-8a-5-ExGeom.html" title="Figure 8.5.6">Figure 8.5.6</a>, we would see a similar picture:  the partial sums alternate above and below the value to which the infinite alternating series converges.  In addition, because the terms go to zero, the amount a given partial sum deviates from the total sum is at most the next term in the series.  This result is formally stated as the Alternating Series Estimation Theorem.</div>
+</div></article><div class="para" id="p-11332">If we were to compute the partial sums <span class="process-math">\(S_n\)</span> of any alternating series whose terms decrease to zero and plot the points <span class="process-math">\((n,S_n)\)</span> as we did in <a href="" class="xref" data-knowl="./knowl/F-8a-5-ExGeom.html" title="Figure 8.5.6">Figure 8.5.6</a>, we would see a similar picture:  the partial sums alternate above and below the value to which the infinite alternating series converges.  In addition, because the terms go to zero, the amount a given partial sum deviates from the total sum is at most the next term in the series.  This result is formally stated as the Alternating Series Estimation Theorem.</div>
 <article class="assemblage assemblage-like" id="assemblage-59"><h4 class="heading"><span class="title">Alternating Series Estimation Theorem.</span></h4>
-<div class="para logical" id="p-11291">
+<div class="para logical" id="p-11333">
 <div class="para">If the alternating series <span class="process-math">\(\sum_{k=1}^{\infty} (-1)^{k+1}a_k\)</span> has positive terms <span class="process-math">\(a_k\)</span> that decrease to zero as <span class="process-math">\(k \to \infty\text{,}\)</span> and <span class="process-math">\(S_n = \sum_{k=1}^{n} (-1)^{k+1}a_k\)</span> is the <span class="process-math">\(n\)</span>th partial sum of the alternating series, then</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \left| \sum_{k=1}^{\infty} (-1)^{k+1}a_k - S_n \right| \leq a_{n+1}\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-11292">Again, this result simply says: if we use a partial sum to estimate the exact sum of an alternating series, the absolute error of the approximation is less than the next term in the series.</div>
+</div></article><div class="para" id="p-11334">Again, this result simply says: if we use a partial sum to estimate the exact sum of an alternating series, the absolute error of the approximation is less than the next term in the series.</div>
 <article class="example example-like" id="Ex-8a-5-ASET"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">8.5.7</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-11293">
+<div class="para logical" id="p-11335">
 <div class="para">Determine how well the <span class="process-math">\(100\)</span>th partial sum <span class="process-math">\(S_{100}\)</span> of</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1278,14 +1278,14 @@ S = \frac{a}{1-r} = \frac{1}{1+\frac{4}{5}} = \frac{1}{\frac{9}{5}} = \frac{5}{9
 </div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-568" id="solution-568"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-568"><div class="solution solution-like">
-<div class="para logical" id="p-11294">
+<div class="para logical" id="p-11336">
 <div class="para">If we let <span class="process-math">\(S\)</span> be the value of the series <span class="process-math">\(\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k}\text{,}\)</span> then we know that</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \left| S_{100} - S \right| \lt  a_{101}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-11295">
+</div> <div class="para logical" id="p-11337">
 <div class="para">Now</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1298,9 +1298,9 @@ a_{101} = \frac{1}{101} \approx 0.0099\text{,}
 </div></article><article class="activity project-like" id="act-8a-5-4"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">8.5.5</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-11296">In this activity we encounter several different alternating series and approximate the value of each using the Alternating Series Estimation Theorem.</div> <div class="para logical" id="p-11297"><ol class="lower-alpha">
-<li id="li-5620"><div class="para" id="p-11298">Use the fact that <span class="process-math">\(\sin(x) = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \cdots\)</span> to estimate <span class="process-math">\(\sin(1)\)</span> to within <span class="process-math">\(0.0001\text{.}\)</span>  Do so without entering “<span class="process-math">\(\sin(1)\)</span>” on a computational device.  After you find your estimate, enter “<span class="process-math">\(\sin(1)\)</span>” on a computational device and compare the results.</div></li>
-<li id="li-5621"><div class="para logical" id="p-11299">
+<div class="para" id="p-11338">In this activity we encounter several different alternating series and approximate the value of each using the Alternating Series Estimation Theorem.</div> <div class="para logical" id="p-11339"><ol class="lower-alpha">
+<li id="li-5539"><div class="para" id="p-11340">Use the fact that <span class="process-math">\(\sin(x) = x - \frac{1}{3!}x^3 + \frac{1}{5!}x^5 - \cdots\)</span> to estimate <span class="process-math">\(\sin(1)\)</span> to within <span class="process-math">\(0.0001\text{.}\)</span>  Do so without entering “<span class="process-math">\(\sin(1)\)</span>” on a computational device.  After you find your estimate, enter “<span class="process-math">\(\sin(1)\)</span>” on a computational device and compare the results.</div></li>
+<li id="li-5540"><div class="para logical" id="p-11341">
 <div class="para">Recall our recent work with <span class="process-math">\(\int_0^1 e^{-x^2} \, dx\)</span> in <a href="" class="xref" data-knowl="./knowl/eq-8a-5-alt-sum-ex2.html" title="Equation 8.5.4">Equation (8.5.4)</a>, which states</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/eq-8a-5-alt-sum-ex2.html">
 \begin{equation*}
@@ -1309,8 +1309,8 @@ a_{101} = \frac{1}{101} \approx 0.0099\text{,}
 </div>
 <div class="para">Use this series representation to estimate <span class="process-math">\(\int_0^1 e^{-x^2} \, dx\)</span> to within <span class="process-math">\(0.0001\text{.}\)</span>  Then, compare what a computational device reports when you use it to estimate the definite integral.</div>
 </div></li>
-<li id="li-5622"><div class="para" id="p-11300">Find the Taylor series for <span class="process-math">\(\cos(x^2)\)</span> and then use the Taylor series and to estimate the value of <span class="process-math">\(\int_0^1 \cos(x^2) \, dx\)</span> to within <span class="process-math">\(0.0001\text{.}\)</span>  Compare your result to what a computational device reports when you use it to estimate the definite integral.</div></li>
-<li id="li-5623"><div class="para logical" id="p-11301">
+<li id="li-5541"><div class="para" id="p-11342">Find the Taylor series for <span class="process-math">\(\cos(x^2)\)</span> and then use the Taylor series and to estimate the value of <span class="process-math">\(\int_0^1 \cos(x^2) \, dx\)</span> to within <span class="process-math">\(0.0001\text{.}\)</span>  Compare your result to what a computational device reports when you use it to estimate the definite integral.</div></li>
+<li id="li-5542"><div class="para logical" id="p-11343">
 <div class="para">Recall that we know if <span class="process-math">\(|x| \lt 1\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1323,8 +1323,8 @@ a_{101} = \frac{1}{101} \approx 0.0099\text{,}
 </ol></div></article></section><section class="subsection" id="subsection-160"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">8.5.4</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-11307"><ul class="disc">
-<li id="li-5628"><div class="para logical" id="p-11308">
+<div class="para logical" id="p-11349"><ul class="disc">
+<li id="li-5547"><div class="para logical" id="p-11350">
 <div class="para">Through substitution, we can use any known Taylor series to find the Taylor series of a related function.  For example, we know that if <span class="process-math">\(|u| \lt 1\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1341,7 +1341,7 @@ a_{101} = \frac{1}{101} \approx 0.0099\text{,}
 <div class="para">and that this representation converges if <span class="process-math">\(|4x^2| \lt 1\text{,}\)</span> so for <span class="process-math">\(x\)</span> such that <span class="process-math">\(|x| \lt \frac{1}{2}\text{.}\)</span>
 </div>
 </div></li>
-<li id="li-5629"><div class="para logical" id="p-11309">
+<li id="li-5548"><div class="para logical" id="p-11351">
 <div class="para">The Power Series Differentation and Integration Theorem tells us that we can differentiate or integrate a Taylor series in the natural way and that doing so has essentially no impact on the set of <span class="process-math">\(x\)</span>-values for which the series converges.  For instance, we might note that if we first found the Taylor series for <span class="process-math">\(\sin(x)\text{,}\)</span> which is</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/D-8a-4-Taylor-series.html">
 \begin{equation*}
@@ -1359,7 +1359,7 @@ a_{101} = \frac{1}{101} \approx 0.0099\text{,}
 </div>
 <div class="para">which is precisely the Taylor series for <span class="process-math">\(\cos(x)\)</span> that we found by taking derivatives and applying <a href="" class="xref" data-knowl="./knowl/D-8a-4-Taylor-series.html" title="Definition 8.4.1">Definition 8.4.1</a>.</div>
 </div></li>
-<li id="li-5630"><div class="para logical" id="p-11310">
+<li id="li-5549"><div class="para logical" id="p-11352">
 <div class="para">An alternating series is one whose terms alternate in sign, usually represented by <span class="process-math">\(\sum_{k=1}^{\infty} (-1)^{k+1}a_k\)</span> where <span class="process-math">\(a_k \gt 0\)</span> for all values of <span class="process-math">\(k\text{.}\)</span>  Any alternating series whose terms <span class="process-math">\(a_k\)</span> approach zero as <span class="process-math">\(k \to \infty\)</span> is guaranteed to converge.  Moreover, the Alternating Series Estimation Theorem tells us that we can estimate the exact value of a converging alternating series by using a partial sum, and the error of that approximation is at most the next term in the series.  That is,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1371,18 +1371,18 @@ a_{101} = \frac{1}{101} \approx 0.0099\text{,}
 <span class="type">Exercises</span> <span class="codenumber">8.5.5</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="Library__AlfredUniv__diffeq__series__differentiateseries"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__AlfredUniv__diffeq__series__differentiateseries"><div id="boelkins-ACS__Library__AlfredUniv__diffeq__series__differentiateseries-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="380" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/AlfredUniv/diffeq/series/differentiateseries.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__AlfredUniv__diffeq__series__differentiateseries-ww-rs')">Activate</button></div>
-<div class="problem-contents"><div class="para" id="p-11311">If  <span class="process-math">\(y = \sum_{k=0}^\infty \left(k+1\right)x^{k+3}\)</span> then <span class="process-math">\(y^\prime = \sum_{k=0}^\infty\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__AlfredUniv__diffeq__series__differentiateseries"><div id="ac-single__Library__AlfredUniv__diffeq__series__differentiateseries-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="380" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/AlfredUniv/diffeq/series/differentiateseries.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__AlfredUniv__diffeq__series__differentiateseries-ww-rs')">Activate</button></div>
+<div class="problem-contents"><div class="para" id="p-11353">If  <span class="process-math">\(y = \sum_{k=0}^\infty \left(k+1\right)x^{k+3}\)</span> then <span class="process-math">\(y^\prime = \sum_{k=0}^\infty\)</span> <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
 </div></div>
 </div></div></div></article><article class="exercise exercise-like" id="csafranski__8-_5HW_prob2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__csafranski__8-_5HW_prob2"><div id="boelkins-ACS__csafranski__8-_5HW_prob2-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="381" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/8.5HW_prob2.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__csafranski__8-_5HW_prob2-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__csafranski__8-_5HW_prob2"><div id="ac-single__csafranski__8-_5HW_prob2-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="381" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/8.5HW_prob2.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__csafranski__8-_5HW_prob2-ww-rs')">Activate</button></div>
 <div class="problem-contents">
 <article class="task exercise-like" id="task-50"><h5 class="heading">
 <span class="codenumber">(a)</span><span class="space"> </span><span class="title">Part 1.</span>
 </h5>
-<div class="para logical" id="p-11313">
+<div class="para logical" id="p-11355">
 <div class="para">Note that when the constant in the denominator is not 1, we still can use the geometric series, but we have to multiply by a form of 1 that helps us.  We’ll use <span class="process-math">\(\frac{\frac{1}{3}}{\frac{1}{3}}\text{.}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1390,82 +1390,82 @@ a_{101} = \frac{1}{101} \approx 0.0099\text{,}
 \frac{1}{(3+x)}=\frac{\frac{1}{3}}{\frac{1}{3}(3+x)}=\frac{\frac{1}{3}}{1+\frac{1}{3}x}=\frac{1}{3}\cdot \frac{1}{1+\frac{1}{3}x}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-11314">
+</div> <div class="para logical" id="p-11356">
 <div class="para">And now we can use the geometric series expression to get</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{1}{(3+x)}=\frac{1}{3}\cdot \frac{1}{1+\frac{1}{3}x}=\frac{1}{3}\sum_{n=0}^{\infty}\left(\frac{-1}{3}x\right)^n=\frac{1}{3}\sum_{n=0}^{\infty}\left(\frac{-1}{3}\right)^nx^n
 \end{equation*}
 </div>
-</div> <div class="para" id="p-11315">Use differentiation and/or integration to express the following function as a power series (centered at <span class="process-math">\(x=0\)</span>).</div> <div class="para logical" id="p-11316"><div class="displaymath process-math">
+</div> <div class="para" id="p-11357">Use differentiation and/or integration to express the following function as a power series (centered at <span class="process-math">\(x=0\)</span>).</div> <div class="para logical" id="p-11358"><div class="displaymath process-math">
 \begin{equation*}
 f(x) = \frac{1}{(3+x)^2}
 \end{equation*}
-</div></div> <div class="para" id="p-11317">
+</div></div> <div class="para" id="p-11359">
 <span class="process-math">\(f(x) = \displaystyle \sum\limits_{n=0}^{\infty}\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
 </div></article> <article class="task exercise-like" id="task-51"><h5 class="heading">
 <span class="codenumber">(b)</span><span class="space"> </span><span class="title">Part 2.</span>
 </h5>
-<div class="para" id="p-11319">Use your answer above (and more differentiation/integration) to now express the following function as a power series (centered at <span class="process-math">\(x=0\)</span>).</div> <div class="para logical" id="p-11320"><div class="displaymath process-math">
+<div class="para" id="p-11361">Use your answer above (and more differentiation/integration) to now express the following function as a power series (centered at <span class="process-math">\(x=0\)</span>).</div> <div class="para logical" id="p-11362"><div class="displaymath process-math">
 \begin{equation*}
 g(x) = \frac{1}{(3+x)^3}
 \end{equation*}
-</div></div> <div class="para" id="p-11321">
+</div></div> <div class="para" id="p-11363">
 <span class="process-math">\(g(x) = \displaystyle \sum\limits_{n=0}^{\infty}\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
 </div></article> <article class="task exercise-like" id="task-52"><h5 class="heading">
 <span class="codenumber">(c)</span><span class="space"> </span><span class="title">Part 3.</span>
 </h5>
-<div class="para" id="p-11323">Use your answers above to now express the function as a power series (centered at <span class="process-math">\(x=0\)</span>).</div> <div class="para logical" id="p-11324"><div class="displaymath process-math">
+<div class="para" id="p-11365">Use your answers above to now express the function as a power series (centered at <span class="process-math">\(x=0\)</span>).</div> <div class="para logical" id="p-11366"><div class="displaymath process-math">
 \begin{equation*}
 h(x) = \frac{x^2}{(3+x)^3}
 \end{equation*}
-</div></div> <div class="para" id="p-11325">
+</div></div> <div class="para" id="p-11367">
 <span class="process-math">\(h(x) =  \displaystyle \sum\limits_{n=0}^{\infty}\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
 </div></article>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-026"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-026"><div id="boelkins-ACS__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-026-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="382" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/WinonaState/StewartCalcEarlyTran7ed/Chap11Section09/SCalcET7-11-9-026.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-026-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-026"><div id="ac-single__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-026-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="382" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/WinonaState/StewartCalcEarlyTran7ed/Chap11Section09/SCalcET7-11-9-026.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-026-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-11327">For the following indefinite integral, find the full power series centered at <span class="process-math">\(t=0\)</span> and then give the first 5 nonzero terms of the power series and the open interval of convergence.</div> <div class="para logical" id="p-11328"><div class="displaymath process-math">
+<div class="para" id="p-11369">For the following indefinite integral, find the full power series centered at <span class="process-math">\(t=0\)</span> and then give the first 5 nonzero terms of the power series and the open interval of convergence.</div> <div class="para logical" id="p-11370"><div class="displaymath process-math">
 \begin{equation*}
 f(t) = \int \frac{t}{1+t^{5}}\ dt
 \end{equation*}
-</div></div> <div class="para" id="p-11329">
+</div></div> <div class="para" id="p-11371">
 <span class="process-math">\(f(t) = C + \displaystyle\sum\limits_{n=0}^{\infty}\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-11330">
+</div> <div class="para" id="p-11372">
 <span class="process-math">\(f(t) = C +\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+ \cdots\)</span>
-</div> <div class="para" id="p-11331">The open interval of convergence is: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> (Give your answer in <a class="external" href="/pg_files/helpFiles/IntervalNotation.html" target="_blank">help (intervals)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-137" id="fn-137"><sup> 3 </sup></a>.)</div>
+</div> <div class="para" id="p-11373">The open interval of convergence is: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> (Give your answer in <a class="external" href="/pg_files/helpFiles/IntervalNotation.html" target="_blank">help (intervals)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-120" id="fn-120"><sup> 3 </sup></a>.)</div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-027"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-027"><div id="boelkins-ACS__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-027-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="383" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/WinonaState/StewartCalcEarlyTran7ed/Chap11Section09/SCalcET7-11-9-027.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-027-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-027"><div id="ac-single__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-027-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="383" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/WinonaState/StewartCalcEarlyTran7ed/Chap11Section09/SCalcET7-11-9-027.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__WinonaState__StewartCalcEarlyTran7ed__Chap11Section09__SCalcET7-11-9-027-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-11339">For the following indefinite integral, find the full power series centered at <span class="process-math">\(x=0\)</span> and then give the first 5 nonzero terms of the power series and the open interval of convergence.</div> <div class="para logical" id="p-11340"><div class="displaymath process-math">
+<div class="para" id="p-11381">For the following indefinite integral, find the full power series centered at <span class="process-math">\(x=0\)</span> and then give the first 5 nonzero terms of the power series and the open interval of convergence.</div> <div class="para logical" id="p-11382"><div class="displaymath process-math">
 \begin{equation*}
 f(x) = \int x \cdot \ln(1+x)\ dx
 \end{equation*}
-</div></div> <div class="para" id="p-11341">
+</div></div> <div class="para" id="p-11383">
 <span class="process-math">\(f(x) = C + \displaystyle\sum\limits_{n=1}^{\infty}\)</span> <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-11342">
+</div> <div class="para" id="p-11384">
 <span class="process-math">\(f(x) = C +\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span> <span class="process-math">\(+ \cdots\)</span>
-</div> <div class="para" id="p-11343">The open interval of convergence is: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> (Give your answer in <a class="external" href="/pg_files/helpFiles/IntervalNotation.html" target="_blank">help (intervals)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-138" id="fn-138"><sup> 4 </sup></a>.)</div>
+</div> <div class="para" id="p-11385">The open interval of convergence is: <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span> (Give your answer in <a class="external" href="/pg_files/helpFiles/IntervalNotation.html" target="_blank">help (intervals)</a><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-121" id="fn-121"><sup> 4 </sup></a>.)</div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setSeries3Convergent__ur_sr_3_8"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setSeries3Convergent__ur_sr_3_8"><div id="boelkins-ACS__Library__Rochester__setSeries3Convergent__ur_sr_3_8-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="384" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries3Convergent/ur_sr_3_8.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setSeries3Convergent__ur_sr_3_8-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__Rochester__setSeries3Convergent__ur_sr_3_8"><div id="ac-single__Library__Rochester__setSeries3Convergent__ur_sr_3_8-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="384" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries3Convergent/ur_sr_3_8.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__Rochester__setSeries3Convergent__ur_sr_3_8-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-11351">For the following alternating series,</div> <div class="para" id="p-11352"><span class="process-math">\(\displaystyle \sum_{n=1}^\infty a_n = 0.5 - \frac{(0.5)^3}{3!} + \frac{(0.5)^5}{5!} -
-\frac{(0.5)^7}{7!} + ...\)</span></div> <div class="para" id="p-11353">how many terms do you have to compute in order for your approximation (your partial sum) to be within 0.0000001 from the convergent value of that series?</div>
+<div class="para" id="p-11393">For the following alternating series,</div> <div class="para" id="p-11394"><span class="process-math">\(\displaystyle \sum_{n=1}^\infty a_n = 0.5 - \frac{(0.5)^3}{3!} + \frac{(0.5)^5}{5!} -
+\frac{(0.5)^7}{7!} + ...\)</span></div> <div class="para" id="p-11395">how many terms do you have to compute in order for your approximation (your partial sum) to be within 0.0000001 from the convergent value of that series?</div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__Rochester__setSeries3Convergent__ur_sr_3_10"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Rochester__setSeries3Convergent__ur_sr_3_10"><div id="boelkins-ACS__Library__Rochester__setSeries3Convergent__ur_sr_3_10-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="385" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries3Convergent/ur_sr_3_10.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Rochester__setSeries3Convergent__ur_sr_3_10-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__Rochester__setSeries3Convergent__ur_sr_3_10"><div id="ac-single__Library__Rochester__setSeries3Convergent__ur_sr_3_10-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="385" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Rochester/setSeries3Convergent/ur_sr_3_10.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__Rochester__setSeries3Convergent__ur_sr_3_10-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-11355">For the following alternating series,</div> <div class="para" id="p-11356"><span class="process-math">\(\displaystyle \sum_{n=1}^\infty a_n = 1 - \frac{1}{10} + \frac{1}{100} - \frac{1}{1000} + ...\)</span></div> <div class="para" id="p-11357">how many terms do you have to go for your approximation (your partial sum) to be within 1e-07 from the convergent value of that series?</div>
+<div class="para" id="p-11397">For the following alternating series,</div> <div class="para" id="p-11398"><span class="process-math">\(\displaystyle \sum_{n=1}^\infty a_n = 1 - \frac{1}{10} + \frac{1}{100} - \frac{1}{1000} + ...\)</span></div> <div class="para" id="p-11399">how many terms do you have to go for your approximation (your partial sum) to be within 1e-07 from the convergent value of that series?</div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="ez-8a-5-1"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-11359">
+<div class="para logical" id="p-11401">
 <div class="para">In this exercise we find the Taylor series representation for two famous functions, the Fresnel integral functions</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1479,21 +1479,21 @@ S(x) = \int_0^x \sin(t^2) \, dt\text{.}
 \end{equation*}
 </div>
 <div class="para">The Fresnel integral functions are important in optics and are used in the design of Fresnel lenses such as those found in lighthouses along the Lake Michigan shore.</div>
-</div> <div class="para logical" id="p-11360"><ol class="lower-alpha">
-<li id="li-5631"><div class="para" id="p-11361">Use the Taylor series for <span class="process-math">\(\cos(x)\)</span> to find the Taylor series for <span class="process-math">\(\cos(t^2)\)</span> and hence write <span class="process-math">\(C(x)\)</span> as a Taylor series.</div></li>
-<li id="li-5632"><div class="para" id="p-11362">For what interval of <span class="process-math">\(x\)</span>-values will the Taylor series for <span class="process-math">\(C(x)\)</span> converge?  Why?</div></li>
-<li id="li-5633">
-<div class="para" id="p-11363">Apply your result from (a) to estimate <span class="process-math">\(C(0.5)\)</span> to within <span class="process-math">\(0.001\text{.}\)</span>
+</div> <div class="para logical" id="p-11402"><ol class="lower-alpha">
+<li id="li-5550"><div class="para" id="p-11403">Use the Taylor series for <span class="process-math">\(\cos(x)\)</span> to find the Taylor series for <span class="process-math">\(\cos(t^2)\)</span> and hence write <span class="process-math">\(C(x)\)</span> as a Taylor series.</div></li>
+<li id="li-5551"><div class="para" id="p-11404">For what interval of <span class="process-math">\(x\)</span>-values will the Taylor series for <span class="process-math">\(C(x)\)</span> converge?  Why?</div></li>
+<li id="li-5552">
+<div class="para" id="p-11405">Apply your result from (a) to estimate <span class="process-math">\(C(0.5)\)</span> to within <span class="process-math">\(0.001\text{.}\)</span>
 </div>
-<div class="para" id="p-11364">Similarly, use the Taylor series for <span class="process-math">\(\sin(x)\)</span> to find the Taylor series for <span class="process-math">\(\sin(t^2)\)</span> and hence write <span class="process-math">\(S(x)\)</span> as a Taylor series.</div>
+<div class="para" id="p-11406">Similarly, use the Taylor series for <span class="process-math">\(\sin(x)\)</span> to find the Taylor series for <span class="process-math">\(\sin(t^2)\)</span> and hence write <span class="process-math">\(S(x)\)</span> as a Taylor series.</div>
 </li>
-<li id="li-5634"><div class="para" id="p-11365">For what interval of <span class="process-math">\(x\)</span>-values will the Taylor series for <span class="process-math">\(S(x)\)</span> converge?  Why?</div></li>
-<li id="li-5635"><div class="para" id="p-11366">Apply your result from (d) to estimate <span class="process-math">\(S(0.8)\)</span> to within <span class="process-math">\(0.001\text{.}\)</span>
+<li id="li-5553"><div class="para" id="p-11407">For what interval of <span class="process-math">\(x\)</span>-values will the Taylor series for <span class="process-math">\(S(x)\)</span> converge?  Why?</div></li>
+<li id="li-5554"><div class="para" id="p-11408">Apply your result from (d) to estimate <span class="process-math">\(S(0.8)\)</span> to within <span class="process-math">\(0.001\text{.}\)</span>
 </div></li>
 </ol></div></article><article class="exercise exercise-like" id="ez-8a-5-2"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para" id="p-11369">The fact that we can differentiate or integrate a Taylor series reveals other important ways we can think about functions such as <span class="process-math">\(e^x\text{.}\)</span>
+<div class="para" id="p-11411">The fact that we can differentiate or integrate a Taylor series reveals other important ways we can think about functions such as <span class="process-math">\(e^x\text{.}\)</span>
 </div> <ol class="lower-alpha">
-<li id="li-5637"><div class="para logical" id="p-11370">
+<li id="li-5556"><div class="para logical" id="p-11412">
 <div class="para">Perhaps the most important property of the function <span class="process-math">\(h(x) = e^x\)</span> is that <span class="process-math">\(h'(x) = e^x\text{;}\)</span> that is, the function <span class="process-math">\(e^x\)</span> is its own derivative.  Suppose that we didn’t yet know the coefficients of the Taylor series expansion for <span class="process-math">\(e^x\text{,}\)</span> so we just said</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/ez-8a-5-2-exp.html" id="ez-8a-5-2-exp">
 \begin{equation}
@@ -1503,13 +1503,13 @@ e^x = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots\text{.}\tag{8.
 <div class="para">Let <span class="process-math">\(x = 0\)</span> in <a href="" class="xref" data-knowl="./knowl/ez-8a-5-2-exp.html" title="Equation 8.5.5">Equation (8.5.5)</a>; what does this tell us about the value of <span class="process-math">\(a_0\text{?}\)</span>
 </div>
 </div></li>
-<li id="li-5638"><div class="para" id="p-11371">Take the derivative of both sides of <a href="" class="xref" data-knowl="./knowl/ez-8a-5-2-exp.html" title="Equation 8.5.5">Equation (8.5.5)</a> and call your resulting equation for <span class="process-math">\(e^x\)</span> “Equation 2”.  Why do <a href="" class="xref" data-knowl="./knowl/ez-8a-5-2-exp.html" title="Equation 8.5.5">Equation (8.5.5)</a> and Equation 2 together tell us that <span class="process-math">\(a_1 = a_0\text{?}\)</span>  Combine this observation with your conclusion in (b) and note that you now know the numerical value of both <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\text{.}\)</span>
+<li id="li-5557"><div class="para" id="p-11413">Take the derivative of both sides of <a href="" class="xref" data-knowl="./knowl/ez-8a-5-2-exp.html" title="Equation 8.5.5">Equation (8.5.5)</a> and call your resulting equation for <span class="process-math">\(e^x\)</span> “Equation 2”.  Why do <a href="" class="xref" data-knowl="./knowl/ez-8a-5-2-exp.html" title="Equation 8.5.5">Equation (8.5.5)</a> and Equation 2 together tell us that <span class="process-math">\(a_1 = a_0\text{?}\)</span>  Combine this observation with your conclusion in (b) and note that you now know the numerical value of both <span class="process-math">\(a_0\)</span> and <span class="process-math">\(a_1\text{.}\)</span>
 </div></li>
-<li id="li-5639"><div class="para" id="p-11372">Why do <a href="" class="xref" data-knowl="./knowl/ez-8a-5-2-exp.html" title="Equation 8.5.5">Equation (8.5.5)</a> and Equation 2 together tell us that <span class="process-math">\(a_2 = \frac{1}{2}a_1\text{?}\)</span>
+<li id="li-5558"><div class="para" id="p-11414">Why do <a href="" class="xref" data-knowl="./knowl/ez-8a-5-2-exp.html" title="Equation 8.5.5">Equation (8.5.5)</a> and Equation 2 together tell us that <span class="process-math">\(a_2 = \frac{1}{2}a_1\text{?}\)</span>
 </div></li>
-<li id="li-5640"><div class="para" id="p-11373">Continue reasoning similarly to find the value of <span class="process-math">\(a_3\text{,}\)</span> <span class="process-math">\(a_4\text{,}\)</span> and <span class="process-math">\(a_5\text{.}\)</span>  What do you observe?</div></li>
+<li id="li-5559"><div class="para" id="p-11415">Continue reasoning similarly to find the value of <span class="process-math">\(a_3\text{,}\)</span> <span class="process-math">\(a_4\text{,}\)</span> and <span class="process-math">\(a_5\text{.}\)</span>  What do you observe?</div></li>
 </ol></article><article class="exercise exercise-like" id="ez-8a-5-3"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-11376">
+<div class="para logical" id="p-11418">
 <div class="para">In this exercise we consider the definite integral</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1518,7 +1518,7 @@ e^x = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots\text{.}\tag{8.
 </div>
 <div class="para">from two different perspectives.</div>
 </div> <ol class="lower-alpha">
-<li id="li-5642"><div class="para logical" id="p-11377">
+<li id="li-5561"><div class="para logical" id="p-11419">
 <div class="para">First, find the Taylor series for <span class="process-math">\(\frac{4}{1+x^2}\)</span> and use it to evaluate</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1527,8 +1527,8 @@ e^x = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots\text{.}\tag{8.
 </div>
 <div class="para">as an infinite series of real numbers.</div>
 </div></li>
-<li id="li-5643"><div class="para" id="p-11378">Observe that your result in (a) is an alternating series.  Estimate the value of that alternating series to within 0.0001.  How many terms of the series are needed to do so?</div></li>
-<li id="li-5644"><div class="para logical" id="p-11379">
+<li id="li-5562"><div class="para" id="p-11420">Observe that your result in (a) is an alternating series.  Estimate the value of that alternating series to within 0.0001.  How many terms of the series are needed to do so?</div></li>
+<li id="li-5563"><div class="para logical" id="p-11421">
 <div class="para">Recall that <span class="process-math">\(\frac{d}{dx}[\arctan(x)] = \frac{1}{1+x^2}\text{.}\)</span>  Use this fact and the First Fundamental Theorem of Calculus to evaluate</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1537,10 +1537,10 @@ e^x = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots\text{.}\tag{8.
 </div>
 <div class="para">exactly.</div>
 </div></li>
-<li id="li-5645"><div class="para" id="p-11380">How are your results in (a) and (c) connected?  What famous number can we now estimate using an alternating series?</div></li>
+<li id="li-5564"><div class="para" id="p-11422">How are your results in (a) and (c) connected?  What famous number can we now estimate using an alternating series?</div></li>
 </ol></article><article class="exercise exercise-like" id="ez-8a-5-4"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para" id="p-11383">Taylor series also provide an alternate way to evaluate indeterminate limits.</div> <ol class="lower-alpha">
-<li id="li-5647"><div class="para logical" id="p-11384">
+<div class="para" id="p-11425">Taylor series also provide an alternate way to evaluate indeterminate limits.</div> <ol class="lower-alpha">
+<li id="li-5566"><div class="para logical" id="p-11426">
 <div class="para">Find the Taylor series for <span class="process-math">\(\sin(2t)\)</span> and use it to evaluate the indeterminate limit given by</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-2-8-LHR.html">
 \begin{equation*}
@@ -1549,7 +1549,7 @@ e^x = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots\text{.}\tag{8.
 </div>
 <div class="para">Compare your result to what follows from L’Hôpital’s Rule (see <a href="sec-2-8-LHR.html" class="internal" title="Section 2.8: Using Derivatives to Evaluate Limits">Section 2.8</a> as needed).</div>
 </div></li>
-<li id="li-5648"><div class="para logical" id="p-11385">
+<li id="li-5567"><div class="para logical" id="p-11427">
 <div class="para">Consider the indeterminate limit given by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1559,10 +1559,10 @@ e^x = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots + a_n x^n + \cdots\text{.}\tag{8.
 <div class="para">Find the Taylor series representations for <span class="process-math">\(f(x) = e^x - 1 - x\)</span> and <span class="process-math">\(g(x) = \cos(2x)-1\)</span> and use them to evaluate the given limit.  How does your result compare to using L’Hôpital’s Rule?</div>
 </div></li>
 </ol></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-135"><div class="fn">It is possible for the convergence status at the endpoints of the interval to change, but we are normally not concerned with those specific <span class="process-math">\(x\)</span>-values.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-136"><div class="fn">Differentiating or integrating can change the convergence status at the endpoints of the interval, but we again will not concern ourselves with that issue in this course.</div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-137"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/IntervalNotation.html</code></div></div>
-<div class="hidden-content tex2jax_ignore" id="hk-fn-138"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/IntervalNotation.html</code></div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-118"><div class="fn">It is possible for the convergence status at the endpoints of the interval to change, but we are normally not concerned with those specific <span class="process-math">\(x\)</span>-values.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-119"><div class="fn">Differentiating or integrating can change the convergence status at the endpoints of the interval, but we again will not concern ourselves with that issue in this course.</div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-120"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/IntervalNotation.html</code></div></div>
+<div class="hidden-content tex2jax_ignore" id="hk-fn-121"><div class="fn"><code class="code-inline tex2jax_ignore">/pg_files/helpFiles/IntervalNotation.html</code></div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-8a-4-taylor-series.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="C-safranski.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>

@@ -11,7 +11,7 @@
 <title>AC Global Optimization</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://runestone.academy/ns/books/published/boelkins-ACS/sec-3-3-optimization.html">
+<link rel="canonical" href="https://runestone.academy/ns/books/published/ac-single/sec-3-3-optimization.html">
 <meta property="og:type" content="book">
 <meta property="book:title" content="Active Calculus">
 <meta property="book:author" content="Matthew Boelkins">
@@ -126,13 +126,13 @@ eBookConfig.allow_pairs = ~._ allow_pairs _.~;
 eBookConfig.enableScratchAC = true;
 eBookConfig.acDefaultLanguage = 'python';
 eBookConfig.new_server_prefix = "/ns";
-eBookConfig.runestone_version = '7.0.5';
+eBookConfig.runestone_version = '7.0.7';
 </script>
 <script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
-<script type="text/javascript" src="_static/prefix-runtime.61a1aa562b2eef01.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
+<script type="text/javascript" src="_static/prefix-runtime.fd9ce61c3c71cb22.bundle.js"></script><script type="text/javascript" src="_static/prefix-347.193e36c07abd0197.bundle.js"></script><script type="text/javascript" src="_static/prefix-runestone.89acb6c6122954e4.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-347.f9add1ca35d5ad93.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8d2f742bc74f4a41.css">
 </head>
-<body id="boelkins-ACS" class="pretext book ignore-math">
+<body id="ac-single" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
 <a id="logo-link" class="logo-link" href="https://activecalculus.org" target="_blank"><img src="external/images/ActiveCalculusImage_sm.jpg" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="book-1.html"><span class="title">Active Calculus</span></a></h1>
@@ -776,12 +776,12 @@ eBookConfig.runestone_version = '7.0.5';
 <div class="toc-item"><a href="C-safranski.html" class="internal"><span class="codenumber">9</span> <span class="title">Supplementary material</span></a></div>
 <ul class="structural">
 <li>
-<div class="toc-item"><a href="sec-safranksi-review1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
+<div class="toc-item"><a href="sec-safranski-review1.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Review of Prerequsites for Calculus I</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-review1.html#ez-safranski-review1" class="internal"><span class="codenumber">9.1</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li>
-<div class="toc-item"><a href="sec-safranksi-review2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
-<ul class="structural"><li><div class="toc-item"><a href="sec-safranksi-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">9.2</span> <span class="title">Exercises</span></a></div></li></ul>
+<div class="toc-item"><a href="sec-safranski-review2.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Review of Prerequsites for Calculus II</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-safranski-review2.html#ez-safranski-review2" class="internal"><span class="codenumber">9.2</span> <span class="title">Exercises</span></a></div></li></ul>
 </li>
 <li>
 <div class="toc-item"><a href="sec-safranski-rational.html" class="internal"><span class="codenumber">9.3</span> <span class="title">Integrating Rational Functions</span></a></div>
@@ -824,127 +824,127 @@ eBookConfig.runestone_version = '7.0.5';
 </h2>
 <article class="objectives goal-like" id="objectives-19"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
 <ul class="disc">
-<li id="li-2485"><div class="para" id="p-4568">What are the differences between finding relative extreme values and global extreme values of a function?</div></li>
-<li id="li-2486"><div class="para" id="p-4569">How is the process of finding the global maximum or minimum of a function over the function’s entire domain different from determining the global maximum or minimum on a restricted domain?</div></li>
-<li id="li-2487"><div class="para" id="p-4570">For a function that is guaranteed to have both a global maximum and global minimum on a closed, bounded interval, what are the possible points at which these extreme values occur?</div></li>
-</ul></article><section class="introduction" id="introduction-25"><div class="para" id="p-4571">We have seen that we can use the first derivative of a function to determine where the function is increasing or decreasing, and the second derivative to know where the function is concave up or concave down. This information helps us determine the overall shape and behavior of the graph, as well as whether the function has relative extrema.</div> <div class="para" id="p-4572">Remember the difference between a relative maximum and a global maximum: there is a <em class="emphasis">relative</em> maximum of <span class="process-math">\(f\)</span> at <span class="process-math">\(x = p\)</span> if <span class="process-math">\(f(p) \ge f(x)\)</span> for all <span class="process-math">\(x\)</span> <em class="emphasis">near</em> <span class="process-math">\(p\text{,}\)</span> while there is a <em class="emphasis">global</em> maximum at <span class="process-math">\(p\)</span> if <span class="process-math">\(f(p) \ge f(x)\)</span> for <em class="emphasis">all</em> <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{.}\)</span>
+<li id="li-2441"><div class="para" id="p-4594">What are the differences between finding relative extreme values and global extreme values of a function?</div></li>
+<li id="li-2442"><div class="para" id="p-4595">How is the process of finding the global maximum or minimum of a function over the function’s entire domain different from determining the global maximum or minimum on a restricted domain?</div></li>
+<li id="li-2443"><div class="para" id="p-4596">For a function that is guaranteed to have both a global maximum and global minimum on a closed, bounded interval, what are the possible points at which these extreme values occur?</div></li>
+</ul></article><section class="introduction" id="introduction-25"><div class="para" id="p-4597">We have seen that we can use the first derivative of a function to determine where the function is increasing or decreasing, and the second derivative to know where the function is concave up or concave down. This information helps us determine the overall shape and behavior of the graph, as well as whether the function has relative extrema.</div> <div class="para" id="p-4598">Remember the difference between a relative maximum and a global maximum: there is a <em class="emphasis">relative</em> maximum of <span class="process-math">\(f\)</span> at <span class="process-math">\(x = p\)</span> if <span class="process-math">\(f(p) \ge f(x)\)</span> for all <span class="process-math">\(x\)</span> <em class="emphasis">near</em> <span class="process-math">\(p\text{,}\)</span> while there is a <em class="emphasis">global</em> maximum at <span class="process-math">\(p\)</span> if <span class="process-math">\(f(p) \ge f(x)\)</span> for <em class="emphasis">all</em> <span class="process-math">\(x\)</span> in the domain of <span class="process-math">\(f\text{.}\)</span>
 </div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><div class="para" id="p-4573">For instance, in <a href="" class="xref" data-knowl="./knowl/F-3-3-Intro.html" title="Figure 3.3.1">Figure 3.3.1</a>, we see a function <span class="process-math">\(f\)</span> that has a global maximum at <span class="process-math">\(x = c\)</span> and a relative maximum at <span class="process-math">\(x = a\text{,}\)</span> since <span class="process-math">\(f(c)\)</span> is greater than <span class="process-math">\(f(x)\)</span> for every value of <span class="process-math">\(x\text{,}\)</span> while <span class="process-math">\(f(a)\)</span> is only greater than the value of <span class="process-math">\(f(x)\)</span> for <span class="process-math">\(x\)</span> near <span class="process-math">\(a\text{.}\)</span> Since the function appears to decrease without bound, <span class="process-math">\(f\)</span> has no global minimum, though clearly <span class="process-math">\(f\)</span> has a relative minimum at <span class="process-math">\(x = b\text{.}\)</span>
+<div class="sbspanel top" style="width:50%;"><div class="para" id="p-4599">For instance, in <a href="" class="xref" data-knowl="./knowl/F-3-3-Intro.html" title="Figure 3.3.1">Figure 3.3.1</a>, we see a function <span class="process-math">\(f\)</span> that has a global maximum at <span class="process-math">\(x = c\)</span> and a relative maximum at <span class="process-math">\(x = a\text{,}\)</span> since <span class="process-math">\(f(c)\)</span> is greater than <span class="process-math">\(f(x)\)</span> for every value of <span class="process-math">\(x\text{,}\)</span> while <span class="process-math">\(f(a)\)</span> is only greater than the value of <span class="process-math">\(f(x)\)</span> for <span class="process-math">\(x\)</span> near <span class="process-math">\(a\text{.}\)</span> Since the function appears to decrease without bound, <span class="process-math">\(f\)</span> has no global minimum, though clearly <span class="process-math">\(f\)</span> has a relative minimum at <span class="process-math">\(x = b\text{.}\)</span>
 </div></div>
 <div class="sbspanel top" style="width:44%;"><figure class="figure figure-like" id="F-3-3-Intro"><img src="external/images/3_3_Intro.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.1<span class="period">.</span></span><span class="space"> </span>A function <span class="process-math">\(f\)</span> with a global maximum, but no global minimum.</figcaption></figure></div>
-</div></div> <div class="para" id="p-4574">Our emphasis in this section is on finding the global extreme values of a function (if they exist), either over its entire domain or on some restricted portion.</div> <article class="exploration project-like" id="ACS__Preview__3-3"><h3 class="heading">
+</div></div> <div class="para" id="p-4600">Our emphasis in this section is on finding the global extreme values of a function (if they exist), either over its entire domain or on some restricted portion.</div> <article class="exploration project-like" id="ACS__Preview__3-3"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">3.3.1</span><span class="period">.</span>
 </h3>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__ACS__Preview__3-3"><div id="boelkins-ACS__ACS__Preview__3-3-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="172" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/3.3Preview_prob1.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__ACS__Preview__3-3-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__ACS__Preview__3-3"><div id="ac-single__ACS__Preview__3-3-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="172" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/3.3Preview_prob1.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__ACS__Preview__3-3-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-4575">Let <span class="process-math">\(f(x) = \displaystyle{2+\frac{3}{1+(x+1)^2}}\text{.}\)</span>
-</div> <div class="para" id="p-4576">Determine all critical values of <span class="process-math">\(f\text{.}\)</span> If there is more than one, enter the values as a comma-separated list.</div> <div class="para" id="p-4577">Critical value(s) = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-4578">Construct a first derivative sign chart for <span class="process-math">\(f\)</span> and thus determine all intervals on which <span class="process-math">\(f\)</span> is increasing or decreasing. If there is more than one, enter the intervals as a comma-separated list. Use interval notation: for example, (-17,20) is the interval <span class="process-math">\(-17 \lt  x \lt  20\text{,}\)</span> and (-inf, 40) is the interval <span class="process-math">\(x\lt 40\text{.}\)</span>
-</div> <div class="para" id="p-4579">Interval(s) where <span class="process-math">\(f\)</span> is increasing:  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-4580">Interval(s) where <span class="process-math">\(f\)</span> is decreasing:  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-4581">Does <span class="process-math">\(f\)</span> have a global maximum? If so, enter its value. If not, enter DNE.</div> <div class="para" id="p-4582">Global maximum = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-4583">Determine the following limits.</div> <div class="para" id="p-4584">
+<div class="para" id="p-4601">Let <span class="process-math">\(f(x) = \displaystyle{2+\frac{3}{1+(x+1)^2}}\text{.}\)</span>
+</div> <div class="para" id="p-4602">Determine all critical values of <span class="process-math">\(f\text{.}\)</span> If there is more than one, enter the values as a comma-separated list.</div> <div class="para" id="p-4603">Critical value(s) = <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-4604">Construct a first derivative sign chart for <span class="process-math">\(f\)</span> and thus determine all intervals on which <span class="process-math">\(f\)</span> is increasing or decreasing. If there is more than one, enter the intervals as a comma-separated list. Use interval notation: for example, (-17,20) is the interval <span class="process-math">\(-17 \lt  x \lt  20\text{,}\)</span> and (-inf, 40) is the interval <span class="process-math">\(x\lt 40\text{.}\)</span>
+</div> <div class="para" id="p-4605">Interval(s) where <span class="process-math">\(f\)</span> is increasing:  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-4606">Interval(s) where <span class="process-math">\(f\)</span> is decreasing:  <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-4607">Does <span class="process-math">\(f\)</span> have a global maximum? If so, enter its value. If not, enter DNE.</div> <div class="para" id="p-4608">Global maximum = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</div> <div class="para" id="p-4609">Determine the following limits.</div> <div class="para" id="p-4610">
 <span class="process-math">\(\displaystyle{\lim_{x\rightarrow \infty}} f(x) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-4585">
+</div> <div class="para" id="p-4611">
 <span class="process-math">\(\displaystyle{\lim_{x\rightarrow -\infty}} f(x) =\)</span> <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-4586">Which of the statements below describes the behavior of <span class="process-math">\(f(x)\text{?}\)</span>
-</div> <div class="para logical" id="p-4587"><ul class="disc">
-<li id="li-2488"><div class="para" id="p-4588">There is a value of <span class="process-math">\(x\)</span> which results in <span class="process-math">\(f(x)\leq 2\text{.}\)</span>
+</div> <div class="para" id="p-4612">Which of the statements below describes the behavior of <span class="process-math">\(f(x)\text{?}\)</span>
+</div> <div class="para logical" id="p-4613"><ul class="disc">
+<li id="li-2444"><div class="para" id="p-4614">There is a value of <span class="process-math">\(x\)</span> which results in <span class="process-math">\(f(x)\leq 2\text{.}\)</span>
 </div></li>
-<li id="li-2489"><div class="para" id="p-4589">The term <span class="process-math">\((x+1)^2\)</span> is positive for all values of <span class="process-math">\(x\text{,}\)</span> so <span class="process-math">\(\displaystyle{\frac{3}{1+(x+1)^2}}\)</span> is always positive and <span class="process-math">\(f(x)&gt;2\)</span> for all values of <span class="process-math">\(x\text{.}\)</span>
+<li id="li-2445"><div class="para" id="p-4615">The term <span class="process-math">\((x+1)^2\)</span> is positive for all values of <span class="process-math">\(x\text{,}\)</span> so <span class="process-math">\(\displaystyle{\frac{3}{1+(x+1)^2}}\)</span> is always positive and <span class="process-math">\(f(x)&gt;2\)</span> for all values of <span class="process-math">\(x\text{.}\)</span>
 </div></li>
-</ul></div> <div class="para" id="p-4590">Does <span class="process-math">\(f\)</span> have a global minimum? If so, enter its value. If not, enter DNE.</div> <div class="para" id="p-4591">Global minimum = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
+</ul></div> <div class="para" id="p-4616">Does <span class="process-math">\(f\)</span> have a global minimum? If so, enter its value. If not, enter DNE.</div> <div class="para" id="p-4617">Global minimum = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
 </div>
 </div>
 </div></div></div></article></section><section class="subsection" id="subsection-56"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.3.1</span> <span class="title">Global Optimization</span>
 </h3>
-<div class="para" id="p-4600">In <a href="" class="xref" data-knowl="./knowl/F-3-3-Intro.html" title="Figure 3.3.1">Figure 3.3.1</a> and <a href="" class="xref" data-knowl="./knowl/ACS__Preview__3-3.html" title="Preview Activity 3.3.1">Preview Activity 3.3.1</a>, we were interested in finding the global minimum and global maximum for <span class="process-math">\(f\)</span> on its entire domain. At other times, we might focus on some restriction of the domain.</div>
-<div class="para" id="p-4601">For example, rather than considering <span class="process-math">\(f(x) = 2 + \frac{3}{1+(x+1)^2}\)</span> for every value of <span class="process-math">\(x\text{,}\)</span> perhaps instead we are only interested in those <span class="process-math">\(x\)</span> for which <span class="process-math">\(0 \le x \le 4\text{,}\)</span> and we would like to know which values of <span class="process-math">\(x\)</span> in the interval <span class="process-math">\([0,4]\)</span> produce the largest possible and smallest possible values of <span class="process-math">\(f\text{.}\)</span> We are accustomed to critical numbers playing a key role in determining the location of extreme values of a function; now, by restricting the domain to an interval, it makes sense that the endpoints of the interval will also be important to consider, as we see in the following activity. When limiting ourselves to a particular interval, we will often refer to the <em class="emphasis">absolute</em> maximum or minimum value, rather than the <em class="emphasis">global</em> maximum or minimum.</div>
+<div class="para" id="p-4626">In <a href="" class="xref" data-knowl="./knowl/F-3-3-Intro.html" title="Figure 3.3.1">Figure 3.3.1</a> and <a href="" class="xref" data-knowl="./knowl/ACS__Preview__3-3.html" title="Preview Activity 3.3.1">Preview Activity 3.3.1</a>, we were interested in finding the global minimum and global maximum for <span class="process-math">\(f\)</span> on its entire domain. At other times, we might focus on some restriction of the domain.</div>
+<div class="para" id="p-4627">For example, rather than considering <span class="process-math">\(f(x) = 2 + \frac{3}{1+(x+1)^2}\)</span> for every value of <span class="process-math">\(x\text{,}\)</span> perhaps instead we are only interested in those <span class="process-math">\(x\)</span> for which <span class="process-math">\(0 \le x \le 4\text{,}\)</span> and we would like to know which values of <span class="process-math">\(x\)</span> in the interval <span class="process-math">\([0,4]\)</span> produce the largest possible and smallest possible values of <span class="process-math">\(f\text{.}\)</span> We are accustomed to critical numbers playing a key role in determining the location of extreme values of a function; now, by restricting the domain to an interval, it makes sense that the endpoints of the interval will also be important to consider, as we see in the following activity. When limiting ourselves to a particular interval, we will often refer to the <em class="emphasis">absolute</em> maximum or minimum value, rather than the <em class="emphasis">global</em> maximum or minimum.</div>
 <article class="activity project-like" id="act-3-3-1"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-4602">
+<div class="para logical" id="p-4628">
 <div class="para">Let <span class="process-math">\(g(x) = \frac{1}{3}x^3 - 2x + 2\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-2490"><div class="para" id="p-4603">Find all critical numbers of <span class="process-math">\(g\)</span> that lie in the interval <span class="process-math">\(-2 \le x \le 3\text{.}\)</span>
+<li id="li-2446"><div class="para" id="p-4629">Find all critical numbers of <span class="process-math">\(g\)</span> that lie in the interval <span class="process-math">\(-2 \le x \le 3\text{.}\)</span>
 </div></li>
-<li id="li-2491"><div class="para" id="p-4604">Use a graphing utility to construct the graph of <span class="process-math">\(g\)</span> on the interval <span class="process-math">\(-2 \le x \le 3\text{.}\)</span>
+<li id="li-2447"><div class="para" id="p-4630">Use a graphing utility to construct the graph of <span class="process-math">\(g\)</span> on the interval <span class="process-math">\(-2 \le x \le 3\text{.}\)</span>
 </div></li>
-<li id="li-2492"><div class="para" id="p-4605">From the graph, determine the <span class="process-math">\(x\)</span>-values at which the absolute minimum and absolute maximum of <span class="process-math">\(g\)</span> occur on the interval <span class="process-math">\([-2,3]\text{.}\)</span>
+<li id="li-2448"><div class="para" id="p-4631">From the graph, determine the <span class="process-math">\(x\)</span>-values at which the absolute minimum and absolute maximum of <span class="process-math">\(g\)</span> occur on the interval <span class="process-math">\([-2,3]\text{.}\)</span>
 </div></li>
-<li id="li-2493"><div class="para" id="p-4606">How do your answers change if we instead consider the interval <span class="process-math">\(-2 \le x \le 2\text{?}\)</span>
+<li id="li-2449"><div class="para" id="p-4632">How do your answers change if we instead consider the interval <span class="process-math">\(-2 \le x \le 2\text{?}\)</span>
 </div></li>
-<li id="li-2494"><div class="para" id="p-4607">What if we instead consider the interval <span class="process-math">\(-2 \le x \le 1\text{?}\)</span>
+<li id="li-2450"><div class="para" id="p-4633">What if we instead consider the interval <span class="process-math">\(-2 \le x \le 1\text{?}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-4624">In <a href="" class="xref" data-knowl="./knowl/act-3-3-1.html" title="Activity 3.3.2">Activity 3.3.2</a>, we saw how the absolute maximum and absolute minimum of a function on a closed, bounded interval <span class="process-math">\([a,b]\text{,}\)</span> depend not only on the critical numbers of the function, but also on the values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> These observations demonstrate several important facts that hold more generally. First, we state an important result called the Extreme Value Theorem.</div>
+</div></article><div class="para" id="p-4650">In <a href="" class="xref" data-knowl="./knowl/act-3-3-1.html" title="Activity 3.3.2">Activity 3.3.2</a>, we saw how the absolute maximum and absolute minimum of a function on a closed, bounded interval <span class="process-math">\([a,b]\text{,}\)</span> depend not only on the critical numbers of the function, but also on the values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> These observations demonstrate several important facts that hold more generally. First, we state an important result called the Extreme Value Theorem.</div>
 <article class="assemblage assemblage-like" id="extreme-value-theorem"><h4 class="heading"><span class="title">The Extreme Value Theorem.</span></h4>
-<div class="para" id="p-4625"> If <span class="process-math">\(f\)</span> is a continuous function on a closed interval <span class="process-math">\([a,b]\text{,}\)</span> then <span class="process-math">\(f\)</span> attains both an absolute minimum and absolute maximum on <span class="process-math">\([a,b]\text{.}\)</span> That is, for some value <span class="process-math">\(x_m\)</span> such that <span class="process-math">\(a \le x_m \le b\text{,}\)</span> it follows that <span class="process-math">\(f(x_m) \le f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span> Similarly, there is a value <span class="process-math">\(x_M\)</span> in <span class="process-math">\([a,b]\)</span> such that <span class="process-math">\(f(x_M) \ge f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span> Letting <span class="process-math">\(m = f(x_m)\)</span> and <span class="process-math">\(M = f(x_M)\text{,}\)</span> it follows that <span class="process-math">\(m \le f(x) \le M\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span>
-</div></article><div class="para" id="p-4626">The Extreme Value Theorem tells us that on any closed interval <span class="process-math">\([a,b]\text{,}\)</span> a continuous function has to achieve both an absolute minimum and an absolute maximum. The theorem does not tell us where these extreme values occur, but rather only that they must exist. As we saw in <a href="" class="xref" data-knowl="./knowl/act-3-3-1.html" title="Activity 3.3.2">Activity 3.3.2</a>, the only possible locations for relative extremes are at the endpoints of the interval or at a critical number.</div>
+<div class="para" id="p-4651"> If <span class="process-math">\(f\)</span> is a continuous function on a closed interval <span class="process-math">\([a,b]\text{,}\)</span> then <span class="process-math">\(f\)</span> attains both an absolute minimum and absolute maximum on <span class="process-math">\([a,b]\text{.}\)</span> That is, for some value <span class="process-math">\(x_m\)</span> such that <span class="process-math">\(a \le x_m \le b\text{,}\)</span> it follows that <span class="process-math">\(f(x_m) \le f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span> Similarly, there is a value <span class="process-math">\(x_M\)</span> in <span class="process-math">\([a,b]\)</span> such that <span class="process-math">\(f(x_M) \ge f(x)\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span> Letting <span class="process-math">\(m = f(x_m)\)</span> and <span class="process-math">\(M = f(x_M)\text{,}\)</span> it follows that <span class="process-math">\(m \le f(x) \le M\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\text{.}\)</span>
+</div></article><div class="para" id="p-4652">The Extreme Value Theorem tells us that on any closed interval <span class="process-math">\([a,b]\text{,}\)</span> a continuous function has to achieve both an absolute minimum and an absolute maximum. The theorem does not tell us where these extreme values occur, but rather only that they must exist. As we saw in <a href="" class="xref" data-knowl="./knowl/act-3-3-1.html" title="Activity 3.3.2">Activity 3.3.2</a>, the only possible locations for relative extremes are at the endpoints of the interval or at a critical number.</div>
 <article class="note remark-like" id="note-4"><h4 class="heading">
 <span class="type">Note</span><span class="space"> </span><span class="codenumber">3.3.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-4627">
+<div class="para logical" id="p-4653">
 <div class="para">Thus, we have the following approach to finding the absolute maximum and minimum of a continuous function <span class="process-math">\(f\)</span> on the interval <span class="process-math">\([a,b]\text{:}\)</span>
 </div>
 <ul class="disc">
-<li id="li-2509"><div class="para" id="p-4628">find all critical numbers of <span class="process-math">\(f\)</span> that lie in the interval;</div></li>
-<li id="li-2510"><div class="para" id="p-4629">evaluate the function <span class="process-math">\(f\)</span> at each critical number in the interval and at each endpoint of the interval;</div></li>
-<li id="li-2511"><div class="para" id="p-4630">from among those function values, the smallest is the absolute minimum of <span class="process-math">\(f\)</span> on the interval, while the largest is the absolute maximum.</div></li>
+<li id="li-2465"><div class="para" id="p-4654">find all critical numbers of <span class="process-math">\(f\)</span> that lie in the interval;</div></li>
+<li id="li-2466"><div class="para" id="p-4655">evaluate the function <span class="process-math">\(f\)</span> at each critical number in the interval and at each endpoint of the interval;</div></li>
+<li id="li-2467"><div class="para" id="p-4656">from among those function values, the smallest is the absolute minimum of <span class="process-math">\(f\)</span> on the interval, while the largest is the absolute maximum.</div></li>
 </ul>
 </div></article><article class="activity project-like" id="act-3-3-2"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.3.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-4631">
+<div class="para logical" id="p-4657">
 <div class="para">Find the <em class="emphasis">exact</em> absolute maximum and minimum of each function on the stated interval.</div>
 <ol class="lower-alpha">
-<li id="li-2512"><div class="para" id="p-4632">
+<li id="li-2468"><div class="para" id="p-4658">
 <span class="process-math">\(h(x) = xe^{-x}\text{,}\)</span> <span class="process-math">\([0,3]\)</span>
 </div></li>
-<li id="li-2513"><div class="para" id="p-4633">
+<li id="li-2469"><div class="para" id="p-4659">
 <span class="process-math">\(p(t) = \sin(t) + \cos(t)\text{,}\)</span> <span class="process-math">\([-\frac{\pi}{2}, \frac{\pi}{2}]\)</span>
 </div></li>
-<li id="li-2514"><div class="para" id="p-4634">
+<li id="li-2470"><div class="para" id="p-4660">
 <span class="process-math">\(q(x) = \frac{x^2}{x-2}\text{,}\)</span> <span class="process-math">\([3,7]\)</span>
 </div></li>
-<li id="li-2515"><div class="para" id="p-4635">
+<li id="li-2471"><div class="para" id="p-4661">
 <span class="process-math">\(f(x) = 4 - e^{-(x-2)^2}\text{,}\)</span> <span class="process-math">\((-\infty, \infty)\)</span>
 </div></li>
-<li id="li-2516"><div class="para" id="p-4636">
+<li id="li-2472"><div class="para" id="p-4662">
 <span class="process-math">\(h(x) = xe^{-ax}\text{,}\)</span> <span class="process-math">\([0, \frac{2}{a}]\)</span> (<span class="process-math">\(a \gt 0\)</span>)</div></li>
-<li id="li-2517"><div class="para" id="p-4637">
+<li id="li-2473"><div class="para" id="p-4663">
 <span class="process-math">\(f(x) = b - e^{-(x-a)^2}\text{,}\)</span> <span class="process-math">\((-\infty, \infty)\text{,}\)</span> <span class="process-math">\(a, b \gt 0\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-4667">The interval we choose has nearly the same influence on extreme values as the function under consideration. Consider, for instance, the function pictured in <a href="" class="xref" data-knowl="./knowl/F-3-3-Interval.html" title="Figure 3.3.3">Figure 3.3.3</a>.</div>
+</div></article><div class="para" id="p-4693">The interval we choose has nearly the same influence on extreme values as the function under consideration. Consider, for instance, the function pictured in <a href="" class="xref" data-knowl="./knowl/F-3-3-Interval.html" title="Figure 3.3.3">Figure 3.3.3</a>.</div>
 <figure class="figure figure-like" id="F-3-3-Interval"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/images/3_3_Interval.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.3<span class="period">.</span></span><span class="space"> </span>A function <span class="process-math">\(g\)</span> considered on three different intervals.</figcaption></figure><div class="para logical" id="p-4668">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.3<span class="period">.</span></span><span class="space"> </span>A function <span class="process-math">\(g\)</span> considered on three different intervals.</figcaption></figure><div class="para logical" id="p-4694">
 <div class="para">In sequence, from left to right, the interval under consideration is changed from <span class="process-math">\([-2,3]\)</span> to <span class="process-math">\([-2,2]\)</span> to <span class="process-math">\([-2,1]\text{.}\)</span>
 </div>
 <ul class="disc">
-<li id="li-2541"><div class="para" id="p-derived-li-2541">On the interval <span class="process-math">\([-2,3]\text{,}\)</span> there are two critical numbers, with the absolute minimum at one critical number and the absolute maximum at the right endpoint.</div></li>
-<li id="li-2542"><div class="para" id="p-derived-li-2542">On the interval <span class="process-math">\([-2,2]\text{,}\)</span> both critical numbers are in the interval, with the absolute minimum and maximum at the two critical numbers.</div></li>
-<li id="li-2543"><div class="para" id="p-derived-li-2543">On the interval <span class="process-math">\([-2,1]\text{,}\)</span> just one critical number lies in the interval, with the absolute maximum at one critical number and the absolute minimum at one endpoint.</div></li>
+<li id="li-2497"><div class="para" id="p-derived-li-2497">On the interval <span class="process-math">\([-2,3]\text{,}\)</span> there are two critical numbers, with the absolute minimum at one critical number and the absolute maximum at the right endpoint.</div></li>
+<li id="li-2498"><div class="para" id="p-derived-li-2498">On the interval <span class="process-math">\([-2,2]\text{,}\)</span> both critical numbers are in the interval, with the absolute minimum and maximum at the two critical numbers.</div></li>
+<li id="li-2499"><div class="para" id="p-derived-li-2499">On the interval <span class="process-math">\([-2,1]\text{,}\)</span> just one critical number lies in the interval, with the absolute maximum at one critical number and the absolute minimum at one endpoint.</div></li>
 </ul>
 </div>
-<div class="para" id="p-4669">Remember to consider only the critical numbers that lie within the interval.</div></section><section class="subsection" id="subsection-57"><h3 class="heading hide-type">
+<div class="para" id="p-4695">Remember to consider only the critical numbers that lie within the interval.</div></section><section class="subsection" id="subsection-57"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.3.2</span> <span class="title">Moving toward applications</span>
 </h3>
-<div class="para" id="p-4670">We conclude this section with an example of an applied optimization problem. It highlights the role that a closed, bounded domain can play in finding absolute extrema.</div>
+<div class="para" id="p-4696">We conclude this section with an example of an applied optimization problem. It highlights the role that a closed, bounded domain can play in finding absolute extrema.</div>
 <article class="example example-like" id="Ex-3-3-1"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-4671">A 20 cm piece of wire is cut into two pieces. One piece is used to form a square and the other to form an equilateral triangle. How should the wire be cut to maximize the total area enclosed by the square and triangle? to minimize the area?</div>
+<div class="para" id="p-4697">A 20 cm piece of wire is cut into two pieces. One piece is used to form a square and the other to form an equilateral triangle. How should the wire be cut to maximize the total area enclosed by the square and triangle? to minimize the area?</div>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original has-image" data-refid="hk-solution-231" id="solution-231"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-231"><div class="solution solution-like">
-<div class="para" id="p-4672">We begin by sketching a picture that illustrates the situation. The variable in the problem is where we decide to cut the wire. We thus label the cut point at a distance <span class="process-math">\(x\)</span> from one end of the wire, and note that the remaining portion of the wire then has length <span class="process-math">\(20-x\)</span>
-</div>  <div class="para" id="p-4673">As shown in <a href="" class="xref" data-knowl="./knowl/F-3-3-Ex1.html" title="Figure 3.3.5">Figure 3.3.5</a>, we see that the <span class="process-math">\(x\)</span> cm of wire that is used to form the equilateral triangle with three sides of length <span class="process-math">\(\frac{x}{3}\text{.}\)</span> For the remaining <span class="process-math">\(20-x\)</span> cm of wire, the square that results will have each side of length <span class="process-math">\(\frac{20-x}{4}\text{.}\)</span>
+<div class="para" id="p-4698">We begin by sketching a picture that illustrates the situation. The variable in the problem is where we decide to cut the wire. We thus label the cut point at a distance <span class="process-math">\(x\)</span> from one end of the wire, and note that the remaining portion of the wire then has length <span class="process-math">\(20-x\)</span>
+</div>  <div class="para" id="p-4699">As shown in <a href="" class="xref" data-knowl="./knowl/F-3-3-Ex1.html" title="Figure 3.3.5">Figure 3.3.5</a>, we see that the <span class="process-math">\(x\)</span> cm of wire that is used to form the equilateral triangle with three sides of length <span class="process-math">\(\frac{x}{3}\text{.}\)</span> For the remaining <span class="process-math">\(20-x\)</span> cm of wire, the square that results will have each side of length <span class="process-math">\(\frac{20-x}{4}\text{.}\)</span>
 </div> <figure class="figure figure-like" id="F-3-3-Ex1"><div class="image-box" style="width: 56%; margin-left: 22%; margin-right: 22%;"><img src="external/images/3_3_Ex1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.5<span class="period">.</span></span><span class="space"> </span>A 20 cm piece of wire cut into two pieces, one of which forms an equilateral triangle, the other which yields a square.</figcaption></figure>  <div class="para" id="p-4674">At this point, we note that there are obvious restrictions on <span class="process-math">\(x\text{:}\)</span> in particular, <span class="process-math">\(0 \le x \le 20\text{.}\)</span> In the extreme cases, all of the wire is being used to make just one figure. For instance, if <span class="process-math">\(x = 0\text{,}\)</span> then all 20 cm of wire are used to make a square that is <span class="process-math">\(5 \times 5\text{.}\)</span>
-</div> <div class="para logical" id="p-4675">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.5<span class="period">.</span></span><span class="space"> </span>A 20 cm piece of wire cut into two pieces, one of which forms an equilateral triangle, the other which yields a square.</figcaption></figure>  <div class="para" id="p-4700">At this point, we note that there are obvious restrictions on <span class="process-math">\(x\text{:}\)</span> in particular, <span class="process-math">\(0 \le x \le 20\text{.}\)</span> In the extreme cases, all of the wire is being used to make just one figure. For instance, if <span class="process-math">\(x = 0\text{,}\)</span> then all 20 cm of wire are used to make a square that is <span class="process-math">\(5 \times 5\text{.}\)</span>
+</div> <div class="para logical" id="p-4701">
 <div class="para">Now, our overall goal is to find the minimum and maximum areas that can be enclosed. Because the height of an equilateral triangle is <span class="process-math">\(\sqrt{3}\)</span> times half the length of the base, the area of the triangle is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -957,86 +957,86 @@ A_{\Delta} = \frac{1}{2} bh = \frac{1}{2} \cdot \frac{x}{3} \cdot \frac{x\sqrt{3
 A(x) = \frac{\sqrt{3}x^2}{36} + \left( \frac{20-x}{4} \right)^2\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-4676">Remember that we are considering this function only on the restricted domain <span class="process-math">\([0,20]\text{.}\)</span>
-</div> <div class="para logical" id="p-4677">
+</div> <div class="para" id="p-4702">Remember that we are considering this function only on the restricted domain <span class="process-math">\([0,20]\text{.}\)</span>
+</div> <div class="para logical" id="p-4703">
 <div class="para">Differentiating <span class="process-math">\(A(x)\text{,}\)</span> we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
 A'(x) = \frac{\sqrt{3}x}{18} + 2\left( \frac{20-x}{4} \right)\left( -\frac{1}{4} \right) = \frac{\sqrt{3}}{18} x + \frac{1}{8}x - \frac{5}{2}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-4678">When we set <span class="process-math">\(A'(x) = 0\text{,}\)</span> we find that <span class="process-math">\(x = \frac{180}{4\sqrt{3}+9} \approx 11.3007\)</span> is the only critical number of <span class="process-math">\(A\)</span> in the interval <span class="process-math">\([0,20]\text{.}\)</span>
-</div> <div class="para logical" id="p-4679">
+</div> <div class="para" id="p-4704">When we set <span class="process-math">\(A'(x) = 0\text{,}\)</span> we find that <span class="process-math">\(x = \frac{180}{4\sqrt{3}+9} \approx 11.3007\)</span> is the only critical number of <span class="process-math">\(A\)</span> in the interval <span class="process-math">\([0,20]\text{.}\)</span>
+</div> <div class="para logical" id="p-4705">
 <div class="para">Evaluating <span class="process-math">\(A\)</span> at the critical number and endpoints, we see that</div>
 <ul class="disc">
-<li id="li-2544"><div class="para" id="p-4680"><span class="process-math">\(\displaystyle A\left(\frac{180}{4\sqrt{3}+9}\right) = \frac{\sqrt{3}(\frac{180}{4\sqrt{3}+9})^2}{4} + \left( \frac{20-\frac{180}{4\sqrt{3}+9}}{4} \right)^2 \approx 10.8741\)</span></div></li>
-<li id="li-2545"><div class="para" id="p-4681"><span class="process-math">\(\displaystyle A(0) = 25\)</span></div></li>
-<li id="li-2546"><div class="para" id="p-4682"><span class="process-math">\(\displaystyle A(20) = \frac{\sqrt{3}}{36}(400) = \frac{100}{9} \sqrt{3} \approx 19.2450\)</span></div></li>
+<li id="li-2500"><div class="para" id="p-4706"><span class="process-math">\(\displaystyle A\left(\frac{180}{4\sqrt{3}+9}\right) = \frac{\sqrt{3}(\frac{180}{4\sqrt{3}+9})^2}{4} + \left( \frac{20-\frac{180}{4\sqrt{3}+9}}{4} \right)^2 \approx 10.8741\)</span></div></li>
+<li id="li-2501"><div class="para" id="p-4707"><span class="process-math">\(\displaystyle A(0) = 25\)</span></div></li>
+<li id="li-2502"><div class="para" id="p-4708"><span class="process-math">\(\displaystyle A(20) = \frac{\sqrt{3}}{36}(400) = \frac{100}{9} \sqrt{3} \approx 19.2450\)</span></div></li>
 </ul>
-</div>  <div class="para" id="p-4683">Thus, the absolute minimum occurs when <span class="process-math">\(x \approx 11.3007\)</span> and results in the minimum area of approximately <span class="process-math">\(10.8741\)</span> square centimeters. The absolute maximum occurs when we invest all of the wire in the square (and none in the triangle), resulting in 25 square centimeters of area. These results are confirmed by a plot of <span class="process-math">\(y = A(x)\)</span> on the interval <span class="process-math">\([0,20]\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-3-3-Ex1Plot.html" title="Figure 3.3.6">Figure 3.3.6</a>.</div> <figure class="figure figure-like" id="F-3-3-Ex1Plot"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/3_3_Ex1Plot.svg" role="img" class="contained"></div>
+</div>  <div class="para" id="p-4709">Thus, the absolute minimum occurs when <span class="process-math">\(x \approx 11.3007\)</span> and results in the minimum area of approximately <span class="process-math">\(10.8741\)</span> square centimeters. The absolute maximum occurs when we invest all of the wire in the square (and none in the triangle), resulting in 25 square centimeters of area. These results are confirmed by a plot of <span class="process-math">\(y = A(x)\)</span> on the interval <span class="process-math">\([0,20]\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/F-3-3-Ex1Plot.html" title="Figure 3.3.6">Figure 3.3.6</a>.</div> <figure class="figure figure-like" id="F-3-3-Ex1Plot"><div class="image-box" style="width: 47%; margin-left: 26.5%; margin-right: 26.5%;"><img src="external/images/3_3_Ex1Plot.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.6<span class="period">.</span></span><span class="space"> </span>A plot of the area function from <a href="" class="xref" data-knowl="./knowl/Ex-3-3-1.html" title="Example 3.3.4">Example 3.3.4</a>.</figcaption></figure> </div></div>
 </div></article><article class="activity project-like" id="act-3-3-3"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.3.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-4684">
+<div class="para logical" id="p-4710">
 <div class="para">A piece of cardboard that is <span class="process-math">\(10 \times 15\)</span> (each measured in inches) is being made into a box without a top. To do so, squares are cut from each corner of the box and the remaining sides are folded up. If the box needs to be at least 1 inch deep and no more than 3 inches deep, what is the maximum possible volume of the box? what is the minimum volume? Justify your answers using calculus.</div>
 <ol class="lower-alpha">
-<li id="li-2547"><div class="para" id="p-4685">Draw a labeled diagram that shows the given information. What variable should we introduce to represent the choice we make in creating the box? Label the diagram appropriately with the variable, and write a sentence to state what the variable represents.</div></li>
-<li id="li-2548"><div class="para" id="p-4686">Determine a formula for the function <span class="process-math">\(V\)</span> (that depends on the variable in (a)) that tells us the volume of the box.</div></li>
-<li id="li-2549"><div class="para" id="p-4687">What is the domain of the function <span class="process-math">\(V\text{?}\)</span> That is, what values of <span class="process-math">\(x\)</span> make sense for input? Are there additional restrictions provided in the problem?</div></li>
-<li id="li-2550"><div class="para" id="p-4688">Determine all critical numbers of the function <span class="process-math">\(V\text{.}\)</span>
+<li id="li-2503"><div class="para" id="p-4711">Draw a labeled diagram that shows the given information. What variable should we introduce to represent the choice we make in creating the box? Label the diagram appropriately with the variable, and write a sentence to state what the variable represents.</div></li>
+<li id="li-2504"><div class="para" id="p-4712">Determine a formula for the function <span class="process-math">\(V\)</span> (that depends on the variable in (a)) that tells us the volume of the box.</div></li>
+<li id="li-2505"><div class="para" id="p-4713">What is the domain of the function <span class="process-math">\(V\text{?}\)</span> That is, what values of <span class="process-math">\(x\)</span> make sense for input? Are there additional restrictions provided in the problem?</div></li>
+<li id="li-2506"><div class="para" id="p-4714">Determine all critical numbers of the function <span class="process-math">\(V\text{.}\)</span>
 </div></li>
-<li id="li-2551"><div class="para" id="p-4689">Evaluate <span class="process-math">\(V\)</span> at each of the endpoints of the domain and at any critical numbers that lie in the domain.</div></li>
-<li id="li-2552"><div class="para" id="p-4690">What is the maximum possible volume of the box? the minimum?</div></li>
+<li id="li-2507"><div class="para" id="p-4715">Evaluate <span class="process-math">\(V\)</span> at each of the endpoints of the domain and at any critical numbers that lie in the domain.</div></li>
+<li id="li-2508"><div class="para" id="p-4716">What is the maximum possible volume of the box? the minimum?</div></li>
 </ol>
-</div></article><div class="para" id="p-4717">
+</div></article><div class="para" id="p-4743">
 <a href="" class="xref" data-knowl="./knowl/Ex-3-3-1.html" title="Example 3.3.4">Example 3.3.4</a> and <a href="" class="xref" data-knowl="./knowl/act-3-3-3.html" title="Activity 3.3.4">Activity 3.3.4</a> illustrate standard steps that we undertake in almost every applied optimization problem: we draw a picture to demonstrate the situation, introduce one or more variables to represent quantities that are changing, find a function that models the quantity to be optimized, and then decide on an appropriate domain for that function. Once that is done, we are in the familiar situation of finding the absolute minimum and maximum of a function over a particular domain, so we apply the calculus ideas that we have been studying to this point in <a href="C-3.html" class="internal" title="Chapter 3: Using Derivatives">Chapter 3</a>.</div></section><section class="subsection" id="subsection-58"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">3.3.3</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-4718"><ul class="disc">
-<li id="li-2577"><div class="para" id="p-4719">To find relative extreme values of a function, we use a first derivative sign chart and classify all of the function’s critical numbers. If instead we are interested in absolute extreme values, we first decide whether we are considering the entire domain of the function or a particular interval.</div></li>
-<li id="li-2578"><div class="para" id="p-4720">In the case of finding global extremes over the function’s entire domain, we again use a first or second derivative sign chart. If we are working to find absolute extremes on a restricted interval, then we first identify all critical numbers of the function that lie in the interval.</div></li>
-<li id="li-2579"><div class="para" id="p-4721">For a continuous function on a closed, bounded interval, the only possible points at which absolute extreme values occur are the critical numbers and the endpoints. Thus, we simply evaluate the function at each endpoint and each critical number in the interval, and compare the results to decide which is largest (the absolute maximum) and which is smallest (the absolute minimum).</div></li>
+<div class="para logical" id="p-4744"><ul class="disc">
+<li id="li-2533"><div class="para" id="p-4745">To find relative extreme values of a function, we use a first derivative sign chart and classify all of the function’s critical numbers. If instead we are interested in absolute extreme values, we first decide whether we are considering the entire domain of the function or a particular interval.</div></li>
+<li id="li-2534"><div class="para" id="p-4746">In the case of finding global extremes over the function’s entire domain, we again use a first or second derivative sign chart. If we are working to find absolute extremes on a restricted interval, then we first identify all critical numbers of the function that lie in the interval.</div></li>
+<li id="li-2535"><div class="para" id="p-4747">For a continuous function on a closed, bounded interval, the only possible points at which absolute extreme values occur are the critical numbers and the endpoints. Thus, we simply evaluate the function at each endpoint and each critical number in the interval, and compare the results to decide which is largest (the absolute maximum) and which is smallest (the absolute minimum).</div></li>
 </ul></div></section><section class="exercises" id="ez-3-3"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">3.3.4</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="Library__Michigan__Chap4Sec3__Q07.pg"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap4Sec3__Q07.pg"><div id="boelkins-ACS__Library__Michigan__Chap4Sec3__Q07.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="173" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec3/Q07.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap4Sec3__Q07.pg-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__Michigan__Chap4Sec3__Q07.pg"><div id="ac-single__Library__Michigan__Chap4Sec3__Q07.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="173" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec3/Q07.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__Michigan__Chap4Sec3__Q07.pg-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-4722">Find the exact global maximum and minimum values of the function <span class="process-math">\(g(x) = 3 x - x^2 - 15\)</span> if its domain is all real numbers.</div> <div class="para" id="p-4723">global maximum at <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-4724">global minimum at <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-4725">
+<div class="para" id="p-4748">Find the exact global maximum and minimum values of the function <span class="process-math">\(g(x) = 3 x - x^2 - 15\)</span> if its domain is all real numbers.</div> <div class="para" id="p-4749">global maximum at <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-4750">global minimum at <span class="process-math">\(x =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-4751">
 <em class="emphasis">(Enter</em> <em class="alert">none</em> <em class="emphasis">if there is no global maximum or global minimum for this function.)</em>
 </div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap4Sec3__Q09.pg"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap4Sec3__Q09.pg"><div id="boelkins-ACS__Library__Michigan__Chap4Sec3__Q09.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="174" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec3/Q09.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap4Sec3__Q09.pg-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__Michigan__Chap4Sec3__Q09.pg"><div id="ac-single__Library__Michigan__Chap4Sec3__Q09.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="174" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec3/Q09.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__Michigan__Chap4Sec3__Q09.pg-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-4728">Find the exact global maximum and minimum values of the function <span class="process-math">\(g(t) = 4 te^{-6 t}\)</span> if <span class="process-math">\(t&gt;0\text{.}\)</span>
-</div> <div class="para" id="p-4729">global maximum at <span class="process-math">\(t =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-4730">global minimum at <span class="process-math">\(t =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-4731">
+<div class="para" id="p-4754">Find the exact global maximum and minimum values of the function <span class="process-math">\(g(t) = 4 te^{-6 t}\)</span> if <span class="process-math">\(t&gt;0\text{.}\)</span>
+</div> <div class="para" id="p-4755">global maximum at <span class="process-math">\(t =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-4756">global minimum at <span class="process-math">\(t =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
+</div> <div class="para" id="p-4757">
 <em class="emphasis">(Enter</em> <em class="alert">none</em> <em class="emphasis">if there is no global maximum or global minimum for this function.)</em>
 </div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__Michigan__Chap4Sec3__Q21.pg"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__Michigan__Chap4Sec3__Q21.pg"><div id="boelkins-ACS__Library__Michigan__Chap4Sec3__Q21.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="175" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec3/Q21.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__Michigan__Chap4Sec3__Q21.pg-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__Michigan__Chap4Sec3__Q21.pg"><div id="ac-single__Library__Michigan__Chap4Sec3__Q21.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="175" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/Michigan/Chap4Sec3/Q21.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__Michigan__Chap4Sec3__Q21.pg-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-4734">For some positive constant <span class="process-math">\(C\text{,}\)</span> a patient’s temperature change, <span class="process-math">\(T\text{,}\)</span> due to a dose, <span class="process-math">\(D\text{,}\)</span> of a drug is given by <span class="process-math">\(T = \left(\frac{C}{2} - \frac{D}{3}\right)D^2.\)</span>
-</div> <div class="para" id="p-4735">What dosage maximizes the temperature change?</div> <div class="para" id="p-4736">
+<div class="para" id="p-4760">For some positive constant <span class="process-math">\(C\text{,}\)</span> a patient’s temperature change, <span class="process-math">\(T\text{,}\)</span> due to a dose, <span class="process-math">\(D\text{,}\)</span> of a drug is given by <span class="process-math">\(T = \left(\frac{C}{2} - \frac{D}{3}\right)D^2.\)</span>
+</div> <div class="para" id="p-4761">What dosage maximizes the temperature change?</div> <div class="para" id="p-4762">
 <span class="process-math">\(D =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
-</div> <div class="para" id="p-4737">The sensitivity of the body to the drug is defined as <span class="process-math">\(dT/dD\text{.}\)</span> What dosage maximizes sensitivity?</div> <div class="para" id="p-4738">
+</div> <div class="para" id="p-4763">The sensitivity of the body to the drug is defined as <span class="process-math">\(dT/dD\text{.}\)</span> What dosage maximizes sensitivity?</div> <div class="para" id="p-4764">
 <span class="process-math">\(D =\)</span> <span class="fillin underline" role="img" aria-label="25-character blank" style="width: 11.3636363636364em;"></span>
 </div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__ASU-topics__setOptimization__4-5-18.pg"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__ASU-topics__setOptimization__4-5-18.pg"><div id="boelkins-ACS__Library__ASU-topics__setOptimization__4-5-18.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="176" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/3.3HW_prob4.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__ASU-topics__setOptimization__4-5-18.pg-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__ASU-topics__setOptimization__4-5-18.pg"><div id="ac-single__Library__ASU-topics__setOptimization__4-5-18.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="176" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/3.3HW_prob4.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__ASU-topics__setOptimization__4-5-18.pg-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para logical" id="p-4745">
+<div class="para logical" id="p-4771">
 <div class="para">Find the <span class="process-math">\(x\)</span>-coordinate of the absolute maximum and absolute minimum for the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1044,17 +1044,17 @@ f(x) = {7} x + \frac{23}{x}, \qquad x &gt; 0.
 \end{equation*}
 </div>
 <div class="para">Enter <em class="emphasis">None</em> for any absolute extrema that does not exist.</div>
-</div> <div class="para" id="p-4746">
+</div> <div class="para" id="p-4772">
 <span class="process-math">\(x\)</span>-coordinate of absolute maximum = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
-</div> <div class="para" id="p-4747">
+</div> <div class="para" id="p-4773">
 <span class="process-math">\(x\)</span>-coordinate of absolute minimum = <span class="fillin underline" role="img" aria-label="10-character blank" style="width: 4.545454545454546em;"></span>
 </div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__ASU-topics__setOptimization__s3_1_44a.pg"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__ASU-topics__setOptimization__s3_1_44a.pg"><div id="boelkins-ACS__Library__ASU-topics__setOptimization__s3_1_44a.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="177" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ASU-topics/setOptimization/s3_1_44a.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__ASU-topics__setOptimization__s3_1_44a.pg-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__ASU-topics__setOptimization__s3_1_44a.pg"><div id="ac-single__Library__ASU-topics__setOptimization__s3_1_44a.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="177" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="Library/ASU-topics/setOptimization/s3_1_44a.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__ASU-topics__setOptimization__s3_1_44a.pg-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para logical" id="p-4750">
+<div class="para logical" id="p-4776">
 <div class="para">Consider the function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1063,82 +1063,82 @@ f(x) = 2 x^3+ 15 x^2 - 144 x+ 7  \quad
 - 8 \leq x \leq 4
 \end{equation*}
 </div>
-</div> <div class="para" id="p-4751">This function has an absolute minimum at the point <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
-</div> <div class="para" id="p-4752">and an absolute maximum at the point <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
-</div> <div class="para" id="p-4753">
+</div> <div class="para" id="p-4777">This function has an absolute minimum at the point <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-4778">and an absolute maximum at the point <span class="fillin underline" role="img" aria-label="30-character blank" style="width: 13.6363636363636em;"></span>
+</div> <div class="para" id="p-4779">
 <em class="alert">Note:</em> both parts of this answer should be entered as an ordered pair, including the parentheses, such as (5, 11).</div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="Library__OSU__high_school_apcalc__dchmwk6__prob11.pg"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="boelkins-ACS__Library__OSU__high_school_apcalc__dchmwk6__prob11.pg"><div id="boelkins-ACS__Library__OSU__high_school_apcalc__dchmwk6__prob11.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="178" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/3.3HW_prob6.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
-<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('boelkins-ACS__Library__OSU__high_school_apcalc__dchmwk6__prob11.pg-ww-rs')">Activate</button></div>
+<div class="ptx-runestone-container"><div class="runestone" data-component="webwork" id="ac-single__Library__OSU__high_school_apcalc__dchmwk6__prob11.pg"><div id="ac-single__Library__OSU__high_school_apcalc__dchmwk6__prob11.pg-ww-rs" class="exercise-wrapper" data-domain="https://webwork-dev.uleth.ca" data-seed="178" data-localize-correct="Correct" data-localize-incorrect="Incorrect" data-localize-blank="Blank" data-localize-submit="Submit" data-localize-check-responses="Check Responses" data-localize-reveal="Reveal" data-localize-randomize="Randomize" data-localize-reset="Reset" data-sourceFilePath="csafranski/3.3HW_prob6.pg" data-courseID="chrissy-playground" data-userID="anonymous" data-coursePassword="anonymous" aria-live="polite">
+<div class="problem-buttons"><button class="webwork-button" onclick="handleWW('ac-single__Library__OSU__high_school_apcalc__dchmwk6__prob11.pg-ww-rs')">Activate</button></div>
 <div class="problem-contents">
-<div class="para" id="p-4756">Consider the function <span class="process-math">\(f(x) = x - 4\ln(x), \quad \frac{1}{4} \leq x \leq 7\text{.}\)</span>
-</div> <div class="para" id="p-4757">The absolute maximum value is <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-4758">and this occurs at <span class="process-math">\(x\)</span> equals <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-4759">The absolute minimum value is <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
-</div> <div class="para" id="p-4760">and this occurs at <span class="process-math">\(x\)</span> equals <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+<div class="para" id="p-4782">Consider the function <span class="process-math">\(f(x) = x - 4\ln(x), \quad \frac{1}{4} \leq x \leq 7\text{.}\)</span>
+</div> <div class="para" id="p-4783">The absolute maximum value is <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-4784">and this occurs at <span class="process-math">\(x\)</span> equals <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-4785">The absolute minimum value is <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
+</div> <div class="para" id="p-4786">and this occurs at <span class="process-math">\(x\)</span> equals <span class="fillin underline" role="img" aria-label="20-character blank" style="width: 9.090909090909092em;"></span>
 </div>
 </div>
 </div></div></div></article><article class="exercise exercise-like" id="exercise-212"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-4765">
+<div class="para logical" id="p-4791">
 <div class="para">Based on the given information about each function, decide whether the function has global maximum, a global minimum, neither, both, or that it is not possible to say without more information. Assume that each function is twice differentiable and defined for all real numbers, unless noted otherwise. In each case, write one sentence to explain your conclusion.</div>
 <ol class="lower-alpha">
-<li id="li-2580"><div class="para" id="p-4766">
+<li id="li-2536"><div class="para" id="p-4792">
 <span class="process-math">\(f\)</span> is a function such that <span class="process-math">\(f''(x) \lt 0\)</span> for every <span class="process-math">\(x\text{.}\)</span>
 </div></li>
-<li id="li-2581"><div class="para" id="p-4767">
+<li id="li-2537"><div class="para" id="p-4793">
 <span class="process-math">\(g\)</span> is a function with two critical numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> (where <span class="process-math">\(a \lt b\)</span>), and <span class="process-math">\(g'(x) \lt 0\)</span> for <span class="process-math">\(x \lt a\text{,}\)</span> <span class="process-math">\(g'(x) \lt 0\)</span> for <span class="process-math">\(a \lt x \lt b\text{,}\)</span> and <span class="process-math">\(g'(x) \gt 0\)</span> for <span class="process-math">\(x \gt b\text{.}\)</span>
 </div></li>
-<li id="li-2582"><div class="para" id="p-4768">
+<li id="li-2538"><div class="para" id="p-4794">
 <span class="process-math">\(h\)</span> is a function with two critical numbers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> (where <span class="process-math">\(a \lt b\)</span>), and <span class="process-math">\(h'(x) \lt 0\)</span> for <span class="process-math">\(x \lt a\text{,}\)</span> <span class="process-math">\(h'(x) \gt 0\)</span> for <span class="process-math">\(a \lt x \lt b\text{,}\)</span> and <span class="process-math">\(h'(x) \lt 0\)</span> for <span class="process-math">\(x \gt b\text{.}\)</span> In addition, <span class="process-math">\(\lim_{x \to \infty} h(x) = 0\)</span> and <span class="process-math">\(\lim_{x \to -\infty} h(x) = 0\text{.}\)</span>
 </div></li>
-<li id="li-2583"><div class="para" id="p-4769">
+<li id="li-2539"><div class="para" id="p-4795">
 <span class="process-math">\(p\)</span> is a function differentiable everywhere except at <span class="process-math">\(x = a\)</span> and <span class="process-math">\(p''(x) \gt 0\)</span> for <span class="process-math">\(x \lt a\)</span> and <span class="process-math">\(p''(x) \lt 0\)</span> for <span class="process-math">\(x \gt a\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-213"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-4780">
+<div class="para logical" id="p-4806">
 <div class="para">For each family of functions that depends on one or more parameters, determine the function’s absolute maximum and absolute minimum on the given interval.</div>
 <ol class="lower-alpha">
-<li id="li-2592"><div class="para" id="p-4781">
+<li id="li-2548"><div class="para" id="p-4807">
 <span class="process-math">\(p(x) = x^3 - a^2x\text{,}\)</span> <span class="process-math">\([0,a]\)</span> (<span class="process-math">\(a \gt 0\)</span>)</div></li>
-<li id="li-2593"><div class="para" id="p-4782">
+<li id="li-2549"><div class="para" id="p-4808">
 <span class="process-math">\(r(x) = axe^{-bx}\text{,}\)</span> <span class="process-math">\([\frac{1}{2b}, \frac{2}{b}]\)</span> (<span class="process-math">\(a \gt 0,
 b \gt 1\)</span>)</div></li>
-<li id="li-2594"><div class="para" id="p-4783">
+<li id="li-2550"><div class="para" id="p-4809">
 <span class="process-math">\(w(x) = a(1-e^{-bx})\text{,}\)</span> <span class="process-math">\([b, 3b]\)</span> (<span class="process-math">\(a, b \gt 0\)</span>)</div></li>
-<li id="li-2595"><div class="para" id="p-4784">
+<li id="li-2551"><div class="para" id="p-4810">
 <span class="process-math">\(s(x) = \sin(kx)\text{,}\)</span> <span class="process-math">\(\left[\frac{\pi}{3k}, \frac{5\pi}{6k}\right]\)</span> (<span class="process-math">\(k \gt 0\)</span>)</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-214"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-4803">
+<div class="para logical" id="p-4829">
 <div class="para">For each of the functions described below (each continuous on <span class="process-math">\([a,b]\)</span>), state the location of the function’s absolute maximum and absolute minimum on the interval <span class="process-math">\([a,b]\text{,}\)</span> or say there is not enough information provided to make a conclusion. Assume that any critical numbers mentioned in the problem statement represent all of the critical numbers the function has in <span class="process-math">\([a,b]\text{.}\)</span> In each case, write one sentence to explain your answer.</div>
 <ol class="lower-alpha">
-<li id="li-2610"><div class="para" id="p-4804">
+<li id="li-2566"><div class="para" id="p-4830">
 <span class="process-math">\(f'(x) \le 0\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\)</span>
 </div></li>
-<li id="li-2611"><div class="para" id="p-4805">
+<li id="li-2567"><div class="para" id="p-4831">
 <span class="process-math">\(g\)</span> has a critical number at <span class="process-math">\(c\)</span> such that <span class="process-math">\(a \lt c\lt b\)</span> and <span class="process-math">\(g'(x) \gt 0\)</span> for <span class="process-math">\(x \lt c\)</span> and <span class="process-math">\(g'(x) \lt 0\)</span> for <span class="process-math">\(x \gt c\)</span>
 </div></li>
-<li id="li-2612"><div class="para" id="p-4806">
+<li id="li-2568"><div class="para" id="p-4832">
 <span class="process-math">\(h(a) = h(b)\)</span> and <span class="process-math">\(h''(x) \lt 0\)</span> for all <span class="process-math">\(x\)</span> in <span class="process-math">\([a,b]\)</span>
 </div></li>
-<li id="li-2613"><div class="para" id="p-4807">
+<li id="li-2569"><div class="para" id="p-4833">
 <span class="process-math">\(p(a) \gt 0\text{,}\)</span> <span class="process-math">\(p(b) \lt 0\text{,}\)</span> and for the critical number <span class="process-math">\(c\)</span> such that <span class="process-math">\(a \lt c \lt b\text{,}\)</span> <span class="process-math">\(p'(x) \lt 0\)</span> for <span class="process-math">\(x \lt c\)</span> and <span class="process-math">\(p'(x) \gt 0\)</span> for <span class="process-math">\(x \gt c\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-215"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para logical" id="p-4818">
+<div class="para logical" id="p-4844">
 <div class="para">Let <span class="process-math">\(s(t) = 3\sin(2(t-\frac{\pi}{6})) + 5\text{.}\)</span> Find the exact absolute maximum and minimum of <span class="process-math">\(s\)</span> on the provided intervals by testing the endpoints and finding and evaluating all relevant critical numbers of <span class="process-math">\(s\text{.}\)</span>
 </div>
 <ol class="lower-alpha cols2">
-<li id="li-2622"><div class="para" id="p-4819"><span class="process-math">\(\displaystyle [\frac{\pi}{6}, \frac{7\pi}{6}]\)</span></div></li>
-<li id="li-2623"><div class="para" id="p-4820"><span class="process-math">\(\displaystyle [0, \frac{\pi}{2}]\)</span></div></li>
-<li id="li-2624"><div class="para" id="p-4821"><span class="process-math">\(\displaystyle [0, 2\pi]\)</span></div></li>
-<li id="li-2625"><div class="para" id="p-4822"><span class="process-math">\(\displaystyle [\frac{\pi}{3}, \frac{5\pi}{6}]\)</span></div></li>
+<li id="li-2578"><div class="para" id="p-4845"><span class="process-math">\(\displaystyle [\frac{\pi}{6}, \frac{7\pi}{6}]\)</span></div></li>
+<li id="li-2579"><div class="para" id="p-4846"><span class="process-math">\(\displaystyle [0, \frac{\pi}{2}]\)</span></div></li>
+<li id="li-2580"><div class="para" id="p-4847"><span class="process-math">\(\displaystyle [0, 2\pi]\)</span></div></li>
+<li id="li-2581"><div class="para" id="p-4848"><span class="process-math">\(\displaystyle [\frac{\pi}{3}, \frac{5\pi}{6}]\)</span></div></li>
 </ol>
 </div></article></section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
-</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-56"><div class="fn"><code class="code-inline tex2jax_ignore">wolframalpha.com</code></div></div>
+</div></section><div class="hidden-content tex2jax_ignore" id="hk-fn-51"><div class="fn"><code class="code-inline tex2jax_ignore">wolframalpha.com</code></div></div>
 </div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-3-2-families.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-3-4-applied-opt.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
