@@ -1,0 +1,73 @@
+\documentclass{standalone}
+\usepackage[svgnames]{xcolor}
+\usepackage{pgfplots}
+\definecolor{blue}{HTML}{0000FF}
+\definecolor{darkgreen}{HTML}{008000}
+\definecolor{amber}{HTML}{c7502a}
+
+\colorlet{firstcolor}{blue}
+\colorlet{secondcolor}{darkgreen}
+\colorlet{thirdcolor}{orange}
+
+\pgfplotsset{firstcurve/.style      = {color=firstcolor,  mark=none, line width=1pt, solid, ultra thick}}
+\pgfplotsset{secondcurve/.style     = {color=secondcolor, mark=none, line width=1pt, solid, ultra thick}}
+\pgfplotsset{thirdcurve/.style     = {color=thirdcolor, mark=none, line width=1pt, solid, ultra thick}}
+
+\pgfplotscreateplotcyclelist{acplotstyles}{%
+  firstcurve\\%
+  secondcurve\\%
+  thirdcurve\\%
+}
+
+\pgfplotsset{every axis/.append style={
+  axis lines=middle,
+  grid = both,
+  cycle list name=acplotstyles,
+}}
+
+\pgfplotsset{soliddot/.style        = {fill=amber,  mark=*, only marks}}
+\pgfplotsset{hollowdot/.style       = {mark=*, only marks}}
+
+\pgfplotsset{guideline/.style       = {color=gray, mark=none, line width=1pt, -}}
+\tikzset{guideline/.style           = {color=gray, mark=none, line width=1pt, -}}
+
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    xmin = -2,
+    xmax = 2,
+    xtick = {-1, 1},
+    minor xtick = {-2,-1.5,...,2},
+    ymin = -0.5,
+    ymax = 3,
+    ytick = {1,2,3},
+    minor ytick = {-0.5,0,...,3.5},
+    legend style = {at = {(0.03, 0.97)}, anchor=north west}
+  ]
+    \addplot+[domain=-2:1.26] {e^x};
+    \addlegendentry{\(f(x) = e^x\)};
+    \addplot+[domain=-1.5:2] {1 + x};
+    \addlegendentry{\(L(x) = 1 + x\)};
+    \addplot[soliddot] coordinates {(0, 1)};
+    \draw[guideline] (axis cs:0.25, 0.75) -| (axis cs:-0.25, 1.25) -| cycle;
+  \end{axis}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}
+  \begin{axis}[
+    xmin = -0.25,
+    xmax = 0.25,
+    xtick = {},
+    ymin = .75,
+    ymax = 1.25,
+    ytick = {},
+    axis lines = none
+  ]
+    \addplot+[domain=-0.25:0.25] {e^x};
+    \addplot+[domain=-0.25:0.25] {1 + x};
+    \addplot[soliddot] coordinates {(0, 1)};
+  \end{axis}
+\end{tikzpicture}
+
+
+\end{document}
