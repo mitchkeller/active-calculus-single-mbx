@@ -1,0 +1,182 @@
+#############################################
+###       Generated from PreTeXt source      
+###       on 2025-07-16T16:26:58Z       
+###   A recent stable commit (2022-07-01):   
+### 6c761d3dba23af92cba35001c852aac04ae99a5f 
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Problem1(8.1.6.3)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "niceTables.pl",
+  "scaffold.pl",
+  "AnswerFormatHelp.pl",
+  "PCCmacros.pl",
+  "contextForm.pl",
+  "contextFraction.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+COMMENT('This problem is scaffolded with multiple parts');
+
+############################################################
+# Header
+############################################################
+TEXT(beginproblem());
+
+############################################################
+# PG Setup Code
+############################################################
+Context("Fraction")->variables->add(c_0=>"Real", c_1=>"Real", c_2=>"Real", c_3=>"Real");
+$f1=Compute(-2);
+$f2=Compute(2);
+$f3=Fraction(-8,6);
+$func=Formula("e^(-2x)");
+$funcprime=$func->D('x');
+$funcdoubleprime=Formula("4e^(-2x)");
+$functripleprime=Formula("-8e^(-2x)");
+$T3prime=Formula("c_1+2*c_2*x+3*c_3 x^2");
+$T3doubleprime=Formula("2*c_2+6*c_3 x");
+$T3tripleprime=Formula("6*c_3");
+
+$const1=Formula("c_1");
+$const2=Formula("2*c_2");
+$const3=Formula("6*c_3");
+$T3=Formula("1-2x+2x^2-8/6x^3");
+Context("LimitedNumeric");
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Let [`f(x)=e^{-2x}`] and let [`T_3(x)=c_0+c_1x+c_2x^2+c_3x^3\text{.}`] We find the values of [`c_0,\ldots,c_3`] that make the functions [`e^{-2x}`] and [`T_3(x)`] have the same height, slope, concavity, and third derivative value at [`x=0\text{.}`]
+
+END_PGML
+
+############################################################
+# Scaffold
+############################################################
+Scaffold::Begin(numbered => 1,is_open => "correct_or_first_incorrect",can_open => always,);
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Complete the table below by computing derivatives of [`T_3(x)`] and [`e^{-2x}`] and evaluating them at [`x=0`] as directed.
+
+[@KeyboardInstructions('Use underscores to enter the coefficients.  For example, to enter [`c_1\text{,}`] type "c\_1".')@]**
+
+>> [@DataTable(
+  [
+    [PGML('[`f(x)=`]'),
+     PGML('[`e^{-2x}`]'),
+     PGML('[`T_3(x)=`]'),
+     PGML('[`c_0+c_1x+c_2x^2+c_3x^3`]'),
+    ],
+    [PGML(q"[`f'(x)=`]"),
+     PGML('[_]{$funcprime}{10}'),
+     PGML(q"[`T_3'(x)=`]"),
+     PGML('[_]{$T3prime}{10}'),
+    ],
+    [PGML(q"[`f''(x)=`]"),
+     PGML('[_]{$funcdoubleprime}{10}'),
+     PGML(q"[`T_3''(x)=`]"),
+     PGML('[_]{$T3doubleprime}{10}'),
+    ],
+    [[PGML(q"[`f'''(x)=`]"),
+      rowbottom => '3',
+      midrule => '1',],
+     PGML('[_]{$functripleprime}{10}'),
+     PGML(q"[`T_3'''(x)=`]"),
+     PGML('[_]{$T3tripleprime}{10}'),
+    ],
+    [PGML('[`f(0)=`]'),
+     PGML('[_]{1}{10}'),
+     PGML('[`T_3(0)=`]'),
+     PGML('[`c_0`]'),
+    ],
+    [PGML(q"[`f'(0)=`]"),
+     PGML('[_]{-2}{10}'),
+     PGML(q"[`T_3'(0)=`]"),
+     PGML('[_]{$const1}{10}'),
+    ],
+    [PGML(q"[`f''(0)=`]"),
+     PGML('[_]{4}{10}'),
+     PGML(q"[`T_3''(0)=`]"),
+     PGML('[_]{$const2}{10}'),
+    ],
+    [PGML(q"[`f'''(0)=`]"),
+     PGML('[_]{-8}{10}'),
+     PGML(q"[`T_3'''(0)=`]"),
+     PGML('[_]{$const3}{10}'),
+    ],
+  ],
+      align => 'rl|rl',
+      valign => 'middle',
+      top => '3',);@]* <<
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Now, since we want [`T_3(x)`] and [`e^{-2x}`] to have the same height at [`x=0\text{,}`] set [`T_3(0)=f(0)\text{.}`]
+
+This implies [`c_0={}`][_]{'1'}{10}.
+
+Since we want [`T_3(x)`] and [`e^{-2x}`] to have the same slope at [`x=0\text{,}`] set [`T_3'(0)=f'(0)\text{.}`]
+
+This implies [`c_1={}`][_]{$f1}{10}.
+
+Since we want [`T_3(x)`] and [`e^{-2x}`] to have the same concavity at [`x=0\text{,}`] set [`T_3''(0)=f''(0)\text{.}`]
+
+This implies [`c_2={}`][_]{$f2}{10}.
+
+Finally, since we want [`T_3(x)`] and [`e^{-2x}`] to have the same third derivative value at [`x=0\text{,}`] set [`T_3'''(0)=f'''(0)\text{.}`]
+
+This implies [`c_3={}`][_]{$f3}{10}.
+
+Putting everything together, what is the resulting formula for [`T_3(x)=c_0+c_1x+c_2x^2+c_3x^3\text{?}`]
+
+[`T_3(x)={}`][_]{$T3}{20}
+
+END_PGML
+
+Section::End();
+
+Scaffold::End();
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();
