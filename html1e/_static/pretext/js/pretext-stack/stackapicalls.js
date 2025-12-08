@@ -2,7 +2,11 @@ const timeOutHandler = new Object();
 const inputPrefix = 'stackapi_input_';
 const feedbackPrefix = 'stackapi_fb_';
 const validationPrefix = 'stackapi_val_';
-// const stack_api_url = // This is pulled from the publication file
+// The api URL should be pulled from the publication file, but for now
+// it is hardcoded until I figure out how to do that.
+const apiurl = 'https://stackapi-1-43834256136.europe-west1.run.app/';
+// This is the official demo api server, but it's a bit temperamental
+// const apiurl = 'https://stack-api.maths.ed.ac.uk';
 
 const stackstring = {
   "teacheranswershow_mcq":"A correct answer is: {$a->display}",
@@ -33,7 +37,7 @@ async function collectData(qfile, qname, qprefix) {
       };
     });
   // }
-  return res;
+  return res
 }
 
 // Get the different input elements by tag and return object with values.
@@ -68,7 +72,7 @@ function processNodes(res, nodes, qprefix) {
 // Display rendered question and solution.
 function send(qfile, qname, qprefix) {
   const http = new XMLHttpRequest();
-  const url = stack_api_url + '/render';
+  const url = apiurl + '/render';
   http.open("POST", url, true);
   http.setRequestHeader('Content-Type', 'application/json');
   http.onreadystatechange = function() {
@@ -85,16 +89,12 @@ function send(qfile, qname, qprefix) {
         renameIframeHolders();
         let question = json.questionrender;
         const inputs = json.questioninputs;
-        const seed = json.questionseed;
         let correctAnswers = '';
         // Show correct answers.
         for (const [name, input] of Object.entries(inputs)) {
           question = question.replace(`[[input:${name}]]`, input.render);
           // question = question.replaceAll(`${inputPrefix}`,`${qprefix+inputPrefix}`);
           question = question.replace(`[[validation:${name}]]`, `<span name='${qprefix+validationPrefix + name}'></span>`);
-          // This is a bit of a hack. The question render returns an <a href="..."> calling the download function with
-          // two arguments. We add the additional arguments that we need for context (question definition) here.
-          question = question.replace(/javascript:download\(([^,]+?),([^,]+?)\)/, `javascript:download($1,$2, '${qfile}', '${qname}', '${qprefix}', ${seed})`);
           if (input.samplesolutionrender && name !== 'remember') {
             // Display render of answer and matching user input to produce the answer.
             correctAnswers += `<p>
@@ -117,10 +117,9 @@ function send(qfile, qname, qprefix) {
         }
         // Convert Moodle plot filenames to API filenames.
         for (const [name, file] of Object.entries(json.questionassets)) {
-          const plotUrl = getPlotUrl(file);
-          question = question.replace(name, plotUrl);
-          json.questionsamplesolutiontext = json.questionsamplesolutiontext.replace(name, plotUrl);
-          correctAnswers = correctAnswers.replace(name, plotUrl);
+          question = question.replace(name, `plots/${file}`);
+          json.questionsamplesolutiontext = json.questionsamplesolutiontext.replace(name, `plots/${file}`);
+          correctAnswers = correctAnswers.replace(name, `plots/${file}`);
         }
 
         question = replaceFeedbackTags(question,qprefix);
@@ -140,6 +139,7 @@ function send(qfile, qname, qprefix) {
               if (currentTimeout) {
                 window.clearTimeout(currentTimeout);
               }
+              console.log(event.target);
               timeOutHandler[event.target.id] = window.setTimeout(validate.bind(null, event.target, qfile, qname, qprefix), 1000);
             };
           }
@@ -188,7 +188,7 @@ function send(qfile, qname, qprefix) {
 // Validate an input. Called a set amount of time after an input is last updated.
 function validate(element, qfile, qname, qprefix) {
   const http = new XMLHttpRequest();
-  const url = stack_api_url + '/validate';
+  const url = apiurl + '/validate';
   http.open("POST", url, true);
   // Remove API prefix and subanswer id.
   const answerNamePrefixTrim = (qprefix+inputPrefix).length;
@@ -207,6 +207,7 @@ function validate(element, qfile, qname, qprefix) {
         renameIframeHolders();
         const validationHTML = json.validation;
         const element = document.getElementsByName(`${qprefix+validationPrefix + answerName}`)[0];
+        console.log(element);
         element.innerHTML = validationHTML;
         if (validationHTML) {
           element.classList.add('validation');
@@ -231,7 +232,7 @@ function validate(element, qfile, qname, qprefix) {
 // Submit answers.
 function answer(qfile, qname, qprefix, seed) {
   const http = new XMLHttpRequest();
-  const url = stack_api_url + '/grade';
+  const url = apiurl + '/grade';
   http.open("POST", url, true);
 
   if (!document.getElementById(`${qprefix+'output'}`).innerText) {
@@ -271,7 +272,7 @@ function answer(qfile, qname, qprefix, seed) {
         // Replace tags and plots in specific feedback and then display.
         if (json.specificfeedback) {
           for (const [name, file] of Object.entries(json.gradingassets)) {
-            json.specificfeedback = json.specificfeedback.replace(name, getPlotUrl(file));
+            json.specificfeedback = json.specificfeedback.replace(name, `plots/${file}`);
           }
           json.specificfeedback = replaceFeedbackTags(json.specificfeedback,qprefix);
           specificFeedbackElement.innerHTML = json.specificfeedback;
@@ -282,7 +283,7 @@ function answer(qfile, qname, qprefix, seed) {
         // Replace plots in tagged feedback and then display.
         for (let [name, fb] of Object.entries(feedback)) {
           for (const [name, file] of Object.entries(json.gradingassets)) {
-            fb = fb.replace(name, getPlotUrl(file));
+            fb = fb.replace(name, `plots/${file}`);
           }
           const elements = document.getElementsByName(`${qprefix+feedbackPrefix + name}`);
           if (elements.length > 0) {
@@ -329,43 +330,6 @@ function answer(qfile, qname, qprefix, seed) {
   });
 }
 
-function download(filename, fileid, qfile, qname, qprefix, seed) {
-  const http = new XMLHttpRequest();
-  const url = stack_api_url + '/download';
-  http.open("POST", url, true);
-  http.setRequestHeader('Content-Type', 'application/json');
-  // Something funky going on with closures and callbacks. This seems
-  // to be the easiest way to pass through the file details.
-  http.filename = filename;
-  http.fileid = fileid;
-  http.onreadystatechange = function() {
-    if(http.readyState == 4) {
-      try {
-        // Only download the file once. Replace call to download controller with link
-        // to downloaded file.
-        const blob = new Blob([http.responseText], {type: 'application/octet-binary', endings: 'native'});
-        // We're matching the three additional arguments that are added in the send function here.
-        const selector = CSS.escape(`javascript\:download\(\'${http.filename}\'\, ${http.fileid}\, \'${qfile}\'\, \'${qname}\'\, \'${qprefix}\'\, ${seed}\)`);
-        const linkElements = document.querySelectorAll(`a[href^=${selector}]`);
-        const link = linkElements[0];
-        link.setAttribute('href', URL.createObjectURL(blob));
-        link.setAttribute('download', filename);
-        link.click();
-      }
-      catch(e) {
-        document.getElementById('errors').innerText = http.responseText;
-        return;
-      }
-    }
-  };
-  collectData(qfile, qname, qprefix).then((data)=>{
-    data.filename = filename;
-    data.fileid = fileid;
-    data.seed = seed;
-    http.send(JSON.stringify(data));
-  });
-}
-
 // Save contents of question editor locally.
 function saveState(key, value) {
   if (typeof(Storage) !== "undefined") {
@@ -390,21 +354,15 @@ function renameIframeHolders() {
 }
 
 function createIframes (iframes) {
-  const corsFragment = "/cors.php?name=";
-
   for (const iframe of iframes) {
-    create_iframe(
-      iframe[0],
-      iframe[1].replaceAll(corsFragment, stack_api_url + corsFragment),
-      ...iframe.slice(2)
-    );
+    create_iframe(...iframe);
   }
 }
 
 // Replace feedback tags in some text with an approproately named HTML div.
 function replaceFeedbackTags(text, qprefix) {
   let result = text;
-  const feedbackTags = text.match(/\[\[feedback:.*?\]\]/g);
+  const feedbackTags = text.match(/\[\[feedback:.*\]\]/g);
   if (feedbackTags) {
     for (const tag of feedbackTags) {
       // Part name is between '[[feedback:' and ']]'.
@@ -423,7 +381,7 @@ async function getQuestionFile(questionURL, questionName) {
           res = loadQuestionFromFile(result, questionName);
         });
   }
-  return res;
+  return res
 }
 
 function loadQuestionFromFile(fileContents, questionName) {
@@ -436,7 +394,9 @@ function loadQuestionFromFile(fileContents, questionName) {
     if (question.getAttribute('type').toLowerCase() === 'stack' && (!questionName || question.querySelectorAll("name text")[0].textContent === questionName)) {
       thequestion = question.outerHTML;
       let seeds = question.querySelectorAll('deployedseed');
+      console.log(seeds);
       if (seeds.length) {
+        console.log(seeds.length);
         randSeed = parseInt(seeds[Math.floor(Math.random()*seeds.length)].textContent);
       }
       break;
@@ -497,7 +457,7 @@ function createQuestionBlocks() {
 function addCollapsibles(){
   var collapsibles = document.querySelectorAll(".level2>h2, .stack>h2");
   for (let i=0; i<collapsibles.length; i++) {
-    collapsibles[i].addEventListener("click", () => collapseFunc(this));
+    collapsibles[i].addEventListener("click", function(){collapseFunc(this)});
   }
 }
 
@@ -508,8 +468,4 @@ function collapseFunc(e){
 function stackSetup(){
   createQuestionBlocks();
   addCollapsibles();
-}
-
-function getPlotUrl(file) {
-  return `${stack_api_url}/plots/${file}`;
 }
