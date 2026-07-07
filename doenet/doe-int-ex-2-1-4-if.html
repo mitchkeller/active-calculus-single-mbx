@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
+<script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
+</head>
+<body class="ptx-content ignore-math" id="ac-single">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div class="doenetml-loading" style="text-align:center">
+<p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
+<p>Waiting on the page to load...</p>
+</div>
+<script type="text/doenetml">
+          <!-- **********************************************************************-->
+<!-- Copyright 2012-2025                                                   -->
+<!-- Matthew Boelkins                                                      -->
+<!--                                                                       -->
+<!-- This file is part of Active Calculus.                                 -->
+<!--                                                                       -->
+<!-- Permission is granted to copy, distribute and/or modify this document -->
+<!-- under the terms of the Creative Commons BY-SA license.  The work      -->
+<!-- may be used for free by any party so long as attribution is given to  -->
+<!-- the author(s), the work and its derivatives are used in the spirit of -->
+<!-- "share and share alike".  All trademarks are the registered marks of  -->
+<!-- their respective owners.                                              -->
+<!-- **********************************************************************-->
+
+<!-- this file should meet accessibility stuff with descriptions and labels -->
+
+<setup>
+
+  <selectFromSequence name = "m1" from = "0.25" to = "0.75" step = "0.25"/>
+  <selectFromSequence name = "m2" from = "-1.5" to = "-0.5" step = "0.5"/>
+  <selectFromSequence name = "n1" from = "-2" to = "-1" step = "0.5"/>
+  <selectFromSequence name = "n2" from = "0.5" to = "1" step = "0.25"/>
+  <selectFromSequence name = "x1" from = "1" to = "2" step = "1"/>
+  <selectFromSequence name = "x2" from = "-2" to = "-1" step = "1"/>
+  <selectFromSequence name = "y1" from = "2" to = "3" step = "1"/>
+  <selectFromSequence name = "y2" from = "-3" to = "-2" step = "1"/>
+  
+  <piecewiseFunction name="f" symbolic="false" styleNumber="1">
+    <function domain="(-infinity,$x1)">$m1*(x-$x1)+$y1</function>
+    <function domain="[$x1,infinity)">$m2*(x-$x1)+$y1</function>
+  </piecewiseFunction>
+
+  <piecewiseFunction name="fP" symbolic="false"  styleNumber="3">
+    <function domain="(-infinity,$x1)">$m1</function>
+    <function domain="[$x1,$x1]">undefined</function>
+    <function domain="($x1,infinity)">$m2</function>
+  </piecewiseFunction>
+
+  <piecewiseFunction name="g" symbolic="false" styleNumber="2">
+    <function domain="(-infinity,$x2)">$n1*(x-$x2)+$y2</function>
+    <function domain="[$x2,infinity)">$n2*(x-$x2)+$y2</function>
+  </piecewiseFunction>
+
+  <piecewiseFunction name="gP" symbolic="false"  styleNumber="4">
+    <function domain="(-infinity,$x2)">$n1</function>
+    <function domain="[$x2,$x2]">undefined</function>
+    <function domain="($x2,infinity)">$n2</function>
+  </piecewiseFunction>
+
+  <selectFromSequence name="a" from="-4" to="4" step="1" exclude="0"/>
+  <selectFromSequence name="b" from="-4" to="4" step="1" exclude="0 $a -$a"/>
+  <selectFromSequence name="c" from="-4" to="4" step="1"/>
+  <selectFromSequence name="d" from="-4" to="4" step="1" exclude="$c"/> 
+  
+  <math name="ABSb"><abs>$b</abs></math>
+
+  <!--
+  <function name="r" symbolic="false">x^2 + 3x - 2</function>
+  <derivative name="rP" symbolic="false">$r</derivative>  
+  <function name="s" symbolic="false">$a - x^2/$b</function>  
+   need to fix the possibility that b = 0 here 
+  <derivative name="sP" symbolic="false">$s</derivative>    
+  -->
+</setup>
+
+<p>
+ Let <m>f</m> (in blue) and <m>g</m> (in red) be the piecewise linear functions given by the graphs below.  In addition, let <me>p(x) = <math simplify>$a*f(x) - $b*g(x)</math>.</me>
+</p>
+
+      <graph xmin="-5" xmax="5" ymin="-5" ymax="5" size="medium" grid="true" showNavigation="false" fixAxes="true"> 
+        <shortDescription>Two piecewise linear functions f and g</shortDescription>
+        <description>Two piecewise linear functions, <m>f</m> and <m>g</m>, which each consist of two line segments.  The first linear portion of the graph of <m>f</m> passes through <m>(-5,$$f(-5))</m> and <m>($x1,$$f($x1))</m>; the second linear portion of the graph of  <m>f</m> passes through <m>($x1,$$f($x1))</m> and <m>(5,$$f(5))</m>. The first linear portion of the graph of <m>g</m> passes through <m>(-5,$$g(-5))</m> and <m>($x2,$$g($x2))</m>; the second linear portion of the graph of  <m>g</m> passes through <m>($x2,$$g($x2))</m> and <m>(5,$$g(5))</m>. </description>
+          $f $g  
+          <label fixLocation anchor="($x1+0.5,$$f($x1)-0.25)"><m>f</m></label>
+          <label fixLocation anchor="($x2+0.25,$$g($x2)-0.25)"><m>g</m></label>
+        
+      </graph>
+
+   
+<!-- 
+<p>If <m>a = $a</m>, and <m>h(x) = f(x) \cdot g(x)</m>, then
+<m> h'($a) = $$f($a) \cdot $$gP($a) + $$g($a) \cdot $$fP($a) </m>
+</p> 
+-->
+
+<!--
+<conditionalContent>
+  <case condition="$a = 1">
+    <p><m>f'($a)</m> is undefined, <m>p'($a)</m> is undefined, and <m>q'($a)</m> is undefined.</p>
+  </case>
+  <case condition="$a = -2">
+    <p><m>g'($a)</m> is undefined, <m>p'($a)</m> is undefined, and <m>q'($a)</m> is undefined.</p>
+  </case>
+</conditionalContent>
+--> 
+
+  <p>
+    Determine each of the following derivative values; if the derivative is not defined, enter <q>undefined</q> (without quotes).  <alert>Note:</alert> by finding points that lie on portions of each line that also lie on intersection points on the grid, you can find the exact slope of each relevant segment. 
+  </p>  
+  <ol marker="a.">
+
+  <li>
+    <p>   
+      <answer>
+        <label><m> f'($c) = </m></label>
+        <conditionalContent>
+          <case condition="$c = $x1">
+            undefined
+          </case>  
+          <case>
+            $$fP($c)
+          </case>
+        </conditionalContent>  
+      </answer> 
+    </p>
+  <!--    <p><m>$$f($a)*$$gP($a) + $$g($a)*$$fP($a)  </m></p> -->
+  </li>
+  <li>
+    <p>    
+      <answer>
+        <label><m> g'($c) = </m></label>
+        <conditionalContent>
+          <case condition="$c = $x2">
+            undefined
+          </case>  
+          <case>
+            $$gP($c)
+          </case>
+        </conditionalContent>  
+      </answer> 
+    </p>
+  <!--    <p><m>$$f($a)*$$gP($a) + $$g($a)*$$fP($a)  </m></p> -->
+  </li>
+    
+  <li>
+    <p>     
+      <answer>
+        <label><m> p'($c) = </m></label>
+        <description>Recall that p(x) = <math simplify>$a*f(x) - $b*g(x)</math>.</description>
+        <conditionalContent>
+          <case condition="$c = $x1">
+            undefined
+          </case>
+          <case condition="$c = $x2">
+            undefined
+          </case>  
+          <case>
+            $a*$$fP($c) - $b*$$gP($c)
+          </case>
+        </conditionalContent>  
+      </answer> 
+    </p>
+  <!--    <p><m>$$f($a)*$$gP($a) + $$g($a)*$$fP($a)  </m></p> -->
+  </li>
+
+  <li>
+    <p>    
+      <answer>
+        <label><m> p'($d) = </m></label>
+        <conditionalContent>
+          <case condition="$d = $x1">
+            undefined
+          </case>
+          <case condition="$d = $x2">
+            undefined
+          </case>  
+          <case>
+            $a*$$fP($d) - $b*$$gP($d)
+          </case>
+        </conditionalContent>  
+      </answer> 
+      </p>
+ <!--     <p><m>$$f($b)*$$gP($b) + $$g($b)*$$fP($b)  </m></p>. -->
+  </li>
+    
+
+
+  </ol>
+        </script>
+</div></div>
+</body>
+</html>

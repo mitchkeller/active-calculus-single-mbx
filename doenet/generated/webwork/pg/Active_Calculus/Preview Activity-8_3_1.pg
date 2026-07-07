@@ -1,0 +1,226 @@
+#############################################
+###       Generated from PreTeXt source      
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "AnswerFormatHelp.pl",
+  "niceTables.pl",
+  "scaffold.pl",
+  "parserRadioButtons.pl",
+  "contextForm.pl",
+  "contextFraction.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+COMMENT('This problem is scaffolded with multiple parts');
+
+############################################################
+# Header
+############################################################
+TEXT(beginproblem());
+
+############################################################
+# PG Setup Code
+############################################################
+Context("Numeric");
+Context()->variables->are(n => 'Real');
+$f = Formula("(2^n-1)/2^(n-1)");
+
+$radio = RadioButtons([
+  "The sum with powers of ${BM}\frac12${EM} is larger.",
+  "The sum with powers of ${BM}\frac14${EM} is larger.",
+  "The two sums are equal."
+  ], 0
+);
+
+$radio2 = RadioButtons([
+  "The sum with powers of ${BM}\frac12${EM} is larger.",
+  "The sum with powers of ${BM}-\frac12${EM} is larger.",
+  "The two sums are equal."
+  ], 0
+);
+
+Context("Fraction");
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Let's explore sums of the form
+
+[```
+          S_n = 1+ \frac12 + \left(\frac12\right)^2 + \left(\frac12\right)^3 + \cdots + \left(\frac12\right)^{n-1}
+        ```]
+
+END_PGML
+
+############################################################
+# Scaffold
+############################################################
+Scaffold::Begin(numbered => 1,is_open => "correct_or_first_incorrect",can_open => always,);
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Note that [`S_1 = 1\text{,}`] [`S_2 = S_1 + \frac{1}{2} = 1 + \frac{1}{2} = \frac{3}{2}\text{,}`] and [`S_3 = S_2 + \frac{1}{4} = \frac{3}{2} + \frac{1}{4} = \frac{7}{4}\text{.}`] Using the fact that each subsequent value of [`S_n`] can be computed by adding one additional term to the preceding sum, complete the table below with the exact (fractional) value of each sum.
+
+>> [@DataTable(
+  [
+    [PGML('[`S_1`]'),
+     PGML('[`S_2`]'),
+     PGML('[`S_3`]'),
+     PGML('[`S_4`]'),
+     PGML('[`S_5`]'),
+     PGML('[`S_6`]'),
+     PGML('[`S_7`]'),
+    ],
+    [[PGML('[`1`]'),
+      rowbottom => '1',
+      midrule => '1',],
+     PGML('[`\frac32`]'),
+     PGML('[`\frac74`]'),
+     PGML('[_]{Fraction(15,8)}{3}'),
+     PGML('[_]{Fraction(31,16)}{3}'),
+     PGML('[_]{Fraction(63,32)}{3}'),
+     PGML('[_]{Fraction(127,64)}{3}'),
+    ],
+  ],
+      align => '*{7}{c}',
+      valign => 'middle',
+      top => '1',);@]* <<
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+What do you expect will be the values of [`S_8`] and [`S_9\text{?}`]
+
+[_]{Fraction(255,128)}{4}
+
+[_]{Fraction(511,256)}{4}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Conjecture a simple formula for [`S_n`] that is given by a single fraction where the numerator and/or denominator depend on [`n\text{.}`]
+
+[_]{$f}{20}
+
+_Hint_: Think of the numerator and denominator separately, and think of powers of [`2\text{.}`]
+
+END_PGML
+
+############################################################
+# Hint
+############################################################
+#Set value of $showHint in PGcourse.pl for course-wide attempt threshhold for revealing hints
+
+BEGIN_PGML_HINT
+Think of the numerator and denominator separately, and think of powers of [`2\text{.}`]
+
+END_PGML_HINT
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+What is happening to the value of [`S_n`] as [`n\to \infty\text{?}`]
+
+[`S_n\to {}`][_]{'2'}{4}
+
+_Hint_: Take the answer to part (c) and divide the numerator by the denominator. What do you get?
+
+END_PGML
+
+############################################################
+# Hint
+############################################################
+#Set value of $showHint in PGcourse.pl for course-wide attempt threshhold for revealing hints
+
+BEGIN_PGML_HINT
+Take the answer to part (c) and divide the numerator by the denominator. What do you get?
+
+END_PGML_HINT
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Now consider the sum
+
+[```
+            S_n = 1 + \frac14 + \left(\frac14\right)^2 + \left(\frac14\right)^3 + \cdots + \left(\frac14\right)^{n-1}
+          \text{.}```]
+
+Do you think this sum is larger or smaller than the sum we first considered?
+
+[_]{$radio}{5}
+
+What about
+
+[```
+            S_n = 1 - \frac12 + \left(\frac12\right)^2 - \left(\frac12\right)^3 + \cdots + \left(-\frac12\right)^{n-1}
+          \text{?}```]
+
+Do you think this sum is larger or smaller than the sum we first considered?
+
+[_]{$radio2}{5}
+
+END_PGML
+
+Section::End();
+
+Scaffold::End();
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();

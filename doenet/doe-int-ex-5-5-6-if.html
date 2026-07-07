@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
+<script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
+</head>
+<body class="ptx-content ignore-math" id="ac-single">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div class="doenetml-loading" style="text-align:center">
+<p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
+<p>Waiting on the page to load...</p>
+</div>
+<script type="text/doenetml">   
+          <!-- **********************************************************************-->
+<!-- Copyright 2012-2025                                                   -->
+<!-- Matthew Boelkins                                                      -->
+<!--                                                                       -->
+<!-- This file is part of Active Calculus.                                 -->
+<!--                                                                       -->
+<!-- Permission is granted to copy, distribute and/or modify this document -->
+<!-- under the terms of the Creative Commons BY-SA license.  The work      -->
+<!-- may be used for free by any party so long as attribution is given to  -->
+<!-- the author(s), the work and its derivatives are used in the spirit of -->
+<!-- "share and share alike".  All trademarks are the registered marks of  -->
+<!-- their respective owners.                                              -->
+<!-- **********************************************************************-->
+
+  <setup>
+    <selectFromSequence name="a" from="3" to="6" step="1"/>
+    <selectFromSequence name="b" from="3" to="6" step="1" exclude="$a"/>
+    <selectFromSequence name="c" from="1" to="5" step="1" exclude="$a $b"/>
+
+    <number name="P">(2*$a*$c + $b - $Q*$c - 4*$R*$c^2)/(2*$c^2)</number>
+    <number name="Q">-$b/$c</number>   
+    <number name="R">($a*$c+$b)/($c^2)</number>
+
+    <mathList name="PFdecomp">$P/x $Q/x^2 $R/(x-$c)</mathList>
+    <mathList name="PFdecompEntered">$PF1 $PF2 $PF3</mathList>
+    
+    <function name="f" symbolic="false" >
+      ($a*x+$b)/(x^2*(x-$c))
+    </function> 
+
+    <function name="F" symbolic="false" >
+      $P*ln(abs(x)) - $Q*1/x + $R*ln(abs(x-$c))
+    </function>   
+
+    <boolean name="correctPFfound">$PFfound.creditAchieved=1</boolean>
+    
+  </setup>
+
+<p>
+  Consider the indefinite integral
+  <me>
+    \int \frac{$a x + $b}{x^2(x-$c)} \, dx
+  </me>
+  We want to evaluate this integral using the method of partial fractions.
+</p>
+ 
+
+<p>
+  First, the partial fraction decomposition of the integrand has the following form:
+  <me>
+    \frac{$a x + $b}{x^2(x-$c)} = \frac{A}{x} + \frac{B}{x^2} + \frac{C}{x-$c}
+  </me>
+  Determine the values of <m>A</m>, <m>B</m>, and <m>C</m> and enter them in the spaces provided.
+</p>  
+
+<p>
+  <m>A = </m> <mathInput minWidth="40" name="Aentered"/>, <m>B = </m>  <mathInput minWidth="40" name="Bentered"/>, <m>C = </m> <mathInput minWidth="40" name="Centered"/> <answer name="PFfound"><award><when>$Aentered = $P and $Bentered = $Q and $Centered = $R</when></award></answer>
+</p>  
+
+<p hide="$correctPFfound">
+  (<em>The next steps will appear once you have correctly completed the steps above.</em>)
+</p>
+<p hide="not $correctPFfound">
+  <p>
+    Now we are ready to evaluate the original integral, using its partial fraction decomposition.  In particular, evaluate each of the three integrals appropriately and fill in the results below to find the overall result of evaluating the original indefinite integral.
+  </p>
+  <p>
+    <m>\displaystyle \int \frac{$a x + $b}{x^2(x-$c)} \, dx =  \int \frac{$P}{x} \, dx + \int \frac{$Q}{x^2} \, dx +  \int \frac{$R}{x-$c} \, dx</m>  
+  </p>   
+  <p>
+    <m>\displaystyle \int \frac{$a x + $b}{x^2(x-$c)} \, dx = </m>  <mathInput name="int1"/> <m> \displaystyle +  </m> <mathInput name="int2"/> <m> \displaystyle  + </m> <mathInput name="int3"/> <m> + \, C \, </m> <answer><award><when>((<math>$int1 + $int2 + $int3</math>) = $F) or ((<math>$int1 + $int2 + $int3</math>) = $F1)</when></award></answer>
+  </p> 
+
+</p>
+
+        </script>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,199 @@
+#############################################
+###       Generated from PreTeXt source      
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "AnswerFormatHelp.pl",
+  "scaffold.pl",
+  "PCCmacros.pl",
+  "parserCheckboxList.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+COMMENT('This problem is scaffolded with multiple parts');
+
+############################################################
+# Header
+############################################################
+TEXT(beginproblem());
+
+############################################################
+# PG Setup Code
+############################################################
+Context('Numeric');
+     $mc = CheckboxList(
+     [
+       ["Constant Multiple$BR",
+        "Sum or Difference$BR",
+        "Quotient$BR",
+        "Chain$BR",
+        "Power$BR",
+        "Product$BR",
+        "Exponential$BR",
+],
+"All of the above"
+     ],
+[0..4]
+     );
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Let
+
+[```
+          g(x) = \frac{1}{1 + x^2}
+        \text{.}```]
+
+END_PGML
+
+############################################################
+# Scaffold
+############################################################
+Scaffold::Begin(numbered => 1,is_open => "correct_or_first_incorrect",can_open => always,);
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+We know the coefficients of the Taylor series for [`g(x)`] centered at [`a=0`] are given by [`\frac{g^{(k)}(0)}{k!}\text{,}`] so we start calculating some derivatives.  Note that we can write [`g(x)=(1+x^2)^{-1}\text{.}`] Calculate [`g'(x)\text{,}`] and [`g''(x)\text{.}`]
+
+[`g'(x)={}`][_]{'-2x(1+x^2)^(-2)'}{20} and [`g''(x)={}`][_]{'2(3x^2-1)(1+x^2)^(-3)'}{20}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+If you simplify [`g''(x)\text{,}`] take the derivative again, and simplify the result, you'd find that
+
+[```
+            g'''(x) = \frac{24x - 24x^3}{(1+x^2)^4}
+          \text{.}```]
+
+If we don't rewrite [`g'''(x)`] from the form shown above, what derivative rules would be needed to calculate [`g^{(4)}(x)\text{?}`]  Select all that apply.
+
+[_]{$mc}{5}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Find [`g(0)\text{,}`] [`g'(0)\text{,}`] [`g''(0)\text{,}`] and [`g'''(0)\text{.}`]
+
+[_]{'1'}{5}
+
+[_]{'0'}{5}
+
+[_]{'-2'}{5}
+
+[_]{'0'}{5}
+
+Use the results to determine [`T_3(x)\text{.}`]
+
+[_]{'1-x^2'}{5}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Since the derivatives of [`g`] become so complicated, we consider a different approach to finding the Taylor series centered at [`a=0`] for [`g(x)=\frac{1}{1+x^2}\text{.}`] We take advantage of the fact that [`f(x)=\frac{1}{1-x}`] has a Taylor series expansion we already know, and observe that [`f`] has an algebraic structure similar to [`g\text{.}`]
+
+We introduce a new variable, [`u\text{,}`] and recall that
+
+[```
+            f(u) = \dfrac{1}{1 - u} = 1 + u + u^2 + u^3 + \cdots + u^n + \cdots
+          ```]
+
+for [`\DeclareMathOperator{\erf}{erf}\DeclareMathOperator{\arctanh}{arctanh}\DeclareMathOperator{\arcsec}{arcsec}\newcommand{\lt}{<}\lvert u\rvert \lt 1\text{.}`]
+
+Let [`u=-x^2\text{.}`] What equation results from evaluating [`f(-x^2)`] in the equation given above for [`f(u)\text{?}`]
+
+[@KeyboardInstructions('Enter the first 4 nonzero terms in the sum on the right-hand-side of the resulting equation.')@]**
+
+[`f\mathopen{}\left(-x^2\right)\mathclose{} = \frac{1}{1-\left(-x^2\right)} = {}`][_]{'1 - x^2 + x^4 - x^6'}{30}[`{} + \cdots`]
+
+How does the answer here compare to the formula you found for [`T_3(x)`] in (c)?
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Note that [`1 - \left(-x^2\right) = 1 + x^2\text{,}`] so we just found an infinite series representation for [`g(x) = \frac{1}{1 + x^2}`] without calculating derivatives of [`g(x)\text{,}`] by using the series we had already calculated for [`f(u) = \frac{1}{1 - u}\text{.}`] For what values of [`x`] do you expect this series for [`g(x)`] will converge?
+
+[@KeyboardInstructions('Use interval notation.')@]**
+
+[_]{Interval(-1,1)}{10}
+
+_Hint_: Think about what you know about the values of [`u`] for which the series for [`f(u)`] will converge.
+
+END_PGML
+
+############################################################
+# Hint
+############################################################
+#Set value of $showHint in PGcourse.pl for course-wide attempt threshhold for revealing hints
+
+BEGIN_PGML_HINT
+Think about what you know about the values of [`u`] for which the series for [`f(u)`] will converge.
+
+END_PGML_HINT
+
+Section::End();
+
+Scaffold::End();
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();

@@ -1,0 +1,259 @@
+#############################################
+###       Generated from PreTeXt source      
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "AnswerFormatHelp.pl",
+  "scaffold.pl",
+  "parserPopUp.pl",
+  "parserRadioButtons.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+COMMENT('This problem is scaffolded with multiple parts');
+
+############################################################
+# Header
+############################################################
+TEXT(beginproblem());
+
+############################################################
+# PG Setup Code
+############################################################
+Context("Point");
+$answer = List("(10,5),(50,1),(25,2)");
+$evaluator = $answer ->cmp(list_checker => sub {
+  my ($correct,$student,$ansHash,$value) = @_;
+  my $n = scalar(@$student);  # number of student answers
+  my $score = 0;              # number of correct student answers
+  my @errors = ();            # stores error messages
+  my $i, $j;                  # loop counters
+
+  #
+  #  Loop though the student answers
+  ##
+  for ($i = 0; $i < $n; $i++) {
+    my $ith = Value::List->NameForNumber($i+1);
+    my $p = $student->[$i];   # i-th student answer
+    #
+    #  Check that the student's answer is a point
+    #
+    if ($p->type ne "Point") {
+      push(@errors,"Your $ith entry is not a point");
+      next;
+    }
+    #
+    #  Check that the point hasn't been given before
+    #
+    for ($j = 0, $used = 0; $j < $i; $j++) {
+      if ($student->[$j]->type eq "Point" && $student->[$j] == $p) {
+        push(@errors,"Your $ith point is the same as a previous one") unless $ansHash->{isPreview};
+        $used = 1; last;
+      }
+    }
+    #
+    #  If not already used, check that it satisfies the equation
+    #    and increase the score if so.
+    #
+    if (!$used) {
+      my ($a,$b) = $p->value;
+      if ($a * $b == 50 && $a > 0) {$score++} else {
+        push(@errors,"Your $ith point is not correct") unless $ansHash->{isPreview}
+      }
+    }
+  }
+  #
+  #  Check that there are the right number of answers
+  #
+  if (!$ansHash->{isPreview}) {
+    push(@errors,"You need to provide more points") if $i < 3;
+    push(@errors,"You have given too many points") if $score > 3 && $i != $score;
+  }
+  return ($score,@errors);
+});
+
+$radio = RadioButtons([
+  'The function is increasing because as speed goes up, travel time goes up.',
+  'The function is decreasing and decreasing more quickly, because the travel time decreases as speed increases, and it does so in a way that the decreases get larger.',
+  'The function is decreasing but decreasing more slowly, because the travel time decreases as speed increases, but the amount of decrease is getting smaller.',
+  ], 2
+);
+Context("Numeric")->flags->set(tolType => 'absolute', tolerance => 0.01);
+$answer2 = Compute("5/6");
+$radio2 = RadioButtons([
+  "${BM}T(60)${EM} is the speed, ${BM}60${EM} mph.",
+  "${BM}T(60)${EM} is the distance, ${BM}60${EM} miles.",
+  "${BM}T(60)${EM} is the time in hours it takes to travel ${BM}50${EM} miles at a speed of ${BM}60${EM} mph.",
+  "${BM}T(60)${EM} is how fast the travel time is changing when the car is traveling at a speed of ${BM}60${EM} mph.",
+  ], 2
+);
+$answer3 = Compute("(50/65-50/60)/5");
+$popup2 = PopUp([
+  "?",
+  "miles",
+  "miles per hour",
+  "hours per mile",
+  "hours per (miles per hour)",
+  "square hours per mile",
+  ], 4
+);
+$popup = DropDown([
+  "positive",
+  "negative",
+  ], 1
+);
+$radio3 = RadioButtons([
+  "${BM}T${EM} is increasing from ${BM}60${EM} to ${BM}65${EM} mph.",
+  "${BM}T${EM} is decreasing from ${BM}60${EM} to ${BM}65${EM} mph.",
+  "${BM}T${EM} is increasing but the amount of increase is smaller from ${BM}60${EM} to ${BM}65${EM} mph.",
+  "${BM}T${EM} is decreasing and the amount of decrease is smaller from ${BM}60${EM} to ${BM}65${EM} mph.",
+  ], 1
+);
+$radio4 = RadioButtons([
+  "${BM}AV_{[60, 65]}${EM} is the average amount of hours ${BM}T${EM} has changed from ${BM}60${EM} to ${BM}65${EM} mph.",
+  "${BM}AV_{[60, 65]}${EM} is the average change in speed from ${BM}60${EM} to ${BM}65${EM} mph.",
+  "${BM}AV_{[60, 65]}${EM} is the average change in hours the trip takes for each one mph change in speed from ${BM}60${EM} to ${BM}65${EM} mph.",
+  ], 2
+);
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Suppose that you are driving a car on the highway using cruise control so that you drive at a constant speed.  The time, [`T`] (measured in hours), it takes to drive 50 miles depends on the constant rate, [`s`] (measured in miles per hour) at which you are driving.  Since
+
+[```
+              \mbox{distance} = \mbox{rate} \cdot \mbox{travel time}
+            \text{,}```]
+
+it follows that
+
+[```
+              \mbox{travel time} =  \frac{\mbox{distance}}{\mbox{rate}}
+            \text{,}```]
+
+and thus we know that [`T(s) = \frac{50}{s}\text{.}`]
+
+For instance, observe that [`T(75) = \frac{50}{75} = \frac{2}{3}\text{,}`] so it takes [`\frac{2}{3}`] of an hour to drive [`50`] miles at [`75`] miles per hour, and the point [`(75, \frac{2}{3})`] lies on the graph of [`T(s)\text{.}`]
+
+END_PGML
+
+############################################################
+# Scaffold
+############################################################
+Scaffold::Begin(numbered => 1,is_open => "correct_or_first_incorrect",can_open => always,);
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Give three points which lie on the graph of [`T\text{,}`] separated by commas.
+
+[_]{$evaluator}{10}
+
+Which of the following statements is true about the graph of [`T(s)\text{?}`]
+
+[_]{$radio}{5}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+What is the value of [`T(60)\text{?}`]
+
+[_]{$answer2}{10}
+
+Which of the following is the best explanation of the meaning of this value in context?
+
+[_]{$radio2}{5}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Recall the average rate of change of a function [`f(x)`] on an interval [`[a,b]`] is
+
+[```AV_{[a,b]}=\frac{f(b)-f(a)}{b-a}\text{.}```]
+
+Determine the average rate of [`T`] on the interval [`[60,65]\text{,}`] [`AV_{[60, 65]}\text{.}`]
+
+[_]{$answer3}{10} [_]{$popup2}{5}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+The sign of [`AV_{[60, 65]}`] is [_]{$popup}{5}
+
+This sign makes sense because
+
+[_]{$radio3}{5}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Which of the following explains the meaning of the value of [`AV_{[60, 65]}\text{?}`]
+
+[_]{$radio4}{5}
+
+END_PGML
+
+Section::End();
+
+Scaffold::End();
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();

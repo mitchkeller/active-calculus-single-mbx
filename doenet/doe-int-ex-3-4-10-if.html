@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
+<script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
+</head>
+<body class="ptx-content ignore-math" id="ac-single">
+<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\arctanh}{arctanh}
+              \DeclareMathOperator{\arcsec}{arcsec}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div class="doenetml-loading" style="text-align:center">
+<p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
+<p>Waiting on the page to load...</p>
+</div>
+<script type="text/doenetml">   
+          <!-- **********************************************************************-->
+<!-- Copyright 2012-2025                                                   -->
+<!-- Matthew Boelkins                                                      -->
+<!--                                                                       -->
+<!-- This file is part of Active Calculus.                                 -->
+<!--                                                                       -->
+<!-- Permission is granted to copy, distribute and/or modify this document -->
+<!-- under the terms of the Creative Commons BY-SA license.  The work      -->
+<!-- may be used for free by any party so long as attribution is given to  -->
+<!-- the author(s), the work and its derivatives are used in the spirit of -->
+<!-- "share and share alike".  All trademarks are the registered marks of  -->
+<!-- their respective owners.                                              -->
+<!-- **********************************************************************-->
+
+<!-- this exercise was written by Spencer Bagley as part of the PROTEUS grant-->
+
+<setup>
+    <function name="f">x*exp(2*$b*x)</function>
+    <point name="A" stylenumber="2">
+      <constrainTo>
+        $f
+      </constrainTo>
+    </point>
+</setup>
+
+<p>
+  In the graph below, you can experiment with the graph of the function <m>f(x)=x e^{2 b x}</m> by adjusting the value of the parameter <m>b</m> with the slider.
+</p>
+<graph
+    xMin="-2" xMax="0.5"
+    yMin="-0.5" yMax="0.5"
+    fixAxes="true" showNavigation="false">
+  <shortDescription>A graph of the function f of x equals x times e to the 2 b x</shortDescription>
+  $f
+  $A
+</graph>
+<slider 
+  name="b" showTicks="false"
+  from="0.5" to="2" step="0.01"
+  initialValue="1"
+  labelIsName />
+<ol marker="a">
+  <li>
+    <p>
+      With <m>b=1</m>, estimate
+    </p>
+    <ul>
+      <li>
+        <p>
+          <answer allowedErrorInNumbers="0.05" allowedErrorIsAbsolute>
+            <mathInput>
+              <label>the coordinates of the local minimum.</label>
+            </mathInput>
+            (-1/(2*$b), $$f(-1/(2*$b)))
+          </answer>
+        </p>
+      </li>
+      <li>
+        <p>
+          <answer allowedErrorInNumbers="0.05" allowedErrorIsAbsolute>
+            <mathInput>
+              <label>the coordinates of the inflection point.</label>
+            </mathInput>
+            (-1/$b, $$f(-1/$b))
+          </answer>
+        </p>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <p>
+      Now choose a different value for <m>b</m> and estimate:
+      <ul>
+        <li>
+          <p>
+            <answer name="ansMin" allowedErrorInNumbers="0.1" allowedErrorIsAbsolute>
+              <mathInput name="min">
+                <label>the new coordinates of the local minimum:</label>
+              </mathInput>
+              <award><when>
+                $b != 1 and
+                $min=(-1/(2*$b), $$f(-1/(2*$b)))
+              </when></award>
+            </answer>
+          </p>
+          <feedback updateWith="$ansMin" 
+              condition="$b=1 and $ansMin.responseHasBeenSubmitted">Oops, you didn't pick a new <m>b</m> yet!</feedback>
+        </li>
+        <li>
+          <p>
+            <answer name="ansInf" allowedErrorInNumbers="0.1" allowedErrorIsAbsolute>
+              <mathInput name="inflection">
+                <label>the new coordinates of the inflection point:</label>
+              </mathInput>
+              <award><when>
+                $b != 1 and
+                $inflection=(-1/($b), $$f(-1/($b)))
+              </when></award>
+            </answer>
+          </p>
+          <feedback updateWith="$ansInf" 
+              condition="$b=1 and $ansInf.responseHasBeenSubmitted">Oops, you didn't pick a new <m>b</m> yet!</feedback>
+        </li>
+      </ul>
+    </p>
+  </li>
+  <li>
+    <p>In your own words, describe hat happens to the locations of the local minimum and of the inflection point as <m>b</m> increases.</p>
+    <p>
+      <answer type="text" handGraded expanded forceFullCheckWorkButton>
+        <shortDescription>As b increases and decreases, what happens to the location of the local minimum and of the inflection point?</shortDescription>
+      </answer>
+    </p>
+  </li>
+</ol>
+        </script>
+</div></div>
+</body>
+</html>

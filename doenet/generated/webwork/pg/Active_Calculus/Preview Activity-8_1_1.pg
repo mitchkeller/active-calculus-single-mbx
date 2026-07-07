@@ -1,0 +1,272 @@
+#############################################
+###       Generated from PreTeXt source      
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "AnswerFormatHelp.pl",
+  "niceTables.pl",
+  "PGlateximage.pl",
+  "scaffold.pl",
+  "PCCmacros.pl",
+  "parserPopUp.pl",
+  "parserRadioButtons.pl",
+  "AC.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+COMMENT('This problem is scaffolded with multiple parts');
+
+############################################################
+# Header
+############################################################
+TEXT(beginproblem());
+
+############################################################
+# PG Setup Code
+############################################################
+$radio = RadioButtons([
+  'No changes.',
+  'Differences get smaller and smaller.',
+  'Differences get larger and larger.',
+  "Differences get larger the farther away ${BM}x${EM} is from ${BM}0${EM}."
+  ], 3
+);
+Context("Interval")->flags->set(tolType => 'absolute', tolerance => 0.051);
+$interval = Interval(-0.5, 0.5);
+$popup = PopUp([
+  "",
+  "quadratic",
+  "sine",
+  "cosine",
+  "logarithm"
+  ], 1
+);
+Context("LimitedNumeric")->flags->set(tolType => 'absolute', tolerance => 0.001);
+
+$image_1 = createLaTeXImage();
+$image_1->addToPreamble(latexImagePreamble());
+$image_1->BEGIN_LATEX_IMAGE
+\begin{tikzpicture}
+  \begin{axis}[
+    xmin = -2,
+    xmax = 2,
+    xtick = {-1, 1},
+    minor xtick = {-2,-1.5,...,2},
+    ymin = -0.5,
+    ymax = 3,
+    ytick = {1,2,3},
+    minor ytick = {-0.5,0,...,3.5},
+    legend style = {at = {(0.03, 0.97)}, anchor=north west}
+  ]
+    \addplot+[domain=-2:1.26] {e^x};
+    \addlegendentry{\(f(x) = e^x\)};
+    \addplot+[domain=-1.5:2] {1 + x};
+    \addlegendentry{\(L(x) = 1 + x\)};
+    \addplot[soliddot] coordinates {(0, 1)};
+    \draw[guideline] (axis cs:0.25, 0.75) -| (axis cs:-0.25, 1.25) -| cycle;
+  \end{axis}
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}
+  \begin{axis}[
+    xmin = -0.25,
+    xmax = 0.25,
+    xtick = {},
+    ymin = .75,
+    ymax = 1.25,
+    ytick = {},
+    axis lines = none
+  ]
+    \addplot+[domain=-0.25:0.25] {e^x};
+    \addplot+[domain=-0.25:0.25] {1 + x};
+    \addplot[soliddot] coordinates {(0, 1)};
+  \end{axis}
+\end{tikzpicture}
+
+END_LATEX_IMAGE
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Consider the function [`f(x) = e^x`] near [`a = 0\text{.}`] We know that [`f’(x) = e^x\text{,}`] so [`f’(0) = 1\text{;}`] along with the fact that [`f(0) = 1\text{,}`] it follows that the tangent line approximation is
+
+[```
+          L(x) = f(0) + f’(0)(x-0) = 1 + 1(x - 0) = 1 + x
+        \text{.}```]
+
+Here is the function [`f(x) = e^x`] and its tangent line [`L(x) = 1 + x`] near the point [`(0, f(0))\text{.}`]
+
+>> [@image(insertGraph($image_1), width=>600, alt=>qq"Graph of a function and its tangent line intersecting at a point and staying close near the point.")@]*  <<
+
+END_PGML
+
+############################################################
+# Scaffold
+############################################################
+Scaffold::Begin(numbered => 1,is_open => "correct_or_first_incorrect",can_open => always,);
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Build a spreadsheet that computes the difference between [`f(x)`] and [`L(x)`] for [`x`]-values between [`-1`] and [`1\text{,}`] spaced [`0.1`] units apart. *Note:* we will revisit this spreadsheet for additional computations in Activity[$NBSP]*8.1.4, so it would be ideal if you save your work electronically in place you can find it later.
+
+Your spreadsheet should start like the following table:
+
+>> [@DataTable(
+  [
+    [[PGML('Row'),
+      rowbottom => '1',
+      midrule => '1',],
+     PGML('[`\Delta x`]'),
+     PGML('[`x`]'),
+     PGML('[`f(x) = e^x`]'),
+     PGML('[`L(x) = 1 + x`]'),
+    ],
+    [[PGML('0'),
+      rowbottom => '1',
+      midrule => '1',],
+     PGML('[`0.1`]'),
+     PGML('[`-1.0`]'),
+     PGML('[`0.36787\ldots`]'),
+     PGML('[`0.0`]'),
+    ],
+    [[PGML('1'),
+      rowbottom => '1',
+      midrule => '1',],
+     PGML('[`0.1`]'),
+     PGML('[`-0.9`]'),
+     PGML('[`0.40656\ldots`]'),
+     PGML('[`0.1`]'),
+    ],
+    [[PGML('2'),
+      rowbottom => '1',
+      midrule => '1',],
+     PGML('[`0.1`]'),
+     PGML('[`-0.8`]'),
+     PGML('[`0.44932\ldots`]'),
+     PGML('[`0.2`]'),
+    ],
+    [[PGML('⋮'),
+      rowbottom => '1',
+      midrule => '1',],
+     PGML('⋮'),
+     PGML('⋮'),
+     PGML('⋮'),
+     PGML('⋮'),
+    ],
+  ],
+      align => '!{\vrule width 0.11em}c|c|c|c|c!{\vrule width 0.11em}',
+      valign => 'middle',
+      top => '3',);@]* <<
+
+Then Row 14 is:
+
+>> [@DataTable(
+  [
+    [[PGML('Row'),
+      rowbottom => '1',
+      midrule => '1',],
+     PGML('[`\Delta x`]'),
+     PGML('[`x`]'),
+     PGML('[`f(x) = e^x`]'),
+     PGML('[`L(x) = 1 + x`]'),
+    ],
+    [[PGML('14'),
+      rowbottom => '1',
+      midrule => '1',],
+     PGML('[_]{0.1}{3}'),
+     PGML('[_]{0.4}{3}'),
+     PGML('[_]{exp(0.4)}{3}'),
+     PGML('[_]{1.4}{3}'),
+    ],
+  ],
+      align => '!{\vrule width 0.11em}c|c|c|c|c!{\vrule width 0.11em}',
+      valign => 'middle',
+      top => '3',);@]* <<
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Next, add a column to your spreadsheet that computes [`\lvert f(x)-L(x)\rvert\text{.}`] What is the new entry in Row 14?
+
+[_]{abs(exp(0.4)-1.4)}{10}
+
+How do the differences between [`f(x)`] and [`L(x)`] change as you move across the interval from [`-1`] to [`1\text{?}`]
+
+[_]{$radio}{5}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+For about what values of [`x`] is it true that [`\DeclareMathOperator{\erf}{erf}\DeclareMathOperator{\arctanh}{arctanh}\DeclareMathOperator{\arcsec}{arcsec}\newcommand{\lt}{<}\lvert f(x) - L(x)\rvert \lt 0.1\text{?}`]
+
+[@KeyboardInstructions('For example, if your spreadsheet shows that first times the error is greater than or equal to [`0.1`] are [`-0.7`] and [`0.7\text{,}`] then enter the interval [`(-0.7, 0.7)\text{.}`]')@]**
+
+[_]{$interval}{10}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Notice that the curvature in [`f(x) = e^x`] is what makes the linear approximation [`L(x)`] lose accuracy. What kind of simple function might do a better job approximating [`e^x`] than a linear one?
+
+[_]{$popup}{5}
+
+END_PGML
+
+Section::End();
+
+Scaffold::End();
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='utf-8'?>
+<webwork-reps version="2" webwork2_major_version="2" webwork2_minor_version="20" xml:id="extracted-Library__Michigan__Chap8Sec4__Q05" assembly-id="Library__Michigan__Chap8Sec4__Q05">
+  <static seed="266" source="Library/Michigan/Chap8Sec4/Q05.pg">
+    <statement><p>Suppose that the density of cars (in cars per mile) down a
+20-mile stretch of the Pennsylvania Turnpike
+is approximated by
+<m>\delta(x) = 300 \left(2+\sin\left(4\sqrt{x + 0.175}\right)\right),</m>
+at a distance <m>x</m> miles from the Breezewood toll plaza.
+Sketch a graph of this function for  <m>0\leq x\leq 20</m>.</p>
+<p><alert>(a)</alert>
+Complete the Riemann sum that approximates the total number of cars 
+on this 20-mile stretch (use <m>Dx</m> instead of <m>\Delta x</m>):</p>
+<p>Number = <m>\Sigma</m><fillin characters="35" name="AnSwEr0001"/></p>
+<p><alert>(b)</alert>
+Find the total number of cars on the 20-mile stretch.</p>
+<p>Number = <fillin characters="25" name="AnSwEr0002"/></p>
+</statement>
+    <answer>
+      <p>
+        <m>300\mathopen{}\left(2+\sin\mathopen{}\left(4\sqrt{x+0.175}\right)\right)Dx</m>
+      </p>
+    </answer>
+    <answer>
+      <p>
+        <m>\frac{1}{8}\cdot 300\mathopen{}\left(320+4\sqrt{0.175}\cos\mathopen{}\left(4\sqrt{0.175}\right)-4\sqrt{20+0.175}\cos\mathopen{}\left(4\sqrt{20+0.175}\right)-\sin\mathopen{}\left(4\sqrt{0.175}\right)+\sin\mathopen{}\left(4\sqrt{20+0.175}\right)\right)</m>
+      </p>
+    </answer>
+    <solution><alert>(a)</alert>
+Suppose we choose an <m>x</m>, <m>0\le x\le 20</m>. We approximate the
+density of the number of the cars between <m>x</m> and <m>x+\Delta x</m>
+miles as <m>\delta(x)</m> cars per mile. Therefore, the number of cars
+between <m>x</m> and <m>x+\Delta x</m> is approximately
+<m>\delta(x)\Delta x</m>. If we slice the 20 mile strip into <m>N</m>
+slices, we get that the total number of cars is
+<me>C \approx \Sigma_{i=1}^N \delta(x_i)\Delta x =
+  \Sigma_{i=1}^N \left[ 600 + 300\sin(4\sqrt{x_i + 0.175})\right]\Delta x,</me>
+where <m>\Delta x =20/N</m>.  This is a right-hand approximation; the
+corresponding left-hand approximation is
+<m>\Sigma_{i=0}^{N-1}\delta(x_i)\Delta x</m>.  We can more loosely write
+both approximations without referring to the number of steps as
+<me>C \approx \Sigma \left[ 600 + 300\sin(4\sqrt{x + 0.175})\right]\Delta x.</me>
+
+
+
+
+<alert>(b)</alert>
+As <m>N\to\infty,</m> the Riemann sum above approaches the integral
+<me>C =\int_0^{20} (600 + 300\sin4\sqrt{x + 0.175})\,dx.</me>
+If we calculate the integral numerically, we find <m>C\approx 11499.5</m>.
+We can also find the integral exactly as follows:
+<me>C = \int_0^{20} (600 + 300\sin4\sqrt{x +0.175})\,dx
+  = \int_0^{20} 600\,dx +\int_0^{20} 300\sin4\sqrt{x + 0.175}\,dx</me>
+<me>= 12000 + 300\int_0^{20}\sin4\sqrt{x +0.175}\,dx.</me>
+Let <m>w = \sqrt{x +0.175},</m> so <m>x =w^2 -0.175</m> and <m>dx =2w\,dw</m>. Then
+<me>\int_{x=0}^{x=20}\sin 4\sqrt{x +0.175}\,dx
+    = 2\int_{w=\sqrt{0.175}}^{w=\sqrt{20.175}} w\sin 4w\,dw,
+    = 2\left[-{1\over 4}w\cos 4w +{1\over 16}\sin 4w\right]
+       \bigg|_{\sqrt{0.175}}^{\sqrt{20.175}} \approx -1.55.</me>
+(To find the integral we used the appropriate entry in a table of 
+integrals.)
+Using this, we have <m>C\approx 12000 + 300(-1.55) \approx 11499.5</m>,
+which matches our numerical approximation.
+
+
+
+</solution>
+  </static>
+  <rendering-data sourceFilePath="Library/Michigan/Chap8Sec4/Q05.pg" origin="webwork2" domain="https://webwork-dev.uleth.ca" course-id="chrissy-playground" user-id="anonymous" passwd="anonymous" language="en-US"/>
+  <pg source="Library/Michigan/Chap8Sec4/Q05.pg"/>
+</webwork-reps>
