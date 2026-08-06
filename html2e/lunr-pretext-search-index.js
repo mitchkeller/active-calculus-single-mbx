@@ -104,7 +104,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-1-vel.html#sec-1-1-vel-5-7",
   "type": "Example",
-  "number": "1.1.4",
+  "number": "1.1.1",
   "title": "Computing instantaneous velocity for a falling ball.",
   "body": " Computing instantaneous velocity for a falling ball   The position function for a falling ball is given by (where is measured in feet and in seconds).    Find an expression for the average velocity of the ball on a time interval of the form where and .  Use this expression to compute the average velocity on and .  Make a conjecture about the instantaneous velocity at .        We make the assumptions that and because cannot be zero (otherwise there is no interval on which to compute average velocity) and because the function only makes sense on the time interval , as this is the duration of time during which the ball is falling. We want to compute and simplify . We start by finding . To do so, we follow the rule that defines the function , and then expand and simplify. Doing so, . Now, returning to our computation of the average velocity, we find that . At this point, we note two things: first, the expression for average velocity clearly depends on , which it must, since as changes the average velocity will change. Further, we note that since can never equal zero, we may remove the common factor of from the numerator and denominator. It follows that .  From this expression we can compute the average for any small positive or negative value of . For instance, to obtain the average velocity on , we let , and the average velocity is ft\/sec. To get the average velocity on , we let , and compute the average velocity as .  We can even explore what happens to as gets closer and closer to zero. As approaches zero, will also approach zero, so it appears that the instantaneous velocity of the ball at should be ft\/sec.     "
 },
@@ -113,7 +113,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-1-vel.html#act-1-1-3",
   "type": "Activity",
-  "number": "1.1.5",
+  "number": "1.1.4",
   "title": "",
   "body": "  For the function given by from Preview Activity , find the most simplified expression you can for the average velocity of the ball on the interval . Use your result to compute the average velocity on and to estimate the instantaneous velocity at . Finally, compare your earlier work in Activity .    Note that .         Observe first that . Next, recall that , so .  Now, since we assume , we can simplify further to find that . Setting , it follows ft\/sec, and letting approach zero, we see that will approach , so the instantaneous velocity at appears to be feet\/sec. Both results match our earlier work in Activity .   "
 },
@@ -122,7 +122,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-1-vel.html#F-1-1-Summary",
   "type": "Figure",
-  "number": "1.1.6",
+  "number": "1.1.2",
   "title": "",
   "body": " The graph of position function together with the line through and whose slope is . The line's slope is the average rate of change of on the interval .    The graph of a representative position function together with two points on the curve and the line that passes through them.  The curve shown in the first quadrant is a portion of a cubic polynomial. For values of and that satisfy , the points and on the curve are shown, along with the line of slope that passes through those points.   "
 },
@@ -257,7 +257,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-2-lim.html#sec-1-2-lim-4-4",
   "type": "Definition",
-  "number": "1.2.3",
+  "number": "1.2.2",
   "title": "",
   "body": "  Given a function , a fixed input , and a real number , we say that has limit as approaches , limit definition and write provided that we can make as close to as we like by taking sufficiently close (but not equal) to . If we cannot make as close to a single value as we would like as approaches , then we say that does not have a limit as approaches .    "
 },
@@ -266,7 +266,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-2-lim.html#sec-1-2-lim-4-5",
   "type": "Example",
-  "number": "1.2.4",
+  "number": "1.2.3",
   "title": "",
   "body": "  For the function pictured in Figure from Preview Activity , what can we say about the values of ?    When working from a graph, it suffices to ask if the function approaches a single value from each side of the fixed input. The function value at the fixed input is irrelevant. Based on the graph of in Figure , we can conclude that , because at each of those -values, the function approaches the same height from both sides of the point of interest.  However, does not have a limit as due to the jump in the graph at . If we approach from the left, the function values tend to get close to 3, but if we approach from the right, the function values get close to 2. There is no single number that all of these function values approach. This is why the limit of does not exist at .   "
 },
@@ -275,7 +275,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-2-lim.html#Ex-1-2-Limits",
   "type": "Example",
-  "number": "1.2.5",
+  "number": "1.2.4",
   "title": "Limits of Two Functions.",
   "body": " Limits of Two Functions   For each of the following functions, we'd like to know whether or not the function has a limit at the stated -values. Use both numerical and algebraic approaches to investigate and, if possible, estimate or determine the value of the limit. Compare the results with a careful graph of the function on an interval containing the points of interest.     ; ,    ; ,       a. We first construct a graph of along with tables of values near and .   Values of near .                                           Values of near .                                           Plot of on .   The graph of is shown on .  The graph looks like a straight line through the points and with one exception: at there's a small open circle on the graph to indicate that is not defined.      From Table , it appears that we can make as close as we want to 3 by taking sufficiently close to , which suggests that . This is also consistent with the graph of . To see this a bit more rigorously and from an algebraic point of view, consider the formula for : . As , , and , so as , the numerator of tends to 3 and the denominator tends to 1, hence .  The situation is more complicated when , because is not defined. If we try to use a similar algebraic argument regarding the numerator and denominator, we observe that as , , and , so as , the numerator and denominator of both tend to 0. We call an indeterminate form . indeterminate form This tells us that there is more work to do to try to determine the limit's value. From Table and Figure , it appears that should have a limit of at .  To see algebraically why this is the case, observe that .  It is important to observe that, since we are taking the limit as , we are considering values that are close, but not equal, to . Because we never actually allow to equal , the quotient has value 1 for every possible value of . Thus, we can simplify the most recent expression above, and find that . This limit is now easy to determine, and its value clearly is . Thus, from several points of view we've seen that .  b. Next we turn to the function , and construct two tables and a graph.    Values of near .                                           Values of near .                                           Plot of on .   The graph of is shown on . The graph oscillates like the standard sine function, but does so in a way that it oscillates more and more frequently as we approach , and oscillates very little once .  The graph looks a bit like we took a large portion of the standard sine curve, say from to , and compressed both ends of the graph toward , as one might do with a Slinky. The closer is to , the faster the graph oscillates between and .     First, as , it appears from the table values that the function is approaching a number between and . From the graph it appears that as . The exact value of is , which is approximately 0.8660254038. This is convincing evidence that .  As , we observe that does not behave in an elementary way. When is positive and approaching zero, we are dividing by smaller and smaller positive values, and increases without bound. When is negative and approaching zero, decreases without bound. In this sense, as we get close to , the inputs to the sine function are growing rapidly, and this leads to increasingly rapid oscillations in the graph of betweem and . If we plot the function with a graphing utility and then zoom in on , we see that the function never settles down to a single value near the origin, which suggests that does not have a limit at .  How do we reconcile the graph with the righthand table above, which seems to suggest that the limit of as approaches may in fact be ? The data misleads us because of the special nature of the sequence of input values . When we evaluate , we get for each positive integer value of . But if we take a different sequence of values approaching zero, say , then we find that .  That sequence of function values suggests that the value of the limit is . Clearly the function cannot have two different values for the limit, so has no limit as .   "
 },
@@ -284,7 +284,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-2-lim.html#act-1-2-1",
   "type": "Activity",
-  "number": "1.2.12",
+  "number": "1.2.2",
   "title": "",
   "body": "  Estimate the value of each of the following limits by constructing appropriate tables of values. Then determine the exact value of the limit by using algebra to simplify the function. Finally, plot each function on an appropriate interval to check your result visually.           can be factored.     .     .           Expand the expression , and then combine like terms in the numerator.     .     .           Try multiplying the given function by this fancy form of 1: .     .     .    "
 },
@@ -293,7 +293,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-2-lim.html#act-1-2-2",
   "type": "Activity",
-  "number": "1.2.13",
+  "number": "1.2.3",
   "title": "",
   "body": "  Consider a moving object whose position function is given by , where is measured in meters and is measured in minutes.      Determine the most simplified expression for the average velocity of the object on the interval , where .     .         Observe that .      Determine the average velocity of the object on the interval . Include units on your answer.    Recall that .     meters\/min.    Using the expression just found in (a) with , meters\/min.      Determine the instantaneous velocity of the object when . Include units on your answer.    Consider and use your work in (a).     meters per minute.    Taking the limit of average velocity and using our work from (a), we find that , so the instantaneous velocity of the object when is 6 meters per minute.    "
 },
@@ -302,7 +302,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-2-lim.html#act-1-2-3",
   "type": "Activity",
-  "number": "1.2.14",
+  "number": "1.2.4",
   "title": "",
   "body": "  For the moving object whose position at time is given by the graph provided, answer each of the following questions. Assume that is measured in feet and is measured in seconds.    The function is graphed on the interval . The vertical scale is the same as the horizontal scale. The graph rises and falls periodically, doing so above and below the line .        Use the graph to estimate the average velocity of the object on each of the following intervals: , , . Draw each line whose slope represents the average velocity you seek.    Remember that average velocity on an interval computes the quotient of change in over change in . This is the slope of the line between the corresponding two points on the graph of .     , , and .    The average velocity on is the slope of the line joining the points and , which is . On , we similarly find , and on , we have .      How could you use average velocities or slopes of lines to estimate the instantaneous velocity of the object at a fixed time?    Think about shorter and shorter time intervals and drawing the lines whose slopes represent average velocity.    Take shorter and shorter time intervals and draw the lines whose slopes represent average velocity. If those lines' slopes are approaching a single number, that number represents the instantaneous velocity.    Take shorter and shorter time intervals and draw the lines whose slopes represent average velocity. If those lines' slopes are approaching a single number, that number represents the instantaneous velocity. For example, to estimate the instantaneous velocity at , we might consider average velocities on , , and .      Use the graph to estimate the instantaneous velocity of the object when . Should this instantaneous velocity at be greater or less than the average velocity on that you computed in (a)? Why?    Think about zooming in on the graph at and drawing a line that, up close, looks just like the curve . What is the approximate slope of that line?    The instantaneous velocity at is greater than the average velocity on .    If we draw the line through and , it looks like the line's slope is approximately 2.5: if we go over one grid-width, we appear to go up about 2.5. The slope of this line is clearly greater than the slope of the line through and , which is 2. Hence the instantaneous velocity at is greater than the average velocity on .    "
 },
@@ -437,7 +437,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#PA-1-3",
   "type": "Preview Activity",
-  "number": "1.3.2",
+  "number": "1.3.1",
   "title": "",
   "body": "  Suppose that is the function given by the graph below and that and are the input values as labeled on the -axis. Use the graph in Figure to answer the following questions.   Plot of for Preview Activity .    The figure shows a portion of the graph of the cubic polynomial in the first quadrant. On the -axis, two locations are marked: and , where both and are positive numbers. The points that lie on the curve directly above and are identified with small filled circles.        Locate and label the points and on the graph.       Construct a right triangle whose hypotenuse is the line segment from to . What are the lengths of the respective legs of this triangle?       What is the slope of the line that connects the points and ?       Write a meaningful sentence that explains how the average rate of change of the function on a given interval and the slope of a related line are connected.     "
 },
@@ -446,7 +446,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#def-derivative",
   "type": "Definition",
-  "number": "1.3.4",
+  "number": "1.3.3",
   "title": "",
   "body": "  Let be a function and an input value in the function's domain. We define the derivative of with respect to evaluated at , derivative definition denoted , by the formula , provided this limit exists.   "
 },
@@ -455,7 +455,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#sec-1-3-derivative-pt-4-5",
   "type": "Note",
-  "number": "1.3.5",
+  "number": "1.3.4",
   "title": "",
   "body": "   The derivative of at the value is defined as the limit of the average rate of change of on the interval as . This limit may not exist, so not every function has a derivative at every point.  We say that a function is differentiable  differentiable at if it has a derivative at .  The derivative is a generalization of the instantaneous velocity of a position function: if is a position function of a moving body, tells us the instantaneous velocity of the body at time .  Because the units on are units of per unit of , the derivative has these very same units. For instance, if measures position in feet and measures time in seconds, the units on are feet per second.  Because the quantity represents the slope of the line through and , when we compute the derivative we are taking the limit of a collection of slopes of lines. Thus, the derivative itself represents the slope of a particularly important line.    "
 },
@@ -464,7 +464,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#F-1-3-SecToTanSeq",
   "type": "Figure",
-  "number": "1.3.6",
+  "number": "1.3.5",
   "title": "",
   "body": " A sequence of secant lines approaching the tangent line to at .    This figure shows four adjacent graphs of the same function ( in the first quadrant) and focuses how we think about identifying the tangent line to graph at .  The first image shows the points and where is a positive number, as well as the secant line that joins these two points.  The second image again shows the point , but now the point is adjusted to have be about half the size of in the first image so that is closer on the curve to . The secant line that joins and is again shown.  The third image is similar to the first and second. The point remains fixed, but the point is updated again to have be about half the size of in the second image so that is even closer on the curve to . Here the points and are very close to one another, andthe secant line that joins them is again shown.  The fourth and final image shows the point and the tangent line to the curvey at that point. Up close, the tangent line looks indistinguishable from the curve itself.   "
 },
@@ -473,7 +473,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#F-1-3-SecToTan",
   "type": "Figure",
-  "number": "1.3.7",
+  "number": "1.3.6",
   "title": "",
   "body": " A sequence of secant lines approaching the tangent line to at . At right, we zoom in on the point . The slope of the tangent line (in green) to at is given by .    This figure shows two different perspectives on the graphs in Figure .  The first image shows the four plots of three secant lines and the tangent line to on the same graph. There is also a small box centered on the point . In this image, especially within the box, the secant lines appear to get closer to the tangent line as gets closer to zero.  The second image zooms in on the contents of the box and focuses on the point , the tangent line, and the secant line that results from the point that is closest to from the preceding image. The tangent line looks very similar to the curve (especially near the point ), and the secant line that is shown looks like a just-slightly-tilted version of the tangent line that is not as closely aligned with .   "
 },
@@ -482,7 +482,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#sec-1-3-derivative-pt-4-12",
   "type": "Note",
-  "number": "1.3.8",
+  "number": "1.3.7",
   "title": "",
   "body": " The instantaneous rate of change of with respect to at , , also measures the slope of the tangent line to the curve at .  "
 },
@@ -491,7 +491,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#sec-1-3-derivative-pt-4-14",
   "type": "Example",
-  "number": "1.3.9",
+  "number": "1.3.8",
   "title": "Using the limit definition of the derivative.",
   "body": " Using the limit definition of the derivative   For the function , use the limit definition of the derivative to compute . In addition, discuss the meaning of this value and draw a labeled graph that supports your explanation.    From the limit definition, we know that .  Now we use the rule for , and observe that and . Substituting these values into the limit definition, we have that .  In order to let , we must simplify the quotient. Expanding and distributing in the numerator, .  Combining like terms, we have .  Next, we remove a common factor of in both the numerator and denominator and find that .  Finally, we are able to take the limit as , and thus conclude that . We note that is the instantaneous rate of change of at the point . It is also the slope of the tangent line to the graph of at the point . Figure shows both the function and the line through with slope .   The tangent line to at the point .    This figure shows a graph of the quadratic function along with its tangent line at the point . The values of range horizontally from to ; values of range vertically from to . The grid boxes are .  The graph of is a parabola that opens down with vertex at and -intercepts at and . The tangent line passes through on the curve and has slope . Near , the curve and the tangent line align perfectly and look indistinguishable.     "
 },
@@ -500,7 +500,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#act-1-3-1",
   "type": "Activity",
-  "number": "1.3.11",
+  "number": "1.3.2",
   "title": "",
   "body": "  Consider the function whose formula is .      What familiar type of function is ? What can you say about the slope of at every value of ?    If , we say is quadratic. If , we say is exponential. What do we say about ?     is linear.    Because is of the form , we call a linear function.      Compute the average rate of change of on the intervals , , and ; simplify each result as much as possible. What do you notice about these quantities?    Remember that to compute the average rate of change of on , we calculate .    The average rate of change on , , and is .    The average rate of change on is . Similar calculations show the average rate of change on is also . On , observe that .      Use the limit definition of the derivative to compute the exact instantaneous rate of change of with respect to at the value . That is, compute using the limit definition. Show your work. Is your result surprising?    Observe that .     .    Using the limit definition of the derivative, we find that .      Without doing any additional computations, what are the values of , , and ? Why?    Think about the how the graph of appears. What is the same at every point?     , , and , since the slope of a linear function is the same at every point.     , , and , since the slope of a linear function is the same at every point.    "
 },
@@ -509,7 +509,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#act-1-3-2",
   "type": "Activity",
-  "number": "1.3.12",
+  "number": "1.3.3",
   "title": "",
   "body": "  A water balloon is tossed vertically in the air from a window. The balloon's height in feet at time in seconds after being launched is given by . Use this function to respond to each of the following questions.      Sketch an accurate, labeled graph of on the axes provided. You should be able to do this without using computing technology.    A coordinate grid for plotting the function and its tangent line. The values of range horizontally from to ; values of range vertically from to .     Observe that and that has its vertex at .    The vertex is .    Since , has -intercepts at and ; the -intercept is clearly ; and the vertex is . See more in part (d).      Compute the average rate of change of on the time interval . Include units on your answer and write one sentence to explain the meaning of the value you found.    Recall the formula for average rate of change.     feet per second.    Observe that feet per second. This value represents the average rate at which the ball is falling over the time interval from to .      Use the limit definition to compute the instantaneous rate of change of with respect to time, , at the instant . Show your work using proper notation, include units on your answer, and write one sentence to explain the meaning of the value you found.    Note that .     .    We compute as follows: .      On your graph in (a), sketch two lines: one whose slope represents the average rate of change of on , the other whose slope represents the instantaneous rate of change of at the instant . Label each line clearly.    Think about a secant line and a tangent line.      A plot of the quadratic function , the secant line through and , and the tangent line through with slope   The point is of most interest, and the curve, secant line, and tangent line all pass through this point. The function is a parabola that opens down with vertex and a -intercept at . The secant line passes through and , while the tangent line only passes through .     We plot and label the secant line through and , as well as the tangent line through with slope .    A plot of the quadratic function , the secant line through and , and the tangent line through with slope   The point is of most interest, and the curve, secant line, and tangent line all pass through this point. The function is a parabola that opens down with vertex and a -intercept at . The secant line passes through and , while the tangent line only passes through .       For what values of do you expect to be positive? Why? Answer the same questions when positive is replaced by negative and zero.     A line with positive slope is one that is rising; a line with negative slope is one that is falling.     is positive whenever ; to be negative whenever ; .    Observe that whenever the ball is rising, its position function is rising, and thus the slope of its tangent line at any such point will be positive. This means that we should find to be positive whenever , and similarly to be negative whenever (which is when the ball is falling). At the instant , the ball is at its vertex and is neither rising nor falling, and at that point, .    "
 },
@@ -518,7 +518,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-3-derivative-pt.html#act-1-3-3",
   "type": "Activity",
-  "number": "1.3.13",
+  "number": "1.3.4",
   "title": "",
   "body": "  A rapidly growing city in Arizona has its population at time , where is the number of decades after the year 2010, modeled by the formula . Use this function to respond to the following questions.      Sketch an accurate graph of for to on the axes provided. Label the scale on the axes carefully.    A grid an axes for plotting the function in the first quadrant. The grid is units wide and tall, with no labeled scale, and the coordinate axes lie one unit up from the bottom and one unit in from the left.      is the standard exponential function, scaled by .       A plot of on the interval (in decades). The values of on the vertical axis range from to (in thousands). A secant line and a tangent line are also shown.  The function is exponential and increases as we move from left to right, beginning at the -intercept . The points and are also shown, along with the secant line that joins those points and the tangent line to the curve at .        people per decade is expected to be the average rate of change of the city's population over the two decades from 2030 to 2050.      Compute the average rate of change of between 2030 and 2050. Include units on your answer and write one sentence to explain the meaning (in everyday language) of the value you found.    Use the formula for the average rate of change of a function.     people per decade is expected to be the average rate of change of the city's population over the two decades from 2030 to 2050.     people per decade is expected to be the average rate of change of the city's population over the two decades from 2030 to 2050.      Use the limit definition to write an expression for the instantaneous rate of change of with respect to time, , at the instant . Explain why this limit is difficult to evaluate exactly.    Because of the exponential nature of , we're not able to simplify in a way that removes from the denominator.     Because there is no way to remove a factor of from the numerator, we cannot eliminate the that is making the denominator go to zero.    Note that Because there is no way to remove a factor of from the numerator, we cannot eliminate the that is making the denominator go to zero, so it appears we need to be content estimating the limit with small values of .      Estimate the limit in (c) for the instantaneous rate of change of at the instant by using several small values. Once you have determined an accurate estimate of , include units on your answer, and write one sentence (using everyday language) to explain the meaning of the value you found.    Try using and . Be careful not to round or use computing precision that is too limited.    which is measured in people per decade.    Using , we find ; using , we find . Averaging these two results, we find that which is measured in people per decade.      On your graph, sketch two lines: one whose slope represents the average rate of change of on , the other whose slope represents the instantaneous rate of change of at the instant .    For the first line, think about the points and .    See the graph provided in (a). The magenta line has slope equal to the average rate of change of on , while the green line is the tangent line at with slope .    See the graph provided in (a). The magenta line has slope equal to the average rate of change of on , while the green line is the tangent line at with slope .      In a carefully-worded sentence, describe the behavior of as increases in value. What does this reflect about the behavior of the given function ?    Visualize the slope of the tangent line and how it changes as a point moves along the curve.    It appears that the tangent line's slope at the point will increase as increases.    If we consider the point where and let start at 0 and then increase, it appears that the tangent line's slope at the point will increase as increases.    "
 },
@@ -671,7 +671,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-4-derivative-fxn.html#F-1-4-ffprime",
   "type": "Figure",
-  "number": "1.4.2",
+  "number": "1.4.1",
   "title": "",
   "body": " The graphs of (at left) and (at right). Slopes on the graph of correspond to heights on the graph of .    Two adjacent plots: on the left, the graph of , and on the right the graph of . Both graphs have ranging horizontally from to , and ranging vertically from to .  On the left, the graph of , which is a parabola with vertex and -intercepts and . In addition, portions of tangent lines are shown: at , , , , and , with respective slopes , , , , and .  On the left, the graph of , which is a line with -intercept and -intercept and . In addition, points are labeled with their coordinates, showing the height of at each of them: , , , , and . These heights on the derivative graph match the corresponding slopes (at each value of ) on the graph of the original function.   "
 },
@@ -680,7 +680,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-4-derivative-fxn.html#D-derivative-defn-x",
   "type": "Definition",
-  "number": "1.4.3",
+  "number": "1.4.2",
   "title": "",
   "body": "  Let be a function and an input value in the function's domain. We define the derivative of , a new function called , by the formula , provided this limit exists.   "
 },
@@ -689,7 +689,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-4-derivative-fxn.html#act-1-4-1",
   "type": "Activity",
-  "number": "1.4.4",
+  "number": "1.4.2",
   "title": "",
   "body": "  For each given graph of , sketch an approximate graph of its derivative function, , on the axes immediately below. The scale of the grid for the graph of is ; assume the horizontal scale of the grid for the graph of is identical to that for . If necessary, adjust and label the vertical scale on the axes for .  When you are finished with all 8 graphs, write several sentences that describe your overall process for sketching the graph of the derivative function, given the graph the original function. What are the values of the derivative function that you tend to identify first? What do you do thereafter? How do key traits of the graph of the derivative function exemplify properties of the graph of the original function?    This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a cubic function that crosses the -axis three times. In the top right, there is a decreasing exponential function that is always positive and that approaches the -axis as increases without bound. Beneath each of these two figures there are similar-sized blank coordinate axes for plotting and .      This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that looks like that crosses the -axis three times to the left of the origin, at the origin, and three times to the right of the origin. In the top right, there is a function that has a horizontal asymptote of in both directions, is always negative for and always positive for and that passes through the origin. Beneath each of these two figures there are similar-sized blank coordinate axes for plotting and .       This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that is always increasing but occasionally levels off to have a horizontal tangent line, once to the left of , and once to the right of . In the top right, there is a function that looks like the absolute value function, but shifted slightly down; in other words, the graph of is a V with the point of the V located at . Beneath each of these two figures there are similar-sized blank coordinate axes for plotting and .       This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that looks like the absolute value of the sine function: the graph is a sequence of adjacent humps . In the top right, there is a function that looks like the rational function . Beneath each of these two figures there are similar-sized blank coordinate axes for plotting and .      Points where the slope of the tangent line is equal to zero are particularly important. Try finding these points first in your effort to plot and plotting those zero values on the axes where you'll graph .       This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a cubic function that crosses the -axis three times. In the top right, there is a decreasing exponential function that is always positive and that approaches the -axis as increases without bound.  Beneath each of these two figures the graphs of and are shown. On the bottom left, the graph of is an upward-opening parabola that crosses the -axis at the locations where has horizontal tangent lines. On the bottom right, the graph of is an exponential function that is always negative, always increasing, and that approaches the -axis as the value of increases.      This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that looks like that crosses the -axis three times to the left of the origin, at the origin, and three times to the right of the origin. In the top right, there is a function that has a horizontal asymptote of in both directions, is always negative for and always positive for and that passes through the origin.  Beneath each of these two figures there are respective plots of and . The graph of looks similar to the cosine function, and crosses the -axis everywhere the graph of has a horizontal tangent line. The graph of is positive on the approximate interval and with its largest value at . At approximately , , and then moving right, becomes more negative for a little ways, and then the derivative function starts to get less negative and approach the horizontal axis. To the left of , the graph of behaves similarly. Overall, the graph of is symmetric about the -axis.      This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that is always increasing but occasionally levels off to have a horizontal tangent line, once to the left of , and once to the right of . In the top right, there is a function that looks like the absolute value function, but shifted slightly down; in other words, the graph of is a V with the point of the V located at .  Beneath each of these two figures are respective plots of and . On the left, the graph of looks similar to the function : a sinusoidal function that is always nonnegative; note that wherever has horizontal tangent lines. On the right, the graph of is the piecewise function that satisfies for and for , with being undefined due to the sharp corner in the graph of at .      This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that looks like the absolute value of the sine function: the graph is a sequence of adjacent humps . In the top right, there is a function that looks like the rational function .  Beneath each of these two figures are respective plots of and . On the left, note that is undefined at each of the sharp corners on , and since the graph of is periodic, so is the graph of . Each piece of falls from a high point corresponding to the lefthand start of the corresponding hump on , crosses the -axis at a location aligned with the top of the corresponding hump on , and falls to its lowest value at a location corresponding to the righthand end of the corresponding hump on . On the right, the graph of is that of a rational function that is always negative with a horizontal asymptote of and a vertical asymptote of .         This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a cubic function that crosses the -axis three times. In the top right, there is a decreasing exponential function that is always positive and that approaches the -axis as increases without bound.  Beneath each of these two figures the graphs of and are shown. On the bottom left, the graph of is an upward-opening parabola that crosses the -axis at the locations where has horizontal tangent lines. On the bottom right, the graph of is an exponential function that is always negative, always increasing, and that approaches the -axis as the value of increases.      This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that looks like that crosses the -axis three times to the left of the origin, at the origin, and three times to the right of the origin. In the top right, there is a function that has a horizontal asymptote of in both directions, is always negative for and always positive for and that passes through the origin.  Beneath each of these two figures there are respective plots of and . The graph of looks similar to the cosine function, and crosses the -axis everywhere the graph of has a horizontal tangent line. The graph of is positive on the approximate interval and with its largest value at . At approximately , , and then moving right, becomes more negative for a little ways, and then the derivative function starts to get less negative and approach the horizontal axis. To the left of , the graph of behaves similarly. Overall, the graph of is symmetric about the -axis.      This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that is always increasing but occasionally levels off to have a horizontal tangent line, once to the left of , and once to the right of . In the top right, there is a function that looks like the absolute value function, but shifted slightly down; in other words, the graph of is a V with the point of the V located at .  Beneath each of these two figures are respective plots of and . On the left, the graph of looks similar to the function : a sinusoidal function that is always nonnegative; note that wherever has horizontal tangent lines. On the right, the graph of is the piecewise function that satisfies for and for , with being undefined due to the sharp corner in the graph of at .      This image consists of sets of axes arranged in two rows and two columns. There is no scale on any of the axes. In the top left, there is a function that looks like the absolute value of the sine function: the graph is a sequence of adjacent humps . In the top right, there is a function that looks like the rational function .  Beneath each of these two figures are respective plots of and . On the left, note that is undefined at each of the sharp corners on , and since the graph of is periodic, so is the graph of . Each piece of falls from a high point corresponding to the lefthand start of the corresponding hump on , crosses the -axis at a location aligned with the top of the corresponding hump on , and falls to its lowest value at a location corresponding to the righthand end of the corresponding hump on . On the right, the graph of is that of a rational function that is always negative with a horizontal asymptote of and a vertical asymptote of .     "
 },
@@ -698,7 +698,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-4-derivative-fxn.html#act-1-4-2",
   "type": "Activity",
-  "number": "1.4.5",
+  "number": "1.4.3",
   "title": "",
   "body": "  For each of the listed functions, determine a formula for the derivative function. For the first two, determine the formula for the derivative by thinking about the nature of the given function and its slope at various points; do not use the limit definition. For the latter four, use the limit definition. Pay careful attention to the function names and independent variables. It is important to be comfortable with using letters other than and . For example, given a function , we call its derivative .          What is the slope of the function at every point?    .    because the slope of the tangent line to the horizontal line given by is zero at every value of .           What is the slope of the function at every point?    .    because the slope of the tangent line to the line given by is 1 at every value of .                .    By the limit definition,                 .    By the limit definition,                 .    By the limit definition,                 .    By the limit definition,     "
 },
@@ -851,7 +851,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#Ex-1-5a-1-pop-growth",
   "type": "Example",
-  "number": "1.5.3",
+  "number": "1.5.2",
   "title": "Population growth.",
   "body": " Population growth   Suppose that the function measures the population of a city (in thousands) at the start of year (where corresponds to the year 2020). What does mean in context?    The value tells us that the instantaneous rate of change of the city's population with respect to time at the start of 2022 is thousand people per year, since is measured in thousands of people and is measured in years. In addition, because the derivative value tells us how fast the population is changing, we can also infer about how much the population will change: we expect that in the year from 2022 to 2023, about people will be added to the city's population.   "
 },
@@ -860,7 +860,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#Ex-1-5a-2-time-speed",
   "type": "Example",
-  "number": "1.5.4",
+  "number": "1.5.3",
   "title": "Time as a function of speed.",
   "body": " Time as a function of speed   Consider the function from Preview Activity , whose output tells us the amount of time (in hours) it takes to drive 50 miles at miles per hour. What is the meaning of ?    The value means that the instantaneous rate of change of travel time, , when is hours per (mile per hour). This also tells us about how much the function value will change if we change the speed at which we drive: if we are driving at a speed of miles per hour and we increase our speed by one mile per hour, we expect the time it takes us to drive 50 miles to drop by about hours. Similarly, if we increase our speed by two miles per hour, we'd expect the time it takes us to drive 50 miles to drop by about hours.   "
 },
@@ -869,7 +869,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#note-sec-1-5-units",
   "type": "Note",
-  "number": "1.5.5",
+  "number": "1.5.4",
   "title": "",
   "body": " It is usually best not to simplify complicated units on a rate of change, but rather to leave their form as (units of output) per (unit of input) .  "
 },
@@ -878,7 +878,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#act-1-5-1",
   "type": "Activity",
-  "number": "1.5.6",
+  "number": "1.5.2",
   "title": "",
   "body": "  In each of the following contexts, explain the meaning of the given derivative values in two ways that are similar to the sentence structures and discussions of units in the two examples preceding this activity in the text.  First, write a sentence that explicitly describes what we know about the instantaneous rate of change of the given function at a particular instant, with units. Then, write a second sentence that explains the amount of change we expect in the function value if the input variable changes by one unit at the known instant.  Remember not to try to simplify the units on the derivative value, but rather keep the units in the form units of output per unit of input .      Suppose that measures the value of a car (in dollars) after the car has been driven miles. Explain the meaning of the statement by writing two sentences that address the instantaneous rate of change and the predicted change in the function, respectively.  Explicitly, your first sentence might have structure like   means that the instantaneous rate of change of when the car has been driven miles is ,   where the final blank should be completed using the units on the derivative. Your second sentence might have form   When the car has been driven miles, if the car is driven one more mile, we expect that the value of the car will by about .         means that the instantaneous rate of change of the car's value when the car has been driven miles is dollars per mile. In addition, when the car has been driven miles, if the car is driven one more mile, we expect that the value of the car will decrease by about dollars.     means that the instantaneous rate of change of the car's value when the car has been driven miles is dollars per mile. This tells us that when the car has been driven miles, if the car is driven one more mile, we expect that the value of the car will decrease by about dollars.      Suppose that measures the amount of water (in liters) in a tank that is filled with water that is meters deep. Explain the meaning of the statement by writing two sentences in the structure described above.        means that the instantaneous rate of change of volume of water in the tank when the water is meters deep is liters per meter. This tells us that when the water is meters deep, if the water rises one more meter, we expect that the volume of water in the tank will increase by about liters.     means that the instantaneous rate of change of volume of water in the tank when the water is meters deep is liters per meter. This tells us that when the water is meters deep, if the water rises one more meter, we expect that the volume of water in the tank will increase by about liters.      Suppose that measures the temperature of a can of soda (in degrees Celsius) in a refrigerator at time in minutes. Explain the meaning of the statement by writing two sentences in the structure described above.        means that the instantaneous rate of change of the soda's temperature at the instant minutes is degrees Celsius per minute. This tells us that after minutes have elapsed, if one more minute passes, we expect that the soda's temperature will drop by about degrees Celsius.     means that the instantaneous rate of change of the soda's temperature at the instant minutes is degrees Celsius per minute. This tells us that after minutes have elapsed, if one more minute passes, we expect that the soda's temperature will drop by about degrees Celsius.      Suppose that measures the rate at which a person burns calories (in calories per hour) when riding a bike at a speed of kilometers per hour. Explain the meaning of the statement by writing two sentences in the structure described above.        means that the instantaneous rate of change of the rate at which the biker is burning calories when traveling at a speed of kilometers per hour is calories per hour per kilometer per hour. This tells us that when the person is riding at kilometers per hour, if they increase their speed by kilometer per hour, we expect that they will burn about additional calories over the next hour.     means that the instantaneous rate of change of the rate at which the biker is burning calories when traveling at a speed of kilometers per hour is calories per hour per kilometer per hour. This tells us that when the person is riding at kilometers per hour, if they increase their speed by kilometer per hour, we expect that they will burn about additional calories over the next hour.    "
 },
@@ -887,7 +887,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#Ex-1-5-1-central-difference",
   "type": "Example",
-  "number": "1.5.7",
+  "number": "1.5.5",
   "title": "",
   "body": "  Suppose that is a function for which three values are known: , , and . Estimate .    We know that . But since we don't have a graph or a formula for the function, we can neither sketch a tangent line nor evaluate the limit algebraically, nor can we use smaller and smaller values of to estimate the limit.  Instead, we have just two choices: using or , depending on which point we pair with .  So, one estimate is .  The other is .  Because the first approximation looks backward from the point and the second approximation looks forward, it makes sense to average these two estimates in order to account for behavior on both sides of . Doing so, we find that .   "
 },
@@ -896,7 +896,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#def-1-5-central-difference",
   "type": "Definition",
-  "number": "1.5.8",
+  "number": "1.5.6",
   "title": "",
   "body": " central difference   For a given value of , the central difference approximation of is given by .   "
 },
@@ -905,7 +905,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#F-1-5a-central-diff",
   "type": "Figure",
-  "number": "1.5.9",
+  "number": "1.5.7",
   "title": "",
   "body": " Plot of a function that satisfies the data in Example .    Plot of a function for which , , and . The function has a similar shape to a function such as , but shifted appropriately to pass through the noted points. In addition, the secant line between the first and third points, and , is shown, along with the tangent line to the curve at the point      f(x) = 4-3*(0.5)^x  a = 1  b = 2  c = 3  L(x) = f(a) + (f(c)-f(a))\/(c-a)*(x-a)                 "
 },
@@ -914,7 +914,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#act-1-5-2",
   "type": "Activity",
-  "number": "1.5.10",
+  "number": "1.5.3",
   "title": "",
   "body": "  A potato is placed in an oven whose temperature is 350 degrees Fahrenheit, and the potato's temperature (in degrees Fahrenheit) is recorded in the following table. Time is measured in minutes. Thanks to Nick Owad of Hood College for conducting experiments with actual potatoes in his oven in order to generate the data for this activity.   Potato temperature data in degrees Fahrenheit.                                                            Use a central difference to estimate the instantaneous rate of change of the potato's temperature at . Include units on your answer.    Think about quantities such as .    degrees per minute.    Using the central difference, we find that degrees per minute.      Use a central difference to estimate the instantaneous rate of change of the potato's temperature at . Include units on your answer.    See the note in (a).    degrees per minute.    Using the central difference, we find that degrees per minute.      Without doing any calculation, which do you expect to be greater: or ? Why?    Is changing faster at or at ?    We expect .    As time goes on, we see that it's usually the case that the amount of increase in the potato's temperature gets less and less, thus we expect the value of to get smaller and smaller as time goes on. We therefore expect .      Suppose we know that and . What are the respective units on these two quantities? What do you expect the temperature of the potato to be when ? when ? Why?    Remember that the units on will be degrees Fahrenheit per minute.    Because at time the potato's temperature is increasing at 1.3941 degrees per minute, we expect that at , the temperature will be about 1.3941 degrees greater than at .    The value is the temperature of the potato in degrees Fahrenheit at time 46, while measures the instantaneous rate of change of the potato's temperature with respect to time at the instant , and its units are degrees per minute. Because at time the potato's temperature is increasing at 1.3941 degrees per minute, we expect that at , the temperature will be about 1.3941 degrees greater than at , or in other words . Similarly, at , two minutes have elapsed from , so we expect an increase of degrees: .      Write a couple of careful sentences that describe the behavior of the temperature of the potato on the time interval , as well as the behavior of the instantaneous rate of change of the potato's temperature on the same time interval.    Be careful to distinguish between the temperature, , and the rate of change of temperature, , in your commentary.    We might say that on the interval the temperature of the potato is increasing, but at a decreasing rate.    Throughout the time interval , the temperature of the potato is increasing. But as time goes on, the rate at which the temperature is rising appears to be decreasing. That is, while the values of continue to get larger as time progresses, the values of seem to be getting smaller (while still remaining positive). We thus might say that on the interval the temperature of the potato is increasing, but at a decreasing rate.    "
 },
@@ -923,7 +923,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#Fig-1-5a-P",
   "type": "Figure",
-  "number": "1.5.12",
+  "number": "1.5.9",
   "title": "",
   "body": " Plot of the temperature function, .    This figure is a plot of the temperature function, , on the interval ; the vertical axis has values . The temperature function's value gets larger as increases, but does so more and more slowly, and appears to approach as a horizontal asymptote.     f(x)=212-148*exp(-0.05*x)     ^\\circ \\mbox{F}    \\mbox{min}    y=P(t)        "
 },
@@ -932,7 +932,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#Fig-1-5a-PPrime",
   "type": "Figure",
-  "number": "1.5.13",
+  "number": "1.5.10",
   "title": "",
   "body": " Plot of the temperature function's derivative, .    This figure shows a graph of the temperature function's derivative, , on the interval ; the vertical axis has values , here with units degrees per minute . The derivative function's value gets smaller as increases, and approaches as a horizontal asymptote.     f(x)=148*0.05*exp(-0.05*x)  a = 1     ^\\circ \\mbox{F\/min}    \\mbox{min}    y=P'(t)        "
 },
@@ -941,7 +941,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-5-units.html#act-1-5-3",
   "type": "Activity",
-  "number": "1.5.14",
+  "number": "1.5.4",
   "title": "",
   "body": "  Researchers at a major car company have found a function that relates gasoline consumption to speed for a particular model of car. In particular, they have determined that the consumption , in liters per kilometer , at a given speed , is given by a function , where is the car's speed in kilometers per hour .     Data provided by the car company tells us that , , and . Use this information to estimate the instantaneous rate of change of fuel consumption with respect to speed at . Be as accurate as possible, use proper notation, and include units on your answer.    Try a central difference.    liters per kilometer per kilometer per hour.    Using a central difference, we have which tells us that liters per kilometer per kilometer per hour.      By writing a complete sentence, interpret the meaning (in the context of fuel consumption) of .    What is happening when the car is traveling at 80 km\/hr?    At 80 kilometers per hour, the car is using fuel at a rate of 0.015 liters per kilometer.    When the car is traveling at 80 kilometers per hour, it is using fuel at a rate of 0.015 liters per kilometer. That is, at the given speed, for each additional kilometer the car travels, it uses an additional 0.015 liters of fuel.      Write at least one complete sentence that interprets the meaning of the value of that you estimated in (a).    Remember that units on the derivative are units of output per unit of input.    When the car is traveling at 90 kilometers per hour, its rate of fuel consumption per kilometer is increasing at a rate of 0.0006 liters per kilometer per kilometer per hour.    To say that liters per kilometer per kilometer per hour means that when the car is traveling at 90 kilometers per hour, its rate of fuel consumption per kilometer is increasing at a rate of 0.0006 liters per kilometer per kilometer per hour. If we increase our speed from 90 to 91 km\/hr, we would expect our rate of fuel consumption to rise by 0.0006 liters for each additional kilometer driven.    "
 },
@@ -1058,7 +1058,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#PA-1-6",
   "type": "Preview Activity",
-  "number": "1.6.2",
+  "number": "1.6.1",
   "title": "",
   "body": "  The position of a car driving along a straight road at time in minutes is given by the function whose graph is provided. The car's position function has units measured in thousands of feet. For instance, the point on the graph indicates that after 2 minutes, the car has traveled 4000 feet.    This graph shows a position function that passes through the following key points: , , , , , , , , , , , , and . The position function never decreases, and on the intervals , , and is constant. In between those intervals, the function rises more and more quickly on the first half of the interval, and then rises less and less quickly on the second half of the interval. The overall graph is smooth and without sharp corners.      In everyday language, describe the behavior of the car over the provided time interval. In particular, you should carefully discuss what is happening on each of the time intervals , , , , and , plus provide commentary overall on what the car is doing on the interval .       On the lefthand axes provided, sketch a careful, accurate graph of .    Two sets of identical coordinate axes are provided. On each, the horizontal axis shows -values for ; the vertical axis is without scale, and shows both negative and positive values of .         What is the meaning of the function in the context of the given problem? What can we say about the car's behavior when is positive? when is zero? when is negative?       Rename the function you graphed in (b) to be called . Describe the behavior of in words, using phrases like is increasing on the interval and is constant on the interval .       Sketch a graph of the function on the righthand axes provide in (b). Write at least one sentence to explain how the behavior of is connected to the graph of .     "
 },
@@ -1067,7 +1067,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#D-1-6-incr-decr",
   "type": "Definition",
-  "number": "1.6.3",
+  "number": "1.6.2",
   "title": "",
   "body": "  Given a function defined on the interval , we say that is increasing on provided that for all , in the interval , if , then . Similarly, we say that is decreasing on provided that for all , in the interval , if , then .   "
 },
@@ -1076,7 +1076,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#F-1-6-Intro2",
   "type": "Figure",
-  "number": "1.6.4",
+  "number": "1.6.3",
   "title": "",
   "body": " A function that is decreasing on the intervals and and increasing on and .    A plot of a periodic-looking function that might have formula along with two of its tangent lines; one tangent line with negative slope is shown at the point where , and a second tangent line with positive slope is shown at the point where .    "
 },
@@ -1085,7 +1085,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#sec-1-6-second-d-5-5",
   "type": "Definition",
-  "number": "1.6.5",
+  "number": "1.6.4",
   "title": "",
   "body": "  Let be a function and an input value in the function's domain. We define the second derivative of , a new function called , by the formula , provided this limit exists. That is, is given by limit definition of the derivative of the first derivative.   "
 },
@@ -1094,7 +1094,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#F-1-6-3optsi",
   "type": "Figure",
-  "number": "1.6.6",
+  "number": "1.6.5",
   "title": "",
   "body": " Three functions that are all increasing, but doing so in different ways.    Three adjacent graphs: at left, a function that is always increasing, but doing so in a way that bends upward as we move from left to right; in the middle, a function that is always increasing at a constant rate (that is, a graph of a line with positive slope); and at right, a function that is always increasing, but doing so in a way that bends downward as we move from left to right.    "
 },
@@ -1103,7 +1103,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#F-1-6-3optsd",
   "type": "Figure",
-  "number": "1.6.7",
+  "number": "1.6.6",
   "title": "",
   "body": " From left to right, three functions that are all decreasing, but doing so in different ways.    Three adjacent graphs: at left, a function that is always decreasing, but doing so in a way that bends upward as we move from left to right; in the middle, a function that is always decreasing at a constant rate (that is, a graph of a line with negative slope); and at right, a function that is always decreasing, but doing so in a way that bends downward as we move from left to right.    "
 },
@@ -1112,7 +1112,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#F-1-6-concavity",
   "type": "Figure",
-  "number": "1.6.8",
+  "number": "1.6.7",
   "title": "",
   "body": " At left, a function that is concave up; at right, one that is concave down.    Two adjacent images. At left, a function looks like the parabola given by along with four tangent lines that emphasize how the slope of the tangent line is increasing as we move from left to right. At right, a function looks like the parabola given by along with four tangent lines that emphasize how the slope of the tangent line is decreasing as we move from left to right.    "
 },
@@ -1121,7 +1121,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#sec-1-6-second-d-6-12",
   "type": "Definition",
-  "number": "1.6.9",
+  "number": "1.6.8",
   "title": "",
   "body": "  Let be a differentiable function on an interval . Then is concave up  concave up on if and only if is increasing on ; is concave down  concave down on if and only if is decreasing on .   "
 },
@@ -1130,7 +1130,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#act-1-6-1",
   "type": "Activity",
-  "number": "1.6.10",
+  "number": "1.6.2",
   "title": "",
   "body": "  The position of a car driving along a straight road at time in minutes is given by the function that is pictured in the following graph. The car's position function has units measured in thousands of feet. Remember that you worked with this function and sketched graphs of and in Preview Activity .    This graph shows a position function that passes through the following key points: , , , , , , , , , , , , and . The position function never decreases, and on the intervals , , and is constant. In between those intervals, the function rises more and more quickly on the first half of the interval, and then rises less and less quickly on the second half of the interval. The overall graph is smooth and without sharp corners.       On what intervals is the position function increasing? decreasing? Why?    Remember that a function is increasing on an interval if and only if its first derivative is positive on the interval.    Increasing: , , , and . Decreasing: never.    The position function increasing on the intervals , , , and , because at every point in such intervals, is positive. For the provided function, is never decreasing because its derivative is never negative.      On which intervals is the velocity function increasing? decreasing? neither? Why?    See (a).    Velocity is increasing on , , , and ; is decreasing on , , , and . Velocity is constant on , , and .    The velocity function appears to be increasing on the intervals , , , and because the curve is concave up which corresponds to an increasing first derivative . Similarly, appears to be decreasing on the intervals , , , and because the curve is concave down which corresponds to a decreasing first derivative . On the intervals , , and , the position function is constant, and thus linear, so neither concave up nor concave down. This also corresponds to the velocity being constant (since ) on these intervals.      Acceleration acceleration is defined to be the instantaneous rate of change of velocity, as the acceleration of an object measures the rate at which the velocity of the object is changing. Say that the car's acceleration function is named . How is computed from ? How is computed from ? Explain.    Remember that the first derivative of a function measures its instantaneous rate of change.    and .    Since is the instantaneous rate of change of , . And because , it follows that , so acceleration is the second derivative of position.      What can you say about whenever is increasing? Why?    Think about how .    is positive since is increasing.    Because is the first derivative of , when is increasing, must be positive.      Using only the words increasing , decreasing , constant , concave up , concave down , and linear , complete the following sentences. For the position function with velocity and acceleration , on an interval where is positive, is . on an interval where is negative, is . on an interval where is zero, is . on an interval where is positive, is . on an interval where is negative, is . on an interval where is zero, is . on an interval where is positive, is . on an interval where is negative, is . on an interval where is zero, is .    Be very careful with your letters: , , and .       increasing .    decreasing .    constant .    increasing .    decreasing .    constant .    concave up .    concave down .    linear .       For the position function with velocity and acceleration , on an interval where is positive, is increasing . on an interval where is negative, is decreasing . on an interval where is zero, is constant . on an interval where is positive, is increasing . on an interval where is negative, is decreasing . on an interval where is zero, is constant . on an interval where is positive, is concave up . on an interval where is negative, is concave down . on an interval where is zero, is linear .    "
 },
@@ -1139,7 +1139,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#act-1-6-2",
   "type": "Activity",
-  "number": "1.6.11",
+  "number": "1.6.3",
   "title": "",
   "body": "  A potato is placed in an oven whose temperature is 350 degrees Fahrenheit, and the potato's temperature (in degrees Fahrenheit) is recorded in Table . Time is measured in minutes. Thanks to Nick Owad of Hood College for conducting experiments with actual potatoes in his oven in order to generate the data for this activity.    Select values of .                                                          Select approximate values of .                                 NA                 NA      In Activity , we used this data to compute approximations to and using central differences. Those values are provided in Table , along with several others computed in the same way.     What are the units on ? What is the precise meaning of the value ?    Remember that the derivative's units are units of output per unit of input.    Degrees Fahrenheit per minute.    has units measured in degrees Fahrenheit per minute.      Use a central difference to estimate the value of .    To estimate , we can use for an appropriate choice of .    .    Using a central difference, .      What is the meaning of the value of that you have computed in (b) in terms of the potato's temperature? Write several careful sentences that describe the overall behavior of the potato's temperature at this point in time. In particular, you should cite the values of , , and , each with appropriate units. Be sure to explicitly discuss what you expect to happen in the minute that transpires from to .    For each of the values and , think about what they tell you about expected upcoming behavior in and , respectively.    At the moment , the temperature of the potato is degrees; its temperature is rising at an instaneous rate of degrees Fahrenheit per minute; and the rate at which the temperature is rising is falling at a rate of degrees Fahrenheit per minute per minute. Over the minute from to , we expect the temperature of the potato to rise about degrees Fahrenheit and for the rate at which its temperature is increasing to drop by about degrees Fahrenheit per minute. We expect that degrees Fahrenheit, and degrees Fahrenheit per minute.    The value , which is measured in degrees Fahrenheit per minute per minute. Along with the other data, this tells us that at the moment , the temperature of the potato is degrees, that its temperature is rising at a rate of degrees Fahrenheit per minute, and that the rate at which the temperature is rising is falling at a rate of degrees Fahrenheit per minute per minute. That is, while the temperature is rising, it is rising at a slower and slower rate. At , we expect that degrees Fahrenheit, and degrees Fahrenheit per minute.      On the interval from to , is the potato's temperature increasing at an increasing rate, increasing at a constant rate, or increasing at a decreasing rate? Why?    Think concavity.    Increasing at a decreasing rate.    On the interval , the potato's temperature increasing at a decreasing rate because the values of the first derivative of are falling. Equivalently, this is because the value of is negative throughout the given time interval.    "
 },
@@ -1148,7 +1148,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-6-second-d.html#act-1-6-3",
   "type": "Activity",
-  "number": "1.6.14",
+  "number": "1.6.4",
   "title": "",
   "body": "  This activity builds on our experience and understanding of how to sketch the graph of given the graph of .  In the provided figure, we given the respective graphs of two different functions , sketch the corresponding graph of on the first axes below, and then sketch on the second set of axes. In addition, for each, write several careful sentences in the spirit of those in Activity that connect the behaviors of , , and . For instance, write something such as   is on the interval , which is connected to the fact that is on the same interval , and is on the interval.   but of course with the blanks filled in. Throughout, view the scale of the grid for the graph of as being , and assume the horizontal scale of the grid for the graph of is identical to that for . If you need to adjust the vertical scale on the axes for the graph of or , you should label that accordingly.    This figure has six sets of coordinate axes arranged with two in the first row, two in the second, and two in the third. In the first row, each image is a graph of a given function, and then in the two subsequent rows, blank axes are provided for graphing the original function's first and second derivatives. While the axes are without scale, each horizontal axis ranges from , and each vertical axis from (provided we view each grid box as being ).  At the top left, a cubic function is shown; three key points on graph are approximately , , and . The first point is the lowest point on the curve among other points nearby, and the third point is the highest point on the curve compared to other points nearby.  At the top right, the graph is of a function that's symmetric about , that has many alternating humps , with those humps having their lowest points always on the line , and their highest points always along a bell curve whose highest point is .      Remember that to plot , it is helpful to first identify where .      This figure has six sets of coordinate axes arranged with two in the first row, two in the second, and two in the third. In the first row, each image is a graph of a given function, and then in the two subsequent rows, blank axes are provided for graphing the original function's first and second derivatives. While the axes are without scale, each horizontal axis ranges from , and each vertical axis from (provided we view each grid box as being ).  At the top left, a cubic function is shown; three key points on graph are approximately , , and . The first point is the lowest point on the curve among other points nearby, and the third point is the highest point on the curve compared to other points nearby.  At the top right, the graph is of a function that's symmetric about , that has many alternating humps , with those humps having their lowest points always on the line , and their highest points always along a bell curve whose highest point is .  At the middle left, the graph of is a downward-opening parabola that passes through the approximate points , , and , with the middle of those points being the vertex of the parabola.  At the middle right, the graph of is symmetric about the origin and oscillates wildly. The value of wherever the original function has a horizontal tangent line.  At the bottom left, the graph of is a straight line that passes through the approximate points and .  At the bottom right, the graph of is symmetric about and oscillates wildly. The value of wherever has a horizontal tangent line.       The graphs of and are plotted below.   ADD ALT TEXT TO THIS IMAGE    "
 },
@@ -1301,7 +1301,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-7-lim-cont-diff.html#sec-1-7-lim-cont-diff-4-5",
   "type": "Definition",
-  "number": "1.7.2",
+  "number": "1.7.1",
   "title": "",
   "body": "  We say that has limit as approaches from the left and write provided that we can make the value of as close to as we like by taking sufficiently close to while always having . We call the left-hand limit of as approaches . Similarly, we say has limit as approaches from the right and write provided that we can make the value of as close to as we like by taking sufficiently close to while always having . We call the right-hand limit of as approaches .   "
 },
@@ -1310,7 +1310,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-7-lim-cont-diff.html#F-1-7-NoLimit",
   "type": "Figure",
-  "number": "1.7.3",
+  "number": "1.7.2",
   "title": "",
   "body": " Functions and that each fail to have a limit at .    Two adjacent images that show functions and that fail to have a limit at .  In the left image, is a piecewise linear function that is undefined at and jumps from a height of about as approaches from the left to a height of about as approaches from the right. On the right,  In the right image, is the linear function for , and for , the function oscillates infinitely often as we approach from the right. The graph looks a bit like we took a large portion of the right half of the standard sine curve, say from to , and compressed the right end of the graph toward , as one might do with a Slinky, and then shifted the resulting graph unit to the right and units up.    "
 },
@@ -1319,7 +1319,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-7-lim-cont-diff.html#act-1-7-1",
   "type": "Activity",
-  "number": "1.7.4",
+  "number": "1.7.2",
   "title": "",
   "body": "  Consider a function that is piecewise-defined according to the formula  Use the given formula to answer the following questions.     For each of the values , compute .    Find the interval in which lies and evaluate the function there.    ; is not defined; ; ; .    ; is not defined; ; (by the rule); .      For each of the values , determine and .    Remember that for , we only consider values of such that . Find the right formula to use in the piecewise definition for to fit the values you are considering.                        For each of the values , determine . If the limit fails to exist, explain why by discussing the left- and right-hand limits at the relevant -value.    Use your work in (c) and compare left- and right-hand limits.    does not exist. The values of the limits as for are .    does not exists because the left-hand limit is while the right-hand limit is . All of the other requested limits exist, as left- and right-hand limits exist and are equal in each case. The respective values of the limits as for are .      For which values of is the following statement true?    Use your work in (a) and (c).    , , and .    For , , and , . At , the limit fails to exist, but . At , the limit is , but is not defined. At , the limit is 3, but .      On the axes provided, sketch an accurate, labeled graph of . Be sure to carefully use open circles (○) and filled circles (●) to represent key points on the graph, as dictated by the piecewise formula.    Blank axes for plotting . The values of range from to ; the values of range from to .      Note that is piecewise linear.      The graph of consists of three linear pieces that satisfy the criteria established in the other parts of this question. The three linear pieces connect the points and ; and ; and and . There are open circles at , , and . There are filled circles at and .       The graph of consists of three linear pieces that satisfy the criteria established in the other parts of this question. The three linear pieces connect the points and ; and ; and and . There are open circles at , , and . There are filled circles at and .      "
 },
@@ -1328,7 +1328,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-7-lim-cont-diff.html#F-1-7-Cont",
   "type": "Figure",
-  "number": "1.7.5",
+  "number": "1.7.3",
   "title": "",
   "body": " Functions , , and that demonstrate subtly different behaviors at .    Three adjacent graphs of functions that are similar but that exhibit key different behaviors at .  In the leftmost figure, is the quadratic function given by , except for the fact that is undefined, so there's an open hole at the vertex of the graph.  In the middle figure, is also the quadratic function given by , except for the fact that is defined to be , so there's an open hole at the vertex of the graph and the point is shown in the plot to demonstrate the function's value at .  In the rightmost figure, is the quadratic function given by , and here we take as given by the algebraic formula so that , which is represented by the point explicitly shown on the graph.   "
 },
@@ -1337,7 +1337,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-7-lim-cont-diff.html#sec-1-7-lim-cont-diff-5-7",
   "type": "Definition",
-  "number": "1.7.6",
+  "number": "1.7.4",
   "title": "",
   "body": "  A function is continuous at  continuous at provided that    has a limit as ,     is defined at , and     .      "
 },
@@ -1346,7 +1346,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-7-lim-cont-diff.html#act-1-7-2",
   "type": "Activity",
-  "number": "1.7.7",
+  "number": "1.7.3",
   "title": "",
   "body": "  This activity builds on your work in Preview Activity , using the same function as given by the graph that is repeated in the following figure. Assume that .    This image shows a complicated piecewise-defined function that shows several different types of unusual behavior. The viewing window is and .  For , the pieces of are either linear or quadratic, and pass through the following points with the following behaviors:   on a concave up parabola with vertex and ending at point ;    on , a linear function through and , with a small open circle at ;    on (except for at the value ) a concave up parabola with vertex and passing through points and ;    at , there's a small open circle on the graph of at the point , and a small filled circle representing the point so that ;    on , a linear function through and ;    finally, on , the function oscillates infinitely often between and as we approach from the right. The graph looks a bit like we took a large portion of the right half of the standard sine curve, say from to , and compressed the right end of the graph toward , as one might do with a Slinky, and then shifted the resulting graph unit to the right and units down. In addition, is not defined with a small open circle on the graph at the point .          At which values of does not exist?    Consider the left- and right-hand limits at each value.    ; .    does not exist at since and does not exist at since does not exist due to the infinitely oscillatory behavior of .      At which values of is not defined?    Carefully examine places on the graph where there's an open circle.    .    The only point at which is not defined is at .      At which values of does have a limit, but ?    Are there locations on the graph where the function has a limit but there's a hole in the graph?    ; .    At , note that exists (and appears to have value approximately ), but , and thus . At , , but is not defined, so the limit exists but does not equal the function value.      State all values of for which is not continuous at .    Remember that at least one of three conditions must fail: if the function lacks a limit, if the function is undefined, or if the limit exists but does not equal the function value, then is not continuous at the point.    ; ; ; .    Based on our work in (a), (b), and (c), is not continuous at and because does not have a limit at those points; is not continuous at since is not defined there; and is not continuous at because at that point its limit does not equal its function value.      Which condition is stronger, and hence implies the other: has a limit at or is continuous at ? Explain, and hence complete the following sentence: If at , then at , where you complete the blanks with has a limit and is continuous , using each phrase once.    Note that the definition of being continuous requires the limit to exist.     If is continuous at , then has a limit at .     If is continuous at , then has a limit at , since one of the defining properties of being continuous at is that the function has a limit at that input value. This shows that being continuous is a stronger condition than having a limit.    "
 },
@@ -1355,7 +1355,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-7-lim-cont-diff.html#F-1-7-NotDiff",
   "type": "Figure",
-  "number": "1.7.8",
+  "number": "1.7.5",
   "title": "",
   "body": " A function that is continuous at but not differentiable at ; at right, we zoom in on the point in a magnified version of the box in the left-hand plot.    Two adjacent images that show perspectives on the function . In the left image, we see this V-shaped graph on the approximate interval , with a small square box around the point . In the right image, we zoom in so the full window is the small box from left, which corresponds to approximately . The key observation to make is that the zoomed-in graph looks identical to the zoomed-out graph with the same sharp corner at .    "
 },
@@ -1364,7 +1364,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-7-lim-cont-diff.html#act-1-7-3",
   "type": "Activity",
-  "number": "1.7.9",
+  "number": "1.7.4",
   "title": "",
   "body": "  In this activity, we explore two different functions and classify the points at which each is not differentiable.  For (a)-(c), let be the function given by the rule . Note that for part (d) we use the function given by the graph in (d).     Reasoning graphically (that is, by discussing the graph of ), explain why is differentiable at every point such that .    What type of function is for all ? For all ?    is piecewise linear.    We know that is given by the formula when and by when . Each of these pieces of is a straight line, so at every point other than the point where they meet, the function has a well-defined slope, and thus is differentiable.      Use the limit definition of the derivative to show that .    Recall that .         Observe that      Explain why fails to exist by using small positive and negative values of .    What is the value of when ?    , but .    Following up on our work in (b), note that whenever , , and thus , while whenever , , and thus Since the right- and left-hand limits are not equal, it follows that does not exist.      Let be the function that we have previously explored in Preview Activity , whose graph is given again in the following figure.   This image shows a complicated piecewise-defined function that shows several different types of unusual behavior. The viewing window is and .  For , the pieces of are either linear or quadratic, and pass through the following points with the following behaviors:   on a concave up parabola with vertex and ending at point ;    on , a linear function through and , with a small open circle at ;    on (except for at the value ) a concave up parabola with vertex and passing through points and ;    at , there's a small open circle on the graph of at the point , and a small filled circle representing the point so that ;    on , a linear function through and ;    finally, on , the function oscillates infinitely often between and as we approach from the right. The graph looks a bit like we took a large portion of the right half of the standard sine curve, say from to , and compressed the right end of the graph toward , as one might do with a Slinky, and then shifted the resulting graph unit to the right and units down. In addition, is not defined with a small open circle on the graph at the point .       State all values of for which is not differentiable at . For each, provide a reason for your conclusion.    You might start by identifying points where is not continuous.    .    is not differentiable at because at each of these points is not continuous. In addition, is not differentiable at and because the graph of has a corner point (or cusp) at each of these values.      True or false: if a function is differentiable at , then must exist. Why?    What does being differentiable at a point tell you about continuity there?    True.    True: if a function is differentiable at , then must exist. This is true because we know that if is differentiable at a point, then is continuous there, and anytime a function is continuous at a point, it must have a limit there.    "
 },
@@ -1490,7 +1490,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-8-tan-line-approx.html#F-1-8-TanLine",
   "type": "Figure",
-  "number": "1.8.2",
+  "number": "1.8.1",
   "title": "",
   "body": " A function and its tangent line at the point : at left, from a distance, and at right, up close. At right, we label the tangent line function by and observe that for near , .    At left, there's a graph of a polynomial function and its tangent line at the point . There's a small box shown around the point . At right, the graph is the magnified version of what appears in the box: this shows the point and how near that point, the tangent line function is very close to the graph of . We thus write .    "
 },
@@ -1499,7 +1499,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-8-tan-line-approx.html#sec-1-8-tan-line-approx-5-4",
   "type": "Example",
-  "number": "1.8.3",
+  "number": "1.8.2",
   "title": "",
   "body": "  Suppose that a function has its tangent line approximation given by at the point , but we do not know anything else about the function . How can we estimate the value of for near ?    To estimate a value of for near 1, such as , we can use the fact that and hence .   "
 },
@@ -1508,7 +1508,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-8-tan-line-approx.html#act-1-8-1",
   "type": "Activity",
-  "number": "1.8.4",
+  "number": "1.8.2",
   "title": "",
   "body": "  Suppose it is known that for a given differentiable function , its local linearization at the point where is given by .     Compute the values of and .    Follow the rule for .    ; .    Using the formula for , ; Since , we see .      What must be the values of and ? Why?    Recall that the form of the local linearization is .    ; .    Since , we see and . Alternatively, we could observe that the value and slope of must match the value and slope of at the point of tangency.      Do you expect the value of to be greater than or less than the value of ? Why?    Is the function increasing or decreasing at ?    Less.    Because , we see that is increasing near , and therefore is expected to be less than .      Use the local linearization to estimate the value of .    Remember that .    .    Observe that .      Suppose that you also know that . What does this tell you about the graph of at ?    What does the second derivative tell you about the shape of a curve?    Concave up.    Since , we know is concave up at .      For near , sketch the graph of the local linearization as well as a possible graph of on the axes provided.    Axes for plotting and its given tangent line. While there is not scale on the axes or grid, if the boxes are taken to be , the horizontal and vertical axes then range from to .      Use your work above.    The illustration below shows a possible graph of near , along with the tangent line through .  ADD ALT TEXT TO THIS IMAGE    In the figure below, we use the results of our previous work to generate the plot shown, which is a possible graph of near , along with the tangent line through .  ADD ALT TEXT TO THIS IMAGE    "
 },
@@ -1517,7 +1517,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-8-tan-line-approx.html#F-1-8-Options",
   "type": "Figure",
-  "number": "1.8.5",
+  "number": "1.8.3",
   "title": "",
   "body": " Four possible graphs for a nonlinear differentiable function and how it can be situated relative to its tangent line at a point.    We describe the graphs from left to right. The first graph is always concave up on the interval shown, and thus its tangent line falls below the graph at the point of tangency. The second graph is always concave down on the interval shown, and thus its tangent line lies above the graph at the point of tangency. The third graph is concave down to the left of the point of tangency and concave up to the right of that point; this makes the tangent line lie above the curve to the left of the point of tangency, and lie below the curve to the right of that point. The fourth and final graph is concave up to the left of the point of tangency and concave down to the right of that point; this makes the tangent line lie below the curve to the left of the point of tangency, and lie above the curve to the right of that point.    "
 },
@@ -1526,7 +1526,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-8-tan-line-approx.html#act-1-8-2",
   "type": "Activity",
-  "number": "1.8.6",
+  "number": "1.8.3",
   "title": "",
   "body": "  This activity concerns a function about which the following information is known:    is a differentiable function defined at every real number      has its graph given in the following figure.       There are three sets of coordinate axes provided, all with ranging from to , and ranging from to . The leftmost and rightmost axes are blank and will be used for plotting and , respectively.  On the middle set of axes, a plot of is given; this function is a parabola with vertex , opening down, and passing through and .    Your overall task is to determine as much information as possible about (especially near the value ) by responding to the questions below.     Find a formula for the tangent line approximation, , to at the point .    Find the value of from the given graph of .    .    Since and , we have .      Use the tangent line approximation to estimate the value of . Show your work carefully and clearly.    Remember that .    .    Using our work in (a), .      Sketch a graph of on the righthand grid in the provided figure; label it appropriately. Write a sentence to explain why your graph looks the way it does.    The graph of is the derivative of the graph of .    See the image in part .    See the image in part .      Is the slope of the tangent line to increasing, decreasing, or neither when ? Explain.    Is increasing, decreasing, or neither when ?    Neither.    The slope of the tangent line to is increasing for because is an increasing function on this interval. Similarly, for , the slope of the tangent line to is decreasing. Right at , the slope of the tangent line to is neither increasing nor decreasing.      Sketch a possible graph of near on the lefthand grid in the provided figure. Include a sketch of (found in part (a)). Explain how you know the graph of looks like you have drawn it.    Draw first. Then think about options for relative to the graph of .    See the image below, which shows, at left, a possible graph of near , along with the tangent line through .    The rightmost graph is . This function is linear and passes through and .  On the middle set of axes, a plot of is given; this function is a parabola with vertex , opening down, and passing through and .  The leftmost plot is a possible graph of . This function appears to be a cubic polynomial that is concave up for and concave down for ; the graph passes through the point and the corresponding tangent line does as well, with the tangent line below the graph of for and above the graph for .      See the plot in the image below, which shows, at left, a possible graph of near , along with the tangent line through . Note that is concave up for since is increasing on that interval, and is concave down for since is decreasing there. Hence changes from concave up to concave down right at , which is also the point near 2 where the graph of is steepest.    The rightmost graph is . This function is linear and passes through and .  On the middle set of axes, a plot of is given; this function is a parabola with vertex , opening down, and passing through and .  The leftmost plot is a possible graph of . This function appears to be a cubic polynomial that is concave up for and concave down for ; the graph passes through the point and the corresponding tangent line does as well, with the tangent line below the graph of for and above the graph for .        Does your estimate in (b) over- or under-estimate the true value of ? Why?    Does the tangent line lie above or below the graph of at ?    Too large.    Because the tangent line to lies above the graph of to the right of , our estimate of is too large the local linearization overshoots the true value of at this point.    "
 },
@@ -1535,7 +1535,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-1-8-tan-line-approx.html#act-1-8-3",
   "type": "Activity",
-  "number": "1.8.7",
+  "number": "1.8.4",
   "title": "",
   "body": "  Consider and .      Compute , , , and . What do you observe?    Use the given formulas for and .    , , , and ; this means and will have the same tangent line approximation at .    We find that , , , and , and thus we observe that and share the same value and the same slope at . This means they will have the same tangent line approximation at .      Determine , the local linear approximation to at . Explain why this function is also the local linear approximation to at .    Remember that for a given value , the local linearization to is .    is the tangent line approximation for both and at .    We know that for a given value , the local linearization to is . Thus, using and the given function , we have . This is the same tangent line approximation as that of the function at since and share the same value and the same slope at .      Complete the following table of values for , , and :  Values of , , and .  What do you notice about how approximates and near ?    For example, you should find that , , and  Think about whether is too large or too small compared to values of and .                                                                                                              Near , always underestimates the value of , and always overestimates the value of .                                                                                                              Near (for not equal to ), we see that always underestimates the value of , and always overestimates the value of . Moreover, in absolute terms, is a closer approximation of the value of than of the value of .      On the axes provided in Figure , plot , , and near . In addition, compute , , and . How do the second derivative values and the graph explain why is a better approximation for one of the functions than it is for the other?   Axes for plotting , , and near .   Axes for plotting , , and near .             How do the concavities of and differ near ?       f(x) = 0.1*x**2 - 1.1*x + 3.4  g(x) = -0.5*x**2 + 2.5*x - 2  L(x) = 1 - 0.5*(x - 3)  a = 3       f(x)  L(x)  g(x)      ADD ALT TEXT TO THIS IMAGE  Since ande , has more concavity at than , so is a closer approximation of the value of than of the value of near .    Below we plot , , and near .    f(x) = 0.1*x**2 - 1.1*x + 3.4  g(x) = -0.5*x**2 + 2.5*x - 2  L(x) = 1 - 0.5*(x - 3)  a = 3       f(x)  L(x)  g(x)     ADD ALT TEXT TO THIS IMAGE  In the figure, we see how bends away from faster than does. This is because , while , so has more concavity at than . As a result, is a closer approximation of the value of than of the value of near .    "
 },
@@ -1661,7 +1661,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-1-elem-rules.html#subsec-const-power-exp-rules-4",
   "type": "Example",
-  "number": "2.1.2",
+  "number": "2.1.1",
   "title": "",
   "body": "  If , then . Similarly, .   "
 },
@@ -1670,7 +1670,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-1-elem-rules.html#subsec-const-power-exp-rules-7",
   "type": "Example",
-  "number": "2.1.3",
+  "number": "2.1.2",
   "title": "",
   "body": "  Using the rule for power functions, we can compute the following derivatives. If , then . Similarly, if , then , and .   "
 },
@@ -1679,7 +1679,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-1-elem-rules.html#subsec-const-power-exp-rules-10",
   "type": "Example",
-  "number": "2.1.4",
+  "number": "2.1.3",
   "title": "",
   "body": "  If , then . Similarly, for , . It is especially important to note that when , where is the base of the natural logarithm function, we have that since . This is an extremely important property of the function : its derivative function is itself!   "
 },
@@ -1688,7 +1688,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-1-elem-rules.html#act-2-1-1",
   "type": "Activity",
-  "number": "2.1.5",
+  "number": "2.1.2",
   "title": "",
   "body": "  Use the rules for constant, power, and exponential functions to determine the derivative of each of the following functions. For each, state your answer using full and proper notation, labeling the derivative with its name. For example, if you are given a function , you should use notation such as or as part of your response.          Is a variable or a constant?    .    is constant, so .           Is a power or exponential function?    .    is an exponential function, so .           Is a power or exponential function?    .    is a power function, thus .           Is a constant or a variable?    .    is constant, and therefore .           is a constant    .    is exponential (since is a constant), and so we have .           Remember the notation here means take the derivative with respect to of .    .    , by the rule for power functions.           Rewrite the fraction using a negative exponent.    .    , so .    "
 },
@@ -1697,7 +1697,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-1-elem-rules.html#sec-2-1-elem-rules-6-6",
   "type": "Example",
-  "number": "2.1.6",
+  "number": "2.1.4",
   "title": "",
   "body": "  If , we have . Similarly, .   "
 },
@@ -1706,7 +1706,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-1-elem-rules.html#sec-2-1-elem-rules-6-10",
   "type": "Example",
-  "number": "2.1.7",
+  "number": "2.1.5",
   "title": "",
   "body": "  Using the sum rule, . Using both the sum and constant multiple rules, if , then .   "
 },
@@ -1715,7 +1715,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-1-elem-rules.html#act-2-1-2",
   "type": "Activity",
-  "number": "2.1.8",
+  "number": "2.1.3",
   "title": "",
   "body": "  Use only the rules for constant, power, and exponential functions, together with the Constant Multiple and Sum Rules, to compute the derivative of each function below with respect to the given independent variable. Note well that we do not yet know any rules for how to differentiate the product or quotient of functions. This means that you may have to do some algebra first on certain functions below before you can actually use existing rules to compute the desired derivative formula. For each function whose derivative you find, label the derivative with its name using proper notation such as , , , etc.          Use the sum rule.    .    , so by the sum rule, .           Use the sum rule together with the constant multiple rule.    .    , so by the sum and constant multiple rules, .           How can you rewrite using exponents?    .    , thus .           Is a constant or variable?    .    Since and , , and are all constants, it follows from the sum and constant multiple rules, as well as the derivative of a constant rule, that . (Note particularly that since is constant.           Expand the product before attempting to find the derivative.    .    , thus .           Rewrite the single fraction as a sum of three fractions, and simplify.    .    . Now it follows that .           Note that is the independent variable.    .    , so .    "
 },
@@ -1724,7 +1724,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-1-elem-rules.html#act-2-1-3",
   "type": "Activity",
-  "number": "2.1.9",
+  "number": "2.1.4",
   "title": "",
   "body": "  Each of the following questions asks you to use derivatives to answer key questions about functions. Be sure to think carefully about each question and to use proper notation in your responses.      Find the slope of the tangent line to at the point where .    How would help you answer the question?    .    Note that since , we have . Thus, . Thus, the slope of the tangent line to at the point where is .      A population of cells is growing in such a way that its total number in millions is given by the function , where is measured in days.     Determine the instantaneous rate at which the population is growing on day 4, and include units on your answer.    Is the population growing at an increasing rate or growing at a decreasing rate on day 4? Explain.       Think about finding both and .    (i.) million cells per day; (ii.) the population is growing at an increasing rate.    For (i.), note that , and therefore million cells per day. For (ii.), we can compute and find that and therefore find that . Since is positive, this tells us that the instantaneous rate of change is increasing at , and thus the population is growing at an increasing rate.      Find an equation for the tangent line to the curve at the point where .    What two important pieces of information do you need to know to determine the equation of a line?    .    Given , first observe that , so the tangent line will pass through . Further, since , we have , which is the slope of the tangent line. The equation of the tangent line is therefore .      What is the difference between being asked to find the slope of the tangent line (asked in (a)) and the equation of the tangent line (asked in (c))?    What information do you find in both (a) and (c)?    The slope is a number, while the equation is, well, an equation.    The biggest difference is that (a) asks for the slope of the tangent line, while (c) asks for the equation of the tangent line. The latter requires the slope of the tangent line, but the slope and equation are two different entities.    "
 },
@@ -1967,7 +1967,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-3-prod-quot.html#PA-2-3",
   "type": "Preview Activity",
-  "number": "2.3.2",
+  "number": "2.3.1",
   "title": "",
   "body": "  Let and be the functions defined by and .     Determine and .       Let and observe that . Rewrite the formula for by distributing the term. Then, compute using the sum and constant multiple rules.       True or false: . Why?       Let and observe that . Rewrite the formula for by dividing each term in the numerator by the denominator and simplify to write as a sum of constant multiples of powers of . Then, compute using the sum and constant multiple rules.       True or false: . Why?     "
 },
@@ -1976,7 +1976,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-3-prod-quot.html#sec-2-3-prod-quot-4-14",
   "type": "Example",
-  "number": "2.3.3",
+  "number": "2.3.2",
   "title": "",
   "body": "  Use the product rule to differentiate .    In , the first function is and the second function is . By the product rule, will be given by the first, , times the derivative of the second, , plus the second, , times the derivative of the first, . That is, .   "
 },
@@ -1985,7 +1985,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-3-prod-quot.html#act-2-3-1",
   "type": "Activity",
-  "number": "2.3.4",
+  "number": "2.3.2",
   "title": "",
   "body": "  Use the product rule to respond to each of the prompts below. Throughout, be sure to carefully label any derivative you find by name. It is not necessary to algebraically simplify any of the derivatives you compute.     Let . Find .    Let the first function be .    .    By the product rule, .      Let . Find .    Let the first function be .    .    By the product rule, .      Determine the slope of the tangent line to the curve at the point if is given by the rule .    Remember that the slope of the tangent line to at is given by .    .    To determine the slope of the tangent line at , we want to find . Since , the product rule tells us that . Thus, .      Find the tangent line approximation to the function at the point if is given by the rule .    Remember that .    .    First, observe that . Further, by the product rule, , and therefore . Therefore, .    "
 },
@@ -1994,7 +1994,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-3-prod-quot.html#sec-2-3-prod-quot-5-9",
   "type": "Example",
-  "number": "2.3.5",
+  "number": "2.3.3",
   "title": "",
   "body": "  Use the quotient rule to differentiate .    Since , we call the top function and the bottom function. By the quotient rule, is given by the bottom, , times the derivative of the top, , minus the top, , times the derivative of the bottom, , all over the bottom squared, . That is, .  In this particular example, it is possible to simplify by removing a factor of from both the numerator and denominator, so that .   "
 },
@@ -2003,7 +2003,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-3-prod-quot.html#act-2-3-2",
   "type": "Activity",
-  "number": "2.3.6",
+  "number": "2.3.3",
   "title": "",
   "body": "  Use the quotient rule to respond to each of the prompts below. Throughout, be sure to carefully label any derivative you find by name. That is, if you're given a formula for , clearly label the formula you find for . It is not necessary to algebraically simplify any of the derivatives you compute.     Let . Find .    When applying the quotient rule, use parentheses around the bottom function, , to ensure that when you compute the bottom times the derivative of the top that the rule is applied correctly.    .    By the quotient rule, .      Let . Find .    When applying the quotient rule, use parentheses around the bottom function, , and its derivative to ensure that the rule is applied correctly.    .    By the quotient rule, .      Determine the slope of the tangent line to the curve at the point where .    Remember one of the key interpretations of the derivative.    .    We first compute . By the quotient rule, . From this, it follows that , which is the slope of the tangent line to the curve at the point where .      When a camera flashes, the intensity of light seen by the eye is given by the function , where is measured in candles and is measured in milliseconds. Compute , , and ; include appropriate units on each value; and discuss the meaning of each.    Let the top function be and simply use the constant multiple rule to find its derivative.    , , and , each in candles per millisecond.    By the quotient rule and algebraic simplification, . Thus, , , and , each measured in candles per millisecond. These results show that at , the intensity of the flash is increasing rapidly, while at and , the intensity is decreasing, with the intensity decreasing more rapidly when .    "
 },
@@ -2012,7 +2012,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-3-prod-quot.html#sec-2-3-prod-quot-6-3",
   "type": "Example",
-  "number": "2.3.7",
+  "number": "2.3.4",
   "title": "",
   "body": "  Determine the derivative of the function . Clearly state which derivative rules you use and how they were applied.    To differentiate any complicated function, our first task is to recognize the structure of the function. This function is a sum of two slightly less complicated functions, so we can apply the sum rule When taking a derivative that involves the use of multiple derivative rules, it is often helpful to use the notation to wait to apply subsequent rules. This is demonstrated both in this example and the one that follows. to get   Now, the left-hand term above is a product, so the product rule is needed there, while the right-hand term is a quotient, so the quotient rule is required. Applying these rules respectively, we find that .   "
 },
@@ -2021,7 +2021,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-3-prod-quot.html#sec-2-3-prod-quot-6-4",
   "type": "Example",
-  "number": "2.3.8",
+  "number": "2.3.5",
   "title": "",
   "body": "  Determine the derivative of the function . Clearly state which rules you used and how they were applied.    The function is a quotient of two simpler functions, so the quotient rule will be needed. To begin, we set up the quotient rule and use the notation to indicate the derivatives of the numerator and denominator. Thus, . Now, there remain two derivatives to determine. The first one, calls for use of the product rule, while the second, needs only the sum rule. Applying these rules, we now have . While some minor simplification is possible, we are content to leave in its current form.   "
 },
@@ -2030,7 +2030,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-3-prod-quot.html#act-2-3-3",
   "type": "Activity",
-  "number": "2.3.9",
+  "number": "2.3.4",
   "title": "",
   "body": "  Use relevant derivative rules to respond to each of the prompts below. Throughout, be sure to use proper notation and carefully label any derivative you find by name.     Let . Find .    Observe that is fundamentally a product. Which is the first function? The second?    .    Using the product rule, followed by the sum and constant multiple rule, observe that      Let . Find .    Note that has the overall structure of a quotient.    .    We use the quotient rule on , followed by the product rule to differentiate the denominator, finding that      Let . Find .    Think about how is a sum of three functions. What is the structure of each of the three functions in the sum?    .    Using the sum and constant multiple rules, it follows first that . Applying the product rule in the first two terms and the quotient rule in the third, we find that .      A moving particle has its position in feet at time in seconds given by the function . Find the particle's instantaneous velocity at the moment .    How is the velocity of a moving object related to its position?    feet per second.    The particle's instantaneous velocity at the moment is given by . We use the quotient rule to find , and simplify by removing a common factor of to get . Thus, , which is the particle's instantaneous velocity in feet per second at the moment .      Suppose that and are differentiable functions and it is known that , , , and . If and , calculate and .    Since we know , it follows .    and .    Since , the product rule tells us , and since , by the quotient rule we know . Using the given information ( , , , and ) we now see that and .    "
 },
@@ -2201,7 +2201,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-4-other-trig.html#PA-2-4",
   "type": "Preview Activity",
-  "number": "2.4.2",
+  "number": "2.4.1",
   "title": "",
   "body": "  Consider the function , and remember that .     What is the domain of ?       Use the quotient rule to show that one expression for is .       What is the Fundamental Trigonometric Identity? How can this identity be used to find a simpler form for ?       Recall that . How can we express in terms of the secant function?       For what values of is defined? How does this set compare to the domain of ?     "
 },
@@ -2210,7 +2210,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-4-other-trig.html#act-2-4-1",
   "type": "Activity",
-  "number": "2.4.3",
+  "number": "2.4.2",
   "title": "",
   "body": "  Let and recall that .     What is the domain of ?    For what values of is ?    All real numbers such that , where .    is defined for all for which . Hence the domain of is all real numbers such that , where .      Use the quotient rule to develop a formula for that is expressed completely in terms of and .    Don't forget that .    .    By the quotient rule, .      How can you use other relationships among trigonometric functions to write only in terms of and ?    Consider rewriting as .    .    Observe that , so .      What is the domain of ? How does this compare to the domain of ?    Observe that is still present in the denominator of .    and have the same domain: all real numbers such that , where .    The derivative is, like , defined for all values of for which . Therefore, and have the same domain: all real numbers such that , where .    "
 },
@@ -2219,7 +2219,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-4-other-trig.html#act-2-4-2",
   "type": "Activity",
-  "number": "2.4.4",
+  "number": "2.4.3",
   "title": "",
   "body": "  Let and recall that .     What is the domain of ?    For what values of is ?    All real numbers such that , where .    is defined for all for which . Hence the domain of is all real numbers such that , where .      Use the quotient rule to develop a formula for that is expressed completely in terms of and .    Don't forget that .    .    By the quotient rule, .      How can you use other relationships among trigonometric functions to write only in terms of and ?    Consider rewriting as .    .    Observe that , so .      What is the domain of ? How does this compare to the domain of ?    Observe that is still present in the denominator of .    and have the same domain: all real numbers such that , where .    The derivative is, like , defined for all values of for which . Therefore, and have the same domain: all real numbers such that , where .    "
 },
@@ -2228,7 +2228,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-4-other-trig.html#act-2-4-3",
   "type": "Activity",
-  "number": "2.4.5",
+  "number": "2.4.4",
   "title": "",
   "body": "  Respond to each of the following prompts. Where a derivative is requested, be sure to label the derivative function with its name using proper notation.     Let . Find the slope of the tangent line to at the point where .    What rule(s) can help you determine ?    .    Using the sum and constant multiple rules along with the formulas for the derivatives of and , we find that . Therefore, the slope of the tangent line to at the point where is given by .      Let . Find the instantaneous rate of change of at the point where .    Note that is a sum of two functions. What rule is needed to differentiate each term in the sum?    .    By the sum rule and two applications of the product rule, we have . Thus, the instantaneous rate of change of at the point where is      Let . Find .    Observe that is a sum of two functions; the first term in the sum is a quotient, while the second is a product.    .    Using the sum and constant multiple rules, followed by the quotient rule on the first term and the product rule on the second, we find that      Let . Find .    What is the overall structure of ? What is the algebraic structure of the numerator of ?    .    Note that is fundamentally a quotient, so we need to use the quotient rule. But the numerator of is a product, so the product rule will be required to compute the derivative of the top function. Executing the quotient rule and proceeding, we find that      When a mass hangs from a spring and is set in motion, the object's position oscillates in a way that the size of the oscillations decrease. This is usually called a damped oscillation . Suppose that for a particular object, its displacement from equilibrium (where the object sits at rest) is modeled by the function . Assume that is measured in inches and in seconds. Sketch a graph of this function for to see how it represents the situation described. Then compute , state the units on this function, and explain what it tells you about the object's motion. Finally, compute and interpret .    Keep in mind that the derivative of position tells us the instantaneous velocity.    inches per second.    By the quotient rule, . The function measures the instantaneous vertical velocity of the mass that is attached to the spring. In particular, inches per second, which tells us at the instant , the mass is moving downward at an instantaneous rate of 2.69 inches per second.    "
 },
@@ -2354,7 +2354,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#PA-2-5",
   "type": "Preview Activity",
-  "number": "2.5.2",
+  "number": "2.5.1",
   "title": "",
   "body": "  For each function given below, identify its fundamental algebraic structure.  In particular, is the given function a sum, product, quotient, or composition of basic functions? If the function is a composition of basic functions, state a formula for the inner function and the outer function so that the overall composite function can be written in the form . If the function is a sum, product, or quotient of basic functions, use the appropriate rule to determine its derivative.                                                   "
 },
@@ -2363,7 +2363,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#ex-2-5-linear",
   "type": "Example",
-  "number": "2.5.3",
+  "number": "2.5.2",
   "title": "",
   "body": "  Let and . Determine a formula for and compute . How is related to and and their derivatives?    By the rules given for and , .  Thus, . Noting that and , we observe that appears to be the product of and .   "
 },
@@ -2372,7 +2372,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#ex-2-5-double-angle",
   "type": "Example",
-  "number": "2.5.4",
+  "number": "2.5.3",
   "title": "",
   "body": "  Let . Use the double angle identity to rewrite as a product of basic functions, and use the product rule to find . Rewrite in the simplest form possible.    Using the double angle identity for the sine function, we write .  Applying the product rule and simplifying, we find .  Next, we recall that a double angle identity for the cosine tells us .  Substituting this result into our expression for , we now have that .   "
 },
@@ -2381,7 +2381,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#sec-2-5-chain-4-13",
   "type": "Example",
-  "number": "2.5.5",
+  "number": "2.5.4",
   "title": "",
   "body": "  Determine the derivative of the function .    The function is composite, with inner function and outer function . Organizing the key information involving , , and their derivatives, we have                   Applying the chain rule, we find that .   "
 },
@@ -2390,7 +2390,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#act-2-5-1",
   "type": "Activity",
-  "number": "2.5.6",
+  "number": "2.5.2",
   "title": "",
   "body": "  For each function given below, identify an inner function and outer function to write the function in the form . Determine , , and , and then apply the chain rule to determine the derivative of the given function.          The outer function is .    .    The outer function is , while the inner function is , and we know that . Hence, by the chain rule, .           The outer function is .    .    The outer function is , while the inner function is , and we know that . Hence, by the chain rule, .           The outer function is .    .    The outer function is , while the inner function is , and we know that . Hence, by the chain rule, .           The outer function is .    .    The outer function is , while the inner function is , and we know that . Hence, by the chain rule, .           The outer function is .    .    The outer function is , while the inner function is , and we know that . Hence, by the chain rule, .    "
 },
@@ -2399,7 +2399,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#sec-2-5-chain-5-3",
   "type": "Example",
-  "number": "2.5.7",
+  "number": "2.5.5",
   "title": "",
   "body": "  Find a formula for the derivative of .    We first observe that is the product of two functions: , where and . We will need to use the product rule to differentiate . And because and are composite functions, we will need the chain rule. We therefore begin by computing and .  Writing , and finding the derivatives of and , we have                   Thus, by the chain rule, it follows that .  Turning next to , we write and find the derivatives of and .                   By the chain rule, .  Now we are finally ready to compute the derivative of the function . Recalling that , by the product rule we have .  From our work above with and , we know the derivatives of and , and therefore .   "
 },
@@ -2408,7 +2408,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#act-2-5-2",
   "type": "Activity",
-  "number": "2.5.8",
+  "number": "2.5.3",
   "title": "",
   "body": "  For each of the following functions, find the function's derivative. State the rule(s) you use, label relevant derivatives appropriately, and be sure to clearly identify your overall answer.          Use the constant multiple rule first, followed by the chain rule.    .    By the constant multiple rule, . Using the chain rule to complete the remaining derivative, we see that .           Observe that is fundamentally a product of composite functions.    .    Observe that by the product rule, . Applying the chain rule to differentiate and , we see that .           Note that is a quotient of composite functions.    .    By the quotient rule, . Applying the chain rule to differentiate and , it follows .           The function is a composite function with outer function .    .    By the chain rule, . Then by the product rule, we find that .           It is possible for a function to be a composite function with more than two functions in the chain.    .    If we first apply the chain rule to the outer function (the sine function), note that . Next, we again apply the chain rule, but this time to , and get .    "
 },
@@ -2417,7 +2417,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#act-2-5-3",
   "type": "Activity",
-  "number": "2.5.9",
+  "number": "2.5.4",
   "title": "",
   "body": "  Use known derivative rules, including the chain rule, as needed to respond to each of the following prompts.     Find an equation for the tangent line to the curve at the point where .    Let . Find and .    .    Let . By the chain rule , and thus . Note further that . The tangent line is therefore the line through with slope , which is .      If represents the position function of a particle moving horizontally along an axis at time (where is measured in inches and in seconds), find the particle's instantaneous velocity at . Is the particle moving to the left or right at that instant?    Recall that tells us the instantaneous velocity at time .    inches per second; the particle is moving left at the instant .    Observe that , and thus by the chain rule, . We therefore see that inches per second, so the particle is moving left at the instant .      At sea level, air pressure is 30 inches of mercury. At an altitude of feet above sea level, the air pressure, , in inches of mercury, is given by the function . Compute and explain what this derivative function tells you about air pressure, including a discussion of the units on . In addition, determine how fast the air pressure is changing for a pilot of a small plane passing through an altitude of feet.    Note that the units on are inches of mercury per foot.    inches of mercury per foot.    First, . Therefore, inches of mercury per foot. This tells us that the barometric pressure is dropping very slightly for each additional foot of elevation gain.      Suppose that and are differentiable functions and that the following information about them is known:                         If is a function given by the formula , determine . In addition, if is the function , find .    Since , it follows . What is ?    ; .    Since , it follows . Therefore, . From the given table, , so applying this result and using additional given information, . For , the chain rule tells us that , so . Using the given table, it follows .    "
 },
@@ -2426,7 +2426,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#sec-2-5-chain-6-3",
   "type": "Example",
-  "number": "2.5.10",
+  "number": "2.5.6",
   "title": "",
   "body": "  For each of the following composite functions whose inside function is linear, find the overall function's derivative using the chain rule: , , and .    For each of the three given functions, the derivative of the inner function is constant. By the chain rule, we see ,  .   "
 },
@@ -2435,7 +2435,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-5-chain.html#ex-2-5-basic-to-chain",
   "type": "Example",
-  "number": "2.5.11",
+  "number": "2.5.7",
   "title": "",
   "body": "  Develop a chain rule version of the two basic derivative rules that state and .    To determine , where is a differentiable function of , we use the chain rule with the sine function as the outer function. Applying the chain rule, we find that . This rule is analogous to the basic derivative rule that .  Similarly, since , it follows by the chain rule that . This rule is analogous to the basic derivative rule that .   "
 },
@@ -2597,7 +2597,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#sec-2-6-inverse-4-5",
   "type": "Note",
-  "number": "2.6.2",
+  "number": "2.6.1",
   "title": "",
   "body": " For a function ,    has an inverse if and only if is one-to-one one-to-one A function is one-to-one provided that no two distinct inputs lead to the same output. A one-to-one function is sometimes called an injection . and onto onto A function is onto provided that every possible element of the codomain can be realized as an output of the function for some choice of input from the domain. An onto function is sometimes called a surjection . ;    provided exists, the domain of is the codomain of , and the codomain of is the domain of ;     for every in the domain of and for every in the codomain of ;     if and only if .     "
 },
@@ -2606,7 +2606,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#F-2-6-Inverse-Plot",
   "type": "Figure",
-  "number": "2.6.3",
+  "number": "2.6.2",
   "title": "",
   "body": " A graph of a function along with its inverse, .  A graph of a function along with its inverse, .   "
 },
@@ -2615,7 +2615,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#F-2-6-Log-Exp",
   "type": "Figure",
-  "number": "2.6.4",
+  "number": "2.6.3",
   "title": "",
   "body": " A graph of the function along with its inverse, , where both functions are viewed using the input variable .  A graph of the function along with its inverse, , where both functions are viewed using the input variable .   "
 },
@@ -2624,7 +2624,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#act-2-6-1",
   "type": "Activity",
-  "number": "2.6.5",
+  "number": "2.6.2",
   "title": "",
   "body": "  For each function given below, find its derivative.          Is a product, quotient, or composition of basic functions?    .    By the product rule, .           Is a product, quotient, or composition of basic functions?    .    By the quotient rule, .           Is a product, quotient, or composition of basic functions?    .    The chain rule tells us that .           Is a product, quotient, or composition of basic functions?    .    Again using the chain rule, .           Is a product, quotient, or composition of basic functions?    .    Noting that is composite with the natural logarithm function serving as both the inner and outer function, we find that .    "
 },
@@ -2633,7 +2633,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#F-2-6-arcsine",
   "type": "Figure",
-  "number": "2.6.6",
+  "number": "2.6.4",
   "title": "",
   "body": " A graph of (in blue), restricted to the domain , along with its inverse, (in magenta).  A graph of (in blue), restricted to the domain , along with its inverse, (in magenta).   "
 },
@@ -2642,7 +2642,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#F-2-6-cosarcsin",
   "type": "Figure",
-  "number": "2.6.7",
+  "number": "2.6.5",
   "title": "",
   "body": " The right triangle that corresponds to .  The right triangle that corresponds to .   "
 },
@@ -2651,7 +2651,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#act-2-6-2",
   "type": "Activity",
-  "number": "2.6.8",
+  "number": "2.6.3",
   "title": "",
   "body": "  The following prompts in this activity will lead you to develop the derivative of the inverse tangent function.     Let . Use the relationship between the arctangent and tangent functions to rewrite this equation using only the tangent function.    Recall that for any function and its inverse, writing is equivalent to writing .    .    Since , it is equivalent to write .      Differentiate both sides of the equation you found in (a). Solve the resulting equation for , writing as simply as possible in terms of a trigonometric function evaluated at .    Apply the chain rule to differentiate .    .    Differentiating, we have , so , and thus , since .      Recall that . Update your expression for so that it only involves trigonometric functions and the independent variable .    This question is only asking you to substitute the expression for into what you found in (b).    .    Since , we now have that .      Introduce a right triangle with angle so that . What are the three sides of the triangle?    Let the vertical leg of the triangle be . What must the horizontal leg be?    With ,    Letting , it follows that we can view as an angle in a right triangle with legs and (so that , and thus by the Pythagorean Theorem, the triangle's hypotenuse is , as shown below.      In terms of only and , what is the value of ?    Recall that the cosine of an angle is the length of the adjacent leg over the length of they hypotenuse.    .    To evaluate , we use the right triangle developed in (d) and observe that .      Use the results of your work above to find an expression involving only and for .    Note that .    .    Finally, we recall that we know . Having established that , we now have that .    "
 },
@@ -2660,7 +2660,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#act-2-6-3",
   "type": "Activity",
-  "number": "2.6.9",
+  "number": "2.6.4",
   "title": "",
   "body": "  Determine the derivative of each of the following functions.          Use the sum rule followed by the product rule on each term in the sum.    .    By the sum rule followed by two applications of the product rule,           Use the chain rule first. What rule is needed to differentiate ?    .    Using the chain rule followed by the product rule,           Note that the chain rule is needed to differentiate .    .    Applying the chain rule twice,           You can use right triangle trigonometry to simplify the function first.    .    Using right triangle trigonometry, it is straightforward to show that . As such, .           Use the chain rule twice.    .    By two applications of the chain rule (noting particularly that , we have           Think about the overall structure of this function.         By the chain rule followed by the quotient rule,    "
 },
@@ -2669,7 +2669,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-6-inverse.html#F-2-6-Gen-Inv",
   "type": "Figure",
-  "number": "2.6.10",
+  "number": "2.6.6",
   "title": "",
   "body": " A graph of function along with its inverse, . Observe that the slopes of the two tangent lines are reciprocals of one another.  A graph of function along with its inverse, . Observe that the slopes of the two tangent lines are reciprocals of one another.   "
 },
@@ -2795,7 +2795,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-7-implicit.html#PA-2-7",
   "type": "Preview Activity",
-  "number": "2.7.2",
+  "number": "2.7.1",
   "title": "",
   "body": "  Let be a differentiable function of (whose formula is not known) and recall that and are interchangeable notations. Determine each of the following derivatives of combinations of explicit functions of , the unknown function , and an arbitrary constant .                                           "
 },
@@ -2804,7 +2804,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-7-implicit.html#F-2-7-Circle",
   "type": "Figure",
-  "number": "2.7.3",
+  "number": "2.7.2",
   "title": "",
   "body": " The circle given by with point on the circle and the tangent line at that point, with labeled slopes of the radial line, , and tangent line, .  The circle given by with point on the circle and the tangent line at that point, with labeled slopes of the radial line, , and tangent line, .   "
 },
@@ -2813,7 +2813,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-7-implicit.html#Ex-2-7-1",
   "type": "Example",
-  "number": "2.7.4",
+  "number": "2.7.3",
   "title": "",
   "body": "  For the curve given implicitly by , find the slope of the tangent line at .    We begin by differentiating the curve's equation implicitly. Taking the derivative of each side with respect to , , by the sum rule and the fact that the derivative of a constant is zero, we have .  For the three derivatives we now must execute, the first uses the simple power rule, the second requires the chain rule (since is an implicit function of ), and the third necessitates the product rule (again since is a function of ). Applying these rules, we now find that .  We want to solve this equation for . To do so, we first collect all of the terms involving on one side of the equation. .  Then we factor the left side to isolate . .  Finally, we divide both sides by and conclude that .  Note that the expression for depends on both and . To find the slope of the tangent line at , we substitute the coordinates into the formula for , using the notation .  If we plot In Desmos , entering the equation will automatically graph the corresponding curve. the implicit curve and its tangent line, as shown in Figure , we see that the slope we have found matches the graph and confirms the local linearity of this curve at .   The curve and its tangent line at .  The curve and its tangent line at .     "
 },
@@ -2822,7 +2822,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-7-implicit.html#act-2-7-1",
   "type": "Activity",
-  "number": "2.7.6",
+  "number": "2.7.2",
   "title": "",
   "body": "  Consider the curve defined by the equation , whose graph is pictured in the following figure  ADD ALT TEXT TO THIS IMAGE     Explain why it is not possible to express as an explicit function of .    Does the graph pass the vertical line test?    The graph of the curve fails the vertical line test.    Because the graph of the curve fails the vertical line test, cannot be a function of . This also confirms our intuition that there is not an algebraic means by which we can rearrange the equation to write in terms of .      Use implicit differentiation to find a formula for .    Note, for instance, that .     .    We differentiate implicitly, taking the derivative of each side with respect to , , and evaluate the elementary derivative on the left and use the sum rule on the right to find that . By the chain and constant multiple rules, viewing as a function of , we now have . Factoring, , and therefore .      Use your result from part (b) to find an equation of the line tangent to the graph of at the point .    Remember the meaning of .     .    To find an equation of the line tangent to the graph of at the point , we only need the slope of the tangent line. Hence we compute . Therefore, the equation of the tangent line is or .      Use your result from part (b) to determine all of the points at which the graph of has a vertical tangent line.    What is the slope of a vertical line?     , , , and .    Since a line is vertical whenever its slope is undefined, we seek all points that make undefined. This will occur precisely when the denominator, , is zero. Using a graphing utility or computer algebra system to solve the equation , we find that this happens at the four approximate -values . For each such value, we use the original equation to find the -value of the point. Doing so, we have established that there are four points at which the tangent line is vertical, and they are approximately , , , and .    "
 },
@@ -2831,7 +2831,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-7-implicit.html#act-2-7-2",
   "type": "Activity",
-  "number": "2.7.7",
+  "number": "2.7.3",
   "title": "",
   "body": "  Consider the curve defined by the equation , whose graph is pictured in the following figure.  ADD ALT TEXT TO THIS IMAGE  Through implicit differentiation, it can be shown that . Use this fact to answer each of the following questions.     Determine all points at which the tangent line to the curve is horizontal. (Use technology appropriately to find the needed zeros of the relevant polynomial function.)    Note that the numerator of is a quadratic function of .    Horizontal at , thus . There are four more points where .    To find where the tangent line to the curve is horizontal, we set , which requires that the numerator be zero, or in other words that . Expanding and combining like terms, we find that , which occurs where . From the provided graph, we observe that at each such -value, there are several corresponding -values for which the tangent line will be horizontal. For instance, when , then must satisfy the equation . Because this is a quartic equation (degree 4) equation in , we use computational technology to help us find the solutions. Doing so, we find four approximate values for , , and thus our estimates for four points at which the tangent line is horizontal are . Similar work can be done to find the four points at which the tangent line is horizontal when .      Determine all points at which the tangent line is vertical. (Use technology appropriately to find the needed zeros of the relevant polynomial function.)    The denominator of is a cubic function of .    When , so one point is .    The tangent line to the curve is vertical wherever is undefined, which occurs precisely where . Expanding and combining like terms, we see that we need to solve the cubic equation ; using a computer algebra system, we find that this occurs when . It now remains to find the -coordinate that corresponds to each such -value. For instance, when , must satisfy , or in other words, . Here, too, we use technology to determine that there is only one such , and . Similar work can be done to find the -values that correspond to .      Find the equation of the tangent line to the curve at one of the points where .    When , then must satisfy the equation .     .    There are four points on the curve where , which correspond to the -values that satisfy : , , , . We choose the point and evaluate at this point. Doing so, . Thus, the equation of the tangent line to the curve at is .    "
 },
@@ -2840,7 +2840,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-2-7-implicit.html#act-2-7-3",
   "type": "Activity",
-  "number": "2.7.8",
+  "number": "2.7.4",
   "title": "",
   "body": "  For each of the following curves, use implicit differentiation to find and determine the equation of the tangent line at the given point.     ,    Note that requires the product rule.    and the tangent line has equation .    Differentiating with respect to , , so that by the chain and product rules we have . Rearranging to get all terms with on the same side, it follows that , and thus . Finally, we have established that , so evaluating at , we have . Thus, the tangent line has equation .      ,    With being a function of , requires the chain rule.    and the tangent line has equation .    After differentiating with respect to , we have . Taking the usual steps to solve for , we find that . Evaluating the slope of the tangent line at , we have , and thus the tangent line at has equation .      ,    To calculate , first use the product rule and temporarily defer computing .    and the tangent line is .    When we differentiate both sides with respect to , , we first observe that the product rule is needed on the left and the chain rule on the right. Applying those rules, we have . Next, we apply the chain rule to differentiate , which yields . Finally, to complete the process of differentiation, we use the product rule and get . To solve for , we first expand to have , and then the usual algebraic work may be done to deduce that . Evaluating at the point , it follows that the slope of the tangent line is . Thus, the tangent line is given by .    "
 },
@@ -3002,7 +3002,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-1-rel-rates.html#Ex-3-5-FallingSand",
   "type": "Example",
-  "number": "3.1.2",
+  "number": "3.1.1",
   "title": "",
   "body": "  Sand is being dumped by a conveyor belt onto a pile so that the sand forms a right circular cone, as pictured in Figure . How are the instantaneous rates of change of the sand's volume, height, and radius related to one another?   A conical pile of sand.  A conical pile of sand.      As sand falls from the conveyor belt, several features of the sand pile will change: the volume of the pile will grow, the height will increase, and the radius will get bigger, too. All of these quantities are related to one another, and the rate at which each is changing is related to the rate at which sand falls from the conveyor.  We begin by identifying which variables are changing and how they are related. In this situation, we observe that the radius and height of the pile are related to its volume by the standard equation for the volume of a cone, .  Viewing each of , , and as functions of , we differentiate implicitly to arrive at an equation that relates their respective rates of change. Taking the derivative of each side of the equation with respect to , we find .  On the left, is simply . On the right, the situation is more complicated, as both and are implicit functions of . Hence we need the product and chain rules. We find that   (Note particularly how we are using ideas from Section on implicit differentiation. There we found that when is an implicit function of , . The same ideas are applied here when we compute .)  The equation , relates the rates of change of , , and .   "
 },
@@ -3011,7 +3011,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-1-rel-rates.html#sec-3-1-rel-rates-4-5",
   "type": "Example",
-  "number": "3.1.4",
+  "number": "3.1.3",
   "title": "",
   "body": "  In the setting of Example , suppose we also know the following: (a) sand falls from the conveyor in such a way that the height of the pile is always half the radius, and (b) sand falls from the conveyor belt at a constant rate of 10 cubic feet per minute. How fast is the height of the sandpile changing at the moment the radius is 4 feet?    The information that the height is always half the radius tells us that for all values of , . Differentiating with respect to , it follows that . These relationships enable us to relate to just one of or . Substituting the expressions involving and for and , we now have that .  Since sand falls from the conveyor at the constant rate of 10 cubic feet per minute, the value of , the rate at which the volume of the sand pile changes, is ft \/min. We are interested in how fast the height of the pile is changing at the instant when , so we substitute and into Equation , to find .  Only the value of remains unknown. We combine like terms on the right side of the equation above to get , and solve for to find feet per minute. Because we were interested in how fast the height of the pile was changing at this instant, we want to know when . Since for all values of , it follows .   "
 },
@@ -3020,7 +3020,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-1-rel-rates.html#sec-3-1-rel-rates-4-10",
   "type": "Note",
-  "number": "3.1.5",
+  "number": "3.1.4",
   "title": "",
   "body": "    Draw two or three possible figures that clearly represent the situation. Identify the quantities in the problem that are changing and choose clearly defined variable names for them. Identify the quantities or relationships that are not changing.    Determine all rates of change that are known or given and identify the rate(s) of change to be found.    Find an equation that relates the variables whose rates of change are known to those variables whose rates of change are to be found.    Differentiate implicitly with respect to to relate the rates of change of the involved quantities.    Evaluate the derivatives and variables at the information relevant to the instant at which a certain rate of change is sought. Use proper notation to identify when a derivative is being evaluated at a particular instant, such as .     "
 },
@@ -3029,7 +3029,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-1-rel-rates.html#act-3-1-1",
   "type": "Activity",
-  "number": "3.1.6",
+  "number": "3.1.2",
   "title": "",
   "body": "  A water tank has the shape of an inverted circular cone (point down) with a base of radius 6 feet and a depth of 8 feet. Suppose that water is being pumped into the tank at a constant instantaneous rate of 4 cubic feet per minute.     Draw 2-3 pictures of the conical tank that show sketches of the water level at different points in time when the tank is not yet full. Introduce variables that measure the radius of the water's surface and the water's depth in the tank, and label them on your figure.     ADD ALT TEXT TO THIS IMAGE    Letting represent the water's radius at time and the water's depth, we see the following situation:  ADD ALT TEXT TO THIS IMAGE      Say that is the radius and the depth of the water at a given time, . What equation relates the radius and height of the water, and why?    Think about similar triangles.    .    Observe that the right triangle with legs of length and is similar to the right triangle with legs of length and , respectively, based on how the water assumes the shape of the tank, and thus , so that .      Determine an equation that relates the volume of water in the tank at time to the depth of the water at that time.    Recall that the volume of a cone is .    .    Since the water in the tank always takes the shape of a circular cone, the volume of water in the tank at time is given by . Because we have established that , it follows that .      Through differentiation, find an equation that relates the instantaneous rate of change of water volume with respect to time to the instantaneous rate of change of water depth at time .    Remember to differentiate implicitly with respect to .    .    Differentiating with respect to , we now find , which relates the rates of change of and .      Find the instantaneous rate at which the water level is rising when the water in the tank is 3 feet deep.    Use and the fact that the value of is given.    feet per minute.    It is given in the problem setting that water is entering the tank at a rate of 4 cubic feet per minute, hence , and we are interested in the rate of change of the water's depth when . Substituting these values into the equation that relates and , we find that , so that feet per minute.      When is the water rising most rapidly: at , , or ? Why?     Most rapidly when .    Having established that , using and solving for , we have . This relationship between and shows that as increases, decreases. Thus, the water (which enters the tank at a constant rate) is rising most rapidly when , and this matches our intuition for how the water should rise in the conical tank: quickly at first, and then ever more slowly as time progresses.    "
 },
@@ -3038,7 +3038,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-1-rel-rates.html#act-3-1-2",
   "type": "Activity",
-  "number": "3.1.7",
+  "number": "3.1.3",
   "title": "",
   "body": "  A television camera is positioned 4000 feet from the base of a rocket launching pad. The angle of elevation of the camera has to change at the correct rate in order to keep the rocket in sight. In addition, the auto-focus of the camera has to take into account the increasing distance between the camera and the rocket. We assume that the rocket rises vertically. (A similar situation is discussed and pictured dynamically in this interactive graphic . Exploring the interactive will be helpful to you in answering the questions that follow.)     Draw several figures that show the rocket at different points in time. What quantities are changing? What quantities are constant? Introduce appropriate variables to represent the quantities that are changing.    Let represent the camera angle and note that one leg of the right triangle is constant. Which two are changing?    ADD ALT TEXT TO THIS IMAGE    Letting be the camera's elevation angle, the rocket's height, and the distance from the camera to the rocket, we have the following situation at a given point in time:  ADD ALT TEXT TO THIS IMAGE      Find an equation that relates the camera's angle of elevation to the height of the rocket, and then find an equation that relates the instantaneous rate of change of the camera's elevation angle to the instantaneous rate of change of the rocket's height (where all rates of change are with respect to time).    Think trigonometrically.    .    To relate and , observe that the tangent function is a good choice, since , so that . Differentiating implicitly with respect to , we find that .      Find an equation that relates the distance from the camera to the rocket to the rocket's height, as well as an equation that relates the instantaneous rate of change of distance from the camera to the rocket to the instantaneous rate of change of the rocket's height (where all rates of change are with respect to time).    Think like Pythagoras.    .    To relate and , the Pythagorean Theorem is natural to consider. By this famous result, . Differentiating both sides implicitly with respect to , it follows , and thus .      Suppose that the rocket's speed is 600 ft\/sec at the instant it has risen 3000 feet. How fast is the distance from the television camera to the rocket changing at that moment? If the camera is following the rocket, how fast is the camera's angle of elevation changing at that same moment?    Use the facts that and in your preceding work.    radians per second.    Using the given fact that the rocket's speed is 600 ft\/sec at the instant it has risen 3000 feet, we know that . Note further in the triangle that when , it follows , since the base leg of the triangle is constant at 4000, by using the Pythagorean Theorem. Substituting this information from the instant into the equation that relates the rates of change of and found in (c), we find that . Solving for we have . To answer the question about how fast the camera angle is changing, we use the same information but now in the equation we found in (b) that relates the rates of change of and : . Observe that when , in the 3000-4000-5000 right triangle, it follows that , so . Thus, using the instantaneous information, , and thus , which is measured in radians per second.      If from an elevation of 3000 feet onward the rocket continues to rise at 600 feet\/sec, will the rate of change of distance with respect to time be greater when the elevation is 4000 feet than it was at 3000 feet, or less? Why?    You can answer this question intuitively or by changing the value of in your work in (d).    greater.    Recalling that , it follows that . Using this equation when and led us to conclude that . If we instead use , it follows that , so that . Indeed, is an increasing function of , provided that is constant, because we can write , so , making . It is straightforward to verify that is an increasing function of .    "
 },
@@ -3047,7 +3047,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-1-rel-rates.html#act-3-1-3",
   "type": "Activity",
-  "number": "3.1.8",
+  "number": "3.1.4",
   "title": "",
   "body": "  As pictured in the interactive graphic , a skateboarder who is 6 feet tall rides under a 15 foot tall lamppost at a constant rate of 3 feet per second. We are interested in understanding how fast his shadow is changing at various points in time.     Draw several right triangles that represent snapshots in time of the skateboarder, lamppost, and his shadow. Let denote the horizontal distance from the base of the lamppost to the skateboarder and represent the length of his shadow. Label these quantities, as well as the skateboarder's height and the lamppost's height on the diagram.    Note that the lengths of the legs of the right triangle will be for the vertical one and for the horizontal one.    ADD ALT TEXT TO THIS IMAGE    The given information leads us to construct the following diagram:  ADD ALT TEXT TO THIS IMAGE      Observe that the skateboarder and the lamppost represent parallel line segments in the diagram, and thus similar triangles are present. Use similar triangles to establish an equation that relates and .    The small triangle formed by the skateboarder and his shadow, with legs and is similar to the large triangle that has the lamppost as one of its legs.    .    The small triangle formed by the skateboarder and his shadow, with legs of length and is similar to the large triangle that has the lamppost as one of its legs (length 15) and horizontal leg of length . Because the ratios of the lengths of the legs of these two triangles is equal, we have . Simplifying, we have , so that , or most simply, .      Use your work in (b) to find an equation that relates and .    Simplify the equation in (b) as much as possible before differentiating implicitly with respect to .    .    Differentiating with respect to , it is immediate that .      At what rate is the length of the skateboarder's shadow increasing at the instant the skateboarder is 8 feet from the lamppost?    Find .    feet per second.    Since , and , it follows for every value of (and ). Thus, feet per second.      As the skateboarder's distance from the lamppost increases, is his shadow's length increasing at an increasing rate, increasing at a decreasing rate, or increasing at a constant rate?    Does the equation that relates and involve ? Is changing or constant?    at a constant rate.    Because is constant, the shadow's length is increasing at a constant rate (irrespective of the distance from the skateboarder to the lamppost).      Which is moving more rapidly: the skateboarder or the tip of his shadow? Explain, and justify your answer.    Let represent the location of the tip of the shadow, so that .    Let represent the location of the tip of the shadow; feet\/sec.    Let represent the location of the tip of the shadow, so that . Observe that we can now compute in terms of and , with feet\/sec, and hence the tip of the shadow is moving more rapidly than the skateboarder himself.    "
 },
@@ -3056,7 +3056,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-1-rel-rates.html#act-3-1-4",
   "type": "Activity",
-  "number": "3.1.9",
+  "number": "3.1.5",
   "title": "",
   "body": "  A baseball diamond is square. A batter hits a ball along the third base line and runs to first base. At what rate is the distance between the ball and first base changing when the ball is halfway to third base, if at that instant the ball is traveling feet\/sec? At what rate is the distance between the ball and the runner changing at the same instant, if at the same instant the runner is of the way to first base running at feet\/sec?    Let denote the position of the ball along the third base line at time , and the distance from the ball to first base. Note that the basepaths meet at 90 degree angles.    Let denote the position of the ball at time and the distance from the ball to first base, as pictured below.   ADD ALT TEXT TO THIS IMAGE   .  Let be the runner's position at time and let be the distance between the runner and the ball, as pictured.   ADD ALT TEXT TO THIS IMAGE   .    We let denote the position of the ball at time and the distance from the ball to first base, as pictured below.   ADD ALT TEXT TO THIS IMAGE   By the Pythagorean Theorem, we know that ; differentiating with respect to , we have .  At the instant the ball is halfway to third base, we know and . Moreover, by Pythagoras, , so . Thus, , so .  For the second question, we still let represent the ball's position at time , but now we introduce as the runner's position at time and let be the distance between the runner and the ball. In this setting, as seen in the diagram below,   ADD ALT TEXT TO THIS IMAGE   , , and form the sides of a right triangle, so that , by the Pythagorean Theorem. Differentiating each side with respect to , it follows that the three rates of change are related by the equation .  We are given that at the instant , , so by Pythagoras, . In addition, at this same instant we know that and . Applying this information, and therefore .   "
 },
@@ -3200,7 +3200,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-2-LHR.html#F-2-8-LHR",
   "type": "Figure",
-  "number": "3.2.2",
+  "number": "3.2.1",
   "title": "",
   "body": " At left, the graphs of and near the value , along with their tangent line approximations and at . At right, zooming in on the point and the four graphs.  At left, the graphs of and near the value , along with their tangent line approximations and at . At right, zooming in on the point and the four graphs.   "
 },
@@ -3209,7 +3209,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-2-LHR.html#act-3-2-1",
   "type": "Activity",
-  "number": "3.2.3",
+  "number": "3.2.2",
   "title": "",
   "body": "  Evaluate each of the following limits. If you use L'Hôpital's Rule, indicate where it was used, and be certain the limit is indeterminate before you apply it.          Remember that .    .    As , we see that , thus this limit has an indeterminate form. By L'Hôpital's Rule, we have . As this limit is no longer indeterminate, we may simply allow , and thus we find that .           Note that , not .    .    Observe that , since this limit is not indeterminate because the function is continuous at .           Observe that as .    .    Since and as , this limit is indeterminate with form . Hence, by L'Hôpital's Rule, . The updated limit is not indeterminate, and allowing , we find .           If necessary, L'Hôpital's Rule can be applied more than once.    .    Since the given limit is indeterminate of form , by L'Hôpital's Rule we have . Now, as , and , which makes the latest limit also indeterminate in form . Applying L'Hôpital's Rule a second time, we now have . In the newest limit, we note that but as , so the numerator is tending to 0 while the denominator is approaching . Thus, the value of the limit is determined to be .    "
 },
@@ -3218,7 +3218,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-2-LHR.html#F-2-8-LHR2",
   "type": "Figure",
-  "number": "3.2.4",
+  "number": "3.2.2",
   "title": "",
   "body": " Two functions and that satisfy L'Hôpital's Rule.  Two functions and that satisfy L'Hôpital's Rule.   "
 },
@@ -3227,7 +3227,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-2-LHR.html#act-3-2-2",
   "type": "Activity",
-  "number": "3.2.5",
+  "number": "3.2.3",
   "title": "",
   "body": "  In this activity, we reason graphically from the following figure to evaluate limits of ratios of functions about which some information is known.  ADD ALT TEXT TO THIS IMAGE     Use the left-hand graph to determine the values of , , , and . Then, evaluate .    Don't forget that measures the slope of the tangent line to at the point .    .    From the given graph, we observe that , , , and . By L'Hôpital's Rule, .      Use the middle graph to find , , , and . Then, determine the value of .    Do the functions and meet the criteria of L'Hôpital's Rule?    .    The given graph tells us that , , , and . Note well that the given limit, , is not indeterminate, and thus L'Hôpital's Rule does not apply. Rather, since and as , we have that .      Assume that and are functions whose for which and Use the right-hand graph to compute , , , . Explain why you cannot determine the exact value of without further information being provided, but that you can determine the sign of . In addition, state what the sign of the limit will be, with justification.    Remember that L'Hôpital's Rule can be applied more than once to a particular limit.    .    From the third graph, , , , . By L'Hôpital's Rule, , but this limit is still indeterminate, so by L'Hôpital's Rule again, , provided that . Since we do not know the values of and , we can't determine the actual value of the limit, but from the graph it appears that (since is concave up) and that (because is concave down), and therefore .    "
 },
@@ -3236,7 +3236,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-2-LHR.html#F-2-8-Infty",
   "type": "Figure",
-  "number": "3.2.6",
+  "number": "3.2.3",
   "title": "",
   "body": " The graph of .  The graph of .   "
 },
@@ -3245,7 +3245,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-2-LHR.html#F-2-8-InftyLib",
   "type": "Figure",
-  "number": "3.2.7",
+  "number": "3.2.4",
   "title": "",
   "body": " Graphs of some familiar functions whose end behavior as is known. In the middle graph, and .  Graphs of some familiar functions whose end behavior as is known. In the middle graph, and .   "
 },
@@ -3254,7 +3254,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-2-LHR.html#ex-2-8-rational-infty",
   "type": "Example",
-  "number": "3.2.8",
+  "number": "3.2.5",
   "title": "",
   "body": "  Determine the limit of the function as .    Note that both as and as . Here we say that has indeterminate form . We can determine the value of this limit through a standard algebraic approach. Multiplying the numerator and denominator each by (we choose this quantity since is the highest power present in the numerator or denominator), we find that since and as . This shows that the rational function has a horizontal asymptote at . A similar approach can be used to determine the limit of any rational function as .   "
 },
@@ -3263,7 +3263,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-2-LHR.html#act-3-2-3",
   "type": "Activity",
-  "number": "3.2.9",
+  "number": "3.2.4",
   "title": "",
   "body": "  Evaluate each of the following limits. If you use L'Hôpital's Rule, indicate where it was used, and be certain its hypotheses are met before you apply it.          Remember that as .    .    As both numerator and denominator tend to as , by L'Hôpital's Rule followed by some elementary algebra, .           Both the numerator and denominator tend to as .    .    Because this limit has indeterminate form , L'Hôpital's Rule tells us that . The latest limit is indeterminate for the same reason, and a second application of the rule shows . Note how each application of the rule produces a simpler numerator and denominator. With one more use of L'Hôpital's Rule, followed by a simple algebraic simplification, we have .           Note that , not .    .    As , and , thus by L'Hôpital's Rule, . Reciprocating, multiplying, and simplifying, it follows that .           As , .    .    Here, the numerator tends to while the denominator tends to . Note well that this limit is not indeterminate, but rather produces a collection of fractions with large positive numerators and small negative denominators. Hence . In particular, we observe that L'Hôpital's Rule is not applicable here.           Observe that .    .    In its original form, , is indeterminate of form . Rewriting as , a straightforward application of L'Hôpital's Rule tells us that . Since as , we find that .    "
 },
@@ -3443,7 +3443,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#PA-3-3",
   "type": "Preview Activity",
-  "number": "3.3.4",
+  "number": "3.3.1",
   "title": "",
   "body": "  Consider the function given by the graph in Figure . Use the graph to answer each of the following questions.   The graph of a function on the interval .  The graph of a function on the interval .        Identify all of the values of such that for which is a local maximum of .       Identify all of the values of such that for which is a local minimum of .       Does have a global maximum on the interval ? If so, what is the value of this global maximum?       Does have a global minimum on the interval ? If so, what is its value?       Identify all values of for which .       Identify all values of for which does not exist.       True or false: every relative maximum and minimum of on the interval occurs at a point such that where is either zero or does not exist. Explain your conclusion.       True or false: at every point where is zero or does not exist on the interval , has a relative maximum or minimum. Explain your conclusion.     "
 },
@@ -3452,7 +3452,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#F-3-1-extremes",
   "type": "Figure",
-  "number": "3.3.6",
+  "number": "3.3.5",
   "title": "",
   "body": " Five different possible behaviors of a function near one of its critical numbers.  Five different possible behaviors of a function near one of its critical numbers.   "
 },
@@ -3461,7 +3461,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#sec-3-3-tests-4-5",
   "type": "Definition",
-  "number": "3.3.7",
+  "number": "3.3.6",
   "title": "",
   "body": "  We say that a function has a critical number  critical number at provided that is in the domain of , and either or is undefined.   "
 },
@@ -3479,7 +3479,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#Ex-f-from-f-prime",
   "type": "Example",
-  "number": "3.3.8",
+  "number": "3.3.7",
   "title": "",
   "body": "  Let be a function whose derivative is given by the formula . Determine all critical numbers of and decide whether a relative maximum, relative minimum, or neither occurs at each.    Since we already have written in factored form, it is straightforward to find the critical numbers of . Because is defined for all values of , we need only determine where . From the equation and the zero product property, it follows that and are critical numbers of . (There is no value of that makes .)  Next, to apply the first derivative test, we'd like to know the sign of at inputs near the critical numbers. Because the critical numbers are the only locations at which can change sign, it follows that the sign of the derivative is the same on each of the intervals created by the critical numbers: for instance, the sign of must be the same for every . We create a first derivative sign chart to summarize the sign of on the relevant intervals, along with the corresponding behavior of .  To produce the first derivative sign chart in Figure we identify the sign of each factor of at one selected point in each interval. For instance, for , we can determine the sign of , , and at the value . We note that both and are positive regardless of the value of , while is also positive at . Hence, each of the three terms in is positive, which we indicate by writing . Taking the product of three positive terms results in a positive value for , which we denote by the in the interval to the left of . And, since is positive on that interval, we know that is increasing, so we write INC to represent the behavior of . In a similar way, we find that is positive and is increasing on , and is negative and is decreasing for .   The first derivative sign chart for a function whose derivative is given by the formula .  The first derivative sign chart for a function whose derivative is given by the formula .    Now we look for critical numbers at which changes sign. In this example, changes sign only at , from positive to negative, so has a relative maximum at . Although has a critical number at , since is increasing both before and after , has neither a minimum nor a maximum at .   "
 },
@@ -3488,7 +3488,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#act-3-3-1",
   "type": "Activity",
-  "number": "3.3.10",
+  "number": "3.3.2",
   "title": "",
   "body": "  Suppose that is a function whose first derivative is .     Determine, with justification, all critical numbers of .    Where is ? Is there anywhere that is undefined?     and are the only two critical numbers of .    Using the given fact that , we observe that since is never 0, is never undefined. Moreover, implies that , which only happens when or , so these are the two critical numbers of .      By developing a carefully labeled first derivative sign chart, decide whether has as a local maximum, local minimum, or neither at each critical number.    Choose values of that lie just before and\/or just after each of the critical numbers, and find the sign of at each of them.    For , ; for , ; and for , .    We can observe that for , ; for , ; and for , .      Does have a global maximum? global minimum? Justify your claims.    Are there -values where changes from negative to positive? positive to negative?     has a local maximum at ; has a local minimum at .    Using the First Derivative Test and the signs of we found in (b), it follows has a local maximum at , since at that value changes from positive to negative; similarly, has a local minimum at since there the derivative changes from negative to positive.      Sketch a possible graph of . Clearly label any local or global extrema on the graph.    Think about where is increasing and decreasing, as well as where has relative extremes.     A plot of a possible function whose derivative is the given formula for .   A plot of a possible function whose derivative is the given formula for .    f(x) = log(x^2+1) + x - 9*atan(x) - 2  a = -4  b = 2      (-4,g(-4))    (2,g(2))          By thinking about where is increasing and decreasing, as well as where has local extremes, we can sketch the following possible graph of .   A plot of a possible function whose derivative is the given formula for .   A plot of a possible function whose derivative is the given formula for .    f(x) = log(x^2+1) + x - 9*atan(x) - 2  a = -4  b = 2      (-4,g(-4))    (2,g(2))        Note that any vertical shift of will have the same shape and same derivative, so multiple graphs are possible. In addition, we can observe that as , , and this explains why our graph looks linear in its end behavior in each direction.    "
 },
@@ -3497,7 +3497,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#F-3-1-2Dtest",
   "type": "Figure",
-  "number": "3.3.13",
+  "number": "3.3.11",
   "title": "",
   "body": " Four possible graphs of a function with a horizontal tangent line at a critical point.  Four possible graphs of a function with a horizontal tangent line at a critical point.   "
 },
@@ -3506,7 +3506,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#Ex-3-2",
   "type": "Example",
-  "number": "3.3.14",
+  "number": "3.3.12",
   "title": "",
   "body": "  Let be a function whose first derivative is . Construct both first and second derivative sign charts for , fully discuss where is increasing and decreasing and concave up and concave down, identify all relative extreme values, and sketch a possible graph of .    Since we know , we can find the critical numbers of by solving . Factoring, we observe that , so that are the three critical numbers of . The first derivative sign chart for is given in Figure .   The first derivative sign chart for when .  The first derivative sign chart for when .    We see that is increasing on the intervals and , and is decreasing on and . By the first derivative test, this information tells us that has a local maximum at and a local minimum at . Although also has a critical number at , neither a maximum nor minimum occurs there since does not change sign at .  Next, we move on to investigate concavity. Differentiating , we see that . Since we are interested in knowing the intervals on which is positive and negative, we first find where . Observe that . This equation has solutions . Building a sign chart for in the exact same way we do for , we see the result shown in Figure .   The second derivative sign chart for when .  The second derivative sign chart for when .    Therefore, is concave down on the intervals and , and concave up on and .  Putting all of this information together, we now see a complete and accurate possible graph of in Figure .   A possible graph of the function in Example .  A possible graph of the function in Example .    The point is a local maximum, because is increasing prior to and decreasing after; similarly, the point is a local minimum. Note, too, that is concave down at and concave up at , which is consistent both with our second derivative sign chart and the second derivative test. At points and , concavity changes, as we saw in the results of the second derivative sign chart in Figure . Finally, at point , has a critical point with a horizontal tangent line, but neither a maximum nor a minimum occurs there, since is decreasing both before and after . It is also the case that concavity changes at .  While we completely understand where is increasing and decreasing, where is concave up and concave down, and where has relative extremes, we do not know any specific information about the -coordinates of points on the curve. For instance, while we know that has a local maximum at , we don't know the value of that maximum because we do not know . Any vertical translation of our sketch of in Figure would satisfy the given criteria for .   "
 },
@@ -3515,7 +3515,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#sec-3-3-tests-5-10",
   "type": "Definition",
-  "number": "3.3.18",
+  "number": "3.3.16",
   "title": "",
   "body": "  If is a value in the domain of a continuous function at which changes concavity, then we say that is an inflection point  inflection point (or point of inflection ) of .   "
 },
@@ -3524,7 +3524,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#act-3-3-2",
   "type": "Activity",
-  "number": "3.3.19",
+  "number": "3.3.3",
   "title": "",
   "body": "  Suppose that is a function whose second derivative, , is given by the graph in the following figure.  ADD ALT TEXT TO THIS IMAGE     Identify all -values where or is undefined. Then, construct a second derivative sign chart for and hence state the intervals on which is concave up, as well as the intervals on which is concave down.    Use the given graph to decide where is positive and negative.    is concave up for , concave down for , and concave down for .    Note that for , for , and for . This tells us that is concave up for , concave down for , and concave down for .      State the -coordinates of all points of inflection of .    What must be true of at a point of inflection?    is an inflection point of .    Based on the given graph of , the only point at which changes sign is , and hence this is an inflection point of .      Suppose you are given that . Is there is a local maximum, local minimum, or neither (for the function ) at this critical number of , or is it impossible to say? Why?    What does the second derivative test say?    has a local minimum at .    Given that , we know that has a horizontal tangent line at this critical number. In addition, from the given graph of , we see that and observe that is concave up at -values near . By the second derivative test, has a local minimum at .      Assuming that is a polynomial (and that all important behavior of is seen in the graph above), what degree polynomial do you think is? Why?    Can you guess a formula for based on its graph?    is a degree 5 polynomial.    From the given graph, since has a simple zero at and a repeated zero at , it appears that is a degree 3 polynomial. If so, then is a degree 4 polynomial, and is a degree 5 polynomial.    "
 },
@@ -3533,7 +3533,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-3-tests.html#act-3-3-3",
   "type": "Activity",
-  "number": "3.3.20",
+  "number": "3.3.4",
   "title": "",
   "body": "  Consider the family of functions given by , where is an arbitrary positive real number.      Use a graphing utility to sketch the graph of for several different -values, including . Plot on the axes provided. What is the smallest value of at which you think you can see (just by looking at the graph) at least one inflection point on the graph of ?  ADD ALT TEXT TO THIS IMAGE    Be sure to try some values between 1.5 and 2.    In the graph below, is given in dark blue, while is shown in light blue.    In the graph below, is given in dark blue, while is shown in light blue.  Close inspection of the light blue graph reveals some subtle changes in concavity around . For values smaller than , it is very hard to visually detect any inflection points in .      Explain why the graph of has no inflection points if , but infinitely many inflection points if .    Treat as an arbitrary constant in computing and .    If , then the equation has no solution. Hence, whenever , or , it follows that the equation has no solutions , which means that is never zero (indeed, for these -values, is always positive so that is always concave up). On the other hand, if , then , which guarantees that has infinitely many solutions, due to the periodicity of the cosine function. At each such point, changes sign, and therefore has infinitely many inflection points whenever .    Treating as an arbitrary constant, we first observe that . Again treating as a constant and differentiating, we find . We seek the values of for which at which changes sign. Setting and rearranging the resulting equation, we now seek such that , or . Now, remember that is an arbitrary positive constant and recall that for all input values . If , then the equation has no solution. Hence, whenever , or , it follows that the equation has no solutions , which means that is never zero (indeed, for these -values, is always positive so that is always concave up). On the other hand, if , then , which guarantees that has infinitely many solutions, due to the periodicity of the cosine function. At each such point, changes sign, and therefore has infinitely many inflection points whenever .      Explain why, no matter the value of , can only have finitely many critical numbers.    What is the largest value of ? How many times can intersect the line ?    To see why can only have a finite number of critical numbers regardless of the value of , consider the equation , which implies that . Since , we know that . Once is sufficiently large, we are guaranteed that , which means that for large , and cannot intersect. Moreover, for relatively small values of , the functions and can only intersect finitely many times since oscillates a finite number of times. This is why can only have a finite number of critical numbers, regardless of the value of .    To see why can only have a finite number of critical numbers regardless of the value of , consider the equation , which implies that . Since , we know that . Once is sufficiently large, we are guaranteed that , which means that for large , and cannot intersect. Moreover, for relatively small values of , the functions and can only intersect finitely many times since oscillates a finite number of times. This is why can only have a finite number of critical numbers, regardless of the value of .    "
 },
@@ -3686,7 +3686,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-4-families.html#PA-3-4",
   "type": "Preview Activity",
-  "number": "3.4.2",
+  "number": "3.4.1",
   "title": "",
   "body": "  Let , , and be arbitrary real numbers with , and let be the function given by the rule .     What familiar type of function is ? What information do you know about just by looking at its form? (Think about the roles of , , and .)       Next we use some calculus to develop familiar ideas from a different perspective. To start, treat , , and as constants and compute .       Find all critical numbers of . (These will depend on at least one of , , and .)       Assume that . Construct a first derivative sign chart for .       Based on the information you've found above, classify the critical values of as maxima or minima.     "
 },
@@ -3695,7 +3695,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-4-families.html#Ex-3-2-1",
   "type": "Example",
-  "number": "3.4.3",
+  "number": "3.4.2",
   "title": "",
   "body": "  Consider the two-parameter family of functions given by , where and are positive real numbers. Fully describe the behavior of a typical member of the family in terms of and , including the location of all critical numbers, where is increasing, decreasing, concave up, and concave down, and the long term behavior of .    We begin by computing . By the product rule, . By applying the chain rule and constant multiple rule, we find that .  To find the critical numbers of , we solve the equation . By factoring , we find .  Since we are given that and we know that for all values of , the only way this equation can hold is when . Solving for , we find , and this is therefore the only critical number of .  We construct the first derivative sign chart for that is shown in Figure .   The first derivative sign chart for .  The first derivative sign chart for .    Because the factor is always positive, the sign of depends on the linear factor , which is positive for and negative for . Hence we can conclude that is always increasing for and decreasing for , and also that has a global maximum at and no local minimum.  We turn next to analyzing the concavity of . With , we differentiate to find that .  Combining like terms and factoring, we now have .   The second derivative sign chart for .  The second derivative sign chart for .    We observe that is always positive, and thus the sign of depends on the sign of , which is zero when . Since is positive, the value of is negative for and positive for . The sign chart for is shown in Figure . Thus, is concave down for all and concave up for all .  Finally, we analyze the long term behavior of by considering two limits. First, we note that .  This limit has indeterminate form , so we apply L'Hôpital's Rule and find that . In the other direction, , because and as . Hence, as we move left on its graph, decreases without bound, while as we move to the right, .  All of this information now helps us produce the graph of a typical member of this family of functions without using a graphing utility (and without choosing particular values for and ), as shown in Figure .   The graph of .  The graph of .    Note that the value of controls the horizontal location of the global maximum and the inflection point, as neither depends on . The value of affects the vertical stretch of the graph. For example, the global maximum occurs at the point , so the larger the value of , the greater the value of the global maximum.   "
 },
@@ -3704,7 +3704,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-4-families.html#act-3-4-1",
   "type": "Activity",
-  "number": "3.4.7",
+  "number": "3.4.2",
   "title": "",
   "body": "  Consider the family of functions defined by , where is an arbitrary constant.     Find and determine the critical numbers of . How many critical numbers does have?    When solving , think about two possible cases: when and when .    has two critical numbers ( ) whenever and no critical numbers when .    We first note that , so to find critical numbers we set and solve for . This leads to the equation , which implies . If , then the solutions to this equation are ; if , then the equation has no solution. Hence, has two critical numbers ( ) whenever and no critical numbers when .      Construct a first derivative sign chart for . What can you say about the overall behavior of if the constant is positive? Why? What if the constant is negative? In each case, describe the relative extremes of .    Remember that any quadratic function can be zero at most two times. How does the graph of look?    When , is always increasing and has no relative extreme values. When , has a relative maximum at and a relative minimum at .    For the case when , we observe that is positive for every value of , and thus is always increasing and has no relative extreme values. (There are no critical numbers to place on the first derivative sign chart, and is always positive.) For the case when , we observe that is a concave up parabola with zeros at and . It follows that for , (so is increasing); for , (so is decreasing); and for , (so is again increasing). In this situation, we see that has a relative maximum at and a relative minimum at .      Find and construct a second derivative sign chart for . What does this tell you about the concavity of ? What role does play in determining the concavity of ?    Don't forget that .    is CCD for and is CCU for , making an inflection point.    Since and is constant, it follows that . Note that when and that for and for . Hence is CCD for and is CCU for , making an inflection point.      Without using a graphing utility, sketch and label typical graphs of for the cases where and . Label all inflection points and local extrema.    Think about how a typical cubic polynomial's graph behaves.    ADD ALT TEXT TO THIS IMAGE    Below, we show the two possible situations. At left, for the case when and is always increasing with an inflection point at , and at right for when and has a relative maximum at and a relative minimum at , again with an inflection point at . Note, too, that has its -intercepts at .  ADD ALT TEXT TO THIS IMAGE    "
 },
@@ -3713,7 +3713,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-4-families.html#act-3-4-2",
   "type": "Activity",
-  "number": "3.4.8",
+  "number": "3.4.3",
   "title": "",
   "body": "  Consider the two-parameter family of functions of the form , where and are positive real numbers.     Find the first derivative and the critical numbers of . Use these to construct a first derivative sign chart and determine for which values of the function is increasing and decreasing.    Expand to write before differentiating.    is an always increasing function.    Since , we have by the constant multiple and chain rules that . Since and are positive constants and for all , we see that is never zero (nor undefined), and indeed for all . Hence is an always increasing function.      Find the second derivative and build a second derivative sign chart. For which values of is a function in this family concave up? concave down?    Remember that is never zero and always positive, regardless of the value of .    is always concave down.    Because , we have that . As with , we recognize that , , and are always positive, and thus for all values of , making always concave down.      What is the value of ? ?    Recall that as and as .    , and .    As , . Thus, . This shows that has a horizontal asymptote at as we move rightward on its graph. As , . Thus, .      How does changing the value of affect the shape of the curve?    Consider how affects the value of .    If is large and is close to zero, is relatively large near , and the curve's slope will quickly approach zero as increases. If is small, the graph is less steep near and its slope goes to zero less quickly as increases.    Noting that , we see that if we consider different values of , the slope of the graph changes. If is large and is close to zero, (since ), so is relatively large near . At the same time, for large , approaches zero quickly as increases, so the curve's slope will quickly approach zero as increases. If is small, the graph is less steep near and its slope goes to zero less quickly as increases.      Without using a graphing utility, sketch the graph of a typical member of this family. Write several sentences to describe the overall behavior of a typical function and how this behavior depends on and .    Use your work in (a)-(d).    ADD ALT TEXT TO THIS IMAGE    Observing that and , along with the facts that is always increasing and always concave down, we see that a typical member of this family looks like the following graph.  ADD ALT TEXT TO THIS IMAGE    "
 },
@@ -3722,7 +3722,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-4-families.html#act-3-4-3",
   "type": "Activity",
-  "number": "3.4.9",
+  "number": "3.4.4",
   "title": "",
   "body": "  Let , where , , and are all positive real numbers.     Observe that we can equivalently write . Find and explain why has no critical numbers. Is always increasing or always decreasing? Why?    Use the chain rule, treating , , and as constants.    is an always increasing function.    By the chain rule and treating , , and as constants, we find that . Since , , and are all positive and for all values of , it is apparent that is never zero, and indeed is positive for every value of . Thus, is an always increasing function.      It turns out that . Given this fact, find all values of such that and hence construct a second derivative sign chart. For which values of is a function in this family concave up? concave down?    Note that the only way is if .    is concave up for all and concave up for all other values of .    Given that , the only way is if . Solving for , we first write . Taking the natural logarithm of both sides, , so that is the only value of for which . Now, observe that since as , the quantity will be positive to the left of where it is zero and negative to the right of where it is zero. Since this is the only term in that can change sign, it follows that for and for , making concave up to the left of the noted inflection point and concave down thereafter.      What is the value of ? ?    Remember that as and as .    , and .    Recalling that as , we observe that , so has a horizontal asymptote of as . On the other hand, since as , this causes the denominator of to grow without bound (while the numerator remains constant), and therefore , which means has a horizontal asymptote of as .      Find the value of at the inflection point found in (b).    Don't forget that for all .    The inflection point on the graph of is .    From (b), we know that is the location of the inflection point of . Evaluating the function at this point, we find that . Thus, the inflection point on the graph of is located at .      Without using a graphing utility, sketch the graph of a typical member of this family. Write several sentences to describe the overall behavior of a typical function and how this behavior depends on , , and number.    Think about horizontal asymptotes, where is increasing and decreasing, and concavity.    ADD ALT TEXT TO THIS IMAGE    We have shown that is an always increasing function that has horizontal asymptotes at and , as well as an inflection point at , which we note lies vertically halfway between the asymptotes. In addition, we see that . The combination of all of this information shows us that a typical graph in this family of functions is given by the following figure.  ADD ALT TEXT TO THIS IMAGE    "
 },
@@ -3830,7 +3830,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-5-optimization.html#PA-3-5",
   "type": "Preview Activity",
-  "number": "3.5.2",
+  "number": "3.5.1",
   "title": "",
   "body": "  Let .     Find and use it to determine all of the critical numbers of .       Construct a first derivative sign chart for and thus determine all intervals on which is increasing or decreasing.       Does have a global maximum? If so, explain why, plus state the location and value of the global maximum. If not, explain why not.       Determine and .       Explain why for every value of .       Does have a global minimum? If so, explain why, plus state the location and value of the global minimum. If not, explain why not.     "
 },
@@ -3839,7 +3839,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-5-optimization.html#act-3-5-1",
   "type": "Activity",
-  "number": "3.5.3",
+  "number": "3.5.2",
   "title": "",
   "body": "  Let .     Find all critical numbers of that lie in the interval .    Check that each critical number you find satisfies .    .    Since , the critical numbers of are , both of which lie in the interval .      Use a graphing utility to construct the graph of on the interval .     ADD ALT TEXT TO THIS IMAGE    The figure shown below shows three related plots, each with the emphases on the interval provided in (c), (d), and (e).  ADD ALT TEXT TO THIS IMAGE      From the graph, determine the -values at which the absolute minimum and absolute maximum of occur on the interval .    On the graph, look for the lowest and highest possible values of the function.    On , has a global maximum at and a global minimum at .    On , has a global maximum at and a global minimum at .      How do your answers change if we instead consider the interval ?    Ask yourself the same questions as (a)-(c), simply using the new interval.    On , has a global maximum at and a global minimum at .    On , has a global maximum at and a global minimum at .      What if we instead consider the interval ?     On , has a global maximum at and a global minimum at .    On , has a global maximum at and a global minimum at .    "
 },
@@ -3848,7 +3848,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-5-optimization.html#sec-3-5-optimization-4-8",
   "type": "Note",
-  "number": "3.5.4",
+  "number": "3.5.2",
   "title": "",
   "body": " Thus, we have the following approach to finding the absolute maximum and minimum of a continuous function on the interval :   find all critical numbers of that lie in the interval;    evaluate the function at each critical number in the interval and at each endpoint of the interval;    from among those function values, the smallest is the absolute minimum of on the interval, while the largest is the absolute maximum.     "
 },
@@ -3857,7 +3857,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-5-optimization.html#act-3-5-2",
   "type": "Activity",
-  "number": "3.5.5",
+  "number": "3.5.3",
   "title": "",
   "body": "  Find the exact absolute maximum and minimum of each function on the stated interval.     ,    After computing , factor to write the derivative as a product.    Absolute maximum: ; absolute minimum: .    For , we know that . Therefore, the only critical number of is . Next, we compute , , and . Observe that  Thus, on , the absolute maximum of is and the absolute minimum is .      ,    The sine and cosine functions have the same value at for any integer .    Absolute maximum: ; absolute minimum: .    Given , it follows , so implies that . The sine and cosine functions have the same value at for any integer . The only time this occurs in is for , and thus this is the only critical number of in the given interval. Now,  Therefore, on , the absolute maximum of is and the absolute minimum is .      ,    Upon finding , factor its numerator.    Absolute maximum: 9.8; absolute minimum: 8.    With , we have . Hence, the critical numbers of are and . Only the latter critical number lies in the interval , and thus we evaluate and find  We now see that on the absolute maximum of is 9.8 and the absolute minimum is 8.      ,    Remember that is never zero.    Absolute minimum 3; no absolute maximum.    Here, we first observe that we are working on the domain of all real numbers, not a closed bounded interval. Hence, we need to think about the overall behavior of the function. First, since , by the chain rule we see that . Since is always positive (in particular, never zero), it follows that the only critical number of is . Furthermore, with , we see that for , , while for , . This tells us by the first derivative test that is decreasing for and increasing for , which tells us that has an absolute minimum at , and does not have an absolute maximum.      , ( )    After differentiating, remove a factor of .    Absolute minimum ; absolute maximum .    For on , where , we start by finding . By the product and chain rules, treating as a constant, we find . Factoring, it follows . Since is never zero, the only way for is if , which implies . Noting also that is defined for every real number , we have established that has a single critical number at .  Now we simply compute the value of at each endpoint and at the critical number and compare the outputs. We have , , and . The absolute minimum is , and the absolute maximum is the larger of and . That absolute maximum is , since .      , ,    Compare part (d).    Absolute minimum ; no absolute maximum.    The reasoning here is identical to that in (d), but instead of working with , we use arbitrary positive constants and to consider    "
 },
@@ -3866,7 +3866,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-5-optimization.html#F-3-3-Interval",
   "type": "Figure",
-  "number": "3.5.6",
+  "number": "3.5.3",
   "title": "",
   "body": " A function considered on three different intervals.  A function considered on three different intervals.   "
 },
@@ -3875,7 +3875,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-5-optimization.html#Ex-3-3-1",
   "type": "Example",
-  "number": "3.5.7",
+  "number": "3.5.4",
   "title": "",
   "body": "  A 20 cm piece of wire is cut into two pieces. One piece is used to form a square and the other to form an equilateral triangle. How should the wire be cut to maximize the total area enclosed by the square and triangle? to minimize the area?    We begin by sketching a picture that illustrates the situation. The variable in the problem is where we decide to cut the wire. We thus label the cut point at a distance from one end of the wire, and note that the remaining portion of the wire then has length    As shown in Figure , we see that the cm of wire that is used to form the equilateral triangle with three sides of length . For the remaining cm of wire, the square that results will have each side of length .   A 20 cm piece of wire cut into two pieces, one of which forms an equilateral triangle, the other which yields a square.  A 20 cm piece of wire cut into two pieces, one of which forms an equilateral triangle, the other which yields a square.     At this point, we note that there are obvious restrictions on : in particular, . In the extreme cases, all of the wire is being used to make just one figure. For instance, if , then all 20 cm of wire are used to make a square that is .  Now, our overall goal is to find the minimum and maximum areas that can be enclosed. Because the height of an equilateral triangle is times half the length of the base, the area of the triangle is . The area of the square is . Therefore, the total area function is .  Remember that we are considering this function only on the restricted domain .  Differentiating , we have .  When we set , we find that is the only critical number of in the interval .  Evaluating at the critical number and endpoints, we see that                    Thus, the absolute minimum occurs when and results in the minimum area of approximately square centimeters. The absolute maximum occurs when we invest all of the wire in the square (and none in the triangle), resulting in 25 square centimeters of area. These results are confirmed by a plot of on the interval , as shown in Figure .   A plot of the area function from Example .  A plot of the area function from Example .      "
 },
@@ -3884,7 +3884,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-5-optimization.html#act-3-5-3",
   "type": "Activity",
-  "number": "3.5.10",
+  "number": "3.5.4",
   "title": "",
   "body": "  A piece of cardboard that is (each measured in inches) is being made into a box without a top. To do so, squares are cut from each corner of the box and the remaining sides are folded up. If the box needs to be at least 1 inch deep and no more than 3 inches deep, what is the maximum possible volume of the box? what is the minimum volume? Justify your answers using calculus.     Draw a labeled diagram that shows the given information. What variable should we introduce to represent the choice we make in creating the box? Label the diagram appropriately with the variable, and write a sentence to state what the variable represents.    Consider letting the length of one side of the removed squares be represented by .    ADD ALT TEXT TO THIS IMAGE    We let represent the length of a side of the square that is cut from each corner, so that we have the following picture:  ADD ALT TEXT TO THIS IMAGE      Determine a formula for the function (that depends on the variable in (a)) that tells us the volume of the box.    Remember that the volume of a box is length width height.    .    Because the box has dimensions , the volume of the box is given by .      What is the domain of the function ? That is, what values of make sense for input? Are there additional restrictions provided in the problem?    Read the given information carefully and think about the picture.    .    Clearly the smallest can be is 0 and the largest can be is 5, since one side of the cardboard has length 10. But we're told in the problem to restrict the value of to , so this is the domain we use for , even though is defined for every real number .      Determine all critical numbers of the function .    Note that since is a cubic function, is quadratic.    .    Since , it follows that the critical numbers (where ) are .      Evaluate at each of the endpoints of the domain and at any critical numbers that lie in the domain.    Which critical numbers satisfy ?                         Only the latter critical number is in the relevant domain of , and hence we consider      What is the maximum possible volume of the box? the minimum?    Evaluate the function at appropriate points.    Absolute maximum: 132.0382370; absolute minimum: 104.    Hence the absolute maximum possible volume of the box is 132.0382370 and occurs when , while the absolute minimum is 104, which occurs when .    "
 },
@@ -4010,7 +4010,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-6-applied-opt.html#sec-3-6-applied-opt-4-3",
   "type": "Note",
-  "number": "3.6.2",
+  "number": "3.6.1",
   "title": "",
   "body": "    Draw a picture and introduce variables. It is essential to first understand what quantities are allowed to vary in the problem and then to represent those values with variables. Constructing a figure with the variables labeled is almost always an essential first step. Sometimes drawing several diagrams can be especially helpful to get a sense of the situation. A nice example of this can be seen in this interactive graphic , where the choice of where to bend a piece of wire into the shape of a rectangle determines both the rectangle's shape and area.    Identify the quantity to be optimized as well as any key relationships among the variable quantities. Essentially this step involves writing equations that involve the variables that have been introduced: one to represent the quantity whose minimum or maximum is sought, and possibly others that show how multiple variables in the problem may be interrelated.    Determine a function of a single variable that models the quantity to be optimized; this may involve using other relationships among variables to eliminate one or more variables in the function formula. For example, in Preview Activity , we initially found that , but then the additional relationship that (girth plus length equals 108 inches) allows us to relate and and thus observe equivalently that . Substituting for in the volume equation yields , and thus we have written the volume as a function of the single variable . The equation that shows a key relationship that always holds between the variables is often called a constraint equation .    Decide the domain on which to consider the function being optimized. Often the physical constraints of the problem will limit the possible values that the independent variable can take on. Thinking back to the diagram describing the overall situation and any relationships among variables in the problem often helps identify the smallest and largest values of the input variable.    Use calculus to identify the absolute maximum and\/or minimum of the quantity being optimized. This always involves finding the critical numbers of the function first. Then, depending on the domain, we either construct a first derivative sign chart (for an open or unbounded interval) or evaluate the function at the endpoints and critical numbers (for a closed, bounded interval), using ideas we've studied so far in Chapter .    Finally, we make certain we have answered the question: does the question seek the absolute maximum of a quantity, or the values of the variables that produce the maximum? That is, finding the absolute maximum volume of a parcel is different from finding the dimensions of the parcel that produce the maximum.     "
 },
@@ -4019,7 +4019,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-6-applied-opt.html#act-3-6-1",
   "type": "Activity",
-  "number": "3.6.3",
+  "number": "3.6.2",
   "title": "",
   "body": "  A soup can in the shape of a right circular cylinder is to be made from two materials. The material for the side of the can costs $0.015 per square inch and the material for the lids costs $ per square inch. Suppose that we desire to construct a can that has a volume of 16 cubic inches. What dimensions minimize the cost of the can?     Draw a picture of the can and label its dimensions with appropriate variables.    Note that both the radius and the height of the can are variable.    Let the can have radius and height .    We let be the radius of the base of the cylindrical can and be its height.      Use your variables to determine expressions for the volume, surface area, and cost of the can.    Remember that volume is the area of the base times the height, while surface are can be thought of in terms of the area of the two lids, plus the area of the side of the can.    ; ; .    Volume is the area of the base times the height, so . Surface area is the area of the lids plus the area of the side, the latter of which is a rectangle with height and width the perimeter of the base. Hence, . Finally, the total cost is the cost of the lids plus the cost of the sides, which is .      Determine the total cost function as a function of a single variable. What is the domain on which you should consider this function?    Use the fact that to write one of the variables in terms of the other to get the cost as a function of a single variable.    , .    Because the volume is fixed at 16 cubic inches, we know that . Solving for , . Substituting this expression for in the formula for total cost, we now have that . With , we note that the only constraint on is that , hence this is the domain on which we seek to minimize .      Find the absolute minimum cost and the dimensions that produce this value.    Differentiate the total cost function and find its critical number(s) first.    ; ; minimum cost .    Noting that , we set and solve for to find that , so that , from which it follows that is the only critical number of . At this point, we can use either the first or second derivative test to justify that has an absolute minimum at . We choose to use the second derivative test; note that , which is always positive for , hence is always concave up on the relevant domain ( ), which makes where the absolute minimum of occurs. In addition, we note that since , the corresponding value is , and the overall minimum cost is .    "
 },
@@ -4028,7 +4028,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-6-applied-opt.html#act-3-6-2",
   "type": "Activity",
-  "number": "3.6.4",
+  "number": "3.6.3",
   "title": "",
   "body": "  A hiker starting at a point on a straight road walks east towards point , which is on the road and 3 kilometers from point . Two kilometers due north of point is a cabin. The hiker will walk down the road for a while, at a pace of 8 kilometers per hour. At some point between and , the hiker leaves the road and makes a straight line towards the cabin through the woods, hiking at a pace of 3 kph, as pictured in the provided figure. In order to minimize the time to go from to to the cabin, where should the hiker turn into the forest?  ADD ALT TEXT TO THIS IMAGE    Let be the distance from to . What is then the distance from to in terms of ? How about the distance from to the cabin? How does time depend on distance and rate?    The absolute minimum time the hiker can achieve is hours, which is attained by hiking about 2.2 km from to and then turning into the woods for the remainder of the trip.    We begin by letting be the distance from to . Since it is 3 km from to , the distance from to is . Further, by the Pythagorean Theorem, the distance from to the cabin is .  Next, we want to determine the hiker's time as a function of . Because distance equals rate times time, time is thus distance divided by rate. Along the road, the hiker's distance is km and her rate is km\/hr, thus her time on the road, is .  Once she enters the woods, her rate drops to km\/hr and travels a distance of km, making her time in the woods, , given by .  Thus, the hiker's total time is given by the function .  Because the only values of that make sense to use are (using either negative values or values greater than 3 clearly add unnecessary time to the trip), we use this domain for and now seek the absolute minimum of on . First, we find that .  Setting and solving for , we have , so . Squaring both sides, . Hence, , so . (We don't consider the critical number because this doesn't lie in the relevant domain of .)  Finally, we evaluate at the only critical number in the interval and at the interval's endpoints. Doing so, we find , , and , and thus the absolute minimum time the hiker can achieve is hours, which is attained by hiking about 2.2 km from to and then turning into the woods for the remainder of the trip.   "
 },
@@ -4037,7 +4037,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-6-applied-opt.html#act-3-6-4",
   "type": "Activity",
-  "number": "3.6.5",
+  "number": "3.6.4",
   "title": "",
   "body": "  A trough is being constructed by bending a (measured in feet) rectangular piece of sheet metal. Two symmetric folds 2 feet apart will be made parallel to the longest side of the rectangle so that the trough has cross-sections in the shape of a trapezoid, as pictured in the provided figure. At what angle should the folds be made to produce the trough of maximum volume?  ADD ALT TEXT TO THIS IMAGE    Drop altitudes from the top of the trough to the base of length 2. In the two triangles that are formed, what are the lengths of the legs in terms of ?    is the absolute maximum cross-sectional area, which leads to the absolute maximum volume.    Once we choose the angle , the two right triangles in the trapezoid are determined, and each has a horizontal leg of length and a vertical leg of length . Thus, the sum of the areas of the two triangles is , and the area of the rectangle between them is . Hence, the area of the trapezoidal cross-section is . Because the length of the trough is constant, the trough's volume will be maximized by maximizing cross-sectional area. Note, too, that the domain for is .  Differentiating, we find that .  Using the identity , it follows that .  This most recent equation is quadratic in , so letting , we can start to solve the equation by solving . Doing so, we find that , so only will be a potential value of the cosine function from an angle that lies in the interval . Now, recalling that , to find the critical number , we solve , which implies radians, or .  Finally, to confirm that has an absolute maximum at , we consider this value as well as the endpoints of , and evaluate to find that , , and , which is the absolute maximum possible cross-sectional area.   "
 },
@@ -4046,7 +4046,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-3-6-applied-opt.html#act-3-6-3",
   "type": "Activity",
-  "number": "3.6.6",
+  "number": "3.6.5",
   "title": "",
   "body": "  Consider the region in the - plane that is bounded by the -axis and the function . Construct a rectangle whose base lies on the -axis and is centered at the origin, and whose sides extend vertically until they intersect the curve . Which such rectangle has the maximum possible area? Which such rectangle has the greatest perimeter?  (Challenge: answer the same questions in terms of positive parameters and for the function .)    Let represent half the width of the rectangle's base. How does the rectangle's height depend on ?    Maximum area: . Maximum perimeter: .     Letting represent half the width of the rectangle's base, it follows that the rectangle's height is . Hence the area of the rectangle is .  Based on the region, the only possible values of are for ; moreover, it is evident that for either or , the area of the corresponding rectangle is zero, which can't be where the maximum occurs. Differentiating, , so we find the critical number of by solving , which yields , which results in the maximum possible area of square units.  To maximize perimeter, we note that the rectangle's perimeter is .  It is straightforward to show that the only critical number of the quadratic function occurs when and that the corresponding absolute maximum value is .    "
 },
@@ -4190,7 +4190,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-1-velocity-distance.html#F-4-1-VelArea",
   "type": "Figure",
-  "number": "4.1.2",
+  "number": "4.1.1",
   "title": "",
   "body": " At left, a constant velocity function; at right, a non-constant velocity function.  At left, a constant velocity function; at right, a non-constant velocity function.   "
 },
@@ -4199,7 +4199,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-1-velocity-distance.html#F-4-1-VelArea2",
   "type": "Figure",
-  "number": "4.1.3",
+  "number": "4.1.2",
   "title": "",
   "body": " Estimating the area under on .  Estimating the area under on .   "
 },
@@ -4208,7 +4208,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-1-velocity-distance.html#act-4-1-1",
   "type": "Activity",
-  "number": "4.1.4",
+  "number": "4.1.2",
   "title": "",
   "body": "  Suppose that a person is walking in such a way that their velocity varies slightly according to the information given in the following table and graph.                                                                                          f(x)=0.5*x**3-1.5*x**2+1.5*x+1.5      mph  hours  y=v(t)     ADD ALT TEXT TO THIS IMAGE        Using the grid, graph, and given data appropriately, estimate the distance traveled by the walker during the two hour interval from to . You should use time intervals of width , choosing a way to use the function consistently to determine the height of each rectangle in order to approximate distance traveled.    For instance, the approximate distance traveled on can be computed by miles.    Thus, miles.    Using rectangles of width and choosing to set the heights of the rectangles from the function value at the left end of the interval, we see the following graph and find the sum of the areas of the rectangles to be Thus, the distance traveled is approximately miles.      How could you get a better approximation of the distance traveled on ? Explain, and then find this new estimate.    Think about the possibility of using a larger number of rectangles.    Using 8 rectangles of width , .    It appears that a better approximation could be found using narrower rectangles. If we move to 8 rectangles of width , similar computations show that .      Now suppose that you know that is given by . Remember that is the derivative of the walker's position function, . Find a formula for so that .    If and we seek a function such that , note that has to involve .    .    By thinking about how the power rule for differentiation works, we can undo this rule and find a position function whose derivative is . For instance, since , we see that . Thus, if we let , then it is straightforward to check that , which is precisely the formula for that we were given.      Based on your work in (c), what is the value of ? What is the meaning of this quantity?    Observe that this quantity is measuring a change in position.    .    By the rule found in (c) for , we have that . This is the change in the walker's position over the time interval , and since the velocity is always positive, this is actually the exact distance traveled. We see how both earlier estimates ( and ) are good approximations to this value.    "
 },
@@ -4217,7 +4217,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-1-velocity-distance.html#F-4-1-PA1Soln",
   "type": "Figure",
-  "number": "4.1.5",
+  "number": "4.1.3",
   "title": "",
   "body": " The velocity function and corresponding position function .  The velocity function and corresponding position function .   "
 },
@@ -4226,7 +4226,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-1-velocity-distance.html#sec-4-1-velocity-distance-5-13",
   "type": "Definition",
-  "number": "4.1.6",
+  "number": "4.1.4",
   "title": "",
   "body": "  If and are functions such that , we say that is an antiderivative  antiderivative of .   "
 },
@@ -4235,7 +4235,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-1-velocity-distance.html#act-4-1-2",
   "type": "Activity",
-  "number": "4.1.7",
+  "number": "4.1.3",
   "title": "",
   "body": "  A ball is tossed vertically in such a way that its velocity function is given by , where is measured in seconds and in feet per second. Assume that this function is valid for .      For what values of is the velocity of the ball positive? What does this tell you about the motion of the ball on this interval of time values?    Where is velocity zero?    On , is increasing because velocity is positive.    Note that and for , . This means that on the interval , the position function is increasing because velocity is positive.      Find an antiderivative, , of that satisfies .    Since is linear, note that must be quadratic.    .    We can check that the derivative of is , and that , so this is the antiderivative of that we desire.      Compute the value of . What is the meaning of the value you find?    Observe that you are taking the difference between two values of the position function.    .    Now, , which is the change in position of the ball on the interval . Equivalently, since is positive through this interval, 4 feet is the vertical distance the ball traveled during this time.      Using the graph of provided in the following figure, find the exact area of the region between the velocity curve and the -axis between and . What is the meaning of the value you find?  ADD ALT TEXT TO THIS IMAGE    The region whose area is sought is triangular.    feet is the total distance the ball traveled vertically on .    On the interval from to , the corresponding area between the velocity curve and the -axis is the area of the right triangular region whose width is seconds and whose height is feet\/sec. That area is therefore feet. This is the total distance the ball traveled vertically on .      Answer the same questions as in (c) and (d) but instead using the interval .    See (c) and (d) above.    is the vertical distance the ball traveled on the interval . Equivalently, the area between the velocity curve and the -axis on is feet.    , which is the vertical distance the ball traveled on the interval . The area between the velocity curve and the -axis on is the area of the triangle with height 32 (ft\/sec) and base 1 (second), which is feet. These two results are identical, in part due to the fact that we are using two different perspectives to compute the same quantity, which is distance traveled.      What is the value of ? What does this result tell you about the flight of the ball? How is this value connected to the provided graph of ? Explain.    What does it mean for the change of the ball's position to be zero?    , so the ball has zero change in position on the interval .    Observe that . This means that the ball has zero change in position on the interval . But we already established that on the interval , the ball traveled 16 feet vertically; since the velocity becomes negative on the interval , there we know the ball's position is decreasing, so it is falling back to earth. The resulting zero change in position means that at the ball has returned to the location from which it was tossed. If we view the area between the velocity function and the -axis as being negative wherever is negative, then we see that the areas of the two triangles involved are opposites, which in some sense results in the total area being zero, matching the change in position.    "
 },
@@ -4244,7 +4244,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-1-velocity-distance.html#F-4-1-NegVel",
   "type": "Figure",
-  "number": "4.1.8",
+  "number": "4.1.5",
   "title": "",
   "body": " At left, the velocity function of the person walking; at right, the corresponding position function.  At left, the velocity function of the person walking; at right, the corresponding position function.   "
 },
@@ -4253,7 +4253,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-1-velocity-distance.html#act-4-1-3",
   "type": "Activity",
-  "number": "4.1.9",
+  "number": "4.1.4",
   "title": "",
   "body": "  Suppose that an object moving along a straight line path has its velocity (in meters per second) at time (in seconds) given by the piecewise linear function whose graph is pictured at left in the following figure. We view movement to the right as being in the positive direction (with positive velocity), while movement to the left is in the negative direction.  ADD ALT TEXT TO THIS IMAGE  Suppose further that the object's initial position at time is .     Determine the total distance traveled and the total change in position on the time interval . What is the object's position at ?    Find the area of each triangular region formed between and the -axis.    Total distance traveled is ; change in position is .    By finding the area of the triangular regions formed between and the -axis on and (each of which is ), it follows that the object's total distance traveled is , while its change in position is . The latter is true since the net signed area bounded by on is . Finally, the object's position at is      On what time intervals is the moving object's position function increasing? Why? On what intervals is the object's position decreasing? Why?    Recall that , and here we are given complete information about .    and .    The object's position is increasing wherever its velocity is positive, hence for and .      What is the object's position at ? How many total meters has it traveled to get to this point (including distance in both directions)? Is this different from the object's total change in position on to ?    Be careful to address whether is positive or negative when calculating areas and adding the results.    , while the distance traveled on is , and thus these two quantities are different.    By calculating the area bounded by the curve, we find 1 unit of area on , 4 units of area on , and 8 units of area on , thus the total distance traveled on is meters. As the change in position is given by the net signed area on this interval, we find that the change in position is . We thus observe that the distance traveled and change in position on are different.      Find the exact position of the object at and use this data to sketch an accurate graph of on the axes provided at right in the figure. How can you use the provided information about to determine the concavity of on each relevant interval?    Consider finding the area bounded by and the -axis on each interval , , .    See the figure below.    In the figure below, at left we list all of the areas bounded by on each one-unit subinterval. Along with the given starting point that , we use the resulting changes in position to plot points for the function . For instance, we know , hence . Similarly, , thus . Continuing across the interval, we generate the function that is pictured at right. Note that the portion of from to is linear because is constant there, while the other parts of appear to be quadratic, as they correspond to intervals where is linear.    "
 },
@@ -4379,7 +4379,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#PA-4-2",
   "type": "Preview Activity",
-  "number": "4.2.2",
+  "number": "4.2.1",
   "title": "",
   "body": "  A person walking along a straight path has her velocity in miles per hour at time given by the function , for times in the interval . The graph of this function is also given in each of the three diagrams in the following figure.  ADD ALT TEXT TO THIS IMAGE  Note that in each diagram, we use four rectangles to estimate the area under on the interval , but the method by which the four rectangles' respective heights are decided varies among the three individual graphs.     How are the heights of rectangles in the left-most diagram being chosen? Explain, and hence determine the value of by evaluating the function at appropriately chosen values and observing the width of each rectangle. Note, for example, that .       Explain how the heights of rectangles are being chosen in the middle diagram and find the value of .       Likewise, determine the pattern of how heights of rectangles are chosen in the right-most diagram and determine .       Of the estimates , , and , which do you think is the best approximation of , the total distance the person traveled on ? Why?     "
 },
@@ -4388,7 +4388,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#act-4-2-1",
   "type": "Activity",
-  "number": "4.2.3",
+  "number": "4.2.2",
   "title": "",
   "body": "  For each sum written in sigma notation, write the sum long-hand and evaluate the sum to find its value. For each sum written in expanded form, write the sum in sigma notation.          Observe that when , . This is the first term in the sum.                     Note that this sum starts at .                     Since the terms in the sum increase by 4, try a function that somehow involves .    .    Observe that each term in the sum differs from the previous term by 4. If we view as and as , we see that the pattern may be represented through the function , so that . We note that is the end value of the index since .           What pattern do you observe in the terms of the sum?    .    The sum is a sum of powers of , which we can express in sigma notation as .           Write every term in the sum as a fraction with denominator .    .    .    "
 },
@@ -4397,7 +4397,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#F-4-2-Interval",
   "type": "Figure",
-  "number": "4.2.4",
+  "number": "4.2.2",
   "title": "",
   "body": " Subdividing the interval into subintervals of equal length .  Subdividing the interval into subintervals of equal length .   "
 },
@@ -4406,7 +4406,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#F-4-2-LeftSum",
   "type": "Figure",
-  "number": "4.2.5",
+  "number": "4.2.3",
   "title": "",
   "body": " Subdividing the interval into subintervals of equal length and approximating the area under over using left rectangles.  Subdividing the interval into subintervals of equal length and approximating the area under over using left rectangles.   "
 },
@@ -4415,7 +4415,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#F-4-2-RightMidSum",
   "type": "Figure",
-  "number": "4.2.6",
+  "number": "4.2.4",
   "title": "",
   "body": " Riemann sums using right endpoints and midpoints.  Riemann sums using right endpoints and midpoints.   "
 },
@@ -4424,7 +4424,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#F-4-2-RenaultAppletRS",
   "type": "Figure",
-  "number": "4.2.7",
+  "number": "4.2.5",
   "title": "",
   "body": " A snapshot of the interactive graphic found at gvsu.edu\/s\/a9 .  A snapshot of the interactive graphic found at gvsu.edu\/s\/a9 .   "
 },
@@ -4433,7 +4433,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#act-4-2-2",
   "type": "Activity",
-  "number": "4.2.8",
+  "number": "4.2.3",
   "title": "",
   "body": "  Suppose that an object moving along a straight line path has its velocity in feet per second at time in seconds given by .     Carefully sketch the region whose exact area will tell you the value of the distance the object traveled on the time interval .    Note that is a parabola with vertex .    ADD ALT TEXT TO THIS IMAGE    The region whose exact area tells us the value of the distance the object traveled on the time interval is shown below.  ADD ALT TEXT TO THIS IMAGE      Estimate the distance traveled on by computing , , and .    Recall the formulas for , , and .    , , and .    , , and .      Does averaging and result in the same value as ? If not, what do you think the average of and measures?    Think about what the average of and measures.    .    The average of and is . This average actually measures what would result from using four trapezoids, rather than rectangles, to estimate the area on each subinterval. One reason this is so is because the area of a trapezoid is the average of the bases times the width, and the bases are given by the function values at the left and right endpoints.      For this question, think about an arbitrary function , rather than the particular function given above. If is positive and increasing on , will over-estimate or under-estimate the exact area under on ? Will over- or under-estimate the exact area under on ? Explain.    Consider carefully the role of endpoints in generating and .    is an under-estimate; is an over-estimate.    If is positive and increasing on , will under-estimate the exact area under on . Because is increasing, its value at the left endpoint of any subinterval will be lower than every other function value in the interval, and thus the rectangle with that height lies exclusively below the curve. In a similar way, over-estimates the exact area under on .    "
 },
@@ -4442,7 +4442,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#F-4-2-NegF",
   "type": "Figure",
-  "number": "4.2.9",
+  "number": "4.2.6",
   "title": "",
   "body": " At left and center, two left Riemann sums for a function that is sometimes negative; at right, the areas bounded by on the interval .  At left and center, two left Riemann sums for a function that is sometimes negative; at right, the areas bounded by on the interval .   "
 },
@@ -4451,7 +4451,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-2-Riemann.html#act-4-2-3",
   "type": "Activity",
-  "number": "4.2.10",
+  "number": "4.2.4",
   "title": "",
   "body": "  Suppose that an object moving along a straight line path has its velocity (in feet per second) at time (in seconds) given by .     Compute , the middle Riemann sum, for on the time interval . Be sure to clearly identify the value of as well as the locations of , , , . In addition, provide a careful sketch of the function and the corresponding rectangles that are being used in the sum.    Note that .         For this Riemann sum with five subintervals, , so , , , , and . It follows that A sketch is shown below.      Building on your work in (a), estimate the total change in position of the object on the interval .    Change in position is tied to the net signed area bounded by the velocity function.    The change in position is approximately feet.    Since the net signed area bounded by on represents the total change in position of the object on the interval , it follows that estimates the total change in position. Hence, the change in position is approximately feet.      Re-interpret your work in (a) and (b) to estimate the total distance traveled by the object on .    Think about how total distance is different from change in position when the velocity is sometimes negative.    .    To estimate the total distance traveled by the object on , we have to calculate the total area between the curve and the -axis. Thus, .      Use appropriate computing technology such as this applet to compute and . What exact value do you think the middle sum eventually approaches as increases without bound? What does that number represent in the physical context of the overall problem?    Besides the noted applet, computer algebra systems such as Maple and Mathematica offer this utility.    is the object's total change in position on .    Using appropriate technology, and . Further calculations suggest that as , and this number represents the object's total change in position on .    "
 },
@@ -4586,7 +4586,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#PA-4-3",
   "type": "Preview Activity",
-  "number": "4.3.2",
+  "number": "4.3.1",
   "title": "",
   "body": "  Consider this interactive graphic , in which you will initially see the situation shown in the following figure. The screenshot shows a right Riemann sum with 10 subintervals for the function on the interval . The value of the sum is .  ADD ALT TEXT TO THIS IMAGE  Note that the value of the chosen Riemann sum is displayed next to the word relative, and that you can change the type of Riemann sum being computed by dragging the point on the slider bar below the phrase sample point placement. Explore to see how you can change the window in which the function is viewed, as well as the function itself. You can set the minimum and maximum values of by clicking and dragging on the blue points that set the endpoints; you can change the function by typing a new formula in the f(x) window at the bottom; and you can adjust the overall window by panning and zooming by using the Shift key and the scrolling feature of your mouse. More information on how to pan and zoom is available .     Update the interactive (and view window, as needed) so that the function being considered is on . When you do so, you should see the following figure.  ADD ALT TEXT TO THIS IMAGE  For this function on this interval, compute , , for , , and . What appears to be the exact area bounded by and the -axis on ?       Use basic geometry to determine the exact area bounded by and the -axis on .       Based on your work in (a) and (b), what do you observe occurs when we increase the number of subintervals used in the Riemann sum?       Update the interactive to consider the function on the interval (note that you need to enter x ^ 2 + 1 for the function formula), and hence compute , , for , , and . What do you conjecture is the exact area bounded by and the -axis on ?       Why can we not compute the exact value of the area bounded by and the -axis on using a formula like we did in (b)?     "
 },
@@ -4595,7 +4595,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#D-4-3-DefInt",
   "type": "Definition",
-  "number": "4.3.3",
+  "number": "4.3.2",
   "title": "",
   "body": " definite integral definition   The definite integral of a continuous function on the interval , denoted , is the real number given by , where , (for ), and satisfies (for ).   "
 },
@@ -4604,7 +4604,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#F-4-3-DefIntInterp",
   "type": "Figure",
-  "number": "4.3.4",
+  "number": "4.3.3",
   "title": "",
   "body": " A continuous function on the interval .  A continuous function on the interval .   "
 },
@@ -4613,7 +4613,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#F-4-3-TrapArea",
   "type": "Figure",
-  "number": "4.3.5",
+  "number": "4.3.4",
   "title": "",
   "body": " The area bounded by and the -axis on the interval .  The area bounded by and the -axis on the interval .   "
 },
@@ -4622,7 +4622,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#act-4-3-1",
   "type": "Activity",
-  "number": "4.3.6",
+  "number": "4.3.2",
   "title": "",
   "body": "  Use known geometric formulas and the net signed area interpretation of the definite integral to evaluate each of the definite integrals below.           Sketch the region bounded by and the -axis on .    .    Because and the -axis bound a triangle with base of length 1 and height on the interval , it follows that .           Sketch the region bounded by and the -axis on .    .    For , we first sketch the region bounded by the function, as shown below.  The line creates two triangles, one with area and the other with area . Since the latter area corresponds to a region below the -axis, we associate a negative sign to it, and hence find that .           Observe that is the top half the circle whose equation is .    .    For , we simply observe that this function is the top half of a circle of radius 1, and thus the bounded region is a semicircle of radius 1, thus having an area of . Therefore, .      , where is the function pictured in the following figure. Assume that each portion of is either part of a line or part of a circle.  ADD ALT TEXT TO THIS IMAGE    Use known formulas for the area of a triangle, square, or circle appropriately.    .    Finally, for , where is the function pictured in the problem, we consider the function on seven consecutive subintervals of length 1. Observe that on , the bounded area is . On , the area is . Similarly, on the next five subintervals of length 1, the areas bounded are respectively , , , , and . Thus, the value of the integral is , which is approximately 0.8562.    "
 },
@@ -4631,7 +4631,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#F-4-3-AdditiveProp",
   "type": "Figure",
-  "number": "4.3.7",
+  "number": "4.3.5",
   "title": "",
   "body": " The area bounded by on the interval .  The area bounded by on the interval .   "
 },
@@ -4640,7 +4640,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#F-4-3-ConstMult",
   "type": "Figure",
-  "number": "4.3.8",
+  "number": "4.3.6",
   "title": "",
   "body": " The areas bounded by and on .  The areas bounded by and on .   "
 },
@@ -4649,7 +4649,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#F-4-3-Sum",
   "type": "Figure",
-  "number": "4.3.9",
+  "number": "4.3.7",
   "title": "",
   "body": " The areas bounded by and on , as well as the area bounded by .  The areas bounded by and on , as well as the area bounded by .   "
 },
@@ -4658,7 +4658,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#act-4-3-2",
   "type": "Activity",
-  "number": "4.3.10",
+  "number": "4.3.3",
   "title": "",
   "body": "  Suppose that the following information is known about the functions , , , and : ; ; ; ;  Use the provided information and the rules discussed in the preceding section to evaluate each of the following definite integrals.          Note that the value of is given.    .    Note that the value of is given, and thus .           Use the values of and .    .    Since and , we have .           First find and .    .    First, using work from and similar to that in (c), we find and , thus by the sum rule, .           Use the sum and constant multiple rules.    .    By the sum and constant multiple rules, .           First write .    .    First, we write . Then, using the sum and constant multiple rules, it follows .    "
 },
@@ -4667,7 +4667,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#F-4-3-AvgVal",
   "type": "Figure",
-  "number": "4.3.11",
+  "number": "4.3.8",
   "title": "",
   "body": " A function , the area it bounds, and its average value on .  A function , the area it bounds, and its average value on .   "
 },
@@ -4676,7 +4676,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-3-definite-integral.html#act-4-3-3",
   "type": "Activity",
-  "number": "4.3.12",
+  "number": "4.3.4",
   "title": "",
   "body": "  Suppose that tells us the instantaneous velocity of a moving object on the interval , where is measured in minutes and is measured in meters per minute.     Sketch an accurate graph of . What kind of curve is ?    Note that is part of the curve given by .    is the top half of the circle , which has radius 2 and is centered at .    The curve is the top half of the circle , which has radius 2 and is centered at .      Evaluate exactly.    What familiar shape is generated by the curve ?    .    Thus, the value of is the area of a semicircle of radius 2, which is .      In terms of the physical problem of the moving object with velocity , what is the meaning of ? Include units on your answer.    Recall the meaning of the area bounded by a nonnegative velocity function on a given interval.    The object moved meters in 4 minutes.    Because the velocity is always nonnegative in this problem, the meaning of is both the distance traveled and the change in position of the object on the interval . Specifically, the object moved meters in 4 minutes.      Determine the exact average value of on . Include units on your answer.    From the meaning of the average value of a function, we know .    , meters per minute,.    We know , so , which is measured in meters per minute, since the units on 4 are minutes and on are meters.      Sketch a rectangle whose base is the line segment from to on the -axis such that the rectangle's area is equal to the value of . What is the rectangle's exact height?    Consider a key recent figure in the text.    The height of the rectangle is the average value of , .    Constructing a figure similar to those shown in this section on the topic of average value of a function, we find the following, which demonstrates a rectangle having the same area as the semicircle.  The height of the rectangle is the average value of , specifically .      How can you use the average value you found in (d) to compute the total distance traveled by the moving object over ?    Distance equals average rate times .    .    Knowing that average velocity is , it follows from the fact that distance traveled equals average rate times time (provided velocity is always nonnegative), we have . We see from (c) or (f) that we are simply considering the situation from two different perspectives: if we know the distance traveled, we can find average velocity, or if we know average velocity, we can find distance traveled.    "
 },
@@ -4820,7 +4820,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#PA-4-4",
   "type": "Preview Activity",
-  "number": "4.4.2",
+  "number": "4.4.1",
   "title": "",
   "body": "  A student with a third floor dormitory window 32 feet off the ground tosses a water balloon straight up in the air with an initial velocity of 16 feet per second. It turns out that the instantaneous velocity of the water balloon is given by , where is measured in feet per second and is measured in seconds.     Let represent the height of the water balloon above ground at time , and note that is an antiderivative of . That is, is the derivative of : . Find a formula for that satisfies the initial condition that the balloon is tossed from 32 feet above ground. In other words, make your formula for satisfy .       When does the water balloon reach its maximum height? When does it land?       Compute , , and . What do these represent?       What is the total vertical distance traveled by the water balloon from the time it is tossed until the time it lands?       Sketch a graph of the velocity function on the time interval . What is the total net signed area bounded by and the -axis on ? Answer this question in two ways: first by using your work above, and then by using a familiar geometric formula to compute areas of certain relevant regions.     "
 },
@@ -4829,7 +4829,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#F-4-4-FTCVel",
   "type": "Figure",
-  "number": "4.4.3",
+  "number": "4.4.2",
   "title": "",
   "body": " Finding distance traveled when we know a velocity function .  Finding distance traveled when we know a velocity function .   "
 },
@@ -4838,7 +4838,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#Ex-FTCVel",
   "type": "Example",
-  "number": "4.4.4",
+  "number": "4.4.3",
   "title": "",
   "body": "  Determine the exact distance traveled on by an object with velocity function feet per second.    Since the velocity function is positive on the chosen interval, the distance traveled on is given by , where is an antiderivative of . Now, the derivative of is and the derivative of is , so it follows that is an antiderivative of . Therefore, .   "
 },
@@ -4847,7 +4847,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#F-4-4-FTCVel2",
   "type": "Figure",
-  "number": "4.4.5",
+  "number": "4.4.4",
   "title": "",
   "body": " The exact area of the region enclosed by on .  The exact area of the region enclosed by on .   "
 },
@@ -4856,7 +4856,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#act-4-4-1",
   "type": "Activity",
-  "number": "4.4.6",
+  "number": "4.4.2",
   "title": "",
   "body": "  Use the Fundamental Theorem of Calculus to evaluate each of the following integrals exactly. For each, sketch a graph of the integrand on the relevant interval and write one sentence that explains the meaning of the value of the integral in terms of the (net signed) area bounded by the curve.          Find a function whose derivative is .    .    Because , by the Fundamental Theorem of Calculus, , and therefore .           Which familiar function has derivative ?    .    Since , an antiderivative of is . Therefore, by the FTC, , so .           What is special about when it comes to differentiation?    .    Since is its own derivative, it is also its own antiderivative. Hence, .           Consider the derivative of .    .    Note that since , it follows that , and thus .           Find an antiderivative for each of the three individual terms in the integrand.    .    Using the sum and constant multiple rules for differentiation, we can see that similar results hold for antidifferentiation, and thus that is an antiderivative of . Now, by the FTC, .    "
 },
@@ -4865,7 +4865,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#act-4-4-2",
   "type": "Activity",
-  "number": "4.4.7",
+  "number": "4.4.3",
   "title": "",
   "body": "  Use your knowledge of derivatives of basic functions to complete Table of antiderivatives. For each entry, your task is to find a function whose derivative is the given function . When finished, use the FTC and the results in the table to evaluate the three given definite integrals.   Familiar basic functions and their antiderivatives.    given function,  antiderivative,    , ( is constant)     ,     ,                                                                                given function,  antiderivative,     , ( )     ,     ,                                               .       given function,  antiderivative,     , ( )     ,     ,                                               By standard antiderivative rules and the FTC, .            .    Calculating the needed antiderivative and applying the FTC, .            .    Noting that , we find that .     For the table, you might start by constructing a list of all the basic functions whose derivative you know. For the three definite integrals, be sure to recall the sum and constant multiple rules, which work not only for differentiating, but also for antidifferentiating.   "
 },
@@ -4874,7 +4874,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#F-4-4-TCT",
   "type": "Figure",
-  "number": "4.4.9",
+  "number": "4.4.6",
   "title": "",
   "body": " The graphs of (at left) and an antiderivative at right. Differences in heights on correspond to net signed areas bounded by .  The graphs of (at left) and an antiderivative at right. Differences in heights on correspond to net signed areas bounded by .   "
 },
@@ -4883,7 +4883,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#Ex-4-4-1",
   "type": "Example",
-  "number": "4.4.10",
+  "number": "4.4.7",
   "title": "",
   "body": "  Suppose that pollutants are leaking out of an underground storage tank at a rate of gallons\/day, where is measured in days. It is conjectured that is given by the formula over a certain 12-day period. What is the meaning of and what is its value? What is the average rate at which pollutants are leaving the tank on the time interval ?    It's helpful to think about the graph of , which is given in Figure .   The rate of pollution leaking from a tank, measured in gallons per day.  The rate of pollution leaking from a tank, measured in gallons per day.    Since , the value of is the area under the curve on the interval . A Riemann sum for this area will have rectangles with heights measured in gallons per day and widths measured in days, so the area of each rectangle will have units of .  Thus, the definite integral tells us the total number of gallons of pollutant that leak from the tank from day 4 to day 10. The Total Change Theorem tells us the same thing: if we let denote the total number of gallons of pollutant that have leaked from the tank up to day , then , and , the number of gallons that have leaked from day 4 to day 10.  To compute the exact value of the integral, we use the Fundamental Theorem of Calculus. Antidifferentiating , we find that .  Thus, approximately 44.282 gallons of pollutant leaked over the six day time period.  To find the average rate at which pollutant leaked from the tank over , we compute the average value of on . Thus, gallons per day.   "
 },
@@ -4892,7 +4892,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-4-4-FTC.html#act-4-4-3",
   "type": "Activity",
-  "number": "4.4.12",
+  "number": "4.4.4",
   "title": "",
   "body": "  During a 40-minute workout, a person riding an exercise machine burns calories at a rate of calories per minute, where the function is given by the following information. On the interval , the formula for is ; on the interval , ; and on , its formula is .     What is the exact total number of calories the person burns during the first 10 minutes of her workout?    What are the units on the area of a rectangle found in a Riemann sum for the function ?    The person burned exactly calories in the first 10 minutes of the workout.    Since the units on a rectangle in a Riemann sum are cal\/min for the height and min for the width, the units on the area of such a rectangle are calories, and hence the units on area under the curve are given in total calories. Hence, the total calories burned during the first 10 minutes of the workout is given by the definite integral . We use the FTC and evaluate the integral, finding that . Thus, the person burned exactly calories in the first 10 minutes of the workout.      Let be an antiderivative of . What is the meaning of in the context of the person exercising? Include units on your answer.    Use the FTC.    is the total calories burned on .    We observe first that by the Total Change Theorem, , and therefore, as discussed in (a), the meaning of this value is the total calories burned on .      Determine the exact average rate at which the person burned calories during the 40-minute workout. Sketch a representation of the average rate at which calories were burned on the provided graph of .  ADD ALT TEXT TO THIS IMAGE    Recall the formula for .    The exact average rate at which the person burned calories on is .    The exact average rate at which the person burned calories on is given by . To calculate , we recognize that is defined in piecewise fashion, and use the additive property of the definite integral, which tells us that . We know from our work in (a) that . Since is constant on , it follows that . And finally, it is straightforward to show using (or symmetry) on that . Hence, . Now, it follows that the exact average rate at which calories were burned on is .      At what time(s), if any, is the instantaneous rate at which the person is burning calories equal to the average rate at which she burns calories, on the time interval ?    Think carefully about which function tells you the instantaneous rate at which calories are burned.    One time at which the instantaneous rate at which calories are burned equals the average rate on is . The other is ,    It makes sense intuitively that there must be at least one time at which the instantaneous rate at which calories are burned equals the average rate at which calories are burned, as it would be impossible for a continuous instantaneous rate of change to always be above its average value. Since we know from (c) that , and tells us the instantaneous rate at which calories are burned, it follows that we want to solve the equation . From the graph, it appears that there are two such values of for which this equation is true, one in the first ten minutes, and one in the last ten. For instance, solving , it follows that , only the second of which lies in . So one time at which the instantaneous rate at which calories are burned equals the average rate on is . Similar reasoning leads to the second time that lies in , which is .    "
 },
@@ -5063,7 +5063,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-1-antid-graphs.html#act-5-1-1",
   "type": "Activity",
-  "number": "5.1.3",
+  "number": "5.1.2",
   "title": "",
   "body": "  Suppose that the function is given by the graph shown in Figure , and that the pieces of are either portions of lines or portions of circles. In addition, let be an antiderivative of and say that . Finally, assume that for and , .   At left, the graph of .   Two sets of adjacent coordinate axes are provided. The left axes have ranging horizontally from to and ranging vertically from to . The grid is . The righthand grid and axes are the same size with the same horizontal and vertical scale.  On the left axes, the graph of is provided (which is the same function considered in Activity ). This piecewise linear function is for and . On the interval , . On the interval , is a quarter circle that connects points and . On the interval , . On the interval , . And on the interval , is the top half of of the circle of radius centered at .  At right, blank coordinate axes for plotting the antiderivative of the given function, .        On what interval(s) is an increasing function? On what intervals is decreasing?    Consider the sign of .    is increasing on and ; is decreasing on .    Wherever , is increasing, so is increasing on and , while is decreasing on .      On what interval(s) is concave up? concave down? neither?    Consider the sign of .    is concave up on , ; concave down on , ; neither on .    Wherever , is concave up; note particularly that if and only if is increasing. Thus, is concave up on , , and concave down on , , and neither on .      At what point(s) does have a relative minimum? a relative maximum?    Where does change sign?    A relative maximum at ; a relative minimum at .    A relative maximum for will occur wherever changes from positive to negative, and thus at ; similarly, has a relative minimum at .      Use the given information to determine the exact value of for . In addition, what are the values of and ?    Recall that .    ; ; ; ; ; ; ; ; and .    Recall that , so . Similarly, . Continuing these calculations, , , , , . Furthermore, since for all and all , it follows and .      Based on your responses to all of the preceding questions, sketch a complete and accurate graph of on the axes provided, being sure to indicate the behavior of for and . Clearly indicate the scale on the vertical and horizontal axes of your graph.    Use the function values found in (d) and the earlier information regarding the shape of .    Use the function values found in (d) and the earlier information regarding the shape of .    Use the function values found in (d) and the earlier information regarding the shape of .      Suppose we change one key piece of information: in particular, say that is an antiderivative of and . How (if at all) would your answers to the preceding questions change? Sketch a graph of on the same axes as the graph of you constructed in (e).    Note that .    .    Note that . Since (while ), this changes each response in by 1: .    "
 },
@@ -5072,7 +5072,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-1-antid-graphs.html#F-5-1-Ex1",
   "type": "Figure",
-  "number": "5.1.5",
+  "number": "5.1.3",
   "title": "",
   "body": " At left, the graph of . At right, three different antiderivatives of .   Two sets of adjacent coordinate axes are provided. The left axes have ranging horizontally from to and ranging vertically from to . The grid is . The righthand grid and axes are the same size, but the scale on the axes is unlabeled.  On the left axes, the graph of is provided. This piecewise linear function is for and . On the interval , . On the interval , is a quarter circle that connects points and . On the interval , . On the interval , . And on the interval , is the top half of of the circle of radius centered at .  At right, three different antiderivatives of are shown; these curves are parallel to each other, with the only difference between any two of them being a vertical shift. The middle of the three graphs is , which satisfies . Some other exact values of are discussed in the paragraph of text that follows this image. The function is constant for and (with value on those intervals). is increasing and concave up on and ; is increasing and concave down on and . is decreasing and concave down on ; is decreasing and concave up on . The graph of is , while the graph of is .   "
 },
@@ -5081,7 +5081,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-1-antid-graphs.html#act-5-1-2",
   "type": "Activity",
-  "number": "5.1.6",
+  "number": "5.1.3",
   "title": "",
   "body": "  For each of the following functions, sketch an accurate graph of the continuous antiderivative that satisfies the given initial condition. In addition, sketch the graph of two additional antiderivatives of the given function, and state the corresponding initial conditions that each of them satisfy.      original function: ; initial condition: ; interval for sketch:      This image shows three possible antiderivatives of on the interval .  The first, , looks like two quadratic functions joined together at : one that's concave down on the left, and another that's concave up on the right. Three important points on the graph of are , , and .  The other two antiderivatives, and , are vertical shifts of . satisfies and satisfies .     A possible antiderivative that satisfies is shown in the figure below, with a possible formula being for and for . Other antiderivatives that satisfy and are also shown.   This image shows three possible antiderivatives of on the interval .  The first, , looks like two quadratic functions joined together at : one that's concave down on the left, and another that's concave up on the right. Three important points on the graph of are , , and .  The other two antiderivatives, and , are vertical shifts of . satisfies and satisfies .       original function: ; initial condition: ; interval for sketch:    Note : the area bounded by one hump of the sine function is exactly (e.g., on the interval ).      Plot of .    Plot of the antiderivative that satisfies the prescribed conditions.     f(x) = 2-cos(x)     y = H(x)           Thinking both graphically and algebraically reveals that the antiderivative we seek is . Any vertical shift of this function will have the same derivative, but will have a different -intercept. The antiderivative that satisfies is shown below.   Plot of .    Plot of the antiderivative that satisfies the prescribed conditions.     f(x) = 2-cos(x)     y = H(x)             original function: ; initial condition: ; interval for sketch:    Note : the area bounded by on is ; the region bounded by the other quadratic piece of is similar.      This image shows the described antiderivative on the interval .  On the intervals and , . On the interval , is increasing and concave up. There's a corner point on the graph of at the point , and there changes to become decreasing and concave up on the interval .     A possible antiderivative that satifies is shown in the figure below.   This image shows the described antiderivative on the interval .  On the intervals and , . On the interval , is increasing and concave up. There's a corner point on the graph of at the point , and there changes to become decreasing and concave up on the interval .     "
 },
@@ -5090,7 +5090,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-1-antid-graphs.html#sec-5-1-antid-graphs-6-4",
   "type": "Definition",
-  "number": "5.1.9",
+  "number": "5.1.6",
   "title": "",
   "body": "  If is a continuous function, we define the corresponding integral function  according to the rule .   "
 },
@@ -5099,7 +5099,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-1-antid-graphs.html#F-5-1-IntFxn",
   "type": "Figure",
-  "number": "5.1.10",
+  "number": "5.1.7",
   "title": "",
   "body": " At left, the graph of the given function . At right, the area function .   Two adjacent graphs are provided. Both coordinate axes have ranging horizontally from to . The left graph has ranging vertically from to . The right graph has ranging vertically from to . Grid boxes are   The left graph shows . A point labeled is located on the -axis just left of , and that point marks the right endpoint of the interval on which the area under and above the -axis is shaded.  The right graph shows . At the same location of in the lefthand figure, in the right figure there's a vertical line from the horizontal axis up to the curve and this height is labeled . The graph of is increasing where the graph of is positive, and is decreasing where the graph of is negative. In addition, The graph of is concave up where the graph of is increasing, and is concave down where the graph of is decreasing.   "
 },
@@ -5108,7 +5108,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-1-antid-graphs.html#act-5-1-3",
   "type": "Activity",
-  "number": "5.1.11",
+  "number": "5.1.4",
   "title": "",
   "body": "  Suppose that is given by the graph at left in Figure and that is the corresponding integral function defined by .   At left, the graph of ; at right, axes for plotting , where is defined by the formula .   Two sets of adjacent coordinate axes are provided, both showing the independent variable ranging horizontally from to and the dependent variable ranging vertically from to . The grid is .  On the left axes, the graph of is provided. This piecewise linear function is for and . On the interval , . On the interval , . On the interval , . And on the interval , .  At right, blank coordinate axes for plotting .        On what interval(s) is an increasing function? On what intervals is decreasing? Why?    Where is accumulating positive signed area?    is increasing on , ; is decreasing on .    is accumulating positive signed area wherever is positive, and thus is increasing on , ; is accumulating negative signed area and therefore decreasing wherever is negative, which occurs on .      On what interval(s) do you think is concave up? concave down? Why?    As accumulates positive or negative signed area, where is the rate at which such area is accumulated increasing?    is concave up on and ; is concave down on and .    Here we want to consider where is changing at an increasing rate (concave up) or changing at a decreasing rate (concave down). On and , is increasing, and we can also see that since is increasing, is increasing at an increasing rate. Similarly, on (where is negative so is decreasing), since is increasing it follows that is decreasing at an increasing rate. Thus, is concave up on and . Analogous reasoning shows that is concave down on and .      At what point(s) does have a relative minimum? a relative maximum?    Where does change from accumulating positive signed area to accumulating negative signed area?    At , has a relative maximum; has a relative minimum at .    Based on our work in (a), we see that changes from increasing to decreasing at , and thus has a relative maximum there. Similarly, has a relative minimum at .      Use the given information to determine the exact values of , , , , , , and .    Note, for instance, that .    ; ; ; ; , , .    Using the fact that is piecewise linear and the definition of , we find that ; ; . Analogous reasoning shows that , , , .      Based on your responses to all of the preceding questions, sketch a complete and accurate graph of on the axes provided, being sure to indicate the behavior of for and .    Use your work in (a)-(d) appropriately.    Use your work in (a)-(d) appropriately.    Use your work in (a)-(d) appropriately.      How does the graph of compare to if is instead defined by ?    What is the value of ? How does this compare to ?    .    Note that , while . Likewise, , while . Indeed, we can see that for any value of , .    "
 },
@@ -5207,7 +5207,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-2-FTC2.html#PA-5-2",
   "type": "Preview Activity",
-  "number": "5.2.2",
+  "number": "5.2.1",
   "title": "",
   "body": "  Consider the function defined by the rule , where .     Compute and exactly.       Use the First Fundamental Theorem of Calculus to find a formula for that does not involve an integral. That is, use the first FTC to evaluate .       Observe that is a linear function; what kind of function is ?       Using the formula you found in (b) that does not involve an integral, compute .       While we have defined by the rule , it is equivalent to say that is given by the rule . What do you observe about the relationship between and ?     "
 },
@@ -5216,7 +5216,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-2-FTC2.html#act-5-2-1",
   "type": "Activity",
-  "number": "5.2.3",
+  "number": "5.2.2",
   "title": "",
   "body": "  Suppose that is the function given in Figure and that is a piecewise function whose parts are either portions of lines or portions of circles, as pictured.   At left, the graph of . At right, axes for sketching .   Two sets of adjacent coordinate axes are provided. The left axes have ranging horizontally from to and ranging vertically from to . The grid is . The righthand grid and axes are the same size with the same horizontal and vertical scale.  On the left axes, the graph of is provided (which is the same function considered in Activity ). This piecewise linear function is for and . On the interval , . On the interval , is a quarter circle that connects points and . On the interval , . On the interval , . And on the interval , is the top half of of the circle of radius centered at .  At right, blank coordinate axes for plotting .    In addition, let be the function defined by the rule .     What does the Second FTC tell us about the relationship between and ?    If you don't recall it, review the statement of the Second FTC above.    .    By the Second FTC, .      Compute and exactly.    Note that .    , .    Since , it follows . Similarly, , so .      Sketch a precise graph of on the axes at right that accurately reflects where is increasing and decreasing, where is concave up and concave down, and the exact values of at .    Don't miss our key conclusion from (a).    is increasing wherever is positive; is CCU wherever is increasing. , , , , , and .    Note that is increasing wherever is positive, and is CCU wherever is increasing. Similar conclusions follow for being decreasing and\/or concave down. Moreover, , , , , , and .      How is similar to, but different from, the function that you found in Activity ?    Compare the values of and .    and differ by the constant .    In our current example, is an antiderivative of that satisfies . Our earlier work with showed that is an antiderivative of that satisfied . Since and are both antiderivatives of , they differ by a constant, and that constant is .      With as little additional work as possible, sketch precise graphs of the functions and . Justify your results with at least one sentence of explanation.    What does the Second FTC tell us about the relationship between and ?    and have the same shape as and , and differ from by a constant. Observe that and .    The Second FTC tells us that and . Thus, and are each antiderivatives of , have the same shape as and , and each differ from by just a constant. Observing that and enables us to easily sketch these shifted versions of .    "
 },
@@ -5225,7 +5225,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-2-FTC2.html#sec-5-2-FTC2-5-4",
   "type": "Example",
-  "number": "5.2.5",
+  "number": "5.2.3",
   "title": "",
   "body": "  Investigate the behavior of the integral function .     is closely related to the well known error function  error function The error function is defined by the rule and has the key property that for all and moreover that . in probability and statistics. It turns out that the function does not have an elementary antiderivative.  While we cannot evaluate exactly for any value other than , we still can gain a tremendous amount of information about the function . By applying the rule in Equation to , it follows that , so we know a formula for the derivative of , and we know that . This information is precisely the type we were given in Activity , where we were given information about the derivative of a function, but lacked a formula for the function itself.  Using the first and second derivatives of , along with the fact that , we can determine more information about the behavior of . First, we note that for all real numbers , , and thus for all . Thus is an always increasing function. Further, as , , so the slope of the function tends to zero as (and similarly as ). Indeed, it turns out that has horizontal asymptotes as increases or decreases without bound.  In addition, we can observe that , and that , while for and for . This information tells us that is concave up for and concave down for with a point of inflection at .  The only thing we lack at this point is a sense of how big can get as increases. If we use a midpoint Riemann sum with 10 subintervals to estimate , we see that ; a similar calculation to estimate shows little change ( ), so it appears that as increases without bound, approaches a value just larger than , which aligns with the fact that has horizontal asymptotes. Putting all of this information together (and using the symmetry of ), we see the results shown in Figure .   At left, the graph of . At right, the integral function , which is the unique antiderivative of that satisfies .    There are two adjacent graphs, both shown on the horizontal interval from to and on the vertical interval from to .  At left, the graph of . The function is always positive, tends to as increases or decreases without bound, and increases for and decreases for .  At right, the graph of , which is the unique antiderivative of that satisfies . The function is always increasing, approaches a horizontal asymptote of about as increases without bound, and approaches a horizontal asymptote of about as decreases without bound. The function is concave up for and concave down for .     Because is the antiderivative of that satisfies , values on the graph of represent the net signed area of the region bounded by from 0 up to . We see that the value of increases rapidly near zero but then levels off as increases, since there is less and less additional accumulated area bounded by as increases.   "
 },
@@ -5234,7 +5234,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-2-FTC2.html#act-5-2-2",
   "type": "Activity",
-  "number": "5.2.7",
+  "number": "5.2.3",
   "title": "",
   "body": "  Suppose that .  Note that while we know a function whose derivative is , namely , we haven't yet encountered an elementary function whose derivative is .  Let . We will explore from numerical, graphical, and algebraic perspectives.      What is the key relationship between and , according to the Second FTC?    Recall the statement of the Second FTC.    .    , by the Second FTC.       Analyze the first derivative of algebraically to determine the intervals on which is increasing and decreasing.    Where is positive? negative?    is increasing for all ; is decreasing for    is increasing wherever is positive, so for all . Similarly, is decreasing for      Analyze the second derivative of algebraically to determine the intervals on which is concave up and concave down. Note that can be simplified to be written in the form .    Note that .    is CCU on and CCD for and .    is CCU wherever is increasing or wherever is positive. It is straightforward to show that is positive for and negative otherwise, thus is CCU on and CCD for and .      Use a Riemann sum calculator with midpoints and 10 subintervals to calculate approximate values of in the table shown below.  Note that .                     0        Remember that .                     2.35973  1.64038  0  1.64038  2.35973      , using a midpoint Riemann sum with 10 subintervals. Similarly, , and , and finally       Use your work above to sketch an accurate graph of on the axes provided.             Blank coordinate axes for plotting . The values range horizontally from to , and the values range vertically from to . Each grid box is .     Use the table of values along with the intervals where is increasing, decreasing, concave up and concave down.       f(x)=1\/2*log(1+x^2)         A plot of . The values on the coordinate axes range horizontally from to , and the values range vertically from to . The function is decreasing for and increasing for with a global minimum at . The function is concave up for approximately and concave down otherwise.     Using the values and information we've found in (b)-(d), we arrive at the following figure.     f(x)=1\/2*log(1+x^2)         A plot of . The values on the coordinate axes range horizontally from to , and the values range vertically from to . The function is decreasing for and increasing for with a global minimum at . The function is concave up for approximately and concave down otherwise.       Now consider the function . Calculate and . Use appropriate computing technology to plot the graph of . What can you conclude about the functions and ?    Use the chain rule to calculate , and note that .     and .     The function has derivative and . As further confirmed by graphing and together, the functions and are the same function, described in different ways.    "
 },
@@ -5243,7 +5243,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-2-FTC2.html#act-5-2-3",
   "type": "Activity",
-  "number": "5.2.8",
+  "number": "5.2.4",
   "title": "",
   "body": "  Evaluate each of the following derivatives and definite integrals. Clearly cite whether you use the First or Second FTC in so doing.          Second FTC.    .    By the Second FTC, .           First FTC.    .    By the First FTC, .           .    .    Since , it follows by this fact and the Second FTC that .           First FTC.    .    By the First FTC, .          Let and observe that this problem is asking you to evaluate .    .    Letting it follows that we need to compute . By the Chain Rule, . By the Second FTC, we know that , and thus .    "
 },
@@ -5342,7 +5342,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-3-substitution.html#sec-5-3-substitution-4-3",
   "type": "Example",
-  "number": "5.3.2",
+  "number": "5.3.1",
   "title": "",
   "body": "  Determine the general antiderivative of . Check the result by differentiating.    For this composite function, the outer function is , while the inner function is . Since the antiderivative of is , we see that the antiderivative of is .  The inclusion of the constant is essential precisely because the derivative of the inner function is . Indeed, if we now compute , we find by the Chain Rule (and Constant Multiple Rule) that , and thus is indeed the general antiderivative of .   "
 },
@@ -5351,7 +5351,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-3-substitution.html#act-5-3-1",
   "type": "Activity",
-  "number": "5.3.3",
+  "number": "5.3.2",
   "title": "",
   "body": "  Evaluate each of the following indefinite integrals. Check each antiderivative that you find by differentiating.          Think .    .    Since is linear and , it follows that .           Think .    .    Since is linear and , we see .           Think .    .    Using the fact (from Exercise ) that , we have .           Think .    .    We know , so .           Think .         Observe that , and thus viewing , we see that           Think .    .    Since , we have that .    "
 },
@@ -5360,7 +5360,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-3-substitution.html#Ex-5-3-usub",
   "type": "Example",
-  "number": "5.3.4",
+  "number": "5.3.2",
   "title": "",
   "body": "  Evaluate the indefinite integral and check the result by differentiating.    We can make two algebraic observations regarding the integrand, . First, is a composite function; as such, we know we'll need a more sophisticated approach to antidifferentiating. Second, is almost the derivative of ; the only issue is a missing constant. Thus, and are nearly a function-derivative pair. Furthermore, we know the antiderivative of . The combination of these observations suggests that we can evaluate the given indefinite integral by reversing the chain rule through -substitution.  Letting represent the inner function of the composite function , we have , and thus . In differential notation, it follows that , and thus . The original indefinite integral may be slightly rewritten as , and so by substituting for and for , it follows that .  Now we may evaluate the easier integral in , and then replace by the expression . Doing so, we find .  To check our work, we observe by the Chain Rule that , which is indeed the original integrand.   "
 },
@@ -5369,7 +5369,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-3-substitution.html#act-5-3-2",
   "type": "Activity",
-  "number": "5.3.5",
+  "number": "5.3.3",
   "title": "",
   "body": "  Evaluate each of the following indefinite integrals by using these steps: Find two functions within the integrand that form (up to a possible missing constant) a function-derivative pair; Make a substitution and convert the integral to one involving and ; Evaluate the new integral in ; Convert the resulting function of back to a function of by using your earlier substitution; Check your work by differentiating the function of . You should come up with the integrand originally given.          Note that and form a function-derivative pair.    .    Since and form a function-derivative pair, we let , and observe that , and thus . Applying this substitution, integrating, and substituting back, .           Recall that is its own derivative.    .    Because , if we let , it follows . Substituting and integrating, .           Observe that .    .    Let , so that . We observe that , and thus .    "
 },
@@ -5378,7 +5378,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-3-substitution.html#act-5-3-3",
   "type": "Activity",
-  "number": "5.3.6",
+  "number": "5.3.4",
   "title": "",
   "body": "  Evaluate each of the following definite integrals exactly through an appropriate -substitution.          Let .    .    Let , so and . Note that implies and implies . Thus, .           and form a function-derivative pair    .    First consider the corresponding indefinite integral, , and let so that . We see , and thus . Applying this antiderivative to the definite integral, we see that .                .    Using the substitution , it follows that . Hence, .    "
 },
@@ -5540,7 +5540,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-4-parts.html#Ex-5-4-IBP",
   "type": "Example",
-  "number": "5.4.2",
+  "number": "5.4.1",
   "title": "",
   "body": "  Evaluate the indefinite integral using integration by parts.    When we use integration by parts, we have a choice for and . In this problem, we can either let and , or let and . While there is not a universal rule for how to choose and , a good guideline is this: do so in a way that is at least as simple as the original problem .  This leads us to choose Observe that if we considered the alternate choice, and let and , then and , from which we would write . Thus we have replaced the problem of integrating with that of integrating ; the latter is clearly more complicated, which shows that this alternate choice is not as helpful as the first choice.  and , from which it follows that and . With this substitution, the rule for integration by parts tells us that .  All that remains to do is evaluate the (simpler) integral . Doing so, we find . Observe that when we get to the final stage of evaluating the last remaining antiderivative, it is at this step that we include the integration constant, .   "
 },
@@ -5549,7 +5549,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-4-parts.html#act-5-4-1",
   "type": "Activity",
-  "number": "5.4.3",
+  "number": "5.4.2",
   "title": "",
   "body": "  Evaluate each of the following indefinite integrals. Check each antiderivative that you find by differentiating.          Try .    .    Using and , we obtain and . So We check using differentiation as follows:           Let    .    Using and , we obtain and . So We check using differentiation as follows:          Note : after applying integration by parts, we need to evaluate . To do so, recall that and think about a -substitution that leads to an antiderivative for .    Remember that .    .    Using and , we obtain and . So We check using differentiation as follows:           Note that has a simple derivative to work with.    .    Using and , we obtain and . So We check using differentiation as follows:    "
 },
@@ -5558,7 +5558,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-4-parts.html#act-5-4-2",
   "type": "Activity",
-  "number": "5.4.4",
+  "number": "5.4.3",
   "title": "",
   "body": "  Evaluate each of the following indefinite integrals, using the provided hints.     Evaluate by using integration by parts with the substitution and .     .    We use integration by parts with and . So and . For the integral in the last equation, use the substitution and .      Evaluate . Consider a similar substitution to the one in (a).     .    Using and , we obtain and . So      Use the substitution to transform the integral to a new integral in the variable , and evaluate that new integral by parts.     .    Using , we obtain and . So Now using integration by parts with and , we obtain and . So Finally, we use and obtain .      Evaluate using an approach similar to that described in (c).     .    Use a substitution with and . Now use integration by parts with and . So and .      Evaluate . You will find it helpful to note that .     .    Using , we see that and so In Example , we saw that . Combining these two results, we obtain    "
 },
@@ -5567,7 +5567,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-4-parts.html#sec-5-4-parts-6-3",
   "type": "Example",
-  "number": "5.4.5",
+  "number": "5.4.2",
   "title": "",
   "body": "  Evaluate .    Let and . Then and , and thus .  The integral on the right side is simpler to evaluate than the one on the left, but it still requires integration by parts. Now letting and , we have and , so that .  (Note the parentheses, which remind us to distribute the minus sign to the entire value of the integral .) The final integral on the right is a basic one; evaluating that integral and distributing the minus sign, we find .   "
 },
@@ -5576,7 +5576,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-4-parts.html#sec-5-4-parts-6-6",
   "type": "Example",
-  "number": "5.4.6",
+  "number": "5.4.3",
   "title": "",
   "body": "  Evaluate .    We can choose to let be either or ; we pick , and thus . With and , integration by parts tells us that , or equivalently that .  The new integral has the same algebraic structure as the original one. While the overall situation isn't necessarily better than what we started with, it hasn't gotten worse. Thus, we proceed to integrate by parts again. This time we let and , so that and , which implies .  We seem to be back where we started, as two applications of integration by parts has led us back to the original problem, . But if we look closely at Equation , we see that we can use algebra to solve for the value of the desired integral. Adding to both sides of the equation, we have , and therefore .  Note that since we never actually encountered an integral we could evaluate directly, we didn't have the opportunity to add the integration constant until the final step.   "
 },
@@ -5585,7 +5585,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-4-parts.html#act-5-4-3",
   "type": "Activity",
-  "number": "5.4.7",
+  "number": "5.4.4",
   "title": "",
   "body": "  Evaluate each of the following indefinite integrals.          Start with .    .    First, using and , we get and . So . Now, for , we use and and get and . So           Begin with .    .    Using and , we get and . So           You'll have to integrate by parts twice.    .    We use and . This gives and , and . For , we use and . So and , and           Start with .    .    We use , , , and . This gives . We now use , , , and for .      ( Hint: At a certain point in this problem, it is very helpful to note that .)    Try .    .    Using , , , and , we get     "
 },
@@ -5594,7 +5594,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-4-parts.html#sec-5-4-parts-7-3",
   "type": "Example",
-  "number": "5.4.8",
+  "number": "5.4.4",
   "title": "",
   "body": "  Evaluate .    One option is to find an antiderivative (using indefinite integral notation) and then apply the Fundamental Theorem of Calculus to find that .  Alternatively, we can apply integration by parts and work with definite integrals throughout. With this method, we must remember to evaluate the product over the given limits of integration. Using the substitution and , so that and , we write .   "
 },
@@ -5765,7 +5765,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-5-other-opt.html#sec-5-5-other-opt-4-4",
   "type": "Example",
-  "number": "5.5.2",
+  "number": "5.5.1",
   "title": "",
   "body": "  Evaluate .    If we factor the denominator, we can see how might be the sum of two fractions of the form , so we suppose that and look for the constants and .  Multiplying both sides of this equation by , we find that .  Since we want this equation to hold for every value of , we can use insightful choices of specific -values to help us find and . Taking , we have , so . Choosing , it follows , so . Thus, .  Recalling the fact that is an antiderivative of for all , this integral is straightforward to evaluate, and hence we find that .   Note : as we discussed briefly in Section immediately following the development of Table in , there is a subtle issue with writing due to the fact that has a discontinuity at , which leads to an antiderivative for one piece of the function and another antiderivative for the other. In most applications (such as when we use partial fractions to solve certain differential equations such as the Logistic Equation in Section ), the domain of input values on which we seek the antiderivative leads to a natural resolution of this ambiguity, so we will still write .   "
 },
@@ -5774,7 +5774,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-5-other-opt.html#act-5-5-1",
   "type": "Activity",
-  "number": "5.5.3",
+  "number": "5.5.2",
   "title": "",
   "body": "  For each of the following problems, evaluate the integral by using the partial fraction decomposition provided.     , given that    .    .    .      , given that    .    .    .      , given that    ,    .    By the partial fractions decomposition, . Observing that , it now follows that . Noting that can be evaluated by the -substitution , we see that . Thus .    "
 },
@@ -5783,7 +5783,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-5-other-opt.html#ex-5-5-table-c",
   "type": "Example",
-  "number": "5.5.4",
+  "number": "5.5.2",
   "title": "",
   "body": "  Evaluate the integral .    Here, we want to use Rule (c) from the table, but we now set and . We also choose the option in the rule. With this substitution, it follows that , so . Applying the substitution, .  By Rule (c), we now find that .   "
 },
@@ -5792,7 +5792,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-5-other-opt.html#act-5-5-2",
   "type": "Activity",
-  "number": "5.5.5",
+  "number": "5.5.3",
   "title": "",
   "body": "  For each of the following integrals, evaluate the integral using -substitution and\/or an entry from the table found in Appendix .          Compare .    .    By (c) in Appendix with and , .           Try a straightforward -substitution; the table is unneeded.    .    Let , so . Thus .           Let and and look for a similar integral in the table.    .    Letting and , we see . Thus, . Now by (b) in Appendix , it follows .           Let and ; find a related integral in the table.    .    Letting and , it follows and , and therefore . Using (k) in Appendix and the fact that , we see .    "
 },
@@ -5900,7 +5900,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#PA-5-6",
   "type": "Preview Activity",
-  "number": "5.6.2",
+  "number": "5.6.1",
   "title": "",
   "body": "  As we begin to investigate ways to approximate definite integrals, it will be insightful to compare results to integrals whose exact values we know. To that end, the following sequence of questions centers on .     Use the interactive with the function on the window of values from to to compute , the left Riemann sum with three subintervals.       Likewise, use the interactive to compute and , the right and middle Riemann sums with three subintervals, respectively.       Use the Fundamental Theorem of Calculus to compute the exact value of .       We define the error that results from an approximation of a definite integral to be the approximation's value minus the integral's exact value. What is the error that results from using ? From ? From ?       In what follows in this section, we will learn a new approach to estimating the value of a definite integral known as the Trapezoid Rule. The basic idea is to use trapezoids, rather than rectangles, to estimate the area under a curve. What is the formula for the area of a trapezoid with bases of length and and height ?       Working by hand, estimate the area under on using three subintervals and three corresponding trapezoids. What is the error in this approximation? How does it compare to the errors you calculated in (d)?     "
 },
@@ -5909,7 +5909,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#F-5-6-TRAP",
   "type": "Figure",
-  "number": "5.6.3",
+  "number": "5.6.2",
   "title": "",
   "body": " Estimating using three subintervals and trapezoids, rather than rectangles, where and .    This figure shows shows a cubic polynomial function that's always decreasing on the interval from to in the first quadrant (along with two other equally spaced points and that satisfy ), except at a point near where the function has a horizontal tangent line.  In addition, at each of , , , and , a vertical line segments is plotted from the -axis up to the curve, and then top points on adjacent vertical line segments are connected to generate three trapezoids that subdivide and approximate the area bounded by and the -axis. The areas of the three respective trapezoids from left to right are labeled , , and . The first trapezoid falls slightly above the curve, while the other two trapezoids each fall slightly below the curve.    "
 },
@@ -5918,7 +5918,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#act-5-6-1",
   "type": "Activity",
-  "number": "5.6.4",
+  "number": "5.6.2",
   "title": "",
   "body": "  In this activity, we explore the relationships among the errors generated by left, right, midpoint, and trapezoid approximations to the definite integral .     Use the First FTC to evaluate exactly.    .    .    .      Use appropriate computing technology to compute the following approximations for : , , , and .    Use a computational device.    The table below gives values of the trapezoid rule and corresponding errors for different -values.                          The table below gives values of the trapezoid rule and corresponding errors for different -values.                            Let the error error trapezoid rule error midpoint rule error that results from an approximation be the approximation's value minus the exact value of the definite integral. For instance, if we let represent the error that results from using the trapezoid rule with 4 subintervals to estimate the integral, we have . Similarly, we compute the error of the midpoint rule approximation with 8 subintervals by the formula . Based on your work in (a) and (b) above, compute , , , .    Use a computational device.    The table below gives values of the midpoint rule and corresponding errors for different -values.                          The table below gives values of the midpoint rule and corresponding errors for different -values.                            Which rule consistently over-estimates the exact value of the definite integral? Which rule consistently under-estimates the definite integral?    Which estimate is larger than the true value of the definite integral?    The trapezoid rule overestimates; the midpoint rule underestimates.    From the errors in comparision to the known exact value, we see that the trapezoid rule overestimates this definite integral and the midpoint rule underestimates this definite integral.      What behavior(s) of the function lead to your observations in (d)?    Note that how the curve bends makes a big difference in whether the trapezoid rule over- or under-estimates the value of the definite integral.    is concave up on .    The graph of the function given by is concave up on the interval . Because of this fact, we can see graphically that the line forming the top of each trapezoid lies fully above the curve, and thus the trapezoid rule overestimates the true value of the definite integral. Later in this section we'll see graphically why this concavity makes the midpoint rule an underestimate.    "
 },
@@ -5927,7 +5927,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#F-5-6-MidVTrap",
   "type": "Figure",
-  "number": "5.6.5",
+  "number": "5.6.3",
   "title": "",
   "body": " Estimating using a single subinterval: at left, the trapezoid rule; in the middle, the midpoint rule; at right, a modified way to think about the midpoint rule.    There are three adjacent images shown of the same function in the first quadrant: the function is positve, continuous, decreasing, and concave up on the interval of interest.  In the leftmost image, a single trapezoid approximates the area under the curve. Because the function is concave up, the trapezoid lies slightly above the curve, so the trapezoid rule over-estimates the value of the corresponding definite integral.  In the middle image, a single rectangle whose height is the function value at the midpoint of the interval is shown. Part of the rectangle falls below the curve, and part lies above. In this image, it's unclear whether the midpoint rectangle over- or under-estimates the total area bounded by the function.  In the third and final image, the horizontal line that forms the top of the midpoint rectangle is still shown, but that line is also rotated about the point where it intersects the graph of the function until the line segment is tangent to . The resulting trapezoid has the same area as the original midpoint rectangle, by symmetry. In addition, since the function is concave up, the tangent line lies below the curve, and this shows that the trapezoid whose area is equal to the midpoint rule rectangle's area is an under-estimate of the corresponding definite integral.   "
 },
@@ -5936,7 +5936,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#F-5-6-MidTrapError",
   "type": "Figure",
-  "number": "5.6.6",
+  "number": "5.6.4",
   "title": "",
   "body": " Comparing the error in estimating using a single subinterval: in red, the error from the Trapezoid rule; in light red, the error from the Midpoint rule.    This image juxtaposes the trapezoids from the first and third images in the preceding figure: the trapezoid with the same area as the midpoint rule rectangle lies below the concave up curve, while the trapezoid from the Trapezoid Rule lies above the curve. Moreover, the figure shows that there is more error in the Trapezoid Rule overestimate than there is error in the Midpoint Rule underestimate.    "
 },
@@ -5945,7 +5945,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#T-5-6-Ex2",
   "type": "Table",
-  "number": "5.6.7",
+  "number": "5.6.5",
   "title": "Calculations of <span class=\"process-math\">\\(T_4\\text{,}\\)<\/span> <span class=\"process-math\">\\(M_4\\text{,}\\)<\/span> <span class=\"process-math\">\\(T_8\\text{,}\\)<\/span> and <span class=\"process-math\">\\(M_8\\text{,}\\)<\/span> along with corresponding errors, for the definite integrals <span class=\"process-math\">\\(\\int_0^1 (1-x^2) \\  dx\\)<\/span> and <span class=\"process-math\">\\(\\int_1^2 \\frac{1}{x^2} \\  dx\\text{.}\\)<\/span>",
   "body": " Calculations of , , , and , along with corresponding errors, for the definite integrals and .    Rule   error   error                                "
 },
@@ -5954,8 +5954,8 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#T-5-6-Ex3",
   "type": "Table",
-  "number": "5.6.8",
-  "title": "Table 5.6.7 updated to include <span class=\"process-math\">\\(S_8\\text{,}\\)<\/span> <span class=\"process-math\">\\(S_{16}\\text{,}\\)<\/span> and the corresponding errors.",
+  "number": "5.6.6",
+  "title": "Table 5.6.5 updated to include <span class=\"process-math\">\\(S_8\\text{,}\\)<\/span> <span class=\"process-math\">\\(S_{16}\\text{,}\\)<\/span> and the corresponding errors.",
   "body": " Table updated to include , , and the corresponding errors.    Rule   error   error                                              "
 },
 {
@@ -5963,7 +5963,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#act-5-6-2",
   "type": "Activity",
-  "number": "5.6.9",
+  "number": "5.6.3",
   "title": "",
   "body": "  A car traveling along a straight road is braking and its velocity is measured at several different points in time, as given in the following table. Assume that is continuous, always decreasing, and always concave down, as is suggested by the data.     seconds,  Velocity in ft\/sec,                                                             Axes for plotting the given velocity data. The horizontal -axis ranges from to with labeled tickmarks every units. The vertical scale is not labeled.        Plot the given data on the set of axes provided in the figure, with time on the horizontal axis and the velocity on the vertical axis.    Plot the data.    Plot the data.    Plot the data.      What definite integral will give you the exact distance the car traveled on ?    What are the units on ?    .    Since the velocity is always positive, the definite integral that will give the exact distance traveled by the car on the interval is .      Estimate the total distance traveled on by computing , , and . Which of these under-estimates the true distance traveled?    Recall the standard rules for sums that produce , , .    . and are underestimates.    The estimates of are . is an underestimate of the distance traveled since is decreasing. is an underestimate of the distance traveled since is concave down.      Estimate the total distance traveled on by computing . Is this an over- or under-estimate? Why?    Think about concavity to decide if is an over- or under-estimate.    ; overestimate.    Another estimate of the distance traveled is . This is an overestimate since is concave down.      Using your results from (c) and (d), improve your estimate further by using Simpson's Rule.    Recall how is a weighted average of and .    .    For Simpson's Rule, we see that .      What is your best estimate of the average velocity of the car on ? Why? What are the units on this quantity?    Simpson's Rule gives the best estimate for a function of consistent concavity.    Simpson's rule gives the best approximation of the distance traveled, , which leads to .    Simpson's rule gives the best approximation of the distance traveled since it is a weighted average of the midpoint and trapezoid rules and uses more information about the velocity than the other methods. The units on each of the estimates, including Simpson's Rule, are \"feet\", since ft\/sec sec = ft. Thus, the best approximation we have generated for distance traveled is .  To estimate the average velocity on , we compute change in position divided by change in time. Here, since is always positive, the car's change in position equals its distance traveled. Hence, .    "
 },
@@ -5972,7 +5972,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-5-6-num-int.html#act-5-6-3",
   "type": "Activity",
-  "number": "5.6.10",
+  "number": "5.6.4",
   "title": "",
   "body": "  Consider the functions , , and , all on the interval . For each of the questions that require a numerical answer in what follows, write your answer exactly in fraction form.   Three sets of identical coordinate axes. In each, the -values range horizontally from to and the -values range horizontally from to .      On the three sets of axes in the provided figure, sketch a graph of each function on the interval , and compute and for each. What do you observe?    For each estimate, just one function evaluation is needed.     for each of the three functions and for each.  The values of and are the same for all three.    For the left and right endpoint rules, we see that since and , the values of and are identical for all three functions, despite the fact the three fucntions are different: and .      Compute for each function to approximate , , and , respectively.    Use the midpoint rule with .    For , , and , respectively, , , and .    For the midpoint rule with one interval, we need to compute each function value at the midpoint of the interval, : , , . It follows that for , , and , respectively, , , and .      Compute for each of the three functions, and hence compute for each of the three functions.    Remember that both the trapezoid and Simpson's rule can be executed using (weighted) averages of known values.       For ,     For ,     For ,        For all three functions, . For the respective three functions, we have:   For ,     For ,     For ,          Evaluate each of the integrals , , and exactly using the First FTC.    Find antiderivatives to evaluate the integrals exactly.         The exact values of the three definite integrals are       For each of the three functions , , and , compare the results of , , , , and to the true value of the corresponding definite integral. What patterns do you observe?    Think about trends in over- and under-estimates.    Left endpoint rule results are overestimates; right endpoint rules are underestimates; midpoint rules are overestimates; trapezoid rules are underestimates. Simpson's rule is exact for both and , while a slight underestimate of .    We observe that each of the left endpoint rule results are overestimates, each of the right endpoint rules are underestimates, each of the midpoint rules are overestimates, and each of the trapezoid rules are underestimates. These results hold because each of the three functions are both decreasing and concave down. For Simpson's rule, we see that the result is exact for both and , while Simpson's rule is a slight underestimate of .    "
 },
@@ -6071,7 +6071,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-1-area.html#sec-6-1-area-4-4",
   "type": "Example",
-  "number": "6.1.2",
+  "number": "6.1.1",
   "title": "",
   "body": "  Find the area bounded between the graphs of and .    We can find the intersection points of the graphs of and algebraically by solving the system of equations given by and : substituting for in the second equation yields , so , and thus , from which it follows that or . Using , we find the corresponding -values of the intersection points. In Figure , we confirm this result and show the -coordinates of the points, and . Furthermore, the figure shows how we can think of the area beneath and the area beneath separately, and use the difference of these quantities to find the difference between the curves.   The area bounded by the functions and on the interval .  There are three adjacent images that show how we can think about the area bounded by the functions and on the interval . In the first image on the left, only the graph of is shown and the area between its graph and the -axis on is shaded. This region has the shape of a trapezoid. In the second image in the middle, the focus is on the area beneath . The graph of is still shown, but now the graph of is included and the area between the graph of and the -axis on is shaded. The third and final image shows only the shaded area between the curves, which consists of the area below and above on the interval .    Now, using definite integrals to find the values of the respective areas beneath the curves, on the interval , the area beneath is , while the area under on the same interval is .  Thus, the area between the curves is .   "
 },
@@ -6080,7 +6080,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-1-area.html#F-6-1-PA1revisited2",
   "type": "Figure",
-  "number": "6.1.4",
+  "number": "6.1.3",
   "title": "",
   "body": " The area bounded by the functions and on the interval .  There are two adjacent images that show key features of the area bounded by the functions and on the interval . Both curves are plotted along with their intersection points at and . In the first version of the image on the left, a thin representative vertical rectangular slice is shown. The bottom of the rectangle is on the curve and the top of the rectangle is on the curve . This makes the height of the rectangle . The width of the rectangle is . In the second version of the image on the right, the full region between the curves is shaded to reflect the area that is measured by the definite integral .   "
 },
@@ -6089,7 +6089,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-1-area.html#act-6-1-1",
   "type": "Activity",
-  "number": "6.1.5",
+  "number": "6.1.2",
   "title": "",
   "body": "  In each of the following situations, our goal is to determine the area of the region described. For each region, (i) determine the intersection points of the curves, (ii) sketch the region whose area is being found, (iii) draw and label a representative slice, and (iv) state the area of the representative slice. Then, state a definite integral whose value is the exact area of the region, and evaluate the integral to find the numeric value of the region's area.     The finite region bounded by and .    Find where the two curves intersect.    .    By solving , we see that the two curves intersect when and , so at the points and . We can plot the region as shown in the figure below.  Slicing the region with thin vertical rectangles, we see that a typical rectangle's height is given by , and thus the area of such a slice is . It follows that the area of the region bounded by the two curves is . Evaluating the integral, we find .      The finite region bounded by and .    Plot both functions and think about how they compare to .    .    Solving , we find that the two curves intersect where , so at . We can plot the region as shown in the figure below.  Slicing the region with thin vertical rectangles, a typical rectangle's height is given by , and thus the area of such a slice is . Hence, the area of the region bounded by the two curves is . Evaluating the integral, we find .      The area bounded by the -axis, , and , where we consider the region formed by the first positive value of for which and intersect.    Remember that .    .    The first positive value at which the sine and cosine functions intersect is . Plotting the functions in a surrounding region, we see the following figure.  Slicing the region with vertical rectangles, we find the area of the shaded region is given by .      The finite regions between the curves and .    Find three points where the curves intersect and thus two finite regions between two pairs of those points.    The left-hand region has area . The right-hand region has area . The total area is .    The curves and intersect at three points, forming two regions. Setting and solving, we find that , which implies that or . Plotting the curves, we see that for the left-hand region, the relative interval is and .  Thus, the left-hand region has area . For the right-hand region, the interval is and , so that its area is . The total area is .    "
 },
@@ -6098,7 +6098,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-1-area.html#sec-6-1-area-5-3",
   "type": "Example",
-  "number": "6.1.6",
+  "number": "6.1.4",
   "title": "",
   "body": "  Find the area of the region bounded by the parabola and the line , shown at left in Figure .   The area bounded by the functions and (at left), with the region sliced vertically (center) and horizontally (at right).  There are three adjacent images that show how we can think about the area bounded by the curves and . In the first image on the left, the region between the two curves is shaded. The curves intersect at the points and , with the region between them consisting of the area to the right of and to the left of . In the second image in the middle, we consider using thin vertical rectangles to slice up the region between the curves. While one vertical rectangle, located at approximately has its top on the parabola and its bottom on the line, another vertical rectangle located at approximately has both its top and bottom on the parabola. The third and final image on the right shows a representative horizontal rectangular slice that has thickness . This rectangular (which is typical of of any horizontal slice) has its left end on the parabola and its right end on the line.      By solving the second equation for and writing , we find that . Hence the curves intersect where . Thus, we find or , so the intersection points of the two curves are and .  If we attempt to use vertical rectangles to slice up the area (as in the center graph of Figure ), we see that from to the curves that bound the top and bottom of the rectangle are one and the same. This suggests, as shown in the rightmost graph in the figure, that we try using horizontal rectangles.  Note that the width of a horizontal rectangle depends on . Between and , the right end of a representative rectangle is determined by the line , and the left end is determined by the parabola, . The thickness of the rectangle is .  Therefore, the area of the rectangle is , and the area between the two curves on the -interval is approximated by the Riemann sum .  Taking the limit of the Riemann sum, it follows that the area of the region is .  We emphasize that we are integrating with respect to ; this is because we chose to use horizontal rectangles whose widths depend on and whose thickness is denoted . It is a straightforward exercise to evaluate the integral in Equation and find that .   "
 },
@@ -6107,7 +6107,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-1-area.html#act-6-1-2",
   "type": "Activity",
-  "number": "6.1.8",
+  "number": "6.1.3",
   "title": "",
   "body": "  In each of the following situations, our goal is to determine the area of the region described. For each region, (i) determine the intersection points of the curves, (ii) sketch the region whose area is being found, (iii) draw and label a representative slice, and (iv) state the area of the representative slice. Then, state a definite integral whose value is the exact area of the region, and evaluate the integral to find the numeric value of the region's area. Note well: At the step where you draw a representative slice, you need to make a choice about whether to slice vertically or horizontally.     The finite region bounded by and .    Find where the curves intersect and plot them.    .    The two curves intersect when , thus when , so at . Plotting the region, we see that for to , , and thus horizontal slices are appropriate for setting up the integral that represents the region's area. The area is thus given by .      The finite region bounded by and .    Observe that horizontal slices are appropriate, so we will integrate with respect to y.    .    The two curves intersect when , and therefore so . Graphing the region, on , we see that . Using horizontal slices, it follows that the region's area is given by .      The area bounded by the -axis, , and .    Note that the region is approximately triangular with the -axis as the base, as the left \"side\", and as the right side.         The two curves meet at . A careful plot of the region shows that the two curves, together with the -axis, form a roughly triangular region with the -axis as the base, as the left \"side\", and as the right side. Using horizontal slices, and writing each respective equation with as a function of (so and ), we find that the area of this region is      The finite regions between the curves and .       .    The two curves intersect at and . For , we observe that , so using horizontal slices and the corresponding definite integral, we find that the region's area is .    "
 },
@@ -6116,7 +6116,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-1-area.html#F-6-1-ArcLength",
   "type": "Figure",
-  "number": "6.1.9",
+  "number": "6.1.6",
   "title": "",
   "body": " At left, a continuous function whose length we seek on the interval to . At right, a close up view of a portion of the curve.  There are two adjacent images that show how we can think about the length of the given curve. In the first version of the image on the left, the focus is on an interval in the first quadrant from to with three subdivisions. On the graph of the cubic function , the points , , , and are plotted along with line segments connecting each adjacent pair of points. There is a box in the graph that includes the points and , as the contents of this box are magnified in the next image. The second image zooms in on the portion of the graph of from to , focusing on the line segment between and . We think of that line segment as the hypotenuse of the right triangle that's now in this figure. That right triangle has a horizontal leg of length , a vertical leg of length , and we call the length of the hypotenuse . Finally, the portion of the curve that lies between and we label as .   "
 },
@@ -6125,7 +6125,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-1-area.html#act-6-1-3",
   "type": "Activity",
-  "number": "6.1.10",
+  "number": "6.1.4",
   "title": "",
   "body": "  Each of the following questions involves the arc length along a curve.     Use the definition and appropriate computational technology to determine the arc length along from to .    Recall that .    .    Using the formula for arc length, we know . Evaluating the integral, we find .      Find the arc length of on the interval . Find this value in two different ways: (a) by using a definite integral, and (b) by using a familiar property of the curve.    Remember that generates a circle centered at of radius 4.    .    The curve is a semi-circle of radius 2, so its length must be . This is confirmed by the arc length formula, since , so . It follows that . ( Note : This integral is actually improper because the integrand is undefined at the endpoints, . We will learn how to evaluate such integrals in Section .)      Determine the arc length of on the interval .    Apply the arc length formula. Use technology to evaluate the integral.    .    For , we observe that , and that . Thus, the arc length of the curve on is .      Will the integrals that arise calculating arc length typically be ones that we can evaluate exactly using the First FTC, or ones that we need to approximate? Why?    Most expressions involving square roots are difficult to antidifferentiate.    We will usually have to estimate the value of using computational technology.    Because will rarely simplify nicely and rarely have an elementary antiderivative, we will usually have to estimate the value of using computational technology.      A moving particle is traveling along the curve given by , and does so at a constant rate of 7 cm\/sec, where both and are measured in cm (that is, the curve is the path along which the object actually travels; the curve is not a position function ). Find the position of the particle when sec, assuming that when , the particle's location is .    Here you can determine the arc length and then experiment to find the upper limit of integration, which will help you determine position.    Approximately .    After 4 seconds traveling at 7 cm\/sec, the particle has moved 28 cm. So, we have to find the value of for which the arc length along is 28. Thus, we know that . Rewriting the integral, we see . Experimenting with different values of in a computational engine like WolframAlpha, we find that for , , and thus the position of the particle when is approximately .    "
 },
@@ -6269,7 +6269,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-2-volume.html#Ex-6-2-Disks",
   "type": "Example",
-  "number": "6.2.3",
+  "number": "6.2.2",
   "title": "",
   "body": "  Find the volume of the solid of revolution generated when the region bounded by and the -axis is revolved about the -axis.    First, we observe that intersects the -axis at the points and . When we revolve the region about the -axis, we get the three-dimensional solid pictured in Figure .   The solid of revolution in Example .  The region that is bounded by the -axis and the curve is sketched and then revolved around the -axis to generate a three-dimensional solid that is shown in the figure. In addition, a representative slice (perpendicular to the -axis) with labeled thickness is shown in the figure.    We slice the solid into vertical slices of thickness between and . A representative slice is a cylinder of height and radius . Hence, the volume of the slice is .  Using a definite integral to sum the volumes of the representative slices, it follows that .  It is straightforward to evaluate the integral and find that the volume is .   "
 },
@@ -6278,7 +6278,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-2-volume.html#Ex-6-2-Washers",
   "type": "Example",
-  "number": "6.2.5",
+  "number": "6.2.4",
   "title": "",
   "body": "  Find the volume of the solid of revolution generated when the finite region that lies between and is revolved about the -axis.    First, we must determine where the curves and intersect. Substituting the expression for from the second equation into the first equation, we find that . Rearranging, it follows that , and the solutions to this equation are and . The curves therefore cross at and .  When we revolve the region about the -axis, we get the three-dimensional solid pictured at left in Figure . Immediately we see a major difference between the solid in this example and the one in Example : here, the three-dimensional solid of revolution isn't solid because it has open space in its center along the axis of revolution.   At left, the solid of revolution in Example . At right, a typical slice with inner radius and outer radius .   The left-hand image shows the overall solid of revolution; the right-hand image shows one of the washer slices. The solid of revolution is an unusual bowl: the outer boundary of the bowl is formed by the function on the interval , and the inner boundary of the bowl is formed by line . The region those two functions bound in the first quadrant is revolved about the -axis to form the bowl, whose interior is a cone. A representative vertical slice of the solid is also provided in the figure.    In the right-hand image, the representative slice is shown. The slice is a washer (or annulus) and the small inner radius is labeled and the larger outer radius is labeled .     If we slice the solid perpendicular to the axis of revolution, we observe that the resulting slice is not a solid disk, but rather a washer , as pictured at right in Figure . At a given location between and , the small radius of the inner circle is determined by the curve , so . Similarly, the big radius comes from the function , and thus .  To find the volume of a representative slice, we compute the volume of the outer disk and subtract the volume of the inner disk. Since , it follows that the volume of a typical slice is .  Using a definite integral to sum the volumes of the respective slices across the integral, we find that .  Evaluating the integral, we find that the volume of the solid of revolution is .   "
 },
@@ -6287,7 +6287,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-2-volume.html#act-6-2-1",
   "type": "Activity",
-  "number": "6.2.7",
+  "number": "6.2.2",
   "title": "",
   "body": "  In each of the following questions, draw a careful, labeled sketch of the region described, as well as the resulting solid that results from revolving the region about the stated axis. In addition, draw a representative slice and state the volume of that slice, along with a definite integral whose value is the volume of the entire solid. It is not necessary to evaluate the integrals you find.     The region bounded by the -axis, the curve , and the line ; revolve about the -axis.    Use slices perpendicular to the -axis.    .    A typical slice (perpendicular to the -axis) has radius , and thus the volume of such a slice is . It follows by the disk method that the volume of the solid of revolution is .      The region bounded by the -axis, the curve , and the line ; revolve about the -axis.    Note that slices perpendicular to the -axis will be washers.    .    A typical slice (perpendicular to the -axis) is a washer with outer radius and inner radius . The volume of such a slice is . It follows by the washer method that the volume of the solid of revolution is .      The finite region bounded by the curves and ; revolve about the -axis.    Find the points where the two curves intersect and draw a labeled graph.    .    The curves and intersect at and ; revolving the region about the -axis and taking slices perpendicular to the -axis, we see that a typical slice is a washer with outer radius and inner radius . Hence the volume of a typical slice is . By the washer method, the volume of the solid is .      The finite region bounded by the curves and ; revolve about the -axis.    Think about how the solid looks like a donut; what is the outer radius?    .    The curves and intersect at the points ; after we revolve the region about the -axis, cross-sections perpendicular to the axis of rotation are washers with outer radius and inner radius . By the washer method, we see that .      The region bounded by the -axis, the curve , and the line ; revolve about the -axis. How is this problem different from the one posed in part (b)?    Try using slices perpendicular to the -axis.    .    The curve and the line intersect at ; when we revolve the region about the -axis, slices perpendicular to the -axis are disks. Here we see that each disk's radius is a function of and the disks have thickness , so we will need to integrate with respect to and consider the radius function (which comes from solving for in terms of . Note how this is different from the problem in part (b) because of the axis we rotate about and how this forces us to integrate in terms of . A typical slice has volume , and thus by the disk method the total volume is .    "
 },
@@ -6296,7 +6296,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-2-volume.html#Ex-6-2-AboutY",
   "type": "Example",
-  "number": "6.2.8",
+  "number": "6.2.6",
   "title": "",
   "body": "  Find the volume of the solid of revolution generated when the finite region that lies between and is revolved about the -axis.    These two curves intersect at and , hence at the points and . When we revolve the region about the -axis, we get the three-dimensional solid pictured at left in Figure .  Note that the slices are cylindrical washers only if taken perpendicular to the -axis. We slice the solid horizontally, starting at and proceeding up to . The thickness of a representative slice is , so we must express the integrand in terms of . The inner radius is determined by the curve , so we solve for and get . In the same way, we solve the curve (which governs the outer radius) for in terms of , and hence . Therefore, the volume of a typical slice is .  We use a definite integral to sum the volumes of all the slices from to . The total volume is .   At left, the solid of revolution in Example . At right, a typical slice with inner radius and outer radius .   This left-hand image shows the overall solid of revolution. The solid of revolution is bowl whose opening faces upward: the outer boundary of the bowl is formed by the function on the interval (which we also view as , and the inner boundary of the bowl is formed by curve (viewed as )>. The region those two functions bound in the first quadrant is revolved about the -axis to form the bowl. A representative horizontal slice of the solid is also provided in the figure.   In the right-hand image, the representative slice is shown. The slice is a washer (or annulus) and the small inner radius is labeled and the larger outer radius is labeled .     It is straightforward to evaluate the integral and find that .   "
 },
@@ -6305,7 +6305,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-2-volume.html#act-6-2-2",
   "type": "Activity",
-  "number": "6.2.10",
+  "number": "6.2.3",
   "title": "",
   "body": "  In each of the following questions, draw a careful, labeled sketch of the region described, as well as the resulting solid that results from revolving the region about the stated axis. In addition, draw a representative slice and state the volume of that slice, along with a definite integral whose value is the volume of the entire solid. It is not necessary to evaluate the integrals you find.     The region bounded by the -axis, the curve , and the line ; revolve about the -axis.    Consider slices perpendicular to the -axis.    .    Observe that horizontal slices with thickness are all cylindrical disks, each with radius given by since they are given by the curve , which can be equivalently expressed as . The volume of each slice is thus . The volume of the solid is thus given by the definite integral .      The region bounded by the -axis, the curve , and the line ; revolve about the -axis.    Since we revolve around the -axis, think about slices of thickness .    .    Slicing perpendicular to the axis of rotation, we get slices of thickness that are shaped like washers. The outer radius, , is given by ; the innner radius is given by the function , but expressed with as a function of , so . It follows that a representative washer slice has volume . Further, since and intersect at the point , we integrate from to and thus find that the total volume is .      The finite region in the first quadrant bounded by the curves and ; revolve about the -axis.    Note that lies below on the interval .    .    The curves and intersect where , so where . The two nonnegative values of that make this equation true are and , and thus the points and form the boundaries of the region that is being rotated about the -axis. Since we rotate about the horizontal axis, we slice perpendicular to that axis with slices of thickness . A representative slice is in the shape of a washer and has volume , and thus the total volume of the solid is .      The finite region in the first quadrant bounded by the curves and ; revolve about the -axis.    The curve can be equivalently expressed as .    .    To use the same region as in part (c), but now revolved about the -axis, we shift to horizontal slices of thickness , and thus need to express the curves as functions of : the rightmost curve is , while the leftmost curve is . A representative slice is a washer whose volume is . It follows that the total volume of the solid is .      The finite region bounded by the curves and ; revolve about the -axis    Find the intersection points by writing the second curve as and solving .    .    For this pair of curves, we see they intersect where and are both true, and hence where . Expanding, moving all terms to the left, and combining like terms, we see that , so . It follows that and therefore or . Plotting the region and revolving about the -axis, we see that horizontal slices of thickness are shaped like washers. The outer radius is given by , while the inner radius is . A representative slice thus has volume . The volume of the solid of revolution is therefore .    "
 },
@@ -6314,7 +6314,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-2-volume.html#Ex-6-2-AboutNotY",
   "type": "Example",
-  "number": "6.2.11",
+  "number": "6.2.8",
   "title": "",
   "body": "  Find the volume of the solid of revolution generated when the finite region that lies between and is revolved about the line .    Graphing the region between the two curves in the first quadrant between their points of intersection ( and ) and then revolving the region about the line , we see the solid shown in Figure . Each slice of the solid perpendicular to the axis of revolution is a washer, and the radii of each washer are governed by the curves and . But we also see that there is one added change: the axis of revolution adds a fixed length to each radius. The inner radius of a typical slice, , is given by , while the outer radius is .   The solid of revolution described in Example .  This image shows the thin region between and on the interval , along with the line , and the resulting solid of revolution generated by revolving the region about the horizontal line. A thin vertical slice is also provided in the figure.    Therefore, the volume of a typical slice is .  Finally, we integrate to find the total volume, and .   "
 },
@@ -6323,7 +6323,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-2-volume.html#act-6-2-3",
   "type": "Activity",
-  "number": "6.2.13",
+  "number": "6.2.4",
   "title": "",
   "body": "  In each of the following questions, draw a careful, labeled sketch of the region described, as well as the resulting solid that results from revolving the region about the stated axis. In addition, draw a representative slice and state the volume of that slice, along with a definite integral whose value is the volume of the entire solid. It is not necessary to evaluate the integrals you find. For each prompt, use the finite region in the first quadrant bounded by the curves and .     Revolve about the line .    Note that the two curves intersect in the first quadrant at and .    .    The two curves intersect in the first quadrant at and . Revolving the region about the line , we see that a typical slice is a washer with thickness , outer radius , and inner radius . It follows by the washer method that .      Revolve about the line .    The outer radius is .    .    In this situation, revolving about , we see that the outer radius of a typical washer is , while the inner radius is , and thus the volume is .      Revolve about the line .    Solve the equations governing the two curves for in terms of .    .    Because we are revolving about , when we slice perpendicular to this we get washers of thickness , and thus we need to write the two curves as functions of in order to determine the radii of the slices as functions of , we note that the line can be expressed as and the cubic curve can be rewritten in the form . The outer radius of a typical slice is thus and the inner radius is . It follows that the volume of the solid is .      Revolve about the line .    The inner radius is .    .    Here, the outer radius is and the inner radius is , so the total volume of the solid is .    "
 },
@@ -6431,7 +6431,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-3-mass.html#F-6-3-VelArea",
   "type": "Figure",
-  "number": "6.3.2",
+  "number": "6.3.1",
   "title": "",
   "body": " At left, estimating a small amount of distance traveled, , and at right, a small amount of area under the curve, .  At left, a plot of an oscillating positive velocity function on axes without scale (the function looks similar to ), and a small rectangular vertical slice is shown with height and width .  At right, a plot of a positive, increasing, concave up function along with a small rectangular vertical slice with height and width .   "
 },
@@ -6440,7 +6440,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-3-mass.html#F-6-3-Bar",
   "type": "Figure",
-  "number": "6.3.3",
+  "number": "6.3.2",
   "title": "",
   "body": " A thin bar of constant cross-sectional area 1 cm with density function g\/cm .  The plot shows a horizontal axis along with a thin cylindrical bar (whose cross-sections are circular disks). One thin representative slice is shown and its width is labeled .   "
 },
@@ -6449,7 +6449,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-3-mass.html#act-6-3-1",
   "type": "Activity",
-  "number": "6.3.4",
+  "number": "6.3.2",
   "title": "",
   "body": "  Consider the following situations in which mass is distributed in a non-constant manner.     Suppose that a thin rod with constant cross-sectional area of 1 cm has its mass distributed according to the density function , where is the distance in cm from the left end of the rod, and the units on are g\/cm. If the rod is 10 cm long, determine the exact mass of the rod.    Remember that .    grams.    Since the mass, , is given by , it follows that , and hence grams.      Consider the cone that has a base of radius 4 m and a height of 5 m. Picture the cone lying horizontally with the center of its base at the origin and think of the cone as a solid of revolution. Write and evaluate a definite integral whose value is the volume of the cone. Next, suppose that the cone has uniform density of 800 kg\/m . What is the mass of the solid cone? Now suppose that the cone's density is not uniform, but rather that the cone is most dense at its base. In particular, assume that the density of the cone is uniform across cross sections parallel to its base, but that in each such cross section that is a distance units from the origin, the density of the cross section is given by the function , measured in kg\/m . Determine and evaluate a definite integral whose value is the mass of this cone of non-uniform density. Do so by first thinking about the mass of a given slice of the cone units away from the base; remember that in such a slice, the density will be essentially constant .    Think about slices: what's the volume of a slice? what's the mass of a slice?        .    .            Consider the cone that has a base of radius 4 m and a height of 5 m.     With the cone having its base centered at the origin and being a solid of revolution about the -axis, the cone is generated by the line . Using the disk method, it follows that the cone's volume is .    Since the cone has uniform density 800 kg\/m , we know that the cone's mass is the product of its density and volume, and thus .    Since cone has non-uniform density, but is uniform across cross sections parallel to its base such that each cross section a distance units from the origin has its density given by kg\/m , we naturally consider slices of the cone that are perpendicular to the -axis. For each such slice, the radius is , which makes the volume of the slice . Since the density is constant on the slice with value , it follows that the mass of the slice is . Using a definite integral to let and add up the values of all of the slices, we thus find the mass of the cone with this density distribution to be .         Let a thin rod of constant cross-sectional area 1 cm and length 12 cm have its mass be distributed according to the density function , measured in g\/cm. Find the exact location at which to cut the bar so that the two pieces will each have identical mass.    Consider .    .    The total mass of the bar is given by . To find where to cut the bar in two so that the two pieces have equal mass, we have to determine the value of such that . Since , we need to have satisfy the equation . Thus, , so . It follows that , so .    "
 },
@@ -6458,7 +6458,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-3-mass.html#T-6-3-grades",
   "type": "Table",
-  "number": "6.3.5",
+  "number": "6.3.3",
   "title": "A college student’s semester grades.",
   "body": " A college student's semester grades.        class  grade  grade points  credits    chemistry  B+  3.3  5    calculus  A-  3.7  4    history  B-  2.7  3    psychology  B-  2.7  3    "
 },
@@ -6467,7 +6467,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-3-mass.html#act-6-3-2",
   "type": "Activity",
-  "number": "6.3.6",
+  "number": "6.3.3",
   "title": "",
   "body": "  For quantities of equal weight, such as two children on a teeter-totter, the balancing point is found by taking the average of their locations. When the weights of the quantities differ, we use a weighted average of their respective locations to find the balancing point.     Suppose that a shelf is 6 feet long, with its left end situated at . If one book of weight 1 lb is placed at , and another book of weight 1 lb is placed at , what is the location of , the point at which the shelf would (theoretically) balance on a fulcrum?    Find the average location.    .    The shelf will balance at .      Now, say that we place four books on the shelf, each weighing 1 lb: at , at , at , and at . Find , the balancing point of the shelf.    Note that you are averaging 4 locations.    .    The shelf will balance at the average of the locations: .      How does change if we change the location of the third book? Say the locations of the 1-lb books are , , , and .    Compare (b).    .    Changing the location of to the left will move the average to the left, so the new location for is .      Next, suppose that we place four books on the shelf, but of varying weights: at a 2-lb book, at a 3-lb book, at a 1-lb book, and at a 1-lb book. Use a weighted average of the locations to find , the balancing point of the shelf. How does the balancing point in this scenario compare to that found in (b)?    If the book at location weighs 2 pounds, it's like there are two books at , so must play a role in the average.    .    We can think of the weighted books almost as if there were that number of 1-lb books at each location. The balancing point is given by the weighted average . Note particularly that we divide by the total weight of the books, not the total number.      What happens if we change the location of one of the books? Say that we keep everything the same in (d), except that . How does change?    Use a weighted average.    .    Here we find , which moves the balancing point slightly to the right.      What happens if we change the weight of one of the books? Say that we keep everything the same in (d), except that the book at now weighs 2 lbs. How does change?    Compare (e).    .    In this situation, we find the balancing point also moves to the right: .      Experiment with a couple of different scenarios of your choosing where you move one of the books to the left, or you decrease the weight of one of the books.    Experiment.    Answers will vary.    Try, for instance, having and and experiment with different weights.      Write a couple of sentences to explain how adjusting the location of one of the books or the weight of one of the books affects the location of the balancing point of the shelf. Think carefully here about how your changes should be considered relative to the location of the balancing point of the current scenario.    Compare the effects of moving locations left and adding weight to the left of the balancing point.    If we have an existing arrangement and balancing point, moving one of the locations to the left will move the balancing point to the left; similarly, moving one of the locations to the right will move the balancing point to the right. If instead we add weight to an existing location, if that location is left of the balancing point, the balancing point will move left; the behavior is similar if on the right.    If we have an existing arrangement and balancing point, moving one of the locations to the left will move the balancing point to the left; similarly, moving one of the locations to the right will move the balancing point to the right. If instead we add weight to an existing location, if that location is left of the balancing point, the balancing point will move left; the behavior is similar if on the right.    "
 },
@@ -6476,7 +6476,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-3-mass.html#act-6-3-3",
   "type": "Activity",
-  "number": "6.3.7",
+  "number": "6.3.4",
   "title": "",
   "body": "  Consider a thin bar of length 20 cm whose density is distributed according to the function , where represents the left end of the bar. Assume that is measured in g\/cm and is measured in cm.     Find the total mass, , of the bar.    Recall .    g.    g.      Without doing any calculations, do you expect the center of mass of the bar to be equal to 10, less than 10, or greater than 10? Why?    Think about whether there's more mass to the left of 10 or to the right of 10.    Greater than 10.    The center of mass will be greater than 10 since the mass is more concentrated as increases.      Compute , the exact center of mass of the bar.    Use the formula just developed in the preceding subsection of the text.    .    Using the formula we developed, , so , which is indeed just greater than 10.      What is the average density of the bar?    Recall that when density, is constant, .    5 g\/cm.    Recall that average density is given by mass divided by length, so since the bar is 20 cm long and its mass is 100 g, the average density is 100\/20 = 5 g\/cm. This can also be computed using the formula for average value of a function: .      Now consider a different density function, given by , also for a bar of length 20 cm whose left end is at . Plot both and on the same axes. Without doing any calculations, which bar do you expect to have the greater center of mass? Why?    Think about how the two density functions distribute mass. Note that they appear to distribute the same total mass, as the areas under the two curves appear to be equal.    Slightly to the right of the center of mass for .    Since lies below up until where they intersect at about , after which , we see that distributes mass more to the right. It also appears as if the two curves may bound the same total area, and thus the generate the same total mass. If that is the case, we expect for to lie slightly to the right of the center of mass for .      Compute the exact center of mass of the bar described in (e) whose density function is . Check the result against the prediction you made in (e).    Use in place of in standard calculations.    ,    We see that , which is indeed slightly right of for .    "
 },
@@ -6575,7 +6575,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-4-physics.html#PA-6-4",
   "type": "Preview Activity",
-  "number": "6.4.2",
+  "number": "6.4.1",
   "title": "",
   "body": "  A bucket is being lifted from the bottom of a 50-foot deep well; its weight (including the water), , in pounds at a height feet above the water is given by the function . When the bucket leaves the water, the bucket and water together weigh pounds, and when the bucket reaches the top of the well, pounds. Assume that the bucket loses water at a constant rate (as a function of height, ) throughout its journey from the bottom to the top of the well.     Find a formula for .       Compute the value of the product , where feet. Include units on your answer. Explain why this product represents the approximate work it took to move the bucket of water from to .       Is the value in (b) an over- or under-estimate of the actual amount of work it took to move the bucket from to ? Why?       Compute the value of the product , where feet. Include units on your answer. What is the meaning of the value you found?       More generally, what does the quantity measure for a given value of and a small positive value of ?       Evaluate the definite integral . What is the meaning of the value you find? Why?     "
 },
@@ -6584,7 +6584,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-4-physics.html#act-6-4-1",
   "type": "Activity",
-  "number": "6.4.3",
+  "number": "6.4.2",
   "title": "",
   "body": "  Consider the following situations in which a varying force accomplishes work.      Suppose that a heavy rope hangs over the side of a cliff. The rope is 200 feet long and weighs 0.3 pounds per foot; initially the rope is fully extended. How much work is required to haul in the entire length of the rope? (Hint: set up a function whose value is the weight of the rope remaining over the cliff after feet have been hauled in.)    Find a linear function that satisfies and    .    When the full rope is extended over the cliff, the weight of the hanging rope is 200 pounds. Every foot of rope weighs 0.3 pounds; in addition, the quantity measures the number of feet of rope hanging over the cliff when feet of rope have been pulled in. This means that the function whose value is the weight of the rope hanging over the cliff after feet have been pulled in is given by . When a small amount of rope, , is pulled in, the work to move that slice of rope is given by . Thus, the total work to pull in the 200 feet of rope is given by .      A leaky bucket is being hauled up from a 100 foot deep well. When lifted from the water, the bucket and water together weigh 40 pounds. As the bucket is being hauled upward at a constant rate, the bucket leaks water at a constant rate so that it is losing weight at a rate of 0.1 pounds per foot. What function tells the weight of the bucket after the bucket has been lifted feet? What is the total amount of work accomplished in lifting the bucket to the top of the well?    The weight of the bucket is given by a linear function.    .    Since changes at a constant rate, is a linear function. We know that and that loses weight at a rate of 0.1 pounds per foot of rope hauled in. Thus, . It follows that the total work to life the leaky bucket 100 feet is .      Now suppose that the bucket in (b) does not leak at a constant rate, but rather that its weight at a height feet above the water is given by . What is the total work required to lift the bucket 100 feet? What is the average force exerted on the bucket on the interval to ?    Recall that work is given by a certain definite integral.    .    Given that is the weight of the bucket when feet of rope have been pulled in, it follows that the total work to move the bucket 100 feet is . In addition, the average force that was exerted on the bucket is precisely the average weight of the bucket, which is .      From physics, Hooke's Law Hooke's Law for springs states that the amount of force required to hold a spring that is compressed (or extended) to a particular length is proportionate to the distance the spring is compressed (or extended) from its natural length. That is, the force to compress (or extend) a spring units from its natural length is for some constant (which is called the spring constant .) For springs, we choose to measure the force in pounds and the distance the spring is compressed in feet. Suppose that a force of 5 pounds extends a particular spring 4 inches (1\/3 foot) beyond its natural length.     Use the given fact that to find the spring constant .    Find the work done to extend the spring from its natural length to 1 foot beyond its natural length.    Find the work required to extend the spring from 1 foot beyond its natural length to 1.5 feet beyond its natural length.       Follow the rule for Hooke's Law and then use .    For the given spring, . . .    Now considering the given spring, Since and by Hoooke's Law, it follows that , and thus . Because the work to stretch the spring 1 foot is given by , it follows . Here, .    "
 },
@@ -6593,7 +6593,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-4-physics.html#F-6-4-SumpCrock",
   "type": "Figure",
-  "number": "6.4.4",
+  "number": "6.4.2",
   "title": "",
   "body": " A sump crock.  A cylindrical hole in a basement floor that narrows slightly as one goes further down into the hole. An electric pump sits on the surface of the water; the water level is well below the level of the floor itself.   "
 },
@@ -6602,7 +6602,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-4-physics.html#sec-6-4-physics-5-4",
   "type": "Example",
-  "number": "6.4.5",
+  "number": "6.4.3",
   "title": "",
   "body": "  Suppose that a sump crock has the shape of a frustum of a cone, as pictured in Figure . The crock has a diameter of 3 feet at its surface, a diameter of 1.5 feet at its base, and a depth of 4 feet. In addition, suppose that the sump pump is set up so that it pumps the water vertically up a pipe to a drain that is located at ground level just outside a basement window. To accomplish this, the pump must send the water to a location 9 feet above the surface of the sump crock. How much work is required to empty the sump crock if it is initially completely full?   A sump crock with approximately cylindrical cross-sections.   This image of a solid of revolution represents the interior of the described sump crock.  The coordinate axes are oriented clockwise from what is typical so that the positive -axis points to the right and the positive -axis points down. In that orientation, the point on the -axis is shown along with ; the line segment connecting these two points forms the outer boundary of the crock when that segment is revolved about the -axis. The solid of revolution is shown along with a thin cylindrical slice perpendicular to the -axis with thickness .      It is helpful to think of the depth below the surface of the crock as being the independent variable, so we let the positive -axis point down, and the positive -axis to the right, as pictured in the figure. Because the pump sits on the surface of the water, it makes sense to think about the pump moving the water one slice at a time, where it takes a thin slice from the surface, pumps it out of the tank, and then proceeds to pump the next slice below.  Each slice of water is cylindrical in shape. We see that the radius of each slice varies according to the linear function that passes through the points and , where is the depth of the particular slice in the tank; it is a straightforward exercise to find that . Now we think about the problem in several steps:  determining the volume of a typical slice;  finding the weight We assume that the weight density of water is 62.4 pounds per cubic foot. of a typical slice (and thus the force that must be exerted on it);  deciding the distance that a typical slice moves;  and computing the work to move a representative slice.  Once we know the work it takes to move one slice, we use a definite integral over an appropriate interval to find the total work.  Consider a representative cylindrical slice at a depth of feet below the top of the crock. The approximate volume of that slice is given by .  Since water weighs 62.4 lb\/ft , the approximate weight of a representative slice is . This is also the approximate force the pump must exert to move the slice.  Because the slice is located at a depth of feet below the top of the crock, the slice being moved by the pump must move feet to get to the level of the basement floor, and then, as stated in the problem description, another 9 feet to reach the drain at ground level. Hence, the total distance a representative slice travels is .  Finally, the work to move a representative slice is given by .  We sum the work required to move slices throughout the tank (from to ), let , and hence . When evaluated using appropriate technology, the integral shows that the total work is foot-pounds.   "
 },
@@ -6611,7 +6611,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-4-physics.html#act-6-4-2",
   "type": "Activity",
-  "number": "6.4.7",
+  "number": "6.4.3",
   "title": "",
   "body": "  In each of the following situations, determine the total work required to accomplish the described task. In parts (b) and (c), a key step is to find a formula for a function that describes the curve that forms the side boundary of the tank.     Consider a vertical cylindrical tank of radius 2 meters and depth 6 meters. Suppose the tank is filled with 4 meters of water of mass density 1000 kg\/m , and the top 1 meter of water is pumped over the top of the tank.    Note that slices of water at constant depth are all cylinders and all have the same radius. Also, remember to convert mass to weight when computing force.    .    A typical slice is a thin cylinder of radius 2 and thickness . The volume of such a cylinder is , and its weight is thus . Finally, the distance such a slice travels to the top of the tank is . If we only pump out the top 1 m of water, which corresponds to the water between and because the tank is full to a depth of 4 m, it follows that the total work is .      Consider a hemispherical tank with a radius of 10 feet. Suppose that the tank is full to a depth of 7 feet with water of weight density 62.4 pounds\/ft , and the top 5 feet of water are pumped out of the tank to a tanker truck whose height is 5 feet above the top of the tank.    Recall that the top half of a circle of radius 10 centered at the origin has equation .    .    Viewing the tank as a solid of revolution, the tank is generated by the function , and a typical slice has volume . The force to move such a slice is its weight, . Each slice has to move feet to clear the top of the tank, and then an additional 5 feet up to the truck, so the distance each slice moves is . Finally, since the tank is full to a depth of 7 feet, and we wish to pump out the top 5 feet, ranges from (the top of the water) to (the point at which there are 2 feet remaining in the tank). Hence, the total work done is .      Consider a trough with triangular ends, as pictured in the following figure where the tank is 10 feet long, the top is 5 feet wide, and the tank is 4 feet deep. Say that the trough is full to within 1 foot of the top with water of weight density 62.4 pounds\/ft , and a pump is used to empty the tank until the water remaining in the tank is 1 foot deep.   This image is a sketch of the shape of the trough described in part (c) of the activity.  The coordinate axes are oriented clockwise from what is typical so that the positive -axis points to the right and the positive -axis points down. In that orientation, one triangular end of the trough sits so that its top (the opening of the trough) aligns with the -axis, and the bottom point of the triangular end sits on the positive -axis. The trough itself then extends back from this triangular face so that the image shows the three-dimensional aspect of the tank.     The equation of the line that determines the right side of the front face of the tank is . Note that a slice of water at constant depth is a rectangular slab whose width is .    .    The line that bounds the right edge of the triangular face of the tank lying in the first quadrant is . If we take a slice of water that lies at depth , note that the slice is rectangular with thickness , length 10 (the tank is 10 feet long), and width . Thus, the volume of a typical slice is , and the force that has to be exerted to move such a slice is . The distance a typical slice moves when pumped to the top of the tank is , and since the tank is full to a depth of 3 feet (within 1 foot of the top) and we are going to empty the tank until 1 foot of water remains in it, we see that we need to integrate from to , so .    "
 },
@@ -6620,7 +6620,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-4-physics.html#sec-6-4-physics-6-5",
   "type": "Example",
-  "number": "6.4.8",
+  "number": "6.4.5",
   "title": "",
   "body": "  Consider a trapezoid-shaped dam that is 60 feet wide at its base and 90 feet wide at its top, and assume the dam is 25 feet tall with water that rises to within 5 feet of the top of its face. Water weighs 62.4 pounds per cubic foot. How much force does the water exert against the dam?    First, we sketch a picture of the dam, as shown in Figure . Note that, as in problems involving the work to pump out a tank, we let the positive -axis point down.   A trapezoidal dam that is 25 feet tall, 60 feet wide at its base, 90 feet wide at its top, with the water line 5 feet down from the top of its face.   The coordinate axes are oriented clockwise from what is typical so that the positive -axis points to the right and the positive -axis points down.  Two key points are labeled: and . These points are joined by a line segment labeled , and this segment forms the right-hand edge of the dam.  The water level is indicated with a horizontal dashed line segment at a height of , with a representative horizontal thin rectangular slice at a location that's located about halfway between and the bottom of the tank at . That slice is shown to lie feet below the surface of the water and to have thickness .    Pressure is constant at a fixed depth, so we consider a slice of water at constant depth on the face, as shown in the figure. The area of this slice is approximately the area of the rectangle pictured. Since the width of that rectangle depends on the variable , we find a formula for the line that represents one side of the dam. It is straightforward to find that . Hence, the approximate area of a representative slice is .  At any point on this slice, the depth is approximately constant, so the pressure can be considered constant. Because the water rises to within 5 feet of the top of the dam, the depth of any point on the representative slice is approximately . Now, since pressure is given by , we have that at any point on the slice .  Knowing both the pressure and area, we can find the force the water exerts on the slice. Using , it follows that .  Finally, we use a definite integral to sum the forces over the appropriate range of -values. Since the water rises to within 5 feet of the top of the dam, we start at and take slices all the way to the bottom of the dam, where . Hence, .  Using technology to evaluate the integral, we find pounds.   "
 },
@@ -6629,7 +6629,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-4-physics.html#act-6-4-3",
   "type": "Activity",
-  "number": "6.4.10",
+  "number": "6.4.4",
   "title": "",
   "body": "  In each of the following situations, determine the total force exerted by water against the surface that is described.     Consider a rectangular dam that is 100 feet wide and 50 feet tall, and suppose that water presses against the dam all the way to the top.    Put the center of the top of the dam at the origin and let the positive -axis point down.    .    We let the positive -axis point down and let be the distance from the top of the dam. The area of a typical horizontal slice (in square feet) is . The pressure (in pounds per square foot) at depth is given by . So the force on a typical slice (in pounds) is . So the force of the water against the dam is .      Consider a semicircular dam with a radius of 30 feet. Suppose that the water rises to within 10 feet of the top of the dam.    With the positive -axis pointing down, the equation for the edge of the semi-circular dam is .    .    We let the positive -axis point down and let be the distance from the top of the dam. We place the top of the dam along the -axis with the center at the origin. So the equation for the semicircle is . The area of a typical horizontal slice (in square feet) is . At a given value of , the depth of the water is . So the pressure (in pounds per square foot) at is given by . So the force on a typical slice (in pounds) is . So the force of the water against the dam is .      Consider a trough with triangular ends, as pictured in the following figure where the tank is 10 feet long, the top is 5 feet wide, and the tank is 4 feet deep. Say that the trough is full to within 1 foot of the top with water of weight density 62.4 pounds\/ft . How much force does the water exert against one of the triangular ends?   This image is a sketch of the shape of the trough described in part (c) of the activity.  The coordinate axes are oriented clockwise from what is typical so that the positive -axis points to the right and the positive -axis points down. In that orientation, one triangular end of the trough sits so that its top (the opening of the trough) aligns with the -axis, and the bottom point of the triangular end sits on the positive -axis. The trough itself then extends back from this triangular face so that the image shows the three-dimensional aspect of the tank.     The equation for the line that bounds the right side of the trough is .    .    We let the positive -axis point down and let be the distance from the top of the dam. We place the top of the trough along the -axis with the center at the origin. We need the equation for the straight line from the point to the point . The equation for this line is . The area of a typical horizontal slice (in square feet) is . At a given value of , the depth of the water is . So the pressure (in pounds per square foot) at is given by . So the force on a typical slice (in pounds) is . So the force of the water against the trough is .    "
 },
@@ -6728,7 +6728,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-5-improper.html#F-6-5-InfReg",
   "type": "Figure",
-  "number": "6.5.2",
+  "number": "6.5.1",
   "title": "",
   "body": " At left, the area bounded by on the finite interval ; at right, the result of letting . By in the righthand figure, we mean that the region extends to the right without bound.   Two similar images are shown.  At left, the area bounded by the positive decreasing function (which tends to as increases without bound) on the finite interval .  At right, we imagine there being no righthand bound for the interval, so the shown area under the function is shaded all the way to the edge of the figure. In the shaded region, we include near the right edge to indicate that the region extends to the right without bound.   "
 },
@@ -6737,7 +6737,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-5-improper.html#act-6-5-1",
   "type": "Activity",
-  "number": "6.5.3",
+  "number": "6.5.2",
   "title": "",
   "body": "  In this activity we explore the improper integrals and .      First we investigate .     Use the First FTC to determine the exact values of , , and . Then, use your computational device to compute a decimal approximation of each result.    Use the First FTC to evaluate the definite integral (which results in an expression that depends on ).    Now, use your work from (ii.) to evaluate the limit given by .       .              .                      .              Next, we investigate . Use the First FTC to determine the exact values of , , and . Then, use your calculator to compute a decimal approximation of each result. Use the First FTC to evaluate the definite integral (which results in an expression that depends on ). Now, use your work from (ii.) to evaluate the limit given by .                   .                      .              Plot the functions and on the same coordinate axes for the values . How would you compare their behavior as increases without bound? What is similar? What is different?    Compare how quickly the curves approach the -axis as .    Both graphs have a vertical asymptote at and for both graphs, the -axis is a horizontal asymptote. However, the graph of will ''approach the -axis faster'' than the graph of .    Both graphs have a vertical asymptote at and for both graphs, the -axis is a horizontal asymptote. However, the graph of will ''approach the -axis faster'' than the graph of .      How would you characterize the value of ? of ? What does this tell us about the respective areas bounded by these two curves for ?    Remember that as long as .    The area bounded by the graph of , the -axis, and the vertical line is infinite or unbounded. However, The area bounded by the graph of , the -axis, and the vertical line is equal to 2.    The area bounded by the graph of , the -axis, and the vertical line is infinite or unbounded. However, The area bounded by the graph of , the -axis, and the vertical line is equal to 2.    "
 },
@@ -6755,7 +6755,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-5-improper.html#act-6-5-2",
   "type": "Activity",
-  "number": "6.5.4",
+  "number": "6.5.3",
   "title": "",
   "body": "  Determine whether each of the following improper integrals converges or diverges. For each integral that converges, find its exact value.          .                     Recall that for , as .                     .                     Compare (c).                     Compare (b), after integrating by parts.                , where is a positive real number    Try two cases: and .    If , diverges, while if , the integral converges.    We assume that is a positive real number. We now use two cases: (Assume .) In this case, and so and Using this and equation (1), we see that diverges. (Assume .) In this case, and so and Using this and equation (1), we see that converges to .    "
 },
@@ -6764,7 +6764,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-5-improper.html#F-6-5-InfIntegrand",
   "type": "Figure",
-  "number": "6.5.5",
+  "number": "6.5.2",
   "title": "",
   "body": " At left, the area bounded by on the finite interval ; at right, the result of letting , where we see that the shaded region will extend vertically without bound.   Two similar images are shown.  At left, the area bounded by the positive decreasing function on the interval where . Note that increases without bound as tends to ; that is, the function has a vertical asymptote at .  At right, we imagine the region being bounded on the left by the vertical asymptote, so the upper part of the region is unbounded. In other words, the shaded region on the interval extends infinitely in the vertical direction as the function gets closer to its vertical asymptote of .   "
 },
@@ -6773,7 +6773,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-5-improper.html#F-6-5-InfIntegrand2",
   "type": "Figure",
-  "number": "6.5.6",
+  "number": "6.5.3",
   "title": "",
   "body": " The function on an interval including .   The function on the interval along with the area it bounds with the -axis, even though that region is unbounded because of the function's vertical asymptote at .  There are two adjacent unbounded regions: one on the interval on which increases without bound as , and the other one on the interval on which increases without bound as .   "
 },
@@ -6782,7 +6782,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-6-5-improper.html#act-6-5-3",
   "type": "Activity",
-  "number": "6.5.7",
+  "number": "6.5.4",
   "title": "",
   "body": "  For each of the following definite integrals, decide whether the integral is improper or not. If the integral is proper, evaluate it using the First FTC. If the integral is improper, determine whether or not the integral converges or diverges; if the integral converges, find its exact value.          is undefined at .                     This integral is a proper one.                     is undefined at .                     Be careful about what happens at ; split the original integral into two integrals that involve .    diverges.    However, each of the improper integrals on the right side of the equation diverges. For example, So dx diverges.           is undefined at .                     Recall that you know an antiderivative for .              "
 },
@@ -6953,7 +6953,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-1-diff-eq-intro.html#F-7-1-family",
   "type": "Figure",
-  "number": "7.1.5",
+  "number": "7.1.1",
   "title": "",
   "body": " The family of solutions to the differential equation .  This graph shows several members of the family of solutions to the differential equation . For solutions that satisfy , the function is always decreasing and approaches the constant solution . For solutions that satisfy , the function is always increasing and approaches the constant solution .   "
 },
@@ -7070,7 +7070,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-2-qualitative.html#F-7-2-field-0",
   "type": "Figure",
-  "number": "7.2.2",
+  "number": "7.2.1",
   "title": "",
   "body": " Tangent lines at points with .  This is the first in a sequence of images that build the slope field for a differential equation. A grid is provided for plotting small tangent lines connected to the given differential equation. The -values range from to and the -values range from to . The grid boxes are In this first image, small tangent lines are sketched at the points , , , , and each such line has slope .   "
 },
@@ -7079,7 +7079,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-2-qualitative.html#F-7-2-field-1",
   "type": "Figure",
-  "number": "7.2.3",
+  "number": "7.2.2",
   "title": "",
   "body": " Adding tangent lines at points with .  This is the second in a sequence of images that build the slope field for a differential equation. In this second image, small tangent lines are sketched at the points , , , , and each such line has slope .   "
 },
@@ -7088,7 +7088,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-2-qualitative.html#F-7-2-field-2",
   "type": "Figure",
-  "number": "7.2.4",
+  "number": "7.2.3",
   "title": "",
   "body": " Adding tangent lines at points with and .  This is the third in a sequence of images that build the slope field for a differential equation. In this third image, small tangent lines are sketched at the points corresponding to and . At the points , , , , each line has slope . At the points , , , , each line has slope .   "
 },
@@ -7097,7 +7097,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-2-qualitative.html#F-7-2-field-23",
   "type": "Figure",
-  "number": "7.2.5",
+  "number": "7.2.4",
   "title": "",
   "body": " A completed slope field.  This fourth and final image shows the complete slope field. This image has a small tangent line at each point in the grid. For example, the tangent line at the point has slope . The overall slope field indicates a pattern that suggests solution curves will be parabolas that open up and have their vertex at .   "
 },
@@ -7106,7 +7106,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-2-qualitative.html#F-7-2-IVP-soln",
   "type": "Figure",
-  "number": "7.2.6",
+  "number": "7.2.5",
   "title": "",
   "body": " A sequence of images that show how to sketch the IVP solution that satisfies .    This is the first in a sequence of three images that show how to sketch the solution to the differential equation that satisfies . Starting from the point , we follow the lines in the slope field, decreasing as increases, but decreasing more slowly as we proceed. This first graph looks like a portion of a decreasing, concave up parabola that passes through the approximate points , , , and .     This is the second in a sequence of three images that show how to sketch the solution to the differential equation that satisfies . Continuing from the preceding graph, we follow the lines in the slope field, creating more of a concave up parabola that has its vertex at approximately ; the parabola also passes through the approximate point .    This final image shows the full parabola passing through the slope field. It appears that the parabola has equation .    "
 },
@@ -7115,7 +7115,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-2-qualitative.html#F-7-2-field-4",
   "type": "Figure",
-  "number": "7.2.7",
+  "number": "7.2.6",
   "title": "",
   "body": " Different solutions to that correspond to different initial values.  This image shows several solutions to that correspond the initial values , , , . Each curve is a concave up parabola that has its vertex where , and each is a vertical shift of the others.   "
 },
@@ -7124,7 +7124,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-2-qualitative.html#act-7-2-1",
   "type": "Activity",
-  "number": "7.2.8",
+  "number": "7.2.2",
   "title": "",
   "body": "  Consider the autonomous differential equation .     Make a plot of versus on the axes provided below. Looking at the graph, for what values of does increase and for what values of does decrease?  Axes and grid for plotting as a function of . The values of range horizontally from to . The values of range vertically from to .     When , is an increasing function of . When , is a decreasing function of .  Plot of as a function of . The graph is a straight line with slope that passes through the point .    The graph below is a plot of versus . We see that when , and hence is an increasing function of . We also see that when , and hence is a decreasing function of .  Plot of as a function of . The graph is a straight line with slope that passes through the point .      Next, sketch the slope field for this differential equation on the axes provided below.  Axes and grid for plotting the slope field. The values of range horizontally from to . The values of range vertically from to .     The slope field shows a constant solution of and that solutions that satisfy are decreasing while solutions that satisfy are increasing . For a fixed value of , the line segments in the slope field all have the same slope, regardless of . When , the slopes are all . When , the slopes are all negative, and the larger the value of the more negative the slope is. When , the slopes are all positive, and the smaller the value of the more positive the slope is.    Next, by sampling points in the plane and plotting short lines whose slope is , we create the following slope field for the differential equation .  The slope field shows a constant solution of and that solutions that satisfy are decreasing while solutions that satisfy are increasing . For a fixed value of , the line segments in the slope field all have the same slope, regardless of . When , the slopes are all . When , the slopes are all negative, and the larger the value of the more negative the slope is. When , the slopes are all positive, and the smaller the value of the more positive the slope is.      Use your work in (b) to sketch on the same axes solutions that satisfy , , and .     The graph shows the plots of four different solutions to the differential equation with the graphs superimposed on the slope field.  The solution that satisfies is a decreasing, concave up function that approaches as increases without bound. The solution that satisfies is constant (that is, a horizontal line). The solutions that satisfy and are increasing, concave down functions that approach as increases without bound.    Finally, by choosing starting points and following the direction of the slope field, we generate plots of solutions that satisfy , , , and , as shown in the following figure.  The graph shows the plots of four different solutions to the differential equation with the graphs superimposed on the slope field.  The solution that satisfies is a decreasing, concave up function that approaches as increases without bound. The solution that satisfies is constant (that is, a horizontal line). The solutions that satisfy and are increasing, concave down functions that approach as increases without bound.      Verify that is a solution to the given differential equation with the initial value . Compare its graph to the one you sketched in (c).     and In addition, .    For , we see that and In addition, . So is a solution of the differential equation with . The graph of this function is identical to the top graph in part (c).      What is special about the solution where ?     A constant function.    The solution where is a constant function.    "
 },
@@ -7133,7 +7133,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-2-qualitative.html#act-7-2-2",
   "type": "Activity",
-  "number": "7.2.9",
+  "number": "7.2.3",
   "title": "",
   "body": "  Consider the autonomous differential equation .     Make a plot of versus on the axes provided. Looking at the graph, for what values of does increase and for what values of does decrease?  Axes and grid for plotting as a function of . The values of range horizontally from to . The values of range vertically from to .     When and when , is a decreasing function of . When , is a increasing function of .  Plot of as a function of . The graph is a concave down parabola that has zeros at and with a maximum at the point .    The graph below is a plot of versus . We see that when and when , and hence is a decreasing function of . We also see that when , and hence is a increasing function of .  Plot of as a function of . The graph is a concave down parabola that has zeros at and with a maximum at the point .      Identify any equilibrium solutions of the given differential equation.     and .    The equilibrium solutions occur when and so the equilibrium solutions are and .      Now sketch the slope field for the given differential equation on the axes provided below.  Axes and grid for plotting the slope field. The values of range horizontally from to . The values of range vertically from to .     The slope field shows constant solutions of and . Solutions that satisfy or are decreasing, while solutions that satisfy are increasing . For a fixed value of , the line segments in the slope field all have the same slope, regardless of . When , the slopes are all negative, and the larger the value of the more negative the slope is. When , the slopes are all . When , the slopes are all positive, and the closer is to or the closer the slope is to ; the largest positive slope occurs when . Finally, when , the slopes are all negative, and the more negative the value of the more negative the slope is.    Following is a slope field for the differential equation .  The slope field shows constant solutions of and . Solutions that satisfy or are decreasing, while solutions that satisfy are increasing . For a fixed value of , the line segments in the slope field all have the same slope, regardless of . When , the slopes are all negative, and the larger the value of the more negative the slope is. When , the slopes are all . When , the slopes are all positive, and the closer is to or the closer the slope is to ; the largest positive slope occurs when . Finally, when , the slopes are all negative, and the more negative the value of the more negative the slope is.      On the slope field in (c), sketch the solutions to the given differential equation that correspond to initial values .     The graph shows the plots of the different solutions to the differential equation with the graphs superimposed on the slope field.  The solution that satisfies is a decreasing, concave up function that approaches as increases without bound. The solution that satisfies is constant (that is, a horizontal line). The solutions that satisfy , , and are increasing functions that approach as increases without bound. Each of these three functions is concave down for all values of such that . The solution that satisfies is constant (that is, a horizontal line). Finally, the solution that satisfies is a decreasing concave down function that decreases without bound.    Below is the slope field for the differential equation along with solutions that satisfy , , , , and .  The graph shows the plots of the different solutions to the differential equation with the graphs superimposed on the slope field.  The solution that satisfies is a decreasing, concave up function that approaches as increases without bound. The solution that satisfies is constant (that is, a horizontal line). The solutions that satisfy , , and are increasing functions that approach as increases without bound. Each of these three functions is concave down for all values of such that . The solution that satisfies is constant (that is, a horizontal line). Finally, the solution that satisfies is a decreasing concave down function that decreases without bound.      An equilibrium solution is called stable stable equilibrium solution stable if nearby solutions converge to . This means that if the initial condition varies slightly from , then . Conversely, an equilibrium solution is called unstable unstable equilibrium solution unstable if nearby solutions are pushed away from . Using your work above, classify the equilibrium solutions you found in (b) as either stable or unstable.     is stable; is unstable.    The equilibrium solution is stable because trajectories nearby approach this constant solution, while the equilibrium solution is unstable because trajectories nearby veer away from this constant solution.      Suppose that describes the population of a species of living organisms and that the initial value is positive. What can you say about the eventual fate of this population?     Tend to 4.    The population will eventually tend to 4.      Now consider a general autonomous differential equation of the form . Remember that an equilibrium solution satisfies . If we graph as a function of , for which of the differential equations represented below is a stable equilibrium and for which is unstable? Why?   The graph demonstrates behavior near a point where changes sign.  The graph of has a zero at , and for , while for  This graph also demonstrates behavior near a point where changes sign, but does so in a way that's opposite the preceding graph.  The graph of has a zero at , and for , while for      The left image is for an ustable equilibrium; the right image is for a stable equilibrium.    The left image is for an ustable equilibrium. This is because if is slightly less than , then and the function will be decreasing. In addition, if is slightly greater than , then and the function will be increasing. In both situations, is moving away from . The right image is for a stable equilibrium. This is because if is slightly less than , then and the function will be increasing. In addition, if is slightly greater than , then and the function will be decreasing. In both situations, is moving toward .    "
 },
@@ -7250,7 +7250,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#F-7-3-slope",
   "type": "Figure",
-  "number": "7.3.2",
+  "number": "7.3.1",
   "title": "",
   "body": " Visualizing slope.  A plot of a straight line with annotation that helps demonstrate how slope is computed. There are two points on the line, and we view that line segment as the hypotenuse of a right triangle. The right triangle is also plotted in the image; its horizontal leg is labeled with , the change in the horizontal direction between the two points on the line, and its vertical leg is labeled with , the change in the horizontal direction between the two points.   "
 },
@@ -7259,7 +7259,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#F-7-3-euler-points-1",
   "type": "Figure",
-  "number": "7.3.3",
+  "number": "7.3.2",
   "title": "",
   "body": " One step of Euler's method.  This image shows the result of taking one step of Euler's method in the current example. On axes that show on the interval and for , the initial point is plotted at , and the first point from Euler's method, , is plotted at . A line segment is plotted to join and .   "
 },
@@ -7268,7 +7268,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#F-7-3-euler-points-2",
   "type": "Figure",
-  "number": "7.3.4",
+  "number": "7.3.3",
   "title": "",
   "body": " Two steps of Euler's method.  This image adds one more point to the previous plot. On the same axes that have and , the next point is added, along with a line segment join and .   "
 },
@@ -7277,7 +7277,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#F-7-3-Euler-Pts-a",
   "type": "Figure",
-  "number": "7.3.5",
+  "number": "7.3.4",
   "title": "",
   "body": " The points and piecewise linear approximate solution generated by Euler's method.   This image shows the initial point and six additional points generated by Euler's Method, with each pair of adjacent points connected by a line segment. The points shown are , , , , , , and . The piecewise linear plot that results from joining these points looks like a concave up function on the interval with a local minimum around .   "
 },
@@ -7286,7 +7286,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#F-7-3-Euler-Pts-b",
   "type": "Figure",
-  "number": "7.3.6",
+  "number": "7.3.5",
   "title": "",
   "body": " The approximate solution compared to the exact solution (shown in blue).   This plot includes the points and piecewise linear approximate solution from the previous image plus adds the exact solution . The two functions agree at the initial point . The piecewise linear approximation falls below the exact solution but exhibits similar behavior: both functions look concave up on the full interval and decrease from up until about . The linear approximations from Euler's Method always underestimate the true value of the solution.   "
 },
@@ -7295,7 +7295,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#T-7-3-euler-initial",
   "type": "Table",
-  "number": "7.3.7",
+  "number": "7.3.6",
   "title": "Starting with given initial data.",
   "body": " Starting with given initial data.                "
 },
@@ -7304,7 +7304,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#T-7-3-euler-one-step",
   "type": "Table",
-  "number": "7.3.8",
+  "number": "7.3.7",
   "title": "The first values of <span class=\"process-math\">\\(dy\/dt\\)<\/span> and <span class=\"process-math\">\\(\\Delta y\\text{.}\\)<\/span>",
   "body": " The first values of and .                "
 },
@@ -7313,7 +7313,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#T-7-3-euler-second-step",
   "type": "Table",
-  "number": "7.3.9",
+  "number": "7.3.8",
   "title": "Starting the second step of Euler’s Method.",
   "body": " Starting the second step of Euler's Method.                      "
 },
@@ -7322,7 +7322,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#T-7-3-Example",
   "type": "Table",
-  "number": "7.3.10",
+  "number": "7.3.9",
   "title": "Euler’s method for 6 steps with <span class=\"process-math\">\\(\\Delta t = 0.2\\text{.}\\)<\/span>",
   "body": " Euler's method for 6 steps with .                                                    "
 },
@@ -7331,7 +7331,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#act-7-3-1",
   "type": "Activity",
-  "number": "7.3.11",
+  "number": "7.3.2",
   "title": "",
   "body": "  Consider the initial value problem      Use Euler's method with to approximate the solution at , and . Record your work in the following table, and sketch the points on the axes provided.                                               Axes for plotting the points that result from Euler's method. The -values range from to ; the -values range from to . The grid is .                                                  This image is a plot of the points that result from applying Euler's method to the given differential equation and the initial condition. After the initial point , the plotted points are , , , , .     Using Euler's Method with , we find the results shown in the table and graph below.                                               This image is a plot of the points that result from applying Euler's method to the given differential equation and the initial condition. After the initial point , the plotted points are , , , , .       Find the exact solution to the original initial value problem and use this function to find the error in your approximation at each one of the points .    , with errors , , , , .    The exact solution to the initial value problem is , which we find by integrating both sides with respect to and then applying the fact that to determine that the integration constant is . From here, we can see that the errors are , , , , .      How would your computations differ if the initial value was ? What does this mean about different solutions to this differential equation?    Solutions to this differential equation all differ by only a constant.    Since , the slope of the tangent line depends only on . Thus, the different initial condition of simply adds to every value of in our computations, which shifts every point we compute by Euler's Method up by 1 unit. This tells us that the solutions to this differential equation all differ by only a constant. We can see that both in our computations with Euler's Method and if we solve the differential equation to get .      Explain why the value generated by Euler's method for this initial value problem produces the same value as a left Riemann sum for the definite integral .    If we first think about how is generated for the initial value problem , we see that . Since , we have . From there, we know that is given by . Substituting our earlier result for , we see that . Continuing this process up to , we get This is precisely the left Riemann sum with five subintervals for the definite integral .    If we first think about how is generated for the initial value problem , we see that . Since , we have . From there, we know that is given by . Substituting our earlier result for , we see that . Continuing this process up to , we get This is precisely the left Riemann sum with five subintervals for the definite integral .    "
 },
@@ -7340,7 +7340,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#act-7-3-2",
   "type": "Activity",
-  "number": "7.3.12",
+  "number": "7.3.3",
   "title": "",
   "body": "  Consider the differential equation .     Sketch the slope field for this differential equation on the axes provided.  Axes for plotting the slope field. The -values range from to , and the -values also range from to . The grid is .    The slope field shows constant solutions of and . Solutions that satisfy are decreasing, while solutions that satisfy are increasing . For a fixed value of , the line segments in the slope field all have the same slope, regardless of . When , the slopes are all negative, and the larger the value of the more negative the slope is. When , the slopes are all . When , the slopes are all positive, and the closer is to or the closer the slope is to ; the largest positive slope occurs when . Finally, when , the slopes are all zero.    The slope field for this differential equation is shown in the following figure.  The slope field shows constant solutions of and . Solutions that satisfy are decreasing, while solutions that satisfy are increasing . For a fixed value of , the line segments in the slope field all have the same slope, regardless of . When , the slopes are all negative, and the larger the value of the more negative the slope is. When , the slopes are all . When , the slopes are all positive, and the closer is to or the closer the slope is to ; the largest positive slope occurs when . Finally, when , the slopes are all zero.      Identify any equilibrium solutions and determine whether they are stable or unstable.     or ; is unstable, is stable.    If is an equilibrium solution, then is constant so . Solving , we see that either or , which is also consistent with what we see in the slope field. In addition, is unstable because nearby solutions tend away from , while is stable since nearby solutions tend to .      What is the long-term behavior of the solution that satisfies the initial value ?     The solution will tend to .    The long-term behavior of the solution that satisfies the initial value is that the solution will tend to .      Using the initial value , use Euler's method with to approximate the solution at , and . Record your results in the table and sketch the corresponding points on the axes provided. Note the different horizontal scale on the axes here compared to the axes above.                                               Axes for plotting the points that result from Euler's method. The -values range from to ; the -values range from to . The grid is .                                                  This image is a plot of the points that result from applying Euler's method to the given differential equation and the initial condition. After the initial point , the plotted points are , , , , .     Using Euler's method with , we approximate the solution of the IVP at , and as shown in the following table and figure. We see that our estimates actually jump slightly above the equilibrium solution before being pulled back down.                                               This image is a plot of the points that result from applying Euler's method to the given differential equation and the initial condition. After the initial point , the plotted points are , , , , . >       What happens if we apply Euler's method to approximate the solution with ?     The value of for every value of .    If we apply Euler's method to approximate the solution with , the value of for every value of since is an equilibrium solution and the slope of the tangent line will always be .    "
 },
@@ -7349,7 +7349,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#sec-7-3-euler-5-7-1",
   "type": "Table",
-  "number": "7.3.13",
+  "number": "7.3.10",
   "title": "Errors that correspond to different <span class=\"process-math\">\\(\\Delta t\\)<\/span> values.",
   "body": " Errors that correspond to different values.      Error                        "
 },
@@ -7358,7 +7358,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-3-euler.html#sec-7-3-euler-5-7-2",
   "type": "Figure",
-  "number": "7.3.14",
+  "number": "7.3.11",
   "title": "",
   "body": " A plot of the error as a function of .  This image plots the data points from the preceding table to show how the error is a function of . The data is plotted on a grid that is . The plotted points of form are , , , . The plot shows how if we decrease by a factor of , it appears that the error is also decreased by a factor of .   "
 },
@@ -7466,7 +7466,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-4-separable.html#Ex-7-4-1",
   "type": "Example",
-  "number": "7.4.2",
+  "number": "7.4.1",
   "title": "",
   "body": "  Find all functions that are solutions to the differential equation .    We begin by separating the variables and writing .  Integrating both sides of the equation with respect to the independent variable shows that .  Next, we notice that the left-hand side allows us to change the variable of antidifferentiation This is why we required that the left-hand side be written as a product in which is one of the terms. from to . In particular, , so we now have .  This equation says that two families of antiderivatives are equal to each other. Therefore, when we find representative antiderivatives of both sides, we know they must differ by an arbitrary constant . Antidifferentiating and including the integration constant on the right, we find that .  It is not necessary to include an arbitrary constant on both sides of the equation; we know that and are in the same family of antiderivatives and must therefore differ by a single constant.  Finally, we solve the last equation above for as a function of , which gives .  Of course, the term on the right-hand side represents 3 times an unknown constant. It is, therefore, still an unknown constant, which we will rewrite as . We thus conclude that the funtion is a solution to the original differential equation for any value of .  Notice that because this solution depends on the arbitrary constant , we have found an infinite family of solutions. This makes sense because we expect to find a unique solution that corresponds to any given initial value.  For example, if we want to solve the initial value problem , we know that the solution has the form for some constant . We therefore must find the appropriate value for that gives the initial value . Hence, , which shows that . The solution to the initial value problem is then .   "
 },
@@ -7475,7 +7475,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-4-separable.html#Ex-7-4-2",
   "type": "Example",
-  "number": "7.4.3",
+  "number": "7.4.2",
   "title": "",
   "body": "  Solve the differential equation .    Following the same strategy as in Example , we have .  Integrating both sides with respect to , , and thus .  Antidifferentiating and including the integration constant, we find that .  Finally, we need to solve for . Here, one point deserves careful attention. By the definition of the natural logarithm function, it follows that .  Since is an unknown constant, is as well, though we do know that it is positive (because is positive for any ). When we remove the absolute value in order to solve for , however, this constant may be either positive or negative. To account for a possible or , we denote this updated constant by to obtain .   "
 },
@@ -7484,7 +7484,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-4-separable.html#act-7-4-1",
   "type": "Activity",
-  "number": "7.4.4",
+  "number": "7.4.2",
   "title": "",
   "body": "  Suppose that the population of a town is growing continuously at an annual rate of 3% per year.     Let be the population of the town in year . Write a differential equation that describes the annual growth rate.    Small hints for each of the prompts above.         Since the population of the town is growing at an annual rate of per year, this means that      Find the solutions of this differential equation.     .    We use separation of variables and write . We then have and thus . Evaluating the integrals on each side, we have By definition of the logarithm function, it follows that . Incorporating the that follows from the abslute value sign into the constant , we conclude that .      If you know that the town's population in year 0 is 10,000, find the population .     .    Given that , we see that . So .      How long does it take for the population to double? This time is called the doubling time .     The doubling time is years.    The population will have doubled when . To determine the time it takes the population to double, we solve the equation . Thus , so . It will take about 23.1 years for the population to double in size.      Working more generally, find the doubling time if the annual growth rate is times the population.     The doubling time is .    If the annual growth rate is , then the differential equation for the population is . We can use separation of variables to show that , where is the population at time . We then find the doubling time by solving the equation . We first solve for and get . Taking natural logs, , and dividing by , . The doubling time for the population is thus .    "
 },
@@ -7493,7 +7493,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-4-separable.html#act-7-4-2",
   "type": "Activity",
-  "number": "7.4.5",
+  "number": "7.4.3",
   "title": "",
   "body": "  Suppose that a cup of coffee is initially at a temperature of F and is placed in a F room. If is the temperature of the coffee in degrees Fahrenheit at time in minutes, Newton's law of cooling says that , where is a constant of proportionality.     Suppose you measure that the coffee is cooling at one degree per minute at the time the coffee is brought into the room. Use the differential equation to determine the value of the constant .    Small hints for each of the prompts above.         Since the coffee is cooling at a rate of one degree per minute at time , it follows that at this instant. From the given differential equation, we know . Next, , so , and thus .      Find all the solutions of this differential equation.          We use separation of variables to solve the differential equation . Separating variables and integrating both sides with respect to , Integrating both sides, Using the definition of the logarithm function and writing , we see that Finally, including the absolute value in and solving for , , so .      What happens to all the solutions as ? Explain how this agrees with your intuition.     The temperature of the coffee tends to 75 degrees.    As , . So . This means that as , , or the temperature of the coffee tends to 75 degrees.      What is the temperature of the cup of coffee after 20 minutes?     F.    In order to determine the temperature of the coffee after 20 minutes, we need to first determine the value of the constant in the solution . To do this, we use the fact that the temperature of the coffee at is F. Thus, , so . Now we know that , and when , . The temperature of the coffee after 20 minutes is approximately F.      How long does it take for the coffee to cool to ?     minutes.    To determine how long it will take the coffee to cool to F, we solve the equation for . Solving first for , we subtract from both sides and divide by to get . Taking logarithms and solving for , , and thus . We conclude that it will take about 53.75 minutes for the coffee to cool to F.    "
 },
@@ -7502,7 +7502,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-4-separable.html#act-7-4-3",
   "type": "Activity",
-  "number": "7.4.6",
+  "number": "7.4.4",
   "title": "",
   "body": "  Solve each of the following differential equations or initial value problems.          Small hints for each of the prompts above.    .    We are given that . We first separate the variables by writing and then dividing both sides by to find . Integrating both sides with respect to , we have . Evaluating the integrals, Rewriting without logarithms, Writing and including the sign from the absolute value in this constant, , and therefore .            .    Given that , we first observe that . Separating the variables, . Integrating with respect to , . Using standard substitution techniques on both sides, we find that Writing , we then have , and taking logarithms to solve for , we find , and thus .      ,     .    For the initial value problem , , we first solve the differential equation. Noting that , we have , so Integrating with respect to , and thus evaluating the integrals, . It follows that , so in the usual way we can write , and therefore . Using to solve the IVP, we obtain and so . The solution to the initial value problem is .      ,     .    For the initial value problem , , we first separate variables and write . Next, integrating with respect to , , and thus . Solving for , it follows . We now use the initial value and obtain . Solving for gives . The solution of the initial value problem is thus .      ,     .    For the IVP , , we first separate variables and write . Integrating with respect to we find . Using the substitution on the right, it follows that . By definition and properties of the logarithm, . Writing and absorbing the absolute value from the left side, we have . Using the initial condition , we obtain or . Thus, the solution to the initial value problem is .    "
 },
@@ -7637,7 +7637,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-5-modeling.html#Ex-7-5-1",
   "type": "Example",
-  "number": "7.5.2",
+  "number": "7.5.1",
   "title": "",
   "body": "  In the Great Lakes region, rivers flowing into the lakes carry a great deal of pollution in the form of small pieces of plastic averaging 1 millimeter in diameter. In order to understand how the amount of plastic in Lake Michigan is changing, construct a model for how this type of pollution has built up in the lake.    First, some basic facts about Lake Michigan.   The volume of the lake is cubic meters.    Water flows into the lake at a rate of cubic meters per year. It flows out of the lake at the same rate.    Each cubic meter flowing into the lake contains roughly cubic meters of plastic pollution.     Let's denote the amount of pollution in the lake by , where is measured in cubic meters of plastic and in years. Our goal is to describe the rate of change of this function; so we want to develop a differential equation describing .  First, we will measure how increases due to pollution flowing into the lake. We know that cubic meters of water enters the lake every year and each cubic meter of water contains cubic meters of pollution. Therefore, pollution enters the lake at the rate of .  Second, we will measure how decreases due to pollution flowing out of the lake. If the total amount of pollution is cubic meters and the volume of Lake Michigan is cubic meters, then the concentration of plastic pollution in Lake Michigan is .  Since cubic meters of water flow out each year (and we assume that each cubic meter of water that flows out carries with it the plastic pollution it contains), then the plastic pollution leaves the lake at the rate of .  The total rate of change of is thus the difference between the rate at which pollution enters the lake and the rate at which pollution leaves the lake, which is .  We have now found a differential equation that describes the rate at which the amount of pollution is changing. To understand the behavior of , we apply some of the techniques we have recently developed.  Because the differential equation is autonomous, we can sketch as a function of and then construct a slope field, as shown in Figure and Figure .    Plot of vs. for .  The image shows as a function of for the given differential equation. On the horizontal axis, the value is noted, as this is the value of for which the linear function equals zero. The straight line graph passes through this point with negative slope.     Plot of the slope field for .  The slope field for the given differential equation is plotted in the first quadrant (for positive values of and ) without scale on either axis in order to give an overall sense of the behavior of solutions to the equation. All slopes for a fixed value of are constant for every value of . About halfway up the -axis there's a horizontal line of small tangent lines for which every slope is zero. For values above that line, all slopes are negative, and more negative the larger the value of . For positive values below that line, all slopes are positive, and more positive the smaller the value of .     These plots both show that is a stable equilibrium. Therefore, we should expect that the amount of pollution in Lake Michigan will stabilize near cubic meters of pollution.  Next, assuming that there is initially no pollution in the lake, we will solve the initial value problem .  Separating variables, we find that .  Integrating with respect to , we have , and thus changing variables on the left and antidifferentiating on both sides, we find that   Finally, multiplying both sides by and using the definition of the logarithm, we find that .  This is a good time to determine the constant . Since when , we have ,  so .  Using this value of in Equation and solving for , we arrive at the solution .  Superimposing the graph of on the slope field we saw in Figure , we see, as shown in Figure   We see that, as expected, the amount of plastic pollution stabilizes around cubic meters.   The solution and the slope field for the differential equation .  This figure shows the same slope field plotted in the most recent preceding image, Figure , now with the solution to the stated IVP superimposed. The solution curve starts at the point and is always decreasing and always concave down, approaching as increases without bound.     "
 },
@@ -7646,7 +7646,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-5-modeling.html#act-7-5-1",
   "type": "Activity",
-  "number": "7.5.6",
+  "number": "7.5.2",
   "title": "",
   "body": "  Suppose you have a bank account that grows by 5% every year. Let be the amount of money in the account in year .     What is the rate of change of with respect to ?    Small hints for each of the prompts above.    .    The rate of change of with respect to is .      Suppose that you are also withdrawing $10,000 per year. Write a differential equation that expresses the total rate of change of .     .    If $10000 is being withdrawn every year, then .      Sketch a slope field for this differential equation, find any equilibrium solutions, and identify them as either stable or unstable. Write a sentence or two that describes the significance of the stability of the equilibrium solution.     The only equilibrium solution is .    Following is a slope field for the differential equation in (b).  Equilibrium solutions occur where and so the only equilibriume solution is . This means that if you have $200000 in the account, then the amount of money in the account will remain constant at $200000.      Suppose that you initially deposit $100,000 into the account. How long does it take for you to deplete the account?     years.    Suppose we initially have $100000 in the account. We will solve the intitial value problem . Using separation of variables, we find that , and since , we have . To determine when the account will be depleted, we solve the equation for . Since , it follows and thus , so the account will be depleted in about 13.86 years.      What is the smallest amount of money you would need to have in the account to guarantee that you never deplete the money in the account?     At least $200000.    You must have at least $200000 in the account to make sure the account will never be depleted.      If your initial deposit is $300,000, how much could you withdraw every year without depleting the account?     Up to $15000 every year.    Now suppose the intitial deposit is $300000 and we want to what amount we can withdraw every year without depleting the account. So the initial value problem is . The solution to this initial value problem is . To make sure the account is never depleted, we need to be greater than or equal to 0. Solving the inequality , we obtain . We can withdraw up to $15000 every year and the account will not be depleted.    "
 },
@@ -7655,7 +7655,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-5-modeling.html#act-7-5-2",
   "type": "Activity",
-  "number": "7.5.7",
+  "number": "7.5.3",
   "title": "",
   "body": "  A dose of morphine is absorbed from the bloodstream of a patient at a rate proportional to the amount in the bloodstream.     Write a differential equation for , the amount of morphine in the patient's bloodstream, using as the constant proportionality.    Small hints for each of the prompts above.    , where is a positive constant.    We will use the differential equation , where is a positive constant.      Assuming that the initial dose of morphine is , solve the initial value problem to find . Use the fact that the half-life for the absorption of morphine is two hours to find the constant .     .    With an initial condition of when , the solution for the initial value problem is . Using a half-life of 2 hours, we see that when . This gives , from which it follows that .      Suppose that a patient is given morphine intravenously at the rate of 3 milligrams per hour. Write a differential equation that combines the intravenous administration of morphine with the body's natural absorption.     , where is a positive constant.    Noting that the rate of change of the drug in the body will be the differnce between the positive contributions of the dosage of 3 milligrams per hour and the decay of per hour, it follows that , where is a positive constant.      Find any equilibrium solutions and determine their stability.     The equilibrium solution is stable.    To find the equilibrium solutions, we solve the equation for . This gives . The graph of as a function of is a straight line with a negative slope. (The slope is .) So when , and the is an increasing function of . When , and the is a decreasing function of . This means that the equilibrium solution is a stable equilibrium solution.      Assuming that there is initially no morphine in the patient's bloodstream, solve the initial value problem to determine . What happens to after a very long time?     .    We use the initial condition when and solve the corresponding IVP. Separating variables, , so , and thus . Solving for in the usual way gives us , where is a constant that arises from the integration constant. Using the initial condition, we obtain , so . Hence, the solution to the initial condition problem is .      To what rate should a doctor reduce the intravenous rate so that there is eventually 7 milligrams of morphine in the patient's bloodstream?     About 2.426 milligrams per hour.    We let be the unknown intravenous rate of morphine (in milligrams per hour). Notice that if we replace with in the differential equation and obtain , the solution process is the same and the equilibriume solution is . So if we want the equilibrium solution to be , we then have , so . The intravenous rate of morphine should be 2.426 milligrams per hour.    "
 },
@@ -7781,7 +7781,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-6-logistic.html#F-7-6-census",
   "type": "Figure",
-  "number": "7.6.4",
+  "number": "7.6.2",
   "title": "",
   "body": " A plot of per capita growth rate vs. population .  This plot shows per capita growth rate as a function of population, . The horizontal axis ranges from to and the vertical axis from to . Grid boxes are . Then, data points that result from cmoputing the per capita growth rate for different values of . Two sample points are the first and last that are plotted, approximately and .   "
 },
@@ -7790,7 +7790,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-6-logistic.html#F-7-6-census1",
   "type": "Figure",
-  "number": "7.6.5",
+  "number": "7.6.3",
   "title": "",
   "body": " The line that approximates per capita growth as a function of population, .   This plot shows the same data on the same scale as in Figure and adds a line that the points all lie on or close to. The line of best fit to the data shows that the per capita growth rate is an approximately linear function of ; of the points lie on or nearly on the line, with only one point deviating a small amount from the line.   This plot shows the same data and same line as in the most recent figure, but now on a wider scale in order to better understand the linear function. In this figure, ranges on the horizontal axis from to , and the per capita growth rate on the vertical axis from to . The line that best fits the data points passes through the points and .    "
 },
@@ -7799,7 +7799,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-6-logistic.html#F-7-6logistic",
   "type": "Figure",
-  "number": "7.6.6",
+  "number": "7.6.4",
   "title": "",
   "body": " A plot of vs. for the differential equation .  This plot shows as a function of . In this figure, ranges on the horizontal axis from to , and ranges on the vertical axis from to . Because is a quadratic function of , the graph is a parabola. The parabola opens down, has zeros at and , and a vertex at approximately .   "
 },
@@ -7808,7 +7808,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-6-logistic.html#F-7-6-logistic-sol",
   "type": "Figure",
-  "number": "7.6.7",
+  "number": "7.6.5",
   "title": "",
   "body": " The solution to the logistic equation modeling the earth's population.  This plot shows the solution to the logistic equation, . In this figure, ranges on the horizontal axis from to , and ranges on the vertical axis from to . The function starts in the graph at and is an always increasing function that also appears to be always concave down, and that tends to as increases without bound.   "
 },
@@ -7817,7 +7817,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-7-6-logistic.html#act-7-6-2",
   "type": "Activity",
-  "number": "7.6.8",
+  "number": "7.6.3",
   "title": "",
   "body": "  Consider the logistic equation with the graph of vs. shown below.  This plot shows as a function of for the general form of the logistic differential equation. In this figure, ranges on the horizontal axis from to , where is the carrying capacity. There is no scale on the vertical axis for , but both positive and negative vertical values are shown. Because is a quadratic function of , the graph is a parabola. The parabola opens down, has zeros at and , and a vertex at approximately . Note particularly that is positive for and negative for .     At what value of is the rate of change greatest?    Small hints for each of the prompts above.    When .    The maximum value for will occur when since this is the highest point on the graph.      Consider the model for the earth's population that we recently created: . At what value of is the rate of change greatest? How does that compare to the population in recent years?     When the population is 6.125 billion.    The model we created for the population of the earth was , which can be rewritten as . So for this model, the maximum rate of change for the earth's population will occur when the population is 6.125 billion. This value is slightly less than the earth's population in recent years.      According to the model we developed (recall we found that ), what will the population be in the year 2100?     ; billion.    So for the logistic model, we have , . Using the year 2000 as , the initial population is 6.084. So the solution for the differential equation in part (b) is . For the year 2100, we use and this model predicts that in the year 2100, the earth's population will be 11.504 billion.      According to the model we developed, when will the population reach 9 billion?     (so in about year ).    To determine when this model predicts that the earth's population will be 9 billion, we solve the equation for . Multiplying both sides by , we have . Dividing by then subtracting from both sides, . Thus, . Using logarithms in the usual way, . The earth's population will reach 9 billion in about 2040.      Now consider the general solution to the general logistic initial value problem that we found, given by . Verify algebraically that and that .     .    The solution for the general logistic initial value problem is . For this solution, we see that To determine , we first note that since , . Hence, , and therefore, .    "
 },
@@ -7916,7 +7916,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-1-linear-poly.html#act-8-1-1",
   "type": "Activity",
-  "number": "8.1.4",
+  "number": "8.1.2",
   "title": "",
   "body": "  Let and . We seek numerical values for the constants , , and so that , , and .     Note that since , , and are constants, if we take the derivative of the quadratic function using the sum and constant multiple rules, it follows that .  What is ?      .     .      Recall that . Determine and .     .    .      Enter the formulas you've determined for , , and to fill in the blanks below.          Formulas and values for and .                                                                                                    Formulas and values for and .                                                                                                    Next, observe that since , it follows that . Reason similarly to determine the values of and , as well as those of , , and and enter these values appropriately in the blanks below.        See the bottom half of the table above.    See the bottom half of the table above.      Now, recall that we want the function values, first derivative values, and second derivative values of and to match at . What does tell us about the value of , and what is its value? What does imply the value of is? How can we reason similarly to find ?     ; ; . So, .    The condition that tells us . Reasoning similarly, implies , and implies , so that . Thus, .      Having now determined the numerical values of , , and , use appropriate computing technology to plot the function along with and in the same window as that shown in Figure .   The function and its tangent line near the point .  A graph of the function and its tangent line near the point . The function and its tangent intersect at the point and stay close for some values of close to on both sides of .    What do you notice? For about which values of is ?      is a better approximation to near than the tangent line; for approximately , and for any -value in that interval, .    Plotting the function along with and in Figure ,   The function , its tangent line , and the function near the point .  A graph of the function , its tangent line , and the quadratic approximation near the point . All three functions intersect at the point and stay close for some values of close to on both sides of , but the quadratic approximation stays closer to the function for more values of .    we notice that is a better approximation to near than the tangent line: the quadratic approximation is closer to for any value of , and the approximation holds for a wider interval of values. For instance, in Preview Activity , we found that for approximately . The quadratic approximation is much better: we note that for approximately , and for any -value in that interval, .     "
 },
@@ -7925,7 +7925,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-1-linear-poly.html#act-8-1-2",
   "type": "Activity",
-  "number": "8.1.9",
+  "number": "8.1.3",
   "title": "",
   "body": "  Let and .      By computing the third derivative of and the second and third derivatives of and evaluating the relevant functions at , fill in the blanks below.        Formulas and values for and .                                                                                                                                Formulas and values for and .                                                                                                                                Next, recall that we want and to share the same function and derivative values at up to and including the third derivative. For instance, one of the four needed equations is . Use the four equations your work in the preceding question to determine the values of , , , and .     ; ; ; .    Since , this means . Next, tells us that . Using , so that . And finally, the last condition is , which implies that , so .      Having now determined the numerical values of , , , and , use appropriate computational technology to plot the function along with , , and in the same window as shown in Figure .   The function , its tangent line , and the quadratic approximation near the point .  A graph of the function , its tangent line , and the quadratic approximation near the point .  All three functions intersect at the point and stay close for some values of close to on both sides of , but the quadratic approximation stays closer to the function for more values of .    What do you notice? For approximately which values of is ?      appears to be an even better approximation than near and that the quality of the approximation extends further; for approximately .    We notice that appears to be an even better approximation than near and that the quality of the approximation extends further.   The function , its tangent line , the quadratic approximation , and the cubic approximation near the point .  A graph of the function , its tangent line , the quadratic approximation , and the cubic approximation near the point .  All four functions intersect at the point and stay close for some values of close to on both sides of , but the cubic approximation stays closer to the function near for more values of than the quadratic approximation , and the quadratic approximation stays closer to the function near for more values of than the tangent line.    We can see the better approximation by in the figure, and if we do some computations, we can see that for certain near , is closer to than and that the set of -values for which is wider than for which . We found in Activity that for approximately ; here, for approximately .      What if we wanted a degree- polynomial approximation to near ? Based on the patterns you've observed in , , and , conjecture values for the constants for a function of the form that satisfies , , , . Add this function to your plot in part (c) that includes and the lower-degree polynomial approximations. What do you notice?      ; is an even better approximation to and on a still wider interval.     involves the term . When we differentiate this function times, we get . Since , , so and therefore . This means that . Plotting along with the earlier approximations we see that is an even better approximation to and on a still wider interval.     "
 },
@@ -7943,7 +7943,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-1-linear-poly.html#act-8-1-3",
   "type": "Activity",
-  "number": "8.1.14",
+  "number": "8.1.4",
   "title": "",
   "body": "  We continue to work with and the four approximations of degree , , , and given by , , , and .     In Preview Activity , we built a spreadsheet that computed the differences between and for -values between and , spaced units apart. Your spreadsheet started like the one shown in the table in Preview Activity .  Next, we build an updated version of this spreadsheet that computes similar differences between and the three higher degree approximations we have found. In particular, we now want to have columns for , , , , , , and , plus the absolute differences , , , and . Hint: when building your entries, note that you can think of as , and similarly view as plus one more term .  Include at least digits of accuracy beyond the decimal. The first seven columns of your spreadsheet might start like this:   Comparing and its degree , , , and approximations near .                                The next four columns of your spreadsheet should begin as follows:   The absolute error between and its degree , , , and approximations at and .                      The first seven columns and eleven rows of the spreadsheet are:   Comparing and its degree , , , and approximations near .                                         The next four columns and four rows of the spreadsheet are:   The absolute error between and its degree , , , and approximations at and .                      We continue to work with and the four approximations of degree , , , and given by , , , and .  The first seven columns and eleven rows of the spreadsheet are:   Comparing and its degree , , , and approximations near .                                         The next four columns and four rows of the spreadsheet are:   The absolute error between and its degree , , , and approximations at and .                        We call the value of the absolute error of the quadratic approximation of at the value . What is the absolute error of the quadratic approximation at ? at ?     ; .    The absolute error of the quadratic approximation at is , and at is .      What is the absolute error of the cubic (degree ) approximation, , at ? at ?     ; .    For the cubic approximation, , the absolute errors at and are and .      What is the absolute error of the quartic (degree ) approximation, , at ? at ?     ; .    For the quartic approximation, , the absolute errors at and are and .      Study your spreadsheet for trends that you notice as the value of changes or the degree of the approximation changes. What are your observations?    As the degree of the approximation increases, at each fixed -value, the approximation gets better, and in addition the interval of values on which the approximation is within a certain tolerance gets wider.    We see that as the degree of the approximation increases, the approximation improves significantly. For instance, just focusing on , moving from degree 2 to 3 to 4, the errors drop from about to to . So at each fixed -value, the approximation gets better, and in addition the interval of values on which the approximation is within a certain tolderance gets wider.      Investigate the errors in the various approximations for a wider interval of -values. For example, you might consider starting at with . What do you notice?    Answers will vary. But, as we widen the interval of -values, the errors of each polynomial approximation increase near the endpoints of the interval.    If we widen the interval of -values to something like , we see similar trends, but at the endpoints of the interval, there is a lot of error. For example, ; even for , we have .    "
 },
@@ -8042,7 +8042,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-2-taylor-poly.html#PA-8-2",
   "type": "Preview Activity",
-  "number": "8.2.2",
+  "number": "8.2.1",
   "title": "",
   "body": "  Let and let . Our goal is to find the values of that make the sine function and its derivative values agree with those of the cubic polynomial at and to study the resulting degree approximation of the sine function.     As in previous work, the derivatives of and their respective values at are those shown below.  Compute the first three derivatives of and evaluate them at accordingly, recording your results in the blanks provided below.        Now, set , , , and . What are the resulting values of ? What is the resulting formula for ?       Recall that the tangent line approximation to at is . Use appropriate computing technology to plot the cubic approximation you found in (b) along with and in the same window shown in Figure .   The function and its tangent line approximation near the point .  The function graphed together with its degree Taylor polynomial approximation near the point .  The graph shows that the function and its Taylor approximation intersect at the point and have the same slope at that point.  The two functions are very close together on the interval , but outside of that interval there start to be visual differences as the tangent line continues straight, but the function is curved.         What do you observe about the approximation of by compared to the approximation of by ? For example, how do and compare?       In our work so far, we've seen that raising the degree of polynomial improves the approximation of the original function . If we wanted to find a degree approximation to , we'd need to find a polynomial whose value and first derivatives match those of the sine function at .  Fill in the blanks below to determine the next six derivatives of , up to .   What pattern do you notice in the derivatives of ?     "
 },
@@ -8060,7 +8060,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-2-taylor-poly.html#def-Taylor-poly-0",
   "type": "Definition",
-  "number": "8.2.4",
+  "number": "8.2.3",
   "title": "",
   "body": "  Let be a natural number and let be a function with at least derivatives at . The degree Taylor polynomial of centered at is the function that satisfies .   "
 },
@@ -8069,7 +8069,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-2-taylor-poly.html#T-8a-2-Taylor-0",
   "type": "Table",
-  "number": "8.2.5",
+  "number": "8.2.4",
   "title": "Using the defining properties of a degree <span class=\"process-math\">\\(n\\)<\/span> Taylor polynomial to find equations involving the coefficients <span class=\"process-math\">\\(c_k\\text{.}\\)<\/span>",
   "body": " Using the defining properties of a degree Taylor polynomial to find equations involving the coefficients .      what follows from                                       "
 },
@@ -8078,7 +8078,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-2-taylor-poly.html#Ex-8a-2-Taylor-example",
   "type": "Example",
-  "number": "8.2.6",
+  "number": "8.2.5",
   "title": "The degree <span class=\"process-math\">\\(5\\)<\/span> Taylor polynomial of <span class=\"process-math\">\\(f(x) = \\ln(1+x)\\)<\/span>.",
   "body": " The degree Taylor polynomial of   Find the degree Taylor polynomial centered at for the function .    To find the degree Taylor polynomial, we need to compute , , , , , so we first find the first through fifth derivatives of in the first several rows of Table , and then evaluate those derivatives at in the last several rows.   The derivatives of at .                                                             When finding the coefficients of a Taylor polynomial, it is often helpful to not combine products such as and into a single number, in order to better observe patterns; indeed, by not combining the constants that arise in higher derivatives of , we see patterns of alternating signs and factorials that arise. From the last six rows of Table and the fact that , we find that so that the degree Taylor approximation of at is . Thus, we have found the approximation , and by plotting along with and in Figure , we see how much better the degree approximation is than the tangent line approximation.   The function and its degree Taylor approximation near the point , along with .  The function graphed together with its degree and Taylor polynomial approximations near the point .  The graph shows that the function and the two Taylor approximations all intersect at the point and have the same slope at that point.  The three functions are very close together on the interval , but outside of that interval there start to be visual differences as the tangent line continues straight, but the function is curved, and the degree approximation stays close to the function for longer.  The degree Taylor polynomial approximation looks very close to the function on the interval .      "
 },
@@ -8087,7 +8087,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-2-taylor-poly.html#act-8-2-1",
   "type": "Activity",
-  "number": "8.2.9",
+  "number": "8.2.2",
   "title": "",
   "body": "  Let . Through the questions that follow, we seek to find the degree Taylor polynomial for centered at .     Determine the first derivatives of and evaluate each at . Summarize your work by filling in all the blanks below.      Finding the derivatives of at .                                                                                                                                      Finding the derivatives of at .                                                                                                                                       Use your work in (a) along with the fact that the coefficients of the Taylor polynomial are determined by to find formulas for , , , and .         Using the results in the table along with the fact that , we find that       Based on the patterns you observe in your prior work, what do you expect to be the formula for ?     .    Based on the pattern in the table, we expect that .      Use appropriate computing technology to plot and along with and in the same window as shown in Figure .   The function and its degree Taylor approximation near the point .  The function graphed together with its degree Taylor approximation near the point .  The graph shows that the function and its degree Taylor approximation intersect at the point , have the same slope at that point, and look like they have the same curvature at that point.  The two functions are very close together on the interval , but outside of that interval there are visual differences as the parabola continues to open downward, but the function oscillates.    What do you notice?     The function and its degree , , and Taylor polynomial approximations near the point .  The function graphed together with its degree , , and Taylor polynomial approximations near the point .  The graph shows that the function and the three Taylor approximations all intersect at the point , have the same slope at that point, and look like they have the same curvature at that point.  The four functions are very close together on the interval , but outside of that interval there start to be visual differences as the parabola continues to open downward, but the function oscillates and the degree and approximations follow the function for longer.  The degree Taylor polynomial approximation looks very close to the function on the interval , and the degree Taylor polynomial approximation looks very close to the function on the interval .    As the degree of the approximation increases, the accuracy of the approximation improves at each fixed -value and in how large the interval is on which the approximation is accurate.    In Figure , we plot , , , and .   The function and its degree , , and Taylor polynomial approximations near the point .  The function graphed together with its degree , , and Taylor polynomial approximations near the point .  The graph shows that the function and the three Taylor approximations all intersect at the point , have the same slope at that point, and look like they have the same curvature at that point.  The four functions are very close together on the interval , but outside of that interval there start to be visual differences as the parabola continues to open downward, but the function oscillates and the degree and approximations follow the function for longer.  The degree Taylor polynomial approximation looks very close to the function on the interval , and the degree Taylor polynomial approximation looks very close to the function on the interval .    We notice that as the degree of the approximation increases, the accuracy of the approximation improves, both at each fixed -value and in how large the interval is on which the approximation is accurate.      Build a spreadsheet similar to the one in Table and Table from Activity , but do so using , a start value of , and the functions , , , and . The first six columns of your spreadsheet should begin as shown in Table .   Comparing and its degree , , and approximations near .                             and the last three columns of your spreadsheet should begin as follows:   The absolute error between and its degree , , and approximations.                    For about what interval of -values is it true that ? How does the interval of -values change if we instead consider where ? ?     Comparing and its degree , , and approximations near .                                                                                                                                                                      The absolute error between and its degree , , and approximations.                                                                                              for roughly ; for ; for approximately .    Building the spreadsheet in the table using , a start value of , and the functions , , , and , we have the following first 3 and last 3 rows:                                                                                                                                                                    and the last three columns of your spreadsheet have the first 3 and last 3 rows:                                                                                             for roughly , and that interval of accuracy grows to about for . If we increase the degree of approximation further, for approximately .    "
 },
@@ -8096,7 +8096,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-2-taylor-poly.html#def-Taylor-poly-a",
   "type": "Definition",
-  "number": "8.2.19",
+  "number": "8.2.17",
   "title": "",
   "body": "  Let be a natural number and let be a function with at least derivatives at . The degree Taylor polynomial of centered at is the function that satisfies .   "
 },
@@ -8105,7 +8105,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-2-taylor-poly.html#act-8-2-2",
   "type": "Activity",
-  "number": "8.2.20",
+  "number": "8.2.3",
   "title": "",
   "body": "  Let , and recall that is only defined for . As such, we can't consider the tangent line (or any other) approximation at . Instead, we choose to work with an approximation to centered at and will find the degree Taylor polynomial approximation .      Determine , , , and , and then compute , , , and . Enter your results in the provided blanks below.                                                                               Let and consider the degree Taylor polynomial approximation .       Use your work in ( ) along with the fact that the coefficients of the Taylor polynomial are determined by to determine .     .    From our work in ( ) and the fact that , we have , so that .      Use appropriate technology to plot , its tangent line, , and in the same window shown in Figure .   The function and its degree Taylor approximation near the point .  The function graphed together with its degree Taylor polynomial approximation near the point .  The graph shows that the function and its Taylor approximation intersect at the point and have the same slope at that point.  The two functions are very close together on the interval , but outside of that interval there start to be visual differences as the tangent line continues straight, but the function is curved.     What do you notice?     The function graphed together with its degree and Taylor polynomial approximations near the point .  The graph shows that the function and the two Taylor approximations all intersect at the point and have the same slope at that point.  The three functions are very close together on the interval , but outside of that interval there start to be visual differences as the tangent line continues straight, but the function is curved, and the degree approximation stays close to the function for longer.  The degree Taylor polynomial approximation looks very close to the function on the interval .    provides a much more accurate approximation of than .    Plotting , , and to the figure,  The function graphed together with its degree and Taylor polynomial approximations near the point .  The graph shows that the function and the two Taylor approximations all intersect at the point and have the same slope at that point.  The three functions are very close together on the interval , but outside of that interval there start to be visual differences as the tangent line continues straight, but the function is curved, and the degree approximation stays close to the function for longer.  The degree Taylor polynomial approximation looks very close to the function on the interval .    we notice that provides a much more accurate approximation of than .      Compute for several different values (you might find it helpful to use a slider in Desmos in the variable to experiment with ); for approximately what values of is it true that ?     for approximately .    Using a slider in Desmos to experiment, for approximately .      Use the patterns you observe in your work in parts (a) and (b) to conjecture formulas for and .  For approximately what interval of -values is it true that ? What about ? How is this situation different from what we observed with in Activity ?     ; .  for about ; for about . While the interval of accuracy gets wider as the degree increases, it seems not to extend past and doesn't move much to the left.    Following the pattern in the table, we expect and .  Further computations show that for about , and for about . While the interval of accuracy gets wider as the degree increases, it seems not to extend past and doesn't move much to the left. This is different from how we observed the interval of accuracy continue to get wider and wider without bound for as we increased the degree of approximation in Activity .    "
 },
@@ -8114,7 +8114,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-2-taylor-poly.html#act-8-2-3",
   "type": "Activity",
-  "number": "8.2.22",
+  "number": "8.2.4",
   "title": "",
   "body": "  This activity builds on Activity , and only changes one key thing: the location where the approximation is centered. Again, we let , and recall that is only defined for . Here, we choose to work with an approximation centered at , and find the degree Taylor polynomial approximation .     We recall , , , and from our work in Activity , and then compute , , , and . Enter the updated results in the blanks below.                                                                               Let and consider the degree Taylor polynomial approximation .       Use your work in ( ) along with the fact that the coefficients of the Taylor polynomial are determined by to determine .     .    We see that .      Use appropriate technology to plot , its tangent line, , and on the same axes in the window shown Figure .   The function and its degree Taylor approximation near the point .  The function graphed together with its degree Taylor polynomial approximation near the point .  The graph shows that the function and its Taylor approximation intersect at the point and have the same slope at that point.  The two functions are very close together on the interval , but outside of that interval there start to be visual differences as the tangent line continues straight, but the function is curved.    What do you notice?     The function graphed together with its degree and Taylor polynomial approximations near the point .  The graph shows that the function and the two Taylor approximations all intersect at the point and have the same slope at that point.  The three functions are very close together on the interval , but outside of that interval there start to be visual differences as the tangent line continues straight, but the function is curved, and the degree approximation stays close to the function for longer.  The degree Taylor polynomial approximation looks very close to the function on the interval .    provides a much better approximation of near and on a wider interval.    Plotting , , and ,  The function graphed together with its degree and Taylor polynomial approximations near the point .  The graph shows that the function and the two Taylor approximations all intersect at the point and have the same slope at that point.  The three functions are very close together on the interval , but outside of that interval there start to be visual differences as the tangent line continues straight, but the function is curved, and the degree approximation stays close to the function for longer.  The degree Taylor polynomial approximation looks very close to the function on the interval .    we observe, as expected, that provides a much better approximation of near and on a wider interval.      Compute for several different values (you might find it helpful to use a slider in Desmos ); for approximately what values of is it true that ?     for approximately .    Using a slider in Desmos, we see that for approximately .      Use the patterns you observe in parts ( ) and ( ) to conjecture formulas for and .  For about what interval of -values is it true that ? What about ? How is this different from what we observed with the Taylor approximations centered at in Activity ? How is it similar?     ; .  for roughly ; for about . By moving to , which is further away from the asymptote at , we can get approximations of that seem to be good all the way up to .    Based on the pattern in ( ) and , we expect that and .  When we increase the degree to , we see that for roughly , and if we go to , for about . This is similar to the Taylor approximations centered at in Activity in that there's an upper bound on the approximation interval and that the width of the interval doesn't increase much with the higher degree, but it's different in that the interval of accuracy is wider. It seems that by moving to , which is further away from the asymptote at , we can get approximations of that are good all the way up to .     "
 },
@@ -8258,7 +8258,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-3-geometric.html#act-8-3-1",
   "type": "Activity",
-  "number": "8.3.3",
+  "number": "8.3.2",
   "title": "",
   "body": "  Let and be real numbers and consider the corresponding finite geometric series .  Our goal in this activity is to find a shortcut formula for that can be written as a single fraction that does not involve a sum of terms.      Multiply both sides of Equation by . Write the new equation in the form .    Note that .    .    We see that , or .      Now subtract Equation from Equation , and explain why it follows that .    Observe that .    The key observation is that .    Next, we use Equation in the expression to find that      Solve Equation for to find a simple formula for that does not involve adding terms.    Observe that we can remove a factor of from .         Using the fact that , we see that so .      How would your work above change if instead of the original geometric sum , we considered the situation with , ?    Note that we can remove a factor of from every term.         If instead of the original geometric sum , we had and , the only thing that would change is that our shortcut formula for would be multiplied by :    "
 },
@@ -8267,7 +8267,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-3-geometric.html#Ex-8a-3-finite-geom-1",
   "type": "Example",
-  "number": "8.3.4",
+  "number": "8.3.2",
   "title": "The value of a finite geometric series.",
   "body": " The value of a finite geometric series   Use the shortcut formula in Equation to find the exact value of the finite geometric series .    We can view the given sum as the finite geometric series that has and . By Equation , it follows that .   "
 },
@@ -8276,7 +8276,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-3-geometric.html#Ex-8a-3-finite-geom-2",
   "type": "Example",
-  "number": "8.3.5",
+  "number": "8.3.3",
   "title": "The value of another finite geometric series.",
   "body": " The value of another finite geometric series   Use the shortcut formula in Equation to find the exact value of the finite geometric series .    We can view the given sum as the finite geometric series that has and . By Equation , it follows that .   "
 },
@@ -8285,7 +8285,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-3-geometric.html#Ex-8a-3-finite-geom-3",
   "type": "Example",
-  "number": "8.3.6",
+  "number": "8.3.4",
   "title": "The value of one more finite geometric series.",
   "body": " The value of one more finite geometric series   Use the shortcut formula in Equation to find the exact value of the finite geometric series .    Note that , so since this sum begins with , this is a finite geometric series with terms. Hence we can view the given sum as the finite geometric series that has and : . By Equation , we find that .   "
 },
@@ -8294,7 +8294,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-3-geometric.html#Ex-8a-3-inf-geom-1",
   "type": "Example",
-  "number": "8.3.7",
+  "number": "8.3.5",
   "title": "An infinite geometric series.",
   "body": " An infinite geometric series   Can we find the value of , where the sum never terminates?    In Preview Activity , we saw that for the finite geometric series , , , , , , and indeed . If we now multiply both the numerator and denominator by , we find that . We can view as a partial sum (indeed, the sum of the first terms) of the infinite geometric series whose value we seek. Plotting these partial sums on a number line, we see evidence that the value of the th partial sum is approaching .   A plot of , , , , , and the number on the interval .   A line starting at and ending at with the values of , , , and plotted on the line.  The values of the partial sums are approaching without going past it, and the distances between successive partial sums are getting smaller and smaller.    p=(1,0)  q=(2,0)     S_1=1    S_2=1.5    S_3=1.75    S_4    S_5    2        Indeed, we observe that each partial sum lies halfway between the preceding partial sum and the number : is halfway between and ; is halfway between and ; and so on. This shows that the partial sums are approaching as increases without bound.  We can see this more formally in Equation if we divide the two terms in the numerator of by the denominator. Doing so, an equivalent formula for is . In Equation , if we let , we have , since as increases without bound.  Thus, it makes sense to say that the sum of the infinite geometric series is finite and that .   "
 },
@@ -8312,7 +8312,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-3-geometric.html#act-8-3-2",
   "type": "Activity",
-  "number": "8.3.9",
+  "number": "8.3.3",
   "title": "",
   "body": "  For each of the following infinite geometric series, determine the values of and , compute the partial sums and exactly (writing each as a fraction), and if the infinite geometric series converges, find its value.            ; ; .    For , we observe that and . Thus, and . We see evidence in the partial sums that the infinite geometric series converges. Indeed, , so the series converges and its sum is .            ; ; .    The sum is geometric with and . Therefore, and . With , the infinite geometric series converges and its sum is .            ; ; the infinite series diverges.    In the sum , we notice that to get from one term to the next, say from to , we have to multiply by . Thus, the geometric sum has and . Since , the infinite series diverges, but we can still find the partial sums and : and .            ; ; .    For the sum written in sigma notation, , it's helpful to write out the first several terms: . This shows that and so , , and with the sum of the convergent series is .            ; ; .    Expanding the infinite sum, and we see that and . Thus, , , and with the sum of the convergent series is .     "
 },
@@ -8321,7 +8321,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-3-geometric.html#F-8a-3-geom-x",
   "type": "Figure",
-  "number": "8.3.10",
+  "number": "8.3.7",
   "title": "",
   "body": " A plot of (blue, no dashes), (light gray, small dashes), (medium gray, medium dashes), and (dark gray, long dashes).  The function graphed together with its degree , , and Taylor polynomial approximations near the point .  The graph shows that the function and its Taylor approximations intersect at the point and have the same slope at that point.  All four functions are very close together on the interval , but outside of that interval there start to be visual differences because the tangent line is straight but the function and the degree and approximations are curved.  The degree Taylor approximation is very close to the function on the interval , while the degree approximation is very close to the function for even more values, on the interval .   "
 },
@@ -8330,7 +8330,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-3-geometric.html#act-8-3-3",
   "type": "Activity",
-  "number": "8.3.11",
+  "number": "8.3.4",
   "title": "",
   "body": "  Consider the function . Find the degree Taylor polynomial approximation centered at for .      To begin finding , do the usual work of computing the various derivatives of and their respective values at ; note that it's helpful to view in the form so that we can easily compute the derivatives of using the chain rule. For instance, where the first arises from the power rule, while the second results from the chain rule, since . In order to see key patterns that arise, it's helpful not to combine the products of numbers that arise in the various derivatives. Record the first five derivatives of in the spaces provided below.                                  The first five derivatives of are shown below.                                Next, evaluate the derivatives you determined in (a) at and use these to find the values of the coefficients of the Taylor polynomial centered at . Record your work in the blank spaces provided.                                              Evaluating the derivatives at and finding the various values of , we see the results below.                                            What pattern do you observe in the value of ? State the degree Taylor polynomial, , as well as the formula you expect for the general degree Taylor polynomial, .     and .    We see that for every , . Thus, and more generally .      By identifying the value of , explain why the degree Taylor polynomial can be thought of as a finite geometric series.     is a finite geometric sum with and .    Note that each subsequent term in results from multiplying the previous term by , so is a finite geometric sum with and .      What is the Taylor series centered at for ? (As we will see in the next section, the Taylor series of a function is the infinite series that results by simply extending the Taylor polynomials indefinitely.)     which is an infinite geometric sum with and whose sum (for ) is .    If we let the finite sum continue indefinitely, we see that the Taylor series centered at for is which is an infinite geometric sum with and whose sum (for ) is .     "
 },
@@ -8447,7 +8447,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-4-taylor-series.html#D-8a-4-Taylor-series",
   "type": "Definition",
-  "number": "8.4.2",
+  "number": "8.4.1",
   "title": "",
   "body": "   Let be a function such that exists for every natural number . The Taylor series for centered at is the series defined by .   "
 },
@@ -8465,7 +8465,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-4-taylor-series.html#Ex-8a-4-ln-1-plus-x",
   "type": "Example",
-  "number": "8.4.3",
+  "number": "8.4.2",
   "title": "",
   "body": "  Let . By investigating how close the terms of the Taylor series of of resemble a geometric series, determine the -values for which the Taylor series appears to converge.    In Example , we found that the general degree Taylor polynomial centered at for is . This pattern thus allows us to see that the Taylor series for , centered at , is . Unlike the Taylor series for the function , the Taylor series for turns out to not be geometric since there is not a common ratio between the terms, so we introduce some new ideas to think about the -values for which we expect the series to converge.  For a series to be geometric, we must be able to construct the next term in the series by multiplying the prior term by a constant ratio. In , the general term is and the term is . If we consider the ratio of these consecutive terms and call that quantity , we find that . We can rewrite this fraction algebraically and simplify it considerably. Grouping the similar terms between the numerator and denominator, we see , which allows us to simplify and conclude that . This tells us the series is not geometric since the ratio of consecutive terms depends on . For example, if we take , we have , which is the ratio between the third and second terms of , while is the ratio between the fourth and third terms. Since the ratio depends on , the series lacks a common ratio between terms.  However, as gets large, the series is almost geometric. This is because the quantity approaches as increases without bound, and therefore for large , . This suggests that the series converges for , since the series is very close to being geometric with a common ratio .  Graphical evidence supports the conclusion that for , the series converges in the same way that a geometric one would, and also that the interval of convergence is . In Figure , we plot , , and .   The function and its degree and Taylor polynomial approximations and near the point .  The function and its degree and Taylor polynomial approximations near the point .  All three functions look very close together on the interval , and then some separation between the graphs can start to be seen. Greater differences appear after when the function continues increasing but the degree and Taylor approximations start decreasing.    In Figure we see that on the interval , , , and are nearly indistinguishable. Furthermore, we see that if we widen the interval to , remains a very good approximation of . For example, we can do some computations and find that , and . Increasing the degree of the approximation further allows us to do a bit better, but since is undefined with a vertical asymptote at , no polynomial function can agree with at . Thus, it appears to be the case that converges for -values that satisfy , and on that interval the Taylor series converges to .   "
 },
@@ -8483,7 +8483,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-4-taylor-series.html#act-8-4-1",
   "type": "Activity",
-  "number": "8.4.5",
+  "number": "8.4.2",
   "title": "",
   "body": "  Consider the infinite Taylor series given by       As described in the statement of the Ratio Test, let be the ratio of the term of to the term of . Find the simplest formula that you can for .          We see that       Let . Evaluate this limit to find the simplest formula you can for .          For , we observe that      For what values of is ? What is the open interval of convergence for ?     is guaranteed to converge whenever .    Now we can say that whenever , which implies . Thus is guaranteed to converge whenever .      Let be the sum of the first terms of , and let . Plot and on the same coordinate axes in a window centered around . What do you notice? What does this suggest about the series ?     On , and are nearly indistinguishable for most of the interval. This suggests that is the Taylor series of .    When we plot and on the interval from , we see that and are nearly indistinguishable for a considerable subset of the interval. This suggests that is the Taylor series of .     "
 },
@@ -8492,7 +8492,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-4-taylor-series.html#Ex-8a-4-sine",
   "type": "Example",
-  "number": "8.4.6",
+  "number": "8.4.4",
   "title": "",
   "body": "  Explain why the Taylor series centered at for is and find the interval of -values for which this Taylor series converges. Investigate whether or not the Taylor series converges to .    We observed in Section that the derivatives of the sine function cycle and repeat every derivatives, since and so . More generally, and for every natural number . This shows that and , from which it follows that every even power of in the Taylor series of the sine function has a coefficient of .  For odd values of , we can see that since , we also have , , and so on. From this, , and similarly, , , and indeed for every nonnegative whole number . Finally, since , we have , and so , , and thus for every nonnegative whole number .  Putting these observations together about the various derivatives of evaluated at and using the fact that the Taylor series of centered at has form we see that   Next, we use the Ratio Test to investigate the values of where converges. We therefore consider , which is the ratio of consecutive nonzero terms, and have . Expanding the expression , combining like terms, and slightly rearranging how we write the fraction, we see that We now consider the three fractions in Equation one at a time and simplify each. First, we observe that since the numerator and denominator are each always either or and always of opposite signs. Next, we expand the factorials and see that and so . Finally, we observe that . Putting all of this work together, we can update Equation to the simpler form . From here, we compute , the limit of as increases without bound. Since as , it follows that for any fixed value of , . The Ratio Test tells us that for any for which , the series converges. Here, since for every value of , this means that converges for every real number .  Finally, we investigate whether the Taylor series appears to converge to or not. In Figure , we see the Taylor polynomials of degree and , and the significant improvement of the approximation as the degree increases.   The degree and Taylor polynomials centered at for , along with the sine function.   A graph of along with its degree and Taylor polynomials centered at .  The graph shows that the function and its Taylor approximations intersect at the point , have the same slope at that point, and are curving together at that point.  The degree Taylor approximation is indistinguishable from on the interval , and is still very close on the interval , while the degree Taylor approximation is practically indistinguishable from on the interval .    f(x) = sin(x)  p(x) = x - 1\/6*x^3  q(x) = x - 1\/6*x^3 + 1\/(5*4*3*2)*x^5 - 1\/(7*6*5*4*3*2)*x^7 + 1\/(9*8*7*6*5*4*3*2)*x^9        \\sin(x)    T_5(x)    T_9(x)        For the degree approximation, we see that and are almost indistinguishable on , which is much wider than the interval on which the approximation is accurate. Experimenting with even higher degree Taylor polynomials shows that increasing the degree of the approximation appears to widen the interval on which the approximation is accurate and seems to do so without bound, which suggests that the Taylor series of in fact converges to .   "
 },
@@ -8501,7 +8501,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-4-taylor-series.html#act-8-4-2",
   "type": "Activity",
-  "number": "8.4.8",
+  "number": "8.4.3",
   "title": "",
   "body": "  Let . Our goal is to understand why the Taylor series for converges for every real number and see that the Taylor series converges to .      For , explain why for every natural number .     for every natural number because for every natural number .    For , we know that , and thus for every natural number . Thus, for every natural number .      State the Taylor series, centered at for . Write in both sigma notation and as an expanded sum.          With for every natural number , in the the Taylor series, centered at of , we have . Thus      Let be the ratio of the term to the term of . Find the simplest expression you can for .     .    Observe that . Since and , it follows that .      Let . Evaluate this limit, and then apply the Ratio Test to say what you can conclude about the -values for which converges.     ; for every value of ; converges for every real number .    Now we are ready to take the limit of as and apply the Ratio Test. Since we fix the value of and know that as , we have . Thus, , and for every value of . By the Ratio Test, we now know that converges for every real number .      Use a computational device to graph , , and on the same axes. What do you observe?     and are almost indistinguishable on the interval ; and are almost indistinguishable on .    Plotting , , and on the same axes, we observe that and are almost indistinguishable on the interval , and that when we consider , that interval widens to almost . For instance, and .     "
 },
@@ -8519,7 +8519,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-4-taylor-series.html#T-8a-4-big-5",
   "type": "Table",
-  "number": "8.4.9",
+  "number": "8.4.6",
   "title": "Taylor series and the open intervals of <span class=\"process-math\">\\(x\\)<\/span>-values where they converge for <span class=\"process-math\">\\(5\\)<\/span> important functions.",
   "body": " Taylor series and the open intervals of -values where they converge for important functions.      Taylor series, , centered at       if      if      for all real      for all real      for all real    "
 },
@@ -8636,7 +8636,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-5-finding-using-taylor-series.html#ex-8a-5-cosx3",
   "type": "Example",
-  "number": "8.5.2",
+  "number": "8.5.1",
   "title": "",
   "body": "  Find the Taylor series expansion for and determine the set of all -values for which the series converges.    Because is part of the function whose Taylor series we seek, we start with the familiar series for . We know that for all real numbers .  By letting in Equation , it follows that , so . Then, multiplying both sides of Equation by , we find that . Since Equation is valid for every real number , letting tells us that Equation is valid for every real number . The Ratio Test can be used to show that multiplying every term of a Taylor series by the same power of does not change the set of -values for which the series converges, so the Taylor series for also converges for every value of .   "
 },
@@ -8645,7 +8645,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-5-finding-using-taylor-series.html#T-8a-5-big-5-redux",
   "type": "Table",
-  "number": "8.5.3",
+  "number": "8.5.2",
   "title": "Taylor series and the open intervals of <span class=\"process-math\">\\(x\\)<\/span>-values where they converge for <span class=\"process-math\">\\(5\\)<\/span> important functions.",
   "body": " Taylor series and the open intervals of -values where they converge for important functions.      Taylor series, , centered at       if      if      for all real      for all real      for all real    "
 },
@@ -8654,7 +8654,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-5-finding-using-taylor-series.html#act-8-5-1",
   "type": "Activity",
-  "number": "8.5.4",
+  "number": "8.5.2",
   "title": "",
   "body": "  Use known Taylor series and substitution and algebraic techniques to find a Taylor series representation for each of the following functions. In addition, state the interval of -values for which you expect each Taylor series to converge.            , which converge for all real numbers .    To find the Taylor series for , we start with and view . Thus, since we have and thus . We expect this series to converge for all since the original series for converges for every .             , which converges for all real numbers .    For , we start with the series for and then substitute for . Doing so, and thus . Since the series for converges for all real numbers , the same will be true when we replace with .             , which converges whenever , or for .    Since has the same structure as , we start with the series for , which converges for . We will then replace with since . In particular, since , we have The series for is geometric with and , so it converges whenever , so for all such that .             , which converges for .    For , we start with the series for and replace by . In particular, since we have and thus . For the series for to converge, we need since the original series for converges for . Note that precisely when . Multiplying by does not affect the values of for which the series converges.             , which converges for all real numbers .    We first observe by using the Taylor series for , . Now it follows that . Dividing both sides by , we find . Since the Taylor series for converges for all real , we expect the same to be true for .    "
 },
@@ -8672,7 +8672,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-5-finding-using-taylor-series.html#sec-8-5-finding-using-taylor-series-5-9",
   "type": "Example",
-  "number": "8.5.5",
+  "number": "8.5.3",
   "title": "",
   "body": "  Use the familiar Taylor series for to develop the Taylor series for using the Power Series Differentiation and Integration Theorem.    In Example , we developed the Taylor polynomials centered at for , using the definition. And in Example , we considered the Taylor series for that we deduced from patterns in the Taylor polynomials.  Here, we take a different approach to finding the Taylor series for that starts with the familiar geometric series expansion of .  The key insight in this approach is the fact that . We thus first find a Taylor series representation for , and then integrate to find the Taylor series for .  We know that for , . Using the variable instead (in anticipation of a change of variables), we have . Next, letting , it follows that , which also converges for .  Now, since is the derivative of and , we can use the Second FTC to write , which combined with our earlier series representation for shows that and this series is guaranteed to converge on the same open interval as the series we started with ( ). This is also the same series we found for working directly from the definition of a Taylor polynomial in Example .   "
 },
@@ -8681,7 +8681,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-5-finding-using-taylor-series.html#act-8-5-2",
   "type": "Activity",
-  "number": "8.5.6",
+  "number": "8.5.3",
   "title": "",
   "body": "  In this activity we determine the Taylor series expansion for in a different way and then also find the Taylor series for .      To find the Taylor series for without using the definition, we consider the function and recall that . Then we use the Power Series Differentiation Theorem on the known series for to find the Taylor series for .     Consider and recall that its Taylor series in sigma notation is . Write out the first four nonzero terms of the Taylor series in expanded form.          Using , , , and in the sum, we have       Using the expanded form of the Taylor series for , apply the Power Series Differentiation Theorem to find the Taylor series for in expanded form, being sure to simplify each constant coefficient in the expansion. Show the first three nonzero terms.          Since , it follows And using the facts that , , and , we have , which is the series expansion of .      Now recall the series expansion of in sigma notation. What is the derivative of the general term of the series, , in its most simplified form?          Applying the power and constant multiple rules, we have . Using the fact that , we have .      Finally, state the Taylor series for in sigma notation. Be sure to decide whether the series should be indexed starting with or and to justify your choice.          In part (ii), we found that and in part (iii) we saw that the general term in the derivative's Taylor series is . From these two facts, we see that the Taylor series for must start with in order to correctly capture the first term in the series, as well as to ensure that we don't a negative power of in the expression. Thus, .      How can you now use your work in part (iv) to find the Taylor series for ?           Since we know the series for , we find the series for by taking its opposite. Doing so, In the sum, observe that when , it follows that . If we recognize that odd integers can be represented either as or , it's possible to re-index the series in sigma notation and write .      Consider the function .     What is ?                 Recall that in Preview Activity , we found the Taylor series expansion for . State the Taylor series for that you found in the preview activity.          In the Preview Activity, we found the Taylor series .      Explain why we can think of as being given by . Use this relationship to find a power series expansion for .    By the Second FTC we have ; integrating, it follows that .    Since is an antiderivative of , by the Second FTC we have . Using our work in (b) and integrating, we now have       For what interval of -values is the Taylor series for guaranteed to converge?     The series for is certain to converge on .    Since is guaranteed to converge for , it follows that the series for is certain to converge on that same interval.     "
 },
@@ -8690,7 +8690,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-5-finding-using-taylor-series.html#act-8-5-3",
   "type": "Activity",
-  "number": "8.5.7",
+  "number": "8.5.4",
   "title": "",
   "body": "  In this activity we will determine the Taylor series expansion for the famous error function , , that arises in probability theory and other important applications.      Use the Taylor series for to find the Taylor series for .          Since , we have      Next, evaluate the integral by replacing with its Taylor series.          Now we evaluate the integral by replacing with its Taylor series:       Use your work in (b) to state the Taylor series for          Since , we now have      For what interval of -values will the Taylor series for converge? Why?     for all real numbers.    This Taylor series will converge for every value of since the original series for converges for all real numbers.      In probability theory, is important because of its connection to the normal distribution , which is represented by a bell curve. Indeed, represents the fraction of a normally distributed characteristic in a population that lies between and . How can you use your result in (c) to estimate ?          We can write as the infinite series of real numbers and approximate its value by truncating the series to a partial sum, such as .                       For every real value of .    .     "
 },
@@ -8816,7 +8816,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-6-accuracy-of-approx.html#sec-8-6-accuracy-of-approx-4-3",
   "type": "Definition",
-  "number": "8.6.2",
+  "number": "8.6.1",
   "title": "",
   "body": "  An alternating series is a series of the form , where for each .   "
 },
@@ -8825,7 +8825,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-6-accuracy-of-approx.html#F-8a-5x-alt-partial-sums",
   "type": "Figure",
-  "number": "8.6.3",
+  "number": "8.6.2",
   "title": "",
   "body": " Plotting the partial sums , , , . The dashed horizontal line represents the exact sum of the infinite series, .   A plot of the partial sums by index, so points , , , along with a horizontal line which is the exact sum of the infinite series.  The odd-indexed partial sums , , and all lie above the line , while the even-indexed partial sums all lie below the line .  Each successive partial sum is closer to the infinite sum than the previous partial sum is.    a = 3  p = (-0.25, 0.5555555555)  q = (8.5, 0.5555555555)     S = \\frac{5}{9}   S_1    S_2    S_3    S_4    S_5    S_6    S_7    S_8       "
 },
@@ -8834,7 +8834,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-6-accuracy-of-approx.html#Ex-8a-5x-ASET",
   "type": "Example",
-  "number": "8.6.4",
+  "number": "8.6.3",
   "title": "",
   "body": "  Determine how well the partial sum of approximates the value of the converging alternating series.    If we let be the value of the series , then we know that .  Now , so the partial sum is within of the exact value of the series. In addition, it turns out that and , so we see that the actual difference between and is , which is indeed less than the error bound of provided by the Alternating Series Estimation Theorem.   "
 },
@@ -8843,7 +8843,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-6-accuracy-of-approx.html#act-8-6-1",
   "type": "Activity",
-  "number": "8.6.5",
+  "number": "8.6.2",
   "title": "",
   "body": "  In this activity we approximate the values of several different alternating series using the Alternating Series Estimation Theorem.      Use the fact that to estimate to within . Do so without entering on a computational device. After you find your estimate, enter on a computational device and compare the results.     , and this approximation has error at most .    Since , we have so that, for example, . This approximation has error at most since that's the next term in the sum. Since , we are even more accurate than required. Note that since , we can't stop after the third term and indeed need the four above. Thus, If we ask a computational device the value of , we get .      Recall our recent work with which can be expressed as the series . Use this series representation to estimate to within . Then, compare what a computational device reports when you use it to estimate the definite integral.      and this approximation has error at most    Since , we can truncate the alternating series to get a good estimate of the integral. We note that , and the next term after this one is less than , so that A computational device reports that .      Find the Taylor series for and then use the Taylor series and to estimate the value of to within . Compare your result to what a computational device reports when you use it to estimate the definite integral.     and this approximation has error at most .    We find that , so . Thus, . Since , the next term ( ) is (much) less than and thus we have . A computational device reports that .      Recall we know that if , then . What happens if ?  Explain why the series must converge and estimate its sum to within . What is the exact sum of this series?     The alternating series converges by the Alternating Series Theorem, and its exact sum is .  Using the Alternating Series Estimation Theorem to approximate within results in .    If we let in the series , we see that we get the converging alternating series by the Alternating Series Theorem. Indeed, since , it follows that the exact sum of the series is : . This is an example of a Taylor series that converges at one of the endpoints of the interval of convergence.  Since , the term will equal when , so stopping the term before results in . A computational device reports that .    "
 },
@@ -8861,7 +8861,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-6-accuracy-of-approx.html#Ex-8a-5x-1",
   "type": "Example",
-  "number": "8.6.6",
+  "number": "8.6.4",
   "title": "",
   "body": "  Determine the maximum error possible when using the degree Taylor polynomial centered at for to approximate the value of .    To approximate the value of using the degree Taylor polynomial, we will use , , , and in the Lagrange Error Bound formula. We also need to find a value for so that on the interval .  Since the derivatives of are all one of or , and the maximum absolute values of these functions on any interval is , we have for any and any . Therefore, we let . By the Lagrange Error Bound formula, we find that .  So approximates to within at most . Using a computer algebra system, we can find that with an actual difference of about . Note that the computer algebra system itself is using a related approach (possibly with more terms) to generate the fact that in such a way that every decimal the computer reports is accurate.   "
 },
@@ -8870,7 +8870,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "sec-8-6-accuracy-of-approx.html#act-8-6-2",
   "type": "Activity",
-  "number": "8.6.7",
+  "number": "8.6.3",
   "title": "",
   "body": "  In this activity we apply the Lagrange Error Bound to quantify the accuracy of several different approximations.     Use the degree Taylor polynomial (centered at ) of to estimate the value of . What is the maximum error of your estimate, according to the Lagrange Error Bound? How does this compare to the actual error between and as reported by a computer algebra system?     We know , and so using an upper bound of for on the interval , the Lagrange Error Bound gives . The actual error is .    To approximate the value of using , we will use , , , and in the Lagrange Error Bound formula. We also need to find a value for so that on the interval .  Since the derivatives of are , and the maximum value of on is which is less than , we have for any and any . Therefore, we let . By the Lagrange Error Bound formula, we find that .  So approximates to within at most . Using a computer algebra system, we can find that with an actual absolute difference of about (which is considerably more accurate than what is guaranteed by the Lagrange Error Bound).      Use a degree Taylor polynomial (centered at ) of to estimate the value of within an accuracy of . According to the Lagrange Error Bound, what value of is needed to achieve this accuracy? What is the resulting approximate value of ?     Using as the bound on the derivative of , the Lagrange error bound tells us that we need to use ( ) to achieve the desired accuracy, and that .    To approximate the value of using a degree Taylor polynomial, we will use , , , and (momentarily) keep arbitrary in the Lagrange Error Bound formula. We first seek a value for so that on the interval for all .  Since the derivatives of are all one of or , and the maximum absolute values of these functions on any interval is , we have for any and any . Therefore, we let . By the Lagrange Error Bound formula, we find that .  To have a polynomial estimate within an accuracy of , we need the degree to satisfy . Since and , it follows that (so ) is the smallest degree Taylor polynomial we can choose to achieve the desired accuracy. Then, using , we have , while a CAS reports , so the estimate is indeed accurate to within approximately , as promised.      Recall that for , its Taylor series centered at is given by and that the derivative of is given by . If we want to estimate to within an accuracy of , what value of is needed to achieve this accuracy from computing , according to the Lagrange Error Bound?          To approximate the value of using a degree Taylor polynomial, we will use , , , and (momentarily) keep arbitrary in the Lagrange Error Bound formula. We first seek a value for so that on the interval for all .  Since the derivative of is , and since the maximum (absolute) value of on is , it follows that Thus, we let . By the Lagrange Error Bound formula, we have .  To have a polynomial estimate within an accuracy of , we need the degree to satisfy . Since and , it follows that so that is the smallest degree Taylor polynomial we can choose to achieve the desired accuracy.    "
 },
