@@ -1,0 +1,240 @@
+#############################################
+###       Generated from PreTeXt source      
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "PGML.pl",
+  "AnswerFormatHelp.pl",
+  "niceTables.pl",
+  "scaffold.pl",
+  "PCCmacros.pl",
+  "parserPopUp.pl",
+  "contextForm.pl",
+  "contextFraction.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+COMMENT('This problem is scaffolded with multiple parts');
+
+############################################################
+# Header
+############################################################
+
+############################################################
+# PG Setup Code
+############################################################
+$popup1 = PopUp([
+    "?",
+    "0",
+    "1",
+    "-1",
+    "Either 1 or -1"
+    ], 4
+);
+$popup2 = PopUp([
+    "?",
+    "0",
+    "1",
+    "-1",
+    "Either 1 or -1"
+    ], 1
+);
+Context("Fraction")->variables->add(c_0=>"Real", c_1=>"Real", c_2=>"Real", c_3=>"Real");
+$f=Fraction(-1,6);
+$s=Formula("sin(x)");
+$c=$s->D('x');
+$T3prime=Formula("c_1+2*c_2*x+3*c_3 x^2");
+$T3doubleprime=Formula("2*c_2+6*c_3 x");
+$T3tripleprime=Formula("6*c_3");
+
+$const1=Formula("c_1");
+$const2=Formula("2*c_2");
+$const3=Formula("6*c_3");
+$T3=Formula("x-1/6x^3");
+Context("LimitedNumeric");
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Let [`f(x)=\sin(x)`] and let [`T_3(x)=c_0+c_1x+c_2x^2+c_3x^3\text{.}`] We find the values of [`c_0,\ldots,c_3`] that make the sine function and its derivative values agree with those of the cubic polynomial [`T_3`] at [`x=0\text{,}`] and observe patterns in the derivatives.
+
+END_PGML
+
+############################################################
+# Scaffold
+############################################################
+Scaffold::Begin(numbered => 1,is_open => "correct_or_first_incorrect",can_open => always,);
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Complete the table below by computing derivatives of [`T_3(x)`] and evaluating them and the derivatives of [`\sin(x)`] at [`x=0`] as directed.
+
+[@KeyboardInstructions('Use underscores to enter the coefficients.  For example, to enter [`c_1\text{,}`] type "c\_1".')@]**
+
+>> [@DataTable(
+  [
+    [
+     PGML('[`f(x)=`]'),
+     PGML('[`\sin(x)`]'),
+     PGML('[`T_3(x)=`]'),
+     PGML('[`c_0+c_1x+c_2x^2+c_3x^3`]'),
+    ],
+    [
+     PGML(q"[`f'(x)=`]"),
+     PGML('[`\cos(x)`]'),
+     PGML(q"[`T_3'(x)=`]"),
+     PGML('[_]{$T3prime}{10}'),
+    ],
+    [
+     PGML(q"[`f''(x)=`]"),
+     PGML('[`-\sin(x)`]'),
+     PGML(q"[`T_3''(x)=`]"),
+     PGML('[_]{$T3doubleprime}{10}'),
+    ],
+    [
+     [PGML(q"[`f'''(x)=`]"),
+      rowbottom => '3',
+      midrule => '1',],
+     PGML('[`-\cos(x)`]'),
+     PGML(q"[`T_3'''(x)=`]"),
+     PGML('[_]{$T3tripleprime}{10}'),
+    ],
+    [
+     PGML('[`f(0)=`]'),
+     PGML('[_]{0}{10}'),
+     PGML('[`T_3(0)=`]'),
+     PGML('[`c_0`]'),
+    ],
+    [
+     PGML(q"[`f'(0)=`]"),
+     PGML('[_]{1}{10}'),
+     PGML(q"[`T_3'(0)=`]"),
+     PGML('[_]{$const1}{10}'),
+    ],
+    [
+     PGML(q"[`f''(0)=`]"),
+     PGML('[_]{0}{10}'),
+     PGML(q"[`T_3''(0)=`]"),
+     PGML('[_]{$const2}{10}'),
+    ],
+    [
+     PGML(q"[`f'''(0)=`]"),
+     PGML('[_]{-1}{10}'),
+     PGML(q"[`T_3'''(0)=`]"),
+     PGML('[_]{$const3}{10}'),
+    ],
+  ],
+      align => 'rl|rl',
+      valign => 'middle',
+      top => '3',);@]* <<
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+Now, set [`T_3(0)=f(0)\text{,}`] [`T_3'(0)=f'(0)\text{,}`] [`T_3''(0)=f''(0)\text{,}`] and [`T_3'''(0)=f'''(0)\text{.}`]
+
+This implies [`c_0={}`][_]{'0'}{10}, [`c_1={}`][_]{'1'}{10}, [`c_2={}`][_]{'0'}{10}, and [`c_3={}`][_]{$f}{10}.
+
+Putting it all together, what is the resulting formula for [`T_3(x)\text{?}`]
+
+[`T_3(x)={}`][_]{$T3}{20}
+
+END_PGML
+
+Section::End();
+
+############################################################
+# Section
+############################################################
+Section::Begin("");
+
+BEGIN_PGML
+In our work so far, we've seen that raising the degree of polynomial improves the approximation of the original function [`f(x)\text{.}`]  If we decided we wanted to find a degree [`9`] approximation to [`f(x) = \sin(x)\text{,}`] we'd need to find a polynomial whose value and first [`9`] derivatives match those of the sine function at [`x = 0\text{.}`]
+
+Fill in the blanks below to determine the next six derivatives of [`f(x) = \sin(x)\text{,}`] up to [`f^{(9)}(x)\text{.}`]
+
+>> [@DataTable(
+  [
+    [
+     PGML('[`f(x)=`]'),
+     PGML('[`\sin(x)`]'),
+     PGML('[`f^{(5)}(x)=`]'),
+     PGML('[_]{$c}{10}'),
+    ],
+    [
+     PGML(q"[`f'(x)=`]"),
+     PGML('[`\cos(x)`]'),
+     PGML('[`f^{(6)}(x)=`]'),
+     PGML('[_]{-$s}{10}'),
+    ],
+    [
+     PGML(q"[`f''(x)=`]"),
+     PGML('[`-\sin(x)`]'),
+     PGML('[`f^{(7)}(x)=`]'),
+     PGML('[_]{-$c}{10}'),
+    ],
+    [
+     PGML(q"[`f'''(x)=`]"),
+     PGML('[`-\cos(x)`]'),
+     PGML('[`f^{(8)}(x)=`]'),
+     PGML('[_]{$s}{10}'),
+    ],
+    [
+     PGML('[`f^{(4)}(x)=`]'),
+     PGML('[_]{$s}{10}'),
+     PGML('[`f^{(9)}(x)=`]'),
+     PGML('[_]{$c}{10}'),
+    ],
+  ],
+      align => 'rl|rl',
+      valign => 'middle',);@]* <<
+
+What is the value of [`f^{(n)}(0)`] (the nth derivative of [`f`] evaluated at [`x = 0`]) when [`n`] is even? [_]{$popup2}{5}
+
+What is the value of [`f^{(n)}(0)`] (the nth derivative of [`f`] evaluated at [`x = 0`]) when [`n`] is odd? [_]{$popup1}{5}
+
+END_PGML
+
+Section::End();
+
+Scaffold::End();
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();

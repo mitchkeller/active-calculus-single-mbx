@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -65,11 +66,11 @@ htmlPresentation: false,
   <function name="f">3+$k*e^(-0.5*x)</function>
   <function name="F">3*x+$k*e^(-0.5*x)</function>
 
-  <math name="L4" simplify displayDecimals="2">$dx * ($$f($a) + $$f($a+$dx) + $$f($a+2*$dx) + $$f($a+3*$dx) )</math>
-  <math name="R4" simplify displayDecimals="2">$dx * ($$f($a+$dx) + $$f($a+2*$dx) + $$f($a+3*$dx) + $$f($a+4*$dx) )</math>
-  <math name="M4" simplify displayDecimals="2">$dx * ($$f($a+$dx/2) + $$f($a+3*$dx/2) + $$f($a+5*$dx/2) + $$f($a+7*$dx/2))</math>
-  <math name="T4" simplify>($L4 + $R4)/2</math>
-  <math name="S8" simplify>(2*$M4 + $T4)/3</math>
+  <number name="L4" displayDecimals="3">$dx * ($$f($a) + $$f($a+$dx) + $$f($a+2*$dx) + $$f($a+3*$dx) )</number>>
+  <number name="R4" displayDecimals="3">$dx * ($$f($a+$dx) + $$f($a+2*$dx) + $$f($a+3*$dx) + $$f($a+4*$dx) )</number>
+  <number name="M4" displayDecimals="3">$dx * ($$f($a+$dx/2) + $$f($a+3*$dx/2) + $$f($a+5*$dx/2) + $$f($a+7*$dx/2))</number>
+  <number name="T4" displayDecimals="3">($L4 + $R4)/2</number>
+  <number name="S8" displayDecimals="3">(2*$M4 + $T4)/3</number>
   <math simplify name="exactInt">$$F($b) - $$F($a) </math>
 
 </setup>
@@ -103,13 +104,13 @@ htmlPresentation: false,
   <ol marker="a.">
     <li>
       <p>
-        Determine the estimates <m>T_4</m> and <m>S_{8}</m> for the given definite integral.  
+        Use the given information to determine the estimates <m>T_4</m> and <m>S_{8}</m> for the given definite integral.  Enter each answer as a single decimal number, accurate to <m>0.001</m>.
       </p>
       <p>
-        <m> \int_{$a}^{$b} f(x) \, dx \approx T_4 = </m><answer allowedErrorInNumbers="0.02" allowedErrorIsAbsolute> $T4</answer>
+        <answer symbolicEquality allowedErrorInNumbers="0.002" allowedErrorIsAbsolute><label><m> \int_{$a}^{$b} f(x) \, dx \approx T_4 = </m></label>$T4</answer>
       </p>
       <p>
-        <m> \int_{$a}^{$b} f(x) \, dx \approx S_8 = </m><answer allowedErrorInNumbers="0.02" allowedErrorIsAbsolute> $S8</answer>
+        <answer symbolicEquality allowedErrorInNumbers="0.002" allowedErrorIsAbsolute> <label><m> \int_{$a}^{$b} f(x) \, dx \approx S_8 = </m></label>$S8</answer>
       </p>
     </li>  
     <li>
@@ -118,20 +119,24 @@ htmlPresentation: false,
       </p>
       <p>
         The function <m>f</m> is <choiceInput name="c1" inline>
+          <shortDescription>increasing or decreasing</shortDescription>
           <choice>?</choice>
           <choice>always increasing</choice>
           <choice>always decreasing</choice>
         </choiceInput> because <choiceInput name="c2" inline>
+          <shortDescription>options that compare one estimate to another</shortDescription>
           <choice>?</choice>
           <choice>the Left Riemann sum is less than the Right Riemann sum</choice>
           <choice>the Right Riemann sum is less than the Left Riemann sum</choice>
           <choice>the Trapezoid rule is less than the Midpoint rule</choice>
           <choice>the Midpoint rule is less than the Trapezoid rule</choice>
         </choiceInput>, and <m>f</m> is <choiceInput name="c3" inline>
+          <shortDescription>concave up or concave down</shortDescription>
           <choice>?</choice>
           <choice>always concave up</choice>
           <choice>always concave down</choice>
         </choiceInput> because <choiceInput name="c4" inline>
+          <shortDescription>options that compare one estimate to another</shortDescription>
           <choice>?</choice>
           <choice>the Left Riemann sum is less than the Right Riemann sum</choice>
           <choice>the Right Riemann sum is less than the Left Riemann sum</choice>

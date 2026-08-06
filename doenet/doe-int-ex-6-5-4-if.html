@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -94,32 +95,38 @@ htmlPresentation: false,
         and find an antiderivative for <m>f(t) = $k t \cdot e^{-$k t}</m> using integration by parts.  Letting <m>u = $k t</m> and <m>dv =  e^{-$k t} \, dt</m>, it follows (applying the integration by parts formula) that
       </p>
       <p>
-        <m>\displaystyle \int_0^b $k t \cdot e^{-$k t} \, dt =</m><mathInput name="uv"/><m>\displaystyle \Bigg|_0^b - \int_0^b</m><mathInput name="vdu"/><m>dt</m> <answer><award><when>$uv = $u*$v and $vdu = $v*$du</when></award></answer>,
+        <m>\displaystyle \int_0^b $k t \cdot e^{-$k t} \, dt =</m><mathInput name="uv"><shortDescription>u v</shortDescription></mathInput><m>\displaystyle \Bigg|_0^b - \int_0^b</m><mathInput name="vdu"><shortDescription>v du</shortDescription></mathInput><m>dt</m> <answer matchPartial><award><when>$uv = $u*$v and $vdu = $v*$du</when></award></answer>,
       </p>
       <p>
-        and evaluate the integral above and state the full antiderivative before evaluating at the bounds.
+        and evaluate the righthand integral above and state the full antiderivative of the integrand:
       </p>
       <p>
-        <m>\displaystyle \int_0^b $k t \cdot e^{-$k t} \, dt =</m><mathInput name="int"/><m>\displaystyle \Bigg|_0^b</m><answer><award><when>$int=$F</when></award></answer>
+        <m>\displaystyle \int_0^b $k t \cdot e^{-$k t} \, dt =</m><mathInput name="int"><shortDescription>full integrand</shortDescription></mathInput><m>\displaystyle \Bigg|_0^b</m><answer><award><when>$int=$F</when></award></answer>
       </p>
+      <p>
+        Finally, evaluate the integral to determine the resulting expression involving <m>b</m>.
+      </p>
+      <p>
+        <m>\displaystyle \int_0^b $k t \cdot e^{-$k t} \, dt =</m><mathInput name="intEvaluated"><shortDescription>integral expression in terms of b</shortDescription></mathInput><answer><award><when>$intEvaluated=$$F(b)-$$F(0)</when></award></answer>
+      </p>      
     </li>
     <li>
       <p>
-        Next, use the antiderivative from (a), the First FTC, and appropriate limit notation to find the exact value of
+        Next, use your work in (a) along with appropriate limit notation to find the exact value of
         <me>
           \mu = \int_0^\infty $k t \cdot e^{-$k t}  \, dt.
         </me>
       </p>
       <p>
-        <m>\mu = </m><mathInput name="mean"/><answer><award><when>$mean=$mu</when></award></answer>
+        <m>\mu = </m><mathInput name="mean"><shortDescription>mean value</shortDescription></mathInput><answer><award><when>$mean=$mu</when></award></answer>
       </p>
     </li>
     <li>
       <p>
-        Find the fraction, <m>K</m>, of customers who wait <m>\mu</m> minutes or fewer.
+        Finally, find the fraction, <m>K</m>, of customers who wait <m>\mu</m> minutes or fewer.  
       </p>
       <p>
-        <m>K = </m><mathInput name="half"/><answer allowedErrorInNumbers="0.01" allowedErrorIsAbsolute><award><when>$half=$meanwait</when></award></answer>
+        <m>K = </m><mathInput name="half"><shortDescription>K value</shortDescription></mathInput><answer allowedErrorInNumbers="0.01" allowedErrorIsAbsolute><award><when>$half=$meanwait</when></award></answer>
       </p>
     </li>
   </ol>

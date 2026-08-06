@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -61,14 +62,15 @@ htmlPresentation: false,
   <number name="n">5</number>
   <math name="b" simplify>$a + 2*$n</math>
   <math name="dx" simplify>2</math>
+  <number name="S10computed" displayDecimals="7">($T5entered + 2*$M5entered)/3</number>
 
   <function name="f">$k/x</function>
 
-  <math name="L5">$dx * ($$f($a) + $$f($a+$dx) + $$f($a+2*$dx) + $$f($a+3*$dx) + $$f($a+4*$dx) )</math>
-  <math name="R5">$dx * ($$f($a+$dx) + $$f($a+2*$dx) + $$f($a+3*$dx) + $$f($a+4*$dx) + $$f($a+5*$dx) )</math>
-  <math name="M5">$dx * ($$f($a+$dx/2) + $$f($a+3*$dx/2) + $$f($a+5*$dx/2) + $$f($a+7*$dx/2) + $$f($a+9*$dx/2) )</math>
-  <math name="T5">($L5 + $R5)/2</math>
-  <math name="S10">(2*$M5 + $T5)/3</math>
+  <number displayDecimals="6" name="L5">$dx * ($$f($a) + $$f($a+$dx) + $$f($a+2*$dx) + $$f($a+3*$dx) + $$f($a+4*$dx) )</number>
+  <number displayDecimals="6" name="R5">$dx * ($$f($a+$dx) + $$f($a+2*$dx) + $$f($a+3*$dx) + $$f($a+4*$dx) + $$f($a+5*$dx) )</number>>
+  <number displayDecimals="6" name="M5">$dx * ($$f($a+$dx/2) + $$f($a+3*$dx/2) + $$f($a+5*$dx/2) + $$f($a+7*$dx/2) + $$f($a+9*$dx/2) )</number>>
+  <number displayDecimals="6" name="T5">($L5 + $R5)/2</number>>
+  <number displayDecimals="6" name="S10">(2*$M5 + $T5)/3</number>>
   <math simplify name="exactInt">$k*ln($b) - $k*ln($a) </math>
 
 </setup>
@@ -88,27 +90,45 @@ htmlPresentation: false,
   <ol marker="a.">
     <li>
       <p>
-        Determine the estimates <m>L_5</m>, <m>R_5</m>, <m>T_5</m>, and <m>M_5</m> for the given definite integral.  (Remember that you can use the Riemann sum calculator provided in the Preview Activity for this section to find <m>L_5</m>, <m>R_5</m>, and <m>M_5</m>.)
+        Determine the estimates <m>L_5</m>, <m>R_5</m>, <m>T_5</m>, and <m>M_5</m> for the given definite integral.  Report each result as a single decimal number, accurate to <m>0.000001</m>.
       </p>
       <p>
-        <m> \int_$a^{$b} \frac{$k}{x} \, dx \approx L_5 = </m><answer allowedErrorInNumbers="0.0001" allowedErrorIsAbsolute> $L5</answer>
+        <answer symbolicEquality allowedErrorInNumbers="0.000001" allowedErrorIsAbsolute name="L5entered"><label><m> \int_$a^{$b} \frac{$k}{x} \, dx \approx L_5 = </m></label> $L5</answer>
       </p>
       <p>
-        <m> \int_$a^{$b} \frac{$k}{x} \, dx \approx R_5 = </m><answer allowedErrorInNumbers="0.0001" allowedErrorIsAbsolute> $R5</answer>
+        <answer symbolicEquality allowedErrorInNumbers="0.000001" allowedErrorIsAbsolute name="R5entered"> <label><m> \int_$a^{$b} \frac{$k}{x} \, dx \approx R_5 = </m></label>$R5</answer>
       </p>
       <p>
-        <m> \int_$a^{$b} \frac{$k}{x} \, dx \approx M_5 = </m><answer allowedErrorInNumbers="0.0001" allowedErrorIsAbsolute> $M5</answer>
+        <answer symbolicEquality allowedErrorInNumbers="0.000001" allowedErrorIsAbsolute name="M5entered"><label><m> \int_$a^{$b} \frac{$k}{x} \, dx \approx M_5 = </m></label> $M5</answer>
       </p>
       <p>
-        <m> \int_$a^{$b} \frac{$k}{x} \, dx \approx T_5 = </m><answer allowedErrorInNumbers="0.0001" allowedErrorIsAbsolute> $T5</answer>
+        <m> \int_$a^{$b} \frac{$k}{x} \, dx \approx T_5 = </m>
+        <answer allowedErrorInNumbers="0.000001" allowedErrorIsAbsolute forceSmallCheckWorkButton> 
+          <mathInput name="T5entered">
+            <shortDescription>T 5 value</shortDescription>
+          </mathInput>
+          <award><when>
+            $T5entered = $T5 or $T5entered = <math>($L5entered + $R5entered)/2</math>
+          </when></award>
+        </answer>
       </p>
     </li>  
     <li>
       <p>
-        Find the estimate that results from using Simpson's Rule with <m>10</m> subintervals.
+        Find the estimate that results from using Simpson's Rule with <m>10</m> subintervals.  Report your result as a single decimal number, accurate to <m>0.000001</m>.
       </p>
       <p>
-        <m> \int_$a^{$b} \frac{$k}{x} \, dx \approx S_{10} = </m><answer allowedErrorInNumbers="0.0001" allowedErrorIsAbsolute> $S10</answer>
+        <m> \int_$a^{$b} \frac{$k}{x} \, dx \approx S_{10} = </m>
+        <answer symbolicEquality allowedErrorInNumbers="0.000001" allowedErrorIsAbsolute> 
+          <mathInput name="S10entered">
+            <shortDescription>S 10 value</shortDescription>
+          </mathInput>
+          <award>
+            <when>
+              $S10entered = $S10 or $S10entered = $S10computed
+            </when>
+          </award>
+        </answer>
       </p>
     </li>
     <li>
@@ -119,6 +139,7 @@ htmlPresentation: false,
           </math>
         </me>
         Simpson's Rule therefore <choiceInput name="c1" inline>
+          <shortDescription>under, over, or equal</shortDescription>
           <choice>?</choice>
           <choice>underestimates</choice>
           <choice>overestimates</choice>

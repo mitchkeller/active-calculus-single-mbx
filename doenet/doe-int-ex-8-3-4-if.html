@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -55,8 +56,42 @@ htmlPresentation: false,
 <!-- **********************************************************************-->
 
 <setup>
-
+  <select name="c">
+    1/5 1/4 1/3 2/5
+  </select>
+  <math name="cplus">
+    <conditionalContent condition="$c=1/5">
+      4/5
+    </conditionalContent>
+    <conditionalContent condition="$c=1/4">
+      3/4
+    </conditionalContent>
+    <conditionalContent condition="$c=1/3">
+      2/3
+    </conditionalContent>
+    <conditionalContent condition="$c=2/5">
+      3/5
+    </conditionalContent>
+  </math>
+  <selectFromSequence name="s" from="-1" to="1" step="2"/>
+  <math name="b">
+    <conditionalContent condition="$s=1">
+      $c
+    </conditionalContent>
+    <conditionalContent condition="$s=-1">
+      $cplus
+    </conditionalContent>
+  </math>
+  <math name="bplus">
+    <conditionalContent condition="$s=1">
+      $cplus
+    </conditionalContent>
+    <conditionalContent condition="$s=-1">
+      $c
+    </conditionalContent>
+  </math>
 </setup>
+
 <p>
   Consider the infinite sum involving <m>x</m> given by
   <me>
@@ -69,9 +104,9 @@ htmlPresentation: false,
   <ol marker="a.">
     <li>
       <p>
-        Let <m>x = \frac{1}{5}</m> and consider <m>T\left(\frac{1}{5}\right)</m>, which corresponds to the infinite sum
+        Let <m>x = $b</m> and consider <m>T\left($b\right)</m>, which corresponds to the infinite sum
         <me>
-          T\left(\frac{1}{5}\right) = 1 - \frac{2}{5} + \frac{4}{25} - \frac{8}{125} +  \cdots
+          T\left($b\right) = 1 - 2 \cdot $b + 4 \cdot \left($b\right)^2 - 8 \cdot \left($b\right)^3 +  \cdots
         </me>
       </p>
       <p>
@@ -81,7 +116,7 @@ htmlPresentation: false,
         <answer><label><m>a = </m></label>1</answer>
       </p>
       <p>
-        <answer><label><m>r = </m></label>-2/5</answer>
+        <answer><label><m>r = </m></label>-2*$b</answer>
       </p>
       <p>
         <choiceInput inline name="S1"><label>This geometric series </label>
@@ -89,11 +124,13 @@ htmlPresentation: false,
           <choice>converges</choice>
           <choice>does not converge</choice>
         </choiceInput>
-        and its sum is <mathInput name="S1Sum"><label><m>T\left(\frac{1}{5}\right) = </m></label></mathInput>. (Enter <q><em>DNC</em></q> if the series does not converge).
+        and its sum is <mathInput name="S1Sum"><label><m>T\left($b\right) = </m></label></mathInput>. (Enter <q><em>DNC</em></q> if the series does not converge).
       </p>
       <p>
         <answer><award><when>
-          $S1.selectedIndices=2 and $S1Sum=5/7
+          (2*$b < 1 and $S1.selectedIndices=2 and $S1Sum=1/(1+2*$b))
+          or
+          (2*$b > 1 and $S1.selectedIndices=3 and $S1Sum=DNC)
         </when></award></answer>
       </p>
     </li>
@@ -103,9 +140,9 @@ htmlPresentation: false,
         <me>
           T(x) = 1 - 2x + 4x^2 - 8x^3 +  \cdots + (-1)^{n-1} 2^n x^n + \cdots
         </me>
-        Now let <m>x = \frac{3}{5}</m> and consider <m>T\left(\frac{3}{5}\right)</m>, which corresponds to the infinite sum
+        Now let <m>x = \frac{3}{5}</m> and consider <m>T\left($bplus\right)</m>, which corresponds to the infinite sum
         <me>
-          T\left(\frac{3}{5}\right) = 1 - \frac{6}{5} + \frac{36}{25} - \frac{216}{125} +  \cdots
+          T\left( $bplus \right) = 1 - 2 \cdot $bplus + 4 \cdot \left( $bplus \right)^2 - 8 \cdot \left( $bplus \right)^3 +  \cdots
         </me>
       </p>
       <p>
@@ -115,7 +152,7 @@ htmlPresentation: false,
         <answer><label><m>a = </m></label>1</answer>
       </p>
       <p>
-        <answer><label><m>r = </m></label>-6/5</answer>
+        <answer><label><m>r = </m></label>-2*$bplus</answer>
       </p>
       <p>
         <choiceInput inline name="S2"><label>This geometric series </label>
@@ -127,7 +164,9 @@ htmlPresentation: false,
       </p>
       <p>
         <answer><award><when>
-          $S2.selectedIndices=3 and $S2Sum=DNC
+          (2*$bplus < 1 and $S2.selectedIndices=2 and $S2Sum=1/(1+2*$bplus))
+          or
+          (2*$bplus > 1 and $S2.selectedIndices=3 and $S2Sum=DNC)
         </when></award></answer>
       </p>
     </li>

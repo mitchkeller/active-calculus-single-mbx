@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -66,6 +67,7 @@ htmlPresentation: false,
   <function name="integrand" variable="y">($m*$n-y^2)/($m-$n) - y</function>
    
   <math name="intValue" simplify>($m*$n^2+$m^2*$n)/($m-$n) - ($n^2-$m^2)/2 - ($n^3+$m^3)/(3*($m-$n))</math>
+  <number name="error">abs($intVal - $intValue)</number>
 
 </setup>  
 
@@ -80,7 +82,7 @@ htmlPresentation: false,
         <p>
           Find the exact points of intersection between the curves.  State each intersection point as an ordered pair in the space below; if there is more than one, separate them with commas.  
         </p>
-        <p><answer><mathList unordered>($x1,$y1) ($x2,$y2)</mathList></answer></p>
+        <p><answer><label>the intersection points are:</label><mathList unordered>($x1,$y1) ($x2,$y2)</mathList></answer></p>
       </li>
 
       <li>
@@ -91,12 +93,12 @@ htmlPresentation: false,
           The area, <m>A</m>, between the curves is given by the definite integral 
         </p>
         <p>
-          <m>A = \int_a^b </m> <mathInput name="integrandEntered"/> <m>d</m> <mathInput minWidth="15" name="dWhat"/>
+          <m>A = \int_a^b </m> <mathInput name="integrandEntered"><shortDescription>integrand</shortDescription></mathInput> <m>d</m> <mathInput minWidth="15" name="dWhat"><shortDescription>x or y</shortDescription></mathInput>
         </p>
         <p>
           where 
-          <m>a = </m><mathInput minWidth="30" name="aEntered"/> and <m>b = </m><mathInput minWidth="30" name="bEntered"/>.
-          <answer simplifyOnCompare><award><when>$aEntered=$y1 and $bEntered=$y2 and $dWhat = y and $integrandEntered=$integrand </when></award></answer>
+          <m>a = </m><mathInput minWidth="30" name="aEntered"><shortDescription>a value</shortDescription></mathInput> and <m>b = </m><mathInput minWidth="30" name="bEntered"><shortDescription>b value</shortDescription></mathInput>.
+          <answer simplifyOnCompare symbolicEquality><award><when>$aEntered=$y1 and $bEntered=$y2 and $dWhat = y and $integrandEntered=$integrand </when></award></answer>
         </p>
       </li>
       <li>
@@ -104,8 +106,11 @@ htmlPresentation: false,
           Finally, evaluate the integral exactly and report the resulting area, <m>A</m>, below.
         </p>
         <p>
-          <m>A = </m><answer>$intValue</answer>
-        </p>  
+          <answer name="AEntered"><label><m>A = </m></label>$intValue</answer>
+        </p> 
+        <feedback condition="$AEntered.creditAchieved!=1 and ($error < 0.011) and $AEntered.justSubmitted">
+          You have a very close decimal representation of <m>A</m>, but it's important to use the Fundamental Theorem of Calculus to find the value of <m>A</m> exactly.
+        </feedback>
       </li>
     </ol>
   </p>

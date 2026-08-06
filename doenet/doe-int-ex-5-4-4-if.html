@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -109,21 +110,21 @@ htmlPresentation: false,
 
 <p>
   <m>u = </m><mathInput name="uChoice"/>  <m>\qquad \qquad dv = </m><mathInput name="dvChoice"/><m>dx =</m><mathInput disabled>$dvChoice dx </mathInput>
-  <answer name="udvChoice"><award><when>$possibleu and $udvisintegrand </when></award></answer>
+  <answer name="udvChoice" forceSmallCheckWorkButton><award><when>$possibleu and $udvisintegrand </when></award></answer>
 </p>
 <feedback condition="!$udvisintegrand and $udvChoice.justSubmitted">You are rewriting the given integral, which means that <m>u</m> and <m>dv</m> must multiply to <m>$f dx</m>.
 </feedback>
 <p>
   <m>du = </m><mathInput name="duChoice"/><m>dx</m>
 
-  <m>\qquad \quad v = </m><mathInput name="vChoice"/> <answer><award><when matchPartial> $udvanddu and $udvandv</when></award></answer>
+  <m>\qquad \quad v = </m><mathInput name="vChoice"/> <answer forceSmallCheckWorkButton><award><when matchPartial> $udvanddu and $udvandv</when></award></answer>
 </p>
 
 <p>
   Next, fill in the blanks in the Integration by Parts formula using the substitutions you found above.
 </p>
 <p>
-  <m>\displaystyle\int $a x \csc^2($k x) \, dx = </m><mathInput name="uvChoice"/><m>\displaystyle - \int</m>  <mathInput name="vduChoice"/><m>dx</m> <answer><award><when matchPartial>($uvChoice=$uv) and ($vduChoice=$vdu)</when></award></answer>
+  <m>\displaystyle\int $a x \csc^2($k x) \, dx = </m><mathInput name="uvChoice"/><m>\displaystyle - \int</m>  <mathInput name="vduChoice"/><m>dx</m> <answer forceSmallCheckWorkButton><award><when matchPartial>($uvChoice=$uv) and ($vduChoice=$vdu)</when></award></answer>
 </p>
 
 
@@ -145,24 +146,24 @@ htmlPresentation: false,
 <!--    <mathInput name="intvduChoice"/> <m>+ C</m> <answer><award><when> $intvdu = $intvduChoice</when></award></answer> -->
   </p>
   <p>
-    <m>w = </m><mathInput name="wChoice"/> <answer><award><when>$wChoice = $w</when></award></answer>
+    <m>w = </m><mathInput name="wChoice"/> <answer forceSmallCheckWorkButton><award><when>$wChoice = $w</when></award></answer>
   </p>
   <p>
-    <m>dw = </m><mathInput name="dwChoice"/><m>dx</m> <answer><award><when>$dwChoice = $dw</when></award></answer>
+    <m>dw = </m><mathInput name="dwChoice"/><m>dx</m> <answer forceSmallCheckWorkButton><award><when>$dwChoice = $dw</when></award></answer>
   </p>
 
   <p>
       Now we can apply <m>w</m>-substitution to convert the original integral in <m>x</m> to a simpler integral in <m>w</m> and evaluate that integral (omitting <q><m>+C</m></q>),
   </p>
   <p>
-    <m>\displaystyle \int \frac{\cos($k x)}{\sin($k x)} \, dx = \int </m> <mathInput name="wSubsChoice"/><m>dw</m> <answer><award><when> $wSubs = $wSubsChoice</when></award></answer><m> =</m> <mathInput name="wIntChoice"/> <answer name="antiDwequals"><award><when> $antiDw = $wIntChoice</when></award></answer>
+    <m>\displaystyle \int \frac{\cos($k x)}{\sin($k x)} \, dx = \int </m> <mathInput name="wSubsChoice"/><m>dw</m> <answer forceSmallCheckWorkButton><award><when> $wSubs = $wSubsChoice</when></award></answer><m> =</m> <mathInput name="wIntChoice"/> <answer name="antiDwequals" forceSmallCheckWorkButton><award><when> $antiDw = $wIntChoice</when></award></answer>
   </p>
   <feedback condition = "$almostantiDw = $wIntChoice and $antiDwequals.justSubmitted">Recall that an antiderivative of <m>\frac{1}{w}</m> is <m>\ln|w|</m>, not just <m>\ln(w)</m>.</feedback>
   <p>
     and then substituting back to <m>x</m> results in
   </p>
   <p>
-    <m>\displaystyle \int \cot($k x)\, dx = \int \frac{\cos($k x)}{\sin($k x)} \, dx=</m> <mathInput name="xIntChoice"/> <answer><award><when> $antiDx = $xIntChoice</when></award></answer>
+    <m>\displaystyle \int \cot($k x)\, dx = \int \frac{\cos($k x)}{\sin($k x)} \, dx=</m> <mathInput name="xIntChoice"/> <answer forceSmallCheckWorkButton><award><when> $antiDx = $xIntChoice</when></award></answer>
   </p>
 
     <!-- <m>\displaystyle \int \cot($k x) \, dx = \int \frac{\cos($k x)}{\sin($k x)} \, dx = \int </m> <mathInput name="wSubsChoice"/> <m>\, dw</m> <answer><award><when> $wSubs = $wSubsChoice</when></award></answer> <m>=</m> <mathInput name="wIntChoice"/> <answer><award><when> $antiDw = $wIntChoice</when></award></answer> <m>=</m> <mathInput name="xIntChoice"/> <answer><award><when> $antiDx = $xIntChoice</when></award></answer>  -->
@@ -177,7 +178,7 @@ htmlPresentation: false,
     </p>
     <p>
       <m> \displaystyle \int $a x \csc^2($k x) \, dx = -<math simplify>$a/$k</math> x \cot($k x) +  <math simplify>$a/$k</math> \int \cot($k x) \, dx</m></p>
-  <p><m> \displaystyle \qquad \qquad \qquad \qquad = -<math simplify>$a/$k</math> x \cot($k x) + </m> <mathInput name="atLast"/> <m>+ C</m> <answer><award><when>$atLast=$multantiDx</when></award></answer>
+  <p><m> \displaystyle \qquad \qquad \qquad \qquad = -<math simplify>$a/$k</math> x \cot($k x) + </m> <mathInput name="atLast"/> <m>+ C</m> <answer forceSmallCheckWorkButton><award><when>$atLast=$multantiDx</when></award></answer>
     </p>
 </div>
 </div>

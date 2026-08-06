@@ -15,6 +15,7 @@
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>AC Population growth and the logistic equation</title>
+<link rel="canonical" href="https://runestone.academy/ns/books/published/ac-single-d/sec-7-6-logistic.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -26,6 +27,7 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,47 +35,43 @@ htmlPresentation: false,
 <meta name="twitter:title" content="Active Calculus: with Doenet ">
 <meta property="og:title" content="Active Calculus: with Doenet ">
 <meta property="book:title" content="Active Calculus: with Doenet ">
-<meta name="twitter:description" content="Active Calculus Single Variable supports an active learning approach in the first two semesters of calculus. Every section of Active Calculus Single Variable offers engaging activities for students to complete before and during class; additional exercises that challenge students to connect and assimilate core concepts; interactive WeBWorK exercises; opportunities for students to develop conceptual understanding and improve their skills at communicating mathematical idea. The text is free and open-source, available in HTML, PDF, and print formats. Ancillary materials for instructors are also available.">
-<meta property="og:description" content="Active Calculus Single Variable supports an active learning approach in the first two semesters of calculus. Every section of Active Calculus Single Variable offers engaging activities for students to complete before and during class; additional exercises that challenge students to connect and assimilate core concepts; interactive WeBWorK exercises; opportunities for students to develop conceptual understanding and improve their skills at communicating mathematical idea. The text is free and open-source, available in HTML, PDF, and print formats. Ancillary materials for instructors are also available.">
+<meta name="twitter:description" content="Active Calculus Single Variable supports an active learning approach in the first two semesters of calculus. Every section of Active Calculus Single Variable offers engaging activities for students to complete before and during class; additional exercises that challenge students to connect and assimilate core concepts; interactive Doenet preview activities and exercises; opportunities for students to develop conceptual understanding and improve their skills at communicating mathematical idea. The text is free and open-source, available in HTML, PDF, and print formats. Ancillary materials for instructors are also available.">
+<meta property="og:description" content="Active Calculus Single Variable supports an active learning approach in the first two semesters of calculus. Every section of Active Calculus Single Variable offers engaging activities for students to complete before and during class; additional exercises that challenge students to connect and assimilate core concepts; interactive Doenet preview activities and exercises; opportunities for students to develop conceptual understanding and improve their skills at communicating mathematical idea. The text is free and open-source, available in HTML, PDF, and print formats. Ancillary materials for instructors are also available.">
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.43"></script><!--** eBookCongig is necessary to configure interactive       **-->
-<!--** Runestone components to run locally in reader's browser **-->
-<!--** No external communication:                              **-->
-<!--**     log level is 0, Runestone Services are disabled     **-->
-<script type="text/javascript">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.47"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.47"></script><script type="text/javascript">
 eBookConfig = {};
-eBookConfig.useRunestoneServices = false;
-eBookConfig.host = 'http://127.0.0.1:8000';
-eBookConfig.course = 'PTX_Course_Title_Here';
-eBookConfig.basecourse = 'PTX_Base_Course';
-eBookConfig.isLoggedIn = false;
-eBookConfig.email = '';
-eBookConfig.isInstructor = false;
-eBookConfig.logLevel = 0;
-eBookConfig.username = '';
-eBookConfig.readings = null;
-eBookConfig.activities = null;
-eBookConfig.downloadsEnabled = false;
-eBookConfig.allow_pairs = false;
-eBookConfig.enableScratchAC = false;
-eBookConfig.build_info = "";
-eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.1.8';
-eBookConfig.jobehost = '';
-eBookConfig.proxyuri_runs = '';
-eBookConfig.proxyuri_files = '';
-eBookConfig.enable_chatcodes =  false;
+eBookConfig.useRunestoneServices = true;
+eBookConfig.host = '';
+eBookConfig.app = eBookConfig.host + '/runestone';
+eBookConfig.course = '~._ course_name _.~';
+eBookConfig.termStartDate = '~._ term_start_date _.~';
+eBookConfig.basecourse = '~._ base_course _.~';
+eBookConfig.isLoggedIn = ~._ is_logged_in|default('false') _.~;
+eBookConfig.email = '~._ user_email _.~';
+eBookConfig.isInstructor = ~._ is_instructor|default('false') _.~;
+eBookConfig.logLevel = 10;
+eBookConfig.ajaxURL = eBookConfig.app + "/ajax/";
+eBookConfig.username = '~._ user_id _.~';
+eBookConfig.readings = ~._ readings|default([])|safe _.~;
+eBookConfig.activities = ~._ activity_info|default({})|safe _.~;
+eBookConfig.downloadsEnabled = ~._ downloads_enabled|default('false') _.~;
+eBookConfig.allow_pairs = ~._ allow_pairs|default('false') _.~;
+eBookConfig.course_attrs = ~._ course_attrs|default({})|tojson|safe _.~;
+eBookConfig.enableScratchAC = true;
+eBookConfig.acDefaultLanguage = 'python';
+eBookConfig.new_server_prefix = "/ns";
+eBookConfig.runestone_version = '8.2.2';
 </script>
-<!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.917dfc3cfe0bb764.bundle.js"></script><script src="_static/prefix-713.de0ab26248766350.bundle.js"></script><script src="_static/prefix-runestone.d40a1acc1751a0b6.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-713.f43ced6a6134ea74.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.87414d180ebeebd6.css">
-<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+<script src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script><!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.ed2cce180827a7ad.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.18fa7ea1d9f376c1.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="_static/lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
-<body id="ac-single" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<body id="ac-single-d" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner">
 <a id="logo-link" class="logo-link" target="_blank" href="https://activecalculus.org"><img src="external/images/ACS2E-cover.png" alt="Logo image"></a><div class="title-container">
-<h1 class="heading"><a href="root-1-2.html"><span class="title">Active Calculus</span> <span class="subtitle">with Doenet </span></a></h1>
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Active Calculus</span> <span class="subtitle">with Doenet </span></a></div>
 <p class="byline">Matthew Boelkins</p>
 </div>
 </div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
@@ -87,7 +85,17 @@ eBookConfig.enable_chatcodes =  false;
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
 <h2 class="heading">Readability settings</h2>
 <button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
@@ -105,7 +113,8 @@ eBookConfig.enable_chatcodes =  false;
 <legend>Assistive technologies</legend>
 <label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
 </fieldset>
-<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="sec-7-5-modeling.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="C-7.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="C-8.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="sec-7-5-modeling.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="C-7.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="C-8.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span><span class="nav-runestone-controls"><button onclick="runestoneComponents.popupScratchAC()" class="activecode-toggle button" title="Scratch ActiveCode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf097;</span><span class="name">Scratch ActiveCode</span></button><button type="button" id="ptx-user-dropdown-button" class="runestone-profile button ptx-dropdown-button" aria-haspopup="menu" aria-controls="ptx-user-dropdown-content" aria-expanded="false" title="Profile"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf0d3;</span><span class="name">Profile</span></button><div id="ptx-user-dropdown-content" class="ptx-dropdown-content" aria-labelledby="ptx-user-dropdown-button" role="menu"><ul id="ptx-user-dropdown_rs-content" role="group" aria-label="Runestone"></ul></div>
+<template id="ptx-user-dropdown-content_item-template"><li role="presentation" class="ptx-dropdown-item"><a href="url%20here" role="menuitem">title here</a></li></template><template id="ptx-user-dropdown-content_separator-template"><li role="presentation" class="ptx-dropdown-separator"></template></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -1105,10 +1114,10 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <section class="section" id="sec-7-6-logistic">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Population growth and the logistic equation</span>
-</h2>
-<article class="objectives goal-like" id="sec-7-6-logistic-2"><h3 class="heading"><span class="type">Motivating Questions</span></h3>
+</h1>
+<article class="objectives goal-like" id="sec-7-6-logistic-2"><h2 class="heading"><span class="type">Motivating Questions</span></h2>
 <ul class="disc" id="sec-7-6-logistic-2-1">
 <li id="sec-7-6-logistic-2-1-1">
 <div class="para" id="sec-7-6-logistic-2-1-1-1">How can we use differential equations to realistically model the growth of a population?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1124,40 +1133,37 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Motivating Questions 7.6"><a tabindex="-1" href="#sec-7-6-logistic-2" title="Copy heading and permalink for Motivating Questions 7.6" aria-label="Copy heading and permalink for Motivating Questions 7.6">🔗</a></div>
 </article>
 <section class="subsection" id="sec-7-6-logistic-3">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Introduction</span>
-</h3>
+</h2>
 <div class="para" id="sec-7-6-logistic-3-2">The growth of the earth’s population has long been an important issue for humankind. Will the population continue to grow? Or will it perhaps level off at some point, and if so, when? In this section, we look at two ways we may use differential equations to help us address these questions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec-7-6-logistic-3-3">Before we begin, let’s consider again two important differential equations that we have seen in earlier work this chapter.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exploration project-like" id="PA-7-6-doenet"><h4 class="heading">
+<article class="exploration project-like" id="PA-7-6-doenet"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h4>
-<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="rs-PA-7-6-doenet">
-<div class="interactive-iframe-container"><iframe id="int-PA-7-6-D" style="width:600px; height:2400px; display: block; " src="int-PA-7-6-D-if.html"></iframe></div>
-<div class="interactive-iframe-container__opener"><a href="int-PA-7-6-D.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
-</div></div></div>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="ac-single-d_2_PA-7-6-doenet"><div class="ptx-runestone-container"><div data-component="doenet" id="ac-single-d_2_int-PA-7-6-D"><iframe id="int-PA-7-6-D" style="width:600px; height:2400px; display: block; " src="int-PA-7-6-D-if.html"></iframe></div></div></div></div></div>
 <div class="autopermalink" aria-hidden="true" data-description="Preview Activity 7.6.1"><a tabindex="-1" href="#PA-7-6-doenet" title="Copy heading and permalink for Preview Activity 7.6.1" aria-label="Copy heading and permalink for Preview Activity 7.6.1">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Subsection 7.6.1: Introduction"><a tabindex="-1" href="#sec-7-6-logistic-3" title="Copy heading and permalink for Subsection 7.6.1: Introduction" aria-label="Copy heading and permalink for Subsection 7.6.1: Introduction">🔗</a></div>
 </section>
 <section class="subsection" id="sec-7-6-logistic-4">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The earth’s population</span>
-</h3>
-<div class="para" id="sec-7-6-logistic-4-2">We will now begin studying the earth’s population.  In <a href="sec-7-6-logistic.html#act-7-6-1" class="xref" data-knowl="./knowl/xref/act-7-6-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.6.2">Activity 7.6.2</a>, we consider some recent population data and explore an elementary model.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h2>
+<div class="para" id="sec-7-6-logistic-4-2">We will now begin studying the earth’s population.  In <a href="sec-7-6-logistic.html#act-7-6-1" class="xref" data-knowl="./knowl/xref/act-7-6-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.6.3">Activity 7.6.3</a>, we consider some recent population data and explore an elementary model.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <section class="worksheet" id="ws-act-7-6-1" data-margins="13mm 13mm 13mm 13mm">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type"> </span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"> </span><div class="print-links"><a href="?printpreview=ws-act-7-6-1" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<article class="activity project-like" id="act-7-6-1"><h4 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<article class="activity project-like" id="act-7-6-1"><h5 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
 <div class="introduction" id="act-7-6-1-1">
 <div class="para" id="act-7-6-1-1-1">Using some recent population data for planet Earth, we want to model the growth of the population over time.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="T-7-6-earth"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Some recent population data (in billions) for planet Earth.<div class="autopermalink" aria-hidden="true" data-description="Table 7.6.2: Some recent population data (in billions) for planet Earth."><a tabindex="-1" href="#T-7-6-earth" title="Copy heading and permalink for Table 7.6.2: Some recent population data (in billions) for planet Earth." aria-label="Copy heading and permalink for Table 7.6.2: Some recent population data (in billions) for planet Earth.">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="T-7-6-earth"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Some recent population data (in billions) for planet Earth.<div class="autopermalink" aria-hidden="true" data-description="Table 7.6.4: Some recent population data (in billions) for planet Earth."><a tabindex="-1" href="#T-7-6-earth" title="Copy heading and permalink for Table 7.6.4: Some recent population data (in billions) for planet Earth." aria-label="Copy heading and permalink for Table 7.6.4: Some recent population data (in billions) for planet Earth.">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="l m b1 r0 l0 t1 lines">Year</td>
 <td class="l m b1 r0 l0 t1 lines">1998</td>
@@ -1207,25 +1213,25 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="act-7-6-1-task-0"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<article class="task exercise-like" id="act-7-6-1-task-0"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="act-7-6-1-task-0-1-1">Use the data in the table to estimate the derivative <span class="process-math">\(P'(0)\)</span> using a central difference. Assume that <span class="process-math">\(t=0\)</span> corresponds to the year 2000.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-task-0-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="4cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.2.a"><a tabindex="-1" href="#act-7-6-1-task-0" title="Copy heading and permalink for Task 7.6.2.a" aria-label="Copy heading and permalink for Task 7.6.2.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.a"><a tabindex="-1" href="#act-7-6-1-task-0" title="Copy heading and permalink for Task 7.6.3.a" aria-label="Copy heading and permalink for Task 7.6.3.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-1-task-1"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<article class="task exercise-like" id="act-7-6-1-task-1"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="act-7-6-1-task-1-1-1">What is the population <span class="process-math">\(P(0)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-task-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="3cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.2.b"><a tabindex="-1" href="#act-7-6-1-task-1" title="Copy heading and permalink for Task 7.6.2.b" aria-label="Copy heading and permalink for Task 7.6.2.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.b"><a tabindex="-1" href="#act-7-6-1-task-1" title="Copy heading and permalink for Task 7.6.3.b" aria-label="Copy heading and permalink for Task 7.6.3.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-1-task-2"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<article class="task exercise-like" id="act-7-6-1-task-2"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="act-7-6-1-task-2-1-1">Use your results from (a) and (b) to estimate the constant of proportionality <span class="process-math">\(k\)</span> in the differential equation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-task-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="4cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.2.c"><a tabindex="-1" href="#act-7-6-1-task-2" title="Copy heading and permalink for Task 7.6.2.c" aria-label="Copy heading and permalink for Task 7.6.2.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.c"><a tabindex="-1" href="#act-7-6-1-task-2" title="Copy heading and permalink for Task 7.6.3.c" aria-label="Copy heading and permalink for Task 7.6.3.c">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-1-task-3"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<article class="task exercise-like" id="act-7-6-1-task-3"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para logical" id="act-7-6-1-task-3-1-1">
 <div class="para">Now that we know the value of <span class="process-math">\(k\text{,}\)</span> we have the initial value problem</div>
 <div class="displaymath process-math" id="act-7-6-1-task-3-1-1-2">
@@ -1237,29 +1243,29 @@ eBookConfig.enable_chatcodes =  false;
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-task-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="5cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.2.d"><a tabindex="-1" href="#act-7-6-1-task-3" title="Copy heading and permalink for Task 7.6.2.d" aria-label="Copy heading and permalink for Task 7.6.2.d">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.d"><a tabindex="-1" href="#act-7-6-1-task-3" title="Copy heading and permalink for Task 7.6.3.d" aria-label="Copy heading and permalink for Task 7.6.3.d">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-1-task-4"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<article class="task exercise-like" id="act-7-6-1-task-4"><h5 class="heading"><span class="codenumber">(e)</span></h5>
 <div class="para" id="act-7-6-1-task-4-1-1">What does your solution predict for the population in the year 2010? Is this close to the actual population given in the table?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-task-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="3cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.2.e"><a tabindex="-1" href="#act-7-6-1-task-4" title="Copy heading and permalink for Task 7.6.2.e" aria-label="Copy heading and permalink for Task 7.6.2.e">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.e"><a tabindex="-1" href="#act-7-6-1-task-4" title="Copy heading and permalink for Task 7.6.3.e" aria-label="Copy heading and permalink for Task 7.6.3.e">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-1-task-5"><h6 class="heading"><span class="codenumber">(f)</span></h6>
+<article class="task exercise-like" id="act-7-6-1-task-5"><h5 class="heading"><span class="codenumber">(f)</span></h5>
 <div class="para" id="act-7-6-1-task-5-1-1">When does your solution predict that the population will reach 12 billion?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-task-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="3cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.2.f"><a tabindex="-1" href="#act-7-6-1-task-5" title="Copy heading and permalink for Task 7.6.2.f" aria-label="Copy heading and permalink for Task 7.6.2.f">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.f"><a tabindex="-1" href="#act-7-6-1-task-5" title="Copy heading and permalink for Task 7.6.3.f" aria-label="Copy heading and permalink for Task 7.6.3.f">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-1-task-6"><h6 class="heading"><span class="codenumber">(g)</span></h6>
+<article class="task exercise-like" id="act-7-6-1-task-6"><h5 class="heading"><span class="codenumber">(g)</span></h5>
 <div class="para" id="act-7-6-1-task-6-1-1">What does your solution predict for the population in the year 2500?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-1-task-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="3cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.2.g"><a tabindex="-1" href="#act-7-6-1-task-6" title="Copy heading and permalink for Task 7.6.2.g" aria-label="Copy heading and permalink for Task 7.6.2.g">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Activity 7.6.2"><a tabindex="-1" href="#act-7-6-1" title="Copy heading and permalink for Activity 7.6.2" aria-label="Copy heading and permalink for Activity 7.6.2">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.g"><a tabindex="-1" href="#act-7-6-1-task-6" title="Copy heading and permalink for Task 7.6.3.g" aria-label="Copy heading and permalink for Task 7.6.3.g">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Activity 7.6.3"><a tabindex="-1" href="#act-7-6-1" title="Copy heading and permalink for Activity 7.6.3" aria-label="Copy heading and permalink for Activity 7.6.3">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="  7.6.2"><a tabindex="-1" href="#ws-act-7-6-1" title="Copy heading and permalink for   7.6.2" aria-label="Copy heading and permalink for   7.6.2">🔗</a></div>
 </section>
-<div class="para" id="sec-7-6-logistic-4-4">Our work in <a href="sec-7-6-logistic.html#act-7-6-1" class="xref" data-knowl="./knowl/xref/act-7-6-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.6.2">Activity 7.6.2</a> shows that that the exponential model is fairly accurate for years relatively close to 2000. However, if we go too far into the future, the model predicts increasingly large rates of change, which causes the population to grow arbitrarily large. This does not make much sense since it is unrealistic to expect that the earth would be able to support such a large population.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-7-6-logistic-4-4">Our work in <a href="sec-7-6-logistic.html#act-7-6-1" class="xref" data-knowl="./knowl/xref/act-7-6-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.6.3">Activity 7.6.3</a> shows that that the exponential model is fairly accurate for years relatively close to 2000. However, if we go too far into the future, the model predicts increasingly large rates of change, which causes the population to grow arbitrarily large. This does not make much sense since it is unrealistic to expect that the earth would be able to support such a large population.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="sec-7-6-logistic-4-5">
 <div class="para">The constant <span class="process-math">\(k\)</span> in the differential equation has an important interpretation. Let’s rewrite the differential equation <span class="process-math">\(\frac{dP}{dt} = kP\)</span> by solving for <span class="process-math">\(k\text{,}\)</span> so that we have</div>
@@ -1272,9 +1278,9 @@ k = \frac{dP/dt}{P}\text{.}
 </div>
 <div class="para" id="sec-7-6-logistic-4-6">We see that <span class="process-math">\(k\)</span> is the ratio of the rate of change to the population; in other words, it is the contribution to the rate of change from a single person. We call this the <em class="emphasis">per capita growth rate</em>. <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-7-6-logistic-4-7">In the exponential model we introduced in <a href="sec-7-6-logistic.html#act-7-6-1" class="xref" data-knowl="./knowl/xref/act-7-6-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.6.2">Activity 7.6.2</a>, the per capita growth rate is constant. This means that when the population is large, the per capita growth rate is the same as when the population is small. It is natural to think that the per capita growth rate should decrease when the population becomes large, since there will not be enough resources to support so many people. We expect it would be a more realistic model to assume that the per capita growth rate depends on the population <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-7-6-logistic-4-7">In the exponential model we introduced in <a href="sec-7-6-logistic.html#act-7-6-1" class="xref" data-knowl="./knowl/xref/act-7-6-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 7.6.3">Activity 7.6.3</a>, the per capita growth rate is constant. This means that when the population is large, the per capita growth rate is the same as when the population is small. It is natural to think that the per capita growth rate should decrease when the population becomes large, since there will not be enough resources to support so many people. We expect it would be a more realistic model to assume that the per capita growth rate depends on the population <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-7-6-logistic-4-8">In the previous activity, we computed the per capita growth rate in a single year by computing <span class="process-math">\(k\text{,}\)</span> the quotient of <span class="process-math">\(\frac{dP}{dt}\)</span> and <span class="process-math">\(P\)</span> (which we did for <span class="process-math">\(t = 0\)</span>). If we return to the data in <a href="sec-7-6-logistic.html#T-7-6-earth" class="xref" data-knowl="./knowl/xref/T-7-6-earth.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.6.2: Some recent population data (in billions) for planet Earth.">Table 7.6.2</a> and compute the per capita growth rate over a range of years, we generate the data shown in <a href="sec-7-6-logistic.html#F-7-6-census" class="xref" data-knowl="./knowl/xref/F-7-6-census.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.3">Figure 7.6.3</a>, which shows how the per capita growth rate is a function of the population, <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-7-6-logistic-4-8">In the previous activity, we computed the per capita growth rate in a single year by computing <span class="process-math">\(k\text{,}\)</span> the quotient of <span class="process-math">\(\frac{dP}{dt}\)</span> and <span class="process-math">\(P\)</span> (which we did for <span class="process-math">\(t = 0\)</span>). If we return to the data in <a href="sec-7-6-logistic.html#T-7-6-earth" class="xref" data-knowl="./knowl/xref/T-7-6-earth.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 7.6.4: Some recent population data (in billions) for planet Earth.">Table 7.6.4</a> and compute the per capita growth rate over a range of years, we generate the data shown in <a href="sec-7-6-logistic.html#F-7-6-census" class="xref" data-knowl="./knowl/xref/F-7-6-census.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.5">Figure 7.6.5</a>, which shows how the per capita growth rate is a function of the population, <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="F-7-6-census"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
 <img src="external/images/7_6_census.svg" role="img" class="contained" alt="described in detail following the image" aria-describedby="F-7-6-census-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="F-7-6-census-2-description">
@@ -1284,16 +1290,16 @@ k = \frac{dP/dt}{P}\text{.}
 </div>
 </div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A plot of per capita growth rate vs. population <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.6.3"><a tabindex="-1" href="#F-7-6-census" title="Copy heading and permalink for Figure 7.6.3" aria-label="Copy heading and permalink for Figure 7.6.3">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A plot of per capita growth rate vs. population <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.6.5"><a tabindex="-1" href="#F-7-6-census" title="Copy heading and permalink for Figure 7.6.5" aria-label="Copy heading and permalink for Figure 7.6.5">🔗</a></div></figcaption>
 </figure>
-<div class="para" id="sec-7-6-logistic-4-10">From the data, we see that the per capita growth rate appears to decrease as the population increases. In fact, the points seem to lie very close to a line, which is shown at two different scales in <a href="sec-7-6-logistic.html#F-7-6-census1" class="xref" data-knowl="./knowl/xref/F-7-6-census1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.4">Figure 7.6.4</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-7-6-logistic-4-10">From the data, we see that the per capita growth rate appears to decrease as the population increases. In fact, the points seem to lie very close to a line, which is shown at two different scales in <a href="sec-7-6-logistic.html#F-7-6-census1" class="xref" data-knowl="./knowl/xref/F-7-6-census1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.6">Figure 7.6.6</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="F-7-6-census1">
 <div class="sidebyside">
 <div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:47% 47%;column-gap:6%;">
 <div class="sbspanel sbspanel--top top" style=""><div class="image-box">
 <img src="external/images/7_6_census_1.svg" role="img" class="contained" alt="described in detail following the image" aria-describedby="F-7-6-census1-2-1-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="F-7-6-census1-2-1-description">
-<div class="para" id="F-7-6-census1-2-1-1-1">This plot shows the same data on the same scale as in <a href="sec-7-6-logistic.html#F-7-6-census" class="xref" data-knowl="./knowl/xref/F-7-6-census.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.3">Figure 7.6.3</a> and adds a line that the points all lie on or close to.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#F-7-6-census1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="F-7-6-census1-2-1-1-1">This plot shows the same data on the same scale as in <a href="sec-7-6-logistic.html#F-7-6-census" class="xref" data-knowl="./knowl/xref/F-7-6-census.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.5">Figure 7.6.5</a> and adds a line that the points all lie on or close to.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#F-7-6-census1-2-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="F-7-6-census1-2-1-1-2">The line of best fit to the data shows that the per capita growth rate is an approximately linear function of <span class="process-math">\(P\text{;}\)</span> <span class="process-math">\(7\)</span> of the <span class="process-math">\(8\)</span> points lie on or nearly on the line, with only one point deviating a small amount from the line.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#F-7-6-census1-2-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -1309,7 +1315,7 @@ k = \frac{dP/dt}{P}\text{.}
 </div></div>
 </div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The line that approximates per capita growth as a function of population, <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.6.4"><a tabindex="-1" href="#F-7-6-census1" title="Copy heading and permalink for Figure 7.6.4" aria-label="Copy heading and permalink for Figure 7.6.4">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The line that approximates per capita growth as a function of population, <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.6.6"><a tabindex="-1" href="#F-7-6-census1" title="Copy heading and permalink for Figure 7.6.6" aria-label="Copy heading and permalink for Figure 7.6.6">🔗</a></div></figcaption>
 </figure>
 <div class="para logical" id="sec-7-6-logistic-4-12">
 <div class="para">Looking at this line carefully, we can find its equation to be</div>
@@ -1329,7 +1335,7 @@ k = \frac{dP/dt}{P}\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-7-6-logistic-4-14">Graphing the dependence of <span class="process-math">\(dP/dt\)</span> on the population <span class="process-math">\(P\text{,}\)</span> we see that this differential equation demonstrates a quadratic relationship between <span class="process-math">\(\frac{dP}{dt}\)</span> and <span class="process-math">\(P\text{,}\)</span> as shown in <a href="sec-7-6-logistic.html#F-7-6logistic" class="xref" data-knowl="./knowl/xref/F-7-6logistic.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.5">Figure 7.6.5</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-7-6-logistic-4-14">Graphing the dependence of <span class="process-math">\(dP/dt\)</span> on the population <span class="process-math">\(P\text{,}\)</span> we see that this differential equation demonstrates a quadratic relationship between <span class="process-math">\(\frac{dP}{dt}\)</span> and <span class="process-math">\(P\text{,}\)</span> as shown in <a href="sec-7-6-logistic.html#F-7-6logistic" class="xref" data-knowl="./knowl/xref/F-7-6logistic.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.7">Figure 7.6.7</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="F-7-6logistic"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
 <img src="external/images/7_6_logistic_de.svg" role="img" class="contained" alt="described in detail following the image" aria-describedby="F-7-6logistic-2-description"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="F-7-6logistic-2-description">
@@ -1339,20 +1345,20 @@ k = \frac{dP/dt}{P}\text{.}
 </div>
 </div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A plot of <span class="process-math">\(\frac{dP}{dt}\)</span> vs. <span class="process-math">\(P\)</span> for the differential equation <span class="process-math">\(\frac{dP}{dt} = P(0.025 - 0.002P)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.6.5"><a tabindex="-1" href="#F-7-6logistic" title="Copy heading and permalink for Figure 7.6.5" aria-label="Copy heading and permalink for Figure 7.6.5">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A plot of <span class="process-math">\(\frac{dP}{dt}\)</span> vs. <span class="process-math">\(P\)</span> for the differential equation <span class="process-math">\(\frac{dP}{dt} = P(0.025 - 0.002P)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 7.6.7"><a tabindex="-1" href="#F-7-6logistic" title="Copy heading and permalink for Figure 7.6.7" aria-label="Copy heading and permalink for Figure 7.6.7">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="sec-7-6-logistic-4-16">The equation <span class="process-math">\(\frac{dP}{dt} = P(0.025 - 0.002P)\)</span> is an example of the <em class="emphasis">logistic equation</em>, and is the second model for population growth that we will consider. This model should be more realistic, because the per capita growth rate is a decreasing function of the population.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="sec-7-6-logistic-4-17">Indeed, the graph in <a href="sec-7-6-logistic.html#F-7-6logistic" class="xref" data-knowl="./knowl/xref/F-7-6logistic.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.5">Figure 7.6.5</a> shows that there are two equilibrium solutions, <span class="process-math">\(P=0\text{,}\)</span> which is unstable, and <span class="process-math">\(P=12.5\text{,}\)</span> which is a stable equilibrium. The graph shows that any solution with <span class="process-math">\(P(0) \gt 0\)</span> will eventually stabilize around 12.5. Thus, our model predicts the world’s population will eventually stabilize around 12.5 billion.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="sec-7-6-logistic-4-17">Indeed, the graph in <a href="sec-7-6-logistic.html#F-7-6logistic" class="xref" data-knowl="./knowl/xref/F-7-6logistic.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.7">Figure 7.6.7</a> shows that there are two equilibrium solutions, <span class="process-math">\(P=0\text{,}\)</span> which is unstable, and <span class="process-math">\(P=12.5\text{,}\)</span> which is a stable equilibrium. The graph shows that any solution with <span class="process-math">\(P(0) \gt 0\)</span> will eventually stabilize around 12.5. Thus, our model predicts the world’s population will eventually stabilize around 12.5 billion.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec-7-6-logistic-4-18">A prediction for the long-term behavior of the population is a valuable conclusion to draw from our differential equation. We would, however, also like to answer some quantitative questions. For instance, how long will it take to reach a population of 10 billion? To answer this question, we need to find an explicit solution of the equation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-4-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 7.6.2: The earth’s population"><a tabindex="-1" href="#sec-7-6-logistic-4" title="Copy heading and permalink for Subsection 7.6.2: The earth’s population" aria-label="Copy heading and permalink for Subsection 7.6.2: The earth’s population">🔗</a></div>
 </section>
 <section class="subsection" id="sec-7-6-logistic-5">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving the logistic differential equation</span>
-</h3>
+</h2>
 <div class="para logical" id="sec-7-6-logistic-5-3">
 <div class="para">Since we would like to apply the logistic model in more general situations, we state the logistic equation  in its more general form,</div>
 <div class="displaymath process-math" id="E-7-6-logistic">
@@ -1475,7 +1481,7 @@ P(t) = \frac{N}{\left(\frac{N-P_0}{P_0}\right) e^{-kNt} + 1}\text{.}
 </div>
 <div class="para" id="sec-7-6-logistic-5-17">While that was a lot of algebra, notice the result: we have found an explicit solution to the logistic equation.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-5-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="assemblage assemblage-like" id="sec-7-6-logistic-5-18"><h4 class="heading"><span class="title">Solution to the Logistic Equation.</span></h4>
+<article class="assemblage assemblage-like" id="sec-7-6-logistic-5-18"><h3 class="heading"><span class="title">Solution to the Logistic Equation.</span></h3>
 <div class="para logical" id="sec-7-6-logistic-5-18-2">
 <div class="para">The solution to the initial value problem</div>
 <div class="displaymath process-math" id="sec-7-6-logistic-5-18-2-1">
@@ -1509,7 +1515,7 @@ k=0.002,  N= 12.5, \ \text{and} \  P_0 = 6.084\text{.}
 P(t) = \frac{12.5}{1.0546e^{-0.025t} + 1}\text{,}
 \end{equation*}
 </div>
-<div class="para">whose graph is shown in <a href="sec-7-6-logistic.html#F-7-6-logistic-sol" class="xref" data-knowl="./knowl/xref/F-7-6-logistic-sol.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.6">Figure 7.6.6</a>.</div>
+<div class="para">whose graph is shown in <a href="sec-7-6-logistic.html#F-7-6-logistic-sol" class="xref" data-knowl="./knowl/xref/F-7-6-logistic-sol.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 7.6.8">Figure 7.6.8</a>.</div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-5-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="figure figure-like" id="F-7-6-logistic-sol"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;">
@@ -1520,19 +1526,19 @@ P(t) = \frac{12.5}{1.0546e^{-0.025t} + 1}\text{,}
 </div>
 </div></details>
 </div>
-<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solution to the logistic equation modeling the earth’s population.<div class="autopermalink" aria-hidden="true" data-description="Figure 7.6.6"><a tabindex="-1" href="#F-7-6-logistic-sol" title="Copy heading and permalink for Figure 7.6.6" aria-label="Copy heading and permalink for Figure 7.6.6">🔗</a></div></figcaption>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The solution to the logistic equation modeling the earth’s population.<div class="autopermalink" aria-hidden="true" data-description="Figure 7.6.8"><a tabindex="-1" href="#F-7-6-logistic-sol" title="Copy heading and permalink for Figure 7.6.8" aria-label="Copy heading and permalink for Figure 7.6.8">🔗</a></div></figcaption>
 </figure>
 <div class="para" id="sec-7-6-logistic-5-22">The graph shows the population leveling off at 12.5 billion, as we expected, and that the population will be around 10 billion in the year 2050. These results, which we have found using a relatively simple mathematical model, agree fairly well with predictions made using a much more sophisticated model developed by the United Nations.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-5-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec-7-6-logistic-5-23">The logistic equation is good for modeling any situation in which limited growth is possible. For instance, it could model the spread of a flu virus through a population contained on a cruise ship, the rate at which a rumor spreads within a small town, or the behavior of an animal population on an island. Through our work in this section, we have completely solved the logistic equation, regardless of the values of the constants <span class="process-math">\(N\text{,}\)</span> <span class="process-math">\(k\text{,}\)</span> and <span class="process-math">\(P_0\text{.}\)</span> Anytime we encounter a logistic equation, we can apply the formula we found in Equation <a href="sec-7-6-logistic.html#E-7-6-logistic-solution" class="xref" data-knowl="./knowl/xref/E-7-6-logistic-solution.html" data-reveal-label="Reveal" data-close-label="Close" title="Equation 7.6.2">(7.6.2)</a>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#sec-7-6-logistic-5-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <section class="worksheet" id="ws-act-7-6-2" data-margins="13mm 13mm 13mm 13mm">
-<h4 class="heading hide-type">
+<h3 class="heading hide-type">
 <span class="type"> </span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"> </span><div class="print-links"><a href="?printpreview=ws-act-7-6-2" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h3>
+<article class="activity project-like" id="act-7-6-2"><h4 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
-<article class="activity project-like" id="act-7-6-2"><h5 class="heading">
-<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h5>
 <div class="introduction" id="act-7-6-2-1">
 <div class="para logical" id="act-7-6-2-1-1">
 <div class="para">Consider the logistic equation</div>
@@ -1553,31 +1559,31 @@ P(t) = \frac{12.5}{1.0546e^{-0.025t} + 1}\text{,}
 </div></details>
 </div>
 </div>
-<article class="task exercise-like" id="act-7-6-2-task-0"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<article class="task exercise-like" id="act-7-6-2-task-0"><h5 class="heading"><span class="codenumber">(a)</span></h5>
 <div class="para" id="act-7-6-2-task-0-1-1">At what value of <span class="process-math">\(P\)</span> is the rate of change greatest?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-2-task-0-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="3cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.a"><a tabindex="-1" href="#act-7-6-2-task-0" title="Copy heading and permalink for Task 7.6.3.a" aria-label="Copy heading and permalink for Task 7.6.3.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.9.a"><a tabindex="-1" href="#act-7-6-2-task-0" title="Copy heading and permalink for Task 7.6.9.a" aria-label="Copy heading and permalink for Task 7.6.9.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-2-task-1"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<article class="task exercise-like" id="act-7-6-2-task-1"><h5 class="heading"><span class="codenumber">(b)</span></h5>
 <div class="para" id="act-7-6-2-task-1-1-1">Consider the model for the earth’s population that we recently created: <span class="process-math">\(\frac{dP}{dt} = P(0.025-0.002P)\text{.}\)</span> At what value of <span class="process-math">\(P\)</span> is the rate of change greatest? How does that compare to the population in recent years?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-2-task-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="4cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.b"><a tabindex="-1" href="#act-7-6-2-task-1" title="Copy heading and permalink for Task 7.6.3.b" aria-label="Copy heading and permalink for Task 7.6.3.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.9.b"><a tabindex="-1" href="#act-7-6-2-task-1" title="Copy heading and permalink for Task 7.6.9.b" aria-label="Copy heading and permalink for Task 7.6.9.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-2-task-2"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<article class="task exercise-like" id="act-7-6-2-task-2"><h5 class="heading"><span class="codenumber">(c)</span></h5>
 <div class="para" id="act-7-6-2-task-2-1-1">According to the model we developed (recall we found that <span class="process-math">\(P = \frac{12.5}{1.0546e^{-0.025t} + 1}\)</span>), what will the population be in the year 2100?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-2-task-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="3cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.c"><a tabindex="-1" href="#act-7-6-2-task-2" title="Copy heading and permalink for Task 7.6.3.c" aria-label="Copy heading and permalink for Task 7.6.3.c">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.9.c"><a tabindex="-1" href="#act-7-6-2-task-2" title="Copy heading and permalink for Task 7.6.9.c" aria-label="Copy heading and permalink for Task 7.6.9.c">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-2-task-3"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<article class="task exercise-like" id="act-7-6-2-task-3"><h5 class="heading"><span class="codenumber">(d)</span></h5>
 <div class="para" id="act-7-6-2-task-3-1-1">According to the model we developed, when will the population reach 9 billion?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-2-task-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="6cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.d"><a tabindex="-1" href="#act-7-6-2-task-3" title="Copy heading and permalink for Task 7.6.3.d" aria-label="Copy heading and permalink for Task 7.6.3.d">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.9.d"><a tabindex="-1" href="#act-7-6-2-task-3" title="Copy heading and permalink for Task 7.6.9.d" aria-label="Copy heading and permalink for Task 7.6.9.d">🔗</a></div>
 </article>
-<article class="task exercise-like" id="act-7-6-2-task-4"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<article class="task exercise-like" id="act-7-6-2-task-4"><h5 class="heading"><span class="codenumber">(e)</span></h5>
 <div class="para logical" id="act-7-6-2-task-4-1-1">
 <div class="para">Now consider the general solution to the general logistic initial value problem that we found, given by</div>
 <div class="displaymath process-math" id="act-7-6-2-task-4-1-1-1">
@@ -1590,15 +1596,15 @@ P(t) = \frac{N}{\left(\frac{N-P_0}{P_0}\right)e^{-kNt} + 1}\text{.}
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#act-7-6-2-task-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="6cm"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.3.e"><a tabindex="-1" href="#act-7-6-2-task-4" title="Copy heading and permalink for Task 7.6.3.e" aria-label="Copy heading and permalink for Task 7.6.3.e">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Activity 7.6.3"><a tabindex="-1" href="#act-7-6-2" title="Copy heading and permalink for Activity 7.6.3" aria-label="Copy heading and permalink for Activity 7.6.3">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 7.6.9.e"><a tabindex="-1" href="#act-7-6-2-task-4" title="Copy heading and permalink for Task 7.6.9.e" aria-label="Copy heading and permalink for Task 7.6.9.e">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Activity 7.6.9"><a tabindex="-1" href="#act-7-6-2" title="Copy heading and permalink for Activity 7.6.9" aria-label="Copy heading and permalink for Activity 7.6.9">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="  7.6.3"><a tabindex="-1" href="#ws-act-7-6-2" title="Copy heading and permalink for   7.6.3" aria-label="Copy heading and permalink for   7.6.3">🔗</a></div>
 </section><div class="autopermalink" aria-hidden="true" data-description="Subsection 7.6.3: Solving the logistic differential equation"><a tabindex="-1" href="#sec-7-6-logistic-5" title="Copy heading and permalink for Subsection 7.6.3: Solving the logistic differential equation" aria-label="Copy heading and permalink for Subsection 7.6.3: Solving the logistic differential equation">🔗</a></div>
 </section>
 <section class="subsection" id="sec-7-6-logistic-6">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Summary</span>
-</h3>
+</h2>
 <div class="para logical" id="sec-7-6-logistic-6-2">
 <ul class="disc" id="sec-7-6-logistic-6-2-1">
 <li id="sec-7-6-logistic-6-2-1-1">
@@ -1617,55 +1623,40 @@ P(t) = \frac{N}{\left(\frac{N-P_0}{P_0}\right)e^{-kNt} + 1}\text{.}
 <div class="autopermalink" aria-hidden="true" data-description="Subsection 7.6.4: Summary"><a tabindex="-1" href="#sec-7-6-logistic-6" title="Copy heading and permalink for Subsection 7.6.4: Summary" aria-label="Copy heading and permalink for Subsection 7.6.4: Summary">🔗</a></div>
 </section>
 <section class="exercises" id="ez-7-6">
-<h3 class="heading hide-type">
+<h2 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.6.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
-</h3>
-<article class="exercise exercise-like" id="ez-7-6-doenet-1"><h4 class="heading">
+</h2>
+<article class="exercise exercise-like" id="ez-7-6-doenet-1"><h3 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Solving a logistic equation.</span>
-</h4>
-<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="rs-ez-7-6-doenet-1">
-<div class="interactive-iframe-container"><iframe id="doe-int-ex-7-6-1" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-1-if.html"></iframe></div>
-<div class="interactive-iframe-container__opener"><a href="doe-int-ex-7-6-1.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
-</div></div></div>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="ac-single-d_2_ez-7-6-doenet-1"><div class="ptx-runestone-container"><div data-component="doenet" id="ac-single-d_2_doe-int-ex-7-6-1"><iframe id="doe-int-ex-7-6-1" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-1-if.html"></iframe></div></div></div></div></div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 7.6.5.1: Solving a logistic equation"><a tabindex="-1" href="#ez-7-6-doenet-1" title="Copy heading and permalink for Exercise 7.6.5.1: Solving a logistic equation" aria-label="Copy heading and permalink for Exercise 7.6.5.1: Solving a logistic equation">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="ez-7-6-doenet-2"><h4 class="heading">
+<article class="exercise exercise-like" id="ez-7-6-doenet-2"><h3 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analyzing a logistic differential equation given by a graph.</span>
-</h4>
-<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="rs-ez-7-6-doenet-2">
-<div class="interactive-iframe-container"><iframe id="doe-int-ex-7-6-2" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-2-if.html"></iframe></div>
-<div class="interactive-iframe-container__opener"><a href="doe-int-ex-7-6-2.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
-</div></div></div>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="ac-single-d_2_ez-7-6-doenet-2"><div class="ptx-runestone-container"><div data-component="doenet" id="ac-single-d_2_doe-int-ex-7-6-2"><iframe id="doe-int-ex-7-6-2" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-2-if.html"></iframe></div></div></div></div></div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 7.6.5.2: Analyzing a logistic differential equation given by a graph"><a tabindex="-1" href="#ez-7-6-doenet-2" title="Copy heading and permalink for Exercise 7.6.5.2: Analyzing a logistic differential equation given by a graph" aria-label="Copy heading and permalink for Exercise 7.6.5.2: Analyzing a logistic differential equation given by a graph">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="ez-7-6-doenet-3"><h4 class="heading">
+<article class="exercise exercise-like" id="ez-7-6-doenet-3"><h3 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Analyzing illness on a cruise ship.</span>
-</h4>
-<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="rs-ez-7-6-doenet-3">
-<div class="interactive-iframe-container"><iframe id="doe-int-ex-7-6-3" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-3-if.html"></iframe></div>
-<div class="interactive-iframe-container__opener"><a href="doe-int-ex-7-6-3.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
-</div></div></div>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="ac-single-d_2_ez-7-6-doenet-3"><div class="ptx-runestone-container"><div data-component="doenet" id="ac-single-d_2_doe-int-ex-7-6-3"><iframe id="doe-int-ex-7-6-3" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-3-if.html"></iframe></div></div></div></div></div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 7.6.5.3: Analyzing illness on a cruise ship"><a tabindex="-1" href="#ez-7-6-doenet-3" title="Copy heading and permalink for Exercise 7.6.5.3: Analyzing illness on a cruise ship" aria-label="Copy heading and permalink for Exercise 7.6.5.3: Analyzing illness on a cruise ship">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="ez-7-6-doenet-4"><h4 class="heading">
+<article class="exercise exercise-like" id="ez-7-6-doenet-4"><h3 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Investigating the effects of harvesting in a fish population.</span>
-</h4>
-<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="rs-ez-7-6-doenet-4">
-<div class="interactive-iframe-container"><iframe id="doe-int-ex-7-6-4" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-4-if.html"></iframe></div>
-<div class="interactive-iframe-container__opener"><a href="doe-int-ex-7-6-4.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
-</div></div></div>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="ac-single-d_2_ez-7-6-doenet-4"><div class="ptx-runestone-container"><div data-component="doenet" id="ac-single-d_2_doe-int-ex-7-6-4"><iframe id="doe-int-ex-7-6-4" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-4-if.html"></iframe></div></div></div></div></div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 7.6.5.4: Investigating the effects of harvesting in a fish population"><a tabindex="-1" href="#ez-7-6-doenet-4" title="Copy heading and permalink for Exercise 7.6.5.4: Investigating the effects of harvesting in a fish population" aria-label="Copy heading and permalink for Exercise 7.6.5.4: Investigating the effects of harvesting in a fish population">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="ez-7-6-doenet-5"><h4 class="heading">
+<article class="exercise exercise-like" id="ez-7-6-doenet-5"><h3 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Modeling the ownership of mobile phones in America.</span>
-</h4>
-<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="rs-ez-7-6-doenet-5">
-<div class="interactive-iframe-container"><iframe id="doe-int-ex-7-6-5" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-5-if.html"></iframe></div>
-<div class="interactive-iframe-container__opener"><a href="doe-int-ex-7-6-5.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
-</div></div></div>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone dualquestion_section"><div data-component="dual" id="ac-single-d_2_ez-7-6-doenet-5"><div class="ptx-runestone-container"><div data-component="doenet" id="ac-single-d_2_doe-int-ex-7-6-5"><iframe id="doe-int-ex-7-6-5" style="width:600px; height:600px; display: block; " src="doe-int-ex-7-6-5-if.html"></iframe></div></div></div></div></div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 7.6.5.5: Modeling the ownership of mobile phones in America"><a tabindex="-1" href="#ez-7-6-doenet-5" title="Copy heading and permalink for Exercise 7.6.5.5: Modeling the ownership of mobile phones in America" aria-label="Copy heading and permalink for Exercise 7.6.5.5: Modeling the ownership of mobile phones in America">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="ez-7-6-6"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<article class="exercise exercise-like" id="ez-7-6-6"><h3 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ez-7-6-6-1-1">
 <div class="para">The logistic equation may be used to model how a rumor spreads through a group of people. Suppose that <span class="process-math">\(p(t)\)</span> is the fraction of people that have heard the rumor on day <span class="process-math">\(t\text{.}\)</span> The equation</div>
 <div class="displaymath process-math" id="ez-7-6-6-1-1-3">
@@ -1701,7 +1692,7 @@ P(t) = \frac{N}{\left(\frac{N-P_0}{P_0}\right)e^{-kNt} + 1}\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 7.6.5.6"><a tabindex="-1" href="#ez-7-6-6" title="Copy heading and permalink for Exercise 7.6.5.6" aria-label="Copy heading and permalink for Exercise 7.6.5.6">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="ez-7-6-7"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<article class="exercise exercise-like" id="ez-7-6-7"><h3 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ez-7-6-7-1-1">
 <div class="para">Suppose that <span class="process-math">\(b(t)\)</span> measures the number of bacteria living in a colony in a Petri dish, where <span class="process-math">\(b\)</span> is measured in thousands and <span class="process-math">\(t\)</span> is measured in days. One day, you measure that there are 6,000 bacteria and the per capita growth rate is 3. A few days later, you measure that there are 9,000 bacteria and the per capita growth rate is 2.</div>
 <ol class="lower-alpha ol-marker-1" id="ez-7-6-7-1-1-4">
@@ -1730,7 +1721,7 @@ P(t) = \frac{N}{\left(\frac{N-P_0}{P_0}\right)e^{-kNt} + 1}\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 7.6.5.7"><a tabindex="-1" href="#ez-7-6-7" title="Copy heading and permalink for Exercise 7.6.5.7" aria-label="Copy heading and permalink for Exercise 7.6.5.7">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="ez-7-6-8"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
+<article class="exercise exercise-like" id="ez-7-6-8"><h3 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3>
 <div class="para logical" id="ez-7-6-8-1-1">
 <div class="para">Suppose that the population of a species of fish is controlled by the logistic equation</div>
 <div class="displaymath process-math" id="ez-7-6-8-1-1-1">
@@ -1770,7 +1761,9 @@ P(t) = \frac{N}{\left(\frac{N-P_0}{P_0}\right)e^{-kNt} + 1}\text{.}
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Exercise 7.6.5.8"><a tabindex="-1" href="#ez-7-6-8" title="Copy heading and permalink for Exercise 7.6.5.8" aria-label="Copy heading and permalink for Exercise 7.6.5.8">🔗</a></div>
 </article><div class="autopermalink" aria-hidden="true" data-description="Exercises 7.6.5"><a tabindex="-1" href="#ez-7-6" title="Copy heading and permalink for Exercises 7.6.5" aria-label="Copy heading and permalink for Exercises 7.6.5">🔗</a></div>
-</section><div class="autopermalink" aria-hidden="true" data-description="Section 7.6: Population growth and the logistic equation"><a tabindex="-1" href="#sec-7-6-logistic" title="Copy heading and permalink for Section 7.6: Population growth and the logistic equation" aria-label="Copy heading and permalink for Section 7.6: Population growth and the logistic equation">🔗</a></div>
+</section><div id="scprogresscontainer">You have attempted <span id="scprogresstotal"></span> of <span id="scprogressposs"></span> activities on this page.<div id="subchapterprogress" aria-label="Page progress"></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Section 7.6: Population growth and the logistic equation"><a tabindex="-1" href="#sec-7-6-logistic" title="Copy heading and permalink for Section 7.6: Population growth and the logistic equation" aria-label="Copy heading and permalink for Section 7.6: Population growth and the logistic equation">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
@@ -1779,6 +1772,5 @@ P(t) = \frac{N}{\left(\frac{N-P_0}{P_0}\right)e^{-kNt} + 1}\text{.}
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
 <a class="feedback-link" href="http://gvsu.edu/s/0vK" target="_blank">Feedback</a><a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
-</div>
-</body>
+</div>{% if show_ethical_ad %}<div style="width: 100%"><div data-ea-publisher="runestoneacademy" data-ea-type="image" style="display: flex; justify-content: center"></div></div>{% endif %}</body>
 </html>

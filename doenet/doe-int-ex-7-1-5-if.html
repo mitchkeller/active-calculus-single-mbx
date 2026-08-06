@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -75,7 +76,8 @@ htmlPresentation: false,
       <p>
         For each of the following functions, use substitution into the differential equation to determine whether the function is or is not a solution to <m>\frac{dF}{dt} = -$k (F - $eq)</m>.  Then, check all of the boxes that correspond to solutions.
       </p>
-      <answer selectMultiple><choiceInput>
+      <answer selectMultiple matchPartial><choiceInput>
+        <shortDescription>several possible solution formulas</shortDescription>
         <choice><m>F(t) = $k t^2 - <math simplify>$k * $eq</math>t</m></choice>
         <choice credit="1"><m>F(t) = $eq</m></choice>
         <choice><m>F(t) = -$C e^{-$k t} + $d</m></choice>
@@ -88,21 +90,24 @@ htmlPresentation: false,
     </li>
     <li>
       <p>
-        Look at each of the (three) correct answers to part (a) and think about what they have in common.  Complete the following sentence to explain why one common feature of the solutions to the differential equation makes sense.
+        Look at each of the correct answers to part (a) and think about what they have in common.  Complete the following sentence to explain why one common feature of the solutions to the differential equation makes sense.
       </p>
       <p>
         Since <m>e^{-$k t}</m> approaches <choiceInput name="b1" inline>
+          <shortDescription>0, 1, or inf</shortDescription>
           <choice>?</choice>
           <choice>0</choice>
           <choice>1</choice>
           <choice>infinity</choice>
         </choiceInput>
         as <m>t</m> increases without bound, it follows that each of the three correct solutions from (a) approaches <choiceInput name="b2" inline>
+          <shortDescription>0, room temp, or inf</shortDescription>
           <choice>?</choice>
           <choice>0</choice>
           <choice>$eq</choice>
           <choice>infinity</choice>
         </choiceInput> as time goes on, and this makes sense because the room temperature being modeled is <choiceInput name="b3" inline>
+          <shortDescription>0, room temp, or a value less than room temp</shortDescription>
           <choice>?</choice>
           <choice>$eq</choice>
           <choice>0</choice>
@@ -110,7 +115,7 @@ htmlPresentation: false,
         </choiceInput> degrees Fahrenheit.
       </p>
       <p>
-        <answer><award><when>$b1.selectedIndices=2 and $b2.selectedIndices=3 and $b3.selectedIndices=2</when></award></answer>
+        <answer matchPartial><award><when>$b1.selectedIndices=2 and $b2.selectedIndices=3 and $b3.selectedIndices=2</when></award></answer>
       </p>
     </li>
     <li>
@@ -124,7 +129,11 @@ htmlPresentation: false,
         If there is more than one such value of <m>C</m>, separate your answers with commas; if there are no values of <m>C</m>, enter <q>none</q>.
       </p>
       <p>
-        <m>C = </m> <mathInput name="IVPsolnConst" /><answer><award><when>$IVPsolnConst=-$d</when></award></answer>
+        <m>C = </m> <mathInput name="IVPsolnConst" >
+          <shortDescription>
+            value of C
+          </shortDescription>
+        </mathInput><answer forceSmallCheckWorkButton><award><when>$IVPsolnConst=-$d</when></award></answer>
       </p>
     </li>
   </ol>

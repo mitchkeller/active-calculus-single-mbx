@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -79,7 +80,7 @@ htmlPresentation: false,
   <math name="a">0</math>
 
   <function name="genTermf" variables="x n">(-1)^n/((2*n)!)*($c*x)^(2*n)</function>
-  <function name="genTermg" variables="x n">(-1)^n/((2*n+1)!)*($c*x)^(2*n+1)</function>
+  <function name="genTermg1" variables="x n">(-1)^n/((2*n)!)*(2*n)*($c*x)^(2*n-1)*$c</function>
 
 </setup>
 
@@ -100,14 +101,20 @@ htmlPresentation: false,
       <p>
         State the first 4 nonzero terms of the Taylor series of <m>f</m> centered at <m>a = $a</m> by completing the blanks below; note that there is one blank per term and that several of the terms involve the variable <m>x</m>.
       </p>
-      <p sectionWideCheckWork forceIndividualAnswerColoring>
-        <m>f(x) = </m><answer>$$f($a)</answer><m>+</m><answer>$$fPP($a)/2! * (x-$a)^2</answer><m>+</m><answer>$$fP4($a)/4! * (x-$a)^4</answer><m>+</m><answer>$$fP6($a)/6! * (x-$a)^6</answer><m>+ \cdots</m>
+      <p sectionWideCheckWork colorAnswersSeparately>
+        <m>f(x) = </m><answer><shortDescription>first term</shortDescription>$$f($a)</answer>
+        <m>+</m>
+        <answer><shortDescription>second term</shortDescription>$$fPP($a)/2! * (x-$a)^2</answer>
+        <m>+</m>
+        <answer><shortDescription>third term</shortDescription>$$fP4($a)/4! * (x-$a)^4</answer>
+        <m>+</m>
+        <answer><shortDescription>fourth term</shortDescription>$$fP6($a)/6! * (x-$a)^6</answer><m>+ \cdots</m>
       </p>
       <p>
         State the Taylor series of <m>f</m> centered at <m>a = $a</m> in sigma notation.  You may find it helpful to note that a general term in the sequence of even numbers <m>2, 4, 6, \ldots</m> can be represented by <m>2n</m> and that a general term in the sequence of odd numbers can be represented by <m>2n+1</m> or <m>2n-1</m>.
       </p>
       <p>
-        <m>\displaystyle f(x) = \sum_{n=0}^{\infty} </m><answer>$genTermf</answer>
+        <answer><label><m>\displaystyle f(x) = \sum_{n=0}^{\infty} </m></label>$genTermf</answer>
       </p>
     </li>
     <li>
@@ -115,7 +122,7 @@ htmlPresentation: false,
         Based on the fact that the Taylor series for <m>\cos(x)</m> converges for all real numbers, determine the open interval of convergence for the Taylor series of <m>f(x) = \cos($c x)</m>.  If the series converges for all real numbers, enter <m>(-\text{infinity},\text{infinity})</m>.
       </p>
       <p>
-        The Taylor series of <m>f(x)</m> converges on <answer><interval>(-infinity,infinity)</interval></answer>.
+        The Taylor series of <m>f(x)</m>  <answer><label>converges on</label><interval>(-infinity,infinity)</interval></answer>.
       </p>
     </li>
     <li>
@@ -127,22 +134,28 @@ htmlPresentation: false,
         which we expect to be closely related to the function <m>f(x) = \cos($c x)</m>.  First, determine <m>f'(x)</m>.
       </p>
       <p>
-        <m>f'(x) = </m><answer>$fP</answer>
+        <answer><label><m>f'(x) = </m></label>$fP</answer>
       </p>
       <p>
-        By observing the relationship between <m>f'(x)</m> and <m>g(x)</m> and using the Taylor series you found in part (a), find the Taylor series for <m>g(x)</m> and  write the series in expanded and in sigma notation.
+        Notice that <m>g(x)</m> is a constant multiple of <m>f'(x)</m>.  In particular, 
       </p>
       <p>
-        State the first 4 nonzero terms of the Taylor series of <m>f</m> centered at <m>a = $a</m> by completing the blanks below; note that there is one blank per term and that several of the terms involve the variable <m>x</m>.
-      </p>
-      <p sectionWideCheckWork forceIndividualAnswerColoring>
-        <m>g(x) = </m><answer>$$gP($a) * (x-$a)</answer><m>+</m><answer>$$gPPP($a)/3! * (x-$a)^3</answer><m>+</m><answer>$$gP5($a)/5! * (x-$a)^5</answer><m>+</m><answer>$$gP7($a)/7! * (x-$a)^7</answer><m>+ \cdots</m>
+       <m>g(x) =</m> <mathInput name="theConstant" minWidth="35"><shortDescription>the needed constant</shortDescription></mathInput><m>f'(x)</m><answer forceSmallCheckWorkButton><award><when>$theConstant=-1/$c</when></award></answer>
       </p>
       <p>
-        State the Taylor series of <m>g</m> centered at <m>a = $a</m> in sigma notation.
+        By using the relationship between <m>f'(x)</m> and <m>g(x)</m> along with the Taylor series you found in part (a), find the Taylor series for <m>g(x)</m> and  write the series in expanded and in sigma notation.
       </p>
       <p>
-        <m>\displaystyle g(x) = \sum_{n=0}^{\infty} </m><answer>$genTermg</answer>
+        State the first 4 nonzero terms of the Taylor series of <m>g</m> centered at <m>a = $a</m> by completing the blanks below; note that there is one blank per term and that several of the terms involve the variable <m>x</m>.
+      </p>
+      <p sectionWideCheckWork colorAnswersSeparately>
+        <m>g(x) = </m><answer><shortDescription>first term</shortDescription>$$gP($a) * (x-$a)</answer><m>+</m><answer><shortDescription>second term</shortDescription>$$gPPP($a)/3! * (x-$a)^3</answer><m>+</m><answer><shortDescription>third term</shortDescription>$$gP5($a)/5! * (x-$a)^5</answer><m>+</m><answer><shortDescription>fourth term</shortDescription>$$gP7($a)/7! * (x-$a)^7</answer><m>+ \cdots</m>
+      </p>
+      <p>
+        State the Taylor series of <m>g</m> centered at <m>a = $a</m> in sigma notation.  Note that the index begins at <m>n=1</m>.
+      </p>
+      <p>
+        <answer><label><m>\displaystyle g(x) = \sum_{n=1}^{\infty} </m></label>$genTermg1</answer>
       </p>
     </li>
     <li>
@@ -150,7 +163,7 @@ htmlPresentation: false,
         Apply the Power Series Differentiation and Integration Theorem to determine the open interval of convergence for the Taylor series of <m>g(x) = \sin($c x)</m>.  If the series converges for all real numbers, enter <m>(-\text{infinity},\text{infinity})</m>.
       </p>
       <p>
-        The Taylor series of <m>g(x)</m> converges on <answer><interval>(-infinity,infinity)</interval></answer>.
+        The Taylor series of <m>g(x)</m>  <answer><label>converges on</label><interval>(-infinity,infinity)</interval></answer>.
       </p>
     </li>
   </ol>

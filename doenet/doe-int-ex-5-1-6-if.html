@@ -19,11 +19,12 @@ hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
 </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/style.css">
 <script onload="onLoad()" type="module" src="https://cdn.jsdelivr.net/npm/@doenet/standalone@dev/doenet-standalone.js"></script><script>function onLoad() {window.renderDoenetViewerToContainer(document.querySelector(".doenetml-applet"))}</script>
 </head>
-<body class="ptx-content ignore-math" id="ac-single">
+<body class="ptx-content ignore-math" id="ac-single-d">
 <div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\dollar}{\$}
 \DeclareMathOperator{\erf}{erf}
 \DeclareMathOperator{\arctanh}{arctanh}
@@ -34,7 +35,7 @@ htmlPresentation: false,
 \definecolor{fillinmathshade}{gray}{0.9}
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
-<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true">
+<div style="aspect-ratio: ;"><div class="doenetml-applet" data-doenet-add-virtual-keyboard="false" data-doenet-send-resize-events="true" data-doenet-message-parent="true">
 <div class="doenetml-loading" style="text-align:center">
 <p><img src="https://www.doenet.org/Doenet_Logo_Frontpage.png"></p>
 <p>Waiting on the page to load...</p>
@@ -81,22 +82,43 @@ htmlPresentation: false,
   <ol marker="a.">
     <li> 
       <p>
-        <m>G(x) = \int_{\frac{$r \pi}{4}}^x $$g(t) \, dt = (</m> <answer simplifyOnCompare> $$G(t) </answer> <m>) \bigg|_{\frac{$r \pi}{4}}^{x} </m> 
+        <m>G(x) = \int_{\frac{$r \pi}{4}}^x $$g(t) \, dt = </m> 
+        <mathInput name="antiD1"/> <m> \bigg|_{\frac{$r \pi}{4}}^{x} </m>
+        <answer simplifyOnCompare symbolicEquality forceSmallCheckWorkButton> 
+          <award>
+            <when>
+              $antiD1 = $$G(t)
+            </when>  
+          </award>
+        </answer>  
       </p> 
-      <p> 
-        <m> = (</m> <answer>$$G(x)</answer> <m>) - (</m><answer>$$G($r*pi/4)</answer> <m>) = </m> <answer allowedErrorInNumbers="0.01" allowedErrorIsAbsolute>$$G(x)-$$G($r*pi/4)</answer>
-      </p>  
+      <p>
+        <m>   = </m> <mathInput name="antiD1x"/> <m>-</m> <mathInput name="antiD1a"/>  <m> = </m> <mathInput disabled><math simplify>$antiD1x - $antiD1a</math></mathInput> <answer allowedErrorInNumbers="0.01" allowedErrorIsAbsolute forceSmallCheckWorkButton>
+          <award><when>$antiD1x = $$G(x) and $antiD1a = $$G($r*pi/4)</when></award>
+        </answer>
+      </p>
     </li>
     <li>
       <p>
-        <m>H(x) = \int_{-\frac{$p \pi}{3}}^{x} $$f(t) \, dt = (</m> <answer simplifyOnCompare> $$F(t) </answer> <m>) \bigg|_{-\frac{$p \pi}{3}}^{x} </m> 
+        <m>H(x) = \int_{-\frac{$p \pi}{3}}^{x} $$f(t) \, dt = </m> 
+        <mathInput name="antiD2"/> <m> \bigg|_{-\frac{$p \pi}{3}}^{x} </m>
+        <answer simplifyOnCompare symbolicEquality forceSmallCheckWorkButton> 
+          <award>
+            <when>
+              $antiD2 = $$F(t)
+            </when>  
+          </award>
+        </answer>  
       </p> 
-      <p> 
-        <m>  = (</m> <answer>$$F(x)</answer> <m>) - (</m><answer>$$F(-$p*pi/3)</answer> <m>) = </m> <answer allowedErrorInNumbers="0.01" allowedErrorIsAbsolute>$$F(x)-$$F(-$p*pi/3)</answer>
-      </p>  
+      <p>
+        <m>   = </m> <mathInput name="antiD2x"/> <m>-</m> <mathInput name="antiD2a"/>  <m> = </m> <mathInput disabled><math simplify>$antiD2x - $antiD2a</math></mathInput> <answer allowedErrorInNumbers="0.01" allowedErrorIsAbsolute forceSmallCheckWorkButton>
+          <award><when>$antiD2x = $$F(x) and $antiD2a = $$F(-$p*pi/3)</when></award>
+        </answer>
+      </p>
     </li>     
   </ol>   
 </p>  
+
         </script>
 </div></div>
 </body>
